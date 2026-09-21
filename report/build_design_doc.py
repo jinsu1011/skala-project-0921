@@ -142,7 +142,7 @@ def main() -> Path:
     (ROOT / "docs/DESIGN_filled.md").write_text(md)
     cover = CoverInfo(title="KV cache 최적화 기술 다관점 평가 Agentic RAG 설계서", members=MEMBERS,
                       date=TEAM["submit_date"], report_kind="과제 제출 보고서 · 설계 산출물",
-                      version="v1.3 (설계 개정)")
+                      version="v1.4 (설계 개정)")
     rb = ReportBuilder(cover)
     rb.markdown(md, ROOT / "docs")
     out_dir = ROOT / "deliverables"

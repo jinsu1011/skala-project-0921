@@ -13,29 +13,19 @@ flowchart TD
     TR --> TRL & MK & SH & DM
     TRL & MK & SH & DM --> SY["synthesizer<br/>Fan-in (defer)"]
     SY --> JD["judge"]
-    JD --> RR{{"retry_router<br/>미달·retry<2?"}}
-    subgraph RERUN[" "]
-        direction LR
-        R1["↺ TRL"]
-        R2["↺ 시장"]
-        R3["↺ 이해관계자"]
-        R4["↺ 도메인"]
-    end
-    RR -.->|"Send·failed 포함 시"| R1
-    RR -.->|"Send"| R2
-    RR -.->|"Send"| R3
-    RR -.->|"Send"| R4
-    RR -->|"없음·한도→판정 불확실"| RWR["report_writer"]
-    RWR --> FC{{"final_check"}}
-    FC -->|"수정 ≤1"| RWR
+    JD --> RR["retry_router<br/>count+1 · goto"]
+    RR -.->|"goto: failed 관점 노드만 · retry<2"| FAN
+    RR -->|"재실행 대상 없음"| RWR["report_writer"]
+    RWR --> FC["final_check"]
+    FC -->|"실패 · 수정 <1"| RWR
     FC -->|"통과"| PDF["pdf_renderer → END"]
+    FC -->|"실패 · 한도 소진<br/>후처리 + warnings"| PDF
     classDef agent fill:#EEE8FA,stroke:#7F4ACB,color:#161A58;
     classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
     classDef human fill:#E8F4EC,stroke:#2E7D4F,color:#16381F;
     classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
-    class VAL,TR,TRL,MK,SH,DM,SY,JD,RWR,R1,R2,R3,R4 agent;
+    class VAL,TR,TRL,MK,SH,DM,SY,JD,RWR agent;
     class INIT,CR,PDF util;
     class H0 human;
     class RR,FC gate;
-    style RERUN fill:#FFFDF6,stroke:#D08A00,stroke-dasharray:4 3,color:#3A2A00
     style FAN fill:#FBFAFE,stroke:#7F4ACB,stroke-dasharray:4 3,color:#161A58
