@@ -306,6 +306,11 @@ class ReportBuilder:
                 if ri == 0:
                     _shade(cell, HEAD_FILL)
         _repeat_header(t.rows[0])
+        if len(rows) <= 12:  # short tables never split across pages (keep every row with the next)
+            for row in t.rows[:-1]:
+                for cell in row.cells:
+                    for par in cell.paragraphs:
+                        par.paragraph_format.keep_with_next = True
         self.paragraph("", size=4)
 
     def image(self, path: Path, caption: str, width_cm=15.5):
