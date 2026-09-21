@@ -1,6 +1,6 @@
 # 인수인계 프롬프트: KV cache 다관점 평가 Agentic RAG, 개발 단계
 
-> 사용법: 아래 "프롬프트 본문" 전체를 코딩 에이전트(또는 담당자)에게 그대로 전달한다. 설계 단계(설계서 v1.2)는 끝났다. 이 프롬프트는 **개발 → 평가 보고서 → README·발표 준비 → 재현성 검증 → 제출**까지를 다룬다.
+> 사용법: 아래 "프롬프트 본문" 전체를 코딩 에이전트(또는 담당자)에게 그대로 전달한다. 설계 단계(설계서 v1.3)는 끝났다. 이 프롬프트는 **개발 → 평가 보고서 → README·발표 준비 → 재현성 검증 → 제출**까지를 다룬다.
 
 ---
 
@@ -13,7 +13,7 @@
 **첫 행동(읽기만, 구현 금지):**
 1. 아래 문서를 읽는다.
    - `docs/DESIGN.md`(설계 원문, 최우선 기준)
-   - `docs/DECISIONS.md`(D1~D30 결정 기록)
+   - `docs/DECISIONS.md`(D1~D31 결정 기록)
    - `docs/REVISION_v1.1.md`(개정 이력·남은 한계)
    - `docs/SELF_CHECK.md`
    - `deliverables/RAG-Design_판교-9반_…pdf`
@@ -59,10 +59,10 @@
 6. **새 측정값은 기존 값과 구분해 표기**한다(v1/v2처럼). 기존 수치를 덮어쓰거나 꾸미지 않는다.
 7. 모든 산출물(보고서·README·발표 노트)은 **한국어**로 쓴다. 코드와 주석은 영어도 된다.
 
-### 3. 구현할 것 (설계서 2.4절 기준)
+### 3. 구현할 것 (설계서 D 기준)
 
 **3-1. `graph/state.py`: State (TypedDict, 27개 키)**
-- 표 2.4.2를 그대로 옮긴다. reducer가 있는 키는 3개뿐이다.
+- 표 D.2를 그대로 옮긴다. reducer가 있는 키는 3개뿐이다.
   - `evidence: Annotated[list[Evidence], merge_by_id]`
   - `warnings: Annotated[list[str], add_unique]`
   - `audit_log: Annotated[list, operator.add]`
@@ -73,7 +73,7 @@
   - `claim`이 서로 다르면 `warnings`에 충돌을 기록한다.
   - `attempt` 필드로 대체된 이전 결과를 집계에서 뺀다.
 - Evidence 필드: `scope`(tech_specific / category), `source_class`(vendor / third_party / academic), `source_group`(eTLD+1 또는 벤더 출처군), **`origin_group`**(원 출처 계열. 재인용 기사는 원 보도자료와 같은 계열).
-- Pydantic 모델: `Evidence`, `PerspectiveResult`, `SynthesisResult`, `JudgeScore`(2.4.2의 객체 스키마).
+- Pydantic 모델: `Evidence`, `PerspectiveResult`, `SynthesisResult`, `JudgeScore`(D.2의 객체 스키마).
 
 **3-2. `tools/`: LangChain `@tool` 3개 (docstring, 타입 필수)**
 - `paper_retrieve(query, camp, tech, role, k)`
@@ -92,13 +92,13 @@
 
 | 에이전트 | 노드 | 핵심 |
 |---|---|---|
-| 기술 조사 | `selection_validator`, `tech_research`, `trl_assessor` | 선정은 **2안(Human)**이다. 검증 결과만 기록하고 **그래프 안에 재선정 분기는 없다.** TRL은 2.3.4 증거 사다리에 따라 범위와 신뢰도로 매기고 "공개 정보 기반 추정"을 표기한다 |
+| 기술 조사 | `selection_validator`, `tech_research`, `trl_assessor` | 선정은 **2안(Human)**이다. 검증 결과만 기록하고 **그래프 안에 재선정 분기는 없다.** TRL은 C.4 증거 사다리에 따라 범위와 신뢰도로 매기고 "공개 정보 기반 추정"을 표기한다 |
 | 시장 평가 | `market_evaluator` | 논문 RAG는 "발표 주장 ↔ 원 논문 실험 조건 대조"에만 쓴다. 기준 가중치는 25/30/30/15 |
 | 이해관계자 평가 | `stakeholder_evaluator` | 웹만 쓴다. 집단 (a)~(d)는 각 25%이고, 입장을 지지 5 / 혼재·중립 3 / 우려 1로 환산한다. H2용 태그(기술 특성 / 생태계) |
 | 도메인 평가 | `domain_evaluator` | W1·W2는 각 50%이고, 비용·지연·처리량·정확도·통합을 각 20%로 본다. 온디바이스 대조는 점수에서 뺀다(H3 전용) |
 | 평가 종합 | `synthesizer` | `defer=True`. 상충 판정은 시장·이해관계자·도메인 사이에서, 기술 안에서만 한다(Δ≥2.0 상충, 1.0~2.0 부분 상충). TRL은 H1 사전 규칙에만 쓴다. 임계값 ±0.5 민감도를 함께 계산한다. 기술 간 순위는 금지 |
 | Judge | `judge` | gpt-4.1. `passed = all(4항목 ≥ 4) and max_origin_share ≤ 0.5 and pro_origins ≥ 2 and con_origins ≥ 2 and lexicon_hits == 0`. 출력은 `judge_scores`, `failed_perspectives`, `judge_feedback` |
-| 보고서 생성 | `report_writer` | 2.5절 목차대로 쓰고, 본문에 인용한 근거만 REFERENCE로 만든다(Notion 형식) |
+| 보고서 생성 | `report_writer` | E 목차대로 쓰고, 본문에 인용한 근거만 REFERENCE로 만든다(Notion 형식) |
 
 - 관점 에이전트 내부 루프(최대 2회): 찬반 질의 생성(재실행 시 `judge_feedback` 반영) → 검색 → 근거 평가(관련성·`scope`·출처군) → 부족하면 재질의.
   - 찬반 할당량은 `tech_specific` 근거의 **독립 계열 수**로 센다.
@@ -140,7 +140,7 @@
 
 - 파일명: `RAG-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf`(설계서와 달리 **언더스코어**)
 - **SKALA 양식** 사용: `report/docx_builder.py`의 `ReportBuilder`와 `CoverInfo`(`report_kind="과제 제출 보고서 · 평가 보고서"`)
-- 목차(설계서 2.5절):
+- 목차(설계서 E):
   1. SUMMARY(½페이지 이내, 개요가 아닌 핵심 발견)
   2. 분석 배경
   3. 기술 선정
