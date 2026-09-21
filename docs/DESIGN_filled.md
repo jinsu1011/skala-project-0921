@@ -434,49 +434,62 @@ JudgeScore        = {grounding, neutrality, source_diversity, completeness (1-5)
 
 ## D.3 Graph 흐름
 
-흐름은 초기화, 선정 검증, 공통 검색, 기술 조사, 네 관점 병렬 평가, 종합, Judge, 재실행 판단, 보고서 작성과 검수, PDF 순서이다. 그림 2에 노드 18개를 모두 그렸고, Mermaid 소스는 그다음에 싣는다.
+흐름은 네 단계로 나뉜다. ① 선정 검증과 RAG 준비(공통 검색 반복 포함), ② 기술 조사와 네 관점 병렬 평가, 종합, ③ Judge 검증과 선택적 재실행, ④ 보고서 작성·검수와 PDF 생성이다. 그림 2에 노드 18개를 모두 그렸고, Mermaid 소스는 그다음에 싣는다.
 
-![그림 2. 전체 그래프(노드 18개). 실선은 항상 지나는 경로, 점선은 조건에 따라 갈리는 경로이다](graph_overview.png)<!--img:11.2-->
+![그림 2. 전체 그래프(노드 18개). 실선은 항상 지나는 경로, 점선은 조건에 따라 갈리는 경로이고, 마름모는 다음 경로를 정하는 노드이다](graph_overview.png)<!--img:11.2-->
 
 **그림 2 Mermaid 소스**
 
 ```
-flowchart TD
-    H0(["Human 선정 (2안)<br/>config · --tech"]) --> INIT["initialize"]
-    INIT --> VAL["selection_validator<br/>선정 검증·기록"]
-    VAL --> IDX["index_builder"]
-    IDX --> QP["query_planner"]
-    QP --> RET["hybrid_retriever"]
-    RET --> GR["retrieval_grader"]
-    GR -.->|"부족 · 재시도<2"| QRW["query_rewriter"]
-    QRW --> RET
-    GR -.->|"충족 · 한도 소진"| TR["tech_research<br/>개요·한계"]
-    subgraph FAN[" "]
-        direction LR
-        TRL["trl_assessor<br/>(내부 반복≤2)"]
-        MK["market_evaluator<br/>(내부 반복≤2)"]
-        SH["stakeholder_evaluator<br/>(내부 반복≤2)"]
-        DM["domain_evaluator<br/>(내부 반복≤2)"]
+flowchart TB
+    H0(["Human 기술 선정 (2안)<br/>TurboQuant · ITME"]) --> INIT
+    subgraph S1["1. 선정 검증 및 RAG 준비"]
+        INIT["initialize<br/>State 초기화"] --> VAL["selection_validator<br/>선정 타당성 검증·기록"]
+        VAL --> IDX["index_builder<br/>PDF 로드·청킹·인덱스"]
+        IDX --> QP["query_planner<br/>기술별 개요 질의"]
+        QP --> RET["hybrid_retriever<br/>3중 RRF + reranker"]
+        RET --> GR{"retrieval_grader<br/>검색 품질 충족?"}
+        QRW["query_rewriter<br/>누락 요소 반영"]
     end
-    TR --> TRL & MK & SH & DM
-    TRL & MK & SH & DM --> SY["synthesizer (defer)"]
-    SY --> JD["judge"]
-    JD --> RR["retry_router"]
+    subgraph S2["2. 기술 조사 및 관점별 병렬 평가"]
+        TR["tech_research<br/>원리·실험 조건·한계"]
+        subgraph FAN["관점 평가 4개 (병렬, 노드 내부 검색 반복 ≤2)"]
+            TRL["trl_assessor<br/>TRL"]
+            MK["market_evaluator<br/>시장"]
+            SH["stakeholder_evaluator<br/>이해관계자"]
+            DM["domain_evaluator<br/>도메인 W1·W2"]
+        end
+        TR --> TRL & MK & SH & DM
+        TRL & MK & SH & DM --> SY["synthesizer<br/>일치·상충 · H1~H4"]
+    end
+    subgraph S3["3. Judge 검증 및 선택적 재실행"]
+        JD["judge<br/>근거·중립·다양성·완결성"] --> RR{"retry_router<br/>재실행?"}
+    end
+    subgraph S4["4. 보고서 생성·검수"]
+        RWR["report_writer<br/>본문·REFERENCE 작성"] --> FC{"final_check<br/>검수 통과?"}
+        FC -.->|"수정 필요 · 수정<1"| RWR
+        FC -.->|"통과 · 한도 소진 후 보정"| PDF["pdf_renderer<br/>SKALA 양식 PDF"]
+    end
+    GR -.->|"충족 · 한도 소진"| TR
+    GR -.->|"부족 · 재시도<2"| QRW
+    QRW --> RET
+    SY --> JD
     RR -.->|"미달 관점만 · 재실행<2"| FAN
-    RR -.->|"재실행 대상 없음"| RWR["report_writer"]
-    RWR --> FC["final_check"]
-    FC -.->|"실패 · 수정<1"| RWR
-    FC -.->|"통과"| PDF["pdf_renderer → END"]
-    FC -.->|"한도 소진 · 후처리"| PDF
+    RR -.->|"모두 통과 · 한도 소진"| RWR
+    PDF --> END(["END"])
     classDef agent fill:#EEE8FA,stroke:#7F4ACB,color:#161A58;
     classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
     classDef human fill:#E8F4EC,stroke:#2E7D4F,color:#16381F;
     classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
     class VAL,TR,TRL,MK,SH,DM,SY,JD,RWR agent;
     class INIT,IDX,QP,RET,QRW,PDF util;
-    class H0 human;
+    class H0,END human;
     class GR,RR,FC gate;
-    style FAN fill:#FBFAFE,stroke:#7F4ACB,stroke-dasharray:4 3,color:#161A58
+    style S1 fill:#FBFBFD,stroke:#B8BCCC,color:#161A58
+    style S2 fill:#FBFAFE,stroke:#B9A3E3,color:#161A58
+    style S3 fill:#FFFDF6,stroke:#E3C27A,color:#161A58
+    style S4 fill:#FBFBFD,stroke:#B8BCCC,color:#161A58
+    style FAN fill:#F6F2FD,stroke:#7F4ACB,stroke-dasharray:4 3,color:#161A58
 ```
 
 ## D.4 분기, 합류, 종료 규칙
