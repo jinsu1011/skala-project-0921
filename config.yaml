@@ -43,7 +43,6 @@ team:
   submit_date: "2026. 09. 22."   # TODO: DAY 3 날짜 확인
   members:
     - {id: P284, name: 김정인}
-    - {id: P285, name: 김지수}
     - {id: P286, name: 김진수}
     - {id: P304, name: 전진만}
     - {id: P307, name: 정원준}
