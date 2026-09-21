@@ -38,6 +38,7 @@ class CoverInfo:
     instructor: str = "배기주"
     version: str = "v1.0"
     report_kind: str = "과제 제출 보고서"
+    doc_info: bool = True  # False drops the template's "문서 정보" heading and table
 
 
 # ------------------------------------------------------------------ low-level helpers
@@ -199,6 +200,12 @@ class ReportBuilder:
         for el in children[tbl_idx + 1:]:
             if el.tag != qn("w:sectPr"):
                 self.body.remove(el)
+        if not self.cover.doc_info:
+            info_tbl = children[tbl_idx]
+            heading = info_tbl.getprevious()
+            self.body.remove(info_tbl)
+            if heading is not None and "문서 정보" in "".join(t.text or "" for t in heading.iter(qn("w:t"))):
+                self.body.remove(heading)
         self._anchor = self.body.find(qn("w:sectPr"))
 
     def _append(self, el):

@@ -106,13 +106,13 @@
   - 부족하면 거짓 균형을 만들지 않고 "근거 부족"으로 둔다.
 - 근거가 부족한 기준은 낮은 점수가 아니라 "판단 보류"로 두고 계산에서 뺀다. 빠진 가중치가 50%를 넘으면 그 관점 전체를 "판단 보류"로 한다.
 
-**3-4. `graph/workflow.py`: 그래프 (그림 2a·2b)**
+**3-4. `graph/workflow.py`: 그래프 (그림 2)**
 - 흐름: `initialize → selection_validator → index_builder → query_planner → hybrid_retriever → retrieval_grader`
   - 부족하고 재시도 < 2이면 `query_rewriter → hybrid_retriever`로 돌아간다.
   - 충분하면 `tech_research → [trl_assessor, market_evaluator, stakeholder_evaluator, domain_evaluator]`(Fan-out) `→ synthesizer`(defer) `→ judge → retry_router`로 간다.
 - **`retry_router`는 노드이다.** 조건부 엣지 함수는 State를 갱신할 수 없기 때문이다.
   - `perspective_retry_count`를 1 올린다.
-  - `Command(update=…, goto=[관점 노드명…])`를 반환한다. **`Send`는 쓰지 않는다**(Send로 호출된 노드는 전달 인자만 받아 `tech_brief`·`evidence`를 못 읽는다). 반환 타입은 `Command[Literal[...]]`로 선언한다. 구현 형태는 설계서 D.4 코드 블록을 따른다.
+  - `Command(update=…, goto=[관점 노드명…])`를 반환한다. **`Send`는 쓰지 않는다**(Send로 호출된 노드는 전달 인자만 받아 `tech_brief`·`evidence`를 못 읽는다). 반환 타입은 `Command[Literal[...]]`로 선언한다. 목적지는 `Literal["trl_assessor", "market_evaluator", "stakeholder_evaluator", "domain_evaluator", "report_writer"]`이고, 한도(2)에 이른 관점은 `warnings`에 기록하며, 재실행 대상이 없으면 `report_writer`로 간다.
   - 한도(2)에 이른 관점은 `warnings`에 "판정 불확실"을 기록하고, 다시 돌릴 관점이 없으면 `report_writer`로 간다.
 - 이어서 `report_writer → final_check`로 간다.
   - 수정이 필요하고 재시도 < 1이면 `report_writer`로 되돌아간다.
@@ -125,7 +125,7 @@
   - REFERENCE가 본문 인용과 일치하는가
   - SUMMARY가 ½페이지 이내인가
   - 우열 어휘가 0건인가
-- 구현한 뒤 `draw_mermaid_png`로 `docs/graph.png`를 만들고 그림 2a와 대조한다. 외부 API를 쓰면 안 되니, 필요하면 `draw_mermaid()` 소스를 `report/mermaid_render.py`로 로컬 렌더링한다.
+- 구현한 뒤 `draw_mermaid_png`로 `docs/graph.png`를 만들고 그림 2와 대조한다. 외부 API를 쓰면 안 되니, 필요하면 `draw_mermaid()` 소스를 `report/mermaid_render.py`로 로컬 렌더링한다.
 
 **3-5. `prompts/`**
 - 에이전트별 템플릿을 둔다. 두 기술에 **같은 질문 템플릿**을 쓴다(대칭).
