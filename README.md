@@ -46,9 +46,7 @@
 
 
 ## Architecture
-![전체 워크플로](docs/graph_overview.png)
-
-![품질 제어 상세](docs/graph_quality.png)
+![전체 그래프: 실선은 항상 지나는 경로, 점선은 조건에 따라 갈리는 경로](docs/graph_overview.png)
 
 - 흐름 : Human 선정(2안) → 초기화 → 선정 검증(기록만) → 공통 RAG(Loop) → 기술 조사 → 4관점 병렬 평가(Fan-out) → 종합(Fan-in) → Judge → retry_router(선택적 재실행) → 보고서 생성·검수(Loop) → PDF
 - 보조 노드 : `initialize`, `index_builder`, `query_planner`, `hybrid_retriever`, `retrieval_grader`, `query_rewriter`, `retry_router`, `final_check`, `pdf_renderer` (에이전트 7개, 노드 18개, State 키 27개)
