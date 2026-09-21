@@ -28,8 +28,11 @@ from rag.chunker import embed_text, load_or_build_chunks  # noqa: E402
 from rag.embedder import CANDIDATES  # noqa: E402
 
 DATA = ROOT / "eval" / "data"
-EMB = ROOT / "data" / "index" / "eval_embeddings"
-OUT = ROOT / "outputs" / "eval"
+# EVAL_VARIANT=v2 re-measures with the final implementation setting (max_seq_length 2048, no chunk truncation).
+VARIANT = os.environ.get("EVAL_VARIANT", "v1")
+MAX_LEN_OVERRIDE = {"v1": None, "v2": 2048}[VARIANT]
+EMB = ROOT / "data" / "index" / ("eval_embeddings" if VARIANT == "v1" else f"eval_embeddings_{VARIANT}")
+OUT = ROOT / "outputs" / "eval" / ("" if VARIANT == "v1" else f"{VARIANT}_maxlen2048")
 CAND = DATA / "qa_candidates.jsonl"
 FINAL = DATA / "qa_eval_set.jsonl"
 POOL = DATA / "pool_judgments.jsonl"
@@ -61,7 +64,7 @@ def encode_one(key: str) -> None:
     threading.Thread(target=watch, daemon=True).start()
     base_rss = proc.memory_info().rss
     t0 = time.perf_counter()
-    emb = Embedder(key)
+    emb = Embedder(key, max_len=MAX_LEN_OVERRIDE)
     load_s = time.perf_counter() - t0
 
     chunks = load_or_build_chunks()
@@ -240,20 +243,23 @@ def score() -> None:
     }
     res = [{"config": n, "model": best, **_metrics([[ids[j] for j in r] for r in rk], golds)} for n, rk in configs.items()]
 
-    # 3) + cross-encoder reranker on the best hybrid pool (Tier 3: kept only if it improves)
+    # 3) + cross-encoder reranker on BOTH hybrid pools (the design fixes 3-way RRF + rerank; 2-way shown for reference)
     try:
         from sentence_transformers import CrossEncoder
 
         ce = CrossEncoder(RERANKER, max_length=1024)
-        base = max(res, key=lambda x: x["mrr@10"])["config"]
-        reranked = []
-        t0 = time.perf_counter()
-        for qi, cand in zip(sel, configs[base]):
-            s = ce.predict([(allq[qi]["question"], embed_text(chunks[j])) for j in cand], show_progress_bar=False)
-            reranked.append([cand[j] for j in np.argsort(-s)])
-        ms = (time.perf_counter() - t0) / len(sel) * 1000
-        res.append({"config": f"{base} + rerank(bge-reranker-v2-m3)", "model": best,
-                    **_metrics([[ids[j] for j in r] for r in reranked], golds), "rerank_ms_per_query": round(ms)})
+        for base in ["hybrid RRF: dense KO + BM25 EN", "hybrid RRF: dense KO + dense EN + BM25 EN"]:
+            reranked = []
+            t0 = time.perf_counter()
+            for qi, cand in zip(sel, configs[base]):
+                sc = ce.predict([(allq[qi]["question"], embed_text(chunks[j])) for j in cand], show_progress_bar=False)
+                reranked.append([cand[j] for j in np.argsort(-sc)])
+            ms = (time.perf_counter() - t0) / len(sel) * 1000
+            name = f"{base} + rerank(bge-reranker-v2-m3)"
+            res.append({"config": name, "model": best, **_metrics([[ids[j] for j in r] for r in reranked], golds),
+                        "rerank_ms_per_query": round(ms)})
+            (OUT / f"reranked_{'3way' if 'dense EN' in base else '2way'}.json").write_text(
+                json.dumps({r["qid"]: [ids[j] for j in rk[:10]] for r, rk in zip(fin, reranked)}))
     except Exception as e:  # reranker is optional
         print("reranker skipped:", e)
     rdf = pd.DataFrame(res)

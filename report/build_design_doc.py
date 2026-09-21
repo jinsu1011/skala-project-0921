@@ -71,21 +71,52 @@ def fill(md: str) -> str:
         "MPS 메모리(MB)": [b0.loc[m, "mps_alloc_mb"] for m in order], "인덱스(MB)": [b0.loc[m, "index_mb"] for m in order],
     })
     rep["{{STAGE3_TABLE}}"] = _md_table(s3, "3.6,1.4,2.1,2.4,1.5,1.4,2.0,1.6")
+    RERANK = " + rerank(bge-reranker-v2-m3)"
+    H2, H3 = "hybrid RRF: dense KO + BM25 EN", "hybrid RRF: dense KO + dense EN + BM25 EN"
     names = {
         "dense (KO query)": "Dense (한국어 질의)", "BM25 (KO query)": "BM25 (한국어 질의)",
         "BM25 (EN rewrite)": "BM25 (영어 재작성 질의)",
-        "hybrid RRF: dense KO + BM25 EN": "하이브리드 RRF: Dense(KO) + BM25(EN)",
-        "hybrid RRF: dense KO + dense EN + BM25 EN": "3중 하이브리드 RRF: Dense(KO) + Dense(EN) + BM25(EN)",
+        H2: "2중 하이브리드 RRF: Dense(KO) + BM25(EN)",
+        H3: "3중 하이브리드 RRF: Dense(KO) + Dense(EN) + BM25(EN)",
+        H2 + RERANK: "2중 하이브리드 RRF + reranker (참고)",
+        H3 + RERANK: "**3중 하이브리드 RRF + reranker ← 채택(v1에서 고정)**",
     }
-    rr = ret.copy()
-    rr["config"] = [names.get(c, "**3중 하이브리드 RRF + reranker (bge-reranker-v2-m3) ← 채택**") for c in rr["config"]]
-    rt = pd.DataFrame({"검색 구성": rr["config"], "Hit@1": rr["hit@1"].map(f3), "Hit@3": rr["hit@3"].map(f3),
-                       "Hit@5": rr["hit@5"].map(f3), "MRR@10": rr["mrr@10"].map(f3)})
-    rep["{{RET_TABLE}}"] = _md_table(rt, "8.4,1.9,1.9,1.9,1.9")
+
+    def ret_table(df):
+        rt = pd.DataFrame({"검색 구성": [names[c] for c in df["config"]], "Hit@1": df["hit@1"].map(f3),
+                           "Hit@3": df["hit@3"].map(f3), "Hit@5": df["hit@5"].map(f3), "MRR@10": df["mrr@10"].map(f3)})
+        return _md_table(rt, "8.4,1.9,1.9,1.9,1.9")
+
+    rep["{{RET_TABLE}}"] = ret_table(ret)
+    v2dir = ROOT / "outputs/eval/v2_maxlen2048"
+    emb2 = pd.read_csv(v2dir / "embedding_eval.csv").set_index("model")
+    ret2 = pd.read_csv(v2dir / "retrieval_config_eval.csv")
+    cov2 = __import__("json").loads((v2dir / "pooling_coverage.json").read_text())["unjudged_in_top5"]
+    b1 = emb.set_index("model")
+    order2 = ["bge-m3", "qwen3-embedding-0.6b", "multilingual-e5-large", "multilingual-minilm-l12"]
+    t2 = pd.DataFrame({
+        "모델 (평가 설정 길이)": [f"{m} ({emb2.loc[m, 'max_seq_length']:,})" for m in order2],
+        "Hit@1": [f3(emb2.loc[m, "hit@1"]) for m in order2], "Hit@5": [f3(emb2.loc[m, "hit@5"]) for m in order2],
+        "MRR@10 (v1 → v2)": [f"{b1.loc[m, 'mrr@10']:.3f} → {emb2.loc[m, 'mrr@10']:.3f}" for m in order2],
+        "SW / HW MRR": [f"{emb2.loc[m, 'mrr@10_SW']:.3f} / {emb2.loc[m, 'mrr@10_HW']:.3f}" for m in order2],
+        "min(SW, HW)": [f3(min(emb2.loc[m, "mrr@10_SW"], emb2.loc[m, "mrr@10_HW"])) for m in order2],
+    })
+    rep["{{V2_EMB_TABLE}}"] = _md_table(t2, "4.6,1.5,1.5,3.0,3.1,2.3")
+    rep["{{V2_RET_TABLE}}"] = ret_table(ret2)
+    r2 = ret2.set_index("config")
+    best2 = r2.loc[H3 + RERANK]
+    rep |= {
+        "{{V2_BEST_H1}}": f3(best2["hit@1"]), "{{V2_BEST_H5}}": f3(best2["hit@5"]), "{{V2_BEST_MRR}}": f3(best2["mrr@10"]),
+        "{{V2_ALT_MRR}}": f3(r2.loc[H2 + RERANK, "mrr@10"]), "{{V2_ALT_H5}}": f3(r2.loc[H2 + RERANK, "hit@5"]),
+        "{{V2_BGE_MRR}}": f3(emb2.loc["bge-m3", "mrr@10"]), "{{V2_BGE_H1}}": f3(emb2.loc["bge-m3", "hit@1"]),
+        "{{V2_BGE_MIN}}": f3(min(emb2.loc["bge-m3", "mrr@10_SW"], emb2.loc["bge-m3", "mrr@10_HW"])),
+        "{{V2_QWEN_MIN}}": f3(min(emb2.loc["qwen3-embedding-0.6b", "mrr@10_SW"], emb2.loc["qwen3-embedding-0.6b", "mrr@10_HW"])),
+        "{{UNJ_DENSE}}": str(cov2["bge-m3"]), "{{UNJ_BEST}}": str(cov2.get("hybrid 3way + rerank", "?")),
+    }
 
     b = emb.set_index("model")
-    best = ret.iloc[-1]
-    hyb = ret.iloc[-2]
+    best = ret.set_index("config").loc[H3 + RERANK]
+    hyb = ret.set_index("config").loc[H3]
     rep |= {
         "{{RERANK_S}}": f"{best['rerank_ms_per_query'] / 1000:.1f}",
         "{{RERANK_GAIN}}": f"{best['mrr@10'] - hyb['mrr@10']:.3f}",
@@ -111,7 +142,7 @@ def main() -> Path:
     (ROOT / "docs/DESIGN_filled.md").write_text(md)
     cover = CoverInfo(title="KV cache 최적화 기술 다관점 평가 Agentic RAG 설계서", members=MEMBERS,
                       date=TEAM["submit_date"], report_kind="과제 제출 보고서 · 설계 산출물",
-                      version="v1.1 (설계 개정)")
+                      version="v1.2 (설계 개정)")
     rb = ReportBuilder(cover)
     rb.markdown(md, ROOT / "docs")
     out_dir = ROOT / "deliverables"

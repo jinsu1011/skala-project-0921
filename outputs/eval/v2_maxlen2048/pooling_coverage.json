@@ -1,0 +1,13 @@
+{
+ "unjudged_in_top5": {
+  "bge-m3": 0,
+  "multilingual-e5-large": 0,
+  "qwen3-embedding-0.6b": 0,
+  "multilingual-minilm-l12": 0,
+  "hybrid3 (bge-m3)": 1,
+  "hybrid 2way + rerank": 6,
+  "hybrid 3way + rerank": 5
+ },
+ "n_questions": 42,
+ "variant": "v2"
+}
