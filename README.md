@@ -2,7 +2,7 @@
 본 프로젝트는 KV cache 최적화 기술을 소프트웨어·하드웨어 두 진영에서 선정하여,
 기술 성숙도(TRL)·시장·이해관계자·도메인 관점에서 평가하는 Agentic RAG를 개발하는 프로젝트임. (SKALA 4기 · 판교 9반 1조)
 
-> 🚧 **현재 단계: 설계 산출물 제출** — [설계서 PDF](deliverables/) · [설계 원문](docs/DESIGN.md) · [의사결정 기록](docs/DECISIONS.md)
+> 🚧 **현재 단계: 설계 산출물 v1.1 (피드백 반영 개정)** — [설계서 PDF](deliverables/) · [설계 원문](docs/DESIGN.md) · [개정 기록](docs/REVISION_v1.1.md) · [의사결정 기록](docs/DECISIONS.md)
 > 에이전트·그래프 구현과 평가 보고서, 전체 README는 개발 단계에서 이어서 작성합니다.
 
 ## Selected Technologies
@@ -22,5 +22,7 @@ uv run python scripts/download_papers.py          # 논문 6편(136p) 다운로�
 uv run python eval/run_embedding_eval.py encode   # 후보 4종 인코딩(성능·메모리 측정)
 uv run python eval/run_embedding_eval.py select   # 평가셋 확정(캐시된 판정 사용)
 uv run python eval/run_embedding_eval.py score    # Hit@K / MRR 표·차트
+uv run python eval/check_truncation.py            # 모델 최대 입력 vs 평가 설정·잘린 청크 수
+bash docs/render_graphs.sh                         # 그림 2a/2b 로컬 렌더링
 uv run python report/build_design_doc.py          # 설계서 PDF (LibreOffice 필요)
 ```

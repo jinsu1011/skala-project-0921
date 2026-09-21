@@ -1,0 +1,42 @@
+flowchart TD
+    INIT["START → initialize"] --> VAL["selection_validator<br/>① 선정 검증"]
+    VAL --> VQ{{"충족?"}}
+    VQ -->|"미충족"| HUM["human_review<br/>(최대 1회)"]
+    HUM -->|"변경"| VAL
+    HUM -->|"유지·경고"| CR
+    VQ -->|"충족"| CR["index_builder →<br/>공통 RAG Loop ≤2 (2b-a)"]
+    CR --> TR["tech_research<br/>② 개요·한계"]
+    subgraph FAN[" "]
+        direction LR
+        TRL["trl_assessor<br/>③ TRL"]
+        MK["market_<br/>evaluator"]
+        SH["stakeholder_<br/>evaluator"]
+        DM["domain_<br/>evaluator"]
+    end
+    TR --> TRL & MK & SH & DM
+    TRL & MK & SH & DM --> SY["synthesizer<br/>Fan-in (defer)"]
+    SY --> JD["judge"]
+    JD --> RR{{"retry_router<br/>미달·retry<2?"}}
+    subgraph RERUN[" "]
+        direction LR
+        R1["↺ TRL"]
+        R2["↺ 시장"]
+        R3["↺ 이해관계자"]
+        R4["↺ 도메인"]
+    end
+    RR -.->|"Send·failed 포함 시"| R1
+    RR -.->|"Send"| R2
+    RR -.->|"Send"| R3
+    RR -.->|"Send"| R4
+    RR -->|"없음·한도→판정 불확실"| RWR["report_writer"]
+    RWR --> FC{{"final_check"}}
+    FC -->|"수정 ≤1"| RWR
+    FC -->|"통과"| PDF["pdf_renderer → END"]
+    classDef agent fill:#EEE8FA,stroke:#7F4ACB,color:#161A58;
+    classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
+    classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
+    class VAL,TR,TRL,MK,SH,DM,SY,JD,RWR,R1,R2,R3,R4 agent;
+    class INIT,HUM,CR,PDF util;
+    class VQ,RR,FC gate;
+    style RERUN fill:#FFFDF6,stroke:#D08A00,stroke-dasharray:4 3,color:#3A2A00
+    style FAN fill:#FBFAFE,stroke:#7F4ACB,stroke-dasharray:4 3,color:#161A58
