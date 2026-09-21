@@ -1,0 +1,49 @@
+# Central configuration. Selected technologies are explicit and swappable (--tech sw=...,hw=...).
+selected_techs:
+  sw: turboquant
+  hw: itme
+
+llm:
+  generator: gpt-4.1-mini   # verified callable 2026-09-21
+  judge: gpt-4.1            # different model from generator (cross-model check)
+  temperature: 0
+  seed: 42
+
+corpus:
+  page_cap: 200
+  published: {"2504.19874": "2025-04-28", "2405.04434": "2024-05-07", "2402.02750": "2024-02-05", "2406.19707": "2024-06-28", "2606.12556": "2026-06-10", "2511.00321": "2025-10-31"}
+  papers:
+    - {tech: turboquant, arxiv: "2504.19874", camp: SW, role: primary,     title: "TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate"}
+    - {tech: mla,        arxiv: "2405.04434", camp: SW, role: alternative, title: "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model"}
+    - {tech: kivi,       arxiv: "2402.02750", camp: SW, role: baseline,    title: "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache"}
+    - {tech: infinigen,  arxiv: "2406.19707", camp: HW, role: alternative, title: "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management"}
+    - {tech: itme,       arxiv: "2606.12556", camp: HW, role: primary,     title: "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories"}
+    - {tech: cxl_pnm,    arxiv: "2511.00321", camp: HW, role: alternative, title: "Scalable Processing-Near-Memory for 1M-Token LLM Inference: CXL-Enabled KV-Cache Management Beyond GPU Limits"}
+
+chunking:
+  chunk_tokens: 900
+  overlap_ratio: 0.15
+
+retrieval:
+  embedding_model: bge-m3   # locked by eval/run_embedding_eval.py (see outputs/eval/embedding_eval.csv)
+  reranker: BAAI/bge-reranker-v2-m3   # kept: MRR@10 0.790 -> 0.863 on the eval set
+  rerank_pool: 20
+  top_k: 5
+  rrf_k: 60
+  max_retrieval_retries: 2
+
+graph:
+  max_perspective_retries: 2
+  max_report_retries: 1
+
+team:
+  campus: 판교
+  class: 9반
+  group: 1조
+  submit_date: "2026. 09. 22."   # TODO: DAY 3 날짜 확인
+  members:
+    - {id: P284, name: 김정인}
+    - {id: P285, name: 김지수}
+    - {id: P286, name: 김진수}
+    - {id: P304, name: 전진만}
+    - {id: P307, name: 정원준}
