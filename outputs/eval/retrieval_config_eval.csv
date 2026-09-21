@@ -4,4 +4,5 @@ BM25 (KO query),bge-m3,0.548,0.81,0.881,0.697,
 BM25 (EN rewrite),bge-m3,0.643,0.905,0.929,0.77,
 hybrid RRF: dense KO + BM25 EN,bge-m3,0.643,0.929,0.929,0.786,
 hybrid RRF: dense KO + dense EN + BM25 EN,bge-m3,0.667,0.881,0.952,0.79,
-hybrid RRF: dense KO + dense EN + BM25 EN + rerank(bge-reranker-v2-m3),bge-m3,0.786,0.952,0.976,0.863,4686.0
+hybrid RRF: dense KO + BM25 EN + rerank(bge-reranker-v2-m3),bge-m3,0.786,0.952,0.976,0.863,4639.0
+hybrid RRF: dense KO + dense EN + BM25 EN + rerank(bge-reranker-v2-m3),bge-m3,0.786,0.952,0.976,0.863,4517.0

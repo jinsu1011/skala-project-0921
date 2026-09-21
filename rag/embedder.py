@@ -34,6 +34,11 @@ CANDIDATES: dict[str, EmbeddingSpec] = {
 }
 
 
+# model-native maximum input (model card / config, checked 2026-09-21)
+NATIVE_MAX = {"bge-m3": 8192, "multilingual-e5-large": 512, "qwen3-embedding-0.6b": 32768, "multilingual-minilm-l12": 128}
+RUNTIME_MAX_SEQ = 2048  # implementation setting (covers the longest chunk, 1,529 model tokens)
+
+
 def _device() -> str:
     import torch
 
@@ -41,12 +46,14 @@ def _device() -> str:
 
 
 class Embedder:
-    def __init__(self, key: str):
+    def __init__(self, key: str, max_len: int | None = None):
+        """max_len overrides the eval-v1 setting but never exceeds the model-native limit (NATIVE_MAX)."""
         from sentence_transformers import SentenceTransformer
 
         self.spec = CANDIDATES[key]
         self.model = SentenceTransformer(self.spec.hf_id, device=_device())
-        self.model.max_seq_length = min(self.spec.max_seq_length, self.model.max_seq_length or 10**6)
+        want = self.spec.max_seq_length if max_len is None else min(max_len, NATIVE_MAX[key])
+        self.model.max_seq_length = want
 
     def embed_documents(self, texts: list[str], batch_size: int = 8) -> np.ndarray:
         texts = [self.spec.doc_prefix + t for t in texts]

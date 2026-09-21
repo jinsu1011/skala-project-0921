@@ -1,11 +1,11 @@
 # 요약
 
 - **목적:** 데이터센터 장문맥 LLM 서빙의 KV cache 병목을 푸는 SW 기술(Google TurboQuant)과 HW 기술(SK hynix ITME)이 TRL·시장·이해관계자·도메인 관점에서 **어떻게 다르게 인식되는지** 비교하는 Agentic RAG를 설계한다. 기술 간 우열은 판정하지 않는다.
-- **선정:** 조가 직접 선정(2안)했다. 후보 6개를 가중 기준표로 채점한 결과 TurboQuant 4.35, ITME 4.50이었다. 두 기술은 **같은 KV cache 용량 병목을, 같은 서빙 시점에서, 서로 다른 시스템 계층으로** 해결하므로 공정하게 비교할 수 있다. 에이전트는 선정을 사후 검증만 한다.
-- **RAG:** 논문 6편(136p)을 절 인식 청크 159개로 인덱싱했다. 임베딩은 한국어→영어 42문항 자체 평가로 골랐다. 사전 적합성(다국어·모델 한계 900토큰 이상·오픈소스)을 통과한 후보 중 bge-m3를 선정했다(MRR 0.703, min(SW, HW) 0.659). 최종 검색 구성은 3중 RRF + reranker이며 Hit@5 0.976, MRR 0.863이다.
-- **그래프:** 에이전트 7개(Notion 6개 + Judge), State 키 29개로 구성한다. 선정·공통 검색·관점 내부·관점 재실행·보고서 검수의 5개 루프에 모두 횟수 한도가 있다. Judge가 미달로 판정한 관점만 `retry_router`가 `Send`로 다시 실행한다.
-- **편향 방지:** 찬반 양면 검색(기술 고유 근거만 할당량으로 인정), 벤더 출처군 50% 상한, 인용 필수, 우열 어휘 검사, 상위 모델 Judge를 적용한다.
-- **한계:** 평가셋의 개발/테스트 미분리(42문항, 1문항 = 2.4%p), 평가 시 일부 청크 잘림(bge-m3 17/159), 같은 계열 Judge, ITME 공개 후 약 3개월, 평가 주체(SK 교육과정)의 소속 편향 가능성.
+- **선정:** 조가 직접 선정(2안)했고, 에이전트는 검증 결과만 기록한다(그래프 안에 재선정 분기 없음). 후보 6개를 가중 기준표로 채점한 결과 TurboQuant 4.35, ITME 4.50이었다. 두 기술은 **같은 KV cache 용량 병목을, 같은 서빙 시점에서, 서로 다른 시스템 계층으로** 해결하므로 공정하게 비교할 수 있다.
+- **RAG:** 논문 6편(136p)을 절 인식 청크 159개로 인덱싱했다. 임베딩은 한국어→영어 42문항 자체 평가로 골랐다. 사전 적합성(다국어·모델 한계 900토큰 이상·오픈소스)을 통과한 후보 중 bge-m3를 선정했다(MRR 0.703, min(SW, HW) 0.659). 최종 검색 구성(3중 RRF + reranker)은 구현 조건(`max_seq_length` 2,048)으로 다시 측정해 Hit@5 0.976, MRR 0.863이다. 모두 구성 선택에 쓴 42문항 기준의 **개발 지표**이다.
+- **그래프:** 에이전트 7개(Notion 6개 + Judge), State 키 27개로 구성한다. 공통 검색·관점 내부·관점 재실행·보고서 검수의 4개 루프에 모두 횟수 한도가 있다. Judge가 미달로 판정한 관점만 `retry_router`가 `Send`로 다시 실행한다.
+- **편향 방지:** 찬반 양면 검색(기술 고유 근거만 할당량으로 인정), 원 출처 계열 기준 50% 상한, 인용 필수, 우열 어휘 검사, 상위 모델 Judge를 적용한다.
+- **한계:** 평가셋의 개발/테스트 미분리(42문항, 1문항 = 2.4%p), 같은 계열 Judge, ITME 공개 후 약 3개월, 평가 주체(SK 교육과정)의 소속 편향 가능성.
 
 ---pagebreak---
 
@@ -51,7 +51,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 <!--w:2.6,1.6,11.8-->
 | 기준 | 가중치 | 판단 질문 |
 |---|---|---|
-| 비교 공정성 | 35% | 두 기술 모두 모델 학습 이후의 **추론·서빙 단계**에서 KV cache 병목을 직접 다루는가? (같은 적용 계층) |
+| 비교 공정성 | 35% | 두 기술 모두 모델 학습 이후 **동일한 적용 시점(추론·서빙 단계)**에서 KV cache 용량 병목을 직접 다루는가? |
 | 근거 확보성 | 25% | 원 논문과 독립적인 보조 자료를 확보할 수 있고, 장점과 한계를 함께 검증할 수 있는가? |
 | 산업 연관성 | 25% | GPU 서빙 생태계나 CXL 메모리 생태계와 연결되어, 실제 도입 주체와 이해관계자를 식별할 수 있는가? |
 | 최신성 | 15% | 장문맥·에이전트 워크로드의 최근 문제와 연결되는가? |
@@ -118,13 +118,13 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 - **ITME:** 저자 전원이 SK hynix 소속이고 제품(CMM) 기반으로 실측했다. 1차 근거가 벤더 자료이므로, 시장·이해관계자 관점에서는 **제3자 출처를 따로 확보해야** 한다(출처 다양성 규칙 적용).
 - **TurboQuant:** 논문 실험은 단일 A100에서 품질과 왜곡률을 중심으로 이루어졌고, 서빙 엔진 통합과 처리량 수치는 논문에 없다. 블로그의 "최대 8배"는 **H100에서 4bit 대 32bit 키의 attention logit 계산 속도**를 비교한 값이라 기준선 해석에 주의해야 한다.
 - **평가 주체의 소속 편향 가능성:** 평가 주체가 SK 교육과정 소속이고 ITME는 SK hynix 기술이다. 선정 기준표와 모든 관점에 대칭 기준을 적용하고, 이 가능성을 보고서 한계점에 명시한다.
-- 선정은 사람이 했으므로, 기술 조사 Agent의 `selection_validator`가 원문을 근거로 세 가지를 다시 검증한다. ① 같은 문제를 다루는가 ② 적용 계층을 비교할 수 있는가 ③ 공개 근거가 충분한가. 하나라도 미충족이면 사유와 대체 후보를 `selection_validation`에 기록한다. `--interactive` 모드에서는 사람의 확인을 받는다(최대 1회). 기본 실행에서는 기존 선정을 유지하고, 검증 결과(통과 여부·약점·대체 후보)를 보고서 2.4절에 그대로 싣는다.
+- 선정은 사람이 했으므로, 기술 조사 Agent의 `selection_validator`가 원문을 근거로 세 가지를 다시 검증한다. ① 같은 문제를 다루는가 ② 적용 시점이 같은가 ③ 공개 근거가 충분한가. 하나라도 미충족이면 사유와 대체 후보를 `selection_validation`과 `warnings`에 기록하고 실행은 계속한다. 2안(Human 선정)이므로 그래프 안에서 기술을 바꾸지 않는다. 선정을 바꿀지는 팀이 실행 밖에서 결정하고 `--tech`로 다시 실행한다. 검증 결과(통과 여부·약점·대체 후보)는 보고서 2.4절에 그대로 싣는다.
 
 ## 2.2 설계 (B)
 
 ### 2.2.1 기술 선정 방식: Human 기반(2안)과 에이전트 사후 검증
 
-팀이 2.1의 기준으로 TurboQuant와 ITME를 선정하고(`config.yaml`의 `selected_techs`, CLI `--tech sw=turboquant,hw=itme`로 교체 가능), 기술 조사 Agent가 선정 타당성을 사후 검증한다. 에이전트가 검색 결과만으로 대상을 정하면 **최신 자료에 치우치거나 비교 계층이 어긋날** 위험이 있다. 이 구조는 그 위험을 줄이면서, 사람의 선택을 그대로 확정하지 않고 근거로 다시 확인하기 위한 것이다. 에이전트는 **다시 고르지 않고 검증만 한다.**
+팀이 2.1의 기준으로 TurboQuant와 ITME를 선정하고(`config.yaml`의 `selected_techs`, CLI `--tech sw=turboquant,hw=itme`로 교체 가능), 기술 조사 Agent가 선정 타당성을 사후 검증한다. 에이전트가 검색 결과만으로 대상을 정하면 **최신 자료에 치우치거나 비교 계층이 어긋날** 위험이 있다. 이 구조는 그 위험을 줄이면서, 사람의 선택을 그대로 확정하지 않고 근거로 다시 확인하기 위한 것이다. 에이전트는 **다시 고르지 않고 검증만 한다.** 그래서 그래프에는 1안(에이전트 선정)이나 재선정 분기를 두지 않는다.
 
 ### 2.2.2 RAG 적용 대상
 
@@ -202,7 +202,9 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 
 **공정성 통제:** 청크, 질의, FAISS 설정을 동일하게 두고 모델만 교체했다. 각 모델은 모델 카드가 권장하는 질의 설정을 썼다(e5: `query:`/`passage:` 접두어, Qwen3: 기본 `query` 프롬프트). Qwen3는 프롬프트 민감도가 커서(MRR 0.548→0.631) **가장 좋은 설정**으로 비교했다.
 
-**② 과제 전용 실험. 결과 1: 임베딩 후보 (dense only, 한국어 질의)**
+> **수치의 성격:** 아래의 모든 Hit@K와 MRR은 모델·프롬프트·검색 구성을 고르는 데 쓴 **같은 42문항(구성 선택용 셋)으로 잰 개발 지표(development metric)**이다. 독립 테스트셋 성능이 아니다.
+
+**② 과제 전용 실험. 결과 1: 임베딩 후보 (dense only, 한국어 질의, v1 측정: `max_seq_length` 1,024)**
 
 <!--w:4.0,1.2,1.2,1.2,1.4,2.4,1.4,1.3,1.9-->
 | 모델 | Hit@1 | Hit@3 | Hit@5 | MRR@10 | MRR SW / HW | 인덱싱(s) | 질의(ms) | MPS 메모리(MB) |
@@ -214,7 +216,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 
 > 측정 환경: Apple M5(16 GB, MPS) · 159 청크 · 42문항 · `max_seq_length`는 ① 표의 평가 설정. 인덱싱은 전체 청크 인코딩 시간, 질의는 1건당 평균. Hit@k는 복수 정답 중 하나라도 top-k 안에 있으면 적중, MRR은 첫 적중 순위의 역수 평균(top-10).
 
-**결과 2: 검색 구성 (bge-m3 기준, 같은 평가셋)**
+**결과 2: 검색 구성 (bge-m3 기준, 같은 평가셋, v1 측정)**
 
 <!--w:8.4,1.9,1.9,1.9,1.9-->
 | 검색 구성 | Hit@1 | Hit@3 | Hit@5 | MRR@10 |
@@ -222,9 +224,10 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 | Dense (한국어 질의) | 0.548 | 0.857 | 0.905 | 0.703 |
 | BM25 (한국어 질의) | 0.548 | 0.810 | 0.881 | 0.697 |
 | BM25 (영어 재작성 질의) | 0.643 | 0.905 | 0.929 | 0.770 |
-| 하이브리드 RRF: Dense(KO) + BM25(EN) | 0.643 | 0.929 | 0.929 | 0.786 |
+| 2중 하이브리드 RRF: Dense(KO) + BM25(EN) | 0.643 | 0.929 | 0.929 | 0.786 |
 | 3중 하이브리드 RRF: Dense(KO) + Dense(EN) + BM25(EN) | 0.667 | 0.881 | 0.952 | 0.790 |
-| **3중 하이브리드 RRF + reranker (bge-reranker-v2-m3) ← 채택** | 0.786 | 0.952 | 0.976 | 0.863 |
+| 2중 하이브리드 RRF + reranker (참고) | 0.786 | 0.952 | 0.976 | 0.863 |
+| **3중 하이브리드 RRF + reranker ← 채택(v1에서 고정)** | 0.786 | 0.952 | 0.976 | 0.863 |
 
 ![그림 1. 임베딩 후보(좌)와 검색 구성(우) 평가 결과 · outputs/eval/embedding_eval.png](../outputs/eval/embedding_eval.png)<!--img:15.8-->
 
@@ -238,14 +241,39 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 | multilingual-e5-large | 탈락 | 0.589 | 0.662 / 0.589 | 17.4 | 7.7 | 3081 | 0.62 |
 | multilingual-minilm-l12 | 탈락 | 0.375 | 0.378 / 0.375 | 0.6 | 1.0 | 1065 | 0.23 |
 
-> **결정: 임베딩 `BAAI/bge-m3`, 검색 구성 "3중 하이브리드(RRF) + bge-reranker-v2-m3".** 과제 조건은 두 진영 문서를 같은 비중으로 검색하고, 900토큰 청크를 잘림 없이 인코딩할 수 있으며, 오픈소스로 로컬에서 실행하는 것이다. ① 사전 적합성에서 이 조건을 만족한 후보는 bge-m3와 Qwen3-Embedding-0.6B뿐이었다. ③에서 진영 간 균형 `min(SW, HW)`은 bge-m3 0.659, Qwen3 0.493이었다. Qwen3는 SW 질문 MRR이 조금 더 높았지만(0.770 vs 0.748) HW 질문에서 0.493으로 크게 떨어졌다. ②의 확인 결과로, bge-m3는 전체 Hit@1·3·5와 MRR이 모두 가장 높았다. 설계 초안에서는 Qwen3-Embedding-0.6B를 가정했지만, 측정 결과 교차언어 정확도가 낮아 **측정 결과에 따라 교체했다.** reranker는 질의당 약 4.7초가 더 들지만, 보고서 생성은 대화형이 아닌 배치 작업이므로 비용 대비 정확도 개선(MRR +0.073)이 크다고 판단해 채택했다. 시간이 부족할 때는 `--no-rerank` 옵션으로 끌 수 있다.
+> **결정: 임베딩 `BAAI/bge-m3`, 검색 구성 "3중 하이브리드(RRF) + bge-reranker-v2-m3".** 과제 조건은 두 진영 문서를 같은 비중으로 검색하고, 900토큰 청크를 잘림 없이 인코딩할 수 있으며, 오픈소스로 로컬에서 실행하는 것이다. ① 사전 적합성에서 이 조건을 만족한 후보는 bge-m3와 Qwen3-Embedding-0.6B뿐이었다. ③에서 진영 간 균형 `min(SW, HW)`은 bge-m3 0.659, Qwen3 0.493이었다. Qwen3는 SW 질문 MRR이 조금 더 높았지만(0.770 vs 0.748) HW 질문에서 0.493으로 크게 떨어졌다. ②의 확인 결과로, bge-m3는 전체 Hit@1·3·5와 MRR이 모두 가장 높았다. 구현 조건(2,048)으로 다시 측정해도 순위와 채택 구성의 수치는 같았다(④). 설계 초안에서는 Qwen3-Embedding-0.6B를 가정했지만, 측정 결과 교차언어 정확도가 낮아 **측정 결과에 따라 교체했다.** reranker는 질의당 약 4.5초가 더 들지만, 보고서 생성은 대화형이 아닌 배치 작업이므로 비용 대비 정확도 개선(MRR +0.073)이 크다고 판단해 채택했다. 시간이 부족할 때는 `--no-rerank` 옵션으로 끌 수 있다.
+
+**④ 구현 조건 재측정 (v2: `max_seq_length` 2,048, 잘린 청크 0건)**
+
+v1 수치는 바꾸지 않고, 구현 설정으로 같은 42문항을 다시 측정했다. bge-m3·Qwen3는 2,048로, e5·MiniLM은 모델 한계 그대로 두었다. 새 순위에서 판정 이력이 없는 (질문, 청크) 쌍은 오답으로 처리했으므로 아래 값은 **하한값**이다. 보고 지표 top-5 안에 판정 이력이 없는 쌍은 dense bge-m3에서 0건, 채택 구성에서 5건이다(`outputs/eval/v2_maxlen2048/`).
+
+<!--w:4.6,1.5,1.5,3.0,3.1,2.3-->
+| 모델 (평가 설정 길이) | Hit@1 | Hit@5 | MRR@10 (v1 → v2) | SW / HW MRR | min(SW, HW) |
+|---|---|---|---|---|---|
+| bge-m3 (2,048) | 0.524 | 0.905 | 0.703 → 0.691 | 0.748 / 0.635 | 0.635 |
+| qwen3-embedding-0.6b (2,048) | 0.500 | 0.810 | 0.631 → 0.631 | 0.770 / 0.493 | 0.493 |
+| multilingual-e5-large (512) | 0.476 | 0.857 | 0.626 → 0.626 | 0.662 / 0.589 | 0.589 |
+| multilingual-minilm-l12 (128) | 0.262 | 0.500 | 0.377 → 0.377 | 0.378 / 0.375 | 0.375 |
+
+<!--w:8.4,1.9,1.9,1.9,1.9-->
+| 검색 구성 | Hit@1 | Hit@3 | Hit@5 | MRR@10 |
+|---|---|---|---|---|
+| Dense (한국어 질의) | 0.524 | 0.857 | 0.905 | 0.691 |
+| BM25 (한국어 질의) | 0.548 | 0.810 | 0.881 | 0.697 |
+| BM25 (영어 재작성 질의) | 0.643 | 0.905 | 0.929 | 0.770 |
+| 2중 하이브리드 RRF: Dense(KO) + BM25(EN) | 0.643 | 0.929 | 0.929 | 0.786 |
+| 3중 하이브리드 RRF: Dense(KO) + Dense(EN) + BM25(EN) | 0.643 | 0.881 | 0.952 | 0.778 |
+| 2중 하이브리드 RRF + reranker (참고) | 0.786 | 0.952 | 0.976 | 0.863 |
+| **3중 하이브리드 RRF + reranker ← 채택(v1에서 고정)** | 0.786 | 0.952 | 0.976 | 0.863 |
+
+> **해석:** 임베딩 순위는 v1과 같다. bge-m3가 전체 Hit@1·3·5와 MRR에서 가장 높았고, `min(SW, HW)`도 bge-m3 0.635, Qwen3 0.493이다. bge-m3는 청크 전체를 인코딩하자 MRR이 0.703에서 0.691로 약간 낮아졌다(1문항 순위 변화 수준). 채택 구성(3중 RRF + reranker)은 v1과 같은 Hit@1 0.786 · Hit@5 0.976 · MRR 0.863이다. 2중 RRF + reranker도 같은 값이라, reranker를 거친 뒤에는 이 평가셋으로 두 하이브리드의 차이가 드러나지 않는다. 설계는 v1에서 고정한 3중 구성을 유지한다(결과를 보고 사후에 교체하지 않음).
 
 **평가의 한계와 향후 계획**
 
 - **과적합 가능성:** Qwen3 프롬프트 설정과 검색 구성을 최종 평가셋과 같은 42문항으로 골랐다. 42문항에서 1문항은 약 2.4%p이다. 예를 들어 bge-m3와 e5의 Hit@5 차이(0.905 vs 0.857)는 **2문항** 차이에 해당한다.
 - **사후 정의 기준:** 진영 간 균형 지표는 측정 이후에 정의했다.
-- **측정 조건:** 위 수치는 일부 청크가 잘린 조건(`max_seq_length` 1,024)에서 측정했다.
-- **향후 계획:** 문항을 확충한 뒤 개발셋(설정 선택)과 테스트셋(최종 보고)을 분리한다. 현재 42문항을 둘로 나누면 테스트셋이 약 20문항이 되어 1문항이 5%p를 차지하므로, 확충이 먼저 필요하다. 재실행 결과는 새 수치(v2 측정)로 구분해 표기하고 기존 수치는 보존한다. 최종 42문항의 정답 청크 **전수 사람 검수**를 권장 사항으로 둔다.
+- **측정 조건:** v1 수치는 일부 청크가 잘린 조건(`max_seq_length` 1,024)에서 측정했다. 구현 조건(2,048)으로 다시 잰 v2 수치를 ④에 따로 적었다. v2는 판정 이력이 없는 쌍을 오답으로 처리했으므로 하한값이다.
+- **향후 계획:** 문항을 확충한 뒤 개발셋(설정 선택)과 테스트셋(최종 보고)을 분리한다. 최종 성능은 테스트셋 수치로만 보고한다. 현재 42문항을 둘로 나누면 테스트셋이 약 20문항이 되어 1문항이 5%p를 차지하므로, 확충이 먼저 필요하다. 재실행 결과는 새 수치(v2 측정)로 구분해 표기하고 기존 수치는 보존한다. 최종 42문항의 정답 청크 **전수 사람 검수**를 권장 사항으로 둔다.
 
 ### 2.2.7 도구 정의 (외부 정보 검색·요약)
 
@@ -276,7 +304,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 | 원칙 | 적용 방법 |
 |---|---|
 | 찬반 균형 | 관점별로 "장점·도입 근거"와 "한계·비판 근거"를 기술마다 **각 2건 이상** 확보한다. 한쪽만 확보되면 재검색(Loop)한다. 모든 근거에 `scope`(tech_specific 또는 category) 태그를 붙이고, **category 근거(예: CXL 일반에 대한 비판)만으로는 할당량을 채울 수 없다.** 부족하면 거짓 균형을 만들지 않고 `근거 부족`으로 둔다. |
-| 출처 다양성 | 한 출처군의 비중이 **50%를 넘지 않게** 한다. **분모**는 해당 관점·해당 기술의 최신 결과가 인용한 웹 근거 ID 수이다. URL은 등록 도메인(eTLD+1)으로 정규화하고, 같은 벤더의 사이트는 **하나의 벤더 출처군**으로 묶는다(Google 계열: research.google, blog.google, deepmind.google 등 / SK hynix 계열: skhynix.com, news.skhynix.com 등). 모든 웹 근거에 벤더/제3자 라벨을 붙인다. |
+| 출처 다양성 | 한 출처군의 비중이 **50%를 넘지 않게** 한다. **분모**는 해당 관점·해당 기술의 최신 결과가 인용한 웹 근거 ID 수이다. URL은 등록 도메인(eTLD+1)으로 정규화하고, 같은 벤더의 사이트는 **하나의 벤더 출처군**으로 묶는다(Google 계열: research.google, blog.google, deepmind.google 등 / SK hynix 계열: skhynix.com, news.skhynix.com 등). 모든 웹 근거에 벤더/제3자 라벨을 붙인다. 도메인이 달라도 **같은 보도자료·블로그를 재인용한 기사**는 독립 근거가 아니므로, 근거마다 `origin_group`(원 출처 계열)을 붙인다. 50% 비중과 찬반 할당량은 **독립 계열 수** 기준으로 센다. 예: Google 블로그 → 기술 매체 기사 → 그 기사를 재인용한 기사는 1계열이다. |
 | 근거 추적성 | 모든 정량 주장과 정성 판단에 근거 ID(논문 페이지 또는 URL)를 1개 이상 연결한다. 근거가 없는 문장은 Judge가 `unsupported`로 표시하고 보고서에서 뺀다. |
 | 대칭성 | 두 기술에 같은 평가 항목, 질문 템플릿, 검색 횟수 한도를 적용한다. |
 | 우열 표현 교정 | "우수하다", "열등하다", "더 낫다" 같은 표현을 사전과 LLM으로 찾아내 "~ 조건에서 ~ 근거가 보고됨" 식의 조건부 서술로 바꾼다. |
@@ -332,6 +360,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 | TRL | 점수화하지 않음. 단계 범위(예: 4–5)와 신뢰도로 제시 | **상충 판정에서 분리.** H1 전용 비교에만 사용 |
 
 - **상충 판정:** 인식 점수를 가진 세 관점(시장·이해관계자·도메인) 사이에서, **기술 안에서만** 한다. 같은 기술의 두 관점 점수 차가 2.0 이상이면 "상충", 1.0 이상 2.0 미만이면 "부분 상충", 1.0 미만이면 "일치"이다. "판단 보류" 관점은 판정에서 뺀다. 기술 간 합계, 순위, 승패는 **산출하지 않는다.**
+- **임계값의 성격:** 2.0·1.0 같은 상충 임계값과 H1 경계값은 기술의 절대적 평가 기준이 아니다. 관점 간 차이를 일관되게 분류하려고 **분석 전에 고정한 운영 규칙(heuristic)**이다. 보고서 6장에서는 임계값을 ±0.5 바꿨을 때 분류가 달라지는 칸 수를 함께 보고한다(민감도 점검).
 - **TRL을 분리한 이유:** 성숙도 척도와 인식 척도는 성격이 달라서, 섞으면 척도 차이만으로 H1이 기계적으로 "지지"될 수 있다. H1은 사전 규칙으로만 판정한다. **괴리**는 (TRL 상한 ≤ 4이고 시장 ≥ 4.0) 또는 (TRL 하한 ≥ 7이고 시장 ≤ 2.0)인 경우이고, 그 밖은 **일치**, 어느 한쪽이 판단 보류면 **판단 보류**이다.
 
 <!--w:2.6,4.4,4.4,4.6-->
@@ -358,7 +387,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 ### 2.3.7 확증편향 방지 장치 요약
 
 1. **찬반 양면 검색:** 관점 에이전트는 기술마다 지지 질의와 반대 질의를 짝으로 실행한다.
-2. **출처 다양성 할당:** 벤더 출처군 기준으로 비중이 50% 이하가 되도록 하고, 벤더/제3자 라벨을 붙인다(ITME·TurboQuant 모두 1차 자료가 벤더 발표이므로 필수). 기술 고유(`tech_specific`) 근거만 찬반 할당량으로 인정한다.
+2. **출처 다양성 할당:** 원 출처 계열(재인용은 같은 계열) 기준으로 비중이 50% 이하가 되도록 하고, 벤더/제3자 라벨을 붙인다(ITME·TurboQuant 모두 1차 자료가 벤더 발표이므로 필수). 기술 고유(`tech_specific`) 근거만 찬반 할당량으로 인정한다.
 3. **인용 필수:** 근거가 없는 주장은 Judge가 삭제하거나 재작성을 요구한다.
 4. **대칭 처리:** 두 기술에 같은 템플릿, 같은 검색 한도, 같은 채점 기준을 적용한다.
 5. **상위 모델 Judge:** Generator(gpt-4.1-mini)보다 상위 모델인 gpt-4.1이 채점하고, **미달 관점만** 다시 실행한다. 같은 계열 모델이라 편향 감소 효과는 제한적이다(한계).
@@ -367,6 +396,8 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 ## 2.4 그래프 설계 (D)
 
 ### 2.4.1 에이전트 설계
+
+> **용어:** Agent는 하나의 독립된 판단 책임 단위이고, Node는 LangGraph의 실행 단위이다. 하나의 Agent는 여러 Node로 구현될 수 있다. 예를 들어 기술 조사 Agent는 `selection_validator`, `tech_research`, `trl_assessor` 3개 노드로 구현된다. 전체는 에이전트 7개, 노드 18개이다.
 
 Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드로 보장하는** 품질 게이트인 Judge 1개를 추가했다. Judge는 새 사실을 만들지 않고 다른 에이전트의 산출물을 채점만 하므로 역할이 겹치지 않는다. 검색 품질 판정, 질의 재작성, PDF 변환은 LLM 판단 주체가 아닌 **보조 노드**로 두어 불필요한 에이전트를 만들지 않았다.
 
@@ -381,7 +412,7 @@ Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드
 | Judge | `judge` | 관점별 근거성·중립성·다양성·완결성 채점, 결정적 검사, 미달 관점 지정 | X | 4개 관점 결과, `synthesis`, `evidence` | `judge_scores` `failed_perspectives` `judge_feedback` | 내용을 직접 고치지 않음, 재실행 횟수 관리 안 함 |
 | 보고서 생성 | `report_writer` | 목차대로 본문 작성, 인용·REFERENCE 정리 | X | 전체 결과, `judge_scores`, `warnings` | `report_markdown` `references` | 근거 ID 없는 주장 추가 안 함 |
 
-**보조 노드:** `initialize`, `human_review`(최대 1회), `index_builder`(로드·한도 확인·청킹·인덱싱), `query_planner`, `hybrid_retriever`, `retrieval_grader`, `query_rewriter`, `retry_router`(재실행 횟수 증가·`Send` 경로 생성), `final_check`, `pdf_renderer`
+**보조 노드:** `initialize`, `index_builder`(로드·한도 확인·청킹·인덱싱), `query_planner`, `hybrid_retriever`, `retrieval_grader`, `query_rewriter`, `retry_router`(재실행 횟수 증가·`Send` 경로 생성), `final_check`, `pdf_renderer`
 
 **관점 에이전트 내부 루프:** 각 관점 에이전트는 노드 안에서 자기교정 루프를 돈다. `paper_retrieve`/`web_search`로 검색하고, 관련성과 찬반 균형을 평가하고, 부족하면 재질의하는 과정을 **최대 2회** 반복한다. Judge가 재실행을 지시하면 `judge_feedback[관점]`을 추가 질의 조건으로 쓴다.
 
@@ -393,10 +424,8 @@ Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드
 | State 키 | 타입 | 작성 노드 | 읽는 노드 | 설명 · 갱신 방식 |
 |---|---|---|---|---|
 | `run_id` | `str` | initialize | 전체 | 실행 추적 ID(LangSmith·로그 연결) |
-| `selected_techs` | `list[Technology]` | initialize | selection_validator, query_planner | 선정 기술 2건(config/CLI), 진영, 선정 사유 |
-| `selection_override` | `Optional[list[Technology]]` | human_review | selection_validator, query_planner | 대화형 확인에서 사람이 기술을 바꾼 경우만 값이 있음(없으면 `selected_techs` 사용) |
-| `selection_review_count` | `int` | human_review | 라우터 | 선정 재확인 횟수(최대 1) |
-| `selection_validation` | `SelectionValidation` | selection_validator | human_review, report_writer | 4개 기준 점수, 원문 근거, 약점, 통과 여부 |
+| `selected_techs` | `list[Technology]` | initialize | selection_validator, query_planner | 팀이 선정한 기술 2건(config / `--tech`), 진영, 선정 사유. 실행 중 변경 없음 |
+| `selection_validation` | `SelectionValidation` | selection_validator | report_writer | 4개 기준 점수, 원문 근거, 약점, 통과 여부 |
 | `document_manifest` | `list[DocumentMeta]` | index_builder | report_writer | 논문·페이지 수·해시·역할, 200p 한도 확인 결과 |
 | `index_status` | `IndexStatus` | index_builder | hybrid_retriever, report_writer | 청크 수, 모델, 재사용 여부, 코퍼스 지문 |
 | `queries` | `dict[str, list[Query]]` | query_planner | hybrid_retriever | 기술 × 개요 항목별 공통 질의 |
@@ -430,18 +459,18 @@ Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드
 Evidence          = {evidence_id, kind(paper|web), claim, summary, source_url|doc_id, title, publisher,
                      published_at, page, section, tech, perspectives{...}, stances{pro|con|neutral},
                      scope(tech_specific|category), source_class(vendor|third_party|academic),
-                     source_group(eTLD+1 or vendor group), attempt}
+                     source_group(eTLD+1 or vendor group), origin_group(원 출처 계열), attempt}
 PerspectiveResult = {perspective, by_tech: {tech_id: {criteria: [{name, score_1to5, rationale, evidence_ids}],
                      summary, pro_ids, con_ids, limitations, confidence(high|mid|low)}}}
 SynthesisResult   = {matrix: {tech_id: {perspective: {score, one_liner}}}, conflicts: [{tech_id, pair,
                      gap, explanation, hypothesis_tags}], hypotheses: {H1..H4: {verdict, rationale, evidence_ids}}}
 JudgeScore        = {grounding, neutrality, source_diversity, completeness (1-5), passed,
-                     unsupported_claim_ids, checks{max_group_share, pro_count, con_count, lexicon_hits}}
+                     unsupported_claim_ids, checks{max_origin_share, pro_origins, con_origins, lexicon_hits}}
 ```
 
 ### 2.4.3 Graph 흐름
 
-흐름은 **초기화 → 선정 검증 → 공통 RAG(Loop) → 기술 조사 → 4개 관점 병렬 평가(Fan-out) → 종합(Fan-in) → Judge → retry_router(Branch·선택적 재실행) → 보고서 생성·검수(Loop) → PDF** 순서이다. 그림 2a는 전체 워크플로이고, 그림 2b는 품질 제어 루프를 펼친 상세도이다. Mermaid 소스는 **부록 A**와 `docs/graph_overview.mmd`, `docs/graph_quality.mmd`에 있다. 구현이 끝나면 LangGraph의 `draw_mermaid_png`로 뽑은 실제 그래프(`docs/graph.png`)와 대조한다.
+흐름은 **Human 선정(2안) → 초기화 → 선정 검증(기록만) → 공통 RAG(Loop) → 기술 조사 → 4개 관점 병렬 평가(Fan-out) → 종합(Fan-in) → Judge → retry_router(Branch·선택적 재실행) → 보고서 생성·검수(Loop) → PDF** 순서이다. 그림 2a는 전체 워크플로이고, 그림 2b는 품질 제어 루프를 펼친 상세도이다. Mermaid 소스는 **부록 A**와 `docs/graph_overview.mmd`, `docs/graph_quality.mmd`에 있다. 구현이 끝나면 LangGraph의 `draw_mermaid_png`로 뽑은 실제 그래프(`docs/graph.png`)와 대조한다.
 
 ![그림 2a. 전체 워크플로: 보라색은 에이전트 노드, 회색은 보조 노드, 노란색은 분기(Branch). 보라 점선 박스는 병렬 평가(Fan-out, 각 Agent 내부 Loop ≤2, 그림 2b-b)이다. 노란 점선 박스는 retry_router가 failed_perspectives에 포함된 관점에만 보내는 Send 재실행이며, 재실행 후 synthesizer로 돌아간다](graph_overview.png)<!--img:15.8-->
 
@@ -449,7 +478,7 @@ JudgeScore        = {grounding, neutrality, source_diversity, completeness (1-5)
 
 ### 2.4.4 분기 · 합류 · 종료 규칙
 
-1. **선정 검증 분기:** 세 항목이 모두 충족되면 `index_builder`로 간다. 미충족이고 `selection_review_count < 1`이면 `human_review`로 간다. `--interactive`에서는 LangGraph `interrupt`로 사람이 확인한다. 사람이 기술을 바꾸면 `selection_override`를 쓰고 다시 검증하며, 이 재검증은 1회까지이다. 기본 실행에서는 기존 선정을 유지하고 경고를 기록한 뒤 진행한다(자동 재현성 확보). 어느 경우든 검증 결과는 보고서 2.4절에 실린다.
+1. **선정 검증(분기 없음):** `selection_validator`는 검증 결과를 `selection_validation`에 쓰고, 미충족 항목은 `warnings`에 기록한 뒤 항상 `index_builder`로 진행한다. 2안(Human 선정)이므로 그래프 안에서 기술을 바꾸지 않는다(자동 재현성 확보). 검증 결과는 보고서 2.4절에 실린다.
 2. **공통 검색 루프:** `retrieval_grader`가 부족으로 판정하고 `retrieval_retry_count < 2`이면 `query_rewriter`로 가서 다시 `hybrid_retriever`로 돌아온다. 한도를 다 쓰면 경고를 남기고 `tech_research`로 진행한다.
 3. **Fan-out:** `tech_research` 다음 4개 관점 노드를 **같은 superstep에서 병렬**로 실행한다. 노드마다 자기 결과 키에만 쓰므로 충돌이 없고, 공유 필드(`evidence`, `warnings`, `audit_log`)는 reducer로 병합한다.
 4. **Fan-in:** `synthesizer`는 `defer=True`로 등록해 **그 superstep에서 실행된 관점 노드가 모두 끝난 뒤** 한 번만 실행된다. 선택적 재실행으로 일부 관점만 다시 돌 때도 멈추지 않는다.
@@ -459,7 +488,7 @@ JudgeScore        = {grounding, neutrality, source_diversity, completeness (1-5)
    - REFERENCE가 실제 인용과 일치하는가
    - SUMMARY 분량이 ½페이지 이내인가
    - 우열 어휘가 남아 있는가
-7. **종료 보장:** 루프 5개 모두에 횟수 한도가 있다. 선정 재확인 1, 공통 검색 2, 관점 내부 2, 관점별 재실행 2, 보고서 수정 1이다. 최악의 경우에도 그래프가 반드시 끝난다.
+7. **종료 보장:** 루프 4개 모두에 횟수 한도가 있다. 공통 검색 2, 관점 내부 2, 관점별 재실행 2, 보고서 수정 1이다. 최악의 경우에도 그래프가 반드시 끝난다.
 
 ### 2.4.5 Judge 통과 기준
 
@@ -467,7 +496,7 @@ JudgeScore        = {grounding, neutrality, source_diversity, completeness (1-5)
 
 ```
 passed = all(score >= 4 for score in [grounding, neutrality, source_diversity, completeness])
-         and max_group_share <= 0.50 and pro_count >= 2 and con_count >= 2 and lexicon_hits == 0
+         and max_origin_share <= 0.50 and pro_origins >= 2 and con_origins >= 2 and lexicon_hits == 0
 ```
 
 <!--w:2.8,7.2,6.0-->
@@ -475,9 +504,9 @@ passed = all(score >= 4 for score in [grounding, neutrality, source_diversity, c
 |---|---|---|
 | 근거성 (LLM) | 4점 이상. 핵심 주장마다 근거 ID가 있고 근거가 주장을 직접 뒷받침함 | unsupported 주장 삭제 또는 재작성 |
 | 중립성 (LLM) | 4점 이상. 장점과 제약을 함께 제시하고, 근거 없는 우열·추천 표현이 없음 | 해당 관점 재작성 |
-| 출처 다양성 (LLM + 코드) | LLM 4점 이상(1차 자료와 독립 자료 구분) **그리고** 코드 검사에서 벤더 출처군 비중 ≤ 50% | 해당 관점 재검색 |
+| 출처 다양성 (LLM + 코드) | LLM 4점 이상(1차 자료와 독립 자료 구분) **그리고** 코드 검사에서 원 출처 계열 비중 ≤ 50% | 해당 관점 재검색 |
 | 완결성 (LLM) | 4점 이상. 정의된 평가 기준과 두 기술을 모두 다룸 | 누락 기준 보완 |
-| 찬반 균형 (코드) | 기술별 `tech_specific` 근거 pro ≥ 2, con ≥ 2 | 부족한 쪽 재검색. 한도 소진 시 `근거 부족` |
+| 찬반 균형 (코드) | 기술별 `tech_specific` 근거의 독립 계열 수 pro ≥ 2, con ≥ 2 | 부족한 쪽 재검색. 한도 소진 시 `근거 부족` |
 | 우열 어휘 (코드) | 사전 검사 0건 | 교정 후 재검사 |
 
 ## 2.5 평가 보고서 목차 초안 (E)
@@ -506,8 +535,8 @@ Notion 참고 목차의 순서를 그대로 따르고, 설계에서 필요한 �
 | 코퍼스 | 6편, 136페이지(한도 200), 자동 검증 통과 | `scripts/download_papers.py` |
 | 파싱·청킹 | 절 인식 청크 159개(최대 900 cl100k 토큰), 참고문헌 제외 | `rag/loader.py`, `rag/chunker.py` |
 | 평가셋 | 60 생성 → 57 QC → 50(포괄 7 제외) → 42(논문별 7, SW 21/HW 21). 42문항 중 복수 정답 29문항, 사람 검수 11문항(26%) | `eval/build_qa.py`, `eval/qa_review.md` |
-| 임베딩 선정 | bge-m3: Hit@1 0.548 · Hit@5 0.905 · MRR 0.703 (후보 4종 중 최고, `max_seq_length` 1,024 조건) | `eval/run_embedding_eval.py` |
-| 검색 구성 | 3중 하이브리드 + reranker: Hit@1 0.786 · Hit@5 0.976 · MRR 0.863 | `outputs/eval/retrieval_config_eval.csv` |
+| 임베딩 선정 | bge-m3(후보 4종 중 최고). v1(1,024): Hit@1 0.548 · Hit@5 0.905 · MRR 0.703 / v2(2,048): Hit@1 0.524 · MRR 0.691. 개발 지표 | `eval/run_embedding_eval.py` |
+| 검색 구성 | 3중 하이브리드 + reranker. v1: Hit@1 0.786 · Hit@5 0.976 · MRR 0.863 / v2: Hit@1 0.786 · Hit@5 0.976 · MRR 0.863. 개발 지표(v2는 하한값) | `outputs/eval/`, `outputs/eval/v2_maxlen2048/` |
 | 측정 조건 점검 | 모델 고유 최대 입력과 평가 설정 비교, 잘린 청크 수(bge-m3 17, Qwen3 4) | `eval/check_truncation.py` |
 | 그래프 | mermaid 설계를 로컬에서 렌더링(외부 업로드 없음) | `report/mermaid_render.py` |
 
@@ -528,7 +557,7 @@ Notion 참고 목차의 순서를 그대로 따르고, 설계에서 필요한 �
 | 평가셋 규모(42문항)와 같은 셋으로 설정·구성까지 선택(개발/테스트 미분리) | 과적합 가능성(1문항 = 2.4%p) | 한계로 명시. 문항 확충 후 개발/테스트 분리, 정답 청크 전수 검수(2.2.6) |
 | 같은 계열 Judge(gpt-4.1-mini 생성, gpt-4.1 채점) | 자기평가 편향 감소 효과 제한 | 코드 결정적 검사 병행, 한계 명시 |
 | 평가 주체의 소속 편향(SK 교육과정 × SK hynix ITME) | ITME에 우호적인 해석 가능성 | 대칭 기준·벤더 출처군 상한·기술 고유 근거 할당량, 보고서 한계점에 명시 |
-| reranker 지연(질의당 약 4.7초) | 실행 시간 증가 | 배치 작업이라 수용, `--no-rerank` 옵션 제공 |
+| reranker 지연(질의당 약 4.5초) | 실행 시간 증가 | 배치 작업이라 수용, `--no-rerank` 옵션 제공 |
 | 선택적 재실행 시 합류 대기 | 그래프 정지 | `synthesizer` `defer=True`, 관점별 재시도 한도 |
 | API 키 없는 채점 환경 | 재현 실패 | LLM·웹 캐시 커밋, `--offline` 재생, 결과물 동봉 |
 
@@ -565,12 +594,9 @@ Notion 참고 목차의 순서를 그대로 따르고, 설계에서 필요한 �
 
 ```
 flowchart TD
-    INIT["START → initialize"] --> VAL["selection_validator<br/>① 선정 검증"]
-    VAL --> VQ{{"충족?"}}
-    VQ -->|"미충족"| HUM["human_review<br/>(최대 1회)"]
-    HUM -->|"변경"| VAL
-    HUM -->|"유지·경고"| CR
-    VQ -->|"충족"| CR["index_builder →<br/>공통 RAG Loop ≤2 (2b-a)"]
+    H0(["Human 선정 (2안)<br/>config · --tech"]) --> INIT["initialize"]
+    INIT --> VAL["selection_validator<br/>① 선정 검증 · 결과 기록"]
+    VAL --> CR["index_builder →<br/>공통 RAG Loop ≤2 (2b-a)"]
     CR --> TR["tech_research<br/>② 개요·한계"]
     subgraph FAN[" "]
         direction LR
@@ -600,10 +626,12 @@ flowchart TD
     FC -->|"통과"| PDF["pdf_renderer → END"]
     classDef agent fill:#EEE8FA,stroke:#7F4ACB,color:#161A58;
     classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
+    classDef human fill:#E8F4EC,stroke:#2E7D4F,color:#16381F;
     classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
     class VAL,TR,TRL,MK,SH,DM,SY,JD,RWR,R1,R2,R3,R4 agent;
-    class INIT,HUM,CR,PDF util;
-    class VQ,RR,FC gate;
+    class INIT,CR,PDF util;
+    class H0 human;
+    class RR,FC gate;
     style RERUN fill:#FFFDF6,stroke:#D08A00,stroke-dasharray:4 3,color:#3A2A00
     style FAN fill:#FBFAFE,stroke:#7F4ACB,stroke-dasharray:4 3,color:#161A58
 ```
@@ -647,7 +675,7 @@ flowchart LR
     class G1,G2 gate;
 ```
 
-# 부록 B. 개정 이력 (v1.0 → v1.1)
+# 부록 B. 개정 이력 (v1.0 → v1.1 → v1.2)
 
 <!--w:2.2,5.4,8.4-->
 | 절 | v1.0 | v1.1 |
@@ -669,3 +697,10 @@ flowchart LR
 | 2.4.4 | 선정 루프 한도 없음 | `human_review` 최대 1회, 루프 5개 모두 한도 명시 |
 | 2.4.5 | "합계 16점" 행, 결정적 검사가 로직에 없음 | 합계 행 삭제, 4항목 모두 4점, 판정식에 결정적 검사 포함 |
 | 3·4 | — | 측정 조건 점검 행, Lessons ④, 리스크 3행(개발/테스트 미분리, 같은 계열 Judge, 소속 편향) 추가 |
+| (v1.2) 요약·2.1.1 | 비교 공정성 판단 질문 "(같은 적용 계층)" | "**동일한 적용 시점(추론·서빙 단계)**". 계층은 서로 다름(데이터 표현 vs 메모리)과 일관 |
+| (v1.2) 2.1.5·2.4 | `human_review` 재선정 분기(대화형, 최대 1회) | **2안만 반영.** 그래프 안에 재선정 분기 없음. 검증 결과는 기록만 하고 진행, 선정 변경은 팀이 `--tech`로 재실행. `selection_override`·`selection_review_count` 삭제(키 29 → 27), 루프 5 → 4 |
+| (v1.2) 2.2.6 | 수치의 성격 미표기, 구현 조건 미측정 | 모든 수치를 **개발 지표(구성 선택용 42문항)**로 명시. **v2 재측정(2,048, 잘림 0건)** 추가: bge-m3 MRR 0.703 → 0.691, 순위 불변, 채택 구성 Hit@5 0.976·MRR 0.863 동일(하한값) |
+| (v1.2) 2.3.1 | 출처 다양성: 도메인·벤더 출처군 | `origin_group`(원 출처 계열) 추가. 재인용 기사는 원 출처와 같은 계열, 50%·찬반 할당량은 독립 계열 수 기준 |
+| (v1.2) 2.3.5 | 임계값 근거 미기재 | "분석 전 고정한 운영 규칙(heuristic)" 명시, 보고서에 ±0.5 민감도 점검 |
+| (v1.2) 2.4.1 | Agent와 Node 구분 없음 | "Agent = 판단 책임 단위, Node = 실행 단위" 정의(에이전트 7, 노드 18) |
+| (v1.2) 그림 2a | 선정 검증 → 충족? → human_review 분기 | Human 선정(2안) → initialize → selection_validator(기록) → 공통 RAG |

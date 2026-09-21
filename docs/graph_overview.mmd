@@ -1,10 +1,7 @@
 flowchart TD
-    INIT["START → initialize"] --> VAL["selection_validator<br/>① 선정 검증"]
-    VAL --> VQ{{"충족?"}}
-    VQ -->|"미충족"| HUM["human_review<br/>(최대 1회)"]
-    HUM -->|"변경"| VAL
-    HUM -->|"유지·경고"| CR
-    VQ -->|"충족"| CR["index_builder →<br/>공통 RAG Loop ≤2 (2b-a)"]
+    H0(["Human 선정 (2안)<br/>config · --tech"]) --> INIT["initialize"]
+    INIT --> VAL["selection_validator<br/>① 선정 검증 · 결과 기록"]
+    VAL --> CR["index_builder →<br/>공통 RAG Loop ≤2 (2b-a)"]
     CR --> TR["tech_research<br/>② 개요·한계"]
     subgraph FAN[" "]
         direction LR
@@ -34,9 +31,11 @@ flowchart TD
     FC -->|"통과"| PDF["pdf_renderer → END"]
     classDef agent fill:#EEE8FA,stroke:#7F4ACB,color:#161A58;
     classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
+    classDef human fill:#E8F4EC,stroke:#2E7D4F,color:#16381F;
     classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
     class VAL,TR,TRL,MK,SH,DM,SY,JD,RWR,R1,R2,R3,R4 agent;
-    class INIT,HUM,CR,PDF util;
-    class VQ,RR,FC gate;
+    class INIT,CR,PDF util;
+    class H0 human;
+    class RR,FC gate;
     style RERUN fill:#FFFDF6,stroke:#D08A00,stroke-dasharray:4 3,color:#3A2A00
     style FAN fill:#FBFAFE,stroke:#7F4ACB,stroke-dasharray:4 3,color:#161A58
