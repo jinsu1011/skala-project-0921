@@ -26,6 +26,10 @@ def _md_table(df: pd.DataFrame, widths: str) -> str:
     return "\n".join(lines)
 
 
+def _between(text: str, a: str, b: str) -> str:
+    return text.split(a, 1)[1].split(b, 1)[0].strip()
+
+
 def fill(md: str) -> str:
     chunks = load_or_build_chunks()
     cnt = collections.Counter(c.tech for c in chunks)
@@ -38,12 +42,35 @@ def fill(md: str) -> str:
         "모델": [f"**{m}**" if i == 0 else m for i, m in enumerate(emb["model"])],
         "Hit@1": emb["hit@1"].map(f3), "Hit@3": emb["hit@3"].map(f3), "Hit@5": emb["hit@5"].map(f3),
         "MRR@10": emb["mrr@10"].map(f3), "MRR SW / HW": [f"{a:.3f} / {b:.3f}" for a, b in zip(emb["mrr@10_SW"], emb["mrr@10_HW"])],
-        "최대 토큰": emb["max_seq_length"], "인덱싱(s)": emb["index_s"], "질의(ms)": emb["query_ms"],
-        "MPS 메모리(MB)": emb["mps_alloc_mb"],
+        "인덱싱(s)": emb["index_s"], "질의(ms)": emb["query_ms"], "MPS 메모리(MB)": emb["mps_alloc_mb"],
     })
-    rep["{{EMB_TABLE}}"] = _md_table(t, "3.6,1.1,1.1,1.1,1.3,2.1,1.2,1.3,1.1,2.1") + \
-        "\n\n> 측정 환경: Apple M5(16 GB, MPS) · 159 청크 · 42문항. 인덱싱은 전체 청크 인코딩 시간, 질의는 1건당 평균. " \
+    rep["{{EMB_TABLE}}"] = _md_table(t, "4.0,1.2,1.2,1.2,1.4,2.4,1.4,1.3,1.9") + \
+        "\n\n> 측정 환경: Apple M5(16 GB, MPS) · 159 청크 · 42문항 · `max_seq_length`는 ① 표의 평가 설정. 인덱싱은 전체 청크 인코딩 시간, 질의는 1건당 평균. " \
         "Hit@k는 복수 정답 중 하나라도 top-k 안에 있으면 적중, MRR은 첫 적중 순위의 역수 평균(top-10)."
+    tr = pd.read_csv(ROOT / "outputs/eval/truncation_check.csv").set_index("model")
+    lic = emb.set_index("model")["license"]
+    order = ["bge-m3", "qwen3-embedding-0.6b", "multilingual-e5-large", "multilingual-minilm-l12"]
+    s1 = pd.DataFrame({
+        "모델": order,
+        "다국어": ["O"] * 4,
+        "모델 고유 최대 입력(모델 카드·config)": [f"{tr.loc[m, 'native_max']:,}" for m in order],
+        "평가 설정 길이": [f"{tr.loc[m, 'eval_max_seq_length']:,}" for m in order],
+        "평가 시 잘린 청크": [f"{tr.loc[m, 'truncated_chunks']}/{tr.loc[m, 'n_chunks']}" for m in order],
+        "라이선스": [lic[m] for m in order],
+        "로컬 실행": ["O"] * 4,
+        "① 판정": ["**통과**" if tr.loc[m, "native_max"] >= 900 else "탈락 (참고 기준선)" for m in order],
+    })
+    rep["{{STAGE1_TABLE}}"] = _md_table(s1, "3.4,1.1,2.4,1.8,1.7,1.6,1.1,2.9")
+    b0 = emb.set_index("model")
+    s3 = pd.DataFrame({
+        "모델": order,
+        "① 결과": ["통과", "통과", "탈락", "탈락"],
+        "min(SW, HW) MRR": [f"{min(b0.loc[m, 'mrr@10_SW'], b0.loc[m, 'mrr@10_HW']):.3f}" for m in order],
+        "SW / HW MRR": [f"{b0.loc[m, 'mrr@10_SW']:.3f} / {b0.loc[m, 'mrr@10_HW']:.3f}" for m in order],
+        "인덱싱(s)": [b0.loc[m, "index_s"] for m in order], "질의(ms)": [b0.loc[m, "query_ms"] for m in order],
+        "MPS 메모리(MB)": [b0.loc[m, "mps_alloc_mb"] for m in order], "인덱스(MB)": [b0.loc[m, "index_mb"] for m in order],
+    })
+    rep["{{STAGE3_TABLE}}"] = _md_table(s3, "3.6,1.4,2.1,2.4,1.5,1.4,2.0,1.6")
     names = {
         "dense (KO query)": "Dense (한국어 질의)", "BM25 (KO query)": "BM25 (한국어 질의)",
         "BM25 (EN rewrite)": "BM25 (영어 재작성 질의)",
@@ -57,21 +84,6 @@ def fill(md: str) -> str:
     rep["{{RET_TABLE}}"] = _md_table(rt, "8.4,1.9,1.9,1.9,1.9")
 
     b = emb.set_index("model")
-    order = ["bge-m3", "multilingual-e5-large", "qwen3-embedding-0.6b", "multilingual-minilm-l12"]
-    dec = pd.DataFrame({
-        "기준 (가중)": ["교차언어 정확도 (40%)", "진영 간 균형 (20%)", "청크 수용 길이 (15%)", "로컬 비용 (15%)",
-                     "라이선스 (10%)", "판정"],
-        **{m: [f"MRR {b.loc[m,'mrr@10']:.3f} · Hit@5 {b.loc[m,'hit@5']:.3f}",
-               f"SW {b.loc[m,'mrr@10_SW']:.3f} / HW {b.loc[m,'mrr@10_HW']:.3f}",
-               f"{b.loc[m,'max_seq_length']} 토큰" + (" (900 토큰 청크 잘림)" if b.loc[m, 'max_seq_length'] < 900 else " (전체 수용)"),
-               f"인덱싱 {b.loc[m,'index_s']}s · 질의 {b.loc[m,'query_ms']}ms · {b.loc[m,'mps_alloc_mb']}MB",
-               b.loc[m, "license"],
-               {"bge-m3": "**채택**", "multilingual-e5-large": "차선 (512 토큰 제한)",
-                "qwen3-embedding-0.6b": "HW 질의 편차 큼", "multilingual-minilm-l12": "경량 기준선"}[m]]
-           for m in order},
-    })
-    rep["{{DECISION_TABLE}}"] = _md_table(dec, "3.0,3.3,3.3,3.3,3.1")
-
     best = ret.iloc[-1]
     hyb = ret.iloc[-2]
     rep |= {
@@ -80,7 +92,9 @@ def fill(md: str) -> str:
         "{{BGE_H1}}": f3(b.loc["bge-m3", "hit@1"]), "{{BGE_H5}}": f3(b.loc["bge-m3", "hit@5"]),
         "{{BGE_MRR}}": f3(b.loc["bge-m3", "mrr@10"]),
         "{{BEST_H1}}": f3(best["hit@1"]), "{{BEST_H5}}": f3(best["hit@5"]), "{{BEST_MRR}}": f3(best["mrr@10"]),
-        "{{MERMAID}}": (ROOT / "docs/graph_design.mmd").read_text().rstrip(),
+        "{{MERMAID_A}}": (ROOT / "docs/graph_overview.mmd").read_text().rstrip(),
+        "{{MERMAID_B}}": (ROOT / "docs/graph_quality.mmd").read_text().rstrip(),
+        "{{REVISION_TABLE}}": _between((ROOT / "docs/REVISION_v1.1.md").read_text(), "<!--CHANGES-->", "<!--/CHANGES-->"),
     }
     for k, v in rep.items():
         md = md.replace(k, v)
@@ -97,7 +111,7 @@ def main() -> Path:
     (ROOT / "docs/DESIGN_filled.md").write_text(md)
     cover = CoverInfo(title="KV cache 최적화 기술 다관점 평가 Agentic RAG 설계서", members=MEMBERS,
                       date=TEAM["submit_date"], report_kind="과제 제출 보고서 · 설계 산출물",
-                      version="v1.0 (설계)")
+                      version="v1.1 (설계 개정)")
     rb = ReportBuilder(cover)
     rb.markdown(md, ROOT / "docs")
     out_dir = ROOT / "deliverables"

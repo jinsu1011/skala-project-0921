@@ -1,0 +1,34 @@
+flowchart LR
+    subgraph A["(a) 공통 검색 Loop"]
+        direction TB
+        QP["query_planner"] --> RET["hybrid_retriever"]
+        RET --> GR["retrieval_grader"]
+        GR --> G1{{"충족?"}}
+        G1 -->|"부족·<2"| RW["query_rewriter"]
+        RW --> RET
+        G1 -->|"충족/소진"| O1["tech_research"]
+    end
+    subgraph B["(b) 관점 내부 Loop"]
+        direction TB
+        PQ["찬반 질의 생성<br/>+ judge_feedback"] --> TL["paper_retrieve<br/>web_search"]
+        TL --> EV["근거 평가<br/>scope·출처군"]
+        EV --> G2{{"pro·con≥2<br/>출처군≤50%?"}}
+        G2 -->|"부족·≤2"| PQ
+        G2 -->|"충족/소진"| O2["관점 결과 교체<br/>evidence 병합"]
+    end
+    subgraph C["(c) Judge 재실행"]
+        direction TB
+        SY["synthesizer"] --> JD["judge"]
+        JD --> RR["retry_router<br/>count+1 · Send"]
+        RR -.->|"미달·<2"| PN["해당 관점만"]
+        PN -.-> SY
+        RR -->|"통과/한도"| RWR["report_writer"]
+    end
+    A ~~~ B
+    B ~~~ C
+    classDef agent fill:#EEE8FA,stroke:#7F4ACB,color:#161A58;
+    classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
+    classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
+    class O1,O2,PQ,EV,SY,JD,PN,RWR agent;
+    class QP,RET,RW,TL,GR,RR util;
+    class G1,G2 gate;

@@ -26,7 +26,8 @@ def find_chrome() -> str | None:
     return None
 
 
-def render(mmd: str, out_png: Path, width: int = 1500, height: int = 4200) -> Path:
+def render(mmd: str, out_png: Path, width: int = 1500, height: int = 4200, font_px: int = 15,
+           rank_spacing: int = 34) -> Path:
     chrome = find_chrome()
     if chrome is None:
         raise RuntimeError("Chrome/Edge not found for Mermaid rendering")
@@ -34,8 +35,8 @@ def render(mmd: str, out_png: Path, width: int = 1500, height: int = 4200) -> Pa
 <style>body{{margin:0;background:#fff;font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif}}
 #g{{display:inline-block;padding:16px}}</style>
 <script>{MERMAID_JS.read_text()}</script></head><body><div id="g"><pre class="mermaid">{html.escape(mmd)}</pre></div>
-<script>mermaid.initialize({{startOnLoad:true,theme:'default',flowchart:{{htmlLabels:true,curve:'basis',useMaxWidth:false,nodeSpacing:28,rankSpacing:34}},
-themeVariables:{{fontFamily:"'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif",fontSize:'15px'}}}});</script>
+<script>mermaid.initialize({{startOnLoad:true,theme:'default',flowchart:{{htmlLabels:true,curve:'basis',useMaxWidth:false,nodeSpacing:24,rankSpacing:{rank_spacing}}},
+themeVariables:{{fontFamily:"'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif",fontSize:'{font_px}px'}}}});</script>
 </body></html>"""
     with tempfile.TemporaryDirectory() as td:
         f = Path(td) / "g.html"
@@ -62,4 +63,7 @@ def _trim(src: Path, dst: Path, pad: int = 24) -> None:
 
 if __name__ == "__main__":
     src, dst = Path(sys.argv[1]), Path(sys.argv[2])
-    print(render(src.read_text(encoding="utf-8"), dst))
+    w = int(sys.argv[3]) if len(sys.argv) > 3 else 1500
+    fp = int(sys.argv[4]) if len(sys.argv) > 4 else 15
+    rs = int(sys.argv[5]) if len(sys.argv) > 5 else 34
+    print(render(src.read_text(encoding="utf-8"), dst, width=w, font_px=fp, rank_spacing=rs))

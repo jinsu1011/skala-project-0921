@@ -1,0 +1,5 @@
+model,native_max,eval_max_seq_length,chunk_tokens_max,chunk_tokens_mean,truncated_chunks,n_chunks
+bge-m3,8192,1024,1529,747,17,159
+multilingual-e5-large,512,512,1531,749,136,159
+qwen3-embedding-0.6b,32768,1024,1191,711,4,159
+multilingual-minilm-l12,128,128,1529,747,159,159
