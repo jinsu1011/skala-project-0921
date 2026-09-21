@@ -334,6 +334,7 @@ class ReportBuilder:
         p = self._new_par()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p.add_run().add_picture(str(path), width=Cm(width_cm))
+        p.paragraph_format.keep_with_next = True  # figure and caption stay on one page
         self.paragraph(caption, size=8.5, color="555A6E", align="center")
 
     def page_break(self):

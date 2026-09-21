@@ -2,7 +2,7 @@
 본 프로젝트는 KV cache 최적화 기술을 소프트웨어·하드웨어 두 진영에서 선정하여,
 기술 성숙도(TRL)·시장·이해관계자·도메인 관점에서 평가하는 Agentic RAG를 개발하는 프로젝트임. (SKALA 4기 · 판교 9반 1조)
 
-> 🚧 **현재 단계: 설계 산출물 v1.2 (리뷰 반영 개정)** — [설계서 PDF](deliverables/) · [설계 원문](docs/DESIGN.md) · [개정 기록](docs/REVISION_v1.1.md) · [의사결정 기록](docs/DECISIONS.md) · [개발 인수인계 프롬프트](docs/HANDOFF_PROMPT.md)
+> 🚧 **현재 단계: 설계 산출물 v1.4 (리뷰 반영 개정)** — [설계서 PDF](deliverables/) · [설계 원문](docs/DESIGN.md) · [개정 기록 v1.1](docs/REVISION_v1.1.md) · [v1.4](docs/REVISION_v1.4.md) · [의사결정 기록](docs/DECISIONS.md) · [개발 인수인계 프롬프트](docs/HANDOFF_PROMPT.md)
 > 에이전트·그래프 구현과 평가 보고서, 전체 README는 개발 단계에서 이어서 작성합니다.
 
 ## Selected Technologies

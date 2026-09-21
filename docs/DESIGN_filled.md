@@ -1,12 +1,50 @@
 # 요약
 
-- **목적:** 데이터센터 장문맥 LLM 서빙의 KV cache 병목을 푸는 SW 기술(Google TurboQuant)과 HW 기술(SK hynix ITME)이 TRL·시장·이해관계자·도메인 관점에서 **어떻게 다르게 인식되는지** 비교하는 Agentic RAG를 설계한다. 기술 간 우열은 판정하지 않는다.
+- **목적:** 데이터센터 장문맥 LLM 서빙의 KV cache 병목을 푸는 SW 기술(Google TurboQuant)과 HW 기술(SK hynix ITME)이 TRL·시장·이해관계자·도메인 관점에서 **어떻게 다르게 인식되는지** 비교하는 Agentic RAG를 설계한다. 도메인은 **데이터센터·클라우드 장문맥 LLM 서빙 1개**로 한정한다. 기술 간 우열은 판정하지 않는다.
 - **선정:** 조가 직접 선정(2안)했고, 에이전트는 검증 결과만 기록한다(그래프 안에 재선정 분기 없음). 후보 6개를 가중 기준표로 채점한 결과 TurboQuant 4.35, ITME 4.50이었다. 두 기술은 **같은 KV cache 용량 병목을, 같은 서빙 시점에서, 서로 다른 시스템 계층으로** 해결하므로 공정하게 비교할 수 있다.
-- **RAG:** 논문 6편(136p)을 절 인식 청크 159개로 인덱싱했다. 임베딩은 한국어→영어 42문항 자체 평가로 골랐다. 사전 적합성(다국어·모델 한계 900토큰 이상·오픈소스)을 통과한 후보 중 bge-m3를 선정했다(MRR 0.703, min(SW, HW) 0.659). 최종 검색 구성(3중 RRF + reranker)은 구현 조건(`max_seq_length` 2,048)으로 다시 측정해 Hit@5 0.976, MRR 0.863이다. 모두 구성 선택에 쓴 42문항 기준의 **개발 지표**이다.
-- **그래프:** 에이전트 7개(Notion 6개 + Judge), State 키 27개로 구성한다. 공통 검색·관점 내부·관점 재실행·보고서 검수의 4개 루프에 모두 횟수 한도가 있다. Judge가 미달로 판정한 관점만 `retry_router`가 `Send`로 다시 실행한다.
-- **편향 방지:** 찬반 양면 검색(기술 고유 근거만 할당량으로 인정), 원 출처 계열 기준 50% 상한, 인용 필수, 우열 어휘 검사, 상위 모델 Judge를 적용한다.
+- **RAG:** 논문 6편(136p)을 절 인식 청크 159개로 인덱싱했다. 임베딩은 한국어→영어 42문항 자체 평가로 골랐다. 사전 적합성(다국어·모델 고유 최대 입력 ≥ 최대 청크 1,529토큰(모델 토크나이저 기준)·오픈소스)을 통과한 후보 중 bge-m3를 선정했다(MRR 0.703, min(SW, HW) 0.659). 최종 검색 구성(3중 RRF + reranker)은 구현 조건(`max_seq_length` 2,048)으로 다시 측정해 Hit@5 0.976, MRR 0.863이다. 모두 구성 선택에 쓴 42문항 기준의 **개발 지표**이다.
+- **그래프:** 에이전트 7개(Notion 6개 + Judge), State 키 27개로 구성한다. 공통 검색·관점 내부·관점 재실행·보고서 검수의 4개 루프에 모두 횟수 한도가 있다. Judge가 미달로 판정한 관점만 `retry_router` 노드가 `Command(goto=[관점 노드명])`로 다시 실행한다. 보고서 검수 루프는 한도 소진 시 결정적 후처리 후 종료한다.
+- **평가 기준:** 관점별 기준과 고정 가중치에 더해, 에이전트가 채점할 때 따르는 **Rubric(점수 앵커와 판단 보류 조건)**을 정의한다. 상충·H1 판정은 코드로 계산하고, 개발 중 사람이 Rubric 준수 여부를 표본 점검한다.
+- **편향 방지:** 찬반 양면 검색(기술 고유 근거만 할당량으로 인정), 원 출처 계열 기준 50% 상한, 개발사 본인 발언의 이해관계자 점수 제외, 인용 필수, 우열 어휘 검사, 상위 모델 Judge를 적용한다.
 - **한계:** 평가셋의 개발/테스트 미분리(42문항, 1문항 = 2.4%p), 같은 계열 Judge, ITME 공개 후 약 3개월, 평가 주체(SK 교육과정)의 소속 편향 가능성.
 
+
+---pagebreak---
+
+# 개정 요약 (v1.0 → v1.4)
+
+리뷰 반영으로 바뀐 설계 요소를 한곳에 모았다. 변경 전 값은 처음 도입된 버전을 함께 적었다. 결정별 근거와 대안은 `docs/DECISIONS.md`(D1~D40)에 있다.
+
+<!--w:2.9,3.9,4.9,4.3-->
+| 영역 | 변경 전 | v1.4 | 변경 사유 |
+|---|---|---|---|
+| A.1 128K 세션 수 | 약 4개 (v1.0) | 온전히 3개 | 64 GB ÷ 17.2 GB ≈ 3.7 |
+| TurboQuant 근거 점수 | 4, 가중합 4.60 (v1.0) | 3, 가중합 4.35 | 설계 시점 자료가 모두 Google 자료(ITME와 대칭) |
+| 임베딩 선정 방식 | 가중 기준표 (v1.0) | 3단계(사전 적합성·실험·운영) | 선정 방식이 두 개로 읽힘 |
+| 사전 적합성 길이 조건 | 900토큰 이상, cl100k 기준 (v1.1) | 모델 토크나이저 기준 최대 청크 1,529토큰 이상 | 단위 불일치. 판정 결과(bge-m3·Qwen3 통과)는 같음 |
+| 평가 `max_seq_length` | "1,024로 청크 전체 수용" (v1.0) | 모델 한계와 평가 설정 분리, 잘린 청크 공개, 구현 2,048·v2 재측정 | 평가 중 청크 잘림 발견 |
+| 도메인 | 주 도메인 + 온디바이스 대조군 (v1.0) | 데이터센터 장문맥 서빙 1개. W1·W2는 평가 조건 | 조사 범위 한정(과제 안내). H3를 도메인 안 워크로드 비교로 전환 |
+| 관점 점수 | 근거 수 가중 평균 (v1.0) | 고정 가중치, 판단 보류 재정규화 | 웹 자료량에 따른 비대칭 |
+| 채점 Rubric | 기준·가중치만 정의 | 점수 앵커, 판단 보류 조건, 입장 태그 기준, 사람 표본 점검 | 에이전트 채점 규칙을 명시하고 개발 중 점검 가능하게 함 |
+| TRL과 H1 | 상충 판정에 포함 (v1.0) → 두 조건 괴리 규칙 (v1.1) | 상충 판정에서 분리, H1 3×3 격자 규칙(코드 계산) | 척도 성격 차이, 가설 두 절을 모두 판정 |
+| 이해관계자 점수 | 개발사 발언 제외 규칙 없음 | 개발사 발언 제외(참고 근거로만 인용) | 벤더 자기 평가가 인식 점수가 되는 편향 |
+| Judge 판정 | 4항목 합 16점 이상 (v1.0) | LLM 4항목 각 4점 이상 + 공통 결정적 검사 + 관점별 검사(TRL은 범위 상·하한 근거) | 결정적 검사 누락, TRL에는 찬반이 없음 |
+| synthesis 판정 | 판정 주체 미기재 | 상충·H1은 코드 계산, LLM은 해설. 재실행 분기 없음 | 판정 재현성, 오류 경로 확정 |
+| 선택적 재실행 | 조건부 엣지 + `Send` (v1.0) | `retry_router` 노드 + `Command(goto=[노드명])`, 통과 관점 점수 동결 | 조건부 엣지는 State 갱신 불가, `Send`는 전달 인자만 입력 |
+| 보고서 검수 출구 | 통과 / 재작성 2개 | 한도 소진 시 결정적 후처리 + `warnings` 경로 추가 | 종료 보장 |
+| 선정 검증 | `human_review` 분기 (v1.0) | 결과 기록만, 분기 없음 | 2안(Human) 원칙, 자동 재현성 |
+| 실행 상한 | 미기재 | 최악 약 30 superstep, `recursion_limit` 50 | 종료 보장의 수치화 |
+| reranker 지연 | 4.7초 (v1.0) | 4.5~4.7초(회차별 병기) | v1.2 재실행 값(4.5초)과 v2 값(4.7초)을 함께 공개 |
+
+**남은 한계**
+
+- 평가셋의 개발/테스트 미분리(42문항, 1문항 = 2.4%p)
+- 진영 간 균형 지표 `min(SW, HW)`는 측정 후에 정의함
+- 같은 계열 Judge(gpt-4.1-mini 생성, gpt-4.1 채점)
+- ITME 공개 후 약 3개월로 웹 근거가 적음
+- 평가 주체(SK 교육과정)의 소속 편향 가능성
+- v2 수치는 판정 이력이 없는 쌍을 오답으로 처리한 하한값임
+- 3중·2중 하이브리드의 차이는 한국어 질의 평가셋으로 확인되지 않음
 
 ---pagebreak---
 
@@ -61,7 +99,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 | 이해관계자 다양성 | 서빙 엔진 개발자, 클라우드 사업자, 경쟁 KV 압축 진영(KIVI, NVIDIA KVTC 등), 메모리 업계 | 메모리 벤더, 서버·클라우드 사업자, CXL Consortium, 원격 플래시·NVMe 기반 대안 진영(NVIDIA CMX 등). TurboQuant와 **이해관계자 집단이 거의 겹치지 않음** |
 | TRL 관찰 가치 | 알고리즘 논문과 오픈소스 구현 중심 → 연구 성과가 프로덕션 도입으로 이어지는 단계를 관찰 | 양산급 모듈로 실측했지만 상용 배포 정보는 제한적 → TRL 4~6 구간의 공개 정보 격차를 관찰 |
 | 최신성·산업 연관성 | 빅테크 공개(블로그 2026-03)로 시장·미디어 반응 자료가 풍부 | 2026-06 공개, 국내 메모리 반도체(CXL) 생태계와 직접 연결 |
-| 환경·결합 검토 | 온디바이스 등 메모리 제약 환경에서 평가가 달라지는지 확인 가능(H3) | TurboQuant와 결합 가능한 보완 관계인지 관점별로 검토 가능(H4) |
+| 워크로드·결합 검토 | 장문맥 배치(W1)와 고동시성 다중 턴(W2)에서 적용 조건이 달라지는지 확인 가능(H3) | TurboQuant와 결합 가능한 보완 관계인지 관점별로 검토 가능(H4) |
 
 ## A.5 핵심 contribution 분석 (원 논문 페이지 근거)
 
@@ -74,7 +112,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 |---|---|---|---|---|
 | 기존 벡터 양자화는 최적 왜곡률에 미치지 못한다(p.1). | **TurboQuant_mse**: 무작위 회전으로 각 좌표가 Beta 분포를 따르게 하고, 좌표별 최적 scalar quantizer를 적용한다(p.1·5, Alg.1 p.10). | 정보이론 하한과 상수배(≈2.7) 차이의 왜곡률(p.1) | 회전·양자화 연산이 서빙 경로에 추가된다. 서빙 엔진 통합과 처리량은 논문 범위 밖이다. | 도메인(통합 난이도·지연), TRL(프레임워크 반영) |
 | MSE 최적 양자화기는 **내적 추정에 편향**을 만든다(p.1). 어텐션 점수는 내적이다. | **TurboQuant_prod**: MSE 양자화 후 잔차에 1-bit QJL을 적용해 **불편(unbiased) 내적 양자화기**를 만든다(p.1, Alg.2 p.12). | 어텐션 logit 추정 편향 보정 | 잔차 부호 비트와 노름을 추가로 저장해야 한다. MSE 변형과 내적 변형 중 하나를 골라야 한다. | 도메인(정확도 영향) |
-| 데이터 의존(오프라인) 양자화는 스트리밍 KV에 쓰기 어렵다. KIVI 등은 생성 토큰을 양자화하지 않는다(p.18). | **data-oblivious·online** 알고리즘으로, 생성 중인 토큰에도 양자화를 적용한다(p.1·18). | 캘리브레이션 없이 장문 생성에도 적용 가능 | 2.5bit에서 소폭 품질 저하(p.1). 비정수 비트는 이상치 채널 분리의 결과이다(p.18). 실험은 단일 A100·8B급 모델이다(p.15). | 도메인(정확도), 시장(발표 주장과 실험 조건 대조) |
+| 데이터 의존(오프라인) 양자화는 스트리밍 KV에 쓰기 어렵다. TurboQuant 논문은 KIVI 등 기존 방식이 생성 토큰을 양자화하지 않는다고 서술한다(p.18, 비교 대상 저자의 서술). KIVI 논문은 최근 토큰 일부(잔차)만 원정밀도로 두고 나머지를 그룹 단위로 양자화한다고 서술한다(KIVI p.5). | **data-oblivious·online** 알고리즘으로, 생성 중인 토큰에도 양자화를 적용한다(p.1·18). | 캘리브레이션 없이 장문 생성에도 적용 가능 | 2.5bit에서 소폭 품질 저하(p.1). 비정수 비트는 이상치 채널 분리의 결과이다(p.18). 실험은 단일 A100·8B급 모델이다(p.15). | 도메인(정확도), 시장(발표 주장과 실험 조건 대조) |
 
 > 뒷받침 실험 결과: 3.5bit/채널에서 품질 중립, 2.5bit에서 소폭 저하(LongBench·NIAH, p.1). Google 블로그는 KV 메모리 6배 이상 절감과 "최대 8배" 속도를 보고한다. "최대 8배"는 H100에서 4bit 대 **32bit 키**의 attention logit 계산 속도를 비교한 값이므로 기준선 해석에 주의해야 한다.
 
@@ -110,7 +148,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 | 기술 조사 (검증·개요·TRL) | O | 선정 기술 원 논문(primary)과 기준선·대안 논문 | 작동 원리, 실험 조건, 한계, TRL 근거 |
 | 시장 평가 | O + Web | 논문 RAG(**시장 발표의 성능 주장을 원 논문의 실험 조건과 대조**) + 제품·표준·프레임워크 웹 자료 | 시장성, 채택 사례, 생태계 지원의 찬반 근거 |
 | 이해관계자 평가 | Web | 기업 발표, 개발자 문서·토론, 산업 분석, 언론 | 경쟁 진영·도입 기업·개발자·투자 업계의 상반된 시각 |
-| 도메인 평가 | O + Web | 논문 RAG(실험 환경·워크로드) + 실제 시스템 자료 | 데이터센터 장문맥 서빙의 적합 조건과 제약, 온디바이스 대조 |
+| 도메인 평가 | O + Web | 논문 RAG(실험 환경·워크로드) + 실제 시스템 자료 | 데이터센터 장문맥 서빙(W1·W2)의 적합 조건과 제약 |
 | 평가 종합 · Judge · 보고서 | X | 앞 단계에서 구조화된 결과와 근거 ID만 사용 | 상충 매트릭스, 품질 판정, 최종 보고서 |
 
 이해관계자 관점은 **최신 반응**이 핵심이라 논문 RAG의 이점이 작아 웹만 쓴다(Notion 가이드와 일치). 평가 종합, Judge, 보고서 에이전트는 새 사실을 검색하지 않는다. 그래서 근거 없는 내용이 끼어들 수 있는 경로가 관점 에이전트로만 한정된다.
@@ -155,7 +193,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 
 **선정 절차 (3단계):** ① 사전 적합성(필수 조건)으로 후보를 거르고, ② 과제 전용 실험으로 정확도를 측정하고, ③ 운영 판단으로 진영 간 균형과 비용을 확인한다. v1.0의 가중 기준표(40/20/15/15/10)는 필수 조건과 한 절 안에서 섞여 선정 방식이 두 개로 읽혔기 때문에 삭제했다.
 
-**① 사전 적합성 (필수 조건):** 교차언어(다국어) 검색 지원, **모델 고유 최대 입력 900토큰 이상**(청크 무손실 가능), 오픈소스 라이선스, 로컬(Apple Silicon) 실행 가능. 탈락한 후보도 비교를 위한 참고 기준선으로 측정 결과를 유지한다.
+**① 사전 적합성 (필수 조건):** 교차언어(다국어) 검색 지원, **모델 고유 최대 입력이 모델 토크나이저 기준 최대 청크 길이(1,529토큰) 이상**(청크 무손실 가능), 오픈소스 라이선스, 로컬(Apple Silicon) 실행 가능. 탈락한 후보도 비교를 위한 참고 기준선으로 측정 결과를 유지한다.
 
 <!--w:3.4,1.1,2.4,1.8,1.7,1.6,1.1,2.9-->
 | 모델 | 다국어 | 모델 고유 최대 입력(모델 카드·config) | 평가 설정 길이 | 평가 시 잘린 청크 | 라이선스 | 로컬 실행 | ① 판정 |
@@ -217,7 +255,7 @@ LLM은 토큰을 하나씩 생성하면서, 앞에서 계산한 Key·Value 텐�
 | multilingual-e5-large | 탈락 | 0.589 | 0.662 / 0.589 | 17.4 | 7.7 | 3081 | 0.62 |
 | multilingual-minilm-l12 | 탈락 | 0.375 | 0.378 / 0.375 | 0.6 | 1.0 | 1065 | 0.23 |
 
-> **결정: 임베딩 `BAAI/bge-m3`, 검색 구성 "3중 하이브리드(RRF) + bge-reranker-v2-m3".** 과제 조건은 두 진영 문서를 같은 비중으로 검색하고, 900토큰 청크를 잘림 없이 인코딩할 수 있으며, 오픈소스로 로컬에서 실행하는 것이다. ① 사전 적합성에서 이 조건을 만족한 후보는 bge-m3와 Qwen3-Embedding-0.6B뿐이었다. ③에서 진영 간 균형 `min(SW, HW)`은 bge-m3 0.659, Qwen3 0.493이었다. Qwen3는 SW 질문 MRR이 조금 더 높았지만(0.770 vs 0.748) HW 질문에서 0.493으로 크게 떨어졌다. ②의 확인 결과로, bge-m3는 전체 Hit@1·3·5와 MRR이 모두 가장 높았다. 구현 조건(2,048)으로 다시 측정해도 순위와 채택 구성의 수치는 같았다(④). 설계 초안에서는 Qwen3-Embedding-0.6B를 가정했지만, 측정 결과 교차언어 정확도가 낮아 **측정 결과에 따라 교체했다.** reranker는 질의당 약 4.5초가 더 들지만, 보고서 생성은 대화형이 아닌 배치 작업이므로 비용 대비 정확도 개선(MRR +0.073)이 크다고 판단해 채택했다. 시간이 부족할 때는 `--no-rerank` 옵션으로 끌 수 있다.
+> **결정: 임베딩 `BAAI/bge-m3`, 검색 구성 "3중 하이브리드(RRF) + bge-reranker-v2-m3".** 과제 조건은 두 진영 문서를 같은 비중으로 검색하고, 900토큰 청크를 잘림 없이 인코딩할 수 있으며, 오픈소스로 로컬에서 실행하는 것이다. ① 사전 적합성에서 이 조건을 만족한 후보는 bge-m3와 Qwen3-Embedding-0.6B뿐이었다. ③에서 진영 간 균형 `min(SW, HW)`은 bge-m3 0.659, Qwen3 0.493이었다. Qwen3는 SW 질문 MRR이 조금 더 높았지만(0.770 vs 0.748) HW 질문에서 0.493으로 크게 떨어졌다. ②의 확인 결과로, bge-m3는 전체 Hit@1·3·5와 MRR이 모두 가장 높았다. 구현 조건(2,048)으로 다시 측정해도 순위와 채택 구성의 수치는 같았다(④). 설계 초안에서는 Qwen3-Embedding-0.6B를 가정했지만, 측정 결과 교차언어 정확도가 낮아 **측정 결과에 따라 교체했다.** 3중과 2중 하이브리드는 reranker 적용 후 v1·v2 모두 네 지표가 같았다. 3중 구성은 reranker 이전 v1 측정(MRR 0.790 vs 0.786)으로 먼저 고정한 것이고, 동률이 확인된 뒤 구성을 바꾸면 결과를 보고 고르는 사후 선택이 되므로 유지한다(D29). 또한 영어 dense 순위는 BM25(EN)의 어휘 일치가 실패하는 풀어쓴 영어 질의를 보완할 것으로 예상하지만, 한국어 질의 평가셋으로는 이 차이를 확인하지 못했다(한계). reranker는 질의당 약 4.5~4.7초가 더 들지만(v1 첫 측정 4.7초, v1.2 재실행 4.5초, v2 측정 4.7초. 정확도 지표는 회차마다 같고 지연만 실행 환경에 따라 달라졌다), 보고서 생성은 대화형이 아닌 배치 작업이므로 비용 대비 정확도 개선(MRR +0.073)이 크다고 판단해 채택했다. 시간이 부족할 때는 `--no-rerank` 옵션으로 끌 수 있다.
 
 **④ 구현 조건 재측정 (v2: `max_seq_length` 2,048, 잘린 청크 0건)**
 
@@ -300,10 +338,10 @@ v1 수치는 바꾸지 않고, 구현 설정으로 같은 42문항을 다시 측
 | 도메인 후보 | 적합성 검토 | 채택 |
 |---|---|---|
 | 데이터센터·클라우드 장문맥 LLM 서빙 | 두 기술 모두 KV cache가 급증하는 장문맥·대규모 배치 상황을 문제로 정의한다. 논문 실험 환경(GPU 서버, CXL 서버·vLLM)과 직접 일치하고, 산업 연관성(vLLM, CXL 표준)도 이 도메인에 집중되어 있다. | **주 도메인** |
-| 온디바이스·엣지 추론 | 자원·전력 제약이 커서 평가 기준이 달라진다. 두 기술 모두 직접 근거가 적어, 환경에 따른 평가 변화(H3)를 보는 **대조군**으로만 쓴다. | 대조군 |
+| 온디바이스·엣지 추론 | 자원·전력 제약이 커서 평가 기준 자체가 달라진다. 두 기술 모두 직접 근거가 적고, 도메인을 늘리면 시장·이해관계자 조사 범위도 함께 늘어난다. | 제외 |
 | 멀티모달 서빙 | 두 논문 모두 텍스트 기반 실험만 제공해 근거가 부족하다. | 제외 |
 
-주 도메인의 워크로드는 두 가지로 한정한다. **(W1) 장문맥 배치 추론**(문서 QA·요약, 32K~128K+)과 **(W2) 고동시성 다중 턴·에이전트 서빙**(prefix KV 재사용)이다.
+평가 도메인은 **데이터센터·클라우드 장문맥 LLM 서빙 하나**이다. 도메인 안의 워크로드는 두 가지로 한정한다. **(W1) 장문맥 배치 추론**(문서 QA·요약, 32K~128K+)과 **(W2) 고동시성 다중 턴·에이전트 서빙**(prefix KV 재사용)이다. W1·W2는 별도 도메인이 아니라 같은 도메인의 **평가 조건**이며, 도메인 적합성 관점의 채점에만 쓰인다(시장·이해관계자 조사 범위는 늘리지 않는다).
 
 **문제 정의 (선정 도메인 기반)**
 
@@ -312,7 +350,7 @@ v1 수치는 바꾸지 않고, 구현 설정으로 같은 42문항을 다시 측
 |---|---|
 | 의사결정 상황 | 장문맥(수십~수백K 토큰)과 다중 턴·에이전트 워크로드가 늘면서, 서빙 사업자는 **GPU당 동시 세션 수와 최대 문맥 길이가 HBM 용량에 묶이는 문제**를 겪는다. GPU를 늘리는 것 말고, KV를 줄이는 SW 기술과 KV를 둘 공간을 늘리는 HW 기술이 대안으로 거론된다. |
 | 핵심 문제 | 같은 기술을 두고도 **시장, 이해관계자, 도메인 관점마다 평가가 엇갈린다.** 예: 시장은 즉시 적용 가능성을 높이 보는데, 도메인 관점은 정확도 영향과 엔진 통합 수준을 문제 삼는다. 이 엇갈림을 근거 없이 한 방향으로 요약하면 의사결정이 왜곡된다. |
-| 분석 질문 | Q1. 두 기술은 각 관점(TRL, 시장, 이해관계자, 도메인)에서 **어떤 근거로 어떻게 인식되는가?**<br>Q2. **관점 간 일치·상충 지점은 어디이며, 그 원인은 무엇인가?**<br>Q3. 환경(데이터센터 vs 온디바이스)과 결합 사용 여부에 따라 **평가 조건이 어떻게 달라지는가?** (가설 H1~H4) |
+| 분석 질문 | Q1. 두 기술은 각 관점(TRL, 시장, 이해관계자, 도메인)에서 **어떤 근거로 어떻게 인식되는가?**<br>Q2. **관점 간 일치·상충 지점은 어디이며, 그 원인은 무엇인가?**<br>Q3. 워크로드(W1 장문맥 배치 vs W2 고동시성 다중 턴)와 결합 사용 여부에 따라 **평가 조건이 어떻게 달라지는가?** (가설 H1~H4) |
 | 산출물 성격 | 기술 추천이나 우열 판정이 아니라, **관점별 인식 차이와 그 근거·조건을 추적할 수 있게 정리한 다관점 평가 보고서** |
 | 1차 독자 | LLM 인프라 기획·운영 담당자, 메모리 반도체 사업 기획 담당자 |
 
@@ -344,8 +382,8 @@ v1 수치는 바꾸지 않고, 구현 설정으로 같은 42문항을 다시 측
 |---|---|---|---|---|
 | ① 기술 성숙도 · TRL (기술 조사 Agent) | 각 기술의 원 논문, 공식 구현체, 제품화 신호 | 구현 검증 수준(시뮬레이션 / 실제 HW 실측 / 프로토타입), 재현 가능성(코드·데이터 공개), 서빙 프레임워크 반영, 고객 샘플·제품 출시 | 논문 RAG(실험 조건), 웹(릴리스·발표) | `trl_result`: 기술별 TRL 단계, 근거표(출처·단계·공개 한계), 신뢰도 |
 | ② 시장성 (시장 평가 Agent) | TurboQuant: 추론 서빙 최적화 SW 세그먼트 / ITME: CXL 메모리 확장 HW 세그먼트 | 시장 규모·성장률, 상용화·채택 사례, 생태계 지원(vLLM·TensorRT-LLM·SGLang, CXL Consortium·OCP), 도입 비용 구조(재학습 불필요 vs HW 투자) | 시장 리포트, 제품 발표, 프레임워크 문서, 논문 RAG(적용 조건) | `market_result`: 기준별 찬반 근거와 인식 점수 |
-| ③ 이해관계자 (이해관계자 평가 Agent) | (a) 클라우드·데이터센터 사업자 (b) GPU·메모리 벤더(경쟁 진영 포함) (c) 개발자 커뮤니티(vLLM 등 OSS) (d) 투자·애널리스트·미디어 | 집단별 공식 입장·발언, 커뮤니티 반응(이슈·포럼), 대응 기술, 채택 장벽, 투자·표준화 참여 | 웹(기업 발표, 개발자 토론, 언론·분석) | `stakeholder_result`: 집단 × 입장(지지/우려/중립) 매트릭스와 근거 |
-| ④ 도메인 적합성 (도메인 평가 Agent) | W1 장문맥 배치 추론, W2 고동시성 다중 턴 서빙 (+ 온디바이스 대조) | 비용(TCO 구조), 지연(TTFT·TPOT), 처리량·동시성, 정확도 영향, 통합 난이도(엔진·드라이버·HW 변경), 온디바이스 제약(전력·메모리·HW 가용성) | 논문 RAG(벤치마크 조건), 웹(실제 시스템 사례) | `domain_result`: 워크로드별 적합 조건·제약, 환경별 대조표 |
+| ③ 이해관계자 (이해관계자 평가 Agent) | (a) 클라우드·데이터센터 사업자 (b) GPU·메모리 벤더(경쟁·협력 벤더. 평가 대상 기술의 개발사는 제외) (c) 개발자 커뮤니티(vLLM 등 OSS) (d) 투자·애널리스트·미디어 | 집단별 공식 입장·발언, 커뮤니티 반응(이슈·포럼), 대응 기술, 채택 장벽, 투자·표준화 참여 | 웹(기업 발표, 개발자 토론, 언론·분석) | `stakeholder_result`: 집단 × 입장(지지/우려/중립) 매트릭스와 근거 |
+| ④ 도메인 적합성 (도메인 평가 Agent) | 데이터센터 장문맥 서빙의 W1 장문맥 배치 추론, W2 고동시성 다중 턴 서빙 | 비용(TCO 구조), 지연(TTFT·TPOT), 처리량·동시성, 정확도 영향, 통합 난이도(엔진·드라이버·HW 변경) | 논문 RAG(벤치마크 조건), 웹(실제 시스템 사례) | `domain_result`: 워크로드별 적합 조건·제약, W1·W2 대조표 |
 
 ## C.4 TRL 추정 규칙 (공개 정보 기반 추정)
 
@@ -373,12 +411,23 @@ v1 수치는 바꾸지 않고, 구현 설정으로 같은 42문항을 다시 측
 |---|---|---|
 | 시장성 | 시장 규모·성장 25 · 상용화·채택 사례 30 · 생태계 지원 30 · 도입 비용 구조 15 | 기준별 인식 점수의 고정 가중 평균 |
 | 이해관계자 | (a) 클라우드·데이터센터 25 · (b) GPU·메모리 벤더 25 · (c) 개발자 커뮤니티 25 · (d) 투자·미디어 25 | 집단별 입장을 **지지 5 / 혼재·중립 3 / 우려 1**로 환산한 고정 가중 평균 |
-| 도메인 적합성 | W1 50 · W2 50. 워크로드마다 비용·지연·처리량·정확도 영향·통합 난이도 각 20 | 워크로드별 기준 점수의 고정 가중 평균. **온디바이스 대조는 점수에서 제외**(H3 전용) |
+| 도메인 적합성 | W1 50 · W2 50. 워크로드마다 비용·지연·처리량·정확도 영향·통합 난이도 각 20 | 워크로드별 기준 점수의 고정 가중 평균. W1·W2 점수 차는 H3 판정에도 쓴다 |
 | TRL | 점수화하지 않음. 단계 범위(예: 4–5)와 신뢰도로 제시 | **상충 판정에서 분리.** H1 전용 비교에만 사용 |
 
 - **상충 판정:** 인식 점수를 가진 세 관점(시장·이해관계자·도메인) 사이에서, **기술 안에서만** 한다. 같은 기술의 두 관점 점수 차가 2.0 이상이면 "상충", 1.0 이상 2.0 미만이면 "부분 상충", 1.0 미만이면 "일치"이다. "판단 보류" 관점은 판정에서 뺀다. 기술 간 합계, 순위, 승패는 **산출하지 않는다.**
 - **임계값의 성격:** 2.0·1.0 같은 상충 임계값과 H1 경계값은 기술의 절대적 평가 기준이 아니다. 관점 간 차이를 일관되게 분류하려고 **분석 전에 고정한 운영 규칙(heuristic)**이다. 보고서 5.5절에서는 임계값을 ±0.5 바꿨을 때 분류가 달라지는 칸 수를 함께 보고한다(민감도 점검).
-- **TRL을 분리한 이유:** 성숙도 척도와 인식 척도는 성격이 달라서, 섞으면 척도 차이만으로 H1이 기계적으로 "지지"될 수 있다. H1은 사전 규칙으로만 판정한다. **괴리**는 (TRL 상한 ≤ 4이고 시장 ≥ 4.0) 또는 (TRL 하한 ≥ 7이고 시장 ≤ 2.0)인 경우이고, 그 밖은 **일치**, 어느 한쪽이 판단 보류면 **판단 보류**이다.
+- **TRL을 분리한 이유:** 성숙도 척도와 인식 척도는 성격이 달라서, 섞으면 척도 차이만으로 H1이 기계적으로 "지지"될 수 있다. H1은 아래 3×3 격자 규칙으로만 판정한다(`synthesizer`가 코드로 계산).
+- **H1 격자 규칙:** TRL은 추정 범위의 중간값(예: 4–5 → 4.5)으로 구간을 정한다. 대각선은 **일치**, 한 칸 어긋나면 **부분 괴리**, 두 칸 어긋나면 **괴리**이다. 방향은 "기대 선행"(시장 인식이 성숙도보다 앞섬)과 "채택 신호 지연"(성숙도에 비해 시장 인식이 뒤처짐)으로 표기한다. 가설 H1의 두 절(SW 기대 선행, HW 채택 신호 지연)을 같은 격자로 판정하며, 어느 기술에 어느 방향이 나올지는 미리 정하지 않는다.
+
+<!--w:3.6,4.1,4.1,4.2-->
+| TRL 구간 (범위 중간값) | 시장 ≤ 2.0 | 2.0 < 시장 < 4.0 | 시장 ≥ 4.0 |
+|---|---|---|---|
+| 초기 (≤ 3.5) | 일치 | 부분 괴리 (기대 선행) | 괴리 (기대 선행) |
+| 중간 (3.5 초과 ~ 6.5 미만) | 부분 괴리 (채택 신호 지연) | 일치 | 부분 괴리 (기대 선행) |
+| 후기 (≥ 6.5) | 괴리 (채택 신호 지연) | 부분 괴리 (채택 신호 지연) | 일치 |
+
+- **H1 판정:** 판단 보류가 아닌 기술 중 괴리가 1건 이상이면 **지지**, 부분 괴리만 있으면 **부분 지지**, 모두 일치이면 **기각**, 두 기술 모두 TRL이나 시장 점수가 판단 보류이면 **판단 보류**이다. TRL 구간과 시장 경계값은 분석 전에 고정한 운영 규칙이며, 보고서 5.5절의 ±0.5 민감도 점검에 H1 경계값(3.5·6.5·2.0·4.0)도 포함한다.
+- **개발사 발언 제외:** 평가 대상 기술의 개발사(TurboQuant: Google, ITME: SK hynix)가 낸 발언·보도자료는 이해관계자 인식 점수에서 제외하고 참고 근거로만 인용한다. 집단 (b)는 경쟁·협력 벤더만 포함한다. 개발사의 자기 평가가 점수에 섞이면 벤더 편향이 그대로 인식 점수가 되기 때문이다.
 
 <!--w:2.6,4.4,4.4,4.6-->
 | 관점 (보고서 출력 형식) | TurboQuant (SW) | ITME (HW) | 비고 |
@@ -386,25 +435,61 @@ v1 수치는 바꾸지 않고, 구현 설정으로 같은 42문항을 다시 측
 | TRL | 단계(범위) + 근거 요약 + 신뢰도 | 단계(범위) + 근거 요약 + 신뢰도 | 공개 정보 기반 추정, 상충 판정 제외(H1 전용) |
 | 시장성 | 인식 점수 + 찬·반 근거 요약 | 인식 점수 + 찬·반 근거 요약 | |
 | 이해관계자 | 인식 점수 + 집단별 입장 요약 | 인식 점수 + 집단별 입장 요약 | |
-| 도메인 적합성 | 인식 점수 + 적합 조건 / 제약 | 인식 점수 + 적합 조건 / 제약 | 온디바이스 대조(점수 제외) |
+| 도메인 적합성 | 인식 점수 + 적합 조건 / 제약 | 인식 점수 + 적합 조건 / 제약 | W1·W2 대조(H3) |
 | **관점 간 상충** | 시장·이해관계자·도메인 간 일치/상충 + 가설 태그 | 시장·이해관계자·도메인 간 일치/상충 + 가설 태그 | 보고서 5장 재인용 |
 
-## C.6 검증 가설 (결론이 아닌 가설)
+## C.6 채점 Rubric (에이전트 채점 기준)
+
+C.3·C.5가 "무엇을 어떤 가중치로 보는가"라면, Rubric은 **에이전트가 기준마다 몇 점을 줄지 정하는 규칙**이다. 관점 에이전트 프롬프트(`prompts/`)에 그대로 넣고, 두 기술에 같은 Rubric을 쓴다. 개발 중에는 사람이 관점마다 기술별 기준 2개씩을 골라 점수·근거 ID·입장 태그가 Rubric과 맞는지 점검하고 결과를 `docs/RUBRIC_CHECK.md`에 남긴다.
+
+**공통 점수 앵커(인식 점수, 기준 단위).** 근거는 해당 기술의 `tech_specific` 근거만 세고, 개수는 원 출처 계열(`origin_group`) 단위로 센다.
+
+<!--w:1.8,9.4,4.8-->
+| 점수 | 앵커 | 예시 조건 |
+|---|---|---|
+| 5 | 긍정 인식이 우세하고, 반대 근거가 없거나 조건부 한계 수준이다 | 긍정 독립 계열 ≥ 2, 부정 0 |
+| 4 | 긍정 인식이 우세하지만 반대 근거가 있다 | 긍정 계열 수 > 부정 계열 수, 부정 ≥ 1 |
+| 3 | 긍정·부정이 비슷하거나, 근거가 평가 없이 사실만 서술한다 | 긍정 = 부정, 또는 중립 서술 위주 |
+| 2 | 부정 인식이 우세하지만 긍정 근거가 있다 | 부정 계열 수 > 긍정 계열 수, 긍정 ≥ 1 |
+| 1 | 부정 인식이 우세하고, 긍정 근거가 없다 | 부정 독립 계열 ≥ 2, 긍정 0 |
+| 판단 보류 | 기준을 판단할 근거가 부족하다 | 해당 기준의 독립 계열 근거 ≤ 1 |
+
+**관점별 기준 Rubric.** 긍정·부정 신호는 입장 태그(`stances`)를 붙이는 기준이다.
+
+<!--w:2.3,2.4,5.6,5.7-->
+| 관점 | 기준 (가중치) | 긍정 신호 (pro) | 부정 신호 (con) |
+|---|---|---|---|
+| 시장성 | 시장 규모·성장 (25) | 해당 세그먼트(추론 서빙 최적화 SW / CXL 메모리 확장)의 수요·성장을 제3자가 언급 | 수요가 불확실하거나 틈새라는 평가 |
+| 시장성 | 상용화·채택 사례 (30) | 제품 출시, 고객·파트너 도입 발표, 실서비스 적용 | 연구 단계에 머묾, 채택 사례가 없다는 지적 |
+| 시장성 | 생태계 지원 (30) | vLLM·SGLang·TensorRT-LLM 통합, CXL Consortium·OCP 연계 | 비공식 구현뿐, 표준·호환성 미정 |
+| 시장성 | 도입 비용 구조 (15) | 추가 HW 없이 적용, TCO 절감 근거 | 전용 장치·인프라 투자, 운영 복잡도 부담 |
+| 이해관계자 | 집단 (a)~(d) 각 25 | 집단 내 독립 계열 근거의 다수가 지지 → 5 | 다수가 우려 → 1. 동수·중립 서술 → 3. 해당 집단 근거가 없으면 판단 보류. 개발사 발언 제외 |
+| 도메인 적합성 | W1·W2 × 비용 (각 20) | 같은 서비스 수준에서 GPU·메모리 비용 절감 근거 | 추가 장비·운영 비용이 절감을 상쇄한다는 근거 |
+| 도메인 적합성 | W1·W2 × 지연 (각 20) | TTFT·TPOT 유지 또는 개선 실측 | 양자화 연산·원격 전송으로 지연 증가 |
+| 도메인 적합성 | W1·W2 × 처리량·동시성 (각 20) | 동시 세션 수·처리량 증가 실측 | 증가가 작거나 특정 조건에 한정 |
+| 도메인 적합성 | W1·W2 × 정확도 영향 (각 20) | 품질 중립(무손실 포함) 보고 | 품질 저하 보고 |
+| 도메인 적합성 | W1·W2 × 통합 난이도 (각 20) | 기존 서빙 엔진에 추가 변경 없이 적용 | 커널·드라이버·HW 변경 필요 |
+
+- **조건 대조:** 근거의 실험 조건(모델 크기, 문맥 길이, HW, 기준선)이 W1·W2 조건이나 발표 문구와 맞지 않으면 그 근거에 "조건 불일치"를 표기하고 신뢰도를 한 단계 낮춘다. 시장 관점의 논문 RAG는 이 대조에만 쓴다.
+- **H2 태그:** 이해관계자 근거마다 "기술 특성 언급"과 "생태계·전략 언급" 중 하나를 붙인다. H2는 두 태그의 비중으로 판정한다.
+- **TRL:** C.4 증거 사다리가 Rubric이다. 하한은 공개 증거로 확인된 가장 높은 단계, 상한은 발표·계획 등 부분 신호로 보이는 단계이다. 신뢰도는 하한·상한 모두 독립 계열 근거가 있으면 high, 한쪽만 있으면 mid, 벤더 단일 출처뿐이면 low이다.
+
+## C.7 검증 가설 (결론이 아닌 가설)
 
 팀 가설과 초기 가설을 합쳐 4개로 정리했다. 보고서는 각 가설을 **지지 / 부분 지지 / 기각 / 판단 보류(근거 부족)** 로 판정하고 근거 ID를 붙인다.
 
 <!--w:1.0,8.2,6.8-->
 | ID | 가설 | 검증 방법 |
 |---|---|---|
-| H1 | 기술 성숙도(TRL)와 시장 관점의 인식은 같은 방향을 가리키지 않을 수 있다. 논문·오픈소스 단계의 SW 기술이 시장 기대는 높고, 실측 검증된 HW 기술은 채택 신호가 제한적일 수 있다. | C.5의 H1 사전 규칙(TRL 범위 × 시장 인식 점수)으로 괴리·일치·판단 보류 판정 |
+| H1 | 기술 성숙도(TRL)와 시장 관점의 인식은 같은 방향을 가리키지 않을 수 있다. 논문·오픈소스 단계의 SW 기술이 시장 기대는 높고, 실측 검증된 HW 기술은 채택 신호가 제한적일 수 있다. | C.5의 H1 3×3 격자 규칙(TRL 범위 중간값 × 시장 인식 점수)으로 괴리·부분 괴리·일치·판단 보류 판정 |
 | H2 | 이해관계자 반응은 기술 특성 자체보다 소속 생태계(빅테크 SW 생태계 vs 메모리·CXL 표준 생태계)의 영향을 더 많이 반영할 수 있다. | 이해관계자 근거를 "기술 특성 언급"과 "생태계·전략 언급"으로 태깅해 비중 비교 |
-| H3 | 적용 환경(데이터센터 장문맥 서빙 vs 온디바이스)에 따라 두 기술의 적용 조건과 제약에 대한 평가가 달라질 수 있다. | 도메인 평가의 환경별 대조표에서 평가 방향이 바뀌는 기준 확인 |
+| H3 | 같은 데이터센터 도메인 안에서도 워크로드(W1 장문맥 배치 vs W2 고동시성 다중 턴)에 따라 두 기술의 적용 조건과 제약에 대한 평가가 달라질 수 있다. | 도메인 평가의 W1·W2 대조표에서 점수 방향(3점 기준 위·아래)이 바뀌는 기준 확인 |
 | H4 | 두 접근은 경쟁보다 보완 관계일 수 있다(압축된 KV는 하위 계층으로 옮기기 쉬움). 즉시 적용성(SW)과 무손실 용량 확장(HW)은 서로 다른 채택 주체(기존 GPU 보유 기업 vs 신규 인프라 투자 기업)에게 호소할 수 있다. | 결합 사용 근거 검색, 시장·이해관계자 근거를 채택 주체 유형별로 태깅 |
 
-## C.7 확증편향 방지 장치 요약
+## C.8 확증편향 방지 장치 요약
 
 1. **찬반 양면 검색:** 관점 에이전트는 기술마다 지지 질의와 반대 질의를 짝으로 실행한다.
-2. **출처 다양성 할당:** 원 출처 계열(재인용은 같은 계열) 기준으로 비중이 50% 이하가 되도록 하고, 벤더/제3자 라벨을 붙인다(ITME·TurboQuant 모두 1차 자료가 벤더 발표이므로 필수). 기술 고유(`tech_specific`) 근거만 찬반 할당량으로 인정한다.
+2. **출처 다양성 할당:** 원 출처 계열(재인용은 같은 계열) 기준으로 비중이 50% 이하가 되도록 하고, 개발사 본인의 발언은 이해관계자 인식 점수에서 제외하며, 벤더/제3자 라벨을 붙인다(ITME·TurboQuant 모두 1차 자료가 벤더 발표이므로 필수). 기술 고유(`tech_specific`) 근거만 찬반 할당량으로 인정한다.
 3. **인용 필수:** 근거가 없는 주장은 Judge가 삭제하거나 재작성을 요구한다.
 4. **대칭 처리:** 두 기술에 같은 템플릿, 같은 검색 한도, 같은 채점 기준을 적용한다.
 5. **상위 모델 Judge:** Generator(gpt-4.1-mini)보다 상위 모델인 gpt-4.1이 채점하고, **미달 관점만** 다시 실행한다. 같은 계열 모델이라 편향 감소 효과는 제한적이다(한계).
@@ -426,8 +511,8 @@ Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드
 | 기술 조사 | `selection_validator`<br>`tech_research`<br>`trl_assessor` | ① 선정 검증 ② 원문에서 개요·실험 조건·한계 추출 ③ TRL 추정 | O (+Web: TRL 7–9 신호) |
 | 시장 평가 | `market_evaluator` | 시장 규모, 채택 사례, 생태계 지원 | O + Web |
 | 이해관계자 평가 | `stakeholder_evaluator` | 경쟁 진영·도입사·개발자·투자업계 시각 | Web |
-| 도메인 평가 | `domain_evaluator` | 장문맥 서빙 적합 조건·제약, 온디바이스 대조 | O + Web |
-| 평가 종합 | `synthesizer` | 관점 간 일치·상충 매트릭스, H1~H4 판정 | X |
+| 도메인 평가 | `domain_evaluator` | 장문맥 서빙(W1·W2) 적합 조건·제약 | O + Web |
+| 평가 종합 | `synthesizer` | 상충·H1 판정은 코드로 계산, LLM은 해설과 H2~H4 판정 근거 정리 | X |
 | Judge | `judge` | 관점별 근거성·중립성·다양성·완결성 채점, 결정적 검사, 미달 관점 지정 | X |
 | 보고서 생성 | `report_writer` | 목차대로 본문 작성, 인용·REFERENCE 정리 | X |
 
@@ -444,13 +529,13 @@ Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드
 | Judge | 4개 관점 결과, `synthesis`, `evidence` | `judge_scores`<br>`failed_perspectives`<br>`judge_feedback` | 내용을 직접 고치지 않음, 재실행 횟수 관리 안 함 |
 | 보고서 생성 | 전체 결과, `judge_scores`, `warnings` | `report_markdown`<br>`references` | 근거 ID 없는 주장 추가 안 함 |
 
-**보조 노드:** `initialize`, `index_builder`(로드·한도 확인·청킹·인덱싱), `query_planner`, `hybrid_retriever`, `retrieval_grader`, `query_rewriter`, `retry_router`(재실행 횟수 증가·`Send` 경로 생성), `final_check`, `pdf_renderer`
+**보조 노드:** `initialize`, `index_builder`(로드·한도 확인·청킹·인덱싱), `query_planner`, `hybrid_retriever`, `retrieval_grader`, `query_rewriter`, `retry_router`(재실행 횟수 증가·`Command(goto)`로 재실행 노드 지정), `final_check`, `pdf_renderer`
 
-**관점 에이전트 내부 루프:** 각 관점 에이전트는 노드 안에서 자기교정 루프를 돈다. `paper_retrieve`/`web_search`로 검색하고, 관련성과 찬반 균형을 평가하고, 부족하면 재질의하는 과정을 **최대 2회** 반복한다. Judge가 재실행을 지시하면 `judge_feedback[관점]`을 추가 질의 조건으로 쓴다.
+**관점 에이전트 내부 루프:** 각 관점 에이전트는 노드 안에서 자기교정 루프를 돈다. `paper_retrieve`/`web_search`로 검색하고, 관련성과 찬반 균형을 평가하고, 부족하면 재질의하는 과정을 반복한다(초기 검색 1회 + 재질의 **최대 2회**). Judge가 재실행을 지시하면 State의 `judge_feedback[관점]`을 추가 질의 조건으로 쓴다. 이 Loop는 **노드 내부 로직**이라 LangGraph 그래프 렌더링(`docs/graph.png`)에는 나타나지 않고, 그림 2b(b)와 `audit_log`로 확인한다. 노드 수(18개)와 State 계약을 그대로 유지하기 위해 subgraph로 분리하지 않았다(D35).
 
 ## D.2 State 설계
 
-병렬 노드가 같은 값을 동시에 덮어쓰지 않도록 **네 관점 결과를 각각 독립된 키**에 둔다. **reducer가 없는 키는 작성 노드가 하나뿐**이다. 여러 노드가 쓰는 키는 `evidence`, `warnings`, `audit_log` 세 개뿐이며, 병합 정책을 reducer로 명시한다. 관점 결과 키 4개는 누적하지 않고, 재실행 시 **최신 결과로 교체**한다.
+병렬 노드가 같은 값을 동시에 덮어쓰지 않도록 **네 관점 결과를 각각 독립된 키**에 둔다. **reducer가 없는 키는 작성 노드가 하나뿐**이다. 여러 노드가 쓰는 키는 `evidence`, `warnings`, `audit_log` 세 개뿐이며, 병합 정책을 reducer로 명시한다. 관점 결과 키 4개는 누적하지 않고, 재실행 시 **최신 결과로 교체**한다. 카운터 3개(`retrieval_retry_count`, `perspective_retry_count`, `report_retry_count`)는 State 기본값(0, 빈 dict)으로 초기화하며, 작성 노드는 표에 적은 하나뿐이다.
 
 <!--w:4.0,3.4,3.0,2.6,3.0-->
 | State 키 | 타입 | 작성 노드 | 읽는 노드 | 설명 · 갱신 방식 |
@@ -463,16 +548,16 @@ Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드
 | `queries` | `dict[str, list[Query]]` | query_planner | hybrid_retriever | 기술 × 개요 항목별 공통 질의 |
 | `rewritten_queries` | `dict[str, list[Query]]` | query_rewriter | hybrid_retriever | 재작성 질의(있으면 `queries` 대신 사용, 재시도마다 교체) |
 | `retrieved_chunks` | `dict[str, list[Evidence]]` | hybrid_retriever | retrieval_grader, tech_research | 공통 RAG 검색 결과(청크·점수·페이지) |
-| `retrieval_grade` | `RetrievalGrade` | retrieval_grader | 라우터 | 관련성·범위·찬반 균형 판정과 누락 요소 |
+| `retrieval_grade` | `RetrievalGrade` | retrieval_grader | 라우터 | 관련성·범위 판정과 누락 요소 |
 | `retrieval_retry_count` | `int` | query_rewriter | 라우터 | 공통 검색 재시도 횟수(최대 2) |
 | `evidence` | `Annotated[list[Evidence], merge_by_id]` | 조사·평가 노드(reducer) | synthesizer, judge, report_writer | 논문(P:)·웹(W:) 근거 저장소. 병합 정책은 아래 참조 |
 | `tech_brief` | `dict[str, TechBrief]` | tech_research | 4개 관점 노드, synthesizer | 기술별 원리, 적용 범위, 실험 조건, 한계 |
 | `trl_result` | `PerspectiveResult` | trl_assessor | synthesizer, judge, report_writer | 기술별 TRL 범위, 근거표, 공개 한계, 신뢰도 |
 | `market_result` | `PerspectiveResult` | market_evaluator | synthesizer, judge, report_writer | 시장 규모·채택·생태계 찬반 근거와 점수 |
 | `stakeholder_result` | `PerspectiveResult` | stakeholder_evaluator | synthesizer, judge, report_writer | 이해관계자 집단 × 입장 매트릭스 |
-| `domain_result` | `PerspectiveResult` | domain_evaluator | synthesizer, judge, report_writer | 워크로드별 적합 조건·제약, 온디바이스 대조 |
-| `synthesis` | `SynthesisResult` | synthesizer | judge, report_writer | 관점 × 기술 매트릭스, 상충 목록, H1~H4 판정 |
-| `judge_scores` | `dict[str, JudgeScore]` | judge | retry_router, report_writer | 관점별 4항목 점수, 결정적 검사 결과, unsupported 주장 ID |
+| `domain_result` | `PerspectiveResult` | domain_evaluator | synthesizer, judge, report_writer | 워크로드(W1·W2)별 적합 조건·제약, W1·W2 대조 |
+| `synthesis` | `SynthesisResult` | synthesizer | judge, report_writer | 관점 × 기술 매트릭스, 상충 목록(코드 계산), H1(코드)·H2~H4 판정, 민감도 |
+| `judge_scores` | `dict[str, JudgeScore]` | judge | retry_router, report_writer | 관점별(4개) 4항목 점수·결정적 검사 결과, synthesis 해설의 근거성, unsupported 주장 ID. 통과한 관점은 동결 |
 | `failed_perspectives` | `list[str]` | judge | retry_router | 미달 관점(통과 시 빈 목록) |
 | `judge_feedback` | `dict[str, str]` | judge | 관점 노드(재실행 시) | 관점별 보완 지시(추가 질의 조건) |
 | `perspective_retry_count` | `dict[str, int]` | retry_router | retry_router, report_writer | 관점별 재실행 횟수(각 최대 2). 한도에 이르면 `warnings`에 "판정 불확실" 기록 |
@@ -483,7 +568,7 @@ Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드
 | `warnings` | `Annotated[list[str], add_unique]` | 여러 노드(reducer) | report_writer, final_check | 근거 부족, 재시도 초과, 출처 편중 경고 → 보고서 한계점에 반영 |
 | `audit_log` | `Annotated[list[AuditEvent], add]` | 전체(reducer) | final_check, 로그 | 노드, 시각, 질의, 사용 근거, 모델, 판정 |
 
-**`evidence` 병합 정책(`merge_by_id`):** `evidence_id`는 (출처, 위치)의 해시이다. 논문은 doc_id·페이지·청크, 웹은 정규화 URL·발췌 위치로 만든다. 같은 ID가 다시 들어오면 기존 항목을 유지하고 `perspectives`와 `stances` 필드만 합집합으로 합친다. `claim`이 서로 다르면 충돌로 판정해 `warnings`에 기록한다. 항목마다 `attempt`(관점별 실행 차수)를 두어, 재실행으로 대체된 이전 결과의 근거는 Judge 집계와 출처 50% 계산에 넣지 않는다.
+**`evidence` 병합 정책(`merge_by_id`):** `evidence_id`는 (출처, 위치)의 해시이다. 논문은 doc_id·페이지·청크, 웹은 정규화 URL·발췌 위치로 만든다. 같은 ID가 다시 들어오면 기존 항목을 유지하고 `perspectives`와 `stances` 필드만 합집합으로 합친다. `claim`이 서로 다르면 충돌로 판정해 `warnings`에 기록한다. 항목마다 `attempt`(관점별 실행 차수)를 두어, 재실행으로 대체된 이전 결과의 근거는 Judge 집계와 출처 50% 계산에 넣지 않는다. 프롬프트를 구성하기 전에 `evidence`를 `evidence_id` 기준으로 정렬해, 병렬 병합 순서와 무관하게 `--offline` 캐시 키가 같아지게 한다. 캐시 SQLite는 WAL 모드로 연다.
 
 주요 객체의 최소 구조는 다음과 같다.
 
@@ -497,18 +582,18 @@ PerspectiveResult = {perspective, by_tech: {tech_id: {criteria: [{name, score_1t
 SynthesisResult   = {matrix: {tech_id: {perspective: {score, one_liner}}}, conflicts: [{tech_id, pair,
                      gap, explanation, hypothesis_tags}], hypotheses: {H1..H4: {verdict, rationale, evidence_ids}}}
 JudgeScore        = {grounding, neutrality, source_diversity, completeness (1-5), passed,
-                     unsupported_claim_ids, checks{max_origin_share, pro_origins, con_origins, lexicon_hits}}
+                     unsupported_claim_ids, checks{max_origin_share, pro_origins, con_origins, bound_origins, lexicon_hits}}
 ```
 
 ## D.3 Graph 흐름
 
-흐름은 **Human 선정(2안) → 초기화 → 선정 검증(기록만) → 공통 RAG(Loop) → 기술 조사 → 4개 관점 병렬 평가(Fan-out) → 종합(Fan-in) → Judge → retry_router(Branch·선택적 재실행) → 보고서 생성·검수(Loop) → PDF** 순서이다. 그림 2a는 전체 워크플로이고, 그림 2b는 품질 제어 루프를 펼친 상세도이다. 그림 2a의 Mermaid 소스는 아래와 같고(`docs/graph_overview.mmd`), 그림 2b의 소스는 `docs/graph_quality.mmd`에 있다. 구현이 끝나면 LangGraph의 `draw_mermaid_png`로 뽑은 실제 그래프(`docs/graph.png`)와 대조한다.
+흐름은 **Human 선정(2안) → 초기화 → 선정 검증(기록만) → 공통 RAG(Loop) → 기술 조사 → 4개 관점 병렬 평가(Fan-out) → 종합(Fan-in) → Judge → retry_router(Branch·선택적 재실행) → 보고서 생성·검수(Loop, 한도 소진 시 후처리) → PDF** 순서이다. 그림 2a는 전체 워크플로이고, 그림 2b는 품질 제어 루프를 펼친 상세도이다. 그림 2a의 Mermaid 소스는 아래와 같고(`docs/graph_overview.mmd`), 그림 2b의 소스는 `docs/graph_quality.mmd`에 있다. 구현이 끝나면 LangGraph의 `draw_mermaid_png`로 뽑은 실제 그래프(`docs/graph.png`)와 대조한다.
 
 ---pagebreak---
 
-![그림 2a. 전체 워크플로: 보라색은 에이전트 노드, 회색은 보조 노드, 노란색은 분기(Branch). 보라 점선 박스는 병렬 평가(Fan-out, 각 Agent 내부 Loop ≤2, 그림 2b-b)이다. 노란 점선 박스는 retry_router가 failed_perspectives에 포함된 관점에만 보내는 Send 재실행이며, 재실행 후 synthesizer로 돌아간다](graph_overview.png)<!--img:13.4-->
+![그림 2a. 전체 워크플로(개념도). 보라색은 에이전트 노드, 회색은 보조 노드, 노란색은 상태를 갱신하고 경로를 정하는 라우팅 노드이다. 점선 박스는 병렬 평가(Fan-out, 내부 Loop ≤2)이고, 점선 화살표는 retry_router가 Command(goto)로 미달 관점 노드만 다시 실행하는 경로이다. Human 선정은 그래프 밖 입력이고 index_builder → 공통 RAG Loop 상자는 노드 5개의 묶음(그림 2b-a)이다. 노드 18개와의 대응은 그림 2b와 docs/graph.png로 확인한다](graph_overview.png)<!--img:11.6-->
 
-![그림 2b. 품질 제어 상세: (a) 공통 검색 Loop(목적: 기술 개요와 공통 근거 확보), (b) 관점 에이전트 내부 Loop(목적: 해당 관점의 찬반 근거와 누락 기준 보완), (c) Judge 선택적 재실행 Branch](graph_quality.png)<!--img:16.0-->
+![그림 2b. 품질 제어 상세: (a) 공통 검색 Loop(목적: 기술 개요와 공통 근거 확보), (b) 관점 에이전트 내부 Loop(목적: 해당 관점의 찬반 근거와 누락 기준 보완), (c) Judge 선택적 재실행 Branch. (b)는 관점 노드 내부 로직이며 실제 그래프 렌더링(docs/graph.png)에는 나타나지 않는다](graph_quality.png)<!--img:16.0-->
 
 **그림 2a Mermaid 소스 (Graph 흐름 설계)**
 
@@ -528,31 +613,21 @@ flowchart TD
     TR --> TRL & MK & SH & DM
     TRL & MK & SH & DM --> SY["synthesizer<br/>Fan-in (defer)"]
     SY --> JD["judge"]
-    JD --> RR{{"retry_router<br/>미달·retry<2?"}}
-    subgraph RERUN[" "]
-        direction LR
-        R1["↺ TRL"]
-        R2["↺ 시장"]
-        R3["↺ 이해관계자"]
-        R4["↺ 도메인"]
-    end
-    RR -.->|"Send·failed 포함 시"| R1
-    RR -.->|"Send"| R2
-    RR -.->|"Send"| R3
-    RR -.->|"Send"| R4
-    RR -->|"없음·한도→판정 불확실"| RWR["report_writer"]
-    RWR --> FC{{"final_check"}}
-    FC -->|"수정 ≤1"| RWR
+    JD --> RR["retry_router<br/>count+1 · goto"]
+    RR -.->|"goto: failed 관점 노드만 · retry<2"| FAN
+    RR -->|"재실행 대상 없음"| RWR["report_writer"]
+    RWR --> FC["final_check"]
+    FC -->|"실패 · 수정 <1"| RWR
     FC -->|"통과"| PDF["pdf_renderer → END"]
+    FC -->|"실패 · 한도 소진<br/>후처리 + warnings"| PDF
     classDef agent fill:#EEE8FA,stroke:#7F4ACB,color:#161A58;
     classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
     classDef human fill:#E8F4EC,stroke:#2E7D4F,color:#16381F;
     classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
-    class VAL,TR,TRL,MK,SH,DM,SY,JD,RWR,R1,R2,R3,R4 agent;
+    class VAL,TR,TRL,MK,SH,DM,SY,JD,RWR agent;
     class INIT,CR,PDF util;
     class H0 human;
     class RR,FC gate;
-    style RERUN fill:#FFFDF6,stroke:#D08A00,stroke-dasharray:4 3,color:#3A2A00
     style FAN fill:#FBFAFE,stroke:#7F4ACB,stroke-dasharray:4 3,color:#161A58
 ```
 
@@ -562,22 +637,54 @@ flowchart TD
 2. **공통 검색 루프:** `retrieval_grader`가 부족으로 판정하고 `retrieval_retry_count < 2`이면 `query_rewriter`로 가서 다시 `hybrid_retriever`로 돌아온다. 한도를 다 쓰면 경고를 남기고 `tech_research`로 진행한다.
 3. **Fan-out:** `tech_research` 다음 4개 관점 노드를 **같은 superstep에서 병렬**로 실행한다. 노드마다 자기 결과 키에만 쓰므로 충돌이 없고, 공유 필드(`evidence`, `warnings`, `audit_log`)는 reducer로 병합한다.
 4. **Fan-in:** `synthesizer`는 `defer=True`로 등록해 **그 superstep에서 실행된 관점 노드가 모두 끝난 뒤** 한 번만 실행된다. 선택적 재실행으로 일부 관점만 다시 돌 때도 멈추지 않는다.
-5. **Judge 분기(Branch):** `judge`는 채점만 하고 `judge_scores`, `failed_perspectives`, `judge_feedback`를 쓴다. 이어지는 `retry_router`는 조건부 엣지 함수가 아니라 **노드**이다. LangGraph의 조건부 엣지 함수는 State를 갱신할 수 없기 때문이다. `retry_router`는 미달 관점 중 `perspective_retry_count < 2`인 관점의 횟수를 1 올리고, `Command(update=…, goto=[Send(관점 노드, {judge_feedback})…])`로 해당 관점만 다시 실행한다. 재실행 결과는 기존 결과를 교체하고 `synthesizer`와 `judge`를 다시 거친다. 한도에 이른 관점은 `warnings`에 "판정 불확실"로 기록하고, 재실행할 관점이 없으면 `report_writer`로 간다.
+5. **Judge 분기(Branch):** `judge`는 채점만 하고 `judge_scores`, `failed_perspectives`, `judge_feedback`를 쓴다. 이어지는 `retry_router`는 조건부 엣지 함수가 아니라 **노드**이다. LangGraph의 조건부 엣지 함수는 State를 갱신할 수 없기 때문이다. `retry_router`는 미달 관점 중 `perspective_retry_count < 2`인 관점의 횟수를 1 올리고, `Command(update=…, goto=[관점 노드명…])`로 해당 관점 노드만 다시 실행한다. `Send` 대신 노드명을 쓰는 이유는, `Send`로 호출된 노드는 전달한 인자만 입력으로 받아 `tech_brief`·`evidence`를 읽을 수 없기 때문이다. 재실행 노드는 State의 `judge_feedback[관점]`을 추가 질의 조건으로 읽는다. `retry_router`는 반환 타입 `Command[Literal[...]]`로 목적지를 선언해 `draw_mermaid_png`에 출구 엣지가 그려지게 한다. 재실행 결과는 기존 결과를 교체하고 `synthesizer`와 `judge`를 다시 거친다. 한도에 이른 관점은 `warnings`에 "판정 불확실"로 기록하고, 재실행할 관점이 없으면 `report_writer`로 간다.
+   - **재채점 동결:** 재실행 후 Judge는 재실행된 관점과 synthesis 해설만 다시 채점하고, 이미 통과한 관점의 `judge_scores`는 동결한다. LLM 출력의 흔들림으로 통과한 관점이 다시 미달되는 것을 막기 위해서다. 관점당 검색 라운드는 최대 9회(내부 Loop 3라운드 × 실행 3회)이다.
+   - **synthesis 오류 처리:** 상충 판정과 H1 판정은 `synthesizer` 안에서 코드로 계산한다(C.5 규칙). LLM은 판정 결과의 해설 문장과 H2~H4 판정 근거만 작성한다. Judge는 synthesis 해설의 근거성만 검사하고, 미달 문장은 unsupported로 표시해 보고서에서 뺀다. synthesis 자체의 재실행 분기는 두지 않는다.
 6. **보고서 검수 루프:** `final_check`가 아래 항목을 확인한다. 실패하고 `report_retry_count < 1`이면 `report_writer`로 되돌린다. 순서는 먼저 검수하고 그다음 PDF 변환이다.
    - 핵심 주장마다 유효한 근거 ID가 있는가
    - REFERENCE가 실제 인용과 일치하는가
    - SUMMARY 분량이 ½페이지 이내인가
    - 우열 어휘가 남아 있는가
-7. **종료 보장:** 루프 4개 모두에 횟수 한도가 있다. 공통 검색 2, 관점 내부 2, 관점별 재실행 2, 보고서 수정 1이다. 최악의 경우에도 그래프가 반드시 끝난다.
+   - **한도 소진 경로:** 수정 한도(`report_retry_count` = 1)를 소진한 뒤에도 검수에 실패하면, `final_check`가 결정적 후처리를 한 번 적용한다. 우열 어휘는 사전 기반으로 조건부 서술로 치환하고, SUMMARY는 ½페이지 분량으로 자른다. 근거 ID가 없는 문장은 삭제한다. 그래도 남는 위반은 `warnings`에 기록해 보고서 6장에 싣고 `pdf_renderer`로 진행한다. 노드를 새로 만들지 않으므로 노드 수 18개는 그대로이다.
+7. **종료 보장:** 루프 4개 모두에 횟수 한도와 "통과"·"한도 소진" 두 출구가 있다. 한도는 공통 검색 2, 관점 내부 2, 관점별 재실행 2, 보고서 수정 1이다. 모든 루프가 한도까지 도는 최악 경로는 약 30 superstep이다. 구간별로 초기화·공통 검색 6, 검색 재시도 6, 기술 조사·병렬 평가·종합·Judge·라우터 5, 관점 재실행 2회 8, 보고서 검수 5이다. 실행 시 `config={"recursion_limit": 50}`을 명시한다. 설치 버전(LangGraph 1.2)의 기본값은 10,007이라 이상 동작을 막는 상한 역할을 하지 못하고, 이전 버전의 기본값 25로는 정상 최악 경로도 끝나지 않기 때문이다. LangGraph 버전은 `pyproject.toml`(1.2.x)과 `uv.lock`으로 고정한다.
+
+**`retry_router` 구현 형태 (`graph/workflow.py`)**
+
+```
+PERSPECTIVE_NODE = {"trl": "trl_assessor", "market": "market_evaluator",
+                    "stakeholder": "stakeholder_evaluator", "domain": "domain_evaluator"}
+
+def retry_router(state: State) -> Command[Literal["trl_assessor", "market_evaluator",
+        "stakeholder_evaluator", "domain_evaluator", "report_writer"]]:
+    counts = dict(state["perspective_retry_count"])
+    goto, warns = [], []
+    for p in state["failed_perspectives"]:
+        if counts.get(p, 0) < MAX_PERSPECTIVE_RETRIES:        # 2
+            counts[p] = counts.get(p, 0) + 1
+            goto.append(PERSPECTIVE_NODE[p])                # Send가 아닌 노드명: 전체 State를 읽음
+        else:
+            warns.append(f"판정 불확실: {p} (재실행 한도 소진)")
+    return Command(update={"perspective_retry_count": counts, "warnings": warns},
+                   goto=goto or ["report_writer"])
+```
 
 ## D.5 Judge 통과 기준
 
 관점마다 LLM 채점 4항목(5점 척도)과 **코드로 계산하는 결정적 검사**를 함께 적용한다. 판정 로직은 다음과 같다. 점수 합계(`sum ≥ 16`) 단독 조건은 쓰지 않는다.
 
 ```
-passed = all(score >= 4 for score in [grounding, neutrality, source_diversity, completeness])
-         and max_origin_share <= 0.50 and pro_origins >= 2 and con_origins >= 2 and lexicon_hits == 0
+LLM_OK = all(s >= 4 for s in [grounding, neutrality, source_diversity, completeness])
+COMMON = max_origin_share <= 0.50 and lexicon_hits == 0
+PER_PERSPECTIVE = {
+    "trl":         all(n >= 1 for n in bound_origins_by_tech.values()),   # 범위 상·하한 각각 독립 근거 ≥ 1
+    "market":      all(p >= 2 and c >= 2 for p, c in pro_con_origins_by_tech.values()),
+    "stakeholder": all(p >= 2 and c >= 2 for p, c in pro_con_origins_by_tech.values()),
+    "domain":      all(p >= 2 and c >= 2 for p, c in pro_con_origins_by_tech.values()),
+}
+passed = LLM_OK and COMMON and PER_PERSPECTIVE[perspective]
 ```
+
+TRL은 찬반 입장이 아니라 단계 추정이므로 찬반 할당량 대신 추정 범위의 상한·하한 근거를 검사한다. 웹 근거가 없는 관점의 `max_origin_share`는 0으로 둔다. synthesis 해설은 근거성만 채점하며 재실행 대상이 아니다(D.4-5).
 
 <!--w:2.8,7.2,6.0-->
 | 항목 | 통과 기준 | 미달 시 조치 |
@@ -586,7 +693,7 @@ passed = all(score >= 4 for score in [grounding, neutrality, source_diversity, c
 | 중립성 (LLM) | 4점 이상. 장점과 제약을 함께 제시하고, 근거 없는 우열·추천 표현이 없음 | 해당 관점 재작성 |
 | 출처 다양성 (LLM + 코드) | LLM 4점 이상(1차 자료와 독립 자료 구분) **그리고** 코드 검사에서 원 출처 계열 비중 ≤ 50% | 해당 관점 재검색 |
 | 완결성 (LLM) | 4점 이상. 정의된 평가 기준과 두 기술을 모두 다룸 | 누락 기준 보완 |
-| 찬반 균형 (코드) | 기술별 `tech_specific` 근거의 독립 계열 수 pro ≥ 2, con ≥ 2 | 부족한 쪽 재검색. 한도 소진 시 `근거 부족` |
+| 찬반 균형 (코드) | 기술별 `tech_specific` 근거의 독립 계열 수 pro ≥ 2, con ≥ 2. **TRL 관점은 제외**하고, 대신 추정 범위의 상한·하한 각각에 독립 계열 근거 1건 이상(`bound_origins`) | 부족한 쪽 재검색. 한도 소진 시 `근거 부족` |
 | 우열 어휘 (코드) | 사전 검사 0건 | 교정 후 재검사 |
 
 ## D.6 구현 리스크와 대응
@@ -594,12 +701,12 @@ passed = all(score >= 4 for score in [grounding, neutrality, source_diversity, c
 <!--w:4.2,6.4,5.4-->
 | 리스크 | 영향 | 대응 |
 |---|---|---|
-| 벤더 자료 편중 (ITME: SK hynix, TurboQuant: Google) | 시장·이해관계자 평가가 발표 주체의 시각에 치우침 | 벤더/제3자 라벨, 도메인 50% 한도, 제3자 근거가 없으면 `근거 부족` 표기 |
+| 벤더 자료 편중 (ITME: SK hynix, TurboQuant: Google) | 시장·이해관계자 평가가 발표 주체의 시각에 치우침 | 벤더/제3자 라벨, 원 출처 계열 50% 한도, 개발사 발언의 이해관계자 점수 제외, 제3자 근거가 없으면 `근거 부족` 표기 |
 | ITME 공개 후 기간이 짧음(2026-06) | 웹 반응·채택 근거가 부족함 | 기술 범주(CXL 메모리 확장)와 ITME 고유 근거를 구분해 표기, 판단 보류 허용 |
 | 평가셋 규모(42문항)와 같은 셋으로 설정·구성까지 선택(개발/테스트 미분리) | 과적합 가능성(1문항 = 2.4%p) | 한계로 명시. 문항 확충 후 개발/테스트 분리, 정답 청크 전수 검수(B.6) |
 | 같은 계열 Judge(gpt-4.1-mini 생성, gpt-4.1 채점) | 자기평가 편향 감소 효과 제한 | 코드 결정적 검사 병행, 한계 명시 |
 | 평가 주체의 소속 편향(SK 교육과정 × SK hynix ITME) | ITME에 우호적인 해석 가능성 | 대칭 기준·벤더 출처군 상한·기술 고유 근거 할당량, 보고서 한계점에 명시 |
-| reranker 지연(질의당 약 4.5초) | 실행 시간 증가 | 배치 작업이라 수용, `--no-rerank` 옵션 제공 |
+| reranker 지연(질의당 약 4.5~4.7초) | 실행 시간 증가 | 배치 작업이라 수용, `--no-rerank` 옵션 제공 |
 | 선택적 재실행 시 합류 대기 | 그래프 정지 | `synthesizer` `defer=True`, 관점별 재시도 한도 |
 | API 키 없는 채점 환경 | 재현 실패 | LLM·웹 캐시 커밋, `--offline` 재생, 결과물 동봉 |
 
@@ -631,7 +738,7 @@ Notion 참고 목차의 순서(SUMMARY → 분석 배경 → 기술 선정 → �
   - 4.1 기술 성숙도(TRL): 공개 정보 기반 추정, 근거표
   - 4.2 시장성
   - 4.3 이해관계자
-  - 4.4 도메인 적합성(W1·W2, 온디바이스 대조)
+  - 4.4 도메인 적합성(데이터센터 장문맥 서빙, W1·W2 대조)
 - **5. 시사점**
   - 5.1 관점 간 일치·상충 매트릭스
   - 5.2 주요 상충 지점 해설
@@ -655,9 +762,9 @@ Notion 참고 목차의 순서(SUMMARY → 분석 배경 → 기술 선정 → �
 | 1. 분석 배경 | 1.1 KV cache 병목 · 1.2 두 진영의 접근과 병용 가능성 · 1.3 분석 도메인과 문제 정의 · 1.4 분석 질문과 가설 | `selected_techs`, 설계 상수 |
 | 2. 기술 선정 | 2.1 선정 방식(Human) · 2.2 후보 6개 기준표 · 2.3 선정 결과 · 2.4 에이전트 선정 검증 결과(약점 포함) | `selection_validation` |
 | 3. 기술 개요 | 3.1 TurboQuant · 3.2 ITME (접근, 보고된 성능, 적용 조건, 한계) · 3.3 대칭 비교표 | `tech_brief` |
-| 4. 관점별 평가 | 4.0 평가 기준 · 4.1 TRL(공개 정보 기반 추정, 근거표) · 4.2 시장 · 4.3 이해관계자 · 4.4 도메인(온디바이스 대조). 모든 절에서 찬반 근거 병기 | `trl_result`, `market_result`, `stakeholder_result`, `domain_result` |
+| 4. 관점별 평가 | 4.0 평가 기준 · 4.1 TRL(공개 정보 기반 추정, 근거표) · 4.2 시장 · 4.3 이해관계자 · 4.4 도메인(W1·W2 대조). 모든 절에서 찬반 근거 병기 | `trl_result`, `market_result`, `stakeholder_result`, `domain_result` |
 | 5. 시사점 | 5.1 관점 간 일치·상충 매트릭스 · 5.2 주요 상충 해설 · 5.3 가설 H1~H4 판정 · 5.4 조건별 시사점(추천 아님) · 5.5 임계값 민감도(±0.5) | `synthesis` |
-| 6. 한계점 | 6.1 공개 정보 기반 추정의 한계 · 6.2 확증편향 방지 조치와 수치(찬반 비율, 출처 분포, Judge 점수·재실행 횟수) · 6.3 분석 방법의 한계(같은 계열 Judge, 평가 주체의 소속 편향 가능성, 판정 불확실 관점) | `judge_scores`, `warnings`, `perspective_retry_count` |
+| 6. 한계점 | 6.1 공개 정보 기반 추정의 한계 · 6.2 확증편향 방지 조치와 수치(찬반 비율, 출처 분포, Judge 점수·재실행 횟수, 한도 소진 후처리 내역) · 6.3 분석 방법의 한계(같은 계열 Judge, 평가 주체의 소속 편향 가능성, 판정 불확실 관점) | `judge_scores`, `warnings`, `perspective_retry_count` |
 | **REFERENCE** | 본문에 인용된 자료만. 논문·웹·특허 구분, Notion 표기 형식 | `references` |
 
 ## E.3 작성 규칙
@@ -691,5 +798,5 @@ Notion 참고 목차의 순서(SUMMARY → 분석 배경 → 기술 선정 → �
 
 - Google Research(2026-03-24). TurboQuant: Redefining AI efficiency with extreme compression. Google Research Blog, https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/
 - 배기주(2026-08-12). KV cache 최적화 기술 평가. SKALA 과제 안내(Notion), https://actually-war-1ea.notion.site/KV-cache-3ba7f4c866938099b7a8fdaa1831c07e
-- LangChain(2026-09-21 접속). LangGraph Graph API (Send, Command, defer, reducers). LangChain Docs, https://docs.langchain.com/oss/python/langgraph/graph-api
+- LangChain(2026-09-21 접속). LangGraph Graph API (Command, defer, reducers). LangChain Docs, https://docs.langchain.com/oss/python/langgraph/graph-api
 

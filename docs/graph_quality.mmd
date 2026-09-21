@@ -19,10 +19,10 @@ flowchart LR
     subgraph C["(c) Judge 재실행"]
         direction TB
         SY["synthesizer"] --> JD["judge"]
-        JD --> RR["retry_router<br/>count+1 · Send"]
-        RR -.->|"미달·<2"| PN["해당 관점만"]
+        JD --> RR["retry_router<br/>count+1 · goto"]
+        RR -.->|"미달·<2"| PN["해당 관점 노드만"]
         PN -.-> SY
-        RR -->|"통과/한도"| RWR["report_writer"]
+        RR -->|"대상 없음"| RWR["report_writer"]
     end
     A ~~~ B
     B ~~~ C
@@ -30,5 +30,5 @@ flowchart LR
     classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
     classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
     class O1,O2,PQ,EV,SY,JD,PN,RWR agent;
-    class QP,RET,RW,TL,GR,RR util;
-    class G1,G2 gate;
+    class QP,RET,RW,TL,GR util;
+    class G1,G2,RR gate;

@@ -1,6 +1,6 @@
 # 인수인계 프롬프트: KV cache 다관점 평가 Agentic RAG, 개발 단계
 
-> 사용법: 아래 "프롬프트 본문" 전체를 코딩 에이전트(또는 담당자)에게 그대로 전달한다. 설계 단계(설계서 v1.3)는 끝났다. 이 프롬프트는 **개발 → 평가 보고서 → README·발표 준비 → 재현성 검증 → 제출**까지를 다룬다.
+> 사용법: 아래 "프롬프트 본문" 전체를 코딩 에이전트(또는 담당자)에게 그대로 전달한다. 설계 단계(설계서 v1.4)는 끝났다. 이 프롬프트는 **개발 → 평가 보고서 → README·발표 준비 → 재현성 검증 → 제출**까지를 다룬다.
 
 ---
 
@@ -92,15 +92,16 @@
 
 | 에이전트 | 노드 | 핵심 |
 |---|---|---|
-| 기술 조사 | `selection_validator`, `tech_research`, `trl_assessor` | 선정은 **2안(Human)**이다. 검증 결과만 기록하고 **그래프 안에 재선정 분기는 없다.** TRL은 C.4 증거 사다리에 따라 범위와 신뢰도로 매기고 "공개 정보 기반 추정"을 표기한다 |
+| 기술 조사 | `selection_validator`, `tech_research`, `trl_assessor` | 선정은 **2안(Human)**이다. 검증 결과만 기록하고 **그래프 안에 재선정 분기는 없다.** TRL은 C.4 증거 사다리에 따라 범위와 신뢰도로 매기고 "공개 정보 기반 추정"을 표기한다. 범위의 상한·하한 각각에 독립 계열 근거를 붙인다(`bound_origins`) |
 | 시장 평가 | `market_evaluator` | 논문 RAG는 "발표 주장 ↔ 원 논문 실험 조건 대조"에만 쓴다. 기준 가중치는 25/30/30/15 |
-| 이해관계자 평가 | `stakeholder_evaluator` | 웹만 쓴다. 집단 (a)~(d)는 각 25%이고, 입장을 지지 5 / 혼재·중립 3 / 우려 1로 환산한다. H2용 태그(기술 특성 / 생태계) |
-| 도메인 평가 | `domain_evaluator` | W1·W2는 각 50%이고, 비용·지연·처리량·정확도·통합을 각 20%로 본다. 온디바이스 대조는 점수에서 뺀다(H3 전용) |
-| 평가 종합 | `synthesizer` | `defer=True`. 상충 판정은 시장·이해관계자·도메인 사이에서, 기술 안에서만 한다(Δ≥2.0 상충, 1.0~2.0 부분 상충). TRL은 H1 사전 규칙에만 쓴다. 임계값 ±0.5 민감도를 함께 계산한다. 기술 간 순위는 금지 |
-| Judge | `judge` | gpt-4.1. `passed = all(4항목 ≥ 4) and max_origin_share ≤ 0.5 and pro_origins ≥ 2 and con_origins ≥ 2 and lexicon_hits == 0`. 출력은 `judge_scores`, `failed_perspectives`, `judge_feedback` |
+| 이해관계자 평가 | `stakeholder_evaluator` | 웹만 쓴다. 집단 (a)~(d)는 각 25%이고, 입장을 지지 5 / 혼재·중립 3 / 우려 1로 환산한다. **개발사(Google·SK hynix) 발언은 점수에서 제외**하고 참고 근거로만 인용한다. H2용 태그(기술 특성 / 생태계) |
+| 도메인 평가 | `domain_evaluator` | W1·W2는 각 50%이고, 비용·지연·처리량·정확도·통합을 각 20%로 본다. 도메인은 데이터센터 장문맥 서빙 **1개**이고 온디바이스 대조는 없다. W1·W2 점수 차를 H3에 쓴다 |
+| 평가 종합 | `synthesizer` | `defer=True`. 상충 판정은 시장·이해관계자·도메인 사이에서, 기술 안에서만 한다(Δ≥2.0 상충, 1.0~2.0 부분 상충). 상충 판정과 **H1 3×3 격자 판정(C.5)은 코드로 계산**하고, LLM은 해설과 H2~H4 근거만 쓴다. 임계값·H1 경계값 ±0.5 민감도를 함께 계산한다. 기술 간 순위는 금지 |
+| Judge | `judge` | gpt-4.1. `passed = LLM_OK and COMMON and PER_PERSPECTIVE[관점]`(D.5 코드 그대로. TRL은 찬반 할당량 대신 `bound_origins`). 재실행 후에는 재실행된 관점과 synthesis 해설만 다시 채점하고 통과 관점은 동결한다. 출력은 `judge_scores`, `failed_perspectives`, `judge_feedback` |
 | 보고서 생성 | `report_writer` | E 목차대로 쓰고, 본문에 인용한 근거만 REFERENCE로 만든다(Notion 형식) |
 
-- 관점 에이전트 내부 루프(최대 2회): 찬반 질의 생성(재실행 시 `judge_feedback` 반영) → 검색 → 근거 평가(관련성·`scope`·출처군) → 부족하면 재질의.
+- 모든 관점 에이전트는 **C.6 채점 Rubric**(점수 앵커, 판단 보류 조건, 기준별 긍정·부정 신호)을 프롬프트에 그대로 넣어 채점한다. 개발 중 관점마다 기술별 기준 2개를 골라 사람이 점검하고 `docs/RUBRIC_CHECK.md`에 기록한다.
+- 관점 에이전트 내부 루프(초기 1회 + 재질의 최대 2회, 노드 내부 로직): 찬반 질의 생성(재실행 시 `judge_feedback` 반영) → 검색 → 근거 평가(관련성·`scope`·출처군) → 부족하면 재질의.
   - 찬반 할당량은 `tech_specific` 근거의 **독립 계열 수**로 센다.
   - 부족하면 거짓 균형을 만들지 않고 "근거 부족"으로 둔다.
 - 근거가 부족한 기준은 낮은 점수가 아니라 "판단 보류"로 두고 계산에서 뺀다. 빠진 가중치가 50%를 넘으면 그 관점 전체를 "판단 보류"로 한다.
@@ -111,11 +112,14 @@
   - 충분하면 `tech_research → [trl_assessor, market_evaluator, stakeholder_evaluator, domain_evaluator]`(Fan-out) `→ synthesizer`(defer) `→ judge → retry_router`로 간다.
 - **`retry_router`는 노드이다.** 조건부 엣지 함수는 State를 갱신할 수 없기 때문이다.
   - `perspective_retry_count`를 1 올린다.
-  - `Command(update=…, goto=[Send(관점 노드, {judge_feedback})…])`를 반환한다.
+  - `Command(update=…, goto=[관점 노드명…])`를 반환한다. **`Send`는 쓰지 않는다**(Send로 호출된 노드는 전달 인자만 받아 `tech_brief`·`evidence`를 못 읽는다). 반환 타입은 `Command[Literal[...]]`로 선언한다. 구현 형태는 설계서 D.4 코드 블록을 따른다.
   - 한도(2)에 이른 관점은 `warnings`에 "판정 불확실"을 기록하고, 다시 돌릴 관점이 없으면 `report_writer`로 간다.
 - 이어서 `report_writer → final_check`로 간다.
   - 수정이 필요하고 재시도 < 1이면 `report_writer`로 되돌아간다.
   - 통과하면 `pdf_renderer → END`로 간다.
+  - 한도를 소진하고도 실패하면 `final_check` 안에서 결정적 후처리(우열 어휘 치환, SUMMARY 절단, 근거 없는 문장 삭제)를 한 번 하고, 남은 위반은 `warnings`에 기록한 뒤 `pdf_renderer`로 간다.
+- 그래프 실행 시 `config={"recursion_limit": 50}`을 명시한다(최악 경로 약 30 superstep).
+- `evidence`는 프롬프트 구성 전에 `evidence_id`로 정렬하고, LLM 캐시 SQLite는 WAL 모드로 연다.
 - `final_check`의 점검 항목:
   - 모든 핵심 주장에 유효한 근거 ID가 있는가
   - REFERENCE가 본문 인용과 일치하는가
@@ -168,7 +172,7 @@
 - Tech Stack에 넣을 수치: bge-m3와 검색 구성의 Hit@K·MRR. **"개발 지표(구성 선택용 42문항)"라고 표기**하고, v2(2,048) 수치를 쓴다.
 - 차별점은 앞쪽에 둔다. 발표는 README 화면으로 10분 동안 한다.
   - 찬반 양면 검색과 원 출처 계열 50% 규칙
-  - Judge 선택적 재실행(`retry_router` + Send)
+  - Judge 선택적 재실행(`retry_router` 노드 + `Command(goto)`, 통과 관점 동결)
   - 한국어→영어 교차언어 임베딩 자체 평가(측정 중 오류 3건을 찾아 바로잡은 과정)
   - 키 없이 재생 가능한 offline 재현성
 - Contributors: 5명의 역할을 제안하되 PM/PL 역할은 넣지 않는다. `<!-- TODO: 팀 확인 필요 -->`를 표기한다.
