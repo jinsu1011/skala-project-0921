@@ -114,6 +114,37 @@ def fill(md: str) -> str:
         "{{UNJ_DENSE}}": str(cov2["bge-m3"]), "{{UNJ_BEST}}": str(cov2.get("hybrid 3way + rerank", "?")),
     }
 
+    # merged tables: evaluation setting (max_seq_length 1,024) vs implementation setting (2,048)
+    trs = tr
+    eall = pd.DataFrame({
+        "모델": order,
+        "모델 최대 입력": [f"{trs.loc[m, 'native_max']:,}" for m in order],
+        "필수 조건": ["통과" if trs.loc[m, "native_max"] >= 1529 else "미달" for m in order],
+        "Hit@1": [f3(emb2.loc[m, "hit@1"]) for m in order],
+        "Hit@5": [f3(emb2.loc[m, "hit@5"]) for m in order],
+        "MRR@10 평가→구현": [f"{b1.loc[m, 'mrr@10']:.3f} → {emb2.loc[m, 'mrr@10']:.3f}" for m in order],
+        "SW / HW MRR": [f"{emb2.loc[m, 'mrr@10_SW']:.3f} / {emb2.loc[m, 'mrr@10_HW']:.3f}" for m in order],
+        "질의(ms)": [b1.loc[m, "query_ms"] for m in order],
+        "메모리(MB)": [b1.loc[m, "mps_alloc_mb"] for m in order],
+    })
+    rep["{{EMB_ALL}}"] = _md_table(eall, "3.1,1.6,1.4,1.2,1.2,2.4,2.3,1.3,1.5")
+    names2 = {k: v.replace("**", "") for k, v in names.items()}
+    names2[H3 + RERANK] = "**3중 RRF + reranker (채택)**"
+    names2[H2 + RERANK] = "2중 RRF + reranker"
+    names2[H2] = "2중 RRF: Dense(KO) + BM25(EN)"
+    names2[H3] = "3중 RRF: Dense(KO) + Dense(EN) + BM25(EN)"
+    r1 = ret.set_index("config")
+    rall = pd.DataFrame({
+        "검색 구성": [names2[c] for c in ret["config"]],
+        "평가 Hit@1": [f3(r1.loc[c, "hit@1"]) for c in ret["config"]],
+        "평가 Hit@5": [f3(r1.loc[c, "hit@5"]) for c in ret["config"]],
+        "평가 MRR": [f3(r1.loc[c, "mrr@10"]) for c in ret["config"]],
+        "구현 Hit@1": [f3(r2.loc[c, "hit@1"]) for c in ret["config"]],
+        "구현 Hit@5": [f3(r2.loc[c, "hit@5"]) for c in ret["config"]],
+        "구현 MRR": [f3(r2.loc[c, "mrr@10"]) for c in ret["config"]],
+    })
+    rep["{{RET_ALL}}"] = _md_table(rall, "6.1,1.65,1.65,1.65,1.65,1.65,1.65")
+
     b = emb.set_index("model")
     best = ret.set_index("config").loc[H3 + RERANK]
     hyb = ret.set_index("config").loc[H3]
@@ -124,7 +155,6 @@ def fill(md: str) -> str:
         "{{BGE_MRR}}": f3(b.loc["bge-m3", "mrr@10"]),
         "{{BEST_H1}}": f3(best["hit@1"]), "{{BEST_H5}}": f3(best["hit@5"]), "{{BEST_MRR}}": f3(best["mrr@10"]),
         "{{MERMAID_A}}": (ROOT / "docs/graph_overview.mmd").read_text().rstrip(),
-        "{{MERMAID_B}}": (ROOT / "docs/graph_quality.mmd").read_text().rstrip(),
         "{{REVISION_TABLE}}": _between((ROOT / "docs/REVISION_v1.1.md").read_text(), "<!--CHANGES-->", "<!--/CHANGES-->"),
     }
     for k, v in rep.items():
@@ -141,8 +171,7 @@ def main() -> Path:
     md = fill((ROOT / "docs/DESIGN.md").read_text())
     (ROOT / "docs/DESIGN_filled.md").write_text(md)
     cover = CoverInfo(title="KV cache 최적화 기술 다관점 평가 Agentic RAG 설계서", members=MEMBERS,
-                      date=TEAM["submit_date"], report_kind="과제 제출 보고서 · 설계 산출물",
-                      version="v1.4 (설계 개정)")
+                      date=TEAM["submit_date"], report_kind="과제 제출 보고서 · 설계 산출물", doc_info=False)
     rb = ReportBuilder(cover)
     rb.markdown(md, ROOT / "docs")
     out_dir = ROOT / "deliverables"
