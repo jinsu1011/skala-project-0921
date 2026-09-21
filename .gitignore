@@ -1,0 +1,22 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python / uv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# large / licensed artifacts (re-created by scripts)
+data/papers/*.pdf
+data/index/
+outputs/logs/
+.hf_cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

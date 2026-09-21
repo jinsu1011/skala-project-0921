@@ -1,0 +1,5 @@
+{
+  "_doc": "Manual corrections from the human spot-check (see eval/qa_review.md). remove_gold: pooled judge false positives.",
+  "remove_gold": {"q-turboquant-009": ["turboquant-012"]},
+  "drop_question": {}
+}

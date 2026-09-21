@@ -1,0 +1,1103 @@
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-000", "relevant": true, "reason": "States TurboQuant randomly rotates input vectors before quantization."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-001", "relevant": false, "reason": "Does not mention random rotation of input vectors in TurboQuant."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-003", "relevant": false, "reason": "No mention of random rotation applied to input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-004", "relevant": false, "reason": "Does not mention random rotation of input vectors in TurboQuant."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-005", "relevant": true, "reason": "States TurboQuant applies a random rotation to input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-006", "relevant": false, "reason": "Does not mention random rotation of input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-007", "relevant": true, "reason": "States TurboQuant employs random rotation for input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-009", "relevant": true, "reason": "States input vector is randomly rotated via S·x with S random Gaussian matrix."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-010", "relevant": true, "reason": "States input vector is multiplied by a random rotation matrix before quantization."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-011", "relevant": false, "reason": "Mentions rotation matrix Π, but not random rotation of input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-012", "relevant": false, "reason": "No mention of random rotation applied to input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-013", "relevant": false, "reason": "No mention of random rotation applied to input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-014", "relevant": false, "reason": "No mention of random rotation applied to input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-015", "relevant": false, "reason": "Does not mention random rotation of input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-016", "relevant": false, "reason": "No mention of random rotation applied to input vectors."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-018", "relevant": false, "reason": "Does not mention random rotation of input vectors in TurboQuant."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-019", "relevant": false, "reason": "No mention of random rotation applied to input vectors in TurboQuant."}
+{"qid": "q-turboquant-002", "chunk_id": "turboquant-020", "relevant": false, "reason": "No mention of random rotation of input vectors in TurboQuant."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-000", "relevant": false, "reason": "Does not state MSE distortion value for b=2 or mention 0.117."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-002", "relevant": false, "reason": "Does not state MSE distortion value for b=2 or 0.117 specifically."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-003", "relevant": false, "reason": "Does not state MSE distortion value for b=2 or any specific value."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-006", "relevant": false, "reason": "Does not state the exact MSE distortion value for b=2."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-008", "relevant": false, "reason": "Does not state TurboQuant MSE distortion value for b=2."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-009", "relevant": false, "reason": "Does not state MSE distortion value for b=2; no numerical result given."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-010", "relevant": false, "reason": "Does not state the MSE distortion value for b=2; only describes the method."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-011", "relevant": true, "reason": "States MSE for b=2 is approximately 0.117."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-012", "relevant": true, "reason": "States MSE distortion for b=2 is 0.117d, matching the reference answer."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-013", "relevant": false, "reason": "Does not state MSE distortion value for b=2; only gives Dprod values."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-014", "relevant": false, "reason": "Does not state MSE distortion value for b=2 or 0.117 anywhere."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-015", "relevant": false, "reason": "Does not state MSE distortion value for b=2 or 0.117 specifically."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-016", "relevant": false, "reason": "Does not state the MSE distortion value for b=2."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-017", "relevant": false, "reason": "Does not state MSE distortion value for TurboQuant at b=2."}
+{"qid": "q-turboquant-005", "chunk_id": "turboquant-020", "relevant": false, "reason": "Does not state TurboQuant b=2 MSE distortion value (0.117) anywhere."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-000", "relevant": false, "reason": "Mentions Beta distribution but not scale/shifted Beta for xj coordinates."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-001", "relevant": false, "reason": "Does not mention Beta distribution or coordinate distribution of xj."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-002", "relevant": false, "reason": "Mentions Beta distribution, but not scale/shifted Beta for xj coordinates."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-003", "relevant": false, "reason": "Does not mention Beta distribution or coordinate distribution of xj."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-004", "relevant": false, "reason": "Does not mention Beta distribution or coordinate distribution in TurboQuant."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-005", "relevant": true, "reason": "States each coordinate has a Beta distribution after random rotation in TurboQuant."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-006", "relevant": false, "reason": "Does not mention Beta distribution or coordinate distribution of xj."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-008", "relevant": false, "reason": "Does not mention Beta distribution or scaling/shifting of xj coordinates."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-009", "relevant": false, "reason": "Does not mention scaled/shifted Beta distribution for xj in TurboQuant."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-010", "relevant": false, "reason": "Mentions Beta distribution after rotation, not for arbitrary xj in TurboQuant."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-011", "relevant": false, "reason": "Does not mention scaled/shifted Beta distribution for xj coordinates."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-012", "relevant": false, "reason": "Does not mention scaled/shifted Beta distribution for xj in TurboQuant."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-013", "relevant": false, "reason": "Does not mention Beta distribution or scale/shift of xj coordinates."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-014", "relevant": false, "reason": "Does not mention Beta distribution or coordinate distribution of xj."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-015", "relevant": false, "reason": "Does not mention Beta distribution or scale/shift for xj in TurboQuant."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-016", "relevant": false, "reason": "Does not mention Beta distribution or scaling/shifting of xj coordinates."}
+{"qid": "q-turboquant-007", "chunk_id": "turboquant-017", "relevant": false, "reason": "Does not mention Beta distribution or coordinate distribution of TurboQuant vectors."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-000", "relevant": false, "reason": "Does not state the variance bound formula π/(2d)·∥y∥²."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-002", "relevant": false, "reason": "Does not state the variance bound formula π/(2d)·∥y∥²."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-003", "relevant": false, "reason": "Does not state the variance upper bound π/(2d) · ∥y∥²."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-004", "relevant": false, "reason": "Does not state the variance bound formula π/(2d) · ∥y∥²."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-005", "relevant": false, "reason": "Does not state π/(2d) · ∥y∥² as the variance upper bound."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-006", "relevant": false, "reason": "Does not state π/(2d) · ∥y∥² as the variance upper bound."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-010", "relevant": false, "reason": "Does not state the variance upper bound π/(2d) · ∥y∥² for QJL algorithm."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-011", "relevant": false, "reason": "Does not state the variance bound as π/(2d) · ∥y∥²."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-012", "relevant": true, "reason": "States variance bound as √π/2d · γ, matching π/(2d) · ∥y∥² form."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-013", "relevant": false, "reason": "Does not state variance bound as π/(2d) · ∥y∥²."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-014", "relevant": true, "reason": "States the variance bound as π/(2d) · ∥y∥², matching the reference answer."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-015", "relevant": false, "reason": "Does not mention π/(2d) · ∥y∥² or QJL algorithm's variance bound."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-016", "relevant": false, "reason": "Does not state the variance upper bound formula π/(2d)·∥y∥²."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-017", "relevant": false, "reason": "Does not state QJL variance bound as π/(2d)·∥y∥²."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-018", "relevant": false, "reason": "Does not mention QJL variance bound or π/(2d) · ∥y∥² formula."}
+{"qid": "q-turboquant-009", "chunk_id": "turboquant-020", "relevant": false, "reason": "Does not mention QJL algorithm's variance upper bound or π/(2d) · ∥y∥²."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-000", "relevant": false, "reason": "Does not state MSE value for b=1; only general method and results."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-001", "relevant": false, "reason": "Does not state MSE value for b=1 in TurboQuant."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-002", "relevant": false, "reason": "Does not state the MSE value when b=1; only describes the method."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-003", "relevant": false, "reason": "Does not state MSE value for b=1; only discusses general framework."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-005", "relevant": true, "reason": "States MSE for b=1 is approximately 0.36."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-006", "relevant": false, "reason": "Does not state MSE value for b=1; only gives bounds and factors."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-008", "relevant": false, "reason": "Does not state TurboQuant MSE value for b=1 or 0.36."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-009", "relevant": false, "reason": "Does not state MSE value for b=1 or mention 0.36."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-010", "relevant": false, "reason": "Does not state the MSE value for b=1; only describes the method."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-012", "relevant": true, "reason": "States MSE is 0.36d for b=1; matches reference when d=1."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-013", "relevant": false, "reason": "Does not state MSE=0.36 for b=1; only gives Dprod ≈1.57/d."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-014", "relevant": false, "reason": "Does not state MSE value for b=1 or mention 0.36."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-015", "relevant": false, "reason": "Does not state MSE value for b=1 or mention 0.36 specifically."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-016", "relevant": false, "reason": "Does not state the MSE value for b=1; only discusses trends and figures."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-017", "relevant": false, "reason": "Does not state MSE value for b=1; only shows formulas and graphs."}
+{"qid": "q-turboquant-011", "chunk_id": "turboquant-020", "relevant": false, "reason": "Does not state TurboQuant MSE for b=1 or any MSE values."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-000", "relevant": false, "reason": "Does not state inner-product distortion value for b=1 or 1.57/d."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-001", "relevant": false, "reason": "Does not state inner-product distortion value for b=1 in TurboQuantprod."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-002", "relevant": false, "reason": "Does not state inner-product distortion value for b=1 or 1.57/d."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-003", "relevant": false, "reason": "Does not state inner-product distortion value for b=1; only defines terms."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-004", "relevant": false, "reason": "Does not state inner-product distortion value for b=1 in TurboQuantprod."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-005", "relevant": true, "reason": "States inner-product distortion for b=1 is approximately 1.57/d."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-006", "relevant": false, "reason": "States distortion as 1.57 d, not 1.57/d as required."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-008", "relevant": false, "reason": "Does not state inner-product distortion for b=1 in TurboQuantprod."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-009", "relevant": true, "reason": "States inner-product distortion is at most π/2d, matching 1.57/d."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-010", "relevant": false, "reason": "Does not state inner-product distortion value for b=1; only discusses general quantization."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-012", "relevant": false, "reason": "Does not state inner-product distortion for b=1 as 1.57/d or similar."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-014", "relevant": false, "reason": "Does not state inner-product distortion is approximately 1.57/d for b=1."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-015", "relevant": false, "reason": "Does not state inner-product distortion is approximately 1.57/d for b=1."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-016", "relevant": false, "reason": "Does not state the inner-product distortion value for b=1 or 1.57/d."}
+{"qid": "q-turboquant-013", "chunk_id": "turboquant-017", "relevant": false, "reason": "Does not state inner-product distortion for b=1; only shows bounds and b=2."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-000", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-002", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-005", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-006", "relevant": true, "reason": "States use of Shannon’s lower bound and Yao’s minimax principle for MSE lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-008", "relevant": false, "reason": "Mentions Shannon's bound but not Yao's minimax principle."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-009", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-010", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-011", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-012", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-013", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-014", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-016", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-017", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-018", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-015", "chunk_id": "turboquant-020", "relevant": false, "reason": "Does not mention Yao's minimax principle or Shannon's lower bound."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-001", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any specific LLM model used."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-002", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any LLM model used."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-004", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any LLM model used in TurboQuant."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-006", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any LLM model name."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-008", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any LLM model."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-010", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any LLM model used."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-013", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any LLM model used."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-014", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any LLM model."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-016", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any LLM model used."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-018", "relevant": true, "reason": "Explicitly states Llama-3.1-8B-Instruct used for Needle-In-A-Haystack test."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-019", "relevant": false, "reason": "Does not state which LLM model was used for Needle-In-A-Haystack test."}
+{"qid": "q-turboquant-017", "chunk_id": "turboquant-020", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any LLM model used."}
+{"qid": "q-turboquant-017", "chunk_id": "mla-000", "relevant": false, "reason": "Does not state TurboQuant or Needle-In-A-Haystack test model used."}
+{"qid": "q-turboquant-017", "chunk_id": "mla-002", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or TurboQuant's test model."}
+{"qid": "q-turboquant-017", "chunk_id": "mla-012", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or any Llama model."}
+{"qid": "q-turboquant-017", "chunk_id": "mla-013", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct as the tested model."}
+{"qid": "q-turboquant-017", "chunk_id": "mla-031", "relevant": false, "reason": "Does not mention TurboQuant, Needle-In-A-Haystack, or Llama-3.1-8B-Instruct."}
+{"qid": "q-turboquant-017", "chunk_id": "mla-040", "relevant": false, "reason": "No mention of Llama-3.1-8B-Instruct or any LLM model used."}
+{"qid": "q-turboquant-017", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or specific model used in the test."}
+{"qid": "q-turboquant-017", "chunk_id": "kivi-008", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or specify the exact model used in NIAH."}
+{"qid": "q-turboquant-017", "chunk_id": "kivi-010", "relevant": false, "reason": "Mentions Llama-3-8B-Instruct, not Llama-3.1-8B-Instruct specifically."}
+{"qid": "q-turboquant-017", "chunk_id": "kivi-013", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or TurboQuant's Needle-In-A-Haystack test."}
+{"qid": "q-turboquant-017", "chunk_id": "kivi-018", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct specifically."}
+{"qid": "q-turboquant-017", "chunk_id": "kivi-019", "relevant": false, "reason": "Mentions Llama-3-8B-Instruct, not Llama-3.1-8B-Instruct specifically."}
+{"qid": "q-turboquant-017", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or TurboQuant's test model."}
+{"qid": "q-turboquant-017", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or TurboQuant's Needle-In-A-Haystack test."}
+{"qid": "q-turboquant-017", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or models used in Needle-In-A-Haystack test."}
+{"qid": "q-turboquant-017", "chunk_id": "infinigen-023", "relevant": false, "reason": "Mentions Llama-2-7B-32K and Llama-3-8B-1048K, not Llama-3.1-8B-Instruct."}
+{"qid": "q-turboquant-017", "chunk_id": "cxl_pnm-001", "relevant": false, "reason": "Does not mention Llama-3.1-8B-Instruct or models used in TurboQuant's test."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-000", "relevant": false, "reason": "Does not state DBpedia dataset dimensions (1536 and 3072)."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-001", "relevant": false, "reason": "Does not state DBpedia dataset dimensions (1536, 3072) for TurboQuant experiments."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-002", "relevant": false, "reason": "Does not mention DBpedia dataset or its dimensionalities."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-003", "relevant": false, "reason": "Does not mention DBpedia or specific dimensions 1536 and 3072."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-005", "relevant": false, "reason": "Does not state DBpedia dataset dimensions (1536, 3072) anywhere."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-006", "relevant": false, "reason": "Does not mention DBpedia or specific dimensions (1536, 3072)."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-010", "relevant": false, "reason": "Does not mention DBpedia dataset or its dimensionalities."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-011", "relevant": false, "reason": "Does not mention DBpedia dataset or its dimensions (1536, 3072)."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-013", "relevant": false, "reason": "Does not mention DBpedia or specific dimensions 1536 and 3072."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-014", "relevant": false, "reason": "No mention of DBpedia or specific dimensions (1536, 3072)."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-016", "relevant": false, "reason": "Only 1536 dimensions mentioned; 3072 not stated in passage."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-017", "relevant": false, "reason": "Does not mention DBpedia or specific dimensions 1536 and 3072."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-018", "relevant": false, "reason": "Does not mention DBpedia dataset or its dimensionalities."}
+{"qid": "q-turboquant-019", "chunk_id": "turboquant-020", "relevant": false, "reason": "Mentions OpenAI3 with 1536/3072 dimensions, not DBpedia dataset dimensions."}
+{"qid": "q-turboquant-019", "chunk_id": "mla-014", "relevant": false, "reason": "No mention of DBpedia or its dimensionality in the passage."}
+{"qid": "q-turboquant-019", "chunk_id": "mla-018", "relevant": false, "reason": "Does not mention DBpedia or any dimension numbers."}
+{"qid": "q-turboquant-019", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not mention DBpedia dataset or its dimensionality values."}
+{"qid": "q-turboquant-019", "chunk_id": "kivi-008", "relevant": false, "reason": "Does not mention DBpedia dataset or its dimensionality values."}
+{"qid": "q-turboquant-019", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not mention DBpedia dataset dimensions or specific numbers 1536, 3072."}
+{"qid": "q-turboquant-019", "chunk_id": "kivi-019", "relevant": false, "reason": "No mention of DBpedia dataset or its dimensionality."}
+{"qid": "q-turboquant-019", "chunk_id": "kivi-020", "relevant": false, "reason": "No mention of DBpedia dataset or its dimensionality."}
+{"qid": "q-turboquant-019", "chunk_id": "infinigen-002", "relevant": false, "reason": "Does not mention DBpedia dataset or specific dimensions 1536 and 3072."}
+{"qid": "q-turboquant-019", "chunk_id": "itme-016", "relevant": false, "reason": "Does not mention DBpedia dataset or its dimensionality values."}
+{"qid": "q-mla-000", "chunk_id": "mla-002", "relevant": false, "reason": "Does not state the specific 93.3% KV cache reduction figure."}
+{"qid": "q-mla-000", "chunk_id": "mla-003", "relevant": true, "reason": "Passage states KV cache reduced by 93.3% in DeepSeek-V2."}
+{"qid": "q-mla-000", "chunk_id": "mla-004", "relevant": false, "reason": "Does not state the 93.3% KV cache reduction figure."}
+{"qid": "q-mla-000", "chunk_id": "mla-005", "relevant": false, "reason": "Passage does not state the 93.3% KV cache reduction figure."}
+{"qid": "q-mla-000", "chunk_id": "mla-007", "relevant": false, "reason": "Does not state 93.3% KV cache reduction figure."}
+{"qid": "q-mla-000", "chunk_id": "mla-008", "relevant": false, "reason": "Does not state 93.3% reduction; only compares cache sizes qualitatively."}
+{"qid": "q-mla-000", "chunk_id": "mla-009", "relevant": false, "reason": "Does not state 93.3% KV cache reduction or any specific percentage."}
+{"qid": "q-mla-000", "chunk_id": "mla-015", "relevant": false, "reason": "No mention of KV cache reduction or 93.3% decrease."}
+{"qid": "q-mla-000", "chunk_id": "mla-017", "relevant": false, "reason": "Does not state 93.3% KV cache reduction figure."}
+{"qid": "q-mla-000", "chunk_id": "mla-025", "relevant": true, "reason": "States KV cache reduced by 93.3% in DeepSeek-V2."}
+{"qid": "q-mla-000", "chunk_id": "mla-027", "relevant": false, "reason": "Does not state 93.3% KV cache reduction for DeepSeek-V2."}
+{"qid": "q-mla-000", "chunk_id": "mla-030", "relevant": false, "reason": "Does not state 93.3% reduction; only gives raw and relative KV cache sizes."}
+{"qid": "q-mla-000", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention 93.3% KV cache reduction or DeepSeek-V2 specifically."}
+{"qid": "q-mla-000", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not state 93.3% KV cache reduction for DeepSeek-V2."}
+{"qid": "q-mla-000", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not mention 93.3% KV cache reduction or DeepSeek-V2 specifically."}
+{"qid": "q-mla-000", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not state 93.3% KV cache reduction for DeepSeek-V2."}
+{"qid": "q-mla-000", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not state 93.3% KV cache reduction for DeepSeek-V2."}
+{"qid": "q-mla-000", "chunk_id": "kivi-012", "relevant": false, "reason": "Does not state 93.3% KV cache reduction or equivalent percentage."}
+{"qid": "q-mla-000", "chunk_id": "kivi-014", "relevant": false, "reason": "Passage does not state 93.3% KV cache reduction for DeepSeek-V2."}
+{"qid": "q-mla-000", "chunk_id": "kivi-018", "relevant": false, "reason": "No mention of DeepSeek-V2 or KV cache reduction percentage."}
+{"qid": "q-mla-000", "chunk_id": "kivi-019", "relevant": false, "reason": "No explicit mention of 93.3% KV cache reduction or DeepSeek-V2."}
+{"qid": "q-mla-000", "chunk_id": "kivi-020", "relevant": false, "reason": "Does not state 93.3% KV cache reduction or any specific percentage."}
+{"qid": "q-mla-000", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not state 93.3% reduction or any specific percentage decrease."}
+{"qid": "q-mla-000", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not state 93.3% KV cache reduction or any specific percentage."}
+{"qid": "q-mla-000", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not state 93.3% reduction; only mentions relative cache sizes and accuracy."}
+{"qid": "q-mla-000", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not mention DeepSeek-V2 or 93.3% KV cache reduction."}
+{"qid": "q-mla-000", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not state 93.3% KV cache reduction or any specific reduction percentage."}
+{"qid": "q-mla-004", "chunk_id": "mla-000", "relevant": false, "reason": "States 21B activated parameters, not 2.4B for DeepSeek-V2-Lite."}
+{"qid": "q-mla-004", "chunk_id": "mla-002", "relevant": false, "reason": "Passage states 21B parameters activated per token, not 2.4B for V2-Lite."}
+{"qid": "q-mla-004", "chunk_id": "mla-003", "relevant": false, "reason": "Mentions 21B activated parameters, not 2.4B for DeepSeek-V2-Lite."}
+{"qid": "q-mla-004", "chunk_id": "mla-007", "relevant": false, "reason": "Does not state the number of activated parameters per token."}
+{"qid": "q-mla-004", "chunk_id": "mla-009", "relevant": false, "reason": "Does not state the number of activated parameters per token in DeepSeek-V2-Lite."}
+{"qid": "q-mla-004", "chunk_id": "mla-011", "relevant": false, "reason": "Passage states 21B parameters activated per token, not 2.4B as required."}
+{"qid": "q-mla-004", "chunk_id": "mla-012", "relevant": false, "reason": "States 21B activated parameters, not 2.4B for DeepSeek-V2-Lite."}
+{"qid": "q-mla-004", "chunk_id": "mla-013", "relevant": false, "reason": "Does not mention number of activated parameters per token in DeepSeek-V2-Lite."}
+{"qid": "q-mla-004", "chunk_id": "mla-015", "relevant": false, "reason": "Passage states 21B activated parameters, not 2.4B per token."}
+{"qid": "q-mla-004", "chunk_id": "mla-017", "relevant": false, "reason": "Does not state the exact number of activated parameters per token (2.4B)."}
+{"qid": "q-mla-004", "chunk_id": "mla-018", "relevant": false, "reason": "Does not mention number of activated parameters per token in DeepSeek-V2-Lite."}
+{"qid": "q-mla-004", "chunk_id": "mla-023", "relevant": false, "reason": "No information about DeepSeek-V2-Lite or per-token activated parameters."}
+{"qid": "q-mla-004", "chunk_id": "mla-025", "relevant": false, "reason": "Does not state the number of activated parameters per token for DeepSeek-V2-Lite."}
+{"qid": "q-mla-004", "chunk_id": "mla-027", "relevant": true, "reason": "States 2.4B parameters are activated for each token in DeepSeek-V2-Lite."}
+{"qid": "q-mla-004", "chunk_id": "mla-028", "relevant": true, "reason": "States '# Activated Params' for DeepSeek-V2-Lite is 2.4B."}
+{"qid": "q-mla-004", "chunk_id": "mla-030", "relevant": true, "reason": "States 2.4B activated parameters per token for DeepSeek-V2-Lite (small MoE w/ MLA)."}
+{"qid": "q-mla-004", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not mention DeepSeek-V2-Lite or 2.4B active parameters per token."}
+{"qid": "q-mla-004", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not state DeepSeek-V2-Lite or its per-token activated parameter count."}
+{"qid": "q-mla-004", "chunk_id": "kivi-020", "relevant": false, "reason": "Does not mention number of activated parameters per token in DeepSeek-V2-Lite."}
+{"qid": "q-mla-008", "chunk_id": "mla-000", "relevant": false, "reason": "Does not specify KV cache as (𝑑𝑐+𝑑𝑅ℎ)𝑙 sum."}
+{"qid": "q-mla-008", "chunk_id": "mla-002", "relevant": false, "reason": "Does not state the KV cache formula or its components explicitly."}
+{"qid": "q-mla-008", "chunk_id": "mla-003", "relevant": false, "reason": "Does not state KV cache is (dc + dRh)l or its components."}
+{"qid": "q-mla-008", "chunk_id": "mla-004", "relevant": false, "reason": "Does not state the KV cache formula or its components."}
+{"qid": "q-mla-008", "chunk_id": "mla-005", "relevant": false, "reason": "Does not specify KV cache as (dc + dRh)l or its components."}
+{"qid": "q-mla-008", "chunk_id": "mla-006", "relevant": false, "reason": "States KV cache as d_c l, omits d_Rh term from reference answer."}
+{"qid": "q-mla-008", "chunk_id": "mla-007", "relevant": false, "reason": "Does not state KV cache is (dc + dRh)l; only mentions dcl and dRh separately."}
+{"qid": "q-mla-008", "chunk_id": "mla-009", "relevant": false, "reason": "Does not state KV cache is (𝑑𝑐+𝑑𝑅ℎ)𝑙 sum explicitly."}
+{"qid": "q-mla-008", "chunk_id": "mla-013", "relevant": false, "reason": "Does not mention KV cache size formula or its components."}
+{"qid": "q-mla-008", "chunk_id": "mla-017", "relevant": false, "reason": "Does not specify KV cache size formula or its components."}
+{"qid": "q-mla-008", "chunk_id": "mla-027", "relevant": false, "reason": "Does not state KV cache is (dc + dRh)l or its calculation formula."}
+{"qid": "q-mla-008", "chunk_id": "mla-029", "relevant": false, "reason": "Does not state KV cache size formula as (dc + dRh)l."}
+{"qid": "q-mla-008", "chunk_id": "mla-030", "relevant": false, "reason": "Does not state KV cache is calculated as (dc + dRh)l or its components."}
+{"qid": "q-mla-008", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not specify KV cache size formula or its components."}
+{"qid": "q-mla-008", "chunk_id": "kivi-003", "relevant": false, "reason": "Does not mention (𝑑𝑐+𝑑𝑅ℎ)𝑙 or equivalent formula."}
+{"qid": "q-mla-008", "chunk_id": "kivi-009", "relevant": false, "reason": "Does not state KV cache size formula or its components."}
+{"qid": "q-mla-008", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not state KV cache size formula or its components."}
+{"qid": "q-mla-008", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not state KV cache size formula or its components."}
+{"qid": "q-mla-008", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not state the formula (𝑑𝑐+𝑑𝑅ℎ)𝑙 for KV cache size."}
+{"qid": "q-mla-008", "chunk_id": "kivi-018", "relevant": false, "reason": "Does not mention KV cache size calculation or related formula."}
+{"qid": "q-mla-008", "chunk_id": "kivi-019", "relevant": false, "reason": "Does not mention KV cache size calculation or its formula."}
+{"qid": "q-mla-008", "chunk_id": "kivi-020", "relevant": false, "reason": "Does not state KV cache as (dc+dRh)l or its components."}
+{"qid": "q-mla-013", "chunk_id": "mla-000", "relevant": false, "reason": "Does not mention YaRN or scale value settings."}
+{"qid": "q-mla-013", "chunk_id": "mla-002", "relevant": false, "reason": "No mention of YaRN or scale value in the passage."}
+{"qid": "q-mla-013", "chunk_id": "mla-003", "relevant": false, "reason": "No mention of YaRN or scale value in the passage."}
+{"qid": "q-mla-013", "chunk_id": "mla-004", "relevant": false, "reason": "Does not mention YaRN or scale value settings."}
+{"qid": "q-mla-013", "chunk_id": "mla-007", "relevant": false, "reason": "Does not mention YaRN or any scale value setting."}
+{"qid": "q-mla-013", "chunk_id": "mla-009", "relevant": false, "reason": "Does not mention YaRN or the scale value setting for DeepSeek-V2."}
+{"qid": "q-mla-013", "chunk_id": "mla-012", "relevant": false, "reason": "No mention of YaRN scale value or the number 40."}
+{"qid": "q-mla-013", "chunk_id": "mla-015", "relevant": false, "reason": "No mention of YaRN or scale value in the passage."}
+{"qid": "q-mla-013", "chunk_id": "mla-017", "relevant": false, "reason": "No mention of YaRN or scale value in the passage."}
+{"qid": "q-mla-013", "chunk_id": "mla-018", "relevant": false, "reason": "No mention of YaRN or scale value in the passage."}
+{"qid": "q-mla-013", "chunk_id": "mla-021", "relevant": false, "reason": "No mention of YaRN or scale value in the passage."}
+{"qid": "q-mla-013", "chunk_id": "mla-023", "relevant": false, "reason": "No mention of YaRN or scale value for DeepSeek-V2."}
+{"qid": "q-mla-013", "chunk_id": "mla-025", "relevant": false, "reason": "Does not mention YaRN or the scale value setting."}
+{"qid": "q-mla-013", "chunk_id": "mla-027", "relevant": false, "reason": "No mention of YaRN or scale value in the passage."}
+{"qid": "q-mla-013", "chunk_id": "mla-028", "relevant": false, "reason": "YaRN scale value is not mentioned in the passage."}
+{"qid": "q-mla-013", "chunk_id": "mla-032", "relevant": false, "reason": "No mention of YaRN or scale value for DeepSeek-V2."}
+{"qid": "q-mla-013", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not mention DeepSeek-V2, YaRN, or the scale value setting."}
+{"qid": "q-mla-013", "chunk_id": "kivi-003", "relevant": false, "reason": "Does not mention YaRN or scale value settings."}
+{"qid": "q-mla-013", "chunk_id": "kivi-004", "relevant": false, "reason": "No mention of YaRN or scale value of 40 for DeepSeek-V2."}
+{"qid": "q-mla-013", "chunk_id": "kivi-005", "relevant": false, "reason": "No mention of YaRN scale value or the number 40."}
+{"qid": "q-mla-013", "chunk_id": "kivi-006", "relevant": false, "reason": "Does not mention DeepSeek-V2, YaRN, or a scale value of 40."}
+{"qid": "q-mla-013", "chunk_id": "kivi-007", "relevant": false, "reason": "No mention of YaRN or scale value (40) in passage."}
+{"qid": "q-mla-013", "chunk_id": "kivi-008", "relevant": false, "reason": "No mention of DeepSeek-V2, YaRN, or scale value settings."}
+{"qid": "q-mla-013", "chunk_id": "infinigen-002", "relevant": false, "reason": "Does not mention YaRN or scale value settings."}
+{"qid": "q-mla-017", "chunk_id": "turboquant-016", "relevant": false, "reason": "Does not mention DeepSeek-V2 or 6-bit KV cache quantization."}
+{"qid": "q-mla-017", "chunk_id": "mla-003", "relevant": false, "reason": "KV cache quantization bit number is not mentioned in the passage."}
+{"qid": "q-mla-017", "chunk_id": "mla-005", "relevant": false, "reason": "Passage does not mention 6-bit quantization of KV cache."}
+{"qid": "q-mla-017", "chunk_id": "mla-007", "relevant": false, "reason": "Does not mention 6-bit quantization of KV cache."}
+{"qid": "q-mla-017", "chunk_id": "mla-008", "relevant": false, "reason": "Does not mention 6-bit quantization of KV cache."}
+{"qid": "q-mla-017", "chunk_id": "mla-009", "relevant": false, "reason": "KV cache quantization bit number is not mentioned in the passage."}
+{"qid": "q-mla-017", "chunk_id": "mla-027", "relevant": false, "reason": "KV cache quantization bit number is not mentioned in the passage."}
+{"qid": "q-mla-017", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention DeepSeek-V2 or 6-bit KV cache quantization."}
+{"qid": "q-mla-017", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not state DeepSeek-V2 KV cache quantization bit number."}
+{"qid": "q-mla-017", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not mention DeepSeek-V2 or 6-bit quantization."}
+{"qid": "q-mla-017", "chunk_id": "kivi-004", "relevant": false, "reason": "No mention of 6-bit quantization for KV cache in passage."}
+{"qid": "q-mla-017", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not mention 6-bit quantization for DeepSeek-V2 KV cache."}
+{"qid": "q-mla-017", "chunk_id": "kivi-006", "relevant": false, "reason": "Passage does not mention 6-bit quantization for KV cache."}
+{"qid": "q-mla-017", "chunk_id": "kivi-008", "relevant": false, "reason": "No mention of DeepSeek-V2 or 6-bit KV cache quantization."}
+{"qid": "q-mla-017", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not mention DeepSeek-V2 or 6-bit KV cache quantization."}
+{"qid": "q-mla-017", "chunk_id": "kivi-011", "relevant": false, "reason": "No mention of DeepSeek-V2 or 6-bit KV cache quantization."}
+{"qid": "q-mla-017", "chunk_id": "kivi-012", "relevant": false, "reason": "Does not mention DeepSeek-V2 or 6-bit KV cache quantization."}
+{"qid": "q-mla-017", "chunk_id": "kivi-014", "relevant": false, "reason": "Passage does not state DeepSeek-V2 KV cache quantization bit value."}
+{"qid": "q-mla-017", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention DeepSeek-V2 or 6-bit KV cache quantization."}
+{"qid": "q-mla-017", "chunk_id": "kivi-018", "relevant": false, "reason": "No mention of DeepSeek-V2 or KV cache quantization bit number."}
+{"qid": "q-mla-017", "chunk_id": "kivi-019", "relevant": false, "reason": "No mention of DeepSeek-V2 or 6-bit KV cache quantization."}
+{"qid": "q-mla-017", "chunk_id": "kivi-020", "relevant": false, "reason": "No mention of 6-bit quantization for KV cache in passage."}
+{"qid": "q-mla-017", "chunk_id": "infinigen-008", "relevant": false, "reason": "No mention of KV cache quantization bit-width or 6 bits in passage."}
+{"qid": "q-mla-022", "chunk_id": "mla-000", "relevant": false, "reason": "Does not state DeepSeek-V2 Chat (RL) Chinese understanding score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-003", "relevant": false, "reason": "Passage does not state DeepSeek-V2 Chat (RL)'s Chinese understanding score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-004", "relevant": false, "reason": "Does not state the Chinese understanding evaluation score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-009", "relevant": false, "reason": "Does not mention DeepSeek-V2 Chat (RL) Chinese understanding score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-013", "relevant": false, "reason": "Does not state DeepSeek-V2 Chat (RL)'s Chinese understanding evaluation score."}
+{"qid": "q-mla-022", "chunk_id": "mla-014", "relevant": false, "reason": "Does not state DeepSeek-V2 Chat (RL)'s Chinese understanding score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-015", "relevant": false, "reason": "No score for DeepSeek-V2 Chat (RL) on Chinese understanding is stated."}
+{"qid": "q-mla-022", "chunk_id": "mla-016", "relevant": false, "reason": "Does not mention DeepSeek-V2 Chat (RL) or its Chinese understanding score."}
+{"qid": "q-mla-022", "chunk_id": "mla-017", "relevant": false, "reason": "Does not state DeepSeek-V2 Chat (RL)'s Chinese understanding score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-018", "relevant": false, "reason": "Does not state DeepSeek-V2 Chat (RL) Chinese understanding score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-019", "relevant": false, "reason": "No mention of DeepSeek-V2 Chat (RL) Chinese understanding score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-020", "relevant": false, "reason": "Does not state DeepSeek-V2 Chat (RL)'s Chinese understanding score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-021", "relevant": false, "reason": "Does not state the 8.53 score for Chinese understanding evaluation."}
+{"qid": "q-mla-022", "chunk_id": "mla-023", "relevant": false, "reason": "No mention of DeepSeek-V2 Chat (RL) or its Chinese score."}
+{"qid": "q-mla-022", "chunk_id": "mla-024", "relevant": false, "reason": "No score for DeepSeek-V2 Chat (RL) on Chinese understanding is stated."}
+{"qid": "q-mla-022", "chunk_id": "mla-025", "relevant": false, "reason": "Does not state DeepSeek-V2 Chat (RL)'s Chinese understanding score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-028", "relevant": false, "reason": "No Chinese understanding evaluation score or 8.53 is mentioned."}
+{"qid": "q-mla-022", "chunk_id": "mla-031", "relevant": false, "reason": "Does not state DeepSeek-V2 Chat (RL)'s Chinese understanding evaluation score or 8.53."}
+{"qid": "q-mla-022", "chunk_id": "mla-032", "relevant": false, "reason": "No mention of DeepSeek-V2 Chat (RL)'s Chinese understanding evaluation score or 8.53."}
+{"qid": "q-mla-026", "chunk_id": "mla-000", "relevant": false, "reason": "Does not mention Huazuo Gao or Wangding Zeng by name."}
+{"qid": "q-mla-026", "chunk_id": "mla-001", "relevant": false, "reason": "No researcher names are mentioned in the passage."}
+{"qid": "q-mla-026", "chunk_id": "mla-002", "relevant": false, "reason": "Does not mention Huazuo Gao or Wangding Zeng by name."}
+{"qid": "q-mla-026", "chunk_id": "mla-003", "relevant": false, "reason": "No mention of Huazuo Gao or Wangding Zeng as key contributors."}
+{"qid": "q-mla-026", "chunk_id": "mla-004", "relevant": false, "reason": "No researcher names mentioned in the passage."}
+{"qid": "q-mla-026", "chunk_id": "mla-005", "relevant": false, "reason": "Does not mention Huazuo Gao or Wangding Zeng by name."}
+{"qid": "q-mla-026", "chunk_id": "mla-006", "relevant": false, "reason": "No mention of Huazuo Gao or Wangding Zeng as contributors."}
+{"qid": "q-mla-026", "chunk_id": "mla-007", "relevant": false, "reason": "No mention of Huazuo Gao or Wangding Zeng as key contributors."}
+{"qid": "q-mla-026", "chunk_id": "mla-008", "relevant": false, "reason": "No researcher names mentioned in the passage."}
+{"qid": "q-mla-026", "chunk_id": "mla-012", "relevant": false, "reason": "No mention of Huazuo Gao or Wangding Zeng as key contributors."}
+{"qid": "q-mla-026", "chunk_id": "mla-013", "relevant": false, "reason": "Does not mention Huazuo Gao or Wangding Zeng as key contributors."}
+{"qid": "q-mla-026", "chunk_id": "mla-017", "relevant": false, "reason": "Does not mention Huazuo Gao or Wangding Zeng by name."}
+{"qid": "q-mla-026", "chunk_id": "mla-018", "relevant": false, "reason": "No mention of Huazuo Gao or Wangding Zeng in the passage."}
+{"qid": "q-mla-026", "chunk_id": "mla-020", "relevant": false, "reason": "No mention of Huazuo Gao or Wangding Zeng as key contributors."}
+{"qid": "q-mla-026", "chunk_id": "mla-025", "relevant": false, "reason": "Does not mention Huazuo Gao or Wangding Zeng by name."}
+{"qid": "q-mla-026", "chunk_id": "mla-027", "relevant": false, "reason": "No mention of Huazuo Gao or Wangding Zeng as key contributors."}
+{"qid": "q-mla-026", "chunk_id": "mla-030", "relevant": false, "reason": "No researcher names mentioned in the passage."}
+{"qid": "q-mla-030", "chunk_id": "mla-000", "relevant": false, "reason": "Does not state MLA uses 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-002", "relevant": false, "reason": "Does not state MLA uses 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-003", "relevant": false, "reason": "Does not state MLA uses 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-004", "relevant": false, "reason": "Does not state MLA uses 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-005", "relevant": false, "reason": "Does not state MLA uses only 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-006", "relevant": false, "reason": "Does not state MLA uses only 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-007", "relevant": false, "reason": "Does not state MLA uses only 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-008", "relevant": false, "reason": "Does not state MLA uses only 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-009", "relevant": false, "reason": "Does not state DeepSeek-V2 uses 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-017", "relevant": false, "reason": "Does not state that MLA uses only 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-025", "relevant": false, "reason": "States 93.3% KV cache reduction, not 4% usage compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-027", "relevant": false, "reason": "Does not state MLA uses only 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "mla-028", "relevant": false, "reason": "Does not mention KV cache usage or specific percentage reduction."}
+{"qid": "q-mla-030", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention MLA, MHA, or 4% KV cache usage."}
+{"qid": "q-mla-030", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not state MLA uses only 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "kivi-009", "relevant": false, "reason": "Does not mention DeepSeek-V2, MLA, or 4% KV cache usage."}
+{"qid": "q-mla-030", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not mention MLA, MHA, or 4% KV cache usage."}
+{"qid": "q-mla-030", "chunk_id": "kivi-020", "relevant": false, "reason": "Does not state 4% KV cache usage or direct comparison to MHA."}
+{"qid": "q-mla-030", "chunk_id": "cxl_pnm-010", "relevant": false, "reason": "Does not state MLA uses only 4% KV cache compared to MHA."}
+{"qid": "q-mla-030", "chunk_id": "cxl_pnm-020", "relevant": false, "reason": "Does not state MLA uses 4% KV cache compared to MHA."}
+{"qid": "q-mla-039", "chunk_id": "mla-000", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) range."}
+{"qid": "q-mla-039", "chunk_id": "mla-002", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) specifically."}
+{"qid": "q-mla-039", "chunk_id": "mla-003", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) range."}
+{"qid": "q-mla-039", "chunk_id": "mla-004", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) interval."}
+{"qid": "q-mla-039", "chunk_id": "mla-005", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) range."}
+{"qid": "q-mla-039", "chunk_id": "mla-013", "relevant": false, "reason": "Does not specify the answer span [2,5) for HumanEval in DeepSeek-V2."}
+{"qid": "q-mla-039", "chunk_id": "mla-014", "relevant": false, "reason": "Does not specify HumanEval answer span [2,5) for DeepSeek-V2."}
+{"qid": "q-mla-039", "chunk_id": "mla-015", "relevant": false, "reason": "Does not mention HumanEval or the answer span [2,5)."}
+{"qid": "q-mla-039", "chunk_id": "mla-016", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) range."}
+{"qid": "q-mla-039", "chunk_id": "mla-017", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) range."}
+{"qid": "q-mla-039", "chunk_id": "mla-018", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) range."}
+{"qid": "q-mla-039", "chunk_id": "mla-020", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) specifically."}
+{"qid": "q-mla-039", "chunk_id": "mla-021", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) range."}
+{"qid": "q-mla-039", "chunk_id": "mla-022", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) interval."}
+{"qid": "q-mla-039", "chunk_id": "mla-023", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) interval."}
+{"qid": "q-mla-039", "chunk_id": "mla-025", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) interval."}
+{"qid": "q-mla-039", "chunk_id": "mla-027", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) interval."}
+{"qid": "q-mla-039", "chunk_id": "mla-028", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) range."}
+{"qid": "q-mla-039", "chunk_id": "mla-031", "relevant": false, "reason": "Does not mention HumanEval answer span or [2,5) extraction."}
+{"qid": "q-mla-039", "chunk_id": "mla-032", "relevant": false, "reason": "Does not specify HumanEval answer span [2,5) for DeepSeek-V2."}
+{"qid": "q-mla-039", "chunk_id": "mla-034", "relevant": false, "reason": "Does not mention DeepSeek-V2 or HumanEval answer span [2,5)."}
+{"qid": "q-mla-039", "chunk_id": "mla-036", "relevant": false, "reason": "Does not mention HumanEval or DeepSeek-V2 answer span [2,5)."}
+{"qid": "q-mla-039", "chunk_id": "mla-040", "relevant": false, "reason": "Does not specify HumanEval answer span [2,5); only shows code and answers."}
+{"qid": "q-mla-039", "chunk_id": "mla-043", "relevant": false, "reason": "Does not specify the answer span [2,5) for HumanEval examples."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-000", "relevant": true, "reason": "States key cache is per-channel, value cache is per-token quantized."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-002", "relevant": true, "reason": "States key cache is per-channel and value cache is per-token quantized."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-003", "relevant": false, "reason": "Does not mention per-channel or per-token quantization for key/value cache."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-004", "relevant": true, "reason": "States key cache per-channel, value cache per-token quantization explicitly."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-005", "relevant": true, "reason": "States key cache is per-channel, value cache is per-token quantization."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-006", "relevant": true, "reason": "States key cache is per-channel and value cache is per-token quantized."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-007", "relevant": true, "reason": "States key cache uses group-wise (per-channel) and value cache per-token quantization."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-008", "relevant": true, "reason": "States key cache per-channel, value cache per-token quantization explicitly."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-011", "relevant": true, "reason": "States KIVI uses per-channel for key, per-token for value quantization."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-014", "relevant": false, "reason": "Mentions per-channel quantization for key cache, but not per-token for value cache."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-015", "relevant": true, "reason": "States key cache is per-channel and value cache is per-token quantized."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-016", "relevant": true, "reason": "States key cache uses per-channel, value cache uses per-token quantization."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-017", "relevant": false, "reason": "No mention of key/value cache quantization methods."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-018", "relevant": false, "reason": "No mention of key/value cache quantization methods in passage."}
+{"qid": "q-kivi-001", "chunk_id": "kivi-020", "relevant": false, "reason": "No mention of per-channel or per-token quantization for key/value cache."}
+{"qid": "q-kivi-001", "chunk_id": "cxl_pnm-020", "relevant": false, "reason": "Does not specify per-channel or per-token quantization for key/value cache."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-004", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-006", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-008", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-009", "relevant": false, "reason": "Does not mention OPT-175B or its KV cache size."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not mention OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-012", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-016", "relevant": false, "reason": "Passage does not state the KV cache size for OPT-175B."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-018", "relevant": false, "reason": "No information about OPT-175B KV cache size or 1.2TB is present."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-019", "relevant": false, "reason": "Does not mention OPT-175B KV cache size or 1.2TB."}
+{"qid": "q-kivi-003", "chunk_id": "kivi-020", "relevant": false, "reason": "KV cache size for OPT-175B (1.2TB) is not stated."}
+{"qid": "q-kivi-003", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "infinigen-006", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "itme-001", "relevant": false, "reason": "Does not state OPT-175B KV cache size or 1.2TB figure."}
+{"qid": "q-kivi-003", "chunk_id": "itme-004", "relevant": false, "reason": "Does not state the 1.2TB KV cache size for OPT-175B."}
+{"qid": "q-kivi-005", "chunk_id": "turboquant-017", "relevant": false, "reason": "Does not compare per-token and per-channel quantization error magnitude."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not state per-token quantization increases attention score error by 5x."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not state attention score error increases 5x with per-token quantization."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not state per-token quantization increases attention score error by 5x."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-003", "relevant": false, "reason": "Does not mention per-token quantization or attention score error increase."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-004", "relevant": false, "reason": "Does not state per-token error is 5x larger than per-channel."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-006", "relevant": true, "reason": "States per-token quantization leads to almost 5× larger attention score error."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-007", "relevant": false, "reason": "Does not state per-token quantization increases attention score error by 5x vs per-channel."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-008", "relevant": false, "reason": "Does not mention attention score error increase or 5x difference."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not state per-token quantization increases attention score error by 5x over per-channel."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-011", "relevant": false, "reason": "Passage does not mention attention score error or its change with quantization."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not state per-token quantization increases error 5x over per-channel."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention attention score error or its change with per-token quantization."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-016", "relevant": false, "reason": "Does not mention attention score error or its magnitude change."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-019", "relevant": false, "reason": "Does not state per-token quantization increases attention score error by 5x over per-channel."}
+{"qid": "q-kivi-005", "chunk_id": "kivi-020", "relevant": false, "reason": "Does not mention attention score error or per-token vs per-channel quantization."}
+{"qid": "q-kivi-005", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not mention per-token quantization or attention score error increase."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not state the maximum token number for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not state the maximum token number for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not state the maximum token number for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-004", "relevant": false, "reason": "Does not state the maximum token count for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not state the maximum token number for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-006", "relevant": false, "reason": "Does not state the maximum token count for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-008", "relevant": true, "reason": "States residual length R for key and value cache is set to 128."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-009", "relevant": false, "reason": "Does not state the maximum token number for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not state the maximum token count for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not state the maximum token count for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-012", "relevant": false, "reason": "Does not state the maximum token count for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not state XKr's maximum token count or 'R' as the limit."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not state the maximum token count for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-016", "relevant": true, "reason": "States XKr length is at most R in KeyQuant pseudocode."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-017", "relevant": false, "reason": "Does not state the maximum token count for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-018", "relevant": false, "reason": "Does not state the maximum token count for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "kivi-020", "relevant": false, "reason": "Does not state the maximum token number for residual key cache XKr."}
+{"qid": "q-kivi-007", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not state XKr's maximum token count or specify 'R' as the limit."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention Falcon-7B's accuracy drop with 2bit quantization."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not mention Falcon-7B's accuracy drop with 2bit quantization."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not mention Falcon-7B's accuracy drop with 2bit quantization."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not state Falcon-7B's KV cache is already compressed or 2bit causes large accuracy drop."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-006", "relevant": false, "reason": "Does not mention Falcon-7B's KV cache compression or accuracy drop with 2bit."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-008", "relevant": false, "reason": "Does not mention Falcon-7B's accuracy drop with 2bit quantization."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not mention Falcon-7B's KV cache compression or accuracy drop with 2bit."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not state accuracy drop at 2bit for Falcon-7B due to compression."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-012", "relevant": false, "reason": "Does not explain accuracy drop with 2bit for Falcon-7B or need for 4bit."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-013", "relevant": false, "reason": "Does not mention Falcon-7B or accuracy drop due to 2bit quantization."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not state accuracy drop for Falcon-7B at 2bit quantization."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention Falcon-7B or accuracy drop with 2bit quantization."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-016", "relevant": false, "reason": "Does not mention Falcon-7B, 2bit/4bit, or accuracy degradation."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-017", "relevant": true, "reason": "Shows Falcon-7B accuracy drops more with 2bit than 4bit quantization."}
+{"qid": "q-kivi-009", "chunk_id": "kivi-019", "relevant": false, "reason": "Does not explain why Falcon-7B needs 4bit over 2bit quantization."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not state GSM8K score for Llama-2-7B with KIVI-2."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not state GSM8K score for Llama-2-7B or KIVI-2 results."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-006", "relevant": false, "reason": "Does not mention GSM8K score for Llama-2-7B or any specific score."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-008", "relevant": false, "reason": "Does not state the GSM8K score for Llama-2-7B with KIVI-2."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-009", "relevant": false, "reason": "Does not state the GSM8K score for Llama-2-7B with KIVI-2."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not state Llama-2-7B GSM8K score or 12.74 value."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-012", "relevant": false, "reason": "No GSM8K score for Llama-2-7B with KIVI-2 is stated."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-013", "relevant": false, "reason": "No GSM8K score for Llama-2-7B KIVI-2 is provided in the passage."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-014", "relevant": false, "reason": "No GSM8K score for Llama-2-7B with KIVI-2 is stated."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention GSM8K score for Llama-2-7B or any specific score."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-017", "relevant": true, "reason": "States KIVI-2 Llama-2-7B GSM8K score as 12.74 in table."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-018", "relevant": false, "reason": "No GSM8K score for Llama-2-7B with KIVI-2 is provided."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-019", "relevant": false, "reason": "No GSM8K score for Llama-2-7B with KIVI-2 is shown."}
+{"qid": "q-kivi-011", "chunk_id": "kivi-020", "relevant": false, "reason": "No GSM8K score for Llama-2-7B with KIVI-2 is mentioned."}
+{"qid": "q-kivi-013", "chunk_id": "turboquant-018", "relevant": false, "reason": "No QMSum score for Llama2-13B with KIVI-2 is given."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not state QMSum score for Llama2-13B with KIVI-2."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not state Llama2-13B QMSum score or any specific score."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not state QMSum score for Llama2-13B with KIVI-2."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not state QMSum score for Llama2-13B under KIVI-2 method."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-006", "relevant": false, "reason": "Does not state QMSum score for Llama2-13B with KIVI-2 method."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-008", "relevant": false, "reason": "Does not state Llama2-13B QMSum score or any specific QMSum result."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-009", "relevant": false, "reason": "Does not state QMSum score for Llama2-13B with KIVI-2."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-010", "relevant": false, "reason": "No QMSum score for Llama2-13B with KIVI-2 is stated in the passage."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-011", "relevant": false, "reason": "QMSum score for Llama2-13B KIVI-2 is not stated."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-012", "relevant": false, "reason": "No QMSum score for Llama2-13B with KIVI-2 is given."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not state QMSum score for Llama2-13B KIVI-2; numbers are ambiguous."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-017", "relevant": false, "reason": "No QMSum score for Llama2-13B KIVI-2 is provided in the passage."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-018", "relevant": true, "reason": "States KIVI-2 Llama2-13B QMSum score as 20.69 in table."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-019", "relevant": false, "reason": "Llama2-13B KIVI-2 QMSum score is not explicitly stated in the passage."}
+{"qid": "q-kivi-013", "chunk_id": "kivi-020", "relevant": false, "reason": "No QMSum score for Llama2-13B with KIVI-2 is provided."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-000", "relevant": true, "reason": "States key cache is per-channel, value cache is per-token quantized."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-001", "relevant": true, "reason": "States key cache is per-channel, value cache is per-token quantized in KIVI."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-002", "relevant": true, "reason": "States key cache is per-channel and value cache is per-token quantized."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-003", "relevant": false, "reason": "Does not mention channel-wise or token-wise quantization for key/value cache."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-004", "relevant": true, "reason": "States key cache per-channel, value cache per-token quantization explicitly."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-005", "relevant": true, "reason": "States key cache is per-channel, value cache is per-token quantized."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-006", "relevant": true, "reason": "States key cache is per-channel, value cache is per-token quantized."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-007", "relevant": true, "reason": "States key cache is group-wise (per-channel), value cache is per-token quantized."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-008", "relevant": true, "reason": "States key cache per-channel, value cache per-token quantization explicitly."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-011", "relevant": true, "reason": "States key cache is per-channel, value cache is per-token quantized."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-014", "relevant": false, "reason": "Mentions per-channel quantization for key cache only, not value cache method."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-016", "relevant": true, "reason": "Key cache: channel-wise, value cache: token-wise quantization explicitly described."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-017", "relevant": false, "reason": "Does not mention key/value cache quantization methods."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-018", "relevant": false, "reason": "No mention of key/value cache quantization methods or their granularity."}
+{"qid": "q-kivi-015", "chunk_id": "kivi-020", "relevant": false, "reason": "No mention of key/value cache quantization methods or per-channel/token details."}
+{"qid": "q-kivi-015", "chunk_id": "cxl_pnm-020", "relevant": false, "reason": "Does not specify key cache as channel-wise and value cache as token-wise quantization."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention residual length or setting it to 32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not mention residual length or reasons for setting it to 32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-002", "relevant": true, "reason": "States KIVI enables higher memory compression and increased throughput."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-007", "relevant": false, "reason": "Does not state higher memory compression or throughput as reason for R=32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-008", "relevant": false, "reason": "Does not state residual length 32 or its reason; mentions 128 and other settings."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-009", "relevant": false, "reason": "Does not mention residual length or reasons for setting it to 32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not state higher memory compression or throughput as reason for residual length 32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not mention residual length or reasons for setting it to 32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-012", "relevant": true, "reason": "States higher memory compression and increased throughput with residual length 32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not state that residual length 32 increases memory compression and throughput."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention residual length or reasons for setting it to 32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-016", "relevant": false, "reason": "Does not state higher memory compression or throughput as reasons for R=32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-018", "relevant": false, "reason": "Does not state memory compression or throughput as reasons for residual length 32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-019", "relevant": false, "reason": "Passage does not state memory compression or throughput as reasons for R32."}
+{"qid": "q-kivi-017", "chunk_id": "kivi-020", "relevant": false, "reason": "Does not state reason for setting residual length to 32."}
+{"qid": "q-kivi-019", "chunk_id": "mla-006", "relevant": false, "reason": "Does not state Llama-3-8B-Instruct KV cache head count."}
+{"qid": "q-kivi-019", "chunk_id": "mla-008", "relevant": false, "reason": "Does not state Llama-3-8B-Instruct KV cache head count."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not state the number of heads used in KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-001", "relevant": false, "reason": "Does not state the number of heads used in Llama-3-8B-Instruct KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-002", "relevant": false, "reason": "Passage does not state the number of heads used in KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-003", "relevant": false, "reason": "Does not state the number of heads used in KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-004", "relevant": false, "reason": "Does not state the number of heads used in Llama-3-8B-Instruct KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not state the number of heads for Llama-3-8B-Instruct KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-006", "relevant": false, "reason": "Does not state the number of heads for Llama-3-8B-Instruct KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-008", "relevant": false, "reason": "Does not state the number of heads for Llama-3-8B-Instruct KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-009", "relevant": false, "reason": "Does not state the number of heads used in KV cache for Llama-3-8B-Instruct."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-010", "relevant": false, "reason": "Does not state the number of heads used in KV cache for Llama-3-8B-Instruct."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not state the number of heads for Llama-3-8B-Instruct KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-012", "relevant": false, "reason": "Does not mention Llama-3-8B-Instruct KV cache head count."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not state the number of heads for Llama-3-8B-Instruct KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not state the number of heads used in KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-016", "relevant": false, "reason": "Passage does not state the number of heads used in KV cache."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-018", "relevant": false, "reason": "Does not state the number of heads in KV cache for Llama-3-8B-Instruct."}
+{"qid": "q-kivi-019", "chunk_id": "kivi-020", "relevant": true, "reason": "States KV cache uses 8 heads for KIVI."}
+{"qid": "q-kivi-019", "chunk_id": "infinigen-014", "relevant": false, "reason": "Does not state the number of heads used in KV cache."}
+{"qid": "q-infinigen-000", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not mention using previous layer input or next layer query weights for inference."}
+{"qid": "q-infinigen-000", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not mention using previous layer input, next layer query weights, or minimal rehearsal."}
+{"qid": "q-infinigen-000", "chunk_id": "kivi-019", "relevant": false, "reason": "No description of KV cache entry inference method or minimal rehearsal mechanism."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-001", "relevant": true, "reason": "Describes using previous layer input, partial query weight, and partial key cache for speculation."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not mention using previous layer input, next layer query weights, or minimal rehearsal."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-008", "relevant": false, "reason": "Does not mention using previous layer input or next layer query weights for KV selection."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-010", "relevant": true, "reason": "Mentions using previous layer input and minimal rehearsal for KV cache selection."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-013", "relevant": true, "reason": "Describes using previous layer input, query weights, and key cache for minimal rehearsal."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-014", "relevant": true, "reason": "Describes using previous layer input, next layer query weights, and key cache for speculation."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-015", "relevant": false, "reason": "Does not mention using previous layer input or next layer query weights."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not describe InfiniGen's method for inferring important KV cache entries."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not mention using previous layer input, next layer query weights, or minimal rehearsal."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not describe InfiniGen's method for inferring important KV cache entries."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not describe InfiniGen's method for inferring important KV cache entries."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not mention using previous layer input or next layer query weights."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-022", "relevant": true, "reason": "Mentions using previous layer input, partial query weight, and key cache for speculation."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not mention using previous layer input, next layer query weights, or minimal rehearsal."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-024", "relevant": false, "reason": "Does not describe using previous layer input and next layer query weights for KV selection."}
+{"qid": "q-infinigen-000", "chunk_id": "infinigen-025", "relevant": true, "reason": "Mentions using previous layer input and query/key weights for important KV cache speculation."}
+{"qid": "q-infinigen-002", "chunk_id": "mla-005", "relevant": false, "reason": "Does not specify input tensor dimension as N × D."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not specify input tensor dimension as N × D for Transformer block."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not specify input tensor dimensions as N × D."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-003", "relevant": false, "reason": "States input is 1 × D, not N × D as required."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-004", "relevant": false, "reason": "Does not state input tensor dimension as N × D."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-006", "relevant": false, "reason": "Does not mention input tensor dimensions or N × D format."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not mention input tensor dimensions or N × D for Transformer block."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-010", "relevant": false, "reason": "Does not specify input tensor dimension as N × D for Transformer block."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-011", "relevant": false, "reason": "Does not specify input tensor dimension as N × D."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-012", "relevant": false, "reason": "Does not specify input tensor dimension as N × D."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-013", "relevant": false, "reason": "Does not state input tensor dimension as N × D."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-014", "relevant": false, "reason": "Does not state input tensor dimension as N × D."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not state the input tensor dimension of the Transformer block."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not state the input tensor dimension as N × D for Transformer block."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not specify input tensor dimensions as N × D for Transformer block."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not state input tensor dimensions as N × D for Transformer block."}
+{"qid": "q-infinigen-002", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not state input tensor dimension as N × D for Transformer block."}
+{"qid": "q-infinigen-002", "chunk_id": "cxl_pnm-003", "relevant": false, "reason": "Does not specify input tensor dimension as N × D for Transformer block."}
+{"qid": "q-infinigen-005", "chunk_id": "kivi-004", "relevant": false, "reason": "Does not mention GPU memory bandwidth or KV cache load latency."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not mention GPU memory bandwidth or its effect on KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not mention GPU memory bandwidth as reason for negligible KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-006", "relevant": false, "reason": "Does not explicitly state GPU memory's high bandwidth reduces KV cache load latency."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not mention GPU memory bandwidth or KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-010", "relevant": false, "reason": "Does not mention GPU memory bandwidth as reason for negligible KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-014", "relevant": false, "reason": "Does not mention GPU memory bandwidth as reason for negligible KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-015", "relevant": false, "reason": "Does not mention GPU memory bandwidth or KV cache load latency."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not mention GPU memory bandwidth or KV cache load latency."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not mention GPU memory bandwidth or KV cache load latency."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not mention GPU memory bandwidth as the reason for negligible KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not mention GPU memory bandwidth or KV cache load latency."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not mention GPU memory bandwidth as reason for negligible KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not state high GPU memory bandwidth as reason for negligible KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not mention GPU memory bandwidth or KV cache load latency."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-024", "relevant": false, "reason": "Does not mention GPU memory bandwidth or its effect on KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "infinigen-025", "relevant": false, "reason": "Does not mention GPU memory bandwidth or KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "itme-014", "relevant": false, "reason": "Does not state GPU memory bandwidth is high or link it to low KV cache latency."}
+{"qid": "q-infinigen-005", "chunk_id": "cxl_pnm-006", "relevant": false, "reason": "Does not mention GPU memory bandwidth or its effect on KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "cxl_pnm-012", "relevant": false, "reason": "Does not mention GPU memory bandwidth as reason for negligible KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "cxl_pnm-013", "relevant": false, "reason": "Does not mention GPU memory bandwidth as reason for negligible KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "cxl_pnm-014", "relevant": false, "reason": "Does not mention GPU memory bandwidth or KV cache load latency."}
+{"qid": "q-infinigen-005", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Does not state GPU memory bandwidth is high or link it to KV cache load delay."}
+{"qid": "q-infinigen-005", "chunk_id": "cxl_pnm-018", "relevant": false, "reason": "Does not state GPU memory bandwidth is high or link it to low KV load delay."}
+{"qid": "q-infinigen-007", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not state the 200-token KV cache budget for H2O method."}
+{"qid": "q-infinigen-007", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention H2O or a 200-token KV cache budget."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not state the 200-token KV cache budget for H2O method."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not specify the KV cache budget as 200 tokens."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-006", "relevant": true, "reason": "States H2O uses 200 tokens for attention computation, matching the reference answer."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-008", "relevant": false, "reason": "Does not state H2O uses a KV cache budget of 200 tokens."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not state H2O uses a 200-token KV cache budget."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-010", "relevant": false, "reason": "Does not specify H2O KV cache budget or 200 tokens."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not state H2O's KV cache budget in number of tokens."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not state H2O uses a 200-token KV cache budget."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-018", "relevant": false, "reason": "Does not state H2O's KV cache budget as 200 tokens."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not state H2O's KV cache budget as 200 tokens."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not state H2O's KV cache budget in tokens; only gives percentage and examples."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not state the KV cache budget in number of tokens."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not state H2O's KV cache budget in tokens or mention 200 tokens."}
+{"qid": "q-infinigen-007", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not state H2O's KV cache budget or specify 200 tokens."}
+{"qid": "q-infinigen-010", "chunk_id": "mla-008", "relevant": false, "reason": "Does not mention Skewing Controller or offline weight modification for prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "kivi-017", "relevant": false, "reason": "Does not mention Skewing Controller or model weight modification for prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-000", "relevant": true, "reason": "States InfiniGen manipulates model weights offline to support prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-001", "relevant": true, "reason": "States InfiniGen manipulates model weights offline to support prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-002", "relevant": false, "reason": "Does not mention Skewing Controller or offline weight modification for prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-004", "relevant": false, "reason": "Does not mention offline model weight modification or prefetching support."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not mention Skewing Controller or offline model weight modification."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-013", "relevant": true, "reason": "Describes offline weight modification to support prefetching in InfiniGen."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-014", "relevant": false, "reason": "Does not mention Skewing Controller or offline model weight modification."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-015", "relevant": false, "reason": "Does not mention Skewing Controller or offline model weight modification."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not mention Skewing Controller or offline weight modification for prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not state Skewing Controller modifies model weights offline for prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-018", "relevant": false, "reason": "Does not mention Skewing Controller or offline weight modification for prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-019", "relevant": false, "reason": "No mention of Skewing Controller or offline model weight modification."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not mention Skewing Controller or offline weight modification for prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not mention Skewing Controller or offline model weight modification."}
+{"qid": "q-infinigen-010", "chunk_id": "infinigen-025", "relevant": true, "reason": "Mentions manipulating weights to support speculative prefetching, matching reference answer."}
+{"qid": "q-infinigen-010", "chunk_id": "itme-005", "relevant": false, "reason": "Does not mention Skewing Controller or offline model weight modification."}
+{"qid": "q-infinigen-010", "chunk_id": "itme-011", "relevant": false, "reason": "Does not mention offline modification of model weights for prefetching support."}
+{"qid": "q-infinigen-010", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not mention Skewing Controller or offline model weight modification."}
+{"qid": "q-infinigen-010", "chunk_id": "cxl_pnm-004", "relevant": false, "reason": "Does not mention Skewing Controller or offline model weight modification."}
+{"qid": "q-infinigen-010", "chunk_id": "cxl_pnm-006", "relevant": false, "reason": "Does not mention Skewing Controller or offline model weight modification for prefetching."}
+{"qid": "q-infinigen-010", "chunk_id": "cxl_pnm-020", "relevant": false, "reason": "Does not mention Skewing Controller or offline model weight modification."}
+{"qid": "q-infinigen-012", "chunk_id": "turboquant-007", "relevant": false, "reason": "Does not mention matrix A, orthogonality, or transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "mla-006", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "mla-007", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "mla-008", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "mla-019", "relevant": false, "reason": "Does not mention matrix A, orthogonality, or transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "mla-032", "relevant": false, "reason": "No mention of matrix A, orthogonality, or transpose/inverse properties."}
+{"qid": "q-infinigen-012", "chunk_id": "mla-034", "relevant": false, "reason": "No mention of matrix A, orthogonality, or transpose/inverse properties."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not state that A is orthogonal or that its transpose is its inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-002", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-004", "relevant": true, "reason": "States A is an orthogonal matrix; orthogonal implies transpose is inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not mention matrix A, orthogonality, or transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-010", "relevant": false, "reason": "Does not mention matrix A, orthogonality, or transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-011", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-013", "relevant": true, "reason": "States A is an orthogonal matrix and V^T A = V^T V = I."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-014", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not mention matrix A, orthogonality, or transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-018", "relevant": false, "reason": "Does not mention matrix A's orthogonality or transpose-inverse property."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not mention matrix A, orthogonality, or transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not mention matrix A or its orthogonality or transpose properties."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not mention matrix A, orthogonality, or transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not mention matrix A, orthogonality, or transpose as inverse."}
+{"qid": "q-infinigen-012", "chunk_id": "infinigen-025", "relevant": false, "reason": "Does not mention A being orthogonal or its transpose as inverse."}
+{"qid": "q-infinigen-015", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention user-configurable KV cache pool size limits."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not state user can set KV cache pool memory size limit."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not mention user-configurable memory size limits for KV cache pool."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-005", "relevant": false, "reason": "Does not state user can set KV cache pool size limit directly."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-006", "relevant": false, "reason": "Does not mention user-configurable KV cache pool size limits."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not state user can set KV cache pool memory size limit."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-008", "relevant": false, "reason": "Does not state user-configurable memory size limit for KV cache pool."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not state user-settable memory size limit for KV cache pool."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-010", "relevant": false, "reason": "Does not state user can set memory size limit directly."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not mention user-configurable KV cache pool size limits."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not state user can set KV cache pool memory limit directly."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-018", "relevant": false, "reason": "Does not state user can set KV cache pool memory limit directly."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not state user can set KV cache pool memory limit directly."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not state user-configurable KV cache pool size limit."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not state user can set KV cache pool size limit directly."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not state user can set KV cache pool memory limit directly."}
+{"qid": "q-infinigen-015", "chunk_id": "infinigen-025", "relevant": false, "reason": "Does not mention user-configurable memory size limit for KV cache pool."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not state OPT-13B sequence length or mention 4096 tokens."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not state OPT-13B sequence length or mention 4096."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-004", "relevant": false, "reason": "Does not state OPT-13B sequence length or mention InfiniGen settings."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-006", "relevant": false, "reason": "Does not state OPT-13B sequence length or mention 4096."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not mention OPT-13B or sequence length 4096."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-012", "relevant": false, "reason": "Does not mention OPT-13B sequence length or 4096."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-016", "relevant": false, "reason": "Sequence length for OPT-13B is not specified in the passage."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-018", "relevant": false, "reason": "Passage states 2048, not 4096, for OPT-13B sequence length."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not state InfiniGen's sequence length is set to 4096."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not state OPT-13B sequence length as 4096 anywhere."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-021", "relevant": false, "reason": "States 2048 sequence length for OPT-13B, not 4096 as in reference answer."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not state OPT-13B sequence length used in InfiniGen experiments."}
+{"qid": "q-infinigen-017", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not state OPT-13B sequence length or mention 4096 tokens."}
+{"qid": "q-infinigen-017", "chunk_id": "itme-001", "relevant": false, "reason": "Does not mention OPT-13B or its sequence length setting."}
+{"qid": "q-infinigen-020", "chunk_id": "turboquant-017", "relevant": false, "reason": "No mention of offloading 30% of model parameters to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "kivi-011", "relevant": false, "reason": "No mention of offloading 30% of parameters to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not mention 30% of model parameters offloaded to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not specify 30% of model parameters offloaded to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-004", "relevant": false, "reason": "Does not mention offloading 30% of parameters to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-006", "relevant": false, "reason": "Does not mention 30% offloading of model parameters to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-013", "relevant": false, "reason": "Mentions selecting 30% of columns, not offloading 30% of parameters to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-014", "relevant": false, "reason": "Does not mention offloading 30% of parameters to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-016", "relevant": true, "reason": "States 'partial weight ratio is set to 0.3' for model parameter offloading."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not mention offloading 30% of model parameters to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not mention 30% of parameters offloaded to CPU for 30B model."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not state 30% of model parameters are offloaded to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not state 30% of parameters offloaded to CPU for 30B model."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not mention offloading 30% of parameters to CPU."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-024", "relevant": false, "reason": "Does not specify 30% of parameters offloaded to CPU for 30B model."}
+{"qid": "q-infinigen-020", "chunk_id": "infinigen-025", "relevant": false, "reason": "Does not mention 30% CPU offloading of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "kivi-020", "relevant": false, "reason": "Does not mention partial query weight percentage of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not state partial query weight is 2.5% of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not state partial query weight as 2.5% of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-006", "relevant": false, "reason": "Does not mention partial query weight size or percentage of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-008", "relevant": false, "reason": "Does not mention InfiniGen or partial query weight percentage."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not mention partial query weight size as 2.5% of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-010", "relevant": false, "reason": "Does not state partial query weight as 2.5% of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-013", "relevant": false, "reason": "Passage states 30% columns selected, not 2.5% of total parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-014", "relevant": false, "reason": "Does not state partial query weight size as 2.5% of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not state partial query weight as 2.5% of total model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not state partial query weight as 2.5% of total parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-018", "relevant": false, "reason": "Does not state partial query weight size as 2.5% of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-019", "relevant": false, "reason": "Does not mention partial query weight size or its percentage of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not state partial query weight as 2.5% of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not state partial query weight is 2.5% of total model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not state partial query weight as 2.5% of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "itme-017", "relevant": false, "reason": "Does not mention partial query weight size or percentage of model parameters."}
+{"qid": "q-infinigen-022", "chunk_id": "itme-020", "relevant": false, "reason": "Does not state partial query weight as 2.5% of total parameters."}
+{"qid": "q-itme-003", "chunk_id": "itme-000", "relevant": false, "reason": "Does not state SSD is used as directly accessible memory expansion."}
+{"qid": "q-itme-003", "chunk_id": "itme-002", "relevant": true, "reason": "States T3.5 uses NVMe SSDs as byte-addressable memory for direct access."}
+{"qid": "q-itme-003", "chunk_id": "itme-004", "relevant": false, "reason": "Does not state SSD is used as directly accessible memory extension."}
+{"qid": "q-itme-003", "chunk_id": "itme-005", "relevant": false, "reason": "Does not state SSD is used as directly accessible memory extension."}
+{"qid": "q-itme-003", "chunk_id": "itme-007", "relevant": false, "reason": "Does not mention SSD as directly accessible memory extension implementation."}
+{"qid": "q-itme-003", "chunk_id": "itme-009", "relevant": false, "reason": "Does not state SSD is used as directly accessible memory extension."}
+{"qid": "q-itme-003", "chunk_id": "itme-010", "relevant": false, "reason": "Does not state SSD-based capacity is directly accessed as memory extension."}
+{"qid": "q-itme-003", "chunk_id": "itme-011", "relevant": false, "reason": "Does not state SSD as directly accessible memory extension implementation."}
+{"qid": "q-itme-003", "chunk_id": "itme-012", "relevant": false, "reason": "Does not state SSD as directly accessible memory extension."}
+{"qid": "q-itme-003", "chunk_id": "itme-013", "relevant": true, "reason": "Describes converting SSD-based capacity into directly accessible memory via CXL-hybrid memory."}
+{"qid": "q-itme-003", "chunk_id": "itme-014", "relevant": false, "reason": "Does not state SSD is used as directly accessible memory extension."}
+{"qid": "q-itme-003", "chunk_id": "itme-015", "relevant": true, "reason": "Describes SSDs used as byte-addressable memory expansion in T3.5 tier."}
+{"qid": "q-itme-003", "chunk_id": "itme-016", "relevant": false, "reason": "Does not state SSD as directly accessible memory extension."}
+{"qid": "q-itme-003", "chunk_id": "itme-017", "relevant": false, "reason": "Does not mention SSD or direct-access memory extension mechanism."}
+{"qid": "q-itme-003", "chunk_id": "itme-018", "relevant": false, "reason": "Does not state SSD is used as directly accessible memory extension."}
+{"qid": "q-itme-003", "chunk_id": "itme-019", "relevant": false, "reason": "Does not state SSD as directly accessible memory extension implementation."}
+{"qid": "q-itme-003", "chunk_id": "itme-020", "relevant": false, "reason": "Does not state SSD as directly accessible memory extension."}
+{"qid": "q-itme-003", "chunk_id": "itme-021", "relevant": false, "reason": "Does not state SSD-based memory expansion or direct access mechanism."}
+{"qid": "q-itme-003", "chunk_id": "itme-022", "relevant": false, "reason": "Does not state SSD is directly accessed as memory extension."}
+{"qid": "q-itme-005", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into one transmission unit."}
+{"qid": "q-itme-005", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transmission unit."}
+{"qid": "q-itme-005", "chunk_id": "kivi-004", "relevant": false, "reason": "No mention of aggregating multiple KV blocks into a single transmission unit."}
+{"qid": "q-itme-005", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transmission unit."}
+{"qid": "q-itme-005", "chunk_id": "infinigen-002", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transmission unit."}
+{"qid": "q-itme-005", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transmission unit."}
+{"qid": "q-itme-005", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-001", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-003", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-004", "relevant": false, "reason": "Does not state aggregation of multiple KV blocks into one transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-007", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-010", "relevant": true, "reason": "ITME aggregates multiple KV blocks into large chunks for efficient transfer."}
+{"qid": "q-itme-005", "chunk_id": "itme-011", "relevant": true, "reason": "States KV cache blocks are aggregated and transferred in large chunks."}
+{"qid": "q-itme-005", "chunk_id": "itme-012", "relevant": false, "reason": "Does not state aggregation of multiple KV blocks into one transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-013", "relevant": false, "reason": "Does not state aggregation of multiple KV blocks into one large transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-014", "relevant": true, "reason": "States KV blocks are aggregated into coarse-grained chunks for transmission."}
+{"qid": "q-itme-005", "chunk_id": "itme-016", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-017", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-018", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-019", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-020", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-005", "chunk_id": "itme-022", "relevant": false, "reason": "Does not mention aggregating multiple KV blocks into a single transfer unit."}
+{"qid": "q-itme-007", "chunk_id": "itme-000", "relevant": false, "reason": "Does not mention SRAM requirement or 28MB for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-001", "relevant": false, "reason": "Does not mention DRAM cache size or required SRAM amount."}
+{"qid": "q-itme-007", "chunk_id": "itme-002", "relevant": false, "reason": "Does not state SRAM requirement or 28MB figure for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-004", "relevant": false, "reason": "Does not state SRAM requirement for 64GB DRAM cache or mention 28MB."}
+{"qid": "q-itme-007", "chunk_id": "itme-005", "relevant": false, "reason": "Does not mention SRAM requirement or 28MB for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-006", "relevant": true, "reason": "States 64GB DRAM cache requires 28MB SRAM for metadata."}
+{"qid": "q-itme-007", "chunk_id": "itme-008", "relevant": false, "reason": "Does not mention SRAM requirement for 64GB DRAM cache in ITME structure."}
+{"qid": "q-itme-007", "chunk_id": "itme-010", "relevant": false, "reason": "Does not state SRAM requirement for 64GB DRAM cache in ITME."}
+{"qid": "q-itme-007", "chunk_id": "itme-011", "relevant": false, "reason": "Does not state the SRAM requirement or 28MB figure for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-012", "relevant": false, "reason": "Does not mention SRAM requirement or 28MB for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-015", "relevant": false, "reason": "Does not mention SRAM requirement for 64GB DRAM cache in ITME structure."}
+{"qid": "q-itme-007", "chunk_id": "itme-016", "relevant": false, "reason": "Does not state SRAM requirement for 64GB DRAM cache in ITME structure."}
+{"qid": "q-itme-007", "chunk_id": "itme-017", "relevant": false, "reason": "Does not mention SRAM requirements or 28MB for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-018", "relevant": false, "reason": "Does not mention SRAM requirement or 28MB figure for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-019", "relevant": false, "reason": "Does not mention SRAM requirement or 28MB for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-020", "relevant": false, "reason": "Does not mention SRAM requirement or 28MB figure for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-021", "relevant": false, "reason": "Does not mention SRAM requirements for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "itme-023", "relevant": false, "reason": "Does not state SRAM requirement for 64GB DRAM cache in ITME."}
+{"qid": "q-itme-007", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not mention SRAM requirement or 28MB for 64GB DRAM cache."}
+{"qid": "q-itme-007", "chunk_id": "cxl_pnm-015", "relevant": false, "reason": "SRAM requirement for 64GB DRAM cache is not mentioned."}
+{"qid": "q-itme-009", "chunk_id": "itme-002", "relevant": false, "reason": "Passage does not mention chm_prefetch() overhead or 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-004", "relevant": false, "reason": "Passage does not mention chm_prefetch() overhead or 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-005", "relevant": false, "reason": "Does not state chm_prefetch() average overhead or 3 microseconds figure."}
+{"qid": "q-itme-009", "chunk_id": "itme-007", "relevant": false, "reason": "Does not state chm_prefetch() average overhead or 3 microseconds value."}
+{"qid": "q-itme-009", "chunk_id": "itme-008", "relevant": false, "reason": "Does not mention chm_prefetch() or its average overhead (3 microseconds)."}
+{"qid": "q-itme-009", "chunk_id": "itme-010", "relevant": false, "reason": "Passage does not mention chm_prefetch() overhead or 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-011", "relevant": false, "reason": "Passage does not state chm_prefetch() average overhead or 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-012", "relevant": false, "reason": "Passage does not mention chm_prefetch() overhead or 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-013", "relevant": false, "reason": "Passage does not mention chm_prefetch() overhead or 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-014", "relevant": false, "reason": "Does not state chm_prefetch() average overhead or 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-016", "relevant": false, "reason": "Does not state chm_prefetch() average overhead or 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-017", "relevant": false, "reason": "Does not state chm_prefetch() average overhead or 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-018", "relevant": false, "reason": "Does not mention chm_prefetch() or its average overhead in microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-019", "relevant": false, "reason": "Does not state chm_prefetch() overhead or mention 3 microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-020", "relevant": false, "reason": "Does not mention chm_prefetch() or its average overhead in microseconds."}
+{"qid": "q-itme-009", "chunk_id": "itme-021", "relevant": false, "reason": "Does not mention chm_prefetch() overhead or 3 microseconds."}
+{"qid": "q-itme-011", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention dynamic recomputation on GPU after KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not mention GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "kivi-003", "relevant": false, "reason": "Does not state that GPU dynamically recomputes on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "kivi-004", "relevant": false, "reason": "Does not mention GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not mention GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not mention GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "kivi-012", "relevant": false, "reason": "Does not mention dynamic recomputation on GPU after KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "kivi-014", "relevant": false, "reason": "Does not mention GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "kivi-019", "relevant": false, "reason": "No mention of KV cache miss handling or dynamic GPU recomputation."}
+{"qid": "q-itme-011", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not state GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not mention GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not state GPU dynamically recomputes on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-001", "relevant": false, "reason": "Does not state GPU dynamically recomputes on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-002", "relevant": false, "reason": "Does not state that GPU dynamically recomputes on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-003", "relevant": false, "reason": "Does not mention dynamic recomputation on GPU after KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-004", "relevant": false, "reason": "Does not state that GPU dynamically recomputes on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-006", "relevant": false, "reason": "Does not mention GPU or dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-010", "relevant": false, "reason": "Does not mention dynamic recomputation on GPU after KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-012", "relevant": false, "reason": "Does not state GPU dynamically recomputes on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-013", "relevant": false, "reason": "Does not state GPU dynamically recalculates on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-014", "relevant": false, "reason": "Does not mention dynamic recomputation on GPU for KV cache misses."}
+{"qid": "q-itme-011", "chunk_id": "itme-016", "relevant": false, "reason": "Does not state GPU recomputation on KV cache miss in ITME structure."}
+{"qid": "q-itme-011", "chunk_id": "itme-017", "relevant": false, "reason": "Does not state that GPU dynamically recomputes on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-018", "relevant": false, "reason": "Does not state that GPU dynamically recomputes on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-019", "relevant": false, "reason": "Does not mention GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-020", "relevant": false, "reason": "Does not mention GPU dynamic recomputation on KV cache miss."}
+{"qid": "q-itme-011", "chunk_id": "itme-022", "relevant": false, "reason": "Does not state GPU dynamically recomputes on KV cache miss."}
+{"qid": "q-itme-013", "chunk_id": "infinigen-010", "relevant": false, "reason": "Does not mention circular buffer strategy for model weights management."}
+{"qid": "q-itme-013", "chunk_id": "infinigen-014", "relevant": false, "reason": "Does not mention circular buffer or model weight management strategy."}
+{"qid": "q-itme-013", "chunk_id": "itme-000", "relevant": false, "reason": "Does not mention circular buffer strategy for model weight management."}
+{"qid": "q-itme-013", "chunk_id": "itme-001", "relevant": false, "reason": "Does not mention circular buffer or specific weight management strategy."}
+{"qid": "q-itme-013", "chunk_id": "itme-002", "relevant": false, "reason": "Does not mention circular buffer strategy for model weights management."}
+{"qid": "q-itme-013", "chunk_id": "itme-003", "relevant": false, "reason": "Does not mention circular buffer strategy for model weights management."}
+{"qid": "q-itme-013", "chunk_id": "itme-004", "relevant": false, "reason": "Does not mention circular buffer strategy for model weights management."}
+{"qid": "q-itme-013", "chunk_id": "itme-007", "relevant": false, "reason": "No mention of circular buffer or model weight management strategy."}
+{"qid": "q-itme-013", "chunk_id": "itme-008", "relevant": false, "reason": "Does not mention circular buffer or model weight management strategy."}
+{"qid": "q-itme-013", "chunk_id": "itme-009", "relevant": false, "reason": "Does not mention circular buffer strategy for weight management."}
+{"qid": "q-itme-013", "chunk_id": "itme-010", "relevant": true, "reason": "Describes use of a circular (ring) buffer for model weight management."}
+{"qid": "q-itme-013", "chunk_id": "itme-011", "relevant": false, "reason": "Does not mention circular buffer or equivalent mechanism for weight management."}
+{"qid": "q-itme-013", "chunk_id": "itme-012", "relevant": false, "reason": "Does not mention circular buffer or its use for weight management."}
+{"qid": "q-itme-013", "chunk_id": "itme-014", "relevant": false, "reason": "Does not mention circular buffer or buffer management strategy."}
+{"qid": "q-itme-013", "chunk_id": "itme-015", "relevant": false, "reason": "Does not mention circular buffer or model weight management strategy."}
+{"qid": "q-itme-013", "chunk_id": "itme-016", "relevant": false, "reason": "Does not mention circular buffer strategy for model weights management."}
+{"qid": "q-itme-013", "chunk_id": "itme-017", "relevant": false, "reason": "Does not mention circular buffer or model weight management method."}
+{"qid": "q-itme-013", "chunk_id": "itme-018", "relevant": false, "reason": "Does not mention circular buffer or buffer management strategy."}
+{"qid": "q-itme-013", "chunk_id": "itme-019", "relevant": false, "reason": "Does not mention circular buffer or weight management strategy."}
+{"qid": "q-itme-013", "chunk_id": "itme-020", "relevant": false, "reason": "Does not mention circular buffer strategy for weight management."}
+{"qid": "q-itme-013", "chunk_id": "itme-021", "relevant": false, "reason": "Does not mention circular buffer or weight management strategy."}
+{"qid": "q-itme-013", "chunk_id": "itme-022", "relevant": false, "reason": "Does not mention circular buffer or model weight management strategy."}
+{"qid": "q-itme-015", "chunk_id": "itme-001", "relevant": false, "reason": "Does not state the DRAM cache capacity or mention 32GB."}
+{"qid": "q-itme-015", "chunk_id": "itme-002", "relevant": false, "reason": "DRAM cache capacity (32GB) is not specified in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-003", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-004", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-005", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-006", "relevant": true, "reason": "Passage states DRAM cache size is 32GB in Table 2."}
+{"qid": "q-itme-015", "chunk_id": "itme-007", "relevant": true, "reason": "States baseline DRAM cache capacity is 32 GB, matching reference answer."}
+{"qid": "q-itme-015", "chunk_id": "itme-011", "relevant": false, "reason": "Passage does not state the DRAM cache capacity or mention 32GB."}
+{"qid": "q-itme-015", "chunk_id": "itme-012", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-014", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-016", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-017", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-018", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-019", "relevant": false, "reason": "Does not state CMM-based DRAM cache capacity as 32GB."}
+{"qid": "q-itme-015", "chunk_id": "itme-020", "relevant": false, "reason": "Does not state CMM-based DRAM cache capacity as 32GB."}
+{"qid": "q-itme-015", "chunk_id": "itme-021", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-015", "chunk_id": "itme-022", "relevant": false, "reason": "Does not state the DRAM cache capacity (32GB) for CMM in ITME evaluation."}
+{"qid": "q-itme-015", "chunk_id": "itme-023", "relevant": false, "reason": "DRAM cache capacity (32GB) is not mentioned in the passage."}
+{"qid": "q-itme-017", "chunk_id": "turboquant-017", "relevant": false, "reason": "No mention of TTFT speedup or 1.81x improvement in Turn 5."}
+{"qid": "q-itme-017", "chunk_id": "turboquant-020", "relevant": false, "reason": "No mention of Turn 5 or 1.81x TTFT speedup."}
+{"qid": "q-itme-017", "chunk_id": "infinigen-020", "relevant": false, "reason": "No mention of ITME, Turn 5, or 1.81× speedup."}
+{"qid": "q-itme-017", "chunk_id": "itme-000", "relevant": false, "reason": "Does not mention Turn 5 or 1.81x TTFT speedup."}
+{"qid": "q-itme-017", "chunk_id": "itme-003", "relevant": false, "reason": "No mention of Turn 5 or 1.81x TTFT speedup."}
+{"qid": "q-itme-017", "chunk_id": "itme-004", "relevant": false, "reason": "No mention of Turn 5 or 1.81x TTFT speedup."}
+{"qid": "q-itme-017", "chunk_id": "itme-011", "relevant": false, "reason": "Passage does not mention Turn 5 or a 1.81x TTFT speedup."}
+{"qid": "q-itme-017", "chunk_id": "itme-012", "relevant": false, "reason": "No mention of TTFT speedup or 1.81x improvement in Turn 5."}
+{"qid": "q-itme-017", "chunk_id": "itme-013", "relevant": false, "reason": "Passage does not mention Turn 5 or a 1.81x TTFT speedup."}
+{"qid": "q-itme-017", "chunk_id": "itme-014", "relevant": false, "reason": "No mention of 1.81x TTFT speedup at Turn 5."}
+{"qid": "q-itme-017", "chunk_id": "itme-015", "relevant": false, "reason": "No explicit mention of 1.81x TTFT speedup at Turn 5."}
+{"qid": "q-itme-017", "chunk_id": "itme-016", "relevant": false, "reason": "No mention of 1.81x TTFT speedup at Turn 5."}
+{"qid": "q-itme-017", "chunk_id": "itme-018", "relevant": false, "reason": "Turn 5 TTFT speedup (1.81x) is not explicitly stated in the passage."}
+{"qid": "q-itme-017", "chunk_id": "itme-019", "relevant": false, "reason": "Does not state the 1.81x TTFT improvement at Turn 5."}
+{"qid": "q-itme-017", "chunk_id": "itme-020", "relevant": false, "reason": "Does not mention Turn 5 or 1.81x TTFT speedup."}
+{"qid": "q-itme-017", "chunk_id": "itme-021", "relevant": false, "reason": "Does not state the 1.81x TTFT speedup for Turn 5."}
+{"qid": "q-itme-017", "chunk_id": "itme-023", "relevant": false, "reason": "Does not mention Turn 5 or 1.81x TTFT speedup."}
+{"qid": "q-itme-019", "chunk_id": "itme-000", "relevant": false, "reason": "Passage does not mention when Local NVMe-oF performance degradation starts."}
+{"qid": "q-itme-019", "chunk_id": "itme-001", "relevant": false, "reason": "Does not mention when Local NVMe-oF performance degradation starts."}
+{"qid": "q-itme-019", "chunk_id": "itme-002", "relevant": false, "reason": "Passage does not mention Turn 5 or when performance degradation starts."}
+{"qid": "q-itme-019", "chunk_id": "itme-003", "relevant": false, "reason": "Passage does not specify when Local NVMe-oF performance degradation begins."}
+{"qid": "q-itme-019", "chunk_id": "itme-004", "relevant": false, "reason": "Does not mention when Local NVMe-oF performance degradation begins."}
+{"qid": "q-itme-019", "chunk_id": "itme-011", "relevant": false, "reason": "Passage does not specify when Local NVMe-oF performance degradation begins."}
+{"qid": "q-itme-019", "chunk_id": "itme-012", "relevant": false, "reason": "Passage does not mention when Local NVMe-oF performance degradation starts."}
+{"qid": "q-itme-019", "chunk_id": "itme-013", "relevant": false, "reason": "Does not mention when Local NVMe-oF performance degradation begins."}
+{"qid": "q-itme-019", "chunk_id": "itme-015", "relevant": false, "reason": "Does not state when Local NVMe-oF performance degradation begins."}
+{"qid": "q-itme-019", "chunk_id": "itme-016", "relevant": false, "reason": "Does not state when Local NVMe-oF performance degradation begins."}
+{"qid": "q-itme-019", "chunk_id": "itme-017", "relevant": false, "reason": "Does not state when Local NVMe-oF performance degradation begins."}
+{"qid": "q-itme-019", "chunk_id": "itme-018", "relevant": false, "reason": "Does not state when Local NVMe-oF performance degradation begins."}
+{"qid": "q-itme-019", "chunk_id": "itme-020", "relevant": false, "reason": "Does not mention Turn 5 or when performance degradation starts."}
+{"qid": "q-itme-019", "chunk_id": "itme-021", "relevant": false, "reason": "Does not specify when Local NVMe-oF performance degradation begins (e.g., Turn 5)."}
+{"qid": "q-itme-019", "chunk_id": "itme-023", "relevant": false, "reason": "Passage does not mention when Local NVMe-oF performance degradation starts."}
+{"qid": "q-itme-019", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not mention when Local NVMe-oF performance degradation starts."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-002", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage (87%)."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-003", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage or CXL offloading."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-004", "relevant": false, "reason": "No specific percentage reduction in GPU memory usage is mentioned."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-005", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-007", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-008", "relevant": false, "reason": "Passage does not mention GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-009", "relevant": false, "reason": "No mention of GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-010", "relevant": false, "reason": "No mention of GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-011", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-012", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-013", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage or '87%' figure."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-018", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-019", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-020", "relevant": false, "reason": "Does not mention GPU memory usage reduction percentage or '87%' figure."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-021", "relevant": true, "reason": "States GPU usage reduced by up to 87% by offloading KV caches to CXL memory."}
+{"qid": "q-cxl_pnm-001", "chunk_id": "cxl_pnm-022", "relevant": false, "reason": "Passage does not mention specific GPU memory reduction percentage."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention 16xA100-80GB GPUs or specific memory shortage for 1M tokens."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not state 16xA100-80GB GPUs lack memory for 1M-token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-001", "relevant": false, "reason": "Does not state 16 A100-80GB GPUs are insufficient for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-002", "relevant": false, "reason": "Does not state 16×A100-80GB GPUs lack memory for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-004", "relevant": false, "reason": "Does not state 16 A100-80GB GPUs are insufficient for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-006", "relevant": false, "reason": "Does not state 16xA100-80GB GPUs are insufficient for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-007", "relevant": false, "reason": "Does not mention 16xA100-80GB GPUs or memory insufficiency for 1M tokens."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-008", "relevant": false, "reason": "Does not mention GPU memory shortage for 1M token KV-cache with 16 A100-80GB GPUs."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-010", "relevant": false, "reason": "Does not mention GPU memory insufficiency for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-012", "relevant": false, "reason": "Does not state that 16xA100-80GB GPUs lack memory for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-013", "relevant": false, "reason": "Does not state 16xA100-80GB GPUs are insufficient for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-014", "relevant": false, "reason": "Does not mention GPU memory limits or 1M token KV-cache size."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-015", "relevant": false, "reason": "Does not state GPU memory is insufficient for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-016", "relevant": false, "reason": "Does not mention Llama3.1-405B or GPU memory insufficiency for 1M tokens."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Does not state 16×A100-80GB GPUs are insufficient for 1M-token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-018", "relevant": false, "reason": "Does not state 16 A100-80GB GPUs are insufficient for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-019", "relevant": false, "reason": "Does not mention 1M tokens or 16xA100-80GB GPU memory limits."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-020", "relevant": false, "reason": "Does not state 16xA100-80GB GPUs are insufficient for 1M token KV-cache."}
+{"qid": "q-cxl_pnm-003", "chunk_id": "cxl_pnm-022", "relevant": false, "reason": "Does not state 16xA100-80GB GPUs lack memory for 1M-token KV-cache."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "itme-006", "relevant": false, "reason": "Passage does not state the CXL memory module bandwidth (1.1 TB/s)."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "itme-008", "relevant": false, "reason": "Does not state CXL memory module bandwidth or 1.1 TB/s figure."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "itme-022", "relevant": false, "reason": "Does not state the specific bandwidth (1.1 TB/s) of each CXL memory module."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not state the CXL memory module bandwidth value."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-001", "relevant": false, "reason": "Passage does not state the CXL memory module bandwidth value."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-002", "relevant": false, "reason": "Does not state the CXL memory module bandwidth value."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-004", "relevant": false, "reason": "Does not state the bandwidth of each CXL memory module."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-007", "relevant": false, "reason": "Passage does not state the CXL memory module bandwidth value."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-008", "relevant": false, "reason": "Passage does not state the 1.1 TB/s bandwidth for CXL memory modules."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-009", "relevant": false, "reason": "Passage does not state CXL memory module bandwidth or 1.1 TB/s figure."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-010", "relevant": false, "reason": "Does not state the CXL memory module bandwidth or 1.1 TB/s figure."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-015", "relevant": true, "reason": "States 1.1 TB/s LPDDR5X bandwidth per CXL memory module."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Does not state CXL memory module bandwidth or 1.1 TB/s figure."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-018", "relevant": false, "reason": "Does not state CXL memory module bandwidth or 1.1 TB/s figure."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-019", "relevant": false, "reason": "Passage does not state CXL memory module bandwidth value."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-020", "relevant": false, "reason": "Does not state CXL memory module bandwidth or 1.1 TB/s figure."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-021", "relevant": false, "reason": "Passage does not state the bandwidth of each CXL memory module."}
+{"qid": "q-cxl_pnm-005", "chunk_id": "cxl_pnm-022", "relevant": false, "reason": "Does not state the CXL memory module bandwidth or 1.1 TB/s figure."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not mention ArkVale GPU or Llama 3.1-8B model."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not mention ArkVale GPU or Llama 3.1-8B model."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "infinigen-023", "relevant": false, "reason": "Mentions Llama-2-7B-32K and Llama-3-8B, not ArkVale GPU or Llama 3.1-8B."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model used in experiments."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-001", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model used in experiments."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-002", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model used in experiments."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-004", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-008", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model used in experiments."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-009", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model used in experiments."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-010", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-011", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model used in experiments."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-012", "relevant": false, "reason": "Mentions ArkVale GPU but not Llama 3.1-8B or any LLM model."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-013", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model used in experiments."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-014", "relevant": false, "reason": "Does not mention ArkVale GPU or Llama 3.1-8B model."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-015", "relevant": true, "reason": "States use of A100-80GB GPU and Llama3.1-8B model in experiments."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-016", "relevant": false, "reason": "Mentions Llama3.1-8B but not ArkVale GPU; GPU brand unspecified."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Mentions Llama3.1-8B but not ArkVale GPU; only A100-80GB GPUs are specified."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-018", "relevant": true, "reason": "States Llama3.1-8B model and single GPU card used in PNM-KV experiments."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-019", "relevant": false, "reason": "Mentions Llama3.1-8B but not ArkVale GPU specifically."}
+{"qid": "q-cxl_pnm-007", "chunk_id": "cxl_pnm-022", "relevant": false, "reason": "Does not specify ArkVale GPU or Llama 3.1-8B model."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention CXL-PNM or where data/attention are stored."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not mention CXL-PNM or where data/attention are stored."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "kivi-003", "relevant": false, "reason": "Does not mention CXL-PNM as storage location for batch data and attention."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "infinigen-008", "relevant": false, "reason": "Does not mention CXL-PNM or where batch data/attention are stored."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "itme-013", "relevant": false, "reason": "Does not state that data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-000", "relevant": true, "reason": "States PNM-KV offloads to CXL memory, matching reference answer."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-001", "relevant": false, "reason": "Does not explicitly state batch data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-002", "relevant": true, "reason": "States PNM-KV stores KV-cache and attention in CXL-PNM memory."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-004", "relevant": false, "reason": "Does not state that batch data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-006", "relevant": false, "reason": "Does not mention CXL-PNM or where data/attention are stored."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-007", "relevant": false, "reason": "Does not explicitly state batch data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-008", "relevant": true, "reason": "States batch data and attention are moved to CXL-PNM in PNM-KV scheme."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-010", "relevant": true, "reason": "States KV-cache management and attention computation are offloaded to CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-011", "relevant": true, "reason": "States KV-cache and attention computation are offloaded to CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-012", "relevant": false, "reason": "Does not state batch data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-013", "relevant": false, "reason": "Does not explicitly state batch data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-015", "relevant": false, "reason": "Does not explicitly state batch data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-016", "relevant": false, "reason": "Does not state that batch data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Does not explicitly state batch data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-018", "relevant": false, "reason": "Does not state batch data and attention are stored in CXL-PNM."}
+{"qid": "q-cxl_pnm-009", "chunk_id": "cxl_pnm-022", "relevant": true, "reason": "States KV-cache management and attention computation are offloaded to CXL-PNM devices."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "kivi-007", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "infinigen-006", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not mention TSteady or specific mechanism for token count determination."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "infinigen-015", "relevant": false, "reason": "Does not mention TSteady or how GPU token count is determined."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-002", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-008", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count in Steady Token Selection."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-009", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-010", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-011", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count in Steady Selection."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-013", "relevant": true, "reason": "States GPU processes TSteady tokens per batch, determined by Steady Token Selection."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-014", "relevant": false, "reason": "Does not mention TSteady value determining token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-016", "relevant": false, "reason": "Does not mention TSteady; only discusses steady-token ratio formula."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count in Steady Token Selection."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-018", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-019", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-020", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-012", "chunk_id": "cxl_pnm-022", "relevant": false, "reason": "Does not mention TSteady or what determines GPU token count."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "infinigen-007", "relevant": false, "reason": "Does not mention Steady selector or bitmask operations for page selection."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "infinigen-008", "relevant": false, "reason": "Does not mention bitmask operations or Top-K/GPU-resident page comparison."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "itme-008", "relevant": false, "reason": "Does not mention Steady selector or bitmask-based page selection."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not mention bitmask operations or Top-K/GPU page comparison."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-002", "relevant": false, "reason": "Does not mention bitmask operations or Top-K/GPU page comparison."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-004", "relevant": false, "reason": "Does not mention Steady selector or bitmask operations for page selection."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-006", "relevant": false, "reason": "Does not mention Steady selector or bitmask operations for page selection."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-008", "relevant": false, "reason": "Does not mention bitmask operations or comparison with GPU-resident pages."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-009", "relevant": false, "reason": "Does not mention bitmask operations or Top-K vs GPU-resident page comparison."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-010", "relevant": false, "reason": "No mention of bitmask operations or comparing Top-K with GPU-resident pages."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-011", "relevant": false, "reason": "Does not mention Steady selector's bitmask or Top-K/GPU page comparison mechanism."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-012", "relevant": false, "reason": "Does not mention bitmask operations for Top-K and GPU-resident page comparison."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-013", "relevant": true, "reason": "Mentions bitmask-based page comparison for Steady selector candidate selection."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-016", "relevant": false, "reason": "Does not mention Steady selector or bitmask operations for page selection."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Does not mention Steady selector or bitmask-based Top-K selection mechanism."}
+{"qid": "q-cxl_pnm-014", "chunk_id": "cxl_pnm-020", "relevant": false, "reason": "Does not mention Steady selector or bitmask operations for page selection."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "turboquant-004", "relevant": false, "reason": "Does not mention steady-token ratio or its formula (#GPU/(#GPU+#PNM))."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "turboquant-020", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "kivi-004", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "kivi-005", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "kivi-006", "relevant": false, "reason": "Does not mention steady-token ratio or #GPU/(#GPU+#PNM) setting."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "kivi-007", "relevant": false, "reason": "Does not mention steady-token ratio or its formula (#GPU/(#GPU+#PNM))."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "kivi-011", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "kivi-013", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "kivi-015", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "kivi-020", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "infinigen-008", "relevant": false, "reason": "Does not mention steady-token ratio or #GPU/(#GPU+#PNM) setting."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "infinigen-009", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation formula."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "infinigen-015", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation formula."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not mention steady-token ratio or #GPU/(#GPU+#PNM) setting."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "infinigen-021", "relevant": false, "reason": "Does not mention steady-token ratio or #GPU/(#GPU+#PNM) formula."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "infinigen-023", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation formula."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not state steady-token ratio or its formula."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-002", "relevant": false, "reason": "Does not state steady-token ratio formula or #GPU/(#GPU+#PNM) setting."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-004", "relevant": false, "reason": "Does not state steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-009", "relevant": false, "reason": "Does not state steady-token ratio formula or #GPU/(#GPU+#PNM) setting."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-012", "relevant": false, "reason": "Does not state steady-token ratio formula (#GPU/(#GPU+#PNM))."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-013", "relevant": false, "reason": "Does not state steady-token ratio formula #GPU/(#GPU+#PNM)."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-014", "relevant": false, "reason": "Does not mention steady-token ratio or its calculation method."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-015", "relevant": true, "reason": "States steady-token ratio is set to #GPU/(#GPU+#PNM) for PnG-KV."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Does not state steady-token ratio formula or its specific setting."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-018", "relevant": false, "reason": "Does not state steady-token ratio formula or #GPU/(#GPU+#PNM)."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-019", "relevant": false, "reason": "Does not state steady-token ratio formula or #GPU/(#GPU+#PNM) setting."}
+{"qid": "q-cxl_pnm-016", "chunk_id": "cxl_pnm-022", "relevant": false, "reason": "Does not state the steady-token ratio formula or its setting."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention PnG-KV, PNM-KV, or 8.5% throughput gain."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "kivi-002", "relevant": false, "reason": "Does not mention PnG-KV, PNM-KV, or 8.5% throughput gain."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "kivi-014", "relevant": false, "reason": "No percentage throughput gain between PnG-KV and PNM-KV is stated."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "infinigen-017", "relevant": false, "reason": "No mention of PnG-KV, PNM-KV, or initial throughput gain percentage."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "itme-017", "relevant": false, "reason": "Does not mention PnG-KV, PNM-KV, or an 8.5% throughput gain."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-000", "relevant": false, "reason": "Does not state PnG-KV vs PNM-KV throughput percentage difference."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-001", "relevant": false, "reason": "No specific percentage or comparison of PnG-KV vs PNM-KV throughput."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-002", "relevant": false, "reason": "Does not state the percentage throughput gain of PnG-KV over PNM-KV."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-004", "relevant": false, "reason": "No percentage or throughput gain between PnG-KV and PNM-KV stated."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-007", "relevant": false, "reason": "No percentage or direct throughput gain between PNM-KV and PnG-KV stated."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-008", "relevant": false, "reason": "No percentage or specific throughput gain between PnG-KV and PNM-KV stated."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-009", "relevant": false, "reason": "No percentage or quantitative throughput gain is mentioned."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-010", "relevant": false, "reason": "No percentage or specific throughput gain between PnG-KV and PNM-KV stated."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-011", "relevant": false, "reason": "No specific percentage or quantitative throughput gain is mentioned."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-012", "relevant": false, "reason": "No specific percentage throughput gain between PnG-KV and PNM-KV stated."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-013", "relevant": false, "reason": "No specific percentage or 8.5% throughput gain is mentioned."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-016", "relevant": false, "reason": "No specific throughput percentage gain for PnG-KV over PNM-KV stated."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-017", "relevant": false, "reason": "Passage states 28.3% throughput gain, not 8.5% as in reference answer."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-019", "relevant": false, "reason": "Does not state the specific 8.5% throughput gain of PnG-KV over PNM-KV."}
+{"qid": "q-cxl_pnm-018", "chunk_id": "cxl_pnm-022", "relevant": false, "reason": "No specific percentage or quantitative throughput gain is stated."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "kivi-000", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "kivi-004", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens in KV cache management."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-000", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens in KV cache management."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-001", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-005", "relevant": false, "reason": "Does not state that removed tokens cannot be recovered."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-006", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-007", "relevant": true, "reason": "States evicted tokens' keys/values are permanently excluded and cannot be recovered."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-008", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-009", "relevant": true, "reason": "States evicted tokens are permanently excluded and cannot be recovered."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-010", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens in KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-014", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens in KV cache management."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-015", "relevant": false, "reason": "Does not state that removed tokens cannot be recovered."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-016", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens in KV cache management."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-017", "relevant": false, "reason": "Does not state that removed tokens cannot be recovered in InfiniPot."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-018", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-020", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens in KV cache management."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-022", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens in KV cache management."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "infinigen-025", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "cxl_pnm-001", "relevant": true, "reason": "States eviction-based methods permanently remove tokens, risking loss of useful context."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "cxl_pnm-002", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "cxl_pnm-003", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens in KV cache management."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "cxl_pnm-004", "relevant": true, "reason": "States eviction-based strategies irreversibly discard potentially useful context."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "cxl_pnm-006", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "cxl_pnm-008", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "cxl_pnm-009", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens in KV cache management."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "cxl_pnm-010", "relevant": false, "reason": "Does not mention irrecoverability of removed tokens from KV cache."}
+{"qid": "q-cxl_pnm-020", "chunk_id": "cxl_pnm-012", "relevant": false, "reason": "Does not state that removed tokens cannot be recovered."}
