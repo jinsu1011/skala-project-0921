@@ -59,16 +59,23 @@ def _set_run_font(run, size=None, bold=None, color=None, mono=False):
         run.font.color.rgb = RGBColor.from_string(color)
 
 
-def _add_inline(par, text, size=10, color=None, base_bold=False):
-    """**bold** and `code` inline markup."""
+ZWSP = "\u200b"
+
+
+def _add_inline(par, text, size=10, color=None, base_bold=False, in_table=False):
+    """**bold** and `code` inline markup. In table cells, code gets break points after '_' and ','
+    so long identifiers wrap at word parts instead of mid-word."""
     for tok in re.split(r"(\*\*[^*]+\*\*|`[^`]+`)", text):
         if not tok:
             continue
         if tok.startswith("**"):
-            _set_run_font(par.add_run(tok[2:-2]), size, True, color or NAVY)
+            _set_run_font(par.add_run(tok[2:-2].replace("`", "")), size, True, color or NAVY)
         elif tok.startswith("`"):
-            r = par.add_run(tok[1:-1])
-            _set_run_font(r, size - 0.5, base_bold, "5B3FA0", mono=True)
+            code = tok[1:-1]
+            if in_table:
+                code = code.replace("_", "_" + ZWSP).replace(",", "," + ZWSP)
+            r = par.add_run(code)
+            _set_run_font(r, size - (1.0 if in_table else 0.5), base_bold, "5B3FA0", mono=True)
         else:
             _set_run_font(par.add_run(tok), size, base_bold, color)
 
@@ -229,7 +236,14 @@ class ReportBuilder:
         if italic:
             for r in p.runs:
                 r.font.italic = True
+        self._last_par = p
         return p
+
+    def _bind_lead_in(self):
+        """A short lead-in paragraph right before a table/code block stays on the same page as the block."""
+        p = getattr(self, "_last_par", None)
+        if p is not None and p._element.getnext() is self._anchor and len(p.text) < 250:
+            p.paragraph_format.keep_with_next = True
 
     def bullet(self, text, level=0, numbered: str | None = None):
         p = self._new_par()
@@ -255,9 +269,11 @@ class ReportBuilder:
         return p
 
     def code(self, text):
+        self._bind_lead_in()
         t = self.doc.add_table(rows=1, cols=1)
         self._append(t._element)
         _fix_grid(t, [16.0])
+        _no_split(t.rows[0])
         cell = t.rows[0].cells[0]
         cell.width = Cm(16.0)
         _shade(cell, "F7F7FB")
@@ -272,6 +288,7 @@ class ReportBuilder:
 
     def table(self, rows: list[list[str]], widths: list[float] | None = None, font=8.8):
         header, body = rows[0], rows[1:]
+        self._bind_lead_in()
         t = self.doc.add_table(rows=len(rows), cols=len(header))
         self._append(t._element)
         t.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -300,17 +317,17 @@ class ReportBuilder:
                         p.paragraph_format.line_spacing = 1.15
                     if ri == 0:
                         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                        _set_run_font(p.add_run(part.replace("**", "")), font, True, NAVY)
+                        _set_run_font(p.add_run(part.replace("**", "").replace("`", "")), font, True, NAVY)
                     else:
-                        _add_inline(p, part, font)
+                        _add_inline(p, part, font, in_table=True)
                 if ri == 0:
                     _shade(cell, HEAD_FILL)
         _repeat_header(t.rows[0])
-        if len(rows) <= 12:  # short tables never split across pages (keep every row with the next)
-            for row in t.rows[:-1]:
-                for cell in row.cells:
-                    for par in cell.paragraphs:
-                        par.paragraph_format.keep_with_next = True
+        # short tables never split across pages; long tables keep the header + first 3 rows together
+        for row in (t.rows[:-1] if len(rows) <= 12 else t.rows[:4]):
+            for cell in row.cells:
+                for par in cell.paragraphs:
+                    par.paragraph_format.keep_with_next = True
         self.paragraph("", size=4)
 
     def image(self, path: Path, caption: str, width_cm=15.5):
@@ -376,7 +393,10 @@ class ReportBuilder:
                 self.image(base_dir / m.group(2), m.group(1), float(m.group(3) or 15.5))
             elif m := re.match(r"^(\s*)- (.*)", ln):
                 flush_para()
-                self.bullet(m.group(2), len(m.group(1)) // 2)
+                b = self.bullet(m.group(2), len(m.group(1)) // 2)
+                nxt = lines[i + 1] if i + 1 < len(lines) else ""
+                if re.match(r"^\s*- ", nxt) and len(nxt) - len(nxt.lstrip()) > len(m.group(1)):
+                    b.paragraph_format.keep_with_next = True
             elif m := re.match(r"^(\s*)(\d+)\. (.*)", ln):
                 flush_para()
                 self.bullet(m.group(3), len(m.group(1)) // 2, numbered=f"{m.group(2)}.")

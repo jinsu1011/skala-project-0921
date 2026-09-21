@@ -418,16 +418,31 @@ v1 수치는 바꾸지 않고, 구현 설정으로 같은 42문항을 다시 측
 
 Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드로 보장하는** 품질 게이트인 Judge 1개를 추가했다. Judge는 새 사실을 만들지 않고 다른 에이전트의 산출물을 채점만 하므로 역할이 겹치지 않는다. 검색 품질 판정, 질의 재작성, PDF 변환은 LLM 판단 주체가 아닌 **보조 노드**로 두어 불필요한 에이전트를 만들지 않았다.
 
-<!--w:2.4,2.7,3.2,1.1,2.1,2.1,2.4-->
-| 에이전트 | 구현 노드 | 역할 | RAG | 입력 State | 출력 State | 책임 경계 (하지 않는 일) |
-|---|---|---|---|---|---|---|
-| 기술 조사 | `selection_validator` `tech_research` `trl_assessor` | ① 선정 검증 ② 원문에서 개요·실험 조건·한계 추출 ③ TRL 추정 | O (+Web: TRL 7–9 신호) | `selected_techs` `retrieved_chunks` | `selection_validation` `tech_brief` `trl_result` `evidence` | 기술을 다시 고르지 않음, 시장·이해관계자 판단 안 함 |
-| 시장 평가 | `market_evaluator` | 시장 규모, 채택 사례, 생태계 지원 | O + Web | `tech_brief` | `market_result` `evidence` | 기술 원리 재조사 안 함 |
-| 이해관계자 평가 | `stakeholder_evaluator` | 경쟁 진영·도입사·개발자·투자업계 시각 | Web | `tech_brief` | `stakeholder_result` `evidence` | 성능 수치 판단 안 함 |
-| 도메인 평가 | `domain_evaluator` | 장문맥 서빙 적합 조건·제약, 온디바이스 대조 | O + Web | `tech_brief` | `domain_result` `evidence` | 시장 전망 판단 안 함 |
-| 평가 종합 | `synthesizer` | 관점 간 일치·상충 매트릭스, H1~H4 판정 | X | 4개 관점 결과, `evidence` | `synthesis` | 새 검색 안 함, 기술 간 순위 산출 안 함 |
-| Judge | `judge` | 관점별 근거성·중립성·다양성·완결성 채점, 결정적 검사, 미달 관점 지정 | X | 4개 관점 결과, `synthesis`, `evidence` | `judge_scores` `failed_perspectives` `judge_feedback` | 내용을 직접 고치지 않음, 재실행 횟수 관리 안 함 |
-| 보고서 생성 | `report_writer` | 목차대로 본문 작성, 인용·REFERENCE 정리 | X | 전체 결과, `judge_scores`, `warnings` | `report_markdown` `references` | 근거 ID 없는 주장 추가 안 함 |
+**표 D.1-1. 에이전트 역할과 RAG 적용**
+
+<!--w:2.4,4.2,6.6,2.8-->
+| 에이전트 | 구현 노드 | 역할 | RAG |
+|---|---|---|---|
+| 기술 조사 | `selection_validator`<br>`tech_research`<br>`trl_assessor` | ① 선정 검증 ② 원문에서 개요·실험 조건·한계 추출 ③ TRL 추정 | O (+Web: TRL 7–9 신호) |
+| 시장 평가 | `market_evaluator` | 시장 규모, 채택 사례, 생태계 지원 | O + Web |
+| 이해관계자 평가 | `stakeholder_evaluator` | 경쟁 진영·도입사·개발자·투자업계 시각 | Web |
+| 도메인 평가 | `domain_evaluator` | 장문맥 서빙 적합 조건·제약, 온디바이스 대조 | O + Web |
+| 평가 종합 | `synthesizer` | 관점 간 일치·상충 매트릭스, H1~H4 판정 | X |
+| Judge | `judge` | 관점별 근거성·중립성·다양성·완결성 채점, 결정적 검사, 미달 관점 지정 | X |
+| 보고서 생성 | `report_writer` | 목차대로 본문 작성, 인용·REFERENCE 정리 | X |
+
+**표 D.1-2. 에이전트 입출력 State와 책임 경계**
+
+<!--w:2.4,4.0,4.4,5.2-->
+| 에이전트 | 입력 State | 출력 State | 책임 경계 (하지 않는 일) |
+|---|---|---|---|
+| 기술 조사 | `selected_techs`<br>`retrieved_chunks` | `selection_validation`<br>`tech_brief`<br>`trl_result`<br>`evidence` | 기술을 다시 고르지 않음, 시장·이해관계자 판단 안 함 |
+| 시장 평가 | `tech_brief` | `market_result`<br>`evidence` | 기술 원리 재조사 안 함 |
+| 이해관계자 평가 | `tech_brief` | `stakeholder_result`<br>`evidence` | 성능 수치 판단 안 함 |
+| 도메인 평가 | `tech_brief` | `domain_result`<br>`evidence` | 시장 전망 판단 안 함 |
+| 평가 종합 | 4개 관점 결과, `evidence` | `synthesis` | 새 검색 안 함, 기술 간 순위 산출 안 함 |
+| Judge | 4개 관점 결과, `synthesis`, `evidence` | `judge_scores`<br>`failed_perspectives`<br>`judge_feedback` | 내용을 직접 고치지 않음, 재실행 횟수 관리 안 함 |
+| 보고서 생성 | 전체 결과, `judge_scores`, `warnings` | `report_markdown`<br>`references` | 근거 ID 없는 주장 추가 안 함 |
 
 **보조 노드:** `initialize`, `index_builder`(로드·한도 확인·청킹·인덱싱), `query_planner`, `hybrid_retriever`, `retrieval_grader`, `query_rewriter`, `retry_router`(재실행 횟수 증가·`Send` 경로 생성), `final_check`, `pdf_renderer`
 
@@ -437,7 +452,7 @@ Notion 가이드의 6개 에이전트를 그대로 두고, 중립성을 **코드
 
 병렬 노드가 같은 값을 동시에 덮어쓰지 않도록 **네 관점 결과를 각각 독립된 키**에 둔다. **reducer가 없는 키는 작성 노드가 하나뿐**이다. 여러 노드가 쓰는 키는 `evidence`, `warnings`, `audit_log` 세 개뿐이며, 병합 정책을 reducer로 명시한다. 관점 결과 키 4개는 누적하지 않고, 재실행 시 **최신 결과로 교체**한다.
 
-<!--w:3.3,2.6,2.8,3.0,4.3-->
+<!--w:4.0,3.4,3.0,2.6,3.0-->
 | State 키 | 타입 | 작성 노드 | 읽는 노드 | 설명 · 갱신 방식 |
 |---|---|---|---|---|
 | `run_id` | `str` | initialize | 전체 | 실행 추적 ID(LangSmith·로그 연결) |
@@ -651,7 +666,9 @@ Notion 참고 목차의 순서(SUMMARY → 분석 배경 → 기술 선정 → �
 - 모든 주장에 근거 ID를 붙이고, **REFERENCE**에는 본문에 실제로 인용한 자료만 Notion 형식으로 적는다. 논문: `저자(YYYY). 제목. 학회/학술지, 권(호), 페이지.` · 웹: `기관(YYYY-MM-DD). 제목. 사이트, URL` · 특허: `출원인(YYYY-MM). 특허명, 번호, URL`
 - 기술 간 우열·추천을 쓰지 않는다. 우열 어휘는 0건이어야 한다.
 - TRL은 "공개 정보 기반 추정"임을 표기하고 범위와 신뢰도로 제시한다.
-- 파일명: `RAG-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf` (SKALA 양식)
+- 파일명: `RAG-Output_판교_9반_김정인+김진수+전진만+정원준.pdf` (SKALA 양식)
+
+---pagebreak---
 
 # 참고자료
 
