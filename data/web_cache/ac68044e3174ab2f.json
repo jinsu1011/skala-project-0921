@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache industry support endorsement",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:59+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.45842203
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] Korea Investment & Securities\n\nSeoul Economic Daily\n\nSeoul Economic Daily\n\nKorea Investment & Securities",
+   "published_date": null,
+   "score": 0.4186262
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly",
+   "published_date": null,
+   "score": 0.3759361
+  },
+  {
+   "url": "https://q.futunn.com/en/feed/116329824846228",
+   "title": "Alpha Call | The Truth About AI Storage Demand Behind KV Cac...",
+   "content": "Third, Hynix’s 6.9 billion euro EUV order: the industry is answering market concerns with concrete actions.\n\nAt a time when market sentiment was most shaken, the industry sent a completely different signal. [...] Key conclusions:The exponential growth of tokens driven by AI underpins the long-term prosperity of both storage and optical communication sectors. KV Cache compression and price reductions in consumer-grade memory reflect normal technological optimization and channel adjustments, without altering the fundamental shift from cyclical fluctuations to sustained growth. The industry has validated demand certainty through large-scale orders backed by real investments. It is recommended to focus on [...] Tim pointed out that the core implication of this paper is precisely that KV Cache compression within the 3-4 bit range is increasingly approaching the practical engineering limit. The mainstream compression rate currently implemented in practice is only about 2x, while the upper limit of cutting-edge solutions can reach 4-6x, but the industry average is far from that. The best results shown in the paper do not equate to the actual implementation level across the entire industry.",
+   "published_date": null,
+   "score": 0.3386242
+  },
+  {
+   "url": "https://futurumgroup.com/insights/will-sk-hynixs-record-265bn-adr-issuance-help-close-its-capex-intensity-gap",
+   "title": "SK Hynix ADR Issuance Strategy",
+   "content": "Accelerator-in-memory: its AiM/AiMX processing-in-memory line, which needs a volume commitment to move from prototype to product.\n\nHigh Bandwidth Flash (HBF): the new NAND-based tier it is standardizing with Sandisk to hold the exploding KV cache in AI inference.\n\nCustom HBM (cHBM): base dies co-designed to a customer’s AI chip and workload, where the margin and lock-in of the next cycle will live. [...] ###### Read the full Futurum Group Disclosure.\n\n### Author Information\n\nBrendan Burke, Research Director\n\n##### Brendan Burke\n\nBrendan is Research Director, Semiconductors, Supply Chain, and Emerging Tech. He advises clients on strategic initiatives and leads the Futurum Semiconductors Practice. He is an experienced tech industry analyst who has guided tech leaders in identifying market opportunities spanning edge processors, generative AI applications, and hyperscale data centers. [...] ###### Declaration of generative AI and AI-assisted technologies in the writing process: This content has been generated with the support of artificial intelligence technologies. Due to the fast pace of content creation and the continuous evolution of data and information, The Futurum Group and its analysts strive to ensure the accuracy and factual integrity of the information presented. However, the opinions and interpretations expressed in this content reflect those of the individual",
+   "published_date": null,
+   "score": 0.30991113
+  },
+  {
+   "url": "https://www.skhynix.com",
+   "title": "SK hynix",
+   "content": "## Products & Solutions 새창\nDRAM · CMM · SSD · NAND Storage · MCP AI · Server · Networking · Mobile · PC · Consumer · Automotive\n\n## Investor Relations\n\nFinancial StatementsDisclosuresEarnings Release\n\n   A new window opens Newsroom\n   A new window opens YouTube\n   A new window opens Instagram\n   A new window opens Linked in\n\nTOP\n\n   한국장애인단체총연합회 한국웹접근성인증평가원 웹 접근성 우수사이트 인증마크(WA인증마크) [...] 닫기\n\nImage 1\n\n- [x] Don't show this message today 닫기\n\n# SK hynix\n\n   새창 Newsroom\n   새창 YouTube\n   새창 Instagram\n   새창 Linked in\n\n   A new window opens Newsroom\n   A new window opens YouTube\n   A new window opens Instagram\n   A new window opens Linked in\n\n   A new window opens Newsroom\n   A new window opens YouTube\n   A new window opens Instagram\n   A new window opens Linked in\n\n다국어 닫기 열기\n\n한국어;)English;)中文(简);)中文(繁);)\n\n검색 열기 닫기\n\n전체메뉴 열기 닫기\n\n   한국어;)\n   English;)\n   中文(简);)\n   中文(繁);)\n\n   Home [...] Home\n\n# SKhynix Main\n\nVideo 1\n\nTechnology Innovator for a Better World, Growing with SK hynix\n\nPause\n\nScroll to next content\n\n## DBL\n\nDBL is a story about sustainability management  as practiced by SK hynix.\n\n   SK DBL\n   Pursuing DBL\n   DBL Measurement\n\n## 새창 Sustainability Reporting System ESG\n\nWe create new value through environmentally and socially responsible management as well as transparent governance.\n\n   PRISM\n   Business Principles\n   Governance",
+   "published_date": null,
+   "score": 0.19845259
+  },
+  {
+   "url": "https://semidynamics.com/newsroom/press-releases/post/semidynamics-secures-a-strategic-investment-to-advance-memory-centric-ai-inference-chips",
+   "title": "Semidynamics Secures a Strategic Investment to Advance Memory-Centric AI Inference Chips",
+   "content": "As large language models scale, and as agentic, multi-turn workloads demand persistent context across longer inference sessions, system performance is increasingly constrained by memory capacity and data movement rather than raw compute. Semidynamics is capable of delivering multiples of the memory capacity available in conventional HBM-based inference systems, hence supporting larger models, larger KV-caches and larger contexts. These three features enable more users per rack, directly leading [...] Roger Espasa, Founder and CEO of Semidynamics, said:\n\n_\"SK hynix's investment is a direct reflection of where AI infrastructure is heading, systems where memory architecture is as strategically important as compute. We built Semidynamics around that thesis, and this partnership strengthens our position as we bring our inference platform to market at a moment when the industry has recognized that token economics are a memory problem as much as a compute problem.\"_ [...] Heejin Chung, SVP, Head of Venture Investment, SK hynix America said:\n\n_\"AI workloads are fundamentally memory-bound problems, and the industry has been underinvesting in architecture-level solutions. Semidynamics is one of the few companies that has built from first principles around this constraint. \"_\n\n### Funding and Momentum",
+   "published_date": null,
+   "score": 0.115132585
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=kMtFsu9yAlo",
+   "title": "SK Hynix Moves to Capitalize on Memory Chip Demand - YouTube",
+   "content": "Instagram:   / bloombergbusiness  \r\nTikTok: \r\nReddit:   / bloomberg  \r\nLinkedIn:   / bloomberg-news  \r\n \r\nMore from Bloomberg:\r\nBloomberg Radio:   / bloombergradio  \r\n\r\nBloomberg Surveillance:   / bsurveillance  \r\nBloomberg Politics:   / bpolitics  \r\nBloomberg Originals:   / bbgoriginals  \r\n \r\nWatch more on YouTube:\r\nBloomberg Technology:    / @bloombergtechnology  \r\nBloomberg Originals:    / @business  \r\nBloomberg Quicktake:    / @bloombergquicktake [...] Today, Bloomberg Economics chief economist Tom Orlik discusses how long rates could feel the impact of Trump's war with Iran. Then, Bloomberg's Ed Ludlow breaks down the latest tech headlines as South Korean memory chipmaker SK Hynix makes official moves towards a US listing. Plus, Rudina Seseri, founder and managing partner at Glasswing Ventures, dives deeper into where the AI trade is headed as industries home in on specific AI innovation and integration. Finally, Ellen Wald, president of [...] Bloomberg Espanol:    / @bloomberg_espanol  \r\nBloomberg Podcasts:    / @bloombergpodcasts",
+   "published_date": null,
+   "score": 0.1003398
+  }
+ ]
+}

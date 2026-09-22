@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache analyst investor stock reaction",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T13:59:32+09:00",
+ "results": [
+  {
+   "url": "https://www.decodingdiscontinuity.com/p/turboquant-memory-stock-sell-off-panic-paper-google",
+   "title": "Why TurboQuant Triggered a $100B Memory Stock Sell-Off",
+   "content": "In that respect, the market reaction to TurboQuant is not just a misreading of a paper. It is a symptom of a deeper analytical gap in how investors are pricing the AI stack in the Agentic Era. The consensus still treats AI infrastructure as a monolithic trade. Everything rises together on bullish narratives; everything falls together on efficiency headlines.\n\nBut memory is not compute. The KV cache is not the hard drive. And Sandisk is not SK Hynix. [...] The hot take reactions were predictable: Improved memory efficiency would reduce overall hardware demand. TechCrunch referenced the HBO satire “Silicon Valley,” calling it the “real-life Pied Piper.” Cloudflare CEO Matthew Prince called it “Google’s DeepSeek moment,” noting that there is “so much more room to optimize AI inference for speed, memory usage, power consumption, and multi-tenant utilization.” [...] A Google blog post about compressing AI memory went viral. Within 48 hours, the market capitalization of memory semiconductors evaporated by over $100 billion. TurboQuant helps solve a core problem of the Agentic era: making long-context LLM inference efficient. But the algorithm compresses only the inference-time cache, not the model weights, training data, or storage.",
+   "published_date": null,
+   "score": 0.8116913
+  },
+  {
+   "url": "https://darshanfofadiya.com/research-papers/turboquant",
+   "title": "TurboQuant: Google's KV Cache Compression That Crashed Memory Stocks",
+   "content": "The memory stock reaction may be overblown. TurboQuant compresses the KV cache, which is one component of AI memory usage. Model weights (140 GB for Llama-70B), activations, optimizer states (for training), and the growing demand for longer contexts and larger batches all still consume memory. A 6x reduction in one component doesn't translate to 6x less total memory demand. And the industry's response to cheaper inference is typically to serve more requests, not to buy fewer GPUs. The demand [...] The investor logic was simple: if AI models need 6x less memory, the industry buys 6x fewer memory chips. The AI memory boom — which has driven record revenue for memory manufacturers — suddenly looked smaller. [...] KV cache: 71.68 x (128K/1M) = 9.18 GB → 1 GPU (easy)",
+   "published_date": null,
+   "score": 0.7931224
+  },
+  {
+   "url": "https://www.mindstudio.ai/blog/what-is-google-turboquant-kv-cache-compression",
+   "title": "What Is Google TurboQuant? The KV Cache Compression ...",
+   "content": "Try Remy today →\n\nWhen Google published TurboQuant’s results, the market reaction was swift. Micron’s stock fell several percent in a single session. SK Hynix and Samsung saw similar pressure. The reasoning from analysts was straightforward.\n\n### The Bull Case for Memory Had Been Built on Linear Assumptions [...] The stock market reaction reflects a broader pattern: AI efficiency gains are compounding, and the linear “more AI = more memory” assumption is no longer reliable.\n   For AI builders, the practical effect is lower inference costs and more accessible long-context workflows — benefits that flow through whether you manage your own infrastructure or build on managed platforms. [...] In late 2024, Google DeepMind introduced TurboQuant — a KV cache compression algorithm that squeezes memory usage down to 3 bits per value with essentially zero accuracy loss. The result: up to 8x faster inference and 6x reduction in memory consumption on H100 GPUs. When that news landed, Micron and SK Hynix saw their stock prices drop sharply. Investors realized that the industry’s assumption — more AI means more memory demand — had just gotten significantly more complicated.",
+   "published_date": null,
+   "score": 0.7593865
+  },
+  {
+   "url": "https://www.lighthouse-canton.com/insights/turboquant-why-it-changes-nothing-for-the-memory-trade-equity-insights",
+   "title": "TurboQuant: Why It Changes Nothing for Memory",
+   "content": "On 25 March 2026, Google Research published a blog post highlighting TurboQuant, a compression algorithm that quantises the key-value (KV) cache used during large language model (LLM) inference down to 3 bits per channel, claiming a 6× reduction in KV cache memory and up to an 8× speedup in attention-logit computation on NVIDIA H100 GPUs — with zero accuracy loss. The announcement triggered a swift sell-off across memory semiconductor names: Samsung Electronics fell ~4.7%, SK Hynix dropped [...] Our position is unchanged. Memory remains one of the most critical bottlenecks in the AI infrastructure stack. TurboQuant is a year-old research paper — not a deployed technology — that addresses only one narrow slice of memory demand (inference-time KV cache), introduces real computational trade-offs, and has not been adopted even by its own creator. The market sell-off in Samsung, SK Hynix, and Micron presents, in our view, a reaction disproportionate to the substance of the announcement. If [...] flagged this dynamic: Wells Fargo noted in an investor note that the Jevons' Paradox framework suggests TurboQuant could ultimately be a positive for memory companies, not a headwind. DS Investment & Securities echoed the view, arguing that technologies reducing memory usage tend to expand total demand by lowering the cost of AI adoption.",
+   "published_date": null,
+   "score": 0.65173227
+  },
+  {
+   "url": "https://finance.yahoo.com/markets/stocks/articles/turboquant-actually-means-ai-memory-125500558.html",
+   "title": "What TurboQuant Actually Means for AI Memory Stocks",
+   "content": "TurboQuant, if widely adopted, compresses the KV cache by 6x. So the bearish argument goes that if the KV cache is 6x smaller, we'll need 6x less memory.\n\n'Memory demand – and memory stocks – will crater. Sell everything.'\n\nWells Fargo (WFC) analyst Andrew Rocha articulated this cleanly: if TurboQuant is adopted broadly, it quickly raises the question of how much memory capacity the industry actually needs.\n\nThat's a fair question. It's just that the answer isn't what the bears think. [...] Google's TurboQuant targets something called the Key-Value (KV) cache – the working memory AI models use to store contextual information so they don't have to recompute it with every new token they generate. As models process longer inputs, the KV cache grows rapidly, consuming GPU memory at an alarming rate. TurboQuant compresses that cache from 16 bits per value down to just 3 bits – a 6x reduction in memory footprint – with, per Google's benchmarks, zero loss in model accuracy. No retraining [...] Before we dismantle it, let's give the bear case its due. The bears aren't unintelligent – they're just drawing the wrong conclusion from a real observation.\n\nAI memory demand has been projected to grow explosively because of the KV cache. As context windows expand from 100,000 to 1 million-plus tokens, the KV cache grows proportionally, creating insatiable demand for high-bandwidth memory (HBM). That demand thesis is a huge part of why stocks like MU and SNDK ran so hard.",
+   "published_date": null,
+   "score": 0.6350646
+  },
+  {
+   "url": "https://serverpartdeals.com/blogs/blog-posts/googles-turboquant-just-shook-the-memory-market",
+   "title": "Google's TurboQuant Just Shook the Memory Market.",
+   "content": "Analysts at Korea Investment & Securities went further, noting that the sell-off stemmed from a fundamental confusion between memory capacity and memory bandwidth. TurboQuant reduces the amount of data that needs to be read from GPU memory, not the amount of storage infrastructure a data center requires. In other words: TurboQuant makes AI cheaper to run. It doesn't make AI need fewer hard drives.\n\n## Why This Is Actually Good News for Enterprise Storage [...] INDUSTRY ANALYSIS\n\nThe stock sell-off told one story. The technology tells a very different one.\n\nServerPartDeals Editorial | 8 Min Read\n\nGoogle Research recently published a paper on a compression algorithm called TurboQuant. Within 24 hours, memory chip stocks were in freefall. Samsung dropped nearly 5%. SK Hynix fell over 6%. Micron lost almost 7%. SanDisk plunged 11%. The headlines seemed to write themselves: AI just learned to use less memory. Storage demand is doomed. [...] This is where it gets interesting, and where the market reaction may have the story exactly backwards. The historical pattern in computing is remarkably consistent: when you make something more efficient, people don't use less of it. They use more. Economists call this Jevons Paradox, and it has played out with storage, compute, and bandwidth for decades. When cloud computing made servers cheaper, companies didn't buy fewer servers. They built entirely new categories of applications that",
+   "published_date": null,
+   "score": 0.57637566
+  },
+  {
+   "url": "https://www.linkedin.com/posts/vinaybhagat_investing-hbm-activity-7443014226442518528-s7B4",
+   "title": "Google's TurboQuant Impact on Memory Stocks",
+   "content": "Today I am writing from Turtle Bay Oahu. 💗Marion B. and I are here to attend a wedding. The waters are choppy much like the markets today. The Vix has spiked to 27. As an investor in high growth/ high volatility stocks you need a stomach that can withstand choppy times and have conviction in your thesis. Beyond the extreme geopolitical concerns the market is reacting to Google’s TurboQuant announcement - a software based compression suite designed to shrink short term memory usage. Memory [...] . ✅ 𝟭 𝗠𝗶𝗹𝗹𝗶𝗼𝗻 𝗧𝗣𝗨𝘀: Anthropic isn’t just renting; they’ve pioneered a hybrid model with a $10B direct purchase from Broadcom. ✅ 𝟱𝟮% 𝗧𝗖𝗢 𝗔𝗱𝘃𝗮𝗻𝘁𝗮𝗴𝗲: Claude Opus 4.6 is running on Google TPU v7 at nearly half the cost of NVIDIA’s Blackwell (GB200) systems. ✅ 𝗜𝗻𝗳𝗲𝗿𝗲𝗻𝗰𝗲 𝗦𝗽𝗲𝗲𝗱: Thanks to custom XLA compilers, token generation is hitting 4x efficiency gains over standard GPU-native stacks. The Investor Takeaway: 1. Broadcom ($AVGO) is the stealth ASIC king, winning the $100B custom silicon race. 2. [...] Stocks had already climbed 200 to 300% this year - Profit-taking was looking for any excuse to happen - And memory analysts pushed back almost immediately. Fixing a bottleneck does not shrink demand. It raises the ceiling on what models can do. More powerful models need more powerful hardware to run them. The sell-off was less about the research and more about stocks sitting on outsized gains needing a reason to exhale. The Sensitivity These names were always one headline away from a shakeout.",
+   "published_date": null,
+   "score": 0.5712171
+  },
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27. [...] Meanwhile, TurboQuant's ability to compress AI inference memory to one-sixth of its original level has led cloud providers and data centers to significantly lower their procurement forecasts for high-end memory. Market concerns that memory manufacturers' growth might slow as a result have caused sharp, short-term volatility in the stock prices of storage chip giants like Micron. While these emotional reactions may be somewhat overblown, they reflect the shock to existing industrial [...] TurboQuant's optimization targets are precisely locked on the KV cache and vector index modules, which are the most memory-intensive components in AI inference scenarios. Once the technology is deployed at scale, a single server will gain the ability to \"host more models with less memory.\" This has triggered market concerns that the growth rate of demand for DRAM capacity may slow down, which is the direct cause of the recent shift in market sentiment.",
+   "published_date": null,
+   "score": 0.46395484
+  }
+ ]
+}

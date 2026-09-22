@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache opinion industry experts",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:18+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate",
+   "published_date": null,
+   "score": 0.54201555
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] Efficient multi-tier KV caching relies on maintaining data contiguity across storage boundaries to enable high-bandwidth prefetching without reorganization overhead. To maximize offloading performance, ITME aggregates evicted KV cache blocks into large-scale chunks (e.g., 512 MB) within the CPU staging buffer. During the eviction process, ITME sequentially appends blocks into these chunks as they are released from GPU memory. This sequential appending naturally restores the logical sequence of",
+   "published_date": null,
+   "score": 0.42305335
+  },
+  {
+   "url": "https://news.skhynix.com/en/series/expert-views",
+   "title": "Series – SK hynix Newsroom",
+   "content": "Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\nSERIES\n\n## [Expert Views] Expert perspectives on SK hynix\n\nAnalysts, academics, and industry experts weigh in on SK hynix. From technology and products to market outlook, they examine the company through an expert lens.\n\n Copy URL\n Share Facebook\n Share X\n\n11 Stories\n\n [\n\n  [AI Ecosystem] The real bottleneck: Data, not compute\n\n  September 3, 2026](\n\n  TECH&AI\n\n  + AI\n  + AI Memory\n  + HBF\n  + HBM\n [ [...] [Analyst Interview | Ryu Hyung-keun, Daishin Securities] Exploring SK hynix’s Next Opportunity Amid the Structural Growth of AI Memory\n\n  August 14, 2026](\n\n  IR\n\n  + AI Infra\n  + Analyst\n  + semiconductor market\n [\n\n  [Expert POV] From AI semiconductors to AI services: How the ecosystem is evolving\n\n  July 6, 2026](\n\n  TECH&AI\n\n  + AI\n  + AI Infrastructure\n  + artificial intelligence\n  + HBM\n  + Semiconductor Ecosystem\n  + semiconductor industry\n [",
+   "published_date": null,
+   "score": 0.42162386
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] \"As the AI market expands from training to inference-centric operations, the role of NAND is rapidly changing into a key element in configuring the AI memory hierarchy,\" SK hynix said. \"We will expand our NAND product families to secure new growth drivers.\"\n\n#SKhynix#NAND#KVCache#AIMemory#HBM#GPU#AIChips\n\n## Companies in this story\n\nSK hynix\n\n000660.KS · Semiconductor\n\nAI KEY Company Analysis →\n\nOriginal reporting by Kim Yoon-soofor Seoul Economic Daily. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.4075462
+  },
+  {
+   "url": "https://www.globalequitybriefing.com/p/sk-hynix-deep-dive-4x-pe-is-too-cheap",
+   "title": "SK Hynix Deep Dive: 4x P/E is Too Cheap! - Global Equity Briefing",
+   "content": "This is why Nvidia keeps adding more and more memory with its GPUs. A company can spend tens of thousands of dollars on the newest GPU but fail to use its full potential.\n\nElon recently said that in his opinion, memory, not compute, is the biggest “limiter of the Agentic Era”.\n\nIf he is right, SK Hynix, the South Korean memory and storage company, is an incredible investment opportunity that trades for an unbelievable 4x FWD P/E ratio while growing revenues and earnings like gangbusters. [...] ## 5. Risks\n\n## 6. Opportunities\n\n## 7. Financials\n\n## 8. Valuation\n\n## 9. Valuation Model\n\n## 10. Conclusion\n\n# 1. Business Model\n\nSK Hynix is a semiconductor company from South Korea that specializes in designing and manufacturing memory and storage products.\n\nIt is part of the Big Three of memory manufacturing alongside Samsung and Micron.\n\nThe company is what is called in the industry an integrated device manufacturer, meaning that SK Hynix doesn’t just do one part of the process. [...] SK Hynix’s latest NAND technology is its 321-layer 2Tb NAND.\n\nDo you like this report?\n\nBecome a Paid Premium member to see dozens of exclusive pay-walled equity research reports such as this.\n\nCurious about which stock I own?\n\nFull portfolio with all holdings, cost basis, and unrealised gains is visible to Premium members. I do weekly updates and detailed monthly reviews. Premium members are also notified of all sales and purchases using the pay-walled Substack Chat.",
+   "published_date": null,
+   "score": 0.2870233
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] แม้ว่ากลุ่มเซมิคอนดักเตอร์ทั่วโลกจะเริ่มชะลอตัวลง แต่ Goldman Sachs (GS) โดย Peter Callahan ผู้เชี่ยวชาญด้านเทคโนโลยี เชื่อว่าตลาดไม่ได้อยู่ในสภาวะตื่นตระหนกขั้นรุนแรง แต่นักลงทุนกำลังกลับมาพิจารณาความเป็นจริงหลังจากการทะยานขึ้นอย่างผิดปกติของหุ้นกลุ่มหน่วยความจำในช่วงที่ผ่านมา",
+   "published_date": null,
+   "score": 0.28191733
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] แม้ว่ากลุ่มเซมิคอนดักเตอร์ทั่วโลกจะเริ่มชะลอตัวลง แต่ Goldman Sachs (GS) โดย Peter Callahan ผู้เชี่ยวชาญด้านเทคโนโลยี เชื่อว่าตลาดไม่ได้อยู่ในสภาวะตื่นตระหนกขั้นรุนแรง แต่นักลงทุนกำลังกลับมาพิจารณาความเป็นจริงหลังจากการทะยานขึ้นอย่างผิดปกติของหุ้นกลุ่มหน่วยความจำในช่วงที่ผ่านมา",
+   "published_date": null,
+   "score": 0.28191733
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute",
+   "content": "One of the biggest challenges in this process is the KV cache. Each time a Transformer-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model. [...] There are two primary approaches to narrowing this gap: increasing memory bandwidth itself or placing memory closer to the processor to reduce the distance data must travel.\n\n Petaflops(PFLOPS): A unit of compute performance equal to one quadrillion floating-point operations per second\n\n### The inference era: KV cache is taking over GPU memory [...] One recent development attracting attention in the field is TurboQuant, a quantization technique that represents the KV cache with fewer bits to reduce its memory footprint. Conventional compression techniques have had to recalibrate their compression rules whenever the distribution of input data changes. While this technique offers high accuracy, it also increases processing time.",
+   "published_date": null,
+   "score": 0.2607686
+  }
+ ]
+}

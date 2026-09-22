@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache drawbacks hardware requirements compatibility",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:17+09:00",
+ "results": [
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "ฮาร์ดดิสก์ไดรฟ์เป็นสื่อจัดเก็บข้อมูลแบบถาวรเช่นกัน และไม่มีส่วนเกี่ยวข้องกับตรรกะการทำงานของ KV caching เลย เทคโนโลยีการเพิ่มประสิทธิภาพการประมวลผลของ TurboQuant จึงส่งผลกระทบต่อความต้องการฮาร์ดดิสก์เป็นศูนย์\n\nความต้องการ HDD ในปัจจุบันส่วนใหญ่มาจากสถานการณ์ต่าง ๆ เช่น การจัดเก็บข้อมูลที่เข้าถึงไม่บ่อย (cold data storage) และการเก็บถาวร (archiving) ความต้องการเหล่านี้ไม่เกี่ยวข้องกับการปรับปรุงประสิทธิภาพในการประมวลผล AI และตรรกะความต้องการในระยะยาวยังคงมีความเสถียร [...] ความคิดเห็นส่วนใหญ่ในอุตสาหกรรมชี้ให้เห็นว่า อุปสรรคของโมเดลขนาดใหญ่ในปัจจุบันไม่ใช่จำนวนพารามิเตอร์ แต่คือความจุของหน่วยความจำ ยิ่งบริบทมีความยาวมากเท่าใด ปริมาณการใช้หน่วยความจำของ KV Cache ก็จะยิ่งมากขึ้นเท่านั้น จนในที่สุดก็ถึงขีดจำกัดของฮาร์ดแวร์ก่อนที่พารามิเตอร์ของโมเดลจะถึงเสียอีก ซึ่งถือเป็นปัญหาหลักที่พบร่วมกันในงานต่างๆ เช่น การสร้างข้อความขนาดยาว และการทำความเข้าใจเอกสารที่มีความยาวมาก\n\nความสำเร็จที่ก้าวล้ำของ TurboQuant เข้ามาช่วยแก้ไขปัญหาดังกล่าวได้โดยตรง [...] Google Research เปิดตัว TurboQuant อัลกอริทึมบีบอัดเวกเตอร์ ลดการใช้หน่วยความจำ KV Cache ใน AI inference ได้ถึง 6 เท่า โดยไม่กระทบความแม่นยำ ประสิทธิภาพการประมวลผลเพิ่มขึ้นสูงสุด 8 เท่า  \n  \nTurboQuant ใช้ PolarQuant และ QJL จัดการ KV Cache ลดภาระหน่วยความจำ ช่วยให้รันโมเดลใหญ่ขึ้นบนอุปกรณ์ที่มีข้อจำกัด ส่งผลดีต่อ HBM แต่กระทบ Server DRAM และ NAND Flash เล็กน้อย",
+   "published_date": null,
+   "score": 0.78214747
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "ฮาร์ดดิสก์ไดรฟ์เป็นสื่อจัดเก็บข้อมูลแบบถาวรเช่นกัน และไม่มีส่วนเกี่ยวข้องกับตรรกะการทำงานของ KV caching เลย เทคโนโลยีการเพิ่มประสิทธิภาพการประมวลผลของ TurboQuant จึงส่งผลกระทบต่อความต้องการฮาร์ดดิสก์เป็นศูนย์\n\nความต้องการ HDD ในปัจจุบันส่วนใหญ่มาจากสถานการณ์ต่าง ๆ เช่น การจัดเก็บข้อมูลที่เข้าถึงไม่บ่อย (cold data storage) และการเก็บถาวร (archiving) ความต้องการเหล่านี้ไม่เกี่ยวข้องกับการปรับปรุงประสิทธิภาพในการประมวลผล AI และตรรกะความต้องการในระยะยาวยังคงมีความเสถียร [...] ความคิดเห็นส่วนใหญ่ในอุตสาหกรรมชี้ให้เห็นว่า อุปสรรคของโมเดลขนาดใหญ่ในปัจจุบันไม่ใช่จำนวนพารามิเตอร์ แต่คือความจุของหน่วยความจำ ยิ่งบริบทมีความยาวมากเท่าใด ปริมาณการใช้หน่วยความจำของ KV Cache ก็จะยิ่งมากขึ้นเท่านั้น จนในที่สุดก็ถึงขีดจำกัดของฮาร์ดแวร์ก่อนที่พารามิเตอร์ของโมเดลจะถึงเสียอีก ซึ่งถือเป็นปัญหาหลักที่พบร่วมกันในงานต่างๆ เช่น การสร้างข้อความขนาดยาว และการทำความเข้าใจเอกสารที่มีความยาวมาก\n\nความสำเร็จที่ก้าวล้ำของ TurboQuant เข้ามาช่วยแก้ไขปัญหาดังกล่าวได้โดยตรง [...] Google Research เปิดตัว TurboQuant อัลกอริทึมบีบอัดเวกเตอร์ ลดการใช้หน่วยความจำ KV Cache ใน AI inference ได้ถึง 6 เท่า โดยไม่กระทบความแม่นยำ ประสิทธิภาพการประมวลผลเพิ่มขึ้นสูงสุด 8 เท่า  \n  \nTurboQuant ใช้ PolarQuant และ QJL จัดการ KV Cache ลดภาระหน่วยความจำ ช่วยให้รันโมเดลใหญ่ขึ้นบนอุปกรณ์ที่มีข้อจำกัด ส่งผลดีต่อ HBM แต่กระทบ Server DRAM และ NAND Flash เล็กน้อย",
+   "published_date": null,
+   "score": 0.78214747
+  },
+  {
+   "url": "https://ailearningguides.com/google-turboquant-kv-cache-compression-iclr-2026",
+   "title": "Google TurboQuant Cuts LLM Memory 6x With Zero Accuracy Loss - AI Learning Guides",
+   "content": "Long-context inference becomes economically viable on smaller GPUs. A workload that currently requires an H100 80GB or H200 141GB for adequate KV cache headroom can run on an A100 40GB with TurboQuant. The hardware tier required for production inference drops by one to two levels for context-length-bound workloads. [...] The KV cache is the memory bottleneck of modern LLM inference. Every token an LLM has already seen during a conversation is stored as a key-value pair that subsequent tokens attend to. For long-context workloads — entire codebases, hour-long transcripts, document collections — the KV cache can occupy more memory than the model weights themselves. A Llama 3.1 70B serving 128K-token contexts can consume 40+ GB of VRAM just for the KV cache, and that scales linearly with context length and",
+   "published_date": null,
+   "score": 0.75464433
+  },
+  {
+   "url": "https://www.spheron.network/blog/google-turboquant-llm-compression-gpu-cloud",
+   "title": "Google TurboQuant: 6x KV Cache Compression for LLM Inference",
+   "content": "The 128K row for 70B is where TurboQuant has the biggest practical impact. Without compression, a 40 GB KV cache on hardware with only 20 GB of headroom means a single 128K-context request cannot be served alongside the model weights. With TurboQuant, the 6.7 GB footprint fits comfortably, with room to serve multiple concurrent requests.\n\nAdd 10-20% headroom in production for framework buffers and activation memory beyond the KV cache figures shown above. [...] You're serving long context windows (32K+ tokens) and KV cache is eating into VRAM headroom\n High concurrency is the goal and each request's KV cache is the limiting factor\n You want to avoid calibration data requirements (data-oblivious is a real operational advantage)\n You're planning ahead as the library matures toward a production release\n\nTurboQuant won't help when: [...] No. TurboQuant is data-oblivious. It uses random rotation matrices (PolarQuant) followed by optimal scalar quantization, then a 1-bit QJL error corrector. No representative dataset or calibration step is needed, unlike AWQ or GPTQ.\n\nTurboQuant doesn't change weight VRAM requirements. A 70B model at FP16 still needs 2x H100 SXM5. TurboQuant frees up VRAM that was allocated to KV cache, letting you serve longer contexts or more concurrent users on the same hardware.",
+   "published_date": null,
+   "score": 0.7515939
+  },
+  {
+   "url": "https://qvac.tether.io/blog/turboquant-in-qvac-sdk-0-12-0-kv-cache-quantization-for-production-local-ai",
+   "title": "TurboQuant in QVAC SDK 0.12.0: KV-cache quantization for pr…",
+   "content": "On consumer hardware in general, the KV cache is the dominant memory cost as context grows. The model can theoretically handle 262K but the hardware cannot, because the KV cache will not fit alongside the weights. TurboQuant 0.12.0 attacks this wall on consumer-grade GPUs first. Mobile and Apple Silicon coverage is on the roadmap for a future release.\n\nImage 1: Turboquant allows to reduce the KV cache budget by up to 5x. (Lower value means less memory required) [...] 1. It is data-oblivious: no calibration dataset, no model-specific tuning\n2. It requires no retraining: any standard transformer loading from a GGUF file benefits immediately\n\nThese properties matter because they make TurboQuant a drop-in optimization rather than a research artifact requiring expert configuration.\n\n# Why the KV cache is the memory bottleneck",
+   "published_date": null,
+   "score": 0.74318707
+  },
+  {
+   "url": "https://medium.com/@michael.hannecke/googles-turboquant-changes-the-economics-of-local-ai-inference-acce5839014d",
+   "title": "TurboQuant Changes the Economics of Local AI Inference - Medium",
+   "content": "The math works because KV cache compression changes which workloads fit on which hardware tier. Before TurboQuant, a 100K-token workload on a 14B model consumed roughly 2–6 GB of KV cache in FP16, depending on whether the model uses grouped-query attention (GQA) — most modern 14B models do, which puts them at the lower end. Add the quantized model weights (around 8 GB in Q4_K_M) and overhead, and the total memory requirement sat near 20 GB. Manageable, but tight on a 24 GB machine, and leaving [...] and leaving no room for concurrent requests. After TurboQuant, the KV cache drops to about 1 GB. That frees 5 GB for a second concurrent user, or for extending the context to 200K tokens. One algorithm change. Same hardware. Twice the capacity. [...] Weight loading is a separate problem. If a model’s weights do not fit in memory, KV cache compression does not help. A 70B-parameter model in FP16 needs 140 GB just for weights. TurboQuant compresses runtime memory, not model size. Weight quantization (Q4_K_M, Q5_K_M formats) handles that separately. For local inference on consumer hardware, MoE models like Qwen3.5–35B-A3B or smaller dense models (7B-14B) are the realistic candidates.",
+   "published_date": null,
+   "score": 0.69870013
+  },
+  {
+   "url": "https://dev.to/arshtechpro/turboquant-what-developers-need-to-know-about-googles-kv-cache-compression-eeg",
+   "title": "TurboQuant: What Developers Need to Know About ...",
+   "content": "It enables longer contexts on existing hardware. If you're hitting OOM at 16K context on a 16 GB GPU, TurboQuant can push that boundary significantly without buying new hardware.\n\nSpeed gains under memory pressure. When FP16 KV cache pushes your GPU into swap territory, inference speed collapses. Community benchmarks show TurboQuant maintaining 2-3x higher token throughput in these regimes because the compressed cache stays in fast GPU memory. [...] The issue is simple: it grows linearly with context length, and it stores everything in full precision (typically FP16). For an 8B parameter model at 32K context, the KV cache alone can consume around 4.6 GB of VRAM. Scale that to multiple concurrent users or longer contexts, and you're out of memory before the model weights themselves become the bottleneck. [...] Compression scales with context length. The benefit is proportional to how much KV cache you have. At 512 tokens the savings are modest (tens of megabytes). At 4K tokens you start saving over 1 GB. At 8K+ tokens the savings reach 2 GB or more on a single model -- and that's when it starts changing what you can actually run on your hardware.",
+   "published_date": null,
+   "score": 0.69274646
+  },
+  {
+   "url": "https://www.analyticsvidhya.com/blog/2026/04/turboquant-google",
+   "title": "TurboQuant: Google's KV Cache Optimization Explained",
+   "content": "From Cloud to Consumer: By shrinking the “digital cheat sheet” of AI (the KV cache) down to just 3 bits per value, TurboQuant effectively “unclogged” the hardware bottleneck. This moved sophisticated AI from massive server farms to 16GB consumer devices like the Mac Mini, enabling high-performance LLMs to run locally and privately. [...] Hardware Friendly: The entire algorithm is designed for vectorization, meaning it can run in parallel on modern GPUs with a lightweight footprint. [...] ## The Reality: Beyond the Research Paper\n\nThe true impact of TurboQuant isn’t just measured in citations, but in how it reshapes the global economy and the physical hardware in our pockets.\n\n### 1. Breaking the “Memory Wall”\n\nFor years, the “Memory Wall” was the single greatest threat to AI progress. As models grew, they required an huge amount of RAM and storage, making AI hardware prohibitively expensive and keeping powerful models locked in the cloud.",
+   "published_date": null,
+   "score": 0.65146625
+  }
+ ]
+}

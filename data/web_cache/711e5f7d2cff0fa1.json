@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache vLLM integration production deployment",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:07+09:00",
+ "results": [
+  {
+   "url": "https://www.youtube.com/watch?v=ccyquE4jzcc",
+   "title": "Scalable and Efficient LLM Serving With the VLLM Production ...",
+   "content": "At a high level, the vLLM Production Stack project allows users to easily deploy to their Kubernetes cluster through a single command. vLLM Production Stack's optimizations include KV cache sharing to speed up inference ( prefix-aware routing that directs inference queries to vLLM instances holding the corresponding KV caches, and robust observability features for monitoring engine status and autoscaling. [...] [11:24] tokens and when the KV cache is created potentially that input maybe a book maybe an article maybe a music may maybe\n[11:32] a song maybe a p make a picture or video but that if that input will be reach be used in the future. Okay. And that KV\n[11:39] cache need to be stored. And the storing of KV cache doesn't well I mean what uh doesn't just rely on GPU memory. Okay. [...] [15:10] of the same user will be route to the same VRM engine and uh and that the engine will have the KV cache locally blah blah blah that's actually true but\n[15:18] in reality the workload is not going to be that evenly distributed Some user going to have a lot of queries a lot more queries than others. And if you\n[15:26] have a lot more queries than others, the KV cache cannot be saved on on one node because that node going to be a hot spot. You want to distribute KV cache",
+   "published_date": null,
+   "score": 0.7402687
+  },
+  {
+   "url": "https://docs.vllm.ai/projects/production-stack/en/latest/use_cases/sharing-kv-cache.html",
+   "title": "Sharing KV Cache Across Instances — production-stack",
+   "content": "production-stack - Home\nproduction-stack - Home\n\nGetting Started\n\nDeployment\n\nUse Cases\n\nDeveloper Guide\n\nCommunity\n\n# Sharing KV Cache Across Instances\n\n## Contents\n\n# Sharing KV Cache Across Instances#\n\nThis tutorial demonstrates how to enable remote KV cache storage using LMCache in a vLLM deployment. Remote KV cache sharing moves large KV caches from GPU memory to a remote shared storage, enabling more KV cache hits and potentially making the deployment more fault tolerant. [...] vLLM Production Stack uses LMCache for remote KV cache sharing. For more details, see the LMCache GitHub repository.\n\n## Table of Contents#\n\nPrerequisites\n\nStep 1: Configuring Remote KV Cache Storage\n\nStep 2: Deploying the Helm Chart\n\nStep 3: Verifying the Installation\n\nBenchmark the Performance Gain of Remote Shared Storage (Work in Progress)\n\n## Prerequisites#\n\nCompletion of the following tutorials:\n\nPrerequisite\n\nQuick Start\n\nHelm Chart Deployment\n\nA Kubernetes environment with GPU support. [...] Deploy the Helm chart using the customized values file:\n\n## Step 3: Verifying the Installation#\n\nCheck the pod logs to verify LMCache is active:\n\nIdentify the pod name for the vLLM deployment (e.g., `vllm-mistral-deployment-vllm-xxxx-xxxx`). Then run:\n\n`vllm-mistral-deployment-vllm-xxxx-xxxx`\n\nLook for entries in the log indicating LMCache is enabled and operational. An example output (indicating KV cache is stored) is:\n\nForward the router service port to access the stack locally:",
+   "published_date": null,
+   "score": 0.7343678
+  },
+  {
+   "url": "https://introl.com/blog/vllm-production-deployment-inference-serving-architecture-guide",
+   "title": "vLLM Production Deployment | Introl Blog",
+   "content": "For platform teams: - vLLM production-stack provides complete K8s deployment with routing, caching, observability - Cross-instance KV cache sharing delivers 3-10x latency reduction for repetitive workloads - OpenAI-compatible API enables drop-in replacement for existing integrations - Rolling updates with pod disruption budgets maintain availability during model updates [...] KV cache sharing extends PagedAttention's memory efficiency across multiple vLLM instances through the LMCache project. Backends share computed KV cache blocks over high-speed interconnects, enabling cache hits even when requests route to different instances. Systems with repetitive workloads see 3-10x latency reduction and 2-5x throughput improvement from cross-instance cache sharing.¹⁰ [...] Non-contiguous storage allows KV cache blocks to scatter across available GPU memory. The system no longer needs large contiguous regions, eliminating the fragmentation that plagues traditional allocators. A 2,000-token sequence stores its cache across 125 pages distributed wherever space exists.",
+   "published_date": null,
+   "score": 0.7311551
+  },
+  {
+   "url": "https://www.spheron.network/blog/deploy-lmcache-vllm-kv-cache-sharing-gpu-cloud",
+   "title": "Deploy LMCache on GPU Cloud: Share KV Cache Across vLLM Nodes for 15x Higher Throughput (2026 Guide) | Spheron Blog",
+   "content": "2.   02\n### Install LMCache and vLLM pip install lmcache vllm. LMCache 0.4+ (January 2026 release) ships with the vLLM Production Stack integration. Verify with: python -c 'import lmcache; print(lmcache.__version__)' \n3.   03 [...] For KV cache fundamentals like PagedAttention, FP8/NVFP4, and CPU swap space, start with the KV Cache Optimization Guide. For single-node NVMe tiering, see NVMe KV cache offloading with LMCache. This post covers the multi-node deployment path, and it assumes the single-node tensor-parallel setup from our vLLM production deployment guide as a starting point. [...] LMCache graduated to production in January 2026 and is now used by Google Cloud GKE Inference, CoreWeave, and Cohere. The vLLM Production Stack integration ships in LMCache 0.4+. For an in-depth look at how GKE Inference Gateway's routing layer works and how to replicate it outside GCP, see the GKE Inference Gateway explainer.\n\n## What LMCache Does (and Where vLLM Prefix Caching Falls Short)",
+   "published_date": null,
+   "score": 0.67140645
+  },
+  {
+   "url": "https://cloudthrill.ca/vllm-production-stack-llm-inference-for-enterprises-p1",
+   "title": "vLLM production-stack: LLM inference for Enterprises (part1)",
+   "content": "Core Layer: Everything you need to serve traffic such as the Router + vLLM engines with KV-cache and LoRA .\n Integration Layer: K8s/Ray adapters slot the core into any orchestrator.✅ No refactoring/migration needed.\n Infrastructure Layer: Runs GPU/CPU pools on K8s, Ray, or bare-metal. ✅Fully platform-agnostic.\n\n## I. Serving Engine\n\nThe serving engine is the core component that runs the vLLM instances that processes inference requests.\n\nEach serving engine deployment: [...] Unlike the KServe, kubeai, aibrix that run vanilla vLLM — Production stack is the only official implementation, that is a production-tuned, featuring LMCache-powered KV cache offloading, which is one of its key performance features.\n\nNote: Production stack extension isn’t a core part of vLLM, but a sub-project for enterprise deployments.\n\n## Request Flow [...] The Production-Stack is an open-source Kubernetes-native, enterprise-ready inference setup of vLLM, maintained by LMCache that lets you scale from a single node to a multi-cluster deployment without changing application code. Here’s a quick look at its Key Components:",
+   "published_date": null,
+   "score": 0.67063034
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid ...",
+   "content": "To run within a practical LLM serving stack, HyMCache integrates with Dynamo and vLLM, as shown in Figure7. On the hardware side, CXL-HM serves as the Tier-3 remote KV-cache device. LLM workers can access this tier either through a CXL-based memory fabric, such as a CXL switch or CXL memory box, or through existing RDMA-capable datacenter networks. Our prototype focuses on the RDMA-based deployment because it can run on existing infrastructure without requiring a CXL fabric. [...] HyMCache KV Connector. HyMCache integrates with vLLM through a lightweight KV Connector attached to vLLM’s existing KV-transfer callbacks. With HyMCache disabled, vLLM would run unchanged. When enabled, KV Connector is invoked after vLLM’s GPU prefix-cache lookup and any optional upper-tier DRAM-based KV-cache lookup, such as LMCache or Mooncake. For the remaining unmatched prefix blocks, KV Connector uses the remote-hit metadata produced by Lookup to issue RDMA reads into the GPU KV cache [...] HyMCache is implemented in vLLM 0.19.0 on top of the Dynamo v1.1.0 container image. Following Dynamo’s LMCache integration model, we add a HyMCache connector to vLLM’s KV-transfer path during prefill execution. The connector coordinates remote KV lookup, prefetch requests, and RDMA-based KV transfer through the HyMCache master and remote KV manager. When HyMCache is disabled, vLLM follows its default execution path.",
+   "published_date": null,
+   "score": 0.63615024
+  },
+  {
+   "url": "https://kb.vastdata.com/docs/deploying-vllm-lmcache-multi-process-on-nvidia",
+   "title": "Deploying vLLM & LMCache Multi-Process on NVIDIA",
+   "content": "As long-context LLM inference scales, GPU High Bandwidth Memory (HBM) rapidly becomes the primary bottleneck due to linear Key-Value (KV) cache expansion. Integrating vLLM, LMCache, and VAST Data creates an ideal disaggregated infrastructure that offloads KV cache to a scale-out storage fabric, bypassing GPU memory bounds and slashing Time-To-First-Token (TTFT) by up to 10x. [...] '{\"kv_connector\":\"LMCacheMPConnector\",\"kv_connector_module_path\":\"lmcache.integration.vllm.lmcache_mp_connector\",\"kv_role\":\"kv_both\",\"kv_connector_extra_config\":{\"lmcache.mp.host\":\"tcp://127.0.0.1\",\"lmcache.mp.port\":5555,\"lmcache.mp.heartbeat_interval\":60.0}}'\n``` [...] BASE_DIR=\"/root/vastdata\"\nMODEL_DIR=\"${BASE_DIR}/models/llama-4-scout\"\nCACHE_DIR=\"/mnt/kvcache-2ports\"\nCFG=\"${BASE_DIR}/cfg\"\n\nmkdir -p \"${CACHE_DIR}\"\nchmod +x \"${CFG}/start.sh\"",
+   "published_date": null,
+   "score": 0.62934244
+  },
+  {
+   "url": "https://community.netapp.com/community/discussion/466018/engineering-inference-kv-cache-shared-storage-and-the-economics-of-ai",
+   "title": "Engineering Inference: KV Cache, Shared Storage, and the ...",
+   "content": "This is whereLMCachechanges the design. Instead of treating KV cache as a private, in-process memory structure,LMCache treats it as shared infrastructure. KV blocks can be offloaded to CPU memory and shared storage, and multiple vLLM instances can reference the same cached content. In a multi-node setup, that means the second instance does not need to recompute what the first one already processed. You are no longer scaling GPUs in isolation. You are scaling with a shared memory plane. [...] . No distributed coordination layer. You stand up an endpoint and serve a high-performance LLM with built-in KV caching. For single-node inference, that simplicity is a feature, not a limitation.\n\n### LMCache+vLLM Is Great for Multi-Node Inference [...] The benefit becomes obvious in real workloads. In chat systems, RAG pipelines, or agent workflows, there is almost always a shared structure: system prompts, tool schemas, retrieved passages, and long conversation prefixes.\n\nWith LMCache connected to shared storage such as ONTAP S3, both vLLM instances can access the same offloaded KV cache entries. That improves throughput and reduces redundant computation as concurrency grows.\n\nImage 6: prefill_and_decode_cache.png",
+   "published_date": null,
+   "score": 0.5117904
+  }
+ ]
+}

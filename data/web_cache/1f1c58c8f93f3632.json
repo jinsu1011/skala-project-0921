@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache combined with other KV cache techniques quantization offloading CXL memory tiering",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:26+09:00",
+ "results": [
+  {
+   "url": "https://www.emergentmind.com/topics/kv-cache-offloading-with-optimized-memory-management",
+   "title": "KV Cache Offloading & Memory Optimization",
+   "content": "Offloading strategies span several dimensions: the offload destination (CPU pinned/pageable memory, disk/NVMe, CXL-PNM), granularity (token, block, layer), and reloading patterns (synchronous, overlapped). LayerKV (Xiong et al., 2024) offloads lower-sensitivity layers to host, holding only a minimal prefix on GPU to limit the service’s Time To First Token (TTFT) and SLO violation rate. TailorKV (Yao et al., 26 May 2025) partitions layers as \"quantization-friendly\" (on-GPU, aggressively [...] KV cache offloading with optimized memory management is a technique that distributes per-token key-value data across GPU, CPU, and storage to enable scalable LLM inference.\n It leverages hierarchical allocation, dynamic offloading, and compression methods to reduce latency and improve throughput while meeting strict service level objectives. [...] In summary, KV cache offloading with optimized memory management merges layer/block-level allocation and partitioning, hybrid/compression-based cache reduction, device-adaptive runtime scheduling, and asynchronous orchestration across heterogeneous memory/storage hierarchies. The resulting systems—by dynamically balancing data movement, compute overlap, and memory utilization—enable efficient, scalable inference for large and long-context LLMs without compromising generation quality or latency",
+   "published_date": null,
+   "score": 0.45798564
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "The ITME remote manager operates as the central orchestration layer on the CXL-hybrid memory server, specifically tasked with managing the CXL-hybrid memory device and coordinating the prefetching of KV cache chunks, model weights, and prefix caches to decouple SSD access latency from the inference critical path. When the host GPU server offloads data in coarse-grained chunks, the manager treats these transfers as structured memory objects and assigns sequential identifiers to each, [...] CXL-based Memory Expansion. [...] the CXL-hybrid memory in ITME fully adopts the PCIe Gen5 interface, delivering the high bandwidth essential for rapid KV cache swapping in multi-tier pipelines.",
+   "published_date": null,
+   "score": 0.42319635
+  },
+  {
+   "url": "https://www.asteralabs.com/resources/blog/breaking-through-the-memory-wall-how-cxl-transforms-rag-and-kv-cache-performance",
+   "title": "How CXL Transforms RAG and KV Cache Performance",
+   "content": "LLM Inference: Evaluate CXL for KV cache storage when deploying models with long context windows (32K+ tokens) or when GPU memory constraints limit batch sizes and throughput. The ability to offload KV cache to CXL memory can dramatically improve GPU utilization and reduce infrastructure costs. [...] 1. Efficient GPU Offloading: Based on real world inference workloads, CXL-CPU interconnect performs comparably to CPU-GPU interconnect for data transfer.  This means KV cache can be efficiently offloaded from constrained GPU memory to more abundant CXL memory without the significant latency penalties that would make this approach impractical. [...] KV cache consumes a significant amount of memory for modern LLMs—approximately 1MB of memory per token.  As context windows expand to 100K+ tokens—enabling analysis of multiple documents or long conversations—a single inference request can require hundreds of gigabytes of KV cache. For perspective: analyzing extended documents or maintaining long conversation histories can easily consume 1TB or more of memory just for KV cache storage.",
+   "published_date": null,
+   "score": 0.39824316
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=krB97KQerm8",
+   "title": "Accelerating LLM Serving with Prompt Cache Offloading via CXL",
+   "content": "LLM inference uses a key-value (KV) cache to store intermediate activations for token-wise reuse, cutting redundant computation and latency. Prompt caching extends this across multi-turn or long-session workloads, but as user counts and sequence lengths grow, GPU HBM alone cannot sustain the full cache footprint, forcing offloads into higher-capacity media like host DRAM. However, host DRAM is limited in scalability. We address this by integrating CXL-attached memory via PCIe switches, [...] # Accelerating LLM Serving with Prompt Cache Offloading via CXL\n## Open Compute Project\n25400 subscribers\n15 likes\n\n### Description\n1161 views\nPosted: 23 Oct 2025\nDon Moon Director - SK hynix, Taeho Hwang Researcher - SK hynix [...] investigated including know leveraging SSD uh for key value cache offloading but I just leave that for future research for now. All right. Thank you. Thank you. And uh we do have a minute or two in case people want to ask a question. The microphone's right there. Should be on. Hi. It's a good presentation. I think everyone is clear that using CXL memory reduces latency compared to NVMe. But have you done a TCO analysis like okay uh my CXL memory cost the system you know without CXL memory is X.",
+   "published_date": null,
+   "score": 0.3813814
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory. [...] Figure 4. KV cache offloading and prefix caching via a tiered KV cache store.\n\n## Solution architecture\n\n#### Components and disaggregation\n\nThe proposed solution employs SK hynix PS1010 3.84TB SSDs and Seagate Exos® 30TB hard drives, powered by Mozaic™ (HAMR) (Table 1). It uses NVIDIA Dynamo, an open-source distributed inference framework for serving generative AI models.\n\nTable 1. GPU, SSD, and hard drive server specifications. [...] SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate",
+   "published_date": null,
+   "score": 0.3542772
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "Flexibility to tier cluster memory: CXL-based KV cache delivered by the server creates a new tier of cluster memory to supplement existing high bandwidth memory (HBM) and system DRAM, delivering speeds 10x faster than NVMe-based approaches. This provides new flexibility in offloading KV data for faster access.\n\n Compatibility with NVIDIA Dynamo: The solution is compatible with NVIDIA Dynamo, NVIDIA's software architecture for KV cache memory offloading. [...] Penguin Solutions MemoryAI KV cache server is the industry's first production-ready KV cache server that utilizes CXL memory technology to address the critical [...] A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait.",
+   "published_date": null,
+   "score": 0.28108776
+  },
+  {
+   "url": "https://community.netapp.com/community/discussion/466018/engineering-inference-kv-cache-shared-storage-and-the-economics-of-ai",
+   "title": "Engineering Inference: KV Cache, Shared Storage, and the ...",
+   "content": "recomputation. Together, they change the math.I was recently on an episode of theODSC AI X PodcasttitledSmarter Per Wattw h ere we talk about the upcoming energy crunch that is going to have an impact on deploying new GPU platforms in 2026 (and beyond). [...] This holistic approach to resource management is exactly what I will be dissecting at theOpen Data Science Conference (ODSC) Eastin my upcoming session, \"Less Compute, More Impact: How Model Quantization Fuels the Next Wave of Agentic AI.\"Quantization and KV cache reuse are two sides of the same coin. Both are about getting a better return on investment from the hardware you already have. Smaller or quantized models reduce weight memory. Smarter caching reduces attention recomputation. [...] It is easy to reduce KV cache to a simple headline: \"it makes inference faster.\" That is true, but it misses the real point. KV cache is about reducing redundant work. Every reused prefix is GPU compute you did not have to pay for twice. Every offloaded block is memory pressure you did not push back onto expensive accelerators.",
+   "published_date": null,
+   "score": 0.27216643
+  },
+  {
+   "url": "https://handbook.modular.com/inference-optimization/kv-cache-offloading",
+   "title": "KV cache offloading - LLM Inference Handbook - Modular",
+   "content": "Modular\nModular\nModular\nModular\n\n# KV cache offloading\n\nKV cache offloading is the process of moving attention key/value data from GPU\nmemory to lower-cost storage like CPU memory or disk. It frees up GPU resources\nwhile preserving the ability to resume inference without recomputation. This\nhelps scale LLM workloads efficiently by balancing performance and memory usage.\n\n## Why does KV cache become a bottleneck in LLM inference?​ [...] To solve these problems, KV cache offloading moves inactive or less frequently\naccessed cache data from GPU memory to lower-cost, higher-capacity storage such\nas CPU RAM, local SSDs, or remote object storage. When a user resumes\ninteraction or another user accesses the same content, the cache can be reloaded\ninto GPU memory on demand. This avoids costly recomputation while freeing up GPU\nresources for active workloads.\n\n## How to calculate the KV cache size​ [...] While KV cache offloading can significantly improve memory efficiency and\nthroughput, the speed of the offloading target is critical. If the storage tier\n(e.g., CPU RAM or disk) is too slow, the overhead of transferring KV data back\nto the GPU may negate the benefits, especially in latency-sensitive\napplications.",
+   "published_date": null,
+   "score": 0.2711466
+  }
+ ]
+}

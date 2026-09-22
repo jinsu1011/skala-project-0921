@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache doubts limitations analyst view",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:16+09:00",
+ "results": [
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] \"As the AI market expands from training to inference-centric operations, the role of NAND is rapidly changing into a key element in configuring the AI memory hierarchy,\" SK hynix said. \"We will expand our NAND product families to secure new growth drivers.\"\n\n#SKhynix#NAND#KVCache#AIMemory#HBM#GPU#AIChips\n\n## Companies in this story\n\nSK hynix\n\n000660.KS · Semiconductor\n\nAI KEY Company Analysis →\n\nOriginal reporting by Kim Yoon-soofor Seoul Economic Daily.",
+   "published_date": null,
+   "score": 0.48162505
+  },
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/more/261873534-sk-hynix-memory-shortage-capacity-tradingkey",
+   "title": "SK Hynix Capacity Hits Zero: Tech Giants Offer to Fund ...",
+   "content": "Werner noted that beyond the current capacity shortage, the memory industry's current boom is fundamentally different from past cyclical fluctuations, and supply constraints may persist for a long time. He identified three factors driving the explosion in KV cache demand: increasingly long context windows, larger model parameter counts, and a growing user base, with context length currently growing at a rate of 30 times per year. Since KV cache growth directly consumes HBM capacity, future [...] While long-term orders are crucial for the memory industry, accepting customer funding for plant construction is a different matter. Analysts point out that this could reduce SK Hynix to a foundry for its customers, leading to a loss of bargaining power. With memory prices currently on the rise, SK Hynix finds it difficult to accept the loss of seller pricing power. [...] Featured Tools\n\ntk_center_stock_scoreStock Scorecalendar_economicCalendarEconomic Calendarsearch.intelligent.strategySmartPicksarticle_asider_weekly_reportWeekly Report\n\nTop News\n\nlink\n\nGold Price Forecast: Fed Hikes Rates as Expected, May Raise Again This Year; Can Gold Hold $4,200?\n\nSpaceX Stock Price Prediction: Reclaiming $150, Can SPCX Break $155 to Spark a New Rally?",
+   "published_date": null,
+   "score": 0.32685181
+  },
+  {
+   "url": "https://www.asiae.co.kr/en/article/2026032610254866777",
+   "title": "Samsung and SK hynix Shares Rattle on Google's \" ...",
+   "content": "The expansion of the KV cache has led to the \"memory wall\" bottleneck phenomenon, which significantly increases the burden on AI hardware. This is because the volume of interaction with AI has surged as AI models have become larger and demand for inference has grown. For large LLMs, the KV cache alone now requires a tremendous amount of memory. Agentic AI has also come to demand even more memory. This is one of the main reasons why the stock prices of Samsung Electronics and SK hynix have [...] Google announced that TurboQuant can compress the KV cache down to a 3-bit level without accuracy loss. Foreign media outlets that reviewed the paper reported that this technology could reduce the ‘KV cache’ memory required by large language models (LLMs) by at least sixfold and provide up to an eightfold increase in speed. The KV cache is a type of ‘temporary memory storage’ that allows LLMs to retain past information in order to continue conversations.",
+   "published_date": null,
+   "score": 0.30769125
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] แม้ว่ากลุ่มเซมิคอนดักเตอร์ทั่วโลกจะเริ่มชะลอตัวลง แต่ Goldman Sachs (GS) โดย Peter Callahan ผู้เชี่ยวชาญด้านเทคโนโลยี เชื่อว่าตลาดไม่ได้อยู่ในสภาวะตื่นตระหนกขั้นรุนแรง แต่นักลงทุนกำลังกลับมาพิจารณาความเป็นจริงหลังจากการทะยานขึ้นอย่างผิดปกติของหุ้นกลุ่มหน่วยความจำในช่วงที่ผ่านมา",
+   "published_date": null,
+   "score": 0.29352644
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] แม้ว่ากลุ่มเซมิคอนดักเตอร์ทั่วโลกจะเริ่มชะลอตัวลง แต่ Goldman Sachs (GS) โดย Peter Callahan ผู้เชี่ยวชาญด้านเทคโนโลยี เชื่อว่าตลาดไม่ได้อยู่ในสภาวะตื่นตระหนกขั้นรุนแรง แต่นักลงทุนกำลังกลับมาพิจารณาความเป็นจริงหลังจากการทะยานขึ้นอย่างผิดปกติของหุ้นกลุ่มหน่วยความจำในช่วงที่ผ่านมา",
+   "published_date": null,
+   "score": 0.29352644
+  },
+  {
+   "url": "https://stocktwits.com/news-articles/markets/equity/sk-hynix-samsung-shares-dip-in-korea-after-deep-seek-debuts-ai-tech-that-uses-less-memory-micron-san-disk-hold-up/cZtXBNqRBGe",
+   "title": "SK Hynix, Samsung Shares Dip In Korea After DeepSeek Debuts AI Tech That Uses Less Memory – Micron, SanDisk Hold Up",
+   "content": "Anotherwrote: “$MU bear case: DeepSeek V4.1-Flash claims KV-cache footprints shrink 75% in HBM, 87.5% on SSD vs V4-Flash. KV is 35% of SanDisk's 2030 AI flash market forecast. Full, unmodeled savings at fixed workloads imply ~31% less AI flash demand. Scenario, not confirmed cuts.”\n\n_For updates and corrections, email newsroom[at]stocktwits[dot]com._\n\nAdvertisement|Remove ads.\n\nRead Next:PLTR Stock Wins Whether We’re In An AI Bubble Or Not? Wall Street Analyst Explains Why\n\n1 Comment [...] Share\n\n.\n\nThe development has reignited concerns about whether AI’s surging appetite for memory chips can continue at its current pace. DeepSeek said Thursday that its new V4.1 Flash model uses a more efficient architecture and has reduced its KV cache, lowering the amount of HBM and solid-state storage needed to run the model.",
+   "published_date": null,
+   "score": 0.2556901
+  },
+  {
+   "url": "https://q.futunn.com/en/feed/116329824846228",
+   "title": "Alpha Call | The Truth About AI Storage Demand Behind KV Cac...",
+   "content": "China's daily token usage has exceeded 140 trillion, growing over a thousand times in two years. However, a research paper on KV Cache compression triggered a sharp decline in the storage sector, followed by SK Hynix$CSOP SK Hynix Daily Max (2x) Leveraged Product (07709.HK)$ securing a nearly 6.9 billion euro EUV equipment order.$ASML Holding (ASML.US)$ Between emotional panic and industrial reality, which one should we believe? [...] Tim pointed out that the core implication of this paper is precisely that KV Cache compression within the 3-4 bit range is increasingly approaching the practical engineering limit. The mainstream compression rate currently implemented in practice is only about 2x, while the upper limit of cutting-edge solutions can reach 4-6x, but the industry average is far from that. The best results shown in the paper do not equate to the actual implementation level across the entire industry. [...] Risk Disclaimer: The above content only represents the author's view. It does not represent any position or investment advice of Futu. Futu makes no representation or warranty.Read more)\n\nThumbs Up\n\n6\n\n6\n\n2\n\n511K Views\n\nComments\n\nSign in  to post a comment",
+   "published_date": null,
+   "score": 0.23707257
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] Nvidia's ICMSP software extends the KV cache to local NVMe SSDs so that they enable the processing to complete much faster than if the tokens and vectors had to be recomputed when HBM capacity runs out.\n\nBANDF AD [...] Cache-augmented generation (CAG) is such a workload. \"When the LLM receives a query, it reads the gigantic shared pre-computed KV cache, performs a computation, and then outputs a response. In other words, the shared precomputed KV cache is inherently read-only.\"\n\nIEEE SK Hynix H3 paper combined HBM and HBF structure diagrams.\n\nIEEE SK Hynix H³ paper combined HBM and HBF structure diagrams",
+   "published_date": null,
+   "score": 0.22385216
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache accuracy degradation latency overhead integration",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:43+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "read operations (➏) to move the aggregated data from the CXL-hybrid memory to the CPU load ring buffer. Finally, ITME operates a pipelined transfer that proactively pushes required data to the GPU memory ahead of each execution step. Specifically, ITME employs layer-wise prefetching for both model weights and the prefix KV cache (➐, ➑). By overlapping these retrievals with ongoing GPU computation, ITME effectively masks the latency overhead associated with accessing the CXL-hybrid memory. [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] NVMe-oF Integration: We integrated an NVMe-oF (NVMe over Fabrics) stack to enable storage access. This allows the baseline to offload and retrieve KV cache blocks from a storage node, rather than relying solely on local CPU memory or costly recomputation.",
+   "published_date": null,
+   "score": 0.5746579
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "— no retraining, and less than 4% latency overhead. LongLive 2.0 (#ref-13) takes the same track to production scale, quantizing both weights and KV cache to NVFP4 (4-bit) on a 5B-parameter generator for 1.84× throughput at negligible quality cost — and its detail worth dwelling on is the fused parallel dequantization kernel (Figure 10). Storing the cache in 4 bits means every block must be dequantized before each attention step, and the naive approach launches one GPU kernel per block. [...] overhead below 2%. [...] On the eviction track, §3's system solution carries over directly: TriAttention's trigonometric scoring (#ref-1) has been applied to LongLive (#ref-12), a real-time video generator built on Wan2.1-T2V-1.3B. Each KV entry corresponds to spatial patches from one frame, and the scoring decides which frames to evict — no attention scores observed, nothing for the serving stack to fight — cutting the cache by 50% with negligible quality drop; the integration ships in the TriAttention repository.",
+   "published_date": null,
+   "score": 0.38852578
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "9 mechanisms such as garbage collection and TLC migration. When the write workload exceeded the pSLC capacity, performance degraded significantly. These findings suggest that structuring KV cache access as sequential I/O is essential for achieving high-performance Flash cache swapping. When the GPU’s compute throughput is sufficiently high, the overhead of KV cache swapping can emerge as a bottleneck in the sequence pipelining process. [...] As with any swapping mechanism, moving KV cache from GPU HBM to another memory tier introduces some overhead. In vLLM, this is handled through two primary strategies: Recompute, which avoids I/O but incurs additional computation, and Swapping. To maintain low latency, the vLLM scheduler preemptively sacrifices a few requests to free up HBM, thereby preventing overall service delays. HiFC adopts this same scheduling logic, allowing it to hide most of the swap latency through pipeline [...] enabling support for larger KV caches and longer contexts. However, this strategy introduces severe throughput degradation, as each I/O must still traverse host DRAM and the PCIe bus. Under bandwidth-limited conditions, this indirect data path significantly impairs decoding performance .",
+   "published_date": null,
+   "score": 0.35763538
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Figure 12. TTFT measurement as the number of turns increases. LMBenchmark configurations: ISL = 21K, OSL = 100, number of users = 15, and QPS = 0.5.\n\n#### Increasing users.\n\nFigure 13 shows TTFT as the number of users increases. Because KV cache generation is computebound and limited by GPU capacity, per-user latency increases accordingly. When the number of users grows from 10 to 50, TTFT for KV cache regeneration increases by approximately 20×. [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] End-to-end latency comparison. Hybrid storage reduces end-to-end latency by 80% (Figure 15). Because delays in the prefill stage directly propagate to the decode stage, improvements from KV cache reuse play a critical role in lowering overall latency.\n\nNotably, this experiment does not use prefill–decode disaggregation, suggesting that the impact of prefill performance on decode latency may be even greater in disaggregated settings.",
+   "published_date": null,
+   "score": 0.35240287
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.20587073
+  },
+  {
+   "url": "https://www.mindstudio.ai/blog/what-is-google-turboquant-kv-cache-compression",
+   "title": "What Is Google TurboQuant? The KV Cache Compression ...",
+   "content": "In late 2024, Google DeepMind introduced TurboQuant — a KV cache compression algorithm that squeezes memory usage down to 3 bits per value with essentially zero accuracy loss. The result: up to 8x faster inference and 6x reduction in memory consumption on H100 GPUs. When that news landed, Micron and SK Hynix saw their stock prices drop sharply. Investors realized that the industry’s assumption — more AI means more memory demand — had just gotten significantly more complicated. [...] The “Turbo” in TurboQuant refers to its practical speed: unlike some quantization methods that save memory in theory but introduce overhead in practice, TurboQuant is designed to be hardware-efficient on real GPUs, particularly NVIDIA H100s.\n\n### How TurboQuant Works\n\nStandard quantization maps a range of floating-point values to a smaller set of discrete levels. Go too aggressive, and you lose too much precision, causing model degradation. TurboQuant addresses this with a few key innovations: [...] Try Remy today →\n\nWhen Google published TurboQuant’s results, the market reaction was swift. Micron’s stock fell several percent in a single session. SK Hynix and Samsung saw similar pressure. The reasoning from analysts was straightforward.\n\n### The Bull Case for Memory Had Been Built on Linear Assumptions",
+   "published_date": null,
+   "score": 0.20396146
+  },
+  {
+   "url": "https://rocketreach.co/sk-hynix-it-department_b5c65362f42e0cb2",
+   "title": "[SK hynix IT Department](/sk-hynix-it-department_b5c65362f42e0cb2 \"SK hynix Management\")",
+   "content": "More information [...] - [x] checkbox label label\n\n- [x] checkbox label label\n\n- [x] checkbox label label\n\nConfirm My Choices\n\nImage 41: Powered by Onetrust [...] Image 7: SK hynix Employee Kil Hwang's profile photo  Hyeokjin Kweon Engineer  \n   Image 8: SK hynix Employee Ryan Seol's profile photo  Min-Sung Choi Artificial Intelligence Engineer1  \n   Image 9: SK hynix Employee Yong Kim's profile photo  Bryan Choi Semiconductor Engineer  \n   Image 10: SK hynix Employee Donghun Lee's profile photo  Seungheon Song Manufacturing Technology Engineer  \n   Image 11: SK hynix Employee Donghun Lee's profile photo  Jonghyeok Jeong SoC Verification Engineer",
+   "published_date": null,
+   "score": 0.1755808
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "The result is lower latency, higher throughput, increased efficiency of GPU clusters, consistent achievement of stringent service-level agreements (SLAs), and faster time-to-first-token (TTFT). [...] A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] KV cache server increases memory capacity by integrating 3 TB of DDR5 main memory and up to eight 1 TB CXL Add-in Cards (AICs).",
+   "published_date": null,
+   "score": 0.16926883
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "evidence of domain suitability advantages of SK hynix ITME KV cache with multiple independent sources on latency and throughput performance",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:11:17+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid ...",
+   "content": "A CXL memory expander is a DRAM-based CXL memory module that targets latency- and bandwidth-sensitive workloads by expanding memory capacity beyond local DIMM channels while preserving memory-semantic access(SK hynix, 2025; Samsung Electronics, 2026a). For KV-cache reuse, such devices can provide a low-latency capacity tier for KV blocks that no longer fit in GPU memory but still require fast access. A CXL switch-based memory pool extends this model to rack-scale environments by aggregating [...] reduce redundant computation(NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix(SK hynix, 2025; SK hynix, 2024), Samsung(Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba(Alibaba Cloud, 2024), Liqid(Liqid, 2026), UniFabriX(CXL Consortium, 2023), and XCENA(XCENA, 2026), as well as research systems such as TraCT and Beluga(Yoon et al., [...] such as SK hynix Niagara further show that shared CXL memory can remain sub-microsecond, reporting 600 ns access latency(SK hynix, 2024).",
+   "published_date": null,
+   "score": 0.35884774
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent [...] Scaling hard drive throughput. During the onboarding phase, the throughput performance of the first turn depends on hard drive bandwidth as the KV data is cached from the hard drive to the SSD. As the number of turns increases, more KV cache data is mapped to the SSD, and overall solution performance gradually approaches SSD bandwidth performance. This experiment combines 12 hard drives into a single logical volume. This allows data to be distributed across multiple hard drives, thereby",
+   "published_date": null,
+   "score": 0.3431001
+  },
+  {
+   "url": "https://www.atlaspeakresearch.com/report/6c9df0",
+   "title": "KV-Efficient Architectures Shift the AI Infrastructure Mix",
+   "content": "The detailed prefill profile explains why the transport does not break the model. At 1K tokens, KVCache size is 190.8 MiB, prefill latency is 0.44 seconds, and KV throughput is 3.61 Gbps. At 32K tokens, KVCache is 701.3 MiB, prefill latency is 1.84 seconds, and KV throughput is 3.19 Gbps. At 128K tokens, KVCache is 2,316.3 MiB, prefill latency is 7.40 seconds, and KV throughput is 2.62 Gbps. KV throughput falls slightly at longer lengths because prefill time grows faster than cache size, which [...] That distinction matters because it sharpens the paper's intellectual contribution. The novelty is not that PD exists or that KVCache can be managed. The novelty is that selective cross-datacenter prefill offload becomes a credible serving primitive once hybrid-model KV throughput, cache placement, and scheduling are optimized together.\n\n## 3. Core Evidence [...] | Enterprise governance features | MED | Evidence that vendors are productizing encryption, tenant isolation, auditability, and regional controls for mobile KVCache would reduce one of the biggest adoption frictions. |",
+   "published_date": null,
+   "score": 0.32018378
+  },
+  {
+   "url": "https://scispace.com/pdf/kv-cache-a-scalable-high-performance-web-object-cache-for-34cwpqroov.pdf",
+   "title": "KV-Cache: A Scalable High-Performance Web-Object ...",
+   "content": "Figure 9 provides the latency distribution of over 3 million samples (after a given warm-up period) for a throughput of 3.0M RPS. The data indicates a maximum RTT of 600 µseconds, while 95% of the samples achieve an RTT of less than 300 µseconds (note the logarithmic y scale). [...] Our results show that KV-Cache offers signiﬁcant performance advantages over optimized Memcached on Linux for commodity x86 server hardware.\nI. [...] via a point-to-point 10Gbps Ethernet link (see Figure 7). The TGs also collect data about throughput, RTT (i.e., latency), late responses, and dropped packets. They are coordinated by a single Trafﬁc-Controller (TC) node, which also collects real-time performance statistics from them.",
+   "published_date": null,
+   "score": 0.30928493
+  },
+  {
+   "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/6b241c515433caae3051266668d808b7-Paper-Conference.pdf",
+   "title": "[PDF] LOUISKV: EFFICIENT KV CACHE RETRIEVAL FOR LONG INPUT ...",
+   "content": "Published as a conference paper at ICLR 2026 LOUISKV: EFFICIENT KV CACHE RETRIEVAL FOR LONG INPUT-OUTPUT SEQUENCES Wenbo Wu1∗ , Qingyi Si2∗ , Xiurui Pan1, Ye Wang3, Jie Zhang1† 1Peking University 2Huawei Technologies Ltd. [...] 13 Published as a conference paper at ICLR 2026 A DETAILED BOTTLENECK ANALYSIS OF KV RETRIEVAL METHODS LouisKV Arkvale OffloadCache 0 1 2 Latency (ms) Selection Transfer Attention FFN 512 1024 2048 4096 0.6 0.7 0.8 Arkvale LouisKV FullCache Accuarcy KV Cache Budget 512 1024 2048 4096 0 1000 2000 3000 Latency (s) KV Cache Budget Figure 10: Bottleneck analysis of KV retrieval methods. Left: Per-layer latency breakdown com-paring LouisKV with other methods. OffloadCache serves as a baseline that [...] computation. The 4 Published as a conference paper at ICLR 2026 selection process can be formalized as It = Sel(qt, Kt), where It is the set of KV indices selected in step t, with the constraint |It| ≤B. Ultimately, only the selected KV subset (KIt, VIt) participates in the attention computation, significantly reducing the inference latency and memory footprint.",
+   "published_date": null,
+   "score": 0.19051345
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "The result is lower latency, higher throughput, increased efficiency of GPU clusters, consistent achievement of stringent service-level agreements (SLAs), and faster time-to-first-token (TTFT). [...] A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] “CXL-enabled KV cache technology delivers faster time-to-first-token, reduced time per output token, and increased overall end-to-end token throughput,” said Phil Pokorny, chief technology officer at Penguin Solutions. “These critical performance improvements enable enterprise-scale inferencing across many users who expect low latency and timely access to AI-generated insights. The introduction of Penguin’s MemoryAI KV cache server is designed to help enterprises sustain these performance",
+   "published_date": null,
+   "score": 0.17363855
+  },
+  {
+   "url": "https://finance.yahoo.com/news/huawei-launches-ai-data-platform-171400874.html",
+   "title": "Huawei Launches Its AI Data Platform to Power Faster AI Adoption for Enterprises",
+   "content": "KV cache for inference acceleration, using historical memory data to improve the inference efficiency of agents  \n  The intelligent tiering and management of the KV cache greatly reduce repeated computing during inference for lower inference latency, improve inference throughput and user experience, and deliver strong performance support for long-sequence and complex agent inference.\n Memory extraction and recall with personalized and continually summarized memory for agents [...] In direct response to these shared challenges, Xie Liming, the President of the Flash Storage Domain of the Huawei Data Storage Product Line, introduced the AI Data Platform. It integrates the knowledge base, KV cache, and memory bank, and is coordinated by UCM. This platform enables enterprise AI agents to move beyond demonstrations and become real production tools. [...] 2. Tax brackets and rates\n      3. Child tax credit\n      4. Tax extension\n      5. Tax refund status\n   7. Student loans \n      1. Federal vs. private\n      2. How to apply\n      3. FAFSA 2026-27\n      4. Student loan assistance\n   8. Personal loans \n      1. Best personal loans\n      2. Improve credit score\n      3. How to get approved\n   9. Calculators \n      1. All Calculators\n      2. 50/30/20 Budget Calculator\n      3. Compound Interest Calculator\n      4. Savings Calculator",
+   "published_date": null,
+   "score": 0.13717403
+  },
+  {
+   "url": "https://www.vldb.org/pvldb/vol17/p1377-cao.pdf",
+   "title": "FluidKV: Seamlessly Bridging the Gap between Indexing ...",
+   "content": "Data block Index block 256B 512B 1024B 256B 1.254 1.246 1.352 512B 1.217 1.227 1.294 1024B 1.327 1.346 1.302 16 32 64 128 256 512 KV size (bytes) 0.0 0.5 1.0 1.5 2.0 Latency (us) FluidKV FlatStore-NBTree 1 (a) Write latency (lower is better) 16 32 64 128 256 512 KV size (bytes) 0.0 0.5 1.0 1.5 2.0 Latency (us) FluidKV FlatStore-NBTree 1 (b) Read latency (lower is better) 16 32 64 128 256 512 KV size (bytes) 0 5 10 15 Throughput (MOPS) FluidKV FlatStore-NBTree 1 (c) Write throughput (higher is [...] 4.4 BufferStore: Dynamic Data Migration BufferStore between FastStore and StableStore is responsible for seamlessly fast migrating the KV data from memory-intensive FastStore into memory-efficient StableStore, enabling FluidKV to achieve the advantages of high concurrent write, stable read latency, and low memory footprint simultaneously. [...] (higher is better) 16 32 64 128 256 512 KV size (bytes) 0 5 10 15 Throughput (MOPS) FluidKV FlatStore-NBTree 1 (d) Read throughput (higher is better) Figure 18: Write/read performance with different KV sizes.",
+   "published_date": null,
+   "score": 0.12167554
+  }
+ ]
+}

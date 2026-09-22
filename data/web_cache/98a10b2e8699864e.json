@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache adoption deployment industry demand",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:17+09:00",
+ "results": [
+  {
+   "url": "https://growthmarketreports.com/report/kv-cache-offloading-infrastructure-market",
+   "title": "KV-Cache Offloading Infrastructure Market Research ...",
+   "content": "and accelerate time-to-insight. The growing adoption of HPC in industries such as pharmaceuticals, automotive, and energy is driving demand for specialized KV-cache offloading solutions tailored to the unique requirements of these sectors. [...] The Deployment Mode segment in the KV-Cache Offloading Infrastructure market is divided into on-premises, cloud-based, and hybrid models, each catering to distinct operational needs and strategic objectives. On-premises deployment remains a preferred choice for organizations with stringent data security, compliance, and latency requirements. Enterprises in regulated industries such as BFSI and healthcare often opt for on-premises solutions to maintain full control over their data and [...] The End-User segment in the KV-Cache Offloading Infrastructure market includes IT & telecommunications, BFSI, healthcare, retail, government, and other industries, each with distinct requirements and adoption drivers. The IT & telecommunications sector is the largest end-user, leveraging KV-cache offloading solutions to support the rapid growth of AI-powered services, real-time analytics, and high-performance networking. Telecom operators are deploying advanced cache management infrastructure",
+   "published_date": null,
+   "score": 0.6383174
+  },
+  {
+   "url": "https://q.futunn.com/en/feed/116329824846228",
+   "title": "Alpha Call | The Truth About AI Storage Demand Behind KV Cac... - Futubull Community",
+   "content": "Third, Hynix’s 6.9 billion euro EUV order: the industry is answering market concerns with concrete actions.\n\nAt a time when market sentiment was most shaken, the industry sent a completely different signal. [...] China's daily token usage has exceeded 140 trillion, growing over a thousand times in two years. However, a research paper on KV Cache compression triggered a sharp decline in the storage sector, followed by SK Hynix$CSOP SK Hynix Daily Max (2x) Leveraged Product (07709.HK)$ securing a nearly 6.9 billion euro EUV equipment order.$ASML Holding (ASML.US)$ Between emotional panic and industrial reality, which one should we believe? [...] SK Hynix recently placed an order for EUV lithography machines worth approximately 6.9 billion euros. Estimating the cost of a single Low-NA EUV unit at around 230 to 250 million euros, this corresponds to about 25 to 30 units. The order was finalized in March this year and is expected to be delivered by the end of 2027. Both the scale and timing significantly exceed market expectations.\n\nTim believes there are two key signals behind this order.",
+   "published_date": null,
+   "score": 0.5631623
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] Korea's Leading Business News Since 1960\n\n# SK hynix Developing New NAND Products for KV Cache Demands\n\nFinance|\n|\n\nBy Kim Yoon-soo\n\n||\n\nSK hynix's 321-layer QLC NAND product. Photo courtesy of SK hynix - Seoul Economic Daily Finance News from South Korea\n\nSK hynix's 321-layer QLC NAND product. Photo courtesy of SK hynix [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.41520765
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "the CXL-hybrid memory in ITME fully adopts the PCIe Gen5 interface, delivering the high bandwidth essential for rapid KV cache swapping in multi-tier pipelines. [...] Once chunks are staged in the CPU staging buffer, the system balances a fundamental trade-off between block-wise and layer-wise transfer granularities. While a block-wise approach enables rapid slot reclamation through a single DMA operation, it serializes execution and leaves the GPU idle until the entire block transfer completes. To align with model weight streaming and maximize pipeline efficiency, ITME adopts a layer-wise prefetching strategy for the KV cache. This strategy enables a [...] ### 4.2. ITME I/O Scheduling and Prefetching\n\nThe primary role of ITME is to efficiently orchestrate KV cache movement across the multi-tier hierarchy, leveraging specific access patterns and device characteristics. It manages this entire lifecycle, from migrating blocks immediately upon GPU eviction to proactively prefetching them based on upcoming execution demands.",
+   "published_date": null,
+   "score": 0.40584955
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] As inference workloads scale—driven by increasing user demand and longer context windows—enterprises and AI infrastructure builders require high-capacity KV cache architectures similar to those already adopted by hyperscalers. Offloading KV blocks to a composable NVMe-oF target eliminates the need to recompute prompts during multi-turn interactions, reducing GPU load and power consumption while improving TTFT and overall responsiveness. Implementing targets as a hybrid SSD–hard drive tier [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory.",
+   "published_date": null,
+   "score": 0.38769087
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-posts-record-revenues-134500097.html",
+   "title": "SK hynix posts record revenues and profits as AI industry drives surge in HBM3 and HBM3E demand",
+   "content": "SK hynix earned ₩66.193 trillion in revenue ($46.054 billion), ₩23.467 trillion in operating profit ($16.327 billion), and ₩19.797 trillion ($13.776 billion) net profit for the whole of 2024. That compares to ₩32.765 trillion in revenue ($22.8 billion) and a net loss of ₩9.138 trillion ($6.36 billion) in 2023. The company's operating margin was 35% in 2024, up from -24% in 2023. Although the company's revenue climb slowed in the fourth quarter, which is in line with seasonality and dropping 3D [...] Tom's Hardware\n\n# SK hynix posts record revenues and profits as AI industry drives surge in HBM3 and HBM3E demand\n\nAnton Shilov\n\n2 min read\n\nWhen you buy through links on our articles, Future and its syndication partners may earn a commission.\n\nSK Hynix.\n\nCredit: SK Hynix [...] and dropping 3D NAND prices, SK hynix operating margin still increased during the quarter as it ramped up production of premium HBM3E memory.",
+   "published_date": null,
+   "score": 0.29768986
+  },
+  {
+   "url": "https://finance.yahoo.com/technology/articles/sk-hynix-ceo-sees-worst-182328326.html",
+   "title": "SK Hynix CEO sees worst memory shortage in 2027, demand to outstrip supply beyond 2030",
+   "content": "SEOUL/NEW YORK, July 10 (Reuters) - SK Hynix Chief Executive Kwak Noh-jung said the global memory industry is heading for its worst-ever supply shortage in 2027, forecasting that demand for memory will continue to exceed the company's ability to produce it well into the next decade despite aggressive capacity expansion. [...] \"We forecast ‌that next year will be the worst year in the industry's history from the supply perspective,\" Kwak told Reuters in an interview on Friday, the day the South Korean ‌memory chipmaker began trading on Nasdaq.\n\n\"Our customer demand continues to go up, while our capacity has limitations,\" he said. \"We still forecast that customer demand will remain higher than our supply capacity even beyond 2030. But we are doing our best to ​solve the problem.\" [...] 5. Sectors \n      1. Technology\n      2. Financial services\n      3. Consumer cyclical\n      4. Communication services\n      5. Healthcare\n      6. Industrials\n      7. Consumer defensive\n      8. Energy\n      9. Basic materials\n      10. Real estate\n      11. Utilities\n   6. Treasury bonds\n   7. Futures\n   8. Currencies\n   9. World indices\n   10. ETFs\n   11. Mutual funds\n4. 1. Earnings\n   2. IPOs\n   3. Stock splits\n   4. Economic events\n5. 1. Screeners \n      1. Stocks\n      2. Most shorted",
+   "published_date": null,
+   "score": 0.28239202
+  },
+  {
+   "url": "https://www.cnbc.com/2024/04/25/nvidia-supplier-sk-hynix-reverses-losses-in-first-quarter-on-ai-demand.html",
+   "title": "Nvidia supplier SK Hynix reverses losses in first quarter on AI demand",
+   "content": "The explosive demand for AI chipsets boosted the high-end memory chip market, hugely benefiting players like SK Hynix and Samsung Electronics.\n\nLarge language models such as ChatGPT – which caused AI adoption to skyrocket – require a lot of high-performance memory chips as such chips allow these models to remember details from past conversations and user preferences in order to generate humanlike responses. [...] \"We will continue to work towards improving our financial results by providing the industry's best performing products at a right time and maintaining the profitability-first commitment,\" said Chief Financial Officer Kim Woohyun.\n\nThe firm projects the overall memory market to grow steadily in the coming months amid rising demand for AI memory, while the conventional DRAM market starts recovering from the second half of 2024. [...] Pandemic-induced demand for consumer electronics led companies to stockpile memory chips. But macroeconomic uncertainties such as inflation caused consumers to cut back on purchases of such consumer goods, driving down demand and prices for memory chips.\n\nTo address the excess inventories, companies like SK Hynix cut production of its memory chips.\n\nSK Hynix shares slid more than 4% on Thursday morning, though in the last one year, they have jumped more than 100%.\n\n## Capturing AI demand",
+   "published_date": null,
+   "score": 0.26990446
+  }
+ ]
+}

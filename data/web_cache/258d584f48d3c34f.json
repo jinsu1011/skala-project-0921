@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache hype overstated claims",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:57+09:00",
+ "results": [
+  {
+   "url": "https://startupfortune.com/deepseeks-new-ai-model-spooked-samsung-and-sk-hynix-investors",
+   "title": "DeepSeek's New AI Model Spooked Samsung and SK ...",
+   "content": "Home › Ai\n\n# DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors\n\nDeepSeek's new V4.1 Flash model claims a fourfold cut in KV cache memory use, and Korean investors reacted fast: Samsung fell 3.5% and SK Hynix 2.2% in Seoul on September 11 while Micron and SanDisk held steady in the US. The drop came just two days after Goldman Sachs called a bottom in the memory downturn, complicating the idea that DeepSeek alone drove the selloff.\n\nRon Patel\n\n· 5 min read · 2.2K reads [...] DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors\n\nDeepSeek says V4.1-Flash cuts its KV cache memory use to a quarter of the prior model. Samsung and SK Hynix investors treated that narrow technical claim like a warning shot at the whole AI memory trade. [...] Here's the catch. The memory claim is narrower than the share-price reaction made it look. DeepSeek's Hugging Face technical report says CSA2, FP4 key-value caching and SWA Bounded Replay reduce the global KV cache footprint to roughly 890 bytes per token, about one quarter of DeepSeek-V4-Flash. It also says persistent KV storage falls to about one eighth of the prior model. A Yahoo Finance article carried through Stocktwits framed the same point as a pressure point for Samsung and SK Hynix,",
+   "published_date": null,
+   "score": 0.5715041
+  },
+  {
+   "url": "https://blog.lmcache.ai/en/2026/04/28/stop-calling-it-kv-cache-its-something-much-bigger",
+   "title": "Stop Calling It KV Cache: It's Something Much Bigger",
+   "content": "KV cache already departs from traditional caching in three fundamental ways.\n\nFirst, it is persistent and multi-tier. It is stored across GPU, CPU, SSD, and cloud, survives beyond a single request, and is managed more like a data pipeline than a local buffer.\n\nSecond, it is not a black box. It can be compressed, quantized, and transformed. Its internal structure is exposed and exploitable by the systems that manage it. [...] KV cache is not just reusable. It is semantically meaningful. It represents the model’s internal understanding of context: a compressed encoding of everything the model has processed, directly usable by the model, and opaque to humans.\n\nPut another way, KV cache is the native memory format of a Transformer. And once you see it that way, the old framing falls apart entirely.\n\n## From Immutable Cache to Mutable Memory [...] Third, it is semantically mutable. It can be edited to improve model outcomes. It encodes meaning, not just computation.\n\nGiven all of this, the term “KV cache” is actively misleading. It implies ephemerality, simplicity, and a lack of intrinsic value. None of those things are true anymore.",
+   "published_date": null,
+   "score": 0.47431523
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "It was a week in which global semiconductor stocks — particularly Korea's two memory chip giants Samsung Electronics (005930.KS) and SK hynix (000660.KS) — were rocked by TurboQuant, an artificial intelligence compression technology unveiled by Google. Memory chipmakers' shares had been hitting record highs day after day on the back of surging demand. As the AI market shifted from training to inference, demand for not only high-bandwidth memory (HBM) but also DRAM and NAND flash grew [...] Samsung to Double HBM4 Output Next Year, Sources Say\n2. 2\n\n   Court Rejects 100 Million Won Suit Against Min Hee-jin Over ILLIT Plagiarism Claims\n\n   Court Rejects 100 Million Won Suit Against Min Hee-jin Over ILLIT Plagiarism Claims\n3. 3\n\n   China's UBTECH Opens Plant Making a Humanoid Robot Every 10 Minutes\n\n   China's UBTECH Opens Plant Making a Humanoid Robot Every 10 Minutes\n4. 4\n\n   KOSPI Opens 2.54% Higher at 6,885.70\n\n   KOSPI Opens 2.54% Higher at 6,885.70\n5. 5 [...] Korea's Leading Business News Since 1960\n\n# Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix\n\n■ Reporter Seo Jong-gap's Gap World <50> · Google's 'TurboQuant' Shrinks AI Notepad to One-Sixth · \"Memory Demand Could Fall\" Sparks Market Panic · Industry and Experts Dismiss Fears as Overblown · Similar to DeepSeek Scare… \"AI Usage Will Only Grow\"\n\nFinance|\n|\n\nBy Seo Jong-gap (Commentary)\n\n||",
+   "published_date": null,
+   "score": 0.35106683
+  },
+  {
+   "url": "https://www.weka.io/article/the-real-state-of-ai-hype-vs-reality",
+   "title": "AI storage that fixes KV cache bottlenecks | WEKA",
+   "content": "Skip to content\n\nContact UsProduct Tour\n\n# The Real State of AI: Hype vs. Reality\n\nVB\n\nVal Bercovici\n\nKey Value (KV) Cache technology is everywhere right now and for good reason. As LLMs grow larger and context windows expand, efficient handling of KV memory becomes mission-critical. But not all KV Cache solutions are created equal. [...] Recently, the vLLM open-source community and NVIDIA's Dynamo made major announcements around sophisticated KV Cache memory and storage hierarchies. These announcements are more than just headlines, they signal a structural shift in AI infrastructure expectations. Naturally, a wave of vendors have rushed to publish performance claims. But the truth is, in this new world, performance can’t just be good enough—it needs to be orders of magnitude faster. And that's where the real separation begins. [...] In a world where microseconds matter and context is king, if your KV Cache solution isn’t delivering memory-class performance, it's just another storage product, not an enabler of the AI frontier.",
+   "published_date": null,
+   "score": 0.3493335
+  },
+  {
+   "url": "https://www.theinvestor.co.kr/article/10716199",
+   "title": "Google TurboQuant: Separating hype from reality - THE INVESTOR",
+   "content": "How much that matters depends on how long the input is. In a state-of-the-art model, the KV cache accounts for less than 1 percent of total memory during short exchanges, Han said. But during long-context tasks of 200,000 tokens or more, it can exceed 60 percent and become the primary bottleneck.\n\n\"If you compress the KV cache by 6x in a long-context environment, overall memory reduction could reach approximately 2x,\" Han said.\n\nIs it really lossless? [...] When Google unveiled TurboQuant on March 24, headlines declared the algorithm could slash AI memory use sixfold with zero accuracy loss and deliver eight times faster processing.\n\nWithin days, Samsung Electronics and SK hynix shed billions in market value. Micron plunged nearly 10 percent. The Philadelphia Semiconductor Index dropped 4.8 percent.\n\nInvestors read the numbers and reached a simple conclusion: If AI needs far less memory, the companies making that memory are in trouble. [...] TurboQuant co-developer clarifies the 6x memory savings and 8x speed claims that rattled chip stocks\n\nHan In-su, assistant professor of electrical engineering at KAIST and visiting researcher at Google Research, co-developed two of the three algorithms underpinning Google's TurboQuant. (KAIST) \n\nHan In-su, assistant professor of electrical engineering at KAIST and visiting researcher at Google Research, co-developed two of the three algorithms underpinning Google's TurboQuant. (KAIST)",
+   "published_date": null,
+   "score": 0.30890954
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles",
+   "published_date": null,
+   "score": 0.30296868
+  },
+  {
+   "url": "https://www.asiae.co.kr/en/article/2026032610254866777",
+   "title": "Samsung and SK hynix Shares Rattle on Google's \"TurboQuant\" as Semiconductor Industry Reacts - The Asia Business Daily",
+   "content": "Google announced that TurboQuant can compress the KV cache down to a 3-bit level without accuracy loss. Foreign media outlets that reviewed the paper reported that this technology could reduce the ‘KV cache’ memory required by large language models (LLMs) by at least sixfold and provide up to an eightfold increase in speed. The KV cache is a type of ‘temporary memory storage’ that allows LLMs to retain past information in order to continue conversations. [...] The expansion of the KV cache has led to the \"memory wall\" bottleneck phenomenon, which significantly increases the burden on AI hardware. This is because the volume of interaction with AI has surged as AI models have become larger and demand for inference has grown. For large LLMs, the KV cache alone now requires a tremendous amount of memory. Agentic AI has also come to demand even more memory. This is one of the main reasons why the stock prices of Samsung Electronics and SK hynix have [...] \"I’ll Take This, Please\"... Buying the Last Lottery Ticket Brings a Jackpot\n \"They Might Start Pitching Tents and Grilling Meat\"... The 'Hammock Villain' Appears at Cheonggyecheon\n \"Contributing 9 Million Won Annually…430,000 Won per Month Steadily from Age 65\" …The Power of the “Three-Tier Pension”\n \"Surprisingly Real, Perfect Like AI\" -- Global Media Praise Korean Fencer's Beauty",
+   "published_date": null,
+   "score": 0.30059206
+  },
+  {
+   "url": "https://globalsemiresearch.substack.com/p/the-memory-sector-has-plummeted-what",
+   "title": "The memory sector has plummeted ,what is the market panicking ...",
+   "content": "The same applies to the field of AI. If KV cache compression technology truly matures, it means that the same hardware can support longer context windows, larger batches, and more complex applications. As a result, people will push the context size from 32K to 128K, and from 128K to 1M tokens.\n\nTotal demand will not only not decrease, but may actually increase. [...] What is a KV Cache? Simply put, when a large language model generates text, it caches previously processed key and value vectors to avoid redundant calculations. This cache grows linearly with the context length and is one of the most memory-intensive parts of the inference phase. [...] # The memory sector has plummeted ,what is the market panicking about?\n\n∙ Paid\n\nThe memory chip sector has seen a significant drop today. Shares of Micron, SK Hynix, Samsung Electronics, and Kioxia have all experienced noticeable pullbacks.\n\nThe most widespread claim circulating in the market is that Google published a paper on a storage compression algorithm called TurboQuant, which can compress memory requirements by 6 times, thus significantly reducing memory demand.",
+   "published_date": null,
+   "score": 0.25965473
+  }
+ ]
+}

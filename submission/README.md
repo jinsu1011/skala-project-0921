@@ -17,15 +17,32 @@
 
 
 ## Features
-- 찬반 양면 검색과 원 출처 계열 50% 규칙 : 관점마다 두 기술에 같은 지지·반대 질의 템플릿을 쓰고, 기술 고유(`tech_specific`) 근거만 찬반 할당량으로 인정. 같은 보도자료를 옮긴 기사는 한 원 출처 계열(`origin_group`)로 묶고, 한 계열이 웹 근거의 50%를 넘지 않게 함. 개발사(Google·SK hynix) 발언은 이해관계자 점수에서 제외
-- Judge 선택적 재실행 : Judge(gpt-4.1)가 설계서 D.5 판정식으로 미달 관점을 지정하면 `retry_router` 노드가 `Command(goto=[관점 노드명])`로 그 관점만 다시 실행(관점별 최대 2회). 통과 관점은 동결하고, 한도 후에도 미달이면 "판정 불확실"로 보고서 한계점에 기록
-- 코드 기반 판정 : C.6 Rubric 근거 조건으로 인식 점수 계산, 관점 간 상충(점수 차 2.0/1.0), 가설 H1(TRL × 시장 3×3 격자), 임계값 ±0.5 민감도를 코드로 계산. LLM은 근거 표시와 해설만 작성
-- 한→영 교차언어 임베딩 자체 평가 : 42문항 평가셋으로 후보 4종 비교 후 bge-m3 선정(측정 중 발견한 입력 길이 잘림 등을 바로잡아 구현 조건으로 재측정)
-- PDF 자료 기반 정보 추출 : 논문 6편(136p, 한도 200p)을 절 인식 청크 159개로 인덱싱. `tech`·`role` 메타데이터로 1차 근거와 비교 근거 구분
-- Agentic RAG : 질의 계획 → 한→영 질의 재작성 → 3중 하이브리드 검색(RRF) + reranker → `retrieval_grader` 품질 판정 → 부족 시 재작성 루프(최대 2회)
-- TRL 추정 : 공개 정보 기반 추정임을 명시하고 단일 값이 아닌 범위와 신뢰도로 제시, 상·하한에 근거 계열 연결
-- 보고서 자동 생성·검수 : 설계서 E.1 목차, 인용 번호, 본문 인용만 담은 REFERENCE, `final_check`(근거 없는 문장·REFERENCE 일치·SUMMARY 분량·우열 어휘) → 수정 1회 → SKALA 양식 PDF
-- 종료 보장·재현성 : 모든 루프에 횟수 한도(공통 검색 2, 관점 내부 2, 관점 재실행 2, 보고서 수정 1), `recursion_limit` 50. LLM 응답·웹 검색 캐시를 저장소에 커밋해 `--offline`으로 API 키 없이 같은 보고서 재생
+각 항목의 "선택 이유"는 설계서(`docs/DESIGN.md`)와 결정 기록(`docs/DECISIONS.md`)에 근거한다.
+
+- **LangGraph Multi-Agent + Agentic RAG** : 에이전트 7개(가이드 6 + Judge)를 노드 18개로 구현하고, 검색 품질 판정·재질의·재실행을 그래프 루프로 둔다
+  - 선택 이유 : 관점마다 판단 책임을 분리해야 한 관점의 결론이 다른 관점에 섞이지 않는다. 검색이 부족할 때 스스로 질의를 고쳐 다시 찾는 흐름(Agentic RAG)이 있어야 근거 부족과 검색 실패를 구분할 수 있다
+- **기술 선정 2안(Human) + 사후 검증** : 조가 후보 6개를 같은 기준표로 채점해 선정하고, `selection_validator`는 원문 근거로 검증만 한다(재선정 분기 없음)
+  - 선택 이유 : 에이전트가 검색 결과로 대상을 고르면 최근 자료에 치우치거나 비교 계층이 어긋날 수 있다(가이드 권장안, 설계 B.1)
+- **PDF 자료 기반 정보 추출** : 논문 6편(136p, 한도 200p)을 절 인식 청크 159개로 인덱싱하고 `tech`·`role`(1차 근거·기준선·대안) 메타데이터로 걸러 검색
+  - 선택 이유 : 선정 기술 논문 2편만 넣으면 기준선(KIVI)·대안(InfiniGen 등)과 비교할 근거가 없다(설계 B.3)
+- **3중 하이브리드 검색 + reranker** : 한국어 dense + 영어 dense + 영어 BM25를 RRF로 합치고 bge-reranker-v2-m3로 재정렬, 부족하면 `query_rewriter`가 최대 2회 재검색
+  - 선택 이유 : 질의는 한국어, 논문은 영어라 한→영 교차언어 조건에서 측정했을 때 이 구성의 MRR이 가장 높았다(reranker로 MRR 0.07~0.09 상승, 설계 B.6)
+- **한→영 교차언어 임베딩 자체 평가(bge-m3)** : 논문 청크로 만든 한국어 질문 42문항(SW 21, HW 21)으로 후보 4종을 직접 비교
+  - 선택 이유 : 리더보드 순위는 "한국어 질의로 영어 논문 찾기"라는 이 과제 조건을 반영하지 않는다. 두 진영 문서를 모두 찾아야 하므로 약한 쪽 성능 min(SW, HW) MRR을 먼저 봤고, 입력 길이(가장 긴 청크 1,529토큰)를 담는지도 필수 조건으로 봤다
+- **찬반 양면 검색과 원 출처 계열 50% 규칙(확증편향 방지)** : 두 기술에 같은 지지·반대 질의 템플릿과 같은 검색 한도를 쓴다. 기술명이 명시된 기술 고유 근거만 찬반으로 세고, 같은 보도자료를 옮긴 기사는 한 원 출처 계열로 묶어 한 계열이 웹 근거의 50%를 넘지 않게 한다. 개발사(Google·SK hynix) 발언은 이해관계자 점수에서 제외
+  - 선택 이유 : 웹 자료가 많은 기술이나 개발사 홍보 자료가 점수를 끌고 가는 것을 막기 위해서다(설계 C.2, C.8)
+- **Rubric 기반 코드 채점** : 기준마다 C.6 Rubric의 근거 조건(예: 긍정 2계열 이상·부정 없음 = 5점, 근거 1계열 이하 = 판단 보류)으로 코드가 점수를 계산하고, LLM은 근거마다 긍정·부정 표시와 이유만 쓴다
+  - 선택 이유 : LLM이 직접 매긴 점수는 근거가 부족한 기준에도 점수를 주는 경우가 있었다(표본 12개 중 4개 불일치, `docs/RUBRIC_CHECK.md`). 판정과 근거 문장이 어긋난 경우도 있어 H1~H3 가설 판정도 코드로 계산한다. 근거 부족을 낮은 점수로 바꾸지 않는 규칙을 지키려면 코드로 강제해야 한다
+- **TRL 범위·신뢰도 추정** : 공개 정보 기반 추정임을 명시하고 단일 값이 아닌 범위(하한·상한)와 신뢰도로 제시, 상·하한마다 근거 계열을 연결
+  - 선택 이유 : TRL 4~6 구간은 수율·실측치가 영업 비밀이라 공개 정보가 가장 적다. 한 숫자로 적으면 확인되지 않은 정밀도를 주장하게 된다(가이드 C, 설계 C.4)
+- **상충·가설 판정과 민감도의 코드 계산** : 관점 간 점수 차 2.0 이상 상충·1.0 이상 부분 상충, H1(TRL × 시장 3×3 격자)·H2(기술 언급 대 생태계 언급)·H3(W1·W2 기준별 차이)을 코드로 판정하고 기준값을 ±0.5 바꿨을 때 달라지는 칸 수를 보고
+  - 선택 이유 : 2.0·1.0 같은 기준값은 절대 기준이 아니므로, 판정을 재현 가능하게 하고 기준값에 얼마나 민감한지 함께 보여 줘야 한다
+- **Judge 선택적 재실행** : Judge(gpt-4.1)가 설계서 D.5 판정식(LLM 4항목 4점 이상 + 출처 비중 50% 이하 + 우열 어휘 0건 + 찬반 각 2계열 이상)으로 미달 관점을 지정하면 `retry_router`가 `Command(goto=[관점 노드명])`로 그 관점만 다시 실행(최대 2회). 통과 관점은 동결하고, 한도 후에도 미달이면 "판정 불확실"로 보고서에 기록
+  - 선택 이유 : 전체를 다시 돌리면 비용이 들고 통과한 관점까지 결과가 흔들린다. `Send`로 부른 노드는 넘겨준 값만 받아 `tech_brief`·`evidence`를 못 읽으므로 `Command(goto)`를 썼다
+- **보고서 자동 생성·검수** : 설계서 E.1 목차(목차 페이지 포함), 인용 번호, 본문에 인용한 자료만 담은 REFERENCE. `final_check`가 근거 없는 문장·REFERENCE 일치·SUMMARY 분량(½쪽)·우열 어휘·TRL 수치를 검사하고 1회 수정, SKALA 양식 PDF로 변환
+  - 선택 이유 : 과제의 핵심 조건(우열·추천 금지, SUMMARY ½쪽, 실제 인용 자료만 REFERENCE)을 사람 검토 없이도 매번 지키게 하기 위해서다. "우열 어휘 검사"는 "우수하다·더 낫다·추천한다·압도" 같은 표현 사전을 코드로 찾아 0건인지 확인하고, 있으면 중립 표현으로 바꾸는 검사이다
+- **종료 보장·재현성** : 모든 루프에 횟수 한도(공통 검색 2, 관점 내부 2, 관점 재실행 2, 보고서 수정 1)와 `recursion_limit` 50. LLM 응답·웹 검색 결과를 저장소에 커밋해 `--offline`으로 API 키 없이 같은 보고서를 다시 만든다
+  - 선택 이유 : 웹 검색 결과와 LLM 출력은 시간이 지나면 바뀌므로, 평가자가 키 없이도 제출한 보고서를 그대로 재현할 수 있어야 한다
 
 
 ## Tech Stack
@@ -58,22 +75,35 @@
 
 ## Directory Structure
 ```
-├── app.py                 # 실행 스크립트 (CLI 옵션, offline 자동 전환)
-├── config.yaml            # 선정 기술·기술 메타데이터·LLM·코퍼스·검색·그래프 한도·팀 정보
-├── agents/                # Agent 모듈 (tech_research, market, stakeholder, domain, synthesis, judge, report_writer)
-├── graph/                 # State(27키)·runtime(캐시)·보조 노드(platform)·워크플로(workflow)
-├── tools/                 # @tool (paper_retrieve, web_search, summarize_sources), 출처 계열 규칙
-├── rag/                   # PDF 로딩·청킹·임베딩·하이브리드 검색
+├── app.py                 # 실행 스크립트 (CLI 옵션, API 키 없으면 offline 자동 전환)
+├── config.yaml            # 선정 기술·기술 메타데이터(별칭·개발사)·LLM·코퍼스·검색·그래프 한도·팀 정보
+├── agents/                # Agent 모듈
+│   ├── tech_research.py   #   기술 조사 (selection_validator, tech_research, trl_assessor)
+│   ├── market.py          #   시장 평가 (market_evaluator)
+│   ├── stakeholder.py     #   이해관계자 평가 (stakeholder_evaluator)
+│   ├── domain.py          #   도메인 평가 (domain_evaluator)
+│   ├── perspective.py     #   관점 에이전트 공통 엔진(찬반 검색·근거 표시·Rubric 채점)
+│   ├── synthesis.py       #   평가 종합 (synthesizer: 상충·H1·H3·민감도 코드 계산)
+│   ├── judge.py           #   Judge (D.5 판정식)
+│   └── report_writer.py   #   보고서 생성·검수 규칙
+├── graph/                 # LangGraph
+│   ├── state.py           #   State 27키·모델·reducer
+│   ├── workflow.py        #   그래프(노드 18개)
+│   ├── platform.py        #   보조 노드(initialize, index_builder, retry_router, final_check, pdf_renderer 등)
+│   └── runtime.py         #   LLM 응답 캐시·offline 재생·우열 어휘 사전
+├── tools/                 # @tool: paper_retrieve, web_search, summarize_sources, 출처 계열(evidence.py)
+├── rag/                   # PDF 로딩·청킹·임베딩·하이브리드 검색(HybridRetriever)
 ├── prompts/               # 프롬프트 템플릿(C.6 Rubric·C.4 TRL 규칙 원문 포함)
 ├── tests/                 # 단위 테스트(mock·fixture, API 호출 없음)
 ├── eval/                  # 임베딩·검색 구성 평가(42문항 평가셋)
 ├── report/                # SKALA 양식 PDF 빌더, Mermaid 로컬 렌더러
-├── scripts/               # 논문 다운로드, 그래프 이미지 렌더링
-├── data/                  # LLM·웹 검색 캐시(커밋), 논문 PDF·인덱스(재생성, 커밋 안 함)
-├── docs/                  # 설계 원문, 결정 기록, 그래프, 자체 점검, Rubric 점검, 발표 노트
-├── deliverables/          # 설계서·평가 보고서 PDF
+├── scripts/               # 논문 다운로드, 그래프 이미지 렌더링, Rubric 표본 점검
+├── data/                  # LLM·웹 검색 캐시(커밋), 논문 PDF·인덱스(실행 시 재생성, 커밋 안 함)
+├── docs/                  # 설계 원문(DESIGN)·결정 기록(DECISIONS)·그래프·자체 점검·Rubric 점검·발표 노트
+│   └── archive/           #   설계 개정 이력(v1.0~v1.4)·작업 지시서 보관
+├── outputs/               # 평가 보고서 Markdown·docx·PDF, 실행 결과 스냅샷, 임베딩 평가 결과
+├── deliverables/          # 설계서·평가 보고서 PDF (실행 시 자동 복사)
 ├── submission/            # 최종 제출 파일 모음(보고서·설계서 PDF, Git 링크, 제출 안내·팀원 설명, 발표 노트)
-├── outputs/               # 보고서 Markdown·PDF, 평가 결과, 실행 로그
 ├── pyproject.toml / uv.lock
 └── README.md
 ```

@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache cloud provider data center reaction",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:13+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] hynix, 2026) and Samsung (Samsung Electronics, 2026b) to build remote flash tiers (Sun et al., 2025; Guo et al., 2023; Min et al., 2021; Zhan et al., 2024). On the memory side, memory vendors, cloud providers, and startups, including SK hynix (SK hynix, 2025; SK hynix, 2024), [...] A CXL memory expander is a DRAM-based CXL memory module that targets latency- and bandwidth-sensitive workloads by expanding memory capacity beyond local DIMM channels while preserving memory-semantic access (SK hynix, 2025; Samsung Electronics, 2026a). For KV-cache reuse, such devices can provide a low-latency capacity tier for KV blocks that no longer fit in GPU memory but still require fast access. A CXL switch-based memory pool extends this model to rack-scale environments by aggregating",
+   "published_date": null,
+   "score": 0.4465194
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-infrastructure-insigh-ep1",
+   "title": "[AI Infrastructure Insight] What is changing inside AI data centers? – SK hynix Newsroom",
+   "content": "Such trends are also expanding the scope of data center investment. Data center investment is expanding beyond servers and IT equipment to encompass the broader AI ecosystem, including AI semiconductors, networking, power and cooling, construction, and infrastructure. For cloud providers, designing data centers and securing sufficient power have become critical to delivering reliable AI services. Server and networking companies are focused on improving performance and connectivity at the rack [...] at the rack and cluster levels. Power and cooling providers are emerging as essential infrastructure partners in enabling the expansion of AI data centers. Semiconductor companies, meanwhile, must look beyond chip performance alone and consider how their devices perform within real-world data center environments. [...] At the center of this shift is the data center. Once primarily designed to store and process data using servers and storage systems, today’s data centers have evolved into the core infrastructure powering AI services — training AI models, processing countless inference requests, and moving data in real time. Modern AI data centers can deliver reliable AI services only when compute\\, memory, storage, networking, and power and cooling are seamlessly integrated into a single system.",
+   "published_date": null,
+   "score": 0.31703547
+  },
+  {
+   "url": "https://www.linkedin.com/posts/seagate-technology_ai-infrastructure-is-entering-a-new-phase-activity-7475183982461108226-gB3k",
+   "title": "KV Caching for Scalable AI Inference | Seagate Technology ...",
+   "content": "In collaboration with SK hynix, our latest research shows why multi-tier, hybrid storage unlocks scalable inference and helps drive the value",
+   "published_date": null,
+   "score": 0.30207235
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory. [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate",
+   "published_date": null,
+   "score": 0.28750315
+  },
+  {
+   "url": "https://www.facebook.com/seagate/posts/as-ai-systems-scale-a-hidden-inefficiency-starts-to-surface-recomputing-context-/1042423248290544?locale=ar_AR",
+   "title": "Seagate",
+   "content": "In our latest research with SK하이닉스 (SK hynix), we explore how KV caching can scale beyond memory using a mix of DRAM, SSD, and hard drives",
+   "published_date": null,
+   "score": 0.27047405
+  },
+  {
+   "url": "https://developer.nvidia.com/blog/how-to-reduce-kv-cache-bottlenecks-with-nvidia-dynamo",
+   "title": "How to Reduce KV Cache Bottlenecks with NVIDIA Dynamo",
+   "content": "The KV Cache is a data structure at the core of an LLM’s attention mechanism created during the initial phase of inference known as prefill. The KV Cache stores intermediate attention data that helps the model focus on the most relevant parts of the input during the generation or response phase. [...] These capabilities make KV Cache offloading a practical and scalable solution for reducing inference costs, improving responsiveness, and enabling broader deployment of large-scale generative AI applications. Learn more and get started with Dynamo.\n\nDiscuss (0)\n\n## Tags\n\nAgentic AI / Generative AI | Data Center / Cloud | Networking / Communications | General | Dynamo | Intermediate Technical | Best practice | Tutorial | AI Inference | featured | Inference Performance | LLMs [...] KV Cache offloading also avoids expensive KV Cache recomputation, resulting in faster response times and a better user experience. In the end, providers benefit from higher throughput and lower cost per token, making their inference services more scalable and efficient.\n\n## When to offload  KV Cache for reuse",
+   "published_date": null,
+   "score": 0.19260046
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute",
+   "content": "There are two primary approaches to narrowing this gap: increasing memory bandwidth itself or placing memory closer to the processor to reduce the distance data must travel.\n\n Petaflops(PFLOPS): A unit of compute performance equal to one quadrillion floating-point operations per second\n\n### The inference era: KV cache is taking over GPU memory [...] This article series explores the transformation of the AI ecosystem, where software, data center infrastructure, semiconductors, and memory technologies work together. It also examines why memory semiconductors have become a foundational technology for the AI era and outlines SK hynix’s vision for building the next-generation AI memory ecosystem.\n\n① The paradigm shift in AI computing\n\n② The real bottleneck: Data, not compute – Professor Hoi-Jun Yoo, KAIST [...] One of the biggest challenges in this process is the KV cache. Each time a Transformer-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model.",
+   "published_date": null,
+   "score": 0.10592074
+  },
+  {
+   "url": "https://www.weka.io/video/inference-is-eating-memory-and-tokens-now-run-ai-economics",
+   "title": "Inference Is Eating Memory, and Tokens Now Run AI Economics",
+   "content": "So SLOs (service level objectives) matter. That’s where we quickly find that even though a lot of vendors talk about memory tiering, including NAND and storage, in the KV cache hierarchy, it’s kind of irrelevant. Most of the benchmarks we see today that include storage in the KV cache tiering hierarchy reflect workloads you could just run on a DGX Spark or a Mac Studio. You don’t even need a big server for some of these smaller models with small context windows and single-turn chat sessions, or [...] computing such as life sciences, Monte Carlo simulations, seismic analysis, weather analysis. Those are the applications the technology has proven itself in. We may see it appear in KV cache offloading as well. [...] It’s a high marginal cost. You can’t just leverage token costs across users the way you could leverage cloud instances, databases, VMs, micro-VMs, and containers across users — even with KV cache as a leveraging mechanism. SaaS companies — the reason I believe the “SaaS-pocalypse” is real and a genuine problem — is that no matter how much they figure out new pricing and value models, their OpEx is going through the roof. Their opex is now token OpEx, tokenomics, token consumption. All these",
+   "published_date": null,
+   "score": 0.09726189
+  }
+ ]
+}

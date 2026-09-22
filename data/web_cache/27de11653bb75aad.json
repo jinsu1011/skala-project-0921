@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache throughput limitations domain suitability accuracy integration difficulty",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:04:54+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage",
+   "published_date": null,
+   "score": 0.32456765
+  },
+  {
+   "url": "https://arxiv.org/html/2603.20397v1",
+   "title": "KV Cache Optimization Strategies for Scalableand Efficient LLM ...",
+   "content": "| CLO  | Offload based (no reduction) | 9.3%–66.6% throughput improvement compared to SOTA baseline (RetroInfer and InfiniGen) | Near lossless: ≤\\leq0.42 accuracy drop compared to original models | Approximation leads to sacrificing a small amount of cache hit ratio to gain speed; Hyperparameter tuning required manual tuning; PCIe 4.0 dependency | [...] | Cache Compression | KV cache size, Throughput | Dequantization and reconstruction overhead, Accuracy | KIVI, MiniCache, PALU, KVQuant | Bandwidth-bound workloads, Edge devices, Ultra-long contexts |\n| Hybrid memory solution | TTFT in long-context, System efficiency | Hardware requirement, complexity in management | PagedAttention, InfiniGen, LayerKV, INF2, KVPR, Oneiros, CLO | High-throughput serving, Multi-tenant datacenter serving | [...] | KIVI  | 2.6×\\times peak memory reduction | 2.35×\\times–3.47×\\times throughput | <<2% accuracy drop for most models | Models with one KV head may require 4-bit quantization to maintain accuracy; quantization overhead due to initial cost for the quantization |\n| MiniCache  | Up to 41% memory reduction | ∼\\sim5×\\times throughput | Minimal loss | Limited to merging only two layers at a time; restricting higher compression |",
+   "published_date": null,
+   "score": 0.29216138
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "### Results\n\nThe table below shows accuracy on competition math, where KV cache compression matters most. For AIME 2024 and AIME 2025 the KV budget is 2,048 tokens — one-sixteenth of what a full 32K-token trace would otherwise cache; for MATH500 it is 512. All methods run at the same budget. [...] observation window, sustains accuracy at compression ratios where observation-window methods collapse. [...] On the eviction track, §3's system solution carries over directly: TriAttention's trigonometric scoring (#ref-1) has been applied to LongLive (#ref-12), a real-time video generator built on Wan2.1-T2V-1.3B. Each KV entry corresponds to spatial patches from one frame, and the scoring decides which frames to evict — no attention scores observed, nothing for the serving stack to fight — cutting the cache by 50% with negligible quality drop; the integration ships in the TriAttention repository.",
+   "published_date": null,
+   "score": 0.28045177
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "While GPU HBM (G1), System DRAM (G2), and local NVMe (G3) support cross-node KV cache movement via east-west fabrics, each tier remains fundamentally bounded by per-node physical capacities. GPU HBM provides the bandwidth required for real-time token generation, but its premium cost and capacity limits make it suboptimal for long-term KV Cache retention. Keeping idle KV caches in HBM directly displaces active computation, severely restricting maximum batch sizes and aggregate throughput. [...] cache, the data structure that stores a model's intermediate attention state across all prior tokens grows proportionally with context length, placing severe and often unsustainable pressure on GPU high-bandwidth memory (HBM) and GPU compute power for calculating prefill. Because HBM capacity is finite and shared across concurrent inference requests, larger context windows directly reduce the number of requests a GPU can serve simultaneously, degrading throughput, increasing tail latency, and [...] Under concurrent load, our solution demonstrates throughput increases from 0.19 requests-per-second (RPS) to 4.26 RPS, a 22x improvement. Total processing time for 200 requests drops by 95%, confirming significantly improved GPU utilization and scalability for high-volume inference workloads.",
+   "published_date": null,
+   "score": 0.23340958
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute",
+   "content": "One of the biggest challenges in this process is the KV cache. Each time a Transformer-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model. [...] One recent development attracting attention in the field is TurboQuant, a quantization technique that represents the KV cache with fewer bits to reduce its memory footprint. Conventional compression techniques have had to recalibrate their compression rules whenever the distribution of input data changes. While this technique offers high accuracy, it also increases processing time. [...] There are two primary approaches to narrowing this gap: increasing memory bandwidth itself or placing memory closer to the processor to reduce the distance data must travel.\n\n Petaflops(PFLOPS): A unit of compute performance equal to one quadrillion floating-point operations per second\n\n### The inference era: KV cache is taking over GPU memory",
+   "published_date": null,
+   "score": 0.22563875
+  },
+  {
+   "url": "https://www.gmicloud.ai/en/blog/gmi-cloud-achieves-4x-llm-performance-boost-with-tensormesh",
+   "title": "SSD KV Cache LLM Inference Benchmark Report",
+   "content": "Interpretation: Cache footprint size is the dominant factor in determining the effectiveness of KV caching for real workloads.\n\nThe game-changer came with the integration of secondary storage in the form of large SSD drives. With the vast increase in available KVCache space, the results were drastic:\n\n Time To First Token (TTFT): The TTFT—a critical measure of user responsiveness—improved by a staggering 4x compared to the original stack. This speedup is transformative for user experience. [...] ### Quick Summary:\n\n#### RAM-Only KVCache\n\n Delivered only a ~1.4x TTFT improvement.\n Cache size limitations led to rapid eviction and limited impact on multi-turn workloads.\n\n#### SSD-Augmented KVCache\n\n Produced a 4x improvement in TTFT.\n Cache hit rate climbed toward 50 percent as the cache warmed.\n Latency variance across different prompt lengths was significantly reduced. [...] 5. What are the practical implications for developers and AI platforms?The results show that large KV cache footprints are essential for scalable LLM serving. SSD-backed prefix caching improves compute efficiency, increases cluster throughput, stabilizes latency for agentic and companion applications, and can be deployed within existing vLLM stacks with minimal integration effort.\n\nColin Mo\n\nHead of Content\n\n## Build AI Without Limits",
+   "published_date": null,
+   "score": 0.20055804
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.18085808
+  },
+  {
+   "url": "https://rocketreach.co/sk-hynix-it-department_b5c65362f42e0cb2",
+   "title": "[SK hynix IT Department](/sk-hynix-it-department_b5c65362f42e0cb2 \"SK hynix Management\")",
+   "content": "More information [...] When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences, or your device, and is mostly used to make the site work as you expect. The information does not usually identify you directly, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to learn more [...] - [x] checkbox label label\n\n- [x] checkbox label label\n\n- [x] checkbox label label\n\nConfirm My Choices\n\nImage 41: Powered by Onetrust",
+   "published_date": null,
+   "score": 0.15894336
+  }
+ ]
+}

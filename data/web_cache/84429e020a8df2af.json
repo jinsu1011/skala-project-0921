@@ -1,0 +1,65 @@
+{
+ "query": "independent third party evaluation of SK hynix ITME KV cache market potential and adoption benefits",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:11:17+09:00",
+ "results": [
+  {
+   "url": "https://www.stocktitan.net/news/KEYS/keysight-enables-sk-hynix-to-achieve-top-tier-ocp-s-a-f-e-evaluation-2wf614geqpuh.html",
+   "title": "Keysight Enables SK hynix to Earn First OCP S.A.F.E. Recognition | KEYS Stock News",
+   "content": "Marc Witteman, Technical Director at Keysight, said: “OCP S.A.F.E. creates a shared foundation of trust across the hyperscale ecosystem. Keysight’s role is to make the evaluation process as thorough, efficient, and insightful as possible, enabling customers to strengthen product security while accelerating adoption in high-trust environments. With this in mind, SK hynix’s PEB110 E1.S device aligns rigorously with the design principles set forth by OCP S.A.F.E., and according to Keysight’s [...] Woonhyug Jee, VP of eSSD Firmware & Product Engineering at SK hynix, said: “Keysight’s structured approach, responsiveness, and technical rigor played a key role in our successful evaluation. Their deep expertise and close collaboration with our developers ensured a smooth process from start to finish.” [...] For the SK hynix evaluation, Keysight applied its proprietary code security evaluation framework, combining industry standards such as the Common Vulnerability Scoring System (CVSS) with Keysight-developed criteria, to conduct an in-depth Scope 1 assessment of firmware security and hardware interactions. SK hynix achieved a high rating, reflecting the effectiveness of Keysight’s structured methodology and the client’s robust engineering practices.",
+   "published_date": null,
+   "score": 0.424341
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] Hybrid SSD–hard drive storage. This case evaluates a hybrid KV cache store designed for higher capacity and retrieval based on a foundation of hard drives and lowlatency SSDs. This combines the benefits of SSD latency for repetitive actions and hard drive capacity for larger context saving. Because more context can be saved, there is a higher potential to avoid GPU recalculation. The KV cache spans HBM, SSD, and hard drives.\n\n#### Benchmark scenario with SSD and hard drive block storage target [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly",
+   "published_date": null,
+   "score": 0.40967003
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] \"As the AI market expands from training to inference-centric operations, the role of NAND is rapidly changing into a key element in configuring the AI memory hierarchy,\" SK hynix said. \"We will expand our NAND product families to secure new growth drivers.\"\n\n#SKhynix#NAND#KVCache#AIMemory#HBM#GPU#AIChips\n\n## Companies in this story\n\nSK hynix\n\n000660.KS · Semiconductor\n\nAI KEY Company Analysis →\n\nOriginal reporting by Kim Yoon-soofor Seoul Economic Daily. [...] APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily",
+   "published_date": null,
+   "score": 0.36500442
+  },
+  {
+   "url": "https://seekingalpha.com/article/4921201-sk-hynix-the-ai-memory-trades-handed-investors-a-rare-second-chance",
+   "title": "SK hynix: The AI Memory Trade Has Handed Investors A ...",
+   "content": "Seeking Alpha's Disclosure: Past performance is no guarantee of future results. No recommendation or advice is being given as to whether any investment is suitable for a particular investor. Any views or opinions expressed above may not reflect those of Seeking Alpha as a whole. Seeking Alpha is not a licensed securities dealer, broker or US investment adviser or investment bank. Our analysts are third party authors that include both professional investors and individual investors who may not [...] SK hynix Inc. launches its U.S. ADS at $149, raising $26.5 billion, with strong institutional demand validating continued confidence in the durability of the AI memory supercycle.\n SK hynix is well-positioned to benefit from a two-part re-rate, driven by a narrowing valuation discount to Micron and additive fundamental upside as rising NAND demand compounds its HBM leadership. [...] who may not be licensed or certified by any institute or regulatory body.",
+   "published_date": null,
+   "score": 0.29775113
+  },
+  {
+   "url": "https://www.skhynix.com/sustainability/UI-FR-SA1503",
+   "title": "Committee < Governance < ESG < Sustainability < SK hynix",
+   "content": "SK hynix’s committees put their expertise ahead of everything else and consist only or mainly (at least 2/3) of independent directors to ensure independence. [...] | Round of the meeting | Date | Content of Bill | Passage of Bills | Participation of independent director |\n| 13 | 2022-12-19 | 1. SK hynix Business Diagnosis Results 2. SK hynix Regular SHE Diagnosis Results | 1. Report 2. Report | (4/4) | [...] | 5 | 2025-04-21 | 1. Item 1: Appointment of Audit Committee Chairman 2. FY2024 External Auditor Evaluation Plan (Proposal) | 1. Passed 2. Report | (3/3) |",
+   "published_date": null,
+   "score": 0.28460133
+  },
+  {
+   "url": "https://www.sec.gov/Archives/edgar/data/2120882/000119312526299963/d32785d424b4.htm",
+   "title": "424(B)(4)",
+   "content": "|  |  |\n --- |\n| Internet-of-Things (“IoT”) | A network of physical objects embedded with sensors, software, and technology to exchange data with other devices and systems over the Internet. |\n\nInternet-of-Things (“IoT”)\n\n|  |  |\n --- |\n| Key-Value (“KV”) Cache | A mechanism that stores and reuses previously computed key and value vectors, preserving context from earlier inputs to reduce redundant calculations and improve processing efficiency. |\n\nKey-Value (“KV”) Cache [...] SK hynix Inc. and Subsidiaries\n\nNotes to the Consolidated Financial Statement\n\nYears ended\nDecember 31, 2025, 2024 and 2023\n\n2.\nMaterial Accounting Policies, Continued\n\n(17) Employee benefits\n\n(a)\nRetirement benefits: defined benefit plans\n\nAs of the end of reporting period, defined benefits liabilities relating to defined benefit plans are recognized as\npresent value of defined benefit obligations, net of fair value of plan assets.",
+   "published_date": null,
+   "score": 0.21910389
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] ขอแนะนำให้ปรึกษาทางการเงินอิสระเพื่อทำความเข้าใจความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้",
+   "published_date": null,
+   "score": 0.21658303
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.21658303
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache long context inference throughput latency results",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:39+09:00",
+ "results": [
+  {
+   "url": "https://www.usenix.org/system/files/osdi26-luo.pdf",
+   "title": "Efficient Zero-Copy KV Cache Offloading for Long-Context ...",
+   "content": "achieving 1.9TB/s throughput. This directly translates to performance gains: latency drops from 85ms to 57 ms, a 49% speedup as shown in Fig.7(b), by improving memory locality and bandwidth utilization. [...] > GPU Memory GPU L2\n> 0.0 0.5 1.0 1.5 Throughput (TB/s) 0.3 1.3 Throughput\n\n(a) Data fetching & HBM throughput. Baseline Overlap 020 40 60 Latency (ms)  54 48 (b) Performance. \n\nFigure 6: Data fetching and performance under baseline (no overlap) vs. warp-level overlap. Separate Kernel Fused Kernel 050 100 150 Data Transfer (GB) 37.3 125.2 125.2   \n\n> GPU Memory GPU L2\n> 0123Throughput (TB/s) 0.3 1.6 1.9\n> Throughput [...] global memory accesses. As shown in Fig. 13, the fused design sustains up to 3.5 × higher HBM throughput and deliv-ers 2.5–3.0 × lower latency across Llama-8B, OPT-13B, and OPT-30B. These results demonstrate that kernel–memory co-design is essential to making zero-copy offloading practical and efficient on heterogeneous CPU–GPU platforms.",
+   "published_date": null,
+   "score": 0.75268626
+  },
+  {
+   "url": "https://www.hyperstack.cloud/blog/case-study/kv-cache-in-llms-for-low-latency-llm-inference",
+   "title": "KV Cache in LLMs for Low-Latency LLM Inference",
+   "content": "KV cache eliminates recomputation but shifts bottleneck to GPU memory, making long-context inference constrained by capacity rather than compute performance.\n Memory per token scales with layers, heads,nd dimensions, causing mid-sized models to consume massive VRAM at extended context lengths.\n Batch size and sequence length compete directly for memory, forcing trade-offs between throughput efficiency and maximum context supported per request. [...] KV cache stores key and value tensors from previous tokens, avoiding recomputation during generation. It reduces latency and compute cost, enabling efficient long-context inference in production environments.\n\n### Why does latency increase with longer context lengths?\n\nAs context grows, the model attends to more cached tokens. Memory bandwidth and access overhead increase, slowing token generation even when GPU compute utilisation is not fully saturated. [...] Smaller models are cheaper but the relationship is linear and merciless. A 7B model with 32 layers, 32 heads and head dim 128 in FP16 costs approximately 0.5 MB per token. At 128k context, that is still 64 GB which is most of a single GPU's VRAM budget before you account for model weights or activation memory.\n\nThis is why KV cache GPU memory is the binding constraint for long-context inference, not FLOPS.\n\n## KV Cache Size vs. Batch Size",
+   "published_date": null,
+   "score": 0.75027883
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "Under concurrent load, our solution demonstrates throughput increases from 0.19 requests-per-second (RPS) to 4.26 RPS, a 22x improvement. Total processing time for 200 requests drops by 95%, confirming significantly improved GPU utilization and scalability for high-volume inference workloads. [...] cache, the data structure that stores a model's intermediate attention state across all prior tokens grows proportionally with context length, placing severe and often unsustainable pressure on GPU high-bandwidth memory (HBM) and GPU compute power for calculating prefill. Because HBM capacity is finite and shared across concurrent inference requests, larger context windows directly reduce the number of requests a GPU can serve simultaneously, degrading throughput, increasing tail latency, and [...] Quantify the impact of KV cache persistence and sharing by comparing re-computation-based inference against cached-context inference across multiple prompt sizes and request patterns\n\n   Validate high concurrency inference behavior by measuring throughput and latency under concurrent request scenarios representative of production GenAI and agentic workflows",
+   "published_date": null,
+   "score": 0.6768127
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "Empirical Potential Analysis and FPGA Prototyping: We validate ITME by evaluating its performance potential using production-grade SK hynix CMM (SK hynix, 2024) and Gen5 NVMe SSDs (KIOXIA, 2024), while further demonstrating functional feasibility through an FPGA-based hardware prototype. Our evaluation shows that ITME achieves a 1.80×1.80\\times throughput improvement over NVMe-oF-based disaggregated storage baselines in large-scale LLM inference.\n\n## 2. Background and Motivation [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.65887916
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] End-to-end latency comparison. Hybrid storage reduces end-to-end latency by 80% (Figure 15). Because delays in the prefill stage directly propagate to the decode stage, improvements from KV cache reuse play a critical role in lowering overall latency.\n\nNotably, this experiment does not use prefill–decode disaggregation, suggesting that the impact of prefill performance on decode latency may be even greater in disaggregated settings. [...] Figure 12. TTFT measurement as the number of turns increases. LMBenchmark configurations: ISL = 21K, OSL = 100, number of users = 15, and QPS = 0.5.\n\n#### Increasing users.\n\nFigure 13 shows TTFT as the number of users increases. Because KV cache generation is computebound and limited by GPU capacity, per-user latency increases accordingly. When the number of users grows from 10 to 50, TTFT for KV cache regeneration increases by approximately 20×.",
+   "published_date": null,
+   "score": 0.6158511
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute",
+   "content": "One of the biggest challenges in this process is the KV cache. Each time a Transformer-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model. [...] There are two primary approaches to narrowing this gap: increasing memory bandwidth itself or placing memory closer to the processor to reduce the distance data must travel.\n\n Petaflops(PFLOPS): A unit of compute performance equal to one quadrillion floating-point operations per second\n\n### The inference era: KV cache is taking over GPU memory [...] AI Summary \n\n AI performance is no longer limited by GPU compute, but by where data lives and how it moves. Inference and agentic AI amplify memory bandwidth and latency bottlenecks, especially via KV cache. Software fixes like FlashAttention and quantization help but are nearing limits. Future gains require new architectures that tightly couple compute and memory (HBM, HBF, CXL, PIM) and optimize system-level data flow. \n\nShare\n   Copy URL\n   Share Facebook/span>\n   Share X\n   Print",
+   "published_date": null,
+   "score": 0.509887
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "The result is lower latency, higher throughput, increased efficiency of GPU clusters, consistent achievement of stringent service-level agreements (SLAs), and faster time-to-first-token (TTFT). [...] Penguin Solutions (Nasdaq: PENG) introduced the MemoryAI KV cache server, a production-ready CXL-based KV cache appliance delivering up to 11 TB of memory to reduce inference latency and improve GPU throughput for enterprise AI.\n\nRhea-AI Impact\n\n(High)\n\nRhea-AI Sentiment\n\n(Neutral)\n\nTags\n\nShare on X     Share on Reddit     Share on Facebook     Add StockTitan on Google     Copy link\n\nSee more from StockTitan in Google Search and AI answers. Adds StockTitan as a preferred source · opens Google [...] “CXL-enabled KV cache technology delivers faster time-to-first-token, reduced time per output token, and increased overall end-to-end token throughput,” said Phil Pokorny, chief technology officer at Penguin Solutions. “These critical performance improvements enable enterprise-scale inferencing across many users who expect low latency and timely access to AI-generated insights. The introduction of Penguin’s MemoryAI KV cache server is designed to help enterprises sustain these performance",
+   "published_date": null,
+   "score": 0.4286405
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=o0gkdZBtwEg",
+   "title": "How KV Cache Speeds Up LLMs for Faster AI Models on GPUs",
+   "content": "Back Image 1\n\nSkip navigation\n\n Search \n\n Search with your voice \n\n   \nLearn More\n\n- [x] Include playlist \n\nAn error occurred while retrieving sharing information. Please try again later.\n\nImage 6\n\n0:00 [...] 72K 1y ago\n\nImage 39 46:47\n\nImage 40\n\n### Jensen Huang: The Doomer Hoax, Superintelligence is Here, and The Future of AI (ft. President Trump)\n\nAll-In Podcast\n\n448K 19h ago\n\nNew\n\nImage 41 37:25\n\nImage 42\n\n### [Yann LeCun's $1B Bet Against LLMs [Part 1]](\n\nWelch Labs\n\n1.1M 4mo ago\n\nImage 43 1:48:03\n\nImage 44\n\nImage 45\n\n### Professor Jiang Predicts: The Next 9/11 Will Target Your Bank Account!\n\nThe Diary Of A CEO and Predictive History\n\n3.5M 1d ago\n\nNew\n\nImage 46 2:00:50\n\nImage 47 [...] # How KV Cache Speeds Up LLMs for Faster AI Models on GPUs\n\nImage 7 Image 8\n\nIBM Technology and Red Hat\n\nSubscribe\n\n4.4K\n\nShare\n\nSave\n\nDownload\n\n Download \n\n161K views 2 months ago#aiinfrastructure#machinelearning#llm\n\n 161,899 views • Jun 30, 2026 • #aiinfrastructure #machinelearning #llm \n\nLearn more about LLM inference here →  Why do LLMs crawl when traffic spikes? 🤔 Legare Kerrison explains how KV cache and paged attention reshape GPU memory acr…...more \n\n...more \n\nTranscript",
+   "published_date": null,
+   "score": 0.24734189
+  }
+ ]
+}

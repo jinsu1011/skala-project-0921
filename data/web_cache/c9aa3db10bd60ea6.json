@@ -1,0 +1,65 @@
+{
+ "query": "limitations of SK hynix ITME KV cache in domain suitability with multiple independent sources highlighting latency and throughput issues",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:11:22+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "With limited staging space, remote reads are throttled by buffer availability, overlap is reduced, and cache-hit latency appears on the critical path. The required buffer also scales with KV-loading bandwidth; 100–400 Gbps links or multiple NICs need more staging space to keep KV reads in flight. [...] A CXL memory expander is a DRAM-based CXL memory module that targets latency- and bandwidth-sensitive workloads by expanding memory capacity beyond local DIMM channels while preserving memory-semantic access (SK hynix, 2025; Samsung Electronics, 2026a). For KV-cache reuse, such devices can provide a low-latency capacity tier for KV blocks that no longer fit in GPU memory but still require fast access. A CXL switch-based memory pool extends this model to rack-scale environments by aggregating [...] prototypes such as SK hynix Niagara further show that shared CXL memory can remain sub-microsecond, reporting 600 ns access latency (SK hynix, 2024).",
+   "published_date": null,
+   "score": 0.41463867
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.33692038
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] Low-latency and high-bandwidth KV cache transfer. Reusing KV caches can save GPU computation, but it may introduce I/O transfer bottlenecks. The KV cache store must not only provide the maximum bandwidth of a GPU form factor, PCI Express® (PCIe®) 5.0 ×16, but also minimize latency.\n\n#### Managing KV cache across hybrid storage tiers [...] Large-capacity KV cache store. To increase the prefix caching hit ratio, a KV cache pool must retain caches from multiple GPUs for periods ranging from days to weeks. Larger retention windows increase the chance that prior context can be reused instead of recomputed.",
+   "published_date": null,
+   "score": 0.3040525
+  },
+  {
+   "url": "https://www.sdxcentral.com/news/sk-telecom-to-solve-ai-memory-blight-with-hynix-in-2026",
+   "title": "SK Telecom to solve AI memory blight with Hynix in 2026 - SDxCentral",
+   "content": "generation, as split across dedicated, specialized hardware resources. This approach can optimize performance by separating compute-bound prefill from memory-bound decoding, allowing independent scaling, reduced latency, and improved GPU utilization during the inference process. [...] South Korean operator SK Telecom (SKT) claimed it can solve memory supply chain issues using SK Hynix wares as it continues to solidify its AI operations following the firm's major reorganization last year. [...] # SDxCentral\n\nWe've detected you're visiting from Mexico. Visit our Spanish website?\n\nOut Now: SDxCentral Magazine Issue #2\n\n Home\n News\n The AI Channel\n\n# SK Telecom to solve AI memory blight with Hynix in 2026\n\nAPAC giant gives rare insight outside of South Korea into its operations since recent AI-focused restructure\n\nBy\n:   Giacomo \"Jack\" Lee\n\n  Have your say\n\nPreferred source\n\nSK Telecom\n\n– Giacomo Lee/SDxCentral",
+   "published_date": null,
+   "score": 0.29087558
+  },
+  {
+   "url": "https://medium.com/foundation-models-deep-dive/kv-cache-guide-part-5-of-5-the-frontier-advanced-challenges-and-future-trends-e4bc20c3ddcc",
+   "title": "Medium",
+   "content": "As LLMs are increasingly applied to tasks requiring very long context windows (e.g., analyzing entire books or lengthy transcripts with 128K, 1 million, or even more tokens) and as service providers aim for high throughput via large batch sizes, the memory footprint of the KV cache becomes a severe, often primary, bottleneck. [...] We’ve journeyed from the fundamentals of KV cache to its core optimization strategies and system-level enhancements (see previous post). In this concluding part, we confront the advanced challenges that arise when pushing LLMs to their limits, explore emerging research directions that promise even greater efficiency, and reflect on the enduring importance of KV cache technology.\n\n## Pushing the Limits: Handling Extremely Long Contexts and Massive Batches",
+   "published_date": null,
+   "score": 0.2579828
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "— no retraining, and less than 4% latency overhead. LongLive 2.0 (#ref-13) takes the same track to production scale, quantizing both weights and KV cache to NVFP4 (4-bit) on a 5B-parameter generator for 1.84× throughput at negligible quality cost — and its detail worth dwelling on is the fused parallel dequantization kernel (Figure 10). Storing the cache in 4 bits means every block must be dequantized before each attention step, and the naive approach launches one GPU kernel per block. [...] 12. LongLive: Real-time Interactive Long Video Generation. Yang S., Huang W., Chu R., Xiao Y., Zhao Y., et al., Han S., Chen Y. ICLR, 2026. arXiv:2509.22622\n13. LongLive 2.0: An NVFP4 Parallel Infrastructure for Long Video Generation. Chen Y., Wang L., Huang W., Yang S., Zhang B., Xiao Y., Chu R., Mao W., Hu Q., Liu S., Zhao Y., Mao H., Chen Y.-C., Xie E., Qi X., Han S. arXiv preprint, 2026. arXiv:2605.18739 [...] kernel per block. Dequantization, however, is embarrassingly parallel in principle — every 4-bit value can be decoded independently of all the others — and the per-block loop hides that parallelism behind a queue of small sequential launches; the fused kernel instead issues one launch whose threads map one-to-one onto every packed pair of FP4 values across the whole cache window, presenting the entire workload to the GPU at once. In practice, this keeps the overall quantization/dequantization",
+   "published_date": null,
+   "score": 0.24594016
+  },
+  {
+   "url": "https://snu.elsevierpure.com/en/publications/high-bandwidth-flash-for-kv-caches-endurance-and-performance-impl",
+   "title": "High-Bandwidth Flash for KV Caches: Endurance and Performance Implications - Seoul National University",
+   "content": "Kyung, K., Moon, Y. J., Cho, J., & Ahn, J. H. (2026). High-Bandwidth Flash for KV Caches: Endurance and Performance Implications. IEEE Computer Architecture Letters, 25(1), 210-213. \n\nKyung, Kwanhee ; Moon, Yeon Ji ; Cho, Juhwan et al. / High-Bandwidth Flash for KV Caches : Endurance and Performance Implications. In: IEEE Computer Architecture Letters. 2026 ; Vol. 25, No. 1. pp. 210-213.\n\n@article{719ae0f0893c451c9f0b230731108782, [...] KW - Large language models\n\nKW - endurance\n\nKW - high-bandwidth flash\n\nKW - inference systems\n\nKW - self-attention\n\nUR - \n\nU2 - 10.1109/LCA.2026.3695938\n\nDO - 10.1109/LCA.2026.3695938\n\nM3 - Article\n\nAN - SCOPUS:105039699458\n\nSN - 1556-6056\n\nVL - 25\n\nSP - 210\n\nEP - 213\n\nJO - IEEE Computer Architecture Letters\n\nJF - IEEE Computer Architecture Letters\n\nIS - 1\n\nER - [...] publisher = \"Institute of Electrical and Electronics Engineers Inc.\",\n\nnumber = \"1\",\n\n}\n\nKyung, K, Moon, YJ, Cho, J & Ahn, JH 2026, 'High-Bandwidth Flash for KV Caches: Endurance and Performance Implications', IEEE Computer Architecture Letters, vol. 25, no. 1, pp. 210-213. \n\nHigh-Bandwidth Flash for KV Caches: Endurance and Performance Implications. / Kyung, Kwanhee; Moon, Yeon Ji; Cho, Juhwan et al.   \nIn: IEEE Computer Architecture Letters, Vol. 25, No. 1, 01.01.2026, p. 210-213.",
+   "published_date": null,
+   "score": 0.22553639
+  },
+  {
+   "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/6b241c515433caae3051266668d808b7-Paper-Conference.pdf",
+   "title": "[PDF] LOUISKV: EFFICIENT KV CACHE RETRIEVAL FOR LONG INPUT ...",
+   "content": "13 Published as a conference paper at ICLR 2026 A DETAILED BOTTLENECK ANALYSIS OF KV RETRIEVAL METHODS LouisKV Arkvale OffloadCache 0 1 2 Latency (ms) Selection Transfer Attention FFN 512 1024 2048 4096 0.6 0.7 0.8 Arkvale LouisKV FullCache Accuarcy KV Cache Budget 512 1024 2048 4096 0 1000 2000 3000 Latency (s) KV Cache Budget Figure 10: Bottleneck analysis of KV retrieval methods. Left: Per-layer latency breakdown com-paring LouisKV with other methods. OffloadCache serves as a baseline that [...] computation. The 4 Published as a conference paper at ICLR 2026 selection process can be formalized as It = Sel(qt, Kt), where It is the set of KV indices selected in step t, with the constraint |It| ≤B. Ultimately, only the selected KV subset (KIt, VIt) participates in the attention computation, significantly reducing the inference latency and memory footprint. [...] 16 Published as a conference paper at ICLR 2026 Method Memory Parameters FullCache 4Lhdh(n + m) -Quest 4Lhdh(n + m + n+m p ) page size: p Arkvale 4Lhdh(B + n+m p ) page size: p, budget size: B LouisKV 4Lhdh(B + n 2c + m 2s) cluster size: c, segment size: s, budget size: B Table 5: Theoretical analysis of GPU KV cache memory footprint for different methods, where n is the input length and m is the output length.",
+   "published_date": null,
+   "score": 0.21611117
+  }
+ ]
+}

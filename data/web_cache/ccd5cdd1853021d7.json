@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache criticism skeptical accuracy loss",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:10+09:00",
+ "results": [
+  {
+   "url": "https://www.it-boltwise.de/deepseek-v4-1-flash-kv-cache-schrumpft-deutlich-warum-samsung-sk-hynix-dennoch-reagieren.html",
+   "title": "DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren",
+   "content": "Es werden alle Kommentare moderiert!   \n  \n Für eine offene Diskussion behalten wir uns vor, jeden Kommentar zu löschen, der nicht direkt auf das Thema abzielt oder nur den Zweck hat, Leser oder Autoren herabzuwürdigen.   \n  \n Wir möchten, dass respektvoll miteinander kommuniziert wird, so als ob die Diskussion mit real anwesenden Personen geführt wird. Dies machen wir für den Großteil unserer Leser, der sachlich und konstruktiv über ein Thema sprechen möchte. [...] Zusätzlich gab es laut dem Text eine übergeordnete Erklärung: Samsung und SK Hynix fielen am 11. September auch im Zuge geschwächter US-Tech-Aktien, steigender Treasury-Renditen und höherer Ölpreise. In der Praxis schließen sich solche Faktoren selten gegenseitig aus; Aktienmärkte bewegen sich meist auf einem Mix aus Makro, Erwartungsmanagement und neuen, leicht „handelbaren“ Datenpunkten. [...] ungefähr ein Achtel zurückgeht. Der Unterschied ist entscheidend: KV-Cache meint vor allem temporären Inferenz-Speicher, der während der Verarbeitung aktiv ist, nicht automatisch den gesamten Speicherbedarf eines Rechenzentrums inklusive aller Schichten, die auch in anderen Komponenten (z. B. Training, Datenspeicherung, weitere Caches, Workload-Puffer) wirken. Wer diese Trennung ignoriert, kann aus einer besseren Speicherkennzahl fälschlich ableiten, die HBM-Nachfrage steuere bereits auf einen",
+   "published_date": null,
+   "score": 0.42262435
+  },
+  {
+   "url": "https://en.sedaily.com/markets/2026/03/28/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "TurboQuant is what broke through that limit. It is a technology that revolutionizes how notes are written on the notepad. If the old method was like scrawling in thick marker and wasting space, TurboQuant uses a kind of ultra-compressed micro-handwriting — packing information so densely it would need a microscope to read — without any loss in accuracy.\n\nMarkets Were Fooled by DeepSeek Too… \"Jevons Paradox Will Repeat\" [...] To understand what TurboQuant is and what impact it may have, one must first decode the alien terminology. AI reads human language by breaking it into units called tokens — fragments of words. As a conversation grows longer, the AI temporarily writes down earlier tokens' context in memory such as HBM so it does not lose track. It is like sticking Post-it notes beside a thick book to remember the content. This temporary AI notepad is called the KV cache (Key-Value Cache). [...] The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips.",
+   "published_date": null,
+   "score": 0.4135014
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/27/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "TurboQuant is what broke through that limit. It is a technology that revolutionizes how notes are written on the notepad. If the old method was like scrawling in thick marker and wasting space, TurboQuant uses a kind of ultra-compressed micro-handwriting — packing information so densely it would need a microscope to read — without any loss in accuracy.\n\nMarkets Were Fooled by DeepSeek Too… \"Jevons Paradox Will Repeat\" [...] To understand what TurboQuant is and what impact it may have, one must first decode the alien terminology. AI reads human language by breaking it into units called tokens — fragments of words. As a conversation grows longer, the AI temporarily writes down earlier tokens' context in memory such as HBM so it does not lose track. It is like sticking Post-it notes beside a thick book to remember the content. This temporary AI notepad is called the KV cache (Key-Value Cache). [...] The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips.",
+   "published_date": null,
+   "score": 0.4135014
+  },
+  {
+   "url": "https://en.sedaily.com/news/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "TurboQuant is what broke through that limit. It is a technology that revolutionizes how notes are written on the notepad. If the old method was like scrawling in thick marker and wasting space, TurboQuant uses a kind of ultra-compressed micro-handwriting — packing information so densely it would need a microscope to read — without any loss in accuracy.\n\nMarkets Were Fooled by DeepSeek Too… \"Jevons Paradox Will Repeat\" [...] To understand what TurboQuant is and what impact it may have, one must first decode the alien terminology. AI reads human language by breaking it into units called tokens — fragments of words. As a conversation grows longer, the AI temporarily writes down earlier tokens' context in memory such as HBM so it does not lose track. It is like sticking Post-it notes beside a thick book to remember the content. This temporary AI notepad is called the KV cache (Key-Value Cache). [...] The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips.",
+   "published_date": null,
+   "score": 0.4135014
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Decoding the Jargon and Impact on Samsung, SK Hynix",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] To understand what TurboQuant is and what impact it may have, one must first decode the alien terminology. AI reads human language by breaking it into units called tokens — fragments of words. As a conversation grows longer, the AI temporarily writes down earlier tokens' context in memory such as HBM so it does not lose track. It is like sticking Post-it notes beside a thick book to remember the content. This temporary AI notepad is called the KV cache (Key-Value Cache). [...] Korea's Leading Business News Since 1960\n\n# Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix\n\n■ Reporter Seo Jong-gap's Gap World <50> · Google's 'TurboQuant' Shrinks AI Notepad to One-Sixth · \"Memory Demand Could Fall\" Sparks Market Panic · Industry and Experts Dismiss Fears as Overblown · Similar to DeepSeek Scare… \"AI Usage Will Only Grow\"\n\nFinance|\n|\n\nBy Seo Jong-gap (Commentary)\n\n||",
+   "published_date": null,
+   "score": 0.32411826
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] AI-translated from Korean. Quotes from foreign sources are based on Korean-language reports and may not reflect exact original wording.\n\nView Korean original↗Translation Policy\n\nWatch · Seoul Economic Daily\n\nMore →\n\n2:02\n\n### Most Read This Week\n\n1-5\n\n1. 1\n\n   Court Rejects 100 Million Won Suit Against Min Hee-jin Over ILLIT Plagiarism Claims\n\n   Court Rejects 100 Million Won Suit Against Min Hee-jin Over ILLIT Plagiarism Claims\n2. 2 [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.2903773
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.2523799
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.2523799
+  }
+ ]
+}

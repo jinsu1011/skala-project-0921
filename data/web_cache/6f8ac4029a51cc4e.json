@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache used together with KV cache compression or memory offloading in serving systems",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:45+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "KV-cache reuse is commonly implemented as a tiered memory hierarchy. One useful framing is NVIDIA’s G1–G4 context hierarchy (NVIDIA, 2026a): G1 is GPU HBM, where serving engines such as vLLM manage resident KV blocks through GPU KV-cache allocation and prefix caching; G2 is system DRAM, used by systems such as LMCache and Mooncake to extend KV capacity within or across workers (Cheng et al., 2025; Qin et al., 2025); G3 is local SSD, used as a lower-cost capacity tier through KV offloading or [...] hynix, 2026) and Samsung (Samsung Electronics, 2026b) to build remote flash tiers (Sun et al., 2025; Guo et al., 2023; Min et al., 2021; Zhan et al., 2024). On the memory side, memory vendors, cloud providers, and startups, including SK hynix (SK hynix, 2025; SK hynix, 2024), [...] reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et",
+   "published_date": null,
+   "score": 0.529337
+  },
+  {
+   "url": "https://www.emergentmind.com/topics/kv-cache-offloading-with-optimized-memory-management",
+   "title": "KV Cache Offloading & Memory Optimization",
+   "content": "KV cache offloading with optimized memory management is a technique that distributes per-token key-value data across GPU, CPU, and storage to enable scalable LLM inference.\n It leverages hierarchical allocation, dynamic offloading, and compression methods to reduce latency and improve throughput while meeting strict service level objectives. [...] In summary, KV cache offloading with optimized memory management merges layer/block-level allocation and partitioning, hybrid/compression-based cache reduction, device-adaptive runtime scheduling, and asynchronous orchestration across heterogeneous memory/storage hierarchies. The resulting systems—by dynamically balancing data movement, compute overlap, and memory utilization—enable efficient, scalable inference for large and long-context LLMs without compromising generation quality or latency [...] Key-value (KV) cache offloading with optimized memory management is a critical paradigm for scaling LLM inference under strict GPU, CPU, or storage capacity constraints. The linear growth of the KV cache—comprising per-token, per-layer key and value tensors for autoregressive attention—poses acute challenges in low-latency, high-throughput serving, especially as context lengths reach tens or even millions of tokens. Modern systems implement a rich hierarchy of offloading, compression,",
+   "published_date": null,
+   "score": 0.48074743
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory. [...] Figure 4. KV cache offloading and prefix caching via a tiered KV cache store.\n\n## Solution architecture\n\n#### Components and disaggregation\n\nThe proposed solution employs SK hynix PS1010 3.84TB SSDs and Seagate Exos® 30TB hard drives, powered by Mozaic™ (HAMR) (Table 1). It uses NVIDIA Dynamo, an open-source distributed inference framework for serving generative AI models.\n\nTable 1. GPU, SSD, and hard drive server specifications.",
+   "published_date": null,
+   "score": 0.41677347
+  },
+  {
+   "url": "https://www.usenix.org/system/files/osdi26-luo.pdf",
+   "title": "Efficient Zero-Copy KV Cache Offloading for Long-Context ...",
+   "content": "KV Cache Offloading. Many recent systems propose offload-ing the KV cache from GPU to CPU memory to support longer contexts. FlexGen  formulates tensor placement as a linear programming problem across GPU, CPU, and disk, using compression to increase throughput under resource con-straints. NEO  employs asymmetric GPU–CPU pipelining and load-aware scheduling to balance computation and mem-ory usage, achieving higher throughput under batch-serving settings. Pie  adopts a swap-based design, [...] execute attention efficiently once the relevant KV blocks reside in CPU memory. This separation makes DirectKV naturally compatible with existing serving stacks. DirectKV does not change schedul-ing, batching, or KV-management policies; instead, it pro-vides an efficient execution path for CPU-resident KV blocks. A serving system can integrate DirectKV by extending its KV allocator to support CPU-pinned storage for offloaded blocks, while leaving the scheduler, model execution graph, DirectKV [...] different KV blocks are selected. These dynamic transfer ad-dresses can force graph updates or re-capture, reducing the benefits of CUDA Graphs in practical serving systems.",
+   "published_date": null,
+   "score": 0.3825571
+  },
+  {
+   "url": "https://simplyblock.io/blog/kv-cache-offloading-storage",
+   "title": "KV Cache Offloading: The New Storage Workload for AI Inference",
+   "content": "from a fast tier is dramatically cheaper than recompute on the GPU, which is why NVIDIA and several inference frameworks have been building KV cache extenders and offload tiers through 2026. [...] KV cache offloading addresses this by moving cold or overflow cache out of GPU memory into a tiered hierarchy: CPU RAM first, then fast local NVMe, then networked storage. The hot working set stays in HBM while older or less active state spills downward. Crucially, offloaded cache can be reused. Prefix caching and prompt caching let many requests that share a common system prompt or document context read the same precomputed KV cache instead of recomputing it per request. Reuse from a fast tier [...] What is KV cache offloading? It is the practice of moving a language model’s key-value attention cache out of scarce GPU memory into a tiered hierarchy of CPU RAM, fast local NVMe, and networked storage. The hot working set stays in GPU HBM while colder or overflow cache spills to cheaper, higher-capacity tiers, so the GPU can serve longer contexts and more concurrent sessions without recomputing or dropping cache.",
+   "published_date": null,
+   "score": 0.3306662
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] # KV Cache Compression and Its Infra Problems\n\n📝 Weian Mao, Yukang Chen, Wei Huang, Shuai Yang, Luozhou Wang, Song Han  \n📅 June 12, 2026 ⏳ ~10 min read\n\nConsider serving OpenClaw on a local GPU with a capable reasoning model. The agent picks up a simple task — read a handful of documents, write a weekly report — and crashes halfway through. Not because the task is hard, but because the GPU ran out of memory. [...] Figure 1. Schematic, not to scale: every token the model generates appends its keys and values to the running history — the KV cache — so cache memory grows with output length while the weights stay fixed. Let generation run long enough, and the cache alone drives the GPU out of memory.",
+   "published_date": null,
+   "score": 0.29411915
+  },
+  {
+   "url": "https://community.netapp.com/community/discussion/465230/kv-cache-offloading-exploring-the-benefits-of-shared-storage",
+   "title": "KV cache offloading - exploring the benefits of shared storage - NetApp Community",
+   "content": "(and agents), the size of the KV cache can quickly outpace the amount of available GPU memory. In certain scenarios, there is a high probability that useful KV cache entries will be evicted from GPU memory. To address this challenge, there has been considerable interest in enabling the offloading of KV cache entries to CPU memory and/or storage so that they can be kept indefinitely (as space permits) and referenced again in the future. You can think of these KV cache offload \"targets\" as [...] So...what is \"KV cache offloading?\" The standard behavior for most inference engines is to store their KV cache in GPU memory. This introduces a challenge. The size of the KV cache scales linearly with batch size (the number of prompts being processed simultaneously) and sequence length (the length of each individual generation stream). As model context windows grow ever larger, multi-turn chats become more common, and inference platforms are utilized by more and more users (and agents), the [...] First off, what is a \"KV cache?\" Simply put, KV (key-value) caching is a technique that is used to optimize large language model (LLM) inference by storing previously calculated values in a KV cache so that these values don't need to be calculated again for every new token that is generated, which would otherwise be necessary. This article from HuggingFace provides a good overview.",
+   "published_date": null,
+   "score": 0.26210856
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "Flexibility to tier cluster memory: CXL-based KV cache delivered by the server creates a new tier of cluster memory to supplement existing high bandwidth memory (HBM) and system DRAM, delivering speeds 10x faster than NVMe-based approaches. This provides new flexibility in offloading KV data for faster access.\n\n Compatibility with NVIDIA Dynamo: The solution is compatible with NVIDIA Dynamo, NVIDIA's software architecture for KV cache memory offloading. [...] A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] KV cache server increases memory capacity by integrating 3 TB of DDR5 main memory and up to eight 1 TB CXL Add-in Cards (AICs).",
+   "published_date": null,
+   "score": 0.24233155
+  }
+ ]
+}

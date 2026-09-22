@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache vLLM integration production deployment",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T13:59:32+09:00",
+ "results": [
+  {
+   "url": "https://www.spheron.network/blog/google-turboquant-llm-compression-gpu-cloud",
+   "title": "Google TurboQuant: 6x KV Cache Compression for LLM Inference",
+   "content": "In the meantime, if you need KV cache compression today, vLLM supports FP8 KV cache quantization natively with the `--kv-cache-dtype fp8` flag. It achieves roughly 2x compression versus BF16, not TurboQuant's 6x, but it's production-ready now:\n\nbash\n\n```\npython -m vllm.entrypoints.openai.api_server \\ --model meta-llama/Llama-3.1-70B-Instruct \\ --kv-cache-dtype fp8 \\ --tensor-parallel-size 2 \\ --max-model-len 131072 \\ --host 0.0.0.0 \\ --port 8000\n``` [...] Once an official TurboQuant implementation is available, integrate it with vLLM for GPU cloud deployment on Spheron. Provision based on model weight requirements: a 70B model still needs 2x H100 SXM5 at FP16, but TurboQuant lets that setup serve far more concurrent users at long context lengths.\n\nFAQ / 05\n\n## Frequently Asked Questions [...] | Method | What It Compresses | Compression | Calibration Required | Status |\n ---  --- \n| TurboQuant | KV cache | 6x | None | Research (ICLR 2026) |\n| FP8 KV (vLLM) | KV cache | ~2x | None | Production-ready |\n| AWQ | Model weights | 4x | ~512 samples | Production-ready |\n| GPTQ | Model weights | 4x | ~512 samples | Production-ready |\n| GGUF/Q4 | Model weights | 4x | None (post-convert) | Production-ready |\n| FP4 (Blackwell) | Model weights | 4x | Hardware-native | B200/B300 only |",
+   "published_date": null,
+   "score": 0.82492816
+  },
+  {
+   "url": "https://medium.com/@anupkawarase.akz/turboquant-how-googles-6x-kv-cache-compression-changes-llm-inference-forever-1110e4be289e",
+   "title": "Medium",
+   "content": "The KV cache was the last major memory bottleneck in LLM serving. TurboQuant eliminates it. The question isn’t whether to adopt it — it’s how fast your infrastructure team can deploy it.\n\n\\\\Key Takeaways:\\\\\n\n- TurboQuant compresses KV cache 6x (3-bit keys, 2-bit values) with <1% quality loss\n\n- Real benchmark: 8x batch throughput on H100 GPUs, $267K annual savings per cluster\n\n- Deploy today via community Triton kernels + vLLM integration [...] I deployed the community TurboQuant implementation (Triton kernels from `0xSero/turboquant` on GitHub) alongside vLLM 0.8.x on a 4xH100 cluster running LLaMA-3 70B.\n\n\\\\Memory Reduction:\\\\\n\n| Configuration | KV Cache Size (128K ctx) | VRAM Saved |\n\n| — — — — — — — | — — — — — — — — — — — — — | — — — — — — |\n\n| FP16 (baseline) | 40.96 GB | — |\n\n| INT8 quantization | 20.48 GB | 50% |\n\n| TurboQuant 3-bit | 6.83 GB | \\\\83.3%\\\\ |\n\n\\\\Throughput Impact:\\\\ [...] Sub-1% degradation across every benchmark. For production use, this is noise.\n\n4. Production Implementation: vLLM + Triton Kernels\n\nHere’s how to deploy TurboQuant today. The community Triton implementation integrates directly with vLLM’s attention backend.\n\n\\\\Installation:\\\\\n\n\\\\Integration with vLLM:\\\\\n\n\\\\Docker Deployment:\\\\\n\n5. When NOT to Use TurboQuant\n\nTurboQuant isn’t universally better. Skip it when:",
+   "published_date": null,
+   "score": 0.8190992
+  },
+  {
+   "url": "https://o-mega.ai/articles/google-turboquant-the-2026-llm-compression-guide",
+   "title": "Google TurboQuant in August 2026: Where It Actually Runs",
+   "content": "•\n\n70min read\n\nThe 2026 status report on Google's KV cache compression algorithm: the full technical grounding, every place it actually runs, the exact flags to use, and our own July claims graded against what happened next.\n\nOne hundred sixty-nine days after Google announced TurboQuant, it ships in exactly two production systems: vLLM for LLM serving and Qdrant for vector search. Everything else is forks, side doors, and abandoned pull requests. [...] | Deployment Scenario | TurboQuant Status (verified September 9, 2026) | Recommended Setup | Honest Expected Impact |\n ---  --- |\n| vLLM cloud serving | Merged upstream (PR #38479); presets live in v0.28.0 | `--kv-cache-dtype turboquant_k8v4` | 2.6x KV capacity, +1.17% PPL, 79-100% throughput; burst TTFT protection | [...] The production-safe recommendation that falls out of every study so far is k8v4 as the default. It keeps 8-bit keys (protecting the inner products that attention accuracy depends on), compresses values to 4 bits, sustains 79-100% of baseline throughput, and costs a nearly invisible +1.17% perplexity - vLLM PR #38479. At fleet scale, 2.6x cache capacity is a GPU-count change rather than a tuning tweak. Reach for the aggressive presets only when context capacity is the binding constraint and the",
+   "published_date": null,
+   "score": 0.79522943
+  },
+  {
+   "url": "https://dev.to/arshtechpro/turboquant-what-developers-need-to-know-about-googles-kv-cache-compression-eeg",
+   "title": "TurboQuant: What Developers Need to Know About ...",
+   "content": "There's also an open feature request on the vLLM project to integrate TurboQuant as a native KV cache quantization option. Google's official implementation is expected around Q2 2026.\n\n## Practical Notes and Gotchas\n\nA few things the benchmarks and community experiments have surfaced that the paper doesn't emphasize: [...] ## The Bigger Picture\n\nTurboQuant is one piece of a larger shift happening in LLM deployment: making inference cheaper and more accessible without sacrificing quality. It pairs well with weight quantization (GPTQ, AWQ, GGUF formats), speculative decoding, and other serving optimizations. The combination of a 4-bit quantized model with a 4-bit TurboQuant KV cache means you can run meaningfully large models on consumer GPUs with long contexts -- something that was impractical a year ago. [...] Published by Google Research on March 24, 2026 and headed to ICLR 2026, TurboQuant is a compression algorithm that shrinks the KV cache -- the biggest memory bottleneck during LLM inference -- down to 3-4 bits per element without any retraining or fine-tuning. The result is roughly a 4-6x reduction in KV cache memory with negligible quality loss.",
+   "published_date": null,
+   "score": 0.75442725
+  },
+  {
+   "url": "https://github.com/0xSero/turboquant",
+   "title": "GitHub - 0xSero/turboquant: TurboQuant: Near-optimal KV cache quantization for LLM inference (3-bit keys, 2-bit values) with Triton kernels + vLLM integration · GitHub",
+   "content": "turboquant/ codebook.py # Lloyd-Max optimal scalar quantizer for Beta distribution codebooks/ # Pre-generated codebook files (d=128/256, bits 2/3/4) rotation.py # Random orthogonal rotation + QJL projection matrices quantizer.py # TurboQuantMSE + TurboQuantProd (Algorithms 1 & 2) kv_cache.py # KV cache manager with value bit-packing capture.py # Modular KV capture hooks for attention layers store.py # Compressed KV store (quantize + append + flat cache) score.py # Attention scoring from [...] | Metric | Baseline (bf16 KV) | TurboQuant (3b key / 2b val) |\n --- \n| Prefill tok/s (30k ctx) | 1,804 | 1,907 (+5.7%) |\n| Decode tok/s (30k ctx) | 1.264 | 1.303 (+3.1%) |\n| KV cache freed  30.0 GB (across 4 GPUs) |\n| Max token capacity | 457,072 | 914,144 (2.0x) |\n| Peak activation memory | 644.6 MB | 599.2 MB (-7.0%) |\n\n### 8x RTX 3090 (24GB each) -- Qwen3.5-35B-A3B MoE (pruned, 205 experts, TP=8) [...] # TurboQuant: KV Cache Compression for LLM Inference\n\nImplementation of TurboQuant KV cache compression (ICLR 2026, arXiv:2504.19874) with vLLM integration. Tested on dense and MoE architectures across RTX 3090 and RTX 5090 GPUs.\n\n## Benchmark Results\n\n### RTX 5090 (32GB) -- Qwen3.5-27B-AWQ (dense, 4-bit weights, TP=1)\n\nSetup: Single RTX 5090, vLLM 0.18.0, `gpu_memory_utilization=0.90`, 16 full-attention layers out of 64 total (rest are linear-attention).",
+   "published_date": null,
+   "score": 0.7274535
+  },
+  {
+   "url": "https://ailearningguides.com/google-turboquant-kv-cache-compression-iclr-2026",
+   "title": "Google TurboQuant Cuts LLM Memory 6x With Zero Accuracy Loss - AI Learning Guides",
+   "content": "Slightly faster than the FP16 baseline, surprisingly. The published benchmarks and community implementations both report TurboQuant-quantized inference running 5-15% faster than FP16 baseline because the smaller KV cache fits more efficiently in GPU memory hierarchy. The compression overhead is more than recovered by the memory bandwidth savings.\n\n### Should I deploy TurboQuant in production immediately? [...] Long-context inference becomes economically viable on smaller GPUs. A workload that currently requires an H100 80GB or H200 141GB for adequate KV cache headroom can run on an A100 40GB with TurboQuant. The hardware tier required for production inference drops by one to two levels for context-length-bound workloads. [...] ## How to use TurboQuant KV cache today\n\nGoogle Research published the paper but not an official Python implementation as of mid-2026. Several community implementations are usable today across the major serving frameworks. Here’s how to get started.\n\n1. For vLLM users, the community fork at `0xSero/turboquant` integrates TurboQuant via custom Triton kernels with a vLLM extension. The 3-bit-keys/2-bit-values configuration is a strong default:",
+   "published_date": null,
+   "score": 0.7251239
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "TurboQuant เป็นอัลกอริทึมการบีบอัดเวกเตอร์ (vector compression) ใหม่ที่เปิดตัวอย่างเป็นทางการโดย Google Research ในเดือนมีนาคม 2026 โดยมีเป้าหมายเพื่อแก้ปัญหาสำคัญในขั้นตอนการประมวลผล (inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) และเครื่องมือค้นหาเวกเตอร์ (vector search engines) นั่นคือการใช้หน่วยความจำมหาศาลของ Key-Value Cache (KV Cache) ทั้งนี้ รายละเอียดทางเทคนิคจะถูกเผยแพร่อย่างเป็นทางการและผ่านการพิจารณาโดยผู้ทรงคุณวุฒิในรูปแบบของบทความวิชาการในงาน ICLR 2026 (International Conference on [...] ## TurboQuant เป็นผู้นำในด้านตัวชี้วัดผลการดำเนินงาน\n\nTurboQuant ของ Google ประสบความสำเร็จในด้านประสิทธิภาพและการบีบอัดที่ก้าวล้ำ โดยสามารถบีบอัดข้อมูลเวกเตอร์ขนาด 32 บิต หรือ 16 บิต ให้เหลือเพียงประมาณ 3 บิต ด้วยอัตราการบีบอัดที่สูงถึง 6 เท่า ซึ่งช่วยลดการใช้พื้นที่หน่วยความจำของ KV Cache ในโมเดลขนาดใหญ่ลงเหลือเพียงหนึ่งในหกของระดับเดิมได้โดยตรง [...] ในระหว่างกระบวนการประมวลผลของโมเดลภาษาขนาดใหญ่ KV Cache จะทำหน้าที่เป็น \"สมุดบันทึกชั่วคราว\" ของโมเดล โดยบทสนทนาทุกรอบและส่วนของข้อความที่ป้อนเข้ามาจะถูกแปลงเป็นเวกเตอร์หลายมิติและจัดเก็บไว้ชั่วคราวเพื่อให้ข้อมูลบริบทสำหรับขั้นตอนการประมวลผลถัดไป เพื่อให้มั่นใจในความแม่นยำของการประมวลผล โดยทั่วไปแล้วโซลูชันแบบดั้งเดิมจะจัดเก็บข้อมูลเวกเตอร์ในรูปแบบทศนิยม 16 บิต (FP16/BF16) อย่างไรก็ตาม เมื่อความยาวของบทสนทนาเพิ่มขึ้นหรือขนาดของข้อความขยายตัว KV Cache จะใช้หน่วยความจำแบนด์วิดท์สูง",
+   "published_date": null,
+   "score": 0.666736
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "TurboQuant เป็นอัลกอริทึมการบีบอัดเวกเตอร์ (vector compression) ใหม่ที่เปิดตัวอย่างเป็นทางการโดย Google Research ในเดือนมีนาคม 2026 โดยมีเป้าหมายเพื่อแก้ปัญหาสำคัญในขั้นตอนการประมวลผล (inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) และเครื่องมือค้นหาเวกเตอร์ (vector search engines) นั่นคือการใช้หน่วยความจำมหาศาลของ Key-Value Cache (KV Cache) ทั้งนี้ รายละเอียดทางเทคนิคจะถูกเผยแพร่อย่างเป็นทางการและผ่านการพิจารณาโดยผู้ทรงคุณวุฒิในรูปแบบของบทความวิชาการในงาน ICLR 2026 (International Conference on [...] ## TurboQuant เป็นผู้นำในด้านตัวชี้วัดผลการดำเนินงาน\n\nTurboQuant ของ Google ประสบความสำเร็จในด้านประสิทธิภาพและการบีบอัดที่ก้าวล้ำ โดยสามารถบีบอัดข้อมูลเวกเตอร์ขนาด 32 บิต หรือ 16 บิต ให้เหลือเพียงประมาณ 3 บิต ด้วยอัตราการบีบอัดที่สูงถึง 6 เท่า ซึ่งช่วยลดการใช้พื้นที่หน่วยความจำของ KV Cache ในโมเดลขนาดใหญ่ลงเหลือเพียงหนึ่งในหกของระดับเดิมได้โดยตรง [...] ในระหว่างกระบวนการประมวลผลของโมเดลภาษาขนาดใหญ่ KV Cache จะทำหน้าที่เป็น \"สมุดบันทึกชั่วคราว\" ของโมเดล โดยบทสนทนาทุกรอบและส่วนของข้อความที่ป้อนเข้ามาจะถูกแปลงเป็นเวกเตอร์หลายมิติและจัดเก็บไว้ชั่วคราวเพื่อให้ข้อมูลบริบทสำหรับขั้นตอนการประมวลผลถัดไป เพื่อให้มั่นใจในความแม่นยำของการประมวลผล โดยทั่วไปแล้วโซลูชันแบบดั้งเดิมจะจัดเก็บข้อมูลเวกเตอร์ในรูปแบบทศนิยม 16 บิต (FP16/BF16) อย่างไรก็ตาม เมื่อความยาวของบทสนทนาเพิ่มขึ้นหรือขนาดของข้อความขยายตัว KV Cache จะใช้หน่วยความจำแบนด์วิดท์สูง",
+   "published_date": null,
+   "score": 0.666736
+  }
+ ]
+}

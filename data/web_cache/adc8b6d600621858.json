@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache doubts limitations analyst view",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:02+09:00",
+ "results": [
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "Bank of America ( BAC) นักวิเคราะห์ Vivek Arya ระบุในรายงานฉบับล่าสุดว่า แม้อุปสงค์ที่เกิดขึ้นใหม่จาก eSSD สำหรับศูนย์ข้อมูลและการถ่ายโอนภาระงาน KV cache ของ Nvidia จะช่วยสนับสนุนตลาด NAND flash จริง แต่ข้อมูลจาก Applied Materials แสดงให้เห็นว่าอุปสงค์ที่เกี่ยวข้องกับ KV cache คิดเป็นสัดส่วนเพียงเลขหลักเดียวของตลาด NAND ทั้งหมด ซึ่งทำให้ Micron ยากที่จะรักษาอัตรากำไรขั้นต้นที่สูงกว่า 80% ได้ในระยะยาว [...] นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน [...] ด้วยสถาปัตยกรรมสองขั้นตอนที่ประกอบด้วย Polar Quantization (PolarQuant) และ Error Correction (QJL) อัลกอริทึมใหม่ของ Google นี้สามารถบีบอัดการใช้หน่วยความจำของ KV cache ให้เหลือเพียง 1 ใน 6 ของขนาดเดิม โดยไม่สูญเสียความแม่นยำของโมเดล และช่วยเพิ่มประสิทธิภาพได้สูงสุดถึง 8 เท่า",
+   "published_date": null,
+   "score": 0.68140936
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "Bank of America ( BAC) นักวิเคราะห์ Vivek Arya ระบุในรายงานฉบับล่าสุดว่า แม้อุปสงค์ที่เกิดขึ้นใหม่จาก eSSD สำหรับศูนย์ข้อมูลและการถ่ายโอนภาระงาน KV cache ของ Nvidia จะช่วยสนับสนุนตลาด NAND flash จริง แต่ข้อมูลจาก Applied Materials แสดงให้เห็นว่าอุปสงค์ที่เกี่ยวข้องกับ KV cache คิดเป็นสัดส่วนเพียงเลขหลักเดียวของตลาด NAND ทั้งหมด ซึ่งทำให้ Micron ยากที่จะรักษาอัตรากำไรขั้นต้นที่สูงกว่า 80% ได้ในระยะยาว [...] นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน [...] ด้วยสถาปัตยกรรมสองขั้นตอนที่ประกอบด้วย Polar Quantization (PolarQuant) และ Error Correction (QJL) อัลกอริทึมใหม่ของ Google นี้สามารถบีบอัดการใช้หน่วยความจำของ KV cache ให้เหลือเพียง 1 ใน 6 ของขนาดเดิม โดยไม่สูญเสียความแม่นยำของโมเดล และช่วยเพิ่มประสิทธิภาพได้สูงสุดถึง 8 เท่า",
+   "published_date": null,
+   "score": 0.68140936
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "ความคิดเห็นส่วนใหญ่ในอุตสาหกรรมชี้ให้เห็นว่า อุปสรรคของโมเดลขนาดใหญ่ในปัจจุบันไม่ใช่จำนวนพารามิเตอร์ แต่คือความจุของหน่วยความจำ ยิ่งบริบทมีความยาวมากเท่าใด ปริมาณการใช้หน่วยความจำของ KV Cache ก็จะยิ่งมากขึ้นเท่านั้น จนในที่สุดก็ถึงขีดจำกัดของฮาร์ดแวร์ก่อนที่พารามิเตอร์ของโมเดลจะถึงเสียอีก ซึ่งถือเป็นปัญหาหลักที่พบร่วมกันในงานต่างๆ เช่น การสร้างข้อความขนาดยาว และการทำความเข้าใจเอกสารที่มีความยาวมาก\n\nความสำเร็จที่ก้าวล้ำของ TurboQuant เข้ามาช่วยแก้ไขปัญหาดังกล่าวได้โดยตรง [...] เป้าหมายการเพิ่มประสิทธิภาพของ TurboQuant ถูกล็อกไว้ที่โมดูล KV cache และดัชนีเวกเตอร์ (vector index) อย่างแม่นยำ ซึ่งเป็นส่วนประกอบที่ใช้หน่วยความจำมากที่สุดในสถานการณ์การประมวลผล (Inference) AI เมื่อเทคโนโลยีนี้ถูกนำมาใช้งานในวงกว้าง เซิร์ฟเวอร์เพียงเครื่องเดียวจะมีความสามารถในการ \"รองรับโมเดลได้มากขึ้นโดยใช้หน่วยความจำน้อยลง\" สิ่งนี้ได้กระตุ้นความกังวลในตลาดว่าอัตราการเติบโตของความต้องการความจุ DRAM อาจชะลอตัวลง ซึ่งเป็นสาเหตุโดยตรงของการเปลี่ยนแปลงบรรยากาศในตลาดเมื่อเร็ว ๆ นี้ [...] ในระหว่างกระบวนการประมวลผลของโมเดลภาษาขนาดใหญ่ KV Cache จะทำหน้าที่เป็น \"สมุดบันทึกชั่วคราว\" ของโมเดล โดยบทสนทนาทุกรอบและส่วนของข้อความที่ป้อนเข้ามาจะถูกแปลงเป็นเวกเตอร์หลายมิติและจัดเก็บไว้ชั่วคราวเพื่อให้ข้อมูลบริบทสำหรับขั้นตอนการประมวลผลถัดไป เพื่อให้มั่นใจในความแม่นยำของการประมวลผล โดยทั่วไปแล้วโซลูชันแบบดั้งเดิมจะจัดเก็บข้อมูลเวกเตอร์ในรูปแบบทศนิยม 16 บิต (FP16/BF16) อย่างไรก็ตาม เมื่อความยาวของบทสนทนาเพิ่มขึ้นหรือขนาดของข้อความขยายตัว KV Cache จะใช้หน่วยความจำแบนด์วิดท์สูง",
+   "published_date": null,
+   "score": 0.62852204
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "ความคิดเห็นส่วนใหญ่ในอุตสาหกรรมชี้ให้เห็นว่า อุปสรรคของโมเดลขนาดใหญ่ในปัจจุบันไม่ใช่จำนวนพารามิเตอร์ แต่คือความจุของหน่วยความจำ ยิ่งบริบทมีความยาวมากเท่าใด ปริมาณการใช้หน่วยความจำของ KV Cache ก็จะยิ่งมากขึ้นเท่านั้น จนในที่สุดก็ถึงขีดจำกัดของฮาร์ดแวร์ก่อนที่พารามิเตอร์ของโมเดลจะถึงเสียอีก ซึ่งถือเป็นปัญหาหลักที่พบร่วมกันในงานต่างๆ เช่น การสร้างข้อความขนาดยาว และการทำความเข้าใจเอกสารที่มีความยาวมาก\n\nความสำเร็จที่ก้าวล้ำของ TurboQuant เข้ามาช่วยแก้ไขปัญหาดังกล่าวได้โดยตรง [...] เป้าหมายการเพิ่มประสิทธิภาพของ TurboQuant ถูกล็อกไว้ที่โมดูล KV cache และดัชนีเวกเตอร์ (vector index) อย่างแม่นยำ ซึ่งเป็นส่วนประกอบที่ใช้หน่วยความจำมากที่สุดในสถานการณ์การประมวลผล (Inference) AI เมื่อเทคโนโลยีนี้ถูกนำมาใช้งานในวงกว้าง เซิร์ฟเวอร์เพียงเครื่องเดียวจะมีความสามารถในการ \"รองรับโมเดลได้มากขึ้นโดยใช้หน่วยความจำน้อยลง\" สิ่งนี้ได้กระตุ้นความกังวลในตลาดว่าอัตราการเติบโตของความต้องการความจุ DRAM อาจชะลอตัวลง ซึ่งเป็นสาเหตุโดยตรงของการเปลี่ยนแปลงบรรยากาศในตลาดเมื่อเร็ว ๆ นี้ [...] ในระหว่างกระบวนการประมวลผลของโมเดลภาษาขนาดใหญ่ KV Cache จะทำหน้าที่เป็น \"สมุดบันทึกชั่วคราว\" ของโมเดล โดยบทสนทนาทุกรอบและส่วนของข้อความที่ป้อนเข้ามาจะถูกแปลงเป็นเวกเตอร์หลายมิติและจัดเก็บไว้ชั่วคราวเพื่อให้ข้อมูลบริบทสำหรับขั้นตอนการประมวลผลถัดไป เพื่อให้มั่นใจในความแม่นยำของการประมวลผล โดยทั่วไปแล้วโซลูชันแบบดั้งเดิมจะจัดเก็บข้อมูลเวกเตอร์ในรูปแบบทศนิยม 16 บิต (FP16/BF16) อย่างไรก็ตาม เมื่อความยาวของบทสนทนาเพิ่มขึ้นหรือขนาดของข้อความขยายตัว KV Cache จะใช้หน่วยความจำแบนด์วิดท์สูง",
+   "published_date": null,
+   "score": 0.62852204
+  },
+  {
+   "url": "https://boringbot.substack.com/p/turboquant-the-new-and-controversial",
+   "title": "TurboQuant: the new(?) and controversial ground breaking ...",
+   "content": "The key-value (KV) cache is the memory structure that allows transformer models to “remember” everything they’ve seen in a conversation or document during inference. Without it, the model would have to reprocess the entire context from scratch on every token generation step. The problem is architectural and unforgiving: KV cache memory grows linearly with both sequence length and batch size, which means serving real users at scale pushes it past comfortable limits fast. [...] To make this concrete, consider a 70B parameter model serving 100 concurrent requests at a 32,000-token context window. At standard BF16 precision, the KV cache alone can consume well over 100GB of GPU memory, potentially more than the model weights themselves. That’s not a theoretical edge case; that’s a Tuesday afternoon for anyone running a serious inference cluster. [...] TurboQuant’s core mechanism applies quantization to KV cache tensors during inference, compressing the floating-point representations from 16-bit (BF16 or FP16) down to as low as 3 bits per value. The “Turbo” in the name refers to a novel transform applied to the KV cache tensors before quantization, the authors argue this transform smooths the distribution of values, making them more amenable to aggressive compression without the rounding errors that normally cause quality degradation.",
+   "published_date": null,
+   "score": 0.608897
+  },
+  {
+   "url": "https://pub.towardsai.net/googles-turboquant-the-compression-breakthrough-that-could-reshape-llm-infrastructure-c09d68017567",
+   "title": "Google's TurboQuant: The Compression Breakthrough ...",
+   "content": "The consensus among industry analysts is that TurboQuant is an inference optimization technology that has no impact on training workloads (which drive the majority of HBM demand). In inference scenarios, the compression may actually increase the number of concurrent requests a GPU can handle, which could drive more overall infrastructure spending rather than less.\n\n## Limitations and Open Questions\n\nTurboQuant is impressive, but it is not a silver bullet. [...] Here is where the math gets uncomfortable. KV cache size scales with the number of layers, the number of attention heads, the head dimension, and the context length. For a model like Llama-3.1–8B with a 128K context window, the KV cache alone can consume more GPU memory than the model parameters.\n\nThis creates a hard ceiling on how many users a single GPU can serve, how long a context window can realistically be, and ultimately how much it costs to run inference at scale. [...] Previous attempts at KV cache quantization ran into a stubborn problem: overhead. Traditional quantization methods reduce the precision of data vectors, but they need to store additional normalization constants (scale factors and zero-points) for every small block of data. These constants typically add 1 to 2 extra bits per number, partially undoing the compression gains. Compress from 16 bits to 4 bits, but then spend 2 bits on metadata, and your effective compression is much less impressive",
+   "published_date": null,
+   "score": 0.5928793
+  },
+  {
+   "url": "https://tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "Industry consensus indicates that the current bottleneck for large models is not the number of parameters but memory capacity. The longer the context, the larger the memory footprint of the KV Cache, which eventually hits hardware limits before the model parameters do. This is a shared pain point for tasks such as long-text generation and long-document understanding.\n\nTurboQuant's breakthrough directly addresses this pain point. [...] Google's TurboQuant algorithm significantly compresses AI inference memory, reducing Key-Value Cache (KV Cache) occupancy by up to 6x and boosting computational efficiency up to 8x on H100 GPUs, with minimal precision loss. While targeting inference, it's unlikely to impact HBM or NAND Flash demand directly. The technology could lower AI operational costs, enabling new use cases and driving exponential growth in total AI demand, paradoxically increasing overall memory requirements. Challenges [...] TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27.",
+   "published_date": null,
+   "score": 0.49260366
+  },
+  {
+   "url": "https://towardsdatascience.com/kv-cache-is-eating-your-vram-heres-how-google-fixed-it-with-turboquant",
+   "title": "KV Cache Is Eating Your VRAM. Here's How Google Fixed ...",
+   "content": "Though KV cache came as a silver lining for LLMs, it brought up more challenges. It introduced additional memory overhead. This might not be a big issue for SLMs, but mega-LLMs with billions of parameters now became more difficult to load on machines. Roughly 20-30% additional VRAM is consumed by the KV cache alone. The bigger limitation is that this overhead is not static, it keeps growing. This can grow up to the model size itself with long contexts or more concurrent users, since each user",
+   "published_date": null,
+   "score": 0.45711306
+  }
+ ]
+}

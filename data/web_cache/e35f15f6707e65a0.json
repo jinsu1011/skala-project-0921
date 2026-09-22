@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache customers partners production use",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:00+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory.",
+   "published_date": null,
+   "score": 0.61779
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "Performance Potential Analysis via CMM. To evaluate the performance potential of the proposed architecture, we developed a production-grade empirical platform integrating an SK Hynix CMM (SK hynix, 2024) and two KIOXIA PCIe Gen5 NVMe SSDs (KIOXIA, 2024). To maintain architectural consistency with the FPGA prototype, we utilized 32 GB of the CMM capacity as the DRAM cache. Leveraging the SPDK framework (Intel, 2016) with 8 PCIe lanes (4 lanes per SSD), this setup achieves a peak read throughput [...] Empirical Potential Analysis and FPGA Prototyping: We validate ITME by evaluating its performance potential using production-grade SK hynix CMM (SK hynix, 2024) and Gen5 NVMe SSDs (KIOXIA, 2024), while further demonstrating functional feasibility through an FPGA-based hardware prototype. Our evaluation shows that ITME achieves a 1.80×1.80\\times throughput improvement over NVMe-oF-based disaggregated storage baselines in large-scale LLM inference.\n\n## 2. Background and Motivation [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy.",
+   "published_date": null,
+   "score": 0.49157855
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "these performance improvements and consistent service standards as model size, context windows, precision requirements, and concurrency demands continue to grow.” [...] The result is lower latency, higher throughput, increased efficiency of GPU clusters, consistent achievement of stringent service-level agreements (SLAs), and faster time-to-first-token (TTFT). [...] Cost and power efficiency: The server enables organizations to maximize the efficient use of GPUs by adding large memory pools and optimizes clusters by right-sizing GPUs and memory. Additionally, the solution provides efficient operation, drawing less power than equivalent GPU servers.",
+   "published_date": null,
+   "score": 0.40330887
+  },
+  {
+   "url": "https://www.blocksandfiles.com/ai-ml/2026/03/30/nvidia-and-its-partners-kv-cache-extenders/5209284",
+   "title": "Nvidia and its partners' KV Cache extenders",
+   "content": "## Everpure [...] Up to 27x faster KV cache loading with a distributed acceleration fabric and deep Nvidia Dynamo integration\n Sub-millisecond latency that eliminates I/O stalls and maximizes GPU utilization at production scale\n Double-digit reductions in cost per token, materially improving inference economics\n Removes KV cache memory capacity as the critical path for large context windows and agentic AI workloads\n Vera Rubin architecture goals, enabling up to 10x lower inference token cost\n\n## Dell [...] performant, and resilient solution to managing KV cache at scale.\"",
+   "published_date": null,
+   "score": 0.3783448
+  },
+  {
+   "url": "https://www.ersaelectronics.com/blog/sandisk-sk-hynix-standardize-hbf",
+   "title": "Sandisk & SK hynix Standardize HBF: A New Memory Tier for Existing HBM Stacks",
+   "content": "Key-value cache is one of the most important memory challenges in large-language-model inference. During autoregressive generation, transformer models store key and value tensors from previous tokens. This avoids recomputing attention over the entire context. As context windows become longer, KV cache memory requirements grow significantly. [...] This tiered approach can make enterprise AI more practical. It reduces the need to keep everything in expensive memory and reduces the latency penalty of retrieving everything from slower storage.\n\n## 10. KV Cache, Long Context, and Memory Expansion [...] HBM is the correct place for the most active KV cache data. However, not all session history is equally active. Older cache blocks or less frequently accessed context may be candidates for tiering. DRAM and HBF can support overflow or warm-cache strategies if software can manage migration intelligently.",
+   "published_date": null,
+   "score": 0.35541737
+  },
+  {
+   "url": "https://news.skhynix.com/en/hbm-to-essd",
+   "title": "From HBM to eSSD: How SK hynix is charting the future of full-stack ...",
+   "content": "As AI infrastructure expands across industries and real-world services, customers require AI memory solutions — not just individual memory products — that are designed around specific system architectures and workloads while ensuring reliable, scalable supply. Building on its full-stack AI memory capabilities, SK hynix will continue working alongside customers to build AI systems that are more efficient, scalable, and optimized for production environments.\n\n### Related content [...] SK hynix’s vision of becoming a full-stack AI memory creator reflects this transition. Building on its leadership in HBM, the company is extending its AI memory capabilities into AI-DRAM and AI-NAND while connecting product development with customer co-design and production and packaging infrastructure. Through this approach, SK hynix is strengthening its product portfolio, customer collaboration, and investment foundation to further advance its full-stack AI memory capabilities. [...] This type of collaboration model is also aligned with the vision of becoming a full-stack AI memory creator presented at SK AI Summit 2025. At the event, SK hynix shared its direction to expand its role from merely a “provider” that supplies the products customers need at the right time to a “creator” that works with customers and partners to solve challenges.",
+   "published_date": null,
+   "score": 0.31220272
+  },
+  {
+   "url": "https://news.skhynix.com/en/fms-2026",
+   "title": "The Next-Generation Memory Architecture in the AI Era? ...",
+   "content": "SK hynix also demonstrated the same ReAct AI Agent Serving system using CMM-Hybrid\\, confirming that the implemented system can efficiently store and rapidly reuse the large volumes of KV cache generated on an ongoing basis. In particular, the demonstration showcased both the ability to quickly predict the KV cache needed based on prior conversation and task history, and the performance to prefetch the required KV cache into DRAM for rapid processing. It also proved that storing the entire KV [...] First, the ReAct (Reasoning and Acting) AI Agent Serving demo presented a distributed AI Agent Serving system that connects multiple servers and GPUs using Pooled Memory\\. Through this, SK hynix demonstrated that transferring or reusing the KV cache\\ on the basis of CXL Pooled Memory can significantly improve the performance of an AI Agent Serving system compared with legacy systems that rely on network communication. [...] SK Hynix commented, “Through FMS 2026, we presented the direction for next-generation AI memory architectures and highlighted our technical leadership across the entire AI infrastructure spectrum—from HBM and server DRAM to NAND and CXL. We will continue to proactively develop and supply optimal AI memory solutions tailored to the needs of our customers and partners.”\n\n### Related content\n\nSK Hynix Newsroom",
+   "published_date": null,
+   "score": 0.30049968
+  },
+  {
+   "url": "http://www.moomoo.com/community/feed/sk-hynix-q2-fy2026-earnings-conference-call-117000321893157",
+   "title": "SK hynix Q2 FY2026 earnings conference call - moomoo Community",
+   "content": "Thank you very much for the question. We plan for our medium to long term capacity strategy based on the structural growth in memory demand driven by AI expansion as well as our ongoing discussions with key customers on their longer term demand. Recently our collaboration with customers is evolving beyond transactional relations into more strategic long term partnerships and the stronger intent by the customers to reach long term agreements with us as well as build partnerships. Also, it serves [...] The capacity expansion SK Hynix is currently planning for is based on the visibility into market demand that has been secured in our partnerships with the customers. Of course, the actual capital investment and production ramp up will be implemented in phases while considering demand visibility, investment efficiency as well as other factors. Given that our capacity expansion will be executed flexibly in alignment with confirmed customer demand, we do not believe our medium to long term [...] As the AI market continues to expand and accelerators become more sophisticated in performance and packaging, we believe customers will place even greater value on partners with proven manufacturing capability, quality and reliable supply. Since HBM is a high value add product, quality issues can result in significant cost for customers and overall system. Leveraging our early co development experience with customers and long standing strategic partnerships, we will continue to deliver the",
+   "published_date": null,
+   "score": 0.29686365
+  }
+ ]
+}

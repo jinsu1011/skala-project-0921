@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache technology technical readiness level advantages site:.edu OR site:.gov OR site:.org",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:02:02+09:00",
+ "results": [
+  {
+   "url": "https://en.wikipedia.org/wiki/Google",
+   "title": "Google - Wikipedia",
+   "content": "Google LLC (/ˈ ɡ uː.ɡ əl/ⓘ, _GOO-gəl_) is an American multinational technology corporation focused on information technology, online advertising, search engine technology, email, cloud computing, software, quantum computing, e-commerce, consumer electronics, and artificial intelligence (AI).( It has been referred to as \"the most powerful company in the world\" by the BBC,( and is one of the world's most valuable brands.( Google's parent company Alphabet Inc. has been described as a Big Tech [...] Abstract Wikipedia\n   Wikimedia Commons\n   Meta-Wiki\n   Wikiquote\n   Wikiversity\n   Wikidata item\n\nAppearance\n\nmove to sidebar hide\n\nImage 4: Page semi-protected\n\nFrom Wikipedia, the free encyclopedia\n\nAmerican multinational technology company [...] Computer systems companies\n   Internet properties established in 1998\n   Mobile phone manufacturers\n   Multinational companies headquartered in the United States\n   Software companies based in Mountain View, California\n   Technology companies based in the San Francisco Bay Area\n   Technology companies established in 1998\n   University spin-offs\n   Virtual reality companies\n   Web portals\n   Web service providers",
+   "published_date": null,
+   "score": 0.10007563
+  },
+  {
+   "url": "https://arxiv.org/html/2606.20295v2",
+   "title": "Token-Operations-Oriented Inference Optimization Techniques for ...",
+   "content": "improvement . TurboQuant further formulates KV cache compression as an online vector quantization problem, reducing inner-product estimation bias through random rotation, scalar quantization, and 1-bit Quantized Johnson-Lindenstrauss residual correction. It reports that in KV cache quantization, 3.5 bits/channel can achieve quality neutrality, while 2.5 bits/channel causes only slight quality degradation. [...] Academic research has also proposed various KV cache compression methods based on importance and low-bit representations. Scissorhands, H\\_2O, and SnapKV each retain more critical historical states from the perspectives of importance persistence, Heavy Hitter Tokens, and pre-generated attention patterns, compressing the KV cache under a fixed budget [110, 111, 112]. KIVI, KVZip, and TurboQuant further reduce the cost of cache representation via KV cache quantization or context reconstruction [...] bandwidth of the KV cache rapidly become bottlenecks. Research on KV cache quantization shows that KV cache not only significantly increases memory requirements, but its loading process may also leave compute cores idle, thereby limiting inference speed .",
+   "published_date": null,
+   "score": 0.4766533
+  },
+  {
+   "url": "https://arxiv.org/html/2504.19874v1",
+   "title": "TurboQuant: Online Vector Quantization with Near-optimal ...",
+   "content": "Furthermore, in ?? and ??, we showcase TurboQuant’s efficacy in online KV cache quantization. Specifically, we achieve perfect long-context retrieval in needle-in-a-haystack tasks and maintain high performance on other long-context downstream tasks, all while compressing the KV cache by a factor exceeding 5\\times. [...] Decoder based transformer models present another compelling use case. These models must store key/value (KV) embeddings from previously generated tokens in the KV cache, the size of which scales with both model size (number of layers and attention heads) and context length. This scaling is a significant bottleneck in terms of memory usage and computational speed, especially for long context models. Therefore, reducing the KV cache size without compromising accuracy is essential. In this [...] followed by a 1-bit Quantized JL (QJL) transform on the residual, resulting in an unbiased inner product quantizer. We also provide a formal proof of the information-theoretic lower bounds on best achievable distortion rate by any vector quantizer, demonstrating that TurboQuant closely matches these bounds, differing only by a small constant (\\approx 2.7) factor. Experimental results validate our theoretical findings, showing that for KV cache quantization, we achieve absolute quality",
+   "published_date": null,
+   "score": 0.4023222
+  },
+  {
+   "url": "https://arxiv.org/catchup/cs.LG/2026-07-14?abs=True&page=1",
+   "title": "Catchup results for Machine Learning on Tue, 14 Jul 2026 - arXiv",
+   "content": "This study systematically compares Turbo-Quant and SpectralQuant KV-cache compression, evaluating non-dominated schemes, including WHT rotation with Beta Lloyd-Max and QJL, through a statistical validation methodology that separates systematic codec differences from implementation variance. Key findings reveal that while eigenbasis-based methods fail on heavy-tailed data due to covariance instability, they excel in structured regimes, with the effective semantic dimension ($d\\_{eff}$) adapting [...] recency-based retention collapses. Accumulated-attention retention performs better on unpinned content, however, and ablations identify attention-score normalization as the main limitation of the current formulation. These results establish semantic prompt structure as a robust signal for KV-cache management while clarifying how it should be combined with attention-based importance. [...] Post-hoc context erasing over the KV cache is challenging because a local edit has a global consequence: once a span has been processed, its influence propagates into the cached states of all subsequent tokens. This issue arises naturally in long-context LLM applications, where stale retrieved facts, incorrect tool observations, retracted user preferences, or harmful prompt injections may be identified only after prefill. Exact erasing must then recompute all tokens after the deleted span,",
+   "published_date": null,
+   "score": 0.19169092
+  },
+  {
+   "url": "https://arxiv.org/html/2607.19191v1",
+   "title": "1ABot-World-0 turns a single NVIDIA RTX 5090 GPU into a real-time interactive world simulator, enabling infinite action-conditioned world rollout at 720P and up to 16 FPS with 1.2 s action-to-first-frame latency within a peak-VRAM budget of approximately 19 GiB.",
+   "content": "Following recent advances in online vector quantization , this strategy can reduce both the fixed cache footprint and the bandwidth pressure of local-context attention.\nKV-cache quantization can therefore complement low-bit DiT inference and improve the scalability of long-horizon generation under constrained GPU memory.\n\n#### 4.4.4  End-to-End System Analysis [...] Bounded KV caching prevents unbounded context growth, while cache quantization can further reduce its fixed cost.\nFor long-horizon streaming generation, a naive full-history KV cache grows continuously with the generated context and eventually becomes a practical memory and bandwidth bottleneck.\nABot-World-0 avoids this unbounded growth through a bounded local-context KV cache with rolling eviction, keeping the cache footprint independent of the total rollout duration. [...] Nevertheless, even under a bounded-context design, the resident key and value tensors remain a substantial source of memory consumption and memory-bandwidth traffic at high resolution.\nTo further reduce this cost, we explore KV-cache quantization, which compresses cached key and value tensors while preserving their usability for subsequent attention computation.",
+   "published_date": null,
+   "score": 0.12130033
+  },
+  {
+   "url": "https://developers.google.com/identity/openid-connect/openid-connect",
+   "title": "OpenID Connect | Sign in with Google",
+   "content": "One of the advantages of using OAuth 2.0 for authentication is that your application can get permission to use other Google APIs on behalf of the user (such as YouTube, Google Drive, Calendar, or Contacts) at the same time as you authenticate the user. To do this, include the other scopes that you need in the authentication request that you send to Google. For example, to add user's age group to your authentication request, pass a scope parameter of `openid email  The user is prompted [...] Since Google changes its public keys only infrequently, you can cache them using the cache directives of the HTTP response and, in the vast majority of cases, perform local validation much more efficiently than by using the `tokeninfo` endpoint. This validation requires retrieving and parsing certificates, and making the appropriate cryptographic calls to check the signature. Fortunately, there are well-debugged libraries available in a wide variety of languages to accomplish this (see jwt.io). [...] ```",
+   "published_date": null,
+   "score": 0.030935358
+  },
+  {
+   "url": "https://www.google.com/intl/en_us/search/howsearchworks",
+   "title": "What Is Google Search And How Does It Work",
+   "content": "Trustworthy and timely information empowers you to better understand your world and make educated decisions. Google aims to make it easier to stay informed by using technology to organize and help people access information about current issues and events across a wide range of sources.\n\n  Learn more\n Video still of a woman working in a shop.\n\n  Sell ads, nothing more [...] Learn more\n A small business owner smiles while working on his sewing machine \n\n  Economic Impact\n\n  Fueling economic transformation\n\n  Learn more\n Two farmers use a smartphone while working with plants \n\n  GOOGLE AI\n\n  Advancing AI for everyone\n\n  Learn more [...] We keep your data private and secure with tools that put you in control and a world-class security infrastructure.\n\nLearn more A group of smiling young people sharing information on their smartphones \n\nMaximizing access to information\n\nWe help people discover a broad range of information from a wide variety of sources.\n\nLearn more A woman live-casts her home business \n\nHelping creators succeed online",
+   "published_date": null,
+   "score": 0.025028326
+  },
+  {
+   "url": "https://about.google",
+   "title": "About Google: Our products, technology and company ...",
+   "content": "## Gemini app is now available for Windows\n\nGet help from AI with a simple keyboard shortcut, directly from your desktop.\n\nCheck it out\n\n## Google around the globe\n\nLearn about Google's work and impact around the world.\n\nExplore\n\n### Get the latest news from Google in your inbox\n\nSign up to receive top stories from the week — from product announcements, to everyday tips.\n\nSubscribe [...] Jump to Content \n\n# Introducing Gemini 3.8 Flash and 3.8 Flash Cyber\n\nOur newest Gemini models deliver next-generation intelligence for agentic workflows and cybersecurity.\n\nLearn more\n\n######\n\n Explore our products and features across Search, Google Workspace, and more\n Learn all about our leading AI models — and discover their capabilities\n See how we’re tackling some of the most challenging problems in computer science\n\nPlay silent looping video Pause silent looping video",
+   "published_date": null,
+   "score": 0.022631409
+  }
+ ]
+}

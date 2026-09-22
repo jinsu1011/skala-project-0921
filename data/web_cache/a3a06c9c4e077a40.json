@@ -1,0 +1,65 @@
+{
+ "query": "limitations and critical assessments of SK hynix ITME KV cache by investors, analysts, and media",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:02:37+09:00",
+ "results": [
+  {
+   "url": "https://www.it-boltwise.de/deepseek-v4-1-flash-kv-cache-schrumpft-deutlich-warum-samsung-sk-hynix-dennoch-reagieren.html",
+   "title": "DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren",
+   "content": "Der Kernpunkt, der die Kursbewegung ausgelöst haben dürfte, ist die KV-Cache-Reduktion – allerdings in einem engeren Sinn als die Schlagzeilen vermuten lassen. DeepSeek beschreibt in seinem technischen Report auf Hugging Face, dass CSA2, FP4 Key-Value Caching und SWA Bounded Replay den globalen KV-Cache-Footprint auf rund 890 Byte pro Token senken, also auf etwa ein Viertel im Vergleich zu DeepSeek-V4-Flash. Zusätzlich nennt das Unternehmen, dass persistentes KV-Storage auf ungefähr ein Achtel [...] genannt, danach für das zweite Quartal weitere 58 % bis 63 %. Bei NAND Flash beziffert TrendForce das Wachstum der Kontraktpreise im zweiten Quartal auf 70 % bis 75 %. Wenn Investoren solche Bewegungen bereits im Blick haben, reicht eine technisch klingende Effizienzstory oft aus, um kurzfristig die Annahmen zur Nachfragekurve zu hinterfragen. [...] – DeepSeek hat mit V4.1-Flash ein neues Modell vorgestellt, das laut Hersteller den KV-Cache deutlich reduziert. Die Recheneffizienz kommt beim Markt so schnell an, dass Samsung und SK Hynix am 11. September spürbar nachgaben. Gleichzeitig ist die technische Kernaussage enger als die Börsenreaktion: Es geht primär um temporären Inferenz-Speicher, nicht um den kompletten Hardware-Mix. Für Anbieter und Käufer von KI-Infrastruktur verschiebt die Meldung damit vor allem die Diskussion über Kosten",
+   "published_date": null,
+   "score": 0.40204045
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.40049198
+  },
+  {
+   "url": "https://startupfortune.com/deepseeks-new-ai-model-spooked-samsung-and-sk-hynix-investors",
+   "title": "DeepSeek's New AI Model Spooked Samsung and SK ...",
+   "content": "DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors\n\nDeepSeek says V4.1-Flash cuts its KV cache memory use to a quarter of the prior model. Samsung and SK Hynix investors treated that narrow technical claim like a warning shot at the whole AI memory trade. [...] Here's the catch. The memory claim is narrower than the share-price reaction made it look. DeepSeek's Hugging Face technical report says CSA2, FP4 key-value caching and SWA Bounded Replay reduce the global KV cache footprint to roughly 890 bytes per token, about one quarter of DeepSeek-V4-Flash. It also says persistent KV storage falls to about one eighth of the prior model. A Yahoo Finance article carried through Stocktwits framed the same point as a pressure point for Samsung and SK Hynix, [...] Home › Ai\n\n# DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors\n\nDeepSeek's new V4.1 Flash model claims a fourfold cut in KV cache memory use, and Korean investors reacted fast: Samsung fell 3.5% and SK Hynix 2.2% in Seoul on September 11 while Micron and SanDisk held steady in the US. The drop came just two days after Goldman Sachs called a bottom in the memory downturn, complicating the idea that DeepSeek alone drove the selloff.\n\nRon Patel\n\n· 5 min read · 2.2K reads",
+   "published_date": null,
+   "score": 0.37284824
+  },
+  {
+   "url": "https://en.sedaily.com/markets/2026/03/28/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] The memory shortage remains acute. With supply so scarce, Big Tech firms are scrambling to lock in long-term supply agreements (LTAs) of three to five years or more with the three major memory makers. The memory companies, now in a position of extraordinary leverage, can afford to be selective about which contracts they accept. At SK hynix's recent annual shareholders' meeting, CEO Kwak Noh-jung said, \"Realistically, supply constraints are so tight that it is difficult to accommodate all LTA [...] Securities analysts share the same view. Lee Chang-min, a researcher at KB Securities, said, \"Low-cost AI technologies such as TurboQuant lower the barrier to AI adoption and act to explosively increase overall demand. As computational volume and installed capacity grow and the ecosystem expands, the biggest beneficiaries will ultimately be memory companies.\" Sean Kim, an analyst at Morgan Stanley, also noted, \"When costs fall, the profitability of AI adoption rises, which benefits memory",
+   "published_date": null,
+   "score": 0.3397405
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/27/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] The memory shortage remains acute. With supply so scarce, Big Tech firms are scrambling to lock in long-term supply agreements (LTAs) of three to five years or more with the three major memory makers. The memory companies, now in a position of extraordinary leverage, can afford to be selective about which contracts they accept. At SK hynix's recent annual shareholders' meeting, CEO Kwak Noh-jung said, \"Realistically, supply constraints are so tight that it is difficult to accommodate all LTA [...] Securities analysts share the same view. Lee Chang-min, a researcher at KB Securities, said, \"Low-cost AI technologies such as TurboQuant lower the barrier to AI adoption and act to explosively increase overall demand. As computational volume and installed capacity grow and the ecosystem expands, the biggest beneficiaries will ultimately be memory companies.\" Sean Kim, an analyst at Morgan Stanley, also noted, \"When costs fall, the profitability of AI adoption rises, which benefits memory",
+   "published_date": null,
+   "score": 0.3397405
+  },
+  {
+   "url": "https://en.sedaily.com/news/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] The memory shortage remains acute. With supply so scarce, Big Tech firms are scrambling to lock in long-term supply agreements (LTAs) of three to five years or more with the three major memory makers. The memory companies, now in a position of extraordinary leverage, can afford to be selective about which contracts they accept. At SK hynix's recent annual shareholders' meeting, CEO Kwak Noh-jung said, \"Realistically, supply constraints are so tight that it is difficult to accommodate all LTA [...] Securities analysts share the same view. Lee Chang-min, a researcher at KB Securities, said, \"Low-cost AI technologies such as TurboQuant lower the barrier to AI adoption and act to explosively increase overall demand. As computational volume and installed capacity grow and the ecosystem expands, the biggest beneficiaries will ultimately be memory companies.\" Sean Kim, an analyst at Morgan Stanley, also noted, \"When costs fall, the profitability of AI adoption rises, which benefits memory",
+   "published_date": null,
+   "score": 0.3397405
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Decoding the Jargon and Impact on Samsung, SK Hynix",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] The anxiety deepened when Matthew Prince, CEO of Cloudflare, hailed TurboQuant as \"Google's DeepSeek moment.\" Yet the view from the industry and securities analysts is entirely different. They say the market's panic is simply a misunderstanding born of unfamiliar technical jargon, and that the real signal is a virtuous cycle that will dramatically expand the AI semiconductor market.\n\nTokens Are AI's Dictionary, KV Cache Is Its Notepad, TurboQuant Is Tiny Handwriting [...] To understand what TurboQuant is and what impact it may have, one must first decode the alien terminology. AI reads human language by breaking it into units called tokens — fragments of words. As a conversation grows longer, the AI temporarily writes down earlier tokens' context in memory such as HBM so it does not lose track. It is like sticking Post-it notes beside a thick book to remember the content. This temporary AI notepad is called the KV cache (Key-Value Cache).",
+   "published_date": null,
+   "score": 0.33463344
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.23275496
+  }
+ ]
+}

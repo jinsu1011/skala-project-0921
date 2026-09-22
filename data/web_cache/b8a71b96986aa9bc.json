@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache limitations production serving challenges",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:12+09:00",
+ "results": [
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] Korea's Leading Business News Since 1960\n\n# SK hynix Developing New NAND Products for KV Cache Demands\n\nFinance|\n|\n\nBy Kim Yoon-soo\n\n||\n\nSK hynix's 321-layer QLC NAND product. Photo courtesy of SK hynix - Seoul Economic Daily Finance News from South Korea\n\nSK hynix's 321-layer QLC NAND product. Photo courtesy of SK hynix",
+   "published_date": null,
+   "score": 0.53473455
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141",
+   "title": "HyMCache: A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid Memory",
+   "content": "Thus, our central challenge is to design CXL-HM for HyMCache to overcome the limitations of conventional CMM-H devices and directly support the observed workload characteristics of multi-turn LLM serving.\n\n### 3.3. LLM Targeted CXL-HM [...] prototypes such as SK hynix Niagara further show that shared CXL memory can remain sub-microsecond, reporting 600 ns access latency (SK hynix, 2024). [...] The memory-capacity pressure created by modern LLM serving\ntranslates into expensive GPU and DRAM provisioning\nand lower serving efficiency.\nSpecifically, KV cache\nreuse reduces repeated context-processing work by retaining the intermediate state generated for previously processed tokens, but it also turns the KV cache into reusable data whose capacity, movement, and sharing increasingly influence serving efficiency across turns, sessions, and workers.",
+   "published_date": null,
+   "score": 0.5265625
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "Recently, the conventional inference hierarchy has begun to evolve beyond local storage toward a more centralized and reusable design. In large-scale serving systems, keeping KV cache state in local SSDs leads to fragmentation across nodes and limits reuse when requests are rescheduled or migrated. To address this limitation, recent systems like NVIDIA CMX Context Memory Storage (NVIDIA, 2026b) have introduced a disaggregated, intermediate shared storage tier for inference states. This [...] of the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly [...] Performance Potential Analysis via CMM. To evaluate the performance potential of the proposed architecture, we developed a production-grade empirical platform integrating an SK Hynix CMM (SK hynix, 2024) and two KIOXIA PCIe Gen5 NVMe SSDs (KIOXIA, 2024). To maintain architectural consistency with the FPGA prototype, we utilized 32 GB of the CMM capacity as the DRAM cache. Leveraging the SPDK framework (Intel, 2016) with 8 PCIe lanes (4 lanes per SSD), this setup achieves a peak read throughput",
+   "published_date": null,
+   "score": 0.5253938
+  },
+  {
+   "url": "https://www.all-about-industries.com/sk-hynix-presents-hybrid-storage-architecture-for-better-ki-inference-a-73bfd0eb323c3a35bd0391c0571a7c59",
+   "title": "SK Hynix Introduces Hybrid Memory Architecture for Improved AI Inference",
+   "content": "The integration of NAND into HBM-related packaging poses considerable challenges. In addition to latency, controller design, wear leveling and the management of block-based addressing are particularly critical. Write performance is also becoming increasingly important for KV cache applications. [...] The concept is driven by the growing memory requirements of large language models in inference. In particular, the key-value cache (KV cache), which caches context information, scales strongly with sequence lengths and batch sizes.\n\nSequences in the million-token range can require cache sizes in the terabyte range. In today's systems, the limited HBM capacity means that data has to be outsourced to local SSDs or GPUs have to be scaled. Both increase latency and energy requirements. [...] According to SK Hynix, simulations with eight HBM3E stacks and eight HBF stacks in combination with a Blackwell B200 GPU show an up to 2.69-fold increase in performance per watt compared to HBM-only configurations. With a KV cache of 10 million tokens, the possible batch size increased by a factor of 18.8.\n\n### Technical Hurdles and Standardization",
+   "published_date": null,
+   "score": 0.49919498
+  },
+  {
+   "url": "https://introl.com/blog/kv-cache-optimization-memory-efficiency-production-llms-guide",
+   "title": "KV Cache Optimization: Memory Efficiency for Production LLMs",
+   "content": "KV cache optimization represents one of the highest-impact improvements for production LLM deployments. PagedAttention alone delivers 2-4x throughput improvements—equivalent to doubling or quadrupling GPU investment without additional hardware cost. [...] Performance: LMCache with vLLM achieves 3-10x latency reduction versus recomputation by caching in CPU memory rather than regenerating.¹⁰\n\n### Disk offloading\n\nFor extreme cases, cache to NVMe storage: - Latency: 100-500ms per retrieval - Use case: Very long contexts that would otherwise be impossible - Not suitable for interactive applications\n\n### Tiered caching\n\nProduction systems often implement multi-tier caching: [...] LLM inference systems waste 60-80% of allocated KV cache memory through fragmentation and over-allocation.¹ That waste translates directly into reduced throughput, higher costs, and artificial limits on context lengths. PagedAttention, introduced by vLLM, slashed KV cache waste to under 4%, enabling 2-4x throughput improvements that transformed production inference economics.² Understanding KV cache optimization techniques helps organizations maximize GPU utilization and serve more users from",
+   "published_date": null,
+   "score": 0.48674685
+  },
+  {
+   "url": "https://kga-it.com/en/blog/ml-inference-kv-cache-management-2026",
+   "title": "KV Cache Management 2026: FP8 KV, MoE Memory Profiles, CPU/NVMe Offload, Multi-Tenant Isolation — KGA Tech Blog | KGA IT",
+   "content": "Running a 70B-class dense model at 128K sequence length across 256 concurrent sessions demands over 1 TB of HBM for KV cache alone. MoE architectures (Mixtral-8x22B, DeepSeek-V3 lineage) are sparse in computation thanks to expert routing, but KV cache is fully materialized, so memory pressure is equivalent to or greater than a dense model. In 2026, serving teams spend the bulk of their day on one problem: how to pack KV cache tightly enough to keep GPUs fed. HBM alone is clearly insufficient. [...] ## Paging and CPU/NVMe Offload\n\nPagedAttention manages KV in 16-token page units without requiring contiguous HBM allocation. In 2026, extending these \"pages\" across three tiers — HBM, CPU memory, and NVMe — has entered production use. [...] Skip to content\n\nKGAIT Solutions\n\nBack to articles\n\nInfrastructure15分\n\n# KV Cache Management 2026: FP8 KV, MoE Memory Profiles, CPU/NVMe Offload, Multi-Tenant Isolation\n\n吉田 遼Senior Systems Engineer, LLM Serving2026-04-2215分\n\nKV CacheFP8MoELMCacheSGLangvLLMMulti-Tenant\n\n## Why KV Cache Is the Serving Bottleneck",
+   "published_date": null,
+   "score": 0.44869256
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-completes-worlds-first-233900809.html",
+   "title": "SK hynix Completes World's First HBM4 Development and Readies Mass Production",
+   "content": "\"We are unveiling the establishment of the world's first mass production system of HBM4,\" Justin Kim, President & Head of AI Infra at SK hynix, said. \"HBM4, a symbolic turning point beyond the AI infrastructure limitations, will be a core product for overcoming technological challenges.\" \"We will grow into a full-stack AI memory provider by supplying memory products with the best quality and diverse performance required for the AI era in a timely manner.\"\n\nAbout SK hynix Inc. [...] - The product's bandwidth has doubled and power efficiency has improved 40% compared to the previous generation\n\n- Company to overcome the technological challenges of the AI era with HBM4, a symbolic turning point beyond AI infrastructure limitations",
+   "published_date": null,
+   "score": 0.32530668
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "these performance improvements and consistent service standards as model size, context windows, precision requirements, and concurrency demands continue to grow.” [...] The result is lower latency, higher throughput, increased efficiency of GPU clusters, consistent achievement of stringent service-level agreements (SLAs), and faster time-to-first-token (TTFT). [...] gpu technical",
+   "published_date": null,
+   "score": 0.31744793
+  }
+ ]
+}

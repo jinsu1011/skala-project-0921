@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache market analysis outlook",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:18+09:00",
+ "results": [
+  {
+   "url": "https://www.investing.com/news/stock-market-news/sk-hynix-upgraded-to-bbb-by-sp-on-strong-memory-chip-outlook-93CH-4488773",
+   "title": "SK Hynix upgraded to ’BBB+’ by S&P on strong memory chip outlook By Investing.com",
+   "content": "S&P forecasts SK Hynix’s revenue to reach Korean won (KRW) 162 trillion in 2026 and KRW 179 trillion in 2027, with EBITDA projected at KRW 112 trillion and KRW 116 trillion respectively. These figures represent a substantial increase from 2025’s revenue of KRW 97 trillion and EBITDA of KRW 61 trillion. [...] S&P believes SK Hynix will maintain disciplined financial policies while accumulating cash. The company is forecast to generate operating cash flow of KRW 82 trillion in 2026 and KRW 93 trillion in 2027, significantly exceeding planned capital expenditures of KRW 40 trillion and KRW 46 trillion for those years.\n\nPotential risks include increased competition in the HBM segment and possible spending cuts by cloud service providers, which could negatively impact demand and pricing. [...] © Reuters.\n\nInvesting.com -- S&P Global Ratings has upgraded SK Hynix to ’BBB+’ with a positive outlook, citing expectations of strong operating performance over the next one to two years.",
+   "published_date": null,
+   "score": 0.6342494
+  },
+  {
+   "url": "https://flash.stocksentinel.ai/research/SKHY",
+   "title": "SK hynix Inc. (SKHY) Stock Research Report | Flash",
+   "content": "| Growth Outlook | 7 / 10 | Highly favorable short-term AI demand offset by long-term capacity maturation [cite: 13, 19]. |\n| Financial Health | 9 / 10 | Strong net cash position of 35 trillion KRW and low debt-to-equity ratio of 12% [cite: 14, 22]. |\n| Business Viability | 7 / 10 | Strong technological moat countered by high cyclicality and supply chain bottlenecks [cite: 13, 34, 46]. | [...] ### Market Position: 9/10\n\nSK hynix holds a strong competitive position in the global memory market, particularly in HBM where it possesses a 56.4% revenue share as of Q1 2026 [cite: 5]. The company is the primary qualified supplier for NVIDIA's high-margin GPU architectures [cite: 12, 13]. While Samsung and Micron are expanding capacity, SK hynix’s established yields and packaging technology allow it to hold its dominant position in premium segments [cite: 11, 12].\n\n### Growth Outlook: 7/10 [...] The short-term growth outlook is strong, supported by the buildout of advanced AI infrastructure and enterprise storage [cite: 14, 15]. However, the five-year growth outlook is moderated by cyclical limits [cite: 13, 34]. As industry capacity ramps up, high-density DRAM and HBM are likely to experience supply-demand balance or eventual oversupply, which would decelerate growth rates back toward historical single-digit averages [cite: 13, 34].\n\n### Financial Health: 9/10",
+   "published_date": null,
+   "score": 0.55275756
+  },
+  {
+   "url": "https://news.skhynix.com/en/2026-market-outlook-focus-on-the-hbm-led-memory-supercycle",
+   "title": "2026 Market Outlook – “Focus on the HBM-Led Memory Supercycle”",
+   "content": "According to Counterpoint Research, SK hynix maintains a dominant position ranking No. 1 in the market with a 62% share of HBM shipments as of Q2 2025 and 57% of revenue as of Q3. Goldman Sachs assessed that “SK hynix will maintain its dominant position in HBM3 and HBM3E until at least 2026, sustaining a total HBM market share of over 50%.” UBS highlighted the company’s standing among Big Tech clients, noting that SK hynix will be the first HBM3E supplier for Google’s latest Tensor Processing [...] As a result, SK hynix is expected to secure a unique competitive position by maintaining its market leadership in HBM3E while proactively establishing a development and supply system for HBM4, enabling it to fully support two generations of products by 2026.\n\nUBS predicts that SK hynix will achieve approximately a 70% market share in the HBM4 market for NVIDIA’s next-generation Rubin platform in 2026. This suggests that its current leadership is carrying over to future technology generations. [...] In 2026, the global semiconductor industry is entering a transitional period as market structures and value chains realign to accommodate AI infrastructure expansion. The total market is projected to approach the $1 trillion mark, with memory semiconductors emerging as a key driver in terms of both demand and profitability. In particular, industry experts expect SK hynix to be the primary anchor of this shift, as a chipmaker capable of delivering both HBM3E and next-gen HBM4 reliably.",
+   "published_date": null,
+   "score": 0.49377534
+  },
+  {
+   "url": "https://www.marketsentiment.co/p/deep-dive-sk-hynix",
+   "title": "Deep Dive: SK Hynix - Market Sentiment",
+   "content": "Only five years ago, SK Hynix's NAND segment was widely viewed as a loss-making “secondary” business. The acquisition of Solidigm (a semiconductor subsidiary) for $9B from Intel in 2021 has helped turn around this segment. The company has strategically moved away from the volatile consumer SSD market to prioritize high-margin enterprise SSDs (eSSDs) for AI data centers. This pivot towards specialized, high-capacity storage has further boosted the company’s profitability and overall margins. [...] Then AI changed everything — models required enormous amounts of memory to operate, and AI-generated images and videos required significant storage. With companies spending hundreds of billions in capex, the demand for DRAM and NAND skyrocketed, far outstripping the available supply. As a result, SKY Hynix’s revenue tripled from $22.8B in 2023 to $66.3B in 2025.\n\nThe company operates in two major segments:\n\n#### DRAM (Dynamic Random Access Memory) [...] SK Group had massive trust in its newly acquired child. They readily opened their purse for a massive R&D expansion. The banks had previously starved Hynix of cash, and the company could only spend what it earned. SK Group immediately invested $3.5B in the first year, despite the chip market remaining depressed. This gave the company a head start on the next generation of technologies, while its competitors cut costs in a weak market.",
+   "published_date": null,
+   "score": 0.3939683
+  },
+  {
+   "url": "https://futurumgroup.com/insights/will-sk-hynixs-record-265bn-adr-issuance-help-close-its-capex-intensity-gap",
+   "title": "SK Hynix ADR Issuance Strategy",
+   "content": "Analyst Take: The SK Hynix capex outlook just gained a $26.5bn variable. By selling 177.9 million ADRs at $149 each in the largest-ever U.S. listing by a foreign company, SK Hynix has secured dollar-denominated firepower and direct access to the world’s deepest capital market. The obvious question is whether the listing allows SK Hynix’s stock to keep pace with rivals whose shares, like Samsung’s and Micron’s, have skyrocketed amid the AI memory boom. Our answer is that the listing is not",
+   "published_date": null,
+   "score": 0.38671768
+  },
+  {
+   "url": "https://ca.investing.com/news/analyst-ratings/morgan-stanley-upgrades-sk-hynix-stock-rating-to-overweight-on-hbm-outlook-93CH-4211632",
+   "title": "Morgan Stanley upgrades SK Hynix stock rating to Overweight on HBM outlook By Investing.com",
+   "content": "Morgan Stanley’s analysis indicates that SK Hynix shares are currently trading below fair value based on residual income valuation of base case earnings, which the firm characterizes as \"a conservative earnings scenario.\"\n\nThis article was generated with the support of AI and reviewed by an editor. For more information see our T&C.\n\nSK Hynix\n\nIncluded in our AI-picked strategies\n\n·\n\nReview strategies\n\n1,868,000.00\n\n▲+11,000(+0.59%)\n\nClosed··KRW\n\nStart trading 000660 now [...] Morgan Stanley raised its price target to KRW410,000, driven by \"significantly higher NAND pricing and commodity DRAM pricing,\" which pushes the stock’s intrinsic value higher and implies a multiple closer to the historical peak-cycle valuation of 2.0x 2026 estimated price-to-book ratio.\n\nThe firm now expects future HBM earnings revisions to align more closely with the overall HBM total addressable market revenue growth, establishing a 2:1 bull/bear skew for the stock. [...] 113.24\n\n+4.70\n\n+4.33%\n\nTSLA\n\n364.27\n\n-1.93\n\n-0.53%\n\nCanada 5Y\n\n3.565\n\n-0.032\n\n-0.89%\n\nCanada 10Y\n\n3.847\n\n-0.031\n\n-0.80%\n\nCanada 30Y\n\n4.164\n\n-0.027\n\n-0.64%\n\nU.S. 2Y\n\n4.731\n\n-0.012\n\n-0.25%\n\nU.S. 10Y\n\n4.96\n\n-0.036\n\n-0.72%\n\nU.S. 30Y\n\n5.296\n\n-0.031\n\n-0.58%\n\nGermany 10Y\n\n3.4495\n\n-0.0722\n\n-2.05%\n\nAdvertisement\n\nInvesting Challenges\n\nJoin our investing challenges and compete for rewards while you learn!\n\nMost Popular Articles\n\nNews\n\nAnalysis\n\n[](",
+   "published_date": null,
+   "score": 0.3825571
+  },
+  {
+   "url": "https://www.investing.com/news/analyst-ratings/morgan-stanley-upgrades-sk-hynix-stock-rating-to-overweight-on-hbm-outlook-93CH-4248174",
+   "title": "Morgan Stanley upgrades SK Hynix stock rating to Overweight on HBM outlook By Investing.com",
+   "content": "Morgan Stanley raised its price target to KRW410,000, driven by \"significantly higher NAND pricing and commodity DRAM pricing,\" which pushes the stock’s intrinsic value higher and implies a multiple closer to the historical peak-cycle valuation of 2.0x 2026 estimated price-to-book ratio.\n\nThe firm now expects future HBM earnings revisions to align more closely with the overall HBM total addressable market revenue growth, establishing a 2:1 bull/bear skew for the stock. [...] Morgan Stanley’s analysis indicates that SK Hynix shares are currently trading below fair value based on residual income valuation of base case earnings, which the firm characterizes as \"a conservative earnings scenario.\"\n\nThis article was generated with the support of AI and reviewed by an editor. For more information see our T&C.\n\n## Latest comments\n\nJoin our investing challenges and compete for rewards while you learn! [...] | Name | Last | Chg. % | Vol. |  |\n ---  --- \n| MSTR | 153.92 | +16.39% | 54.67M |  |\n| SNDK | 1,791.82 | +10.99% | 17.79M |  |\n| LRCX | 288.11 | +6.98% | 19.64M |  |\n| STX | 858.79 | +6.93% | 6.98M |  |\n| AMAT | 444.57 | +6.51% | 14.30M |  |\n| TER | 371.47 | +5.19% | 4.29M |  |\n| KLAC | 176.99 | +4.74% | 20.07M |  |",
+   "published_date": null,
+   "score": 0.36745238
+  },
+  {
+   "url": "https://ca.investing.com/equities/sk-hynix-inc",
+   "title": "SK Hynix Stock Price Today KS 000660 - Investing.com Canada",
+   "content": "The average 12-month price target for SK Hynix is 3,184,025 KRW, with a high estimate of 5300000 KRW and a low estimate of 1535000 KRW. 37 analysts recommend buying the stock, while 0 suggest selling, leading to an overall rating of Strong Buy. The stock has an +71.46% Upside potential.\n\nFind a Stock Broker\n\nIndices Commodities Bonds Stocks\n\n1D\n\n1W\n\n1M\n\n6M\n\n1Y\n\n5Y\n\nMax\n\n\n\n51,807.20\n\n+126.5\n\n+0.24%\n\nUS 500\")\n\n7,669.40\n\n+19.3\n\n+0.25%\n\nS&P 500 VIX\")\n\n14.81\n\n-0.63\n\n-4.08%\n\nDAX\")\n\n25,304.06 [...] Fair Value\n\nImage 3: unlockUnlock\n\nFair Value Upside\n\nImage 4: unlockUnlock\n\nMarket Cap\n\n1.35 P\n\nShares Outstanding\n\n728.87 M\n\nRevenue\n\n189.17 T\n\nNet Income\n\n161.97 M\n\nEPS\n\n227,588.301\n\nEPS Growth Forecast\n\nImage 5: unlockUnlock\n\nNext Earnings Date\n\nOct 27, 2026\n\nDividend (Yield)3,000.00 (0.16%)\n\nDividends Payment Streak \n\nImage 6: unlockUnlock\n\nRSI(14)60.18\n\nP/E Ratio\n\n7.96\n\nReturn on Assets\n\n67.8%\n\nReturn on Equity\n\n92.7%\n\nGross Profit Margin\n\n76.3%\n\nPrice/Book\n\n5.16\n\nEBITDA\n\n143.6 T [...] As of today, SK Hynix market cap is 1,353.5T KRW. \n\n### What Is SK Hynix's Earnings Per Share (TTM)?\n\nThe SK Hynix EPS (TTM) is 227,588.\n\n### When Is the Next SK Hynix Earnings Date?\n\nSK Hynix will release its next earnings report on Oct 27, 2026.\n\n### From a Technical Analysis Perspective, Is 000660 a Buy or Sell?\n\nBased on moving averages and other technical indicators, the daily buy/sell signal is Strong Buy.\n\n### How Many Times Has SK Hynix Stock Split?\n\nSK Hynix has split 2 times.",
+   "published_date": null,
+   "score": 0.30238128
+  }
+ ]
+}

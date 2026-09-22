@@ -1,0 +1,65 @@
+{
+ "query": "academic or third party analysis of SK hynix ITME KV cache limitations and implementation costs",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:11:21+09:00",
+ "results": [
+  {
+   "url": "https://www.techtimes.com/articles/323501/20260807/sk-hynix-elevates-enterprise-nand-hbm-status-134-billion-dedicated-fab.htm",
+   "title": "SK Hynix Elevates Enterprise NAND to HBM Status With $13.4 Billion Dedicated Fab",
+   "content": "SK hynix's board approval today is, in effect, a ₩19.1 trillion ($13.4 billion) corporate wager that this analysis is correct: that enterprise SSD storage has permanently crossed from commodity status into a structural AI infrastructure input, in the same way HBM did in 2023. If it is correct, Cheongju M17 will come online — its first cleanroom is targeted for December 2028 — precisely as the second wave of agentic AI deployments is scaling past the point where HBM can contain the KV-cache. [...] This is not a hypothetical trajectory. Nvidia's current Vera Rubin platform architecture already assumes it. Analysis from Nomura cited by Tom's Hardware describes Nvidia's Inference Context Memory Storage Platform — a subsystem built on BlueField-4 data processing units equipped with 512-gigabyte NVMe SSDs — as a standard component of NVL144 rack deployments. Each rack carries eighteen such DPUs, meaning 9.2 terabytes of enterprise NAND per rack specifically for KV-cache management. At a [...] TrendForce's May 2026 analysis concluded that agentic AI is reshaping memory demand at a structural level, not a cyclical one: inferencing in agentic systems has evolved from discrete queries into continuous iterative cycles, while KV-cache requirements scale proportionally with context window size. The same research raised TrendForce's global memory market forecast for 2027 to more than $1.28 trillion — roughly 44 percent above the prior year — with agentic AI identified as the primary driver",
+   "published_date": null,
+   "score": 0.3895703
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] \"As the AI market expands from training to inference-centric operations, the role of NAND is rapidly changing into a key element in configuring the AI memory hierarchy,\" SK hynix said. \"We will expand our NAND product families to secure new growth drivers.\"\n\n#SKhynix#NAND#KVCache#AIMemory#HBM#GPU#AIChips\n\n## Companies in this story\n\nSK hynix\n\n000660.KS · Semiconductor\n\nAI KEY Company Analysis →\n\nOriginal reporting by Kim Yoon-soofor Seoul Economic Daily. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.29290414
+  },
+  {
+   "url": "https://www.it-boltwise.de/deepseek-v4-1-flash-kv-cache-schrumpft-deutlich-warum-samsung-sk-hynix-dennoch-reagieren.html",
+   "title": "DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren",
+   "content": "über Kosten pro Anfrage. [...] MIT-Lizenz, was die Schwelle für Entwickler senkt, um Latenz, Speichernutzung und Kosten in eigenen Workloads gegenzutesten – allerdings nur dort, wo die passende Hardware vorhanden ist. [...] – DeepSeek hat mit V4.1-Flash ein neues Modell vorgestellt, das laut Hersteller den KV-Cache deutlich reduziert. Die Recheneffizienz kommt beim Markt so schnell an, dass Samsung und SK Hynix am 11. September spürbar nachgaben. Gleichzeitig ist die technische Kernaussage enger als die Börsenreaktion: Es geht primär um temporären Inferenz-Speicher, nicht um den kompletten Hardware-Mix. Für Anbieter und Käufer von KI-Infrastruktur verschiebt die Meldung damit vor allem die Diskussion über Kosten",
+   "published_date": null,
+   "score": 0.27846077
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Decoding the Jargon and Impact on Samsung, SK Hynix",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] To understand what TurboQuant is and what impact it may have, one must first decode the alien terminology. AI reads human language by breaking it into units called tokens — fragments of words. As a conversation grows longer, the AI temporarily writes down earlier tokens' context in memory such as HBM so it does not lose track. It is like sticking Post-it notes beside a thick book to remember the content. This temporary AI notepad is called the KV cache (Key-Value Cache). [...] The anxiety deepened when Matthew Prince, CEO of Cloudflare, hailed TurboQuant as \"Google's DeepSeek moment.\" Yet the view from the industry and securities analysts is entirely different. They say the market's panic is simply a misunderstanding born of unfamiliar technical jargon, and that the real signal is a virtuous cycle that will dramatically expand the AI semiconductor market.\n\nTokens Are AI's Dictionary, KV Cache Is Its Notepad, TurboQuant Is Tiny Handwriting",
+   "published_date": null,
+   "score": 0.23680776
+  },
+  {
+   "url": "https://en.sedaily.com/markets/2026/03/28/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] Securities analysts share the same view. Lee Chang-min, a researcher at KB Securities, said, \"Low-cost AI technologies such as TurboQuant lower the barrier to AI adoption and act to explosively increase overall demand. As computational volume and installed capacity grow and the ecosystem expands, the biggest beneficiaries will ultimately be memory companies.\" Sean Kim, an analyst at Morgan Stanley, also noted, \"When costs fall, the profitability of AI adoption rises, which benefits memory [...] — the economic principle that when technological efficiency lowers the cost of a resource (in this case, inference), total usage explodes rather than declines.",
+   "published_date": null,
+   "score": 0.22944926
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/27/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] Securities analysts share the same view. Lee Chang-min, a researcher at KB Securities, said, \"Low-cost AI technologies such as TurboQuant lower the barrier to AI adoption and act to explosively increase overall demand. As computational volume and installed capacity grow and the ecosystem expands, the biggest beneficiaries will ultimately be memory companies.\" Sean Kim, an analyst at Morgan Stanley, also noted, \"When costs fall, the profitability of AI adoption rises, which benefits memory [...] — the economic principle that when technological efficiency lowers the cost of a resource (in this case, inference), total usage explodes rather than declines.",
+   "published_date": null,
+   "score": 0.22944926
+  },
+  {
+   "url": "https://en.sedaily.com/news/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] Securities analysts share the same view. Lee Chang-min, a researcher at KB Securities, said, \"Low-cost AI technologies such as TurboQuant lower the barrier to AI adoption and act to explosively increase overall demand. As computational volume and installed capacity grow and the ecosystem expands, the biggest beneficiaries will ultimately be memory companies.\" Sean Kim, an analyst at Morgan Stanley, also noted, \"When costs fall, the profitability of AI adoption rises, which benefits memory [...] — the economic principle that when technological efficiency lowers the cost of a resource (in this case, inference), total usage explodes rather than declines.",
+   "published_date": null,
+   "score": 0.22944926
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/28/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] Securities analysts share the same view. Lee Chang-min, a researcher at KB Securities, said, \"Low-cost AI technologies such as TurboQuant lower the barrier to AI adoption and act to explosively increase overall demand. As computational volume and installed capacity grow and the ecosystem expands, the biggest beneficiaries will ultimately be memory companies.\" Sean Kim, an analyst at Morgan Stanley, also noted, \"When costs fall, the profitability of AI adoption rises, which benefits memory [...] — the economic principle that when technological efficiency lowers the cost of a resource (in this case, inference), total usage explodes rather than declines.",
+   "published_date": null,
+   "score": 0.22944926
+  }
+ ]
+}
