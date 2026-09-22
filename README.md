@@ -2,6 +2,13 @@
 본 프로젝트는 KV cache 최적화 기술을 소프트웨어, 하드웨어 두 진영에서 선정하여,
 기술 성숙도(TRL)·시장·이해관계자·도메인 관점에서 평가하는 Agentic RAG를 개발하는 프로젝트 임.
 
+
+## Overview
+- Objective : 하나의 기술을 복수 관점에서 비교 평가 (우열·추천 판정 없이, 관점별 인식 차이와 그 근거·조건을 추적)
+- Method : Multi-Agent(Distributed) + Agentic RAG
+- Tools : LangGraph, LangChain, FAISS, BM25(rank-bm25), sentence-transformers, Tavily, PyMuPDF, LangSmith, uv
+- 결과물 : 평가 보고서 `deliverables/RAG-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf` (그래프 실행으로 자동 생성)
+
 ## Directory Structure
 ```
 ├── app.py                 # 실행 스크립트 (CLI 옵션, API 키 없으면 offline 자동 전환)
@@ -36,12 +43,6 @@
 ├── pyproject.toml / uv.lock
 └── README.md
 ```
-
-## Overview
-- Objective : 하나의 기술을 복수 관점에서 비교 평가 (우열·추천 판정 없이, 관점별 인식 차이와 그 근거·조건을 추적)
-- Method : Multi-Agent(Distributed) + Agentic RAG
-- Tools : LangGraph, LangChain, FAISS, BM25(rank-bm25), sentence-transformers, Tavily, PyMuPDF, LangSmith, uv
-- 결과물 : 평가 보고서 `deliverables/RAG-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf` (그래프 실행으로 자동 생성)
 
 
 ## Selected Technologies
