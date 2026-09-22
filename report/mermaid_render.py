@@ -26,6 +26,85 @@ def find_chrome() -> str | None:
     return None
 
 
+# Subgraph titles are centred by Mermaid, so edges entering a cluster run through them.
+# After layout, move each title to the first of centre/left/right that clears edge lines,
+# edge labels and nodes, then lift it above the edges with a halo in the cluster fill.
+TIDY_JS = r"""
+function tidyTitles() {
+  const svg = document.querySelector('#g svg'); if (!svg) return;
+  const top = svg.querySelector(':scope > g');
+  const R = el => el.getBoundingClientRect();
+  const hit = (a, b) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+  const pts = [];
+  svg.querySelectorAll('.edgePaths path, path.flowchart-link').forEach(p => {
+    const m = p.getScreenCTM(), n = p.getTotalLength();
+    for (let d = 0; d <= n; d += 3) pts.push(p.getPointAtLength(d).matrixTransform(m));
+  });
+  const nodes = [...svg.querySelectorAll('.node')].map(R);
+  const onLine = r => pts.some(q => q.x > r.left && q.x < r.right && q.y > r.top && q.y < r.bottom);
+  const onNode = r => nodes.some(b => hit(r, b));
+  const titles = [];
+  // A node outside a cluster can straddle its top edge (dagre bounds clusters by rank);
+  // push that edge below the node and move the title with it.
+  svg.querySelectorAll('g.cluster').forEach(c => {
+    const rect = c.querySelector(':scope > rect'), lab = c.querySelector(':scope > .cluster-label');
+    const cr = R(rect);
+    const lo = Math.max(0, ...nodes.filter(n => n.top < cr.top && n.bottom > cr.top && n.left < cr.right && n.right > cr.left)
+                                   .map(n => n.bottom + 8 - cr.top));
+    if (!lo) return;
+    rect.setAttribute('y', +rect.getAttribute('y') + lo);
+    rect.setAttribute('height', +rect.getAttribute('height') - lo);
+    const down = lab ? Math.max(0, cr.top + lo + 4 - R(lab).top) : 0;
+    if (down) lab.setAttribute('transform', (lab.getAttribute('transform') || '') + ` translate(0,${down})`);
+  });
+  svg.querySelectorAll('g.cluster').forEach(c => {
+    const rect = c.querySelector(':scope > rect'), lab = c.querySelector(':scope > .cluster-label');
+    if (!rect || !lab) return;
+    const cr = R(rect), lr = R(lab), pad = 6;
+    const grow = (r, dx) => ({left: r.left + dx - pad, right: r.right + dx + pad, top: r.top - 2, bottom: r.bottom + 2});
+    const cands = [0, cr.left + 12 - lr.left, cr.right - 12 - lr.right];
+    const dx = cands.find(d => !onLine(grow(lr, d)) && !onNode(grow(lr, d)))
+            ?? cands.find(d => !onNode(grow(lr, d))) ?? 0;
+    const m = top.getScreenCTM().inverse().multiply(lab.getScreenCTM()).translate(dx, 0);
+    const fo = lab.querySelector('foreignObject'), w = +fo.getAttribute('width'), h = +fo.getAttribute('height');
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.setAttribute('transform', `matrix(${m.a},${m.b},${m.c},${m.d},${m.e},${m.f})`);
+    const f = getComputedStyle(rect).fill;
+    fo.querySelectorAll('span, div, p').forEach(t => t.style.textShadow =
+      [[-2,0],[2,0],[0,-2],[0,2],[-1.5,-1.5],[1.5,-1.5],[-1.5,1.5],[1.5,1.5]].map(([x, y]) => `${x}px ${y}px 0 ${f}`).join(','));
+    g.appendChild(fo); lab.remove(); top.appendChild(g);
+    titles.push(R(g));
+  });
+  // Edge labels go on top; a label that sits on a node, a title or another label
+  // slides along its own edge to the nearest free spot.
+  const paths = [...svg.querySelectorAll('.edgePaths path, path.flowchart-link')].map(p => {
+    const m = p.getScreenCTM(), n = p.getTotalLength(), a = [];
+    for (let d = 0; d <= n; d += 2) a.push(p.getPointAtLength(d).matrixTransform(m));
+    return a;
+  });
+  const placed = [];
+  svg.querySelectorAll('g.edgeLabels').forEach(g => g.parentNode.appendChild(g));
+  svg.querySelectorAll('g.edgeLabel').forEach(el => {
+    const r = R(el); if (r.width < 2) return;
+    const cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2;
+    const busy = (x, y) => { const b = {left: x - r.width / 2 - 3, right: x + r.width / 2 + 3,
+                                        top: y - r.height / 2 - 3, bottom: y + r.height / 2 + 3};
+      return nodes.concat(titles, placed).some(o => hit(b, o)); };
+    let best = null;
+    if (busy(cx, cy)) {
+      const path = paths.reduce((acc, a) => {
+        const d = Math.min(...a.map(q => Math.hypot(q.x - cx, q.y - cy)));
+        return d < acc.d ? {a, d} : acc; }, {a: [], d: Infinity}).a;
+      best = path.filter(q => !busy(q.x, q.y))
+                 .sort((u, v) => Math.hypot(u.x - cx, u.y - cy) - Math.hypot(v.x - cx, v.y - cy))[0] || null;
+    }
+    if (best) el.setAttribute('transform', (el.getAttribute('transform') || '') + ` translate(${best.x - cx},${best.y - cy})`);
+    placed.push(R(el));
+  });
+}
+"""
+
+
 def render(mmd: str, out_png: Path, width: int = 1500, height: int = 4200, font_px: int = 15,
            rank_spacing: int = 34, padding: int = 15, node_spacing: int = 24, title_margin: int = 0) -> Path:
     chrome = find_chrome()
@@ -35,8 +114,10 @@ def render(mmd: str, out_png: Path, width: int = 1500, height: int = 4200, font_
 <style>body{{margin:0;background:#fff;font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif}}
 #g{{display:inline-block;padding:16px}}</style>
 <script>{MERMAID_JS.read_text()}</script></head><body><div id="g"><pre class="mermaid">{html.escape(mmd)}</pre></div>
-<script>mermaid.initialize({{startOnLoad:true,theme:'default',flowchart:{{htmlLabels:true,curve:'basis',useMaxWidth:false,nodeSpacing:{node_spacing},rankSpacing:{rank_spacing},padding:{padding},subGraphTitleMargin:{{top:{title_margin},bottom:{title_margin}}}}},
-themeVariables:{{fontFamily:"'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif",fontSize:'{font_px}px'}}}});</script>
+<script>mermaid.initialize({{startOnLoad:false,theme:'default',flowchart:{{htmlLabels:true,curve:'basis',useMaxWidth:false,nodeSpacing:{node_spacing},rankSpacing:{rank_spacing},padding:{padding},subGraphTitleMargin:{{top:{title_margin},bottom:{title_margin}}}}},
+themeVariables:{{fontFamily:"'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif",fontSize:'{font_px}px'}}}});
+mermaid.run().then(tidyTitles);
+{TIDY_JS}</script>
 </body></html>"""
     with tempfile.TemporaryDirectory() as td:
         f = Path(td) / "g.html"
