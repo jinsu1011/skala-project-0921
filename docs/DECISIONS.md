@@ -171,3 +171,9 @@
 - 측정값 구분은 "v1/v2" 대신 측정 조건 이름("평가" = 입력 길이 1,024, "구현" = 2,048)으로 표기하고, 임베딩·검색 결과표 4개를 조건별 열을 둔 2개로 합쳤다. 기존 수치는 바꾸지 않았다.
 - 그림 1은 조가 직접 측정한 값을 한글 라벨로 다시 그렸다(`report/plot_eval_figure.py`, 원본 영문 차트는 보존). 그림 2a·2b는 노드 18개를 모두 담은 그림 2 하나로 합치고, 항상 지나는 경로는 실선, 조건에 따라 갈리는 경로는 점선으로 그렸다.
 - 그림 2는 팀 초안 그림의 표현 방식 중 세 가지를 가져왔다: 4단계 묶음 상자(선정 검증·RAG 준비 / 기술 조사·관점 평가 / Judge·재실행 / 보고서), 노드별 한국어 설명, 경로를 정하는 노드(`retrieval_grader`, `retry_router`, `final_check`)의 마름모 표기. 구조(노드 18개, 재선정 분기 없음, 원래 관점 노드 재실행, 검수 후 PDF)는 바꾸지 않았다.
+
+## 개발 착수 전 수정 (2026-09-22)
+
+**D42. `index_builder`를 `selection_validator`보다 먼저 실행한다.**
+- 근거: `selection_validator`는 원문을 보고 선정을 검증하고(A.6, D1) 결과에 원문 근거를 남기는데, PDF를 읽고 인덱싱하는 노드는 `index_builder`뿐이다(D5). 기존 순서(`initialize → selection_validator → index_builder`)로는 검증 시점에 원문을 볼 수 없다. 순서를 `initialize → index_builder → selection_validator → query_planner`로 바꾸고, `index_status`를 읽는 노드에 `selection_validator`를 더했다. 노드 수, 분기, 루프 한도는 바꾸지 않았다.
+- 대안: `selected_techs`의 선정 이유만으로 검증(원문 근거가 없어 D1의 추적성 목적과 맞지 않음).
