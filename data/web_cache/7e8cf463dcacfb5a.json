@@ -1,0 +1,44 @@
+{
+ "query": "limitations of Google TurboQuant KV cache in domain suitability independent sources",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:58:23+09:00",
+ "results": [
+  {
+   "url": "https://towardsdatascience.com/kv-cache-is-eating-your-vram-heres-how-google-fixed-it-with-turboquant",
+   "title": "KV Cache Is Eating Your VRAM. Here's How Google Fixed ...",
+   "content": "Though KV cache came as a silver lining for LLMs, it brought up more challenges. It introduced additional memory overhead. This might not be a big issue for SLMs, but mega-LLMs with billions of parameters now became more difficult to load on machines. Roughly 20-30% additional VRAM is consumed by the KV cache alone. The bigger limitation is that this overhead is not static, it keeps growing. This can grow up to the model size itself with long contexts or more concurrent users, since each user",
+   "published_date": null,
+   "score": 0.57437146
+  },
+  {
+   "url": "https://medium.com/online-inference/implementing-googles-turboquant-kv-cache-compression-and-llm-evaluation-with-w-b-1403d460846b",
+   "title": "Implementing Google's TurboQuant: KV Cache Compression and ...",
+   "content": "To address this systemic limitation, Google Research introduced TurboQuant. TurboQuant operates as a training-free compression algorithm that claims to reduce the KV cache memory footprint by a massive factor of six, down to representations as small as 3 bits per value, without degrading downstream model accuracy. Furthermore, the algorithmic efficiency of the approach reportedly yields attention computation speeds up to eight times faster than unquantized baselines on enterprise hardware such [...] limited bit budget across an artificially inflated dynamic range, which ultimately devastates the precision of the vast majority of normal, inlier values. [...] The rapid scaling of large language models has precipitated a severe hardware utilization bottleneck during generative inference, primarily driven by the Key-Value (KV) cache’s architectural requirements. As context windows expand from mere thousands to millions of tokens, the memory footprint required to store previously computed attention states scales linearly, rapidly overwhelming the high-bandwidth memory (HBM) capacities of modern accelerators.",
+   "published_date": null,
+   "score": 0.5697814
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน",
+   "published_date": null,
+   "score": 0.53225553
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน",
+   "published_date": null,
+   "score": 0.53225553
+  },
+  {
+   "url": "https://dev.to/arshtechpro/turboquant-what-developers-need-to-know-about-googles-kv-cache-compression-eeg",
+   "title": "TurboQuant: What Developers Need to Know About ...",
+   "content": "The issue is simple: it grows linearly with context length, and it stores everything in full precision (typically FP16). For an 8B parameter model at 32K context, the KV cache alone can consume around 4.6 GB of VRAM. Scale that to multiple concurrent users or longer contexts, and you're out of memory before the model weights themselves become the bottleneck. [...] Short contexts don't benefit much. Below 1K tokens, the KV cache is small enough that compression savings are negligible and the overhead of rotation + quantization can even be a net negative. TurboQuant really shines at 4K+ tokens.\n\nThe residual window matters. Most implementations keep the most recent 128-256 tokens in full FP16 precision and only compress older tokens. This is important for output quality since attention focuses heavily on recent context. [...] Published by Google Research on March 24, 2026 and headed to ICLR 2026, TurboQuant is a compression algorithm that shrinks the KV cache -- the biggest memory bottleneck during LLM inference -- down to 3-4 bits per element without any retraining or fine-tuning. The result is roughly a 4-6x reduction in KV cache memory with negligible quality loss.",
+   "published_date": null,
+   "score": 0.493043
+  }
+ ]
+}

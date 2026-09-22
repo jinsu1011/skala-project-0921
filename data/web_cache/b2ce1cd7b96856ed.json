@@ -1,0 +1,44 @@
+{
+ "query": "independent sources on SK hynix ITME KV cache accuracy and integration ease",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:58:56+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] hynix, 2026) and Samsung (Samsung Electronics, 2026b) to build remote flash tiers (Sun et al., 2025; Guo et al., 2023; Min et al., 2021; Zhan et al., 2024). On the memory side, memory vendors, cloud providers, and startups, including SK hynix (SK hynix, 2025; SK hynix, 2024), [...] For KV-cache management, PagedAttention (Kwon et al., 2023), Pensieve (Yu et al., 2023), and CachedAttention (Gao et al., 2024) improve paging, placement, and context reuse, while LMCache (Cheng et al., 2025) and Mooncake (Qin et al., 2025) reduce recomputation through KV sharing and disaggregated KV-cache architectures.",
+   "published_date": null,
+   "score": 0.4413124
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "### Results\n\nThe table below shows accuracy on competition math, where KV cache compression matters most. For AIME 2024 and AIME 2025 the KV budget is 2,048 tokens — one-sixteenth of what a full 32K-token trace would otherwise cache; for MATH500 it is 512. All methods run at the same budget. [...] On the eviction track, §3's system solution carries over directly: TriAttention's trigonometric scoring (#ref-1) has been applied to LongLive (#ref-12), a real-time video generator built on Wan2.1-T2V-1.3B. Each KV entry corresponds to spatial patches from one frame, and the scoring decides which frames to evict — no attention scores observed, nothing for the serving stack to fight — cutting the cache by 50% with negligible quality drop; the integration ships in the TriAttention repository. [...] Figure 9. Accuracy-matched comparison on AIME 2025 (Qwen3-8B, 32K-token generation): at a KV budget of 3,072 tokens, TriAttention matches full attention’s 40.8% accuracy while decoding 2.5× faster (563.5 vs. 222.8 tokens/s) and holding 10.7× less KV cache memory.\n\n## 4. KV Cache Infra in Video Generation",
+   "published_date": null,
+   "score": 0.32856226
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory.",
+   "published_date": null,
+   "score": 0.30154762
+  },
+  {
+   "url": "https://www.thelec.net/news/articleView.html?idxno=6179",
+   "title": "Google's TurboQuant Algorithm Compresses AI Memory ...",
+   "content": "Results showed that KV cache could be compressed to 2.5–3.5 bits, reducing memory usage by five to six times compared with the standard 16-bit (FP16) format. At 3.5-bit compression, performance degradation was negligible—effectively \"lossless\"—while even at 2.5 bits, accuracy remained significantly higher than competing methods such as KIVI. [...] The logic of KV cache quantization via QJL transform. Amir Zandieh was an independent researcher at the time of writing the paper. (Source: \n\nThe logic of KV cache quantization via QJL transform. Amir Zandieh was an independent researcher at the time of writing the paper. (Source: \"QJL: 1-Bit Quantized JL Transform for KV Cache Quantization with Zero Overhead\") [...] PolarQuant improves compression quality by minimizing quantization error. In KV cache data, vector values vary widely across dimensions—some axes have broad distributions while others are narrow. Applying uniform quantization to such uneven data leads to inconsistent errors across dimensions and reduced model accuracy.",
+   "published_date": null,
+   "score": 0.27850494
+  },
+  {
+   "url": "https://www.mindstudio.ai/blog/what-is-google-turboquant-kv-cache-compression",
+   "title": "What Is Google TurboQuant? The KV Cache Compression That ...",
+   "content": "In late 2024, Google DeepMind introduced TurboQuant — a KV cache compression algorithm that squeezes memory usage down to 3 bits per value with essentially zero accuracy loss. The result: up to 8x faster inference and 6x reduction in memory consumption on H100 GPUs. When that news landed, Micron and SK Hynix saw their stock prices drop sharply. Investors realized that the industry’s assumption — more AI means more memory demand — had just gotten significantly more complicated. [...] Per-head calibration. Rather than applying a single global quantization scheme across the entire KV cache, TurboQuant calibrates quantization parameters independently for each attention head. Different heads have different value distributions, and treating them uniformly wastes precision where it matters. [...] Google’s research claims accuracy that is statistically indistinguishable from full-precision KV cache on standard benchmarks, including long-context tasks. However, “zero accuracy loss” in this context means performance within the margin of error on the specific benchmarks tested, not a mathematical guarantee. Results may vary slightly depending on the task, model size, and context type. Independent replication of the benchmarks is still in early stages.",
+   "published_date": null,
+   "score": 0.2511657
+  }
+ ]
+}

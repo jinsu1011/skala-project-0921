@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache limitations adoption cost market challenges ecosystem support issues",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:53:56+09:00",
+ "results": [
+  {
+   "url": "https://growthmarketreports.com/report/kv-cache-offloading-infrastructure-market",
+   "title": "KV-Cache Offloading Infrastructure Market Research ...",
+   "content": "Regionally, North America continues to dominate the KV-Cache Offloading Infrastructure market, owing to its advanced technological ecosystem, early adoption of AI/ML technologies, and the presence of major cloud service providers. However, the Asia Pacific region is witnessing the fastest growth, fueled by robust investments in AI infrastructure, the expansion of hyperscale data centers, and the rapid digital transformation of enterprises. Europe is also emerging as a key market, driven by [...] Despite these opportunities, the KV-Cache Offloading Infrastructure market faces several restraining factors, including the high cost of implementation and the complexity of integrating cache management solutions with existing IT infrastructure. Organizations may encounter challenges related to interoperability, scalability, and data security, particularly as they adopt hybrid and multi-cloud architectures. The shortage of skilled professionals with expertise in AI, HPC, and cache management is [...] According to our latest research, the global KV-Cache Offloading Infrastructure market size reached USD 1.87 billion in 2024, driven by exponential growth in AI and high-performance computing workloads. The market is expected to expand at a robust CAGR of 23.6% from 2025 to 2033, reaching a projected value of USD 14.99 billion by 2033. This rapid market expansion is primarily attributed to the surging adoption of generative AI models, the proliferation of data centers, and the critical need for",
+   "published_date": null,
+   "score": 0.5433243
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "## Challenges\n\n### Scaling infrastructure with context growth\n\nFundamentally, HBM and DRAM aren’t equipped for massive capacity. As inference workloads grow in volume and duration, storing the KV cache in HBM and DRAM breaks down. What worked for short interactions does not hold for persistent, multi-turn, and agent-driven workloads. Three constraints drive this limitation: capacity, cost, and compute inefficiency.\n\n#### 1. Memory capacity does not scale with context growth [...] The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage",
+   "published_date": null,
+   "score": 0.47899243
+  },
+  {
+   "url": "https://www.ersaelectronics.com/blog/sandisk-sk-hynix-standardize-hbf",
+   "title": "Sandisk & SK hynix Standardize HBF: A New Memory Tier ...",
+   "content": "Key-value cache is one of the most important memory challenges in large-language-model inference. During autoregressive generation, transformer models store key and value tensors from previous tokens. This avoids recomputing attention over the entire context. As context windows become longer, KV cache memory requirements grow significantly. [...] The fifth challenge is competition from other technologies. CXL-attached memory, pooled DRAM, larger HBM stacks, advanced SSDs, computational storage, near-memory processing, compression, quantization, sparse models, and improved inference algorithms may all address parts of the same problem. HBF must prove it provides a compelling balance of capacity, bandwidth, cost, and ecosystem support.\n\n## 15. Future Outlook: HBM4, CXL, HBF, and AI Memory Fabrics [...] HBF helps ensure that HBM is reserved for the data that truly needs extreme bandwidth and low latency. Warm data can be stored in HBF instead of occupying scarce HBM capacity. This improves effective memory capacity, system utilization, and cost efficiency.\n\n### 5. What are the biggest challenges for HBF adoption?",
+   "published_date": null,
+   "score": 0.38034514
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute",
+   "content": "One of the biggest challenges in this process is the KV cache. Each time a Transformer-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model. [...] There are two primary approaches to narrowing this gap: increasing memory bandwidth itself or placing memory closer to the processor to reduce the distance data must travel.\n\n Petaflops(PFLOPS): A unit of compute performance equal to one quadrillion floating-point operations per second\n\n### The inference era: KV cache is taking over GPU memory [...] One recent development attracting attention in the field is TurboQuant, a quantization technique that represents the KV cache with fewer bits to reduce its memory footprint. Conventional compression techniques have had to recalibrate their compression rules whenever the distribution of input data changes. While this technique offers high accuracy, it also increases processing time.",
+   "published_date": null,
+   "score": 0.37243727
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "The memory-capacity pressure is already pushing LLM serving toward shared, storage-based context infrastructure. TB-scale and beyond reusable context capacity is difficult to support economically with HBM or DRAM alone, so publicly disclosed frontier systems are beginning to incorporate lower-cost, [...] To build such a shared context layer, the ecosystem is exploring both storage-centric and memory-centric designs. On the storage side, networking and DPU vendors such as NVIDIA (NVIDIA, 2026b; NVIDIA, 2025b), Broadcom (Broadcom, 2020), Marvell (Marvell Technology, 2026a; Marvell Technology, 2026b), Xsight Labs (Xsight Labs, 2026), and Chelsio (Chelsio Communications, 2026) are combining RDMA/NVMe-oF, SmartNICs, and DPUs with dense SSDs from storage vendors such as SK hynix (SK hynix, 2026) and [...] Thus, our central challenge is to design CXL-HM for HyMCache to overcome the limitations of conventional CMM-H devices and directly support the observed workload characteristics of multi-turn LLM serving.\n\n### 3.3. LLM Targeted CXL-HM",
+   "published_date": null,
+   "score": 0.30056128
+  }
+ ]
+}

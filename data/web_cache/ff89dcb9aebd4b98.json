@@ -1,0 +1,44 @@
+{
+ "query": "advantages of SK hynix ITME KV cache in market competitiveness",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:58:44+09:00",
+ "results": [
+  {
+   "url": "https://iconnect007.com/article/151245/sk-hynix-invests-54-trillion-won-in-yongin-cheongju-for-ai-memory-demand/151242/aep",
+   "title": "SK hynix Invests 54 Trillion Won in Yongin, Cheongju for AI Memory Demand :: I-Connect007",
+   "content": "SK hynix stated that in the AI era, technological competitiveness alone is not enough and the ability to supply the required volume at the exact moment customers need it is the ultimate competitive advantage. We reached this investment decision after a thorough review of market demand. [...] In the NAND market, demand is surging rapidly centered on enterprise SSDs driven by the full-scale expansion of AI services. This is further boosted by demand for key-value (KV) cache\\ storage in AI inference, with application fields expected to broaden further as Agentic and Physical AI are introduced. [...] The company expects this investment to secure future growth foundations while strengthening the competitiveness of the domestic semiconductor ecosystem and boosting local economies. The large-scale simultaneous investments in Yongin and Cheongju are anticipated to expand joint growth opportunities for supply chain partners, generate employment, and revitalize local commercial districts, thereby contributing to the sustainable growth of the national economy.",
+   "published_date": null,
+   "score": 0.59401023
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory.",
+   "published_date": null,
+   "score": 0.57723385
+  },
+  {
+   "url": "https://news.skhynix.com/en/fact-05",
+   "title": "Explainer: SK hynix's Mid-to-Long-Term Investment Strategy",
+   "content": "As semiconductor process technologies continue to advance, more manufacturing space is required to produce the same output. Furthermore, HBM requires more wafers than conventional DRAM to produce the same memory capacity, resulting in significantly higher production resource requirements. Securing sufficient production capacity in advance has therefore become one of the most critical competitive advantages. [...] This decision was first and foremost driven by the company’s business needs and assessment of its global competitiveness. At the same time, developing a large-scale semiconductor cluster in Korea requires not only extensive land but also national-level infrastructure, including reliable electricity and water supply. Accordingly, SK hynix formulated this investment strategy after comprehensively considering the government’s semiconductor industry development policies, the overall business [...] The semiconductor industry delivers meaningful results only when corporate investment and industrial infrastructure are aligned. When manufacturing facilities and supporting infrastructure develop in tandem, they create a virtuous cycle that strengthens investment, employment, and industrial competitiveness. Based on this foundation, SK hynix will continue making stable and sustainable investments.\n\n### Building the Next Stage of the Global AI Ecosystem Together",
+   "published_date": null,
+   "score": 0.49758363
+  },
+  {
+   "url": "https://www.ersaelectronics.com/blog/sandisk-sk-hynix-standardize-hbf",
+   "title": "Sandisk & SK hynix Standardize HBF: A New Memory Tier ...",
+   "content": "Key-value cache is one of the most important memory challenges in large-language-model inference. During autoregressive generation, transformer models store key and value tensors from previous tokens. This avoids recomputing attention over the entire context. As context windows become longer, KV cache memory requirements grow significantly. [...] This tiered approach can make enterprise AI more practical. It reduces the need to keep everything in expensive memory and reduces the latency penalty of retrieving everything from slower storage.\n\n## 10. KV Cache, Long Context, and Memory Expansion [...] The challenge is latency management. If the system moves data out of HBM and then needs it immediately, performance may suffer. Therefore, KV cache tiering requires prediction, scheduling, and prefetching. A standardized HBF layer can help by giving software developers a clear target for optimization.\n\n## 11. Data-Center Impact and Server Design",
+   "published_date": null,
+   "score": 0.42993253
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.36161602
+  }
+ ]
+}

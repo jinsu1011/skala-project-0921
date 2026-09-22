@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache integration challenges limitations independent sources research articles",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T12:00:37+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "## Challenges\n\n### Scaling infrastructure with context growth\n\nFundamentally, HBM and DRAM aren’t equipped for massive capacity. As inference workloads grow in volume and duration, storing the KV cache in HBM and DRAM breaks down. What worked for short interactions does not hold for persistent, multi-turn, and agent-driven workloads. Three constraints drive this limitation: capacity, cost, and compute inefficiency.\n\n#### 1. Memory capacity does not scale with context growth [...] The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage",
+   "published_date": null,
+   "score": 0.65887916
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "of the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.46832922
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute",
+   "content": "One of the biggest challenges in this process is the KV cache. Each time a Transformer-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model.",
+   "published_date": null,
+   "score": 0.3934089
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "However, realizing this architecture faces several critical technical challenges. First, SSDs typically offer lower I/O throughput than DRAM, particularly under fragmented or random access patterns, making it difficult to sustain high performance during inference. Second, Flash memory suffers from limited endurance; frequent small writes increase WA and accelerate device wear-out, degrading long-term reliability. Third, traditional offloading paths rely on CPU DRAM as an intermediate buffer, [...] Guidelines: • The answer NA means that the paper has no limitation while the answer No means that the paper has limitations, but those are not discussed in the paper.\n• The authors are encouraged to create a separate \"Limitations\" section in their paper. [...] honesty concerning limitations.",
+   "published_date": null,
+   "score": 0.37751824
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] The hard part of KV cache compression is not choosing which tokens to keep — it is two collisions with production infrastructure. Existing methods need historical attention scores, but the FlashAttention kernel never writes those scores into GPU memory. And paged attention reclaims memory only when a block holds no KV at all — yet after token eviction the survivors leave almost every block partially occupied, so the \"freed\" memory never actually comes back.\n\nContents [...] 9. Quest: Query-Aware Sparsity for Efficient Long-Context LLM Inference. Tang J., Zhao Y., Zhu K., Xiao G., Kasikci B., Han S. ICML, 2024. arXiv:2406.10774\n10. R-KV: Redundancy-aware KV Cache Compression for Reasoning Models. Cai Z., Xiao W., Sun H., Luo C., Zhang Y., et al. NeurIPS, 2025. arXiv:2505.24133\n11. Quant VideoGen: Auto-Regressive Long Video Generation via 2-Bit KV-Cache Quantization. Xi H., Yang S., Zhao Y., Li M., Cai H., et al., Han S., Keutzer K. ICML, 2026. arXiv:2602.02958",
+   "published_date": null,
+   "score": 0.3705903
+  }
+ ]
+}

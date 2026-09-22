@@ -5,26 +5,13 @@
    "turboquant": {
     "criteria": [
      {
-      "name": "TRL 3",
+      "name": "TRL 4",
       "weight": 0.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "GPU 한 장과 공개 모델로 실험하여 이론적 결과를 검증함",
+      "rationale": "TurboQuant이 NVIDIA A100 GPU에서 KV 캐시 양자화 및 근접 이웃 검색 작업으로 실험실 환경에서 검증됨",
       "evidence_ids": [
        "P:turboquant-016"
-      ],
-      "pro_ids": [],
-      "con_ids": [],
-      "workload": ""
-     },
-     {
-      "name": "TRL 3",
-      "weight": 0.0,
-      "score_1to5": null,
-      "llm_score": null,
-      "rationale": "다양한 데이터셋에서 임베딩 근접 이웃 검색 성능을 실험적으로 평가함",
-      "evidence_ids": [
-       "P:turboquant-019"
       ],
       "pro_ids": [],
       "con_ids": [],
@@ -35,9 +22,22 @@
       "weight": 0.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "TurboQuant 4bit-nc 변형이 KV 캐시 용량 증가와 정확도 감소를 실험적으로 보여줌",
+      "rationale": "TurboQuant의 세부 내적 왜곡 빈도 지표로 평가됨",
       "evidence_ids": [
-       "W:4f8bc8bec8"
+       "P:turboquant-017"
+      ],
+      "pro_ids": [],
+      "con_ids": [],
+      "workload": ""
+     },
+     {
+      "name": "TRL 4",
+      "weight": 0.0,
+      "score_1to5": null,
+      "llm_score": null,
+      "rationale": "여러 데이터셋에서 성능 검증을 위한 실험 수행",
+      "evidence_ids": [
+       "P:turboquant-019"
       ],
       "pro_ids": [],
       "con_ids": [],
@@ -48,22 +48,9 @@
       "weight": 0.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "vLLM 프로젝트에 TurboQuant 통합 요청과 커뮤니티 구현체 GPU 검증 준비 중임",
+      "rationale": "vLLM에서 AMD GPU용 TurboQuant 생산 준비 구현으로 실제 LLM 서빙에서 의미 있는 성능 향상 시연",
       "evidence_ids": [
-       "W:47e03b64c9"
-      ],
-      "pro_ids": [],
-      "con_ids": [],
-      "workload": ""
-     },
-     {
-      "name": "TRL 5",
-      "weight": 0.0,
-      "score_1to5": null,
-      "llm_score": null,
-      "rationale": "vLLM 서빙 프레임워크 통합 계획과 독립 구현체 존재로 유사 환경 통합 검증 가능성 있음",
-      "evidence_ids": [
-       "W:cda0aceef6"
+       "W:b66c125b1d"
       ],
       "pro_ids": [],
       "con_ids": [],
@@ -74,9 +61,9 @@
       "weight": 0.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "AMD GPU에서 vLLM을 통해 프로덕션 수준 구현 및 실서비스 LLM 서빙에 의미 있는 이득 확인",
+      "rationale": "TurboQuant가 vLLM 같은 생산 서빙 프레임워크 통합 계획과 독립 구현체들의 일관된 결과 보고",
       "evidence_ids": [
-       "W:b66c125b1d"
+       "W:cda0aceef6"
       ],
       "pro_ids": [],
       "con_ids": [],
@@ -87,20 +74,7 @@
       "weight": 0.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "ICLR 2026 공식 발표와 H100 GPU에서 6배 이상 메모리 절감 및 8배 속도 향상 시연",
-      "evidence_ids": [
-       "W:f583ef8dc2"
-      ],
-      "pro_ids": [],
-      "con_ids": [],
-      "workload": ""
-     },
-     {
-      "name": "TRL 7",
-      "weight": 0.0,
-      "score_1to5": null,
-      "llm_score": null,
-      "rationale": "2026년 3월 공식 발표된 구글 연구로 실제 LLM 추론 문제 해결에 적용됨",
+      "rationale": "Google Research가 TurboQuant를 2026년 3월 공식 출시하고 ICLR 2026에서 동료 평가 예정",
       "evidence_ids": [
        "W:a012ebff4e"
       ],
@@ -110,37 +84,37 @@
      }
     ],
     "score": null,
-    "summary": "TurboQuant은 GPU 한 장과 공개 데이터셋으로 실험적 검증을 마쳐 TRL 3에 해당한다[P:turboquant-016, P:turboquant-019]. vLLM 통합 요청과 독립 구현체 존재, 실제 GPU 환경에서의 프로덕션 수준 구현 근거로 TRL 5 이상으로 판단된다[W:47e03b64c9, W:cda0aceef6, W:b66c125b1d]. 2026년 공식 발표와 H100 GPU 시연, 실서비스 적용 사례가 있어 TRL 7까지 가능하나, 양산 및 상용 납품 근거는 아직 미흡하다[W:f583ef8dc2, W:a012ebff4e].",
+    "summary": "TurboQuant은 NVIDIA A100 GPU에서 KV 캐시 양자화 실험과 여러 데이터셋 검증을 통해 실험실 환경 부품 검증 단계(TRL 4)를 충족한다[P:turboquant-016, P:turboquant-017, P:turboquant-019]. 또한, vLLM 엔진에서 AMD GPU용 생산 준비 구현으로 실제 LLM 서빙에서 성능 향상을 보이며 유사 환경 통합 검증 단계(TRL 5) 근거가 있다[W:b66c125b1d]. TurboQuant는 생산 서빙 프레임워크 통합 계획과 공식 출시 발표가 있어 실제 운용 환경 시제품 시연 단계(TRL 7)까지 가능성을 보인다[W:cda0aceef6, W:a012ebff4e].",
     "pro_ids": [
-     "W:47e03b64c9",
-     "W:4f8bc8bec8",
-     "W:b66c125b1d",
-     "W:cda0aceef6"
+     "P:turboquant-016",
+     "P:turboquant-017",
+     "P:turboquant-019",
+     "W:b66c125b1d"
     ],
     "con_ids": [
      "W:a012ebff4e",
      "W:b66c125b1d",
-     "W:f583ef8dc2"
+     "W:cda0aceef6"
     ],
     "limitations": [
-     "실제 양산 제품 출시 및 고객사 시범 적용에 대한 공개 정보가 부족하다.",
-     "수율, 실측치 등 상세 성능 데이터는 영업 비밀로 공개되지 않았다.",
-     "일부 정보는 개발사 발표 및 계획에 의존하여 신뢰도가 제한적이다.",
+     "실제 고객사 시범 적용이나 장기간 실서비스 시험에 대한 공개 정보는 아직 없다.",
+     "수율, 실측치 등 상세한 성능 데이터는 영업 비밀로 공개되지 않았다.",
+     "상용 서비스 운영 사례나 양산 납품 실적은 확인되지 않았다.",
      "공개 정보 기반 추정이며, TRL 4~6 구간은 공개 정보가 가장 적다"
     ],
     "confidence": "high",
     "trl_low": 5,
     "trl_high": 7,
     "low_ids": [
-     "W:47e03b64c9",
-     "W:4f8bc8bec8",
-     "W:b66c125b1d",
-     "W:cda0aceef6"
+     "P:turboquant-016",
+     "P:turboquant-017",
+     "P:turboquant-019",
+     "W:b66c125b1d"
     ],
     "high_ids": [
      "W:a012ebff4e",
      "W:b66c125b1d",
-     "W:f583ef8dc2"
+     "W:cda0aceef6"
     ],
     "tech_mention_ids": [],
     "ecosystem_mention_ids": []
@@ -152,7 +126,7 @@
       "weight": 0.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "Dell PowerEdge R770 서버와 Intel Xeon CPU, NVIDIA A100 GPU, Mellanox NIC를 사용한 평가 환경에서 기능적 타당성과 성능 가능성을 검증함.",
+      "rationale": "실제 Dell PowerEdge R770 서버와 NVIDIA A100 GPU 등 실환경에 가까운 하드웨어에서 기능 검증과 성능 평가를 수행함",
       "evidence_ids": [
        "P:itme-015"
       ],
@@ -165,7 +139,7 @@
       "weight": 0.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "FPGA 기반 프로토타입으로 하드웨어 제어 로직과 소프트웨어 프리페처의 실환경 유효성을 검증하고 DRAM 캐시 대역폭 성능을 달성함.",
+      "rationale": "FPGA 기반 프로토타입으로 하드웨어 제어 로직과 소프트웨어 프리페처를 구현하여 성능을 검증함",
       "evidence_ids": [
        "P:itme-021"
       ],
@@ -174,13 +148,13 @@
       "workload": ""
      },
      {
-      "name": "TRL 6",
+      "name": "TRL 5",
       "weight": 0.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "SK hynix가 예측 및 프리페칭 기능을 기반으로 대용량 KV 캐시를 효율적으로 저장하고 빠르게 재사용하는 시스템을 시연함.",
+      "rationale": "vLLM 프레임워크 위에 다계층 메모리 구조와 캐시 미스 대응 정책을 통합하여 구현함",
       "evidence_ids": [
-       "W:808328cc3a"
+       "W:9648c54559"
       ],
       "pro_ids": [],
       "con_ids": [],
@@ -191,9 +165,9 @@
       "weight": 0.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "vLLM 프레임워크 위에 구현되어 GPU에서 동적 재계산을 사용해 KV 캐시 미스를 처리하는 시스템 시연이 확인됨.",
+      "rationale": "SK hynix가 GPU 근처에 새로운 NAND 제품을 개발 중이라는 보도로 시제품 시연 가능성을 시사함",
       "evidence_ids": [
-       "W:9648c54559"
+       "W:cb78e33245"
       ],
       "pro_ids": [],
       "con_ids": [],
@@ -201,30 +175,30 @@
      }
     ],
     "score": null,
-    "summary": "ITME 기술은 실제 서버와 GPU, FPGA 프로토타입을 활용해 기능 검증과 성능 평가를 완료하여 TRL 5 단계에 해당한다[P:itme-015, P:itme-021]. 또한 SK hynix가 예측 및 프리페칭 기능을 갖춘 시스템 시연과 vLLM 기반 동적 재계산 구현을 공개하여 TRL 6 단계 가능성을 보인다[W:808328cc3a, W:9648c54559].",
+    "summary": "ITME는 실제 서버와 GPU를 포함한 하드웨어 환경에서 기능과 성능을 검증하고 FPGA 프로토타입으로 하드웨어 구현 가능성을 입증하였다[P:itme-015, P:itme-021]. 또한 vLLM 프레임워크와 통합하여 유사 환경에서 검증된 점도 확인된다[W:9648c54559]. SK hynix의 NAND 제품 개발 보도는 시제품 시연 단계 가능성을 시사한다[W:cb78e33245].",
     "pro_ids": [
      "P:itme-015",
-     "P:itme-021"
-    ],
-    "con_ids": [
-     "W:808328cc3a",
+     "P:itme-021",
      "W:9648c54559"
     ],
+    "con_ids": [
+     "W:cb78e33245"
+    ],
     "limitations": [
-     "FPGA 프로토타입과 평가 환경은 실제 상용 시스템과 완전히 동일하지 않아 TRL 5~6 사이로 추정함.",
-     "공개된 정보가 SK hynix 자체 자료에 의존하는 부분이 있어 신뢰도는 보통임.",
+     "FPGA 프로토타입과 실제 GPU 기반 서버 검증은 유사 환경 검증 단계에 해당하나, 완전한 시제품 시연이나 고객사 평가 정보는 공개되지 않았다.",
+     "NAND 제품 개발 보도는 시제품 시연 가능성을 암시하나 구체적 시연 결과나 공개 데모는 확인되지 않는다.",
      "공개 정보 기반 추정이며, TRL 4~6 구간은 공개 정보가 가장 적다"
     ],
-    "confidence": "mid",
+    "confidence": "high",
     "trl_low": 5,
     "trl_high": 6,
     "low_ids": [
      "P:itme-015",
-     "P:itme-021"
+     "P:itme-021",
+     "W:9648c54559"
     ],
     "high_ids": [
-     "W:808328cc3a",
-     "W:9648c54559"
+     "W:cb78e33245"
     ],
     "tech_mention_ids": [],
     "ecosystem_mention_ids": []
@@ -241,7 +215,7 @@
       "weight": 25.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "",
+      "rationale": "시장 규모와 성장에 대한 구체적인 제3자 언급이나 수요 평가 근거가 부족하다.",
       "evidence_ids": [],
       "pro_ids": [],
       "con_ids": [],
@@ -250,26 +224,22 @@
      {
       "name": "adoption",
       "weight": 30.0,
-      "score_1to5": 2.0,
-      "llm_score": null,
-      "rationale": "",
+      "score_1to5": 5.0,
+      "llm_score": 4,
+      "rationale": "Google이 TurboQuant를 발표하며 KV 캐시 메모리 사용량을 최대 6배 줄이고 최대 8배 속도 향상을 달성했다고 주장하는 긍정적 근거가 있으며[W:5ad090a99a], 고유 기술 성능에 대한 실험적 비교와 평가가 보고되었으나[W:1f4e9ab754][P:turboquant-018][P:turboquant-019], 일부 중립적 평가도 존재한다[W:c6012b2e12][P:turboquant-017].",
       "evidence_ids": [
-       "W:1ec4392a31",
+       "P:turboquant-017",
+       "P:turboquant-018",
+       "P:turboquant-019",
        "W:1f4e9ab754",
        "W:5ad090a99a",
-       "W:82e218b79f",
-       "W:beba87c20f",
        "W:c6012b2e12"
       ],
       "pro_ids": [
+       "W:1f4e9ab754",
        "W:5ad090a99a"
       ],
-      "con_ids": [
-       "W:1ec4392a31",
-       "W:1f4e9ab754",
-       "W:82e218b79f",
-       "W:beba87c20f"
-      ],
+      "con_ids": [],
       "workload": ""
      },
      {
@@ -277,7 +247,7 @@
       "weight": 30.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "",
+      "rationale": "생태계 지원 관련 구체적 근거가 전혀 없다.",
       "evidence_ids": [],
       "pro_ids": [],
       "con_ids": [],
@@ -286,42 +256,32 @@
      {
       "name": "cost",
       "weight": 15.0,
-      "score_1to5": 5.0,
-      "llm_score": null,
-      "rationale": "",
+      "score_1to5": null,
+      "llm_score": 5,
+      "rationale": "TurboQuant은 KV 캐시 압축 시 메모리 절감과 정확도 손실 간 상충관계를 극복하며 추가 하드웨어 없이 적용 가능하다는 긍정적 근거가 있다[W:6d6d5eb106].",
       "evidence_ids": [
-       "W:1ec4392a31",
-       "W:6d6d5eb106",
-       "W:82e218b79f"
+       "W:6d6d5eb106"
       ],
       "pro_ids": [
-       "W:1ec4392a31",
-       "W:6d6d5eb106",
-       "W:82e218b79f"
+       "W:6d6d5eb106"
       ],
       "con_ids": [],
       "workload": ""
      }
     ],
     "score": null,
-    "summary": "TurboQuant는 KV 캐시 압축을 통해 메모리 사용량을 크게 줄이고 정확도 손실 없이 비용 절감 효과를 낸다는 점에서 도입 비용 구조 측면에서 긍정적 평가를 받았다[W:1ec4392a31][W:6d6d5eb106][W:82e218b79f]. 다만, 시장 규모와 생태계 지원에 대한 구체적 근거가 부족하며, 상용화 측면에서는 Google의 발표가 있으나 일부에서는 연구 단계라는 지적도 존재한다[W:5ad090a99a][W:1ec4392a31][W:1f4e9ab754][W:82e218b79f][W:beba87c20f][W:c6012b2e12].",
+    "summary": "TurboQuant는 KV 캐시 메모리 사용량을 크게 줄이고 속도 향상을 달성하는 기술로 실험적 평가가 보고되었으며[W:5ad090a99a][W:1f4e9ab754], 메모리 절감과 정확도 손실 간 상충관계를 극복하는 도입 비용 구조를 갖추고 있다[W:6d6d5eb106]. 다만 시장 규모·성장과 생태계 지원에 대한 구체적 근거는 부족하다.",
     "pro_ids": [
-     "W:1ec4392a31",
-     "W:5ad090a99a",
-     "W:6d6d5eb106",
-     "W:82e218b79f"
-    ],
-    "con_ids": [
-     "W:1ec4392a31",
      "W:1f4e9ab754",
-     "W:82e218b79f",
-     "W:beba87c20f"
+     "W:5ad090a99a",
+     "W:6d6d5eb106"
     ],
+    "con_ids": [],
     "limitations": [
-     "시장 규모·성장과 생태계 지원 관련 근거 부족으로 평가가 제한적이다.",
-     "상용화·채택 관련 근거에 연구 단계라는 부정적 평가가 포함되어 있어 완전한 긍정 평가가 어렵다."
+     "시장 규모·성장과 생태계 지원 관련 근거 부족으로 평가가 어렵다.",
+     "기술 고유 한계 근거가 독립 계열 0개로 2계열 미만(근거 부족)"
     ],
-    "confidence": "high",
+    "confidence": "low",
     "trl_low": null,
     "trl_high": null,
     "low_ids": [],
@@ -335,15 +295,14 @@
       "name": "size_growth",
       "weight": 25.0,
       "score_1to5": 5.0,
-      "llm_score": null,
-      "rationale": "",
+      "llm_score": 5,
+      "rationale": "KV cache swapping to Flash storage is essential for scaling LLM inference due to GPU memory limits and requires sequential I/O for high performance [W:135ea1bd4e]. SK hynix is developing new NAND products near GPUs to serve as additional KV cache storage, addressing the growing AI inference market demand and changing NAND's role in AI memory hierarchy [W:cb78e33245].",
       "evidence_ids": [
        "P:itme-002",
        "W:135ea1bd4e",
        "W:cb78e33245"
       ],
       "pro_ids": [
-       "P:itme-002",
        "W:135ea1bd4e",
        "W:cb78e33245"
       ],
@@ -354,17 +313,17 @@
       "name": "adoption",
       "weight": 30.0,
       "score_1to5": null,
-      "llm_score": null,
-      "rationale": "",
+      "llm_score": 5,
+      "rationale": "ITME demonstrates TTFT speedup over GPU memory baseline with recomputation on Llama-3.1 8B and 70B models using ShareGPT dataset with 128 concurrent conversations [P:itme-017]. ITME shows comparable or better multi-turn inference performance than CPU-offload baseline using CXL-hybrid memory tier and reduced host memory as staging buffer in 256 concurrent conversations benchmark [P:itme-018]. SK hynix demonstrated AiMX cards optimized for attention operations in LLMs, improving speed and efficiency of memory-bound workloads and KV cache utilization [W:3da8afdb7a].",
       "evidence_ids": [
        "P:itme-017",
        "P:itme-018",
-       "W:cb78e33245"
+       "W:3da8afdb7a"
       ],
       "pro_ids": [
        "P:itme-017",
        "P:itme-018",
-       "W:cb78e33245"
+       "W:3da8afdb7a"
       ],
       "con_ids": [],
       "workload": ""
@@ -372,14 +331,16 @@
      {
       "name": "ecosystem",
       "weight": 30.0,
-      "score_1to5": null,
-      "llm_score": null,
-      "rationale": "",
+      "score_1to5": 5.0,
+      "llm_score": 5,
+      "rationale": "SK hynix demonstrated AiMX cards optimized for attention operations in LLMs, improving speed and efficiency of memory-bound workloads and KV cache utilization [W:3da8afdb7a]. ITME uses a production-grade empirical platform with SK Hynix CMM and NVMe SSDs to orchestrate KV cache movement efficiently across multi-tier memory hierarchy [W:678fa8c7fb]. ITME uses CXL-hybrid memory with PCIe Gen5 interface to enable high bandwidth for rapid KV cache swapping and adopts a layer-wise prefetching strategy to maximize pipeline efficiency [W:9648c54559].",
       "evidence_ids": [
+       "W:3da8afdb7a",
        "W:678fa8c7fb",
        "W:9648c54559"
       ],
       "pro_ids": [
+       "W:3da8afdb7a",
        "W:678fa8c7fb",
        "W:9648c54559"
       ],
@@ -391,29 +352,27 @@
       "weight": 15.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "",
+      "rationale": "해당 기준에 대한 긍정 또는 부정 근거가 부족하다.",
       "evidence_ids": [],
       "pro_ids": [],
       "con_ids": [],
       "workload": ""
      }
     ],
-    "score": null,
-    "summary": "ITME는 대규모 LLM 추론 시장의 성장과 수요에 부합하는 기술로, GPU 메모리 한계를 극복하는 계층형 메모리 관리 전략을 제시한다[P:itme-002, W:135ea1bd4e, W:cb78e33245]. 다중 대화 환경에서 성능 향상과 메모리 효율을 입증했으며[P:itme-017, P:itme-018], 실증 플랫폼과 최신 인터페이스를 활용해 생태계 지원도 일부 확보했다[W:678fa8c7fb, W:9648c54559]. 다만 완전한 상용화 발표와 표준화 측면에서는 추가 정보가 필요하다.",
+    "score": 5.0,
+    "summary": "ITME는 LLM 추론 시장의 성장과 수요에 부합하는 NAND 기반 KV 캐시 확장 기술을 개발하고 있으며 [W:135ea1bd4e][W:cb78e33245], 실제 Llama-3.1 모델에서 성능 향상을 입증하고 AiMX 카드와 같은 하드웨어 최적화 사례도 존재한다 [P:itme-017][P:itme-018][W:3da8afdb7a]. 또한, CXL 하이브리드 메모리와 PCIe Gen5 인터페이스를 활용한 다계층 메모리 관리 및 생태계 통합 측면에서도 구체적인 구현과 전략이 보고되었다 [W:3da8afdb7a][W:678fa8c7fb][W:9648c54559]. 다만 도입 비용 구조에 관한 근거는 부족하다.",
     "pro_ids": [
-     "P:itme-002",
      "P:itme-017",
      "P:itme-018",
      "W:135ea1bd4e",
+     "W:3da8afdb7a",
      "W:678fa8c7fb",
      "W:9648c54559",
      "W:cb78e33245"
     ],
     "con_ids": [],
     "limitations": [
-     "도입 비용 구조에 관한 근거 부족",
-     "상용화 단계에 대한 구체적 정보 부족",
-     "생태계 표준화 및 호환성 관련 근거 부족",
+     "도입 비용 구조 기준에 대한 근거 부족",
      "기술 고유 한계 근거가 독립 계열 0개로 2계열 미만(근거 부족)"
     ],
     "confidence": "low",
@@ -435,20 +394,26 @@
       "name": "group_a",
       "weight": 25.0,
       "score_1to5": 5.0,
-      "llm_score": null,
-      "rationale": "",
+      "llm_score": 5,
+      "rationale": "클라우드·데이터센터 사업자 집단 내 다수의 근거가 TurboQuant의 KV 캐시 압축과 메모리 사용량 감소, 속도 향상, 정확도 유지 등 긍정적 평가를 제시하며 우려 근거가 없다[W:1ec4392a31][W:3a4728c153][W:5ad090a99a][W:6d6d5eb106][W:9b1c466cdc][W:c6012b2e12].",
       "evidence_ids": [
        "W:1ec4392a31",
        "W:3a4728c153",
+       "W:5ad090a99a",
+       "W:6d6d5eb106",
        "W:9b1c466cdc",
-       "W:beba87c20f",
+       "W:c6012b2e12",
+       "W:cccbec59aa",
        "W:cda0aceef6"
       ],
       "pro_ids": [
        "W:1ec4392a31",
        "W:3a4728c153",
+       "W:5ad090a99a",
+       "W:6d6d5eb106",
        "W:9b1c466cdc",
-       "W:beba87c20f",
+       "W:c6012b2e12",
+       "W:cccbec59aa",
        "W:cda0aceef6"
       ],
       "con_ids": [],
@@ -459,7 +424,7 @@
       "weight": 25.0,
       "score_1to5": null,
       "llm_score": null,
-      "rationale": "",
+      "rationale": "GPU·메모리 벤더 집단에서 TurboQuant에 대한 근거가 전무하여 판단할 수 없다.",
       "evidence_ids": [],
       "pro_ids": [],
       "con_ids": [],
@@ -469,19 +434,18 @@
       "name": "group_c",
       "weight": 25.0,
       "score_1to5": 5.0,
-      "llm_score": null,
-      "rationale": "",
+      "llm_score": 4,
+      "rationale": "개발자 커뮤니티 내 긍정적 평가가 다수 있으나, 일부 우려와 중립 의견도 존재하여 긍정 계열이 부정보다 많다[W:236cf44a78][W:6308f257df][W:dd64c7243b][W:82e218b79f][W:722110f23f].",
       "evidence_ids": [
        "W:236cf44a78",
+       "W:6308f257df",
        "W:722110f23f",
        "W:82e218b79f",
-       "W:cccbec59aa",
        "W:dd64c7243b"
       ],
       "pro_ids": [
        "W:236cf44a78",
-       "W:722110f23f",
-       "W:cccbec59aa",
+       "W:6308f257df",
        "W:dd64c7243b"
       ],
       "con_ids": [
@@ -493,20 +457,23 @@
       "name": "group_d",
       "weight": 25.0,
       "score_1to5": 5.0,
-      "llm_score": null,
-      "rationale": "",
+      "llm_score": 4,
+      "rationale": "투자·분석·언론 집단에서 TurboQuant의 메모리 절감과 시장 영향에 대한 긍정적 평가가 다수이나, 일부 우려와 중립 의견도 존재한다[W:228e59bbdb][W:33b0a969f7][W:547a60d3c4][W:a012ebff4e][W:beba87c20f][W:b4d7b88405][W:d8e65ae623].",
       "evidence_ids": [
        "W:228e59bbdb",
        "W:33b0a969f7",
        "W:547a60d3c4",
        "W:a012ebff4e",
-       "W:b4d7b88405"
+       "W:b4d7b88405",
+       "W:beba87c20f",
+       "W:d8e65ae623"
       ],
       "pro_ids": [
        "W:228e59bbdb",
        "W:33b0a969f7",
        "W:547a60d3c4",
-       "W:a012ebff4e"
+       "W:a012ebff4e",
+       "W:beba87c20f"
       ],
       "con_ids": [
        "W:b4d7b88405"
@@ -515,7 +482,7 @@
      }
     ],
     "score": 5.0,
-    "summary": "TurboQuant는 여러 이해관계자 집단에서 KV 캐시 메모리 사용량을 6배까지 줄이고 정확도를 유지하며, 추론 비용 절감과 대규모 모델 지원 가능성에 대해 긍정적 평가가 보고되었다[W:1ec4392a31][W:9b1c466cdc][W:236cf44a78][W:33b0a969f7]. 다만, 일부 개발자 커뮤니티와 투자·분석 집단에서는 변동성 증가나 채택 사례 부족에 대한 우려가 존재한다[W:82e218b79f][W:b4d7b88405].",
+    "summary": "TurboQuant는 클라우드·데이터센터 사업자 집단에서 KV 캐시 압축과 메모리 사용량 감소, 속도 향상, 정확도 유지 측면에서 긍정적 평가가 다수 보고되었다[W:1ec4392a31][W:3a4728c153][W:5ad090a99a]. 개발자 커뮤니티와 투자·분석·언론 집단에서는 긍정적 평가가 우세하나 일부 우려와 중립 의견도 존재한다[W:236cf44a78][W:82e218b79f][W:b4d7b88405]. GPU·메모리 벤더 집단에서는 근거가 부족하여 평가가 어렵다.",
     "pro_ids": [
      "W:1ec4392a31",
      "W:228e59bbdb",
@@ -523,10 +490,13 @@
      "W:33b0a969f7",
      "W:3a4728c153",
      "W:547a60d3c4",
-     "W:722110f23f",
+     "W:5ad090a99a",
+     "W:6308f257df",
+     "W:6d6d5eb106",
      "W:9b1c466cdc",
      "W:a012ebff4e",
      "W:beba87c20f",
+     "W:c6012b2e12",
      "W:cccbec59aa",
      "W:cda0aceef6",
      "W:dd64c7243b"
@@ -536,9 +506,8 @@
      "W:b4d7b88405"
     ],
     "limitations": [
-     "GPU·메모리 벤더 집단 근거 부족으로 해당 집단 평가 불가",
-     "일부 근거는 연구 단계임을 지적하여 실제 상용화 영향 평가에 한계 존재",
-     "개발사 제외 기술 고유 근거: 지지 8계열, 우려 1계열(2계열 미만은 근거 부족)"
+     "GPU·메모리 벤더 집단의 근거 부족으로 해당 집단 평가 불가",
+     "개발사 제외 기술 고유 근거: 지지 10계열, 우려 1계열(2계열 미만은 근거 부족)"
     ],
     "confidence": "mid",
     "trl_low": null,
@@ -550,10 +519,15 @@
      "W:236cf44a78",
      "W:33b0a969f7",
      "W:3a4728c153",
+     "W:5ad090a99a",
+     "W:6308f257df",
+     "W:6d6d5eb106",
      "W:722110f23f",
      "W:82e218b79f",
      "W:9b1c466cdc",
+     "W:c6012b2e12",
      "W:cccbec59aa",
+     "W:cda0aceef6",
      "W:d8e65ae623",
      "W:dd64c7243b"
     ],
@@ -562,8 +536,7 @@
      "W:547a60d3c4",
      "W:a012ebff4e",
      "W:b4d7b88405",
-     "W:beba87c20f",
-     "W:cda0aceef6"
+     "W:beba87c20f"
     ]
    },
    "itme": {
@@ -572,20 +545,22 @@
       "name": "group_a",
       "weight": 25.0,
       "score_1to5": 5.0,
-      "llm_score": null,
-      "rationale": "",
+      "llm_score": 5,
+      "rationale": "클라우드·데이터센터 사업자 집단 내 다수 근거가 ITME의 KV cache 최적화와 대규모 추론 서비스에 적합함을 지지한다[W:03cc028368][W:1ae3c72ba6][W:561cb603e6][W:9648c54559][W:cb78e33245][W:d3e95f2c8c]. 우려 근거는 없으며, 다수가 긍정적 평가를 하고 있다.",
       "evidence_ids": [
        "W:03cc028368",
-       "W:0ca35123a3",
        "W:1ae3c72ba6",
+       "W:561cb603e6",
        "W:9648c54559",
+       "W:cb78e33245",
        "W:d3e95f2c8c"
       ],
       "pro_ids": [
        "W:03cc028368",
-       "W:0ca35123a3",
        "W:1ae3c72ba6",
+       "W:561cb603e6",
        "W:9648c54559",
+       "W:cb78e33245",
        "W:d3e95f2c8c"
       ],
       "con_ids": [],
@@ -594,32 +569,28 @@
      {
       "name": "group_b",
       "weight": 25.0,
-      "score_1to5": 1.0,
-      "llm_score": null,
-      "rationale": "",
+      "score_1to5": 5.0,
+      "llm_score": 5,
+      "rationale": "GPU·메모리 벤더 집단 내 근거가 ITME의 KV cache 확장과 AI 추론 서비스 지원에 긍정적 평가를 하고 있다[W:0ca35123a3][W:c172a91bd3]. 우려 근거는 없으며, 다수가 지지한다.",
       "evidence_ids": [
-       "W:0647b3444e",
-       "W:a50ff149e2"
+       "W:0ca35123a3",
+       "W:c172a91bd3"
       ],
-      "pro_ids": [],
-      "con_ids": [
-       "W:0647b3444e",
-       "W:a50ff149e2"
+      "pro_ids": [
+       "W:0ca35123a3",
+       "W:c172a91bd3"
       ],
+      "con_ids": [],
       "workload": ""
      },
      {
       "name": "group_c",
       "weight": 25.0,
-      "score_1to5": 5.0,
+      "score_1to5": null,
       "llm_score": null,
-      "rationale": "",
-      "evidence_ids": [
-       "W:546fbbd718"
-      ],
-      "pro_ids": [
-       "W:546fbbd718"
-      ],
+      "rationale": "개발자 커뮤니티 집단 내 근거가 전무하여 판단할 근거가 부족하다.",
+      "evidence_ids": [],
+      "pro_ids": [],
       "con_ids": [],
       "workload": ""
      },
@@ -627,43 +598,51 @@
       "name": "group_d",
       "weight": 25.0,
       "score_1to5": 3.0,
-      "llm_score": null,
-      "rationale": "",
+      "llm_score": 3,
+      "rationale": "투자·분석·언론 집단 내 긍정 근거 3계열과 부정 근거 2계열, 중립 1계열이 혼재되어 긍정과 부정이 비슷하거나 중립 서술이 많다[W:28a4c1b156][W:2ed5c7a81f][W:e8caf54bbb][W:0647b3444e][W:a50ff149e2][W:ddea0e0deb].",
       "evidence_ids": [
-       "W:561cb603e6",
-       "W:c172a91bd3",
+       "W:0647b3444e",
+       "W:28a4c1b156",
+       "W:2ed5c7a81f",
+       "W:a50ff149e2",
        "W:ddea0e0deb",
        "W:e8caf54bbb"
       ],
       "pro_ids": [
-       "W:561cb603e6",
-       "W:c172a91bd3"
+       "W:28a4c1b156",
+       "W:2ed5c7a81f",
+       "W:e8caf54bbb"
       ],
-      "con_ids": [],
+      "con_ids": [
+       "W:0647b3444e",
+       "W:a50ff149e2"
+      ],
       "workload": ""
      }
     ],
-    "score": 3.5,
-    "summary": "ITME 기술은 클라우드·데이터센터 사업자와 투자·분석·언론 집단에서 KV cache 최적화와 CXL 메모리 확장에 대해 긍정적 평가가 다수 보고되었으며[W:03cc028368][W:0ca35123a3][W:1ae3c72ba6][W:9648c54559][W:d3e95f2c8c][W:561cb603e6][W:c172a91bd3], GPU·메모리 벤더 집단에서는 메모리 수요 성장 둔화 우려가 제기되었다[W:0647b3444e][W:a50ff149e2]. 개발자 커뮤니티는 메모리 병목 해소에 긍정적 평가를 내렸다[W:546fbbd718]. 이러한 점에서 ITME는 시장과 이해관계자 관점에서 긍정적 평가와 함께 일부 우려가 공존하는 기술임을 알 수 있다.",
+    "score": 4.33,
+    "summary": "ITME는 클라우드·데이터센터 사업자와 GPU·메모리 벤더 집단에서 KV cache 최적화와 대규모 AI 추론 서비스 지원에 긍정적 평가를 받고 있다[W:03cc028368][W:0ca35123a3]. 그러나 투자·분석·언론 집단에서는 긍정과 우려가 혼재되어 시장 수요에 대한 불확실성이 존재한다[W:28a4c1b156][W:0647b3444e]. 개발자 커뮤니티의 의견은 근거 부족으로 평가가 어렵다.",
     "pro_ids": [
      "W:03cc028368",
      "W:0ca35123a3",
      "W:1ae3c72ba6",
-     "W:546fbbd718",
+     "W:28a4c1b156",
+     "W:2ed5c7a81f",
      "W:561cb603e6",
      "W:9648c54559",
      "W:c172a91bd3",
-     "W:d3e95f2c8c"
+     "W:cb78e33245",
+     "W:d3e95f2c8c",
+     "W:e8caf54bbb"
     ],
     "con_ids": [
      "W:0647b3444e",
      "W:a50ff149e2"
     ],
     "limitations": [
-     "개발자 커뮤니티 집단 근거가 1계열로 근거 부족 상태임",
-     "GPU·메모리 벤더 집단의 부정 근거가 2계열로 우려가 명확하나 긍정 근거가 없어 균형 평가가 어려움",
-     "집단별 근거가 일부 중복 출처일 가능성 존재",
-     "개발사 제외 기술 고유 근거: 지지 2계열, 우려 0계열(2계열 미만은 근거 부족)"
+     "개발자 커뮤니티 집단 근거 부족",
+     "투자·분석·언론 집단 내 긍정과 부정 근거 혼재",
+     "개발사 제외 기술 고유 근거: 지지 5계열, 우려 0계열(2계열 미만은 근거 부족)"
     ],
     "confidence": "low",
     "trl_low": null,
@@ -672,16 +651,18 @@
     "high_ids": [],
     "tech_mention_ids": [
      "W:03cc028368",
-     "W:546fbbd718",
-     "W:9648c54559"
+     "W:0ca35123a3",
+     "W:1ae3c72ba6",
+     "W:9648c54559",
+     "W:c172a91bd3"
     ],
     "ecosystem_mention_ids": [
      "W:0647b3444e",
-     "W:0ca35123a3",
-     "W:1ae3c72ba6",
+     "W:28a4c1b156",
+     "W:2ed5c7a81f",
      "W:561cb603e6",
      "W:a50ff149e2",
-     "W:c172a91bd3",
+     "W:cb78e33245",
      "W:d3e95f2c8c",
      "W:ddea0e0deb",
      "W:e8caf54bbb"
@@ -699,30 +680,28 @@
       "weight": 10.0,
       "score_1to5": 5.0,
       "llm_score": 5,
-      "rationale": "TurboQuant은 KV 캐시를 3비트로 압축하여 메모리 사용량을 약 6배 줄였고, 정확도 손실 없이 GPU 비용 절감 효과가 보고되었다[W:1f4e9ab754][W:2425d148fd][W:33b0a969f7][W:366b77cefc][W:547a60d3c4][W:82e218b79f][W:a012ebff4e][W:c6012b2e12][W:cbec803bf6][W:f583ef8dc2]. 부정적 근거는 없다.",
+      "rationale": "TurboQuant는 KV 캐시를 3비트까지 압축해 6배 이상의 메모리 절감과 비용 절감을 보고했으며, 정확도 손실이 없다는 근거가 다수 존재한다[W:1ec4392a31][W:1f4e9ab754][W:1f8ecc95e6][W:366b77cefc][W:98bd19a4c4][W:cbec803bf6]. (조건 불일치 근거 포함: W:cda0aceef6)",
       "evidence_ids": [
+       "W:1ec4392a31",
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:33b0a969f7",
+       "W:1f8ecc95e6",
        "W:366b77cefc",
-       "W:547a60d3c4",
-       "W:82e218b79f",
-       "W:a012ebff4e",
-       "W:c6012b2e12",
+       "W:98bd19a4c4",
        "W:cbec803bf6",
-       "W:f583ef8dc2"
+       "W:cda0aceef6",
+       "W:f583ef8dc2",
+       "W:ff892d97ed"
       ],
       "pro_ids": [
+       "W:1ec4392a31",
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:33b0a969f7",
+       "W:1f8ecc95e6",
        "W:366b77cefc",
-       "W:547a60d3c4",
-       "W:82e218b79f",
-       "W:a012ebff4e",
-       "W:c6012b2e12",
+       "W:98bd19a4c4",
        "W:cbec803bf6",
-       "W:f583ef8dc2"
+       "W:cda0aceef6",
+       "W:f583ef8dc2",
+       "W:ff892d97ed"
       ],
       "con_ids": [],
       "workload": "W1"
@@ -730,22 +709,21 @@
      {
       "name": "W1:latency",
       "weight": 10.0,
-      "score_1to5": 5.0,
-      "llm_score": 5,
-      "rationale": "TurboQuant은 KV 캐시 압축에도 불구하고 지연 시간이 줄거나 유지되는 결과가 여러 출처에서 보고되었다[W:1f4e9ab754][W:2425d148fd][W:547a60d3c4][W:f583ef8dc2]. 부정적 근거는 없다.",
+      "score_1to5": 4.0,
+      "llm_score": 4,
+      "rationale": "TurboQuant는 압축/복원 오버헤드로 단일 요청 지연이 약 15ms 증가하는 부정적 근거가 있으나, 전반적으로 원래 LLM보다 빠른 런타임과 지연 유지 근거가 더 많다[W:1f4e9ab754][W:f583ef8dc2][W:1f8ecc95e6].",
       "evidence_ids": [
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:547a60d3c4",
+       "W:1f8ecc95e6",
        "W:f583ef8dc2"
       ],
       "pro_ids": [
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:547a60d3c4",
        "W:f583ef8dc2"
       ],
-      "con_ids": [],
+      "con_ids": [
+       "W:1f8ecc95e6"
+      ],
       "workload": "W1"
      },
      {
@@ -753,16 +731,20 @@
       "weight": 10.0,
       "score_1to5": 5.0,
       "llm_score": 5,
-      "rationale": "TurboQuant은 KV 캐시 압축으로 GPU당 동시 요청 수가 증가하고 처리량이 향상된 결과가 보고되었다[W:a012ebff4e][W:cbec803bf6][W:f583ef8dc2]. 부정적 근거는 없다.",
+      "rationale": "TurboQuant는 8배 배치 처리량 향상과 다중 동시 요청에서 처리량 증가를 보고하는 긍정적 근거가 다수 존재한다[W:1f8ecc95e6][W:366b77cefc][W:cbec803bf6][W:f583ef8dc2][W:ff892d97ed].",
       "evidence_ids": [
-       "W:a012ebff4e",
+       "W:1f8ecc95e6",
+       "W:366b77cefc",
        "W:cbec803bf6",
-       "W:f583ef8dc2"
+       "W:f583ef8dc2",
+       "W:ff892d97ed"
       ],
       "pro_ids": [
-       "W:a012ebff4e",
+       "W:1f8ecc95e6",
+       "W:366b77cefc",
        "W:cbec803bf6",
-       "W:f583ef8dc2"
+       "W:f583ef8dc2",
+       "W:ff892d97ed"
       ],
       "con_ids": [],
       "workload": "W1"
@@ -772,22 +754,20 @@
       "weight": 10.0,
       "score_1to5": 5.0,
       "llm_score": 5,
-      "rationale": "TurboQuant은 3비트 압축에도 불구하고 정확도 손실이 없거나 미미하다는 평가가 다수 보고되었다[W:1f4e9ab754][P:turboquant-018][W:2425d148fd][W:33b0a969f7][W:547a60d3c4][W:82e218b79f]. 부정적 근거는 없다.",
+      "rationale": "TurboQuant는 3비트 압축에도 불구하고 정확도 손실이 없거나 무시할 수준이라는 근거가 여러 출처에서 보고되었다[W:1ec4392a31][W:1f4e9ab754][W:98bd19a4c4][W:ff892d97ed][P:turboquant-018].",
       "evidence_ids": [
        "P:turboquant-018",
+       "W:1ec4392a31",
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:33b0a969f7",
-       "W:547a60d3c4",
-       "W:82e218b79f"
+       "W:98bd19a4c4",
+       "W:ff892d97ed"
       ],
       "pro_ids": [
        "P:turboquant-018",
+       "W:1ec4392a31",
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:33b0a969f7",
-       "W:547a60d3c4",
-       "W:82e218b79f"
+       "W:98bd19a4c4",
+       "W:ff892d97ed"
       ],
       "con_ids": [],
       "workload": "W1"
@@ -795,21 +775,12 @@
      {
       "name": "W1:integration",
       "weight": 10.0,
-      "score_1to5": 4.0,
-      "llm_score": 4,
-      "rationale": "TurboQuant은 런타임에 보정이나 미세 조정 없이 적용 가능하며 기존 가중치와 런타임 오버헤드를 유지하는 긍정적 근거가 있으나, 실시간 구현 복잡성과 기존 서빙 엔진과의 통합 난이도에 대한 우려도 일부 존재한다[W:366b77cefc][W:547a60d3c4][W:8d4cb9dd1a].",
-      "evidence_ids": [
-       "W:366b77cefc",
-       "W:547a60d3c4",
-       "W:8d4cb9dd1a"
-      ],
-      "pro_ids": [
-       "W:366b77cefc",
-       "W:547a60d3c4"
-      ],
-      "con_ids": [
-       "W:8d4cb9dd1a"
-      ],
+      "score_1to5": null,
+      "llm_score": null,
+      "rationale": "TurboQuant의 통합 난이도에 관한 근거가 부족하여 판단할 수 없다.",
+      "evidence_ids": [],
+      "pro_ids": [],
+      "con_ids": [],
       "workload": "W1"
      },
      {
@@ -817,34 +788,26 @@
       "weight": 10.0,
       "score_1to5": 5.0,
       "llm_score": 5,
-      "rationale": "W2 조건에서도 TurboQuant은 KV 캐시 메모리 사용량을 6배 이상 줄이고 정확도 손실 없이 GPU 비용 절감 효과가 보고되었다[W:1f4e9ab754][W:2425d148fd][W:33b0a969f7][W:366b77cefc][W:47e03b64c9][W:4f8bc8bec8][W:547a60d3c4][W:82e218b79f][W:a012ebff4e][W:c6012b2e12][W:cbec803bf6][W:f583ef8dc2]. 부정적 근거는 없다.",
+      "rationale": "W2 조건에서도 TurboQuant는 6배 이상의 메모리 절감과 비용 절감을 보고하며 정확도 손실이 없다는 근거가 다수 존재한다[W:1ec4392a31][W:1f4e9ab754][W:1f8ecc95e6][W:366b77cefc][W:98bd19a4c4][W:cbec803bf6].",
       "evidence_ids": [
+       "W:1ec4392a31",
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:33b0a969f7",
+       "W:1f8ecc95e6",
        "W:366b77cefc",
-       "W:47e03b64c9",
-       "W:4f8bc8bec8",
-       "W:547a60d3c4",
-       "W:82e218b79f",
-       "W:a012ebff4e",
-       "W:c6012b2e12",
+       "W:98bd19a4c4",
        "W:cbec803bf6",
-       "W:f583ef8dc2"
+       "W:f583ef8dc2",
+       "W:ff892d97ed"
       ],
       "pro_ids": [
+       "W:1ec4392a31",
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:33b0a969f7",
+       "W:1f8ecc95e6",
        "W:366b77cefc",
-       "W:47e03b64c9",
-       "W:4f8bc8bec8",
-       "W:547a60d3c4",
-       "W:82e218b79f",
-       "W:a012ebff4e",
-       "W:c6012b2e12",
+       "W:98bd19a4c4",
        "W:cbec803bf6",
-       "W:f583ef8dc2"
+       "W:f583ef8dc2",
+       "W:ff892d97ed"
       ],
       "con_ids": [],
       "workload": "W2"
@@ -854,47 +817,42 @@
       "weight": 10.0,
       "score_1to5": 4.0,
       "llm_score": 4,
-      "rationale": "TurboQuant은 지연 시간 감소 또는 유지가 보고되었으나, 일부 출처에서는 BF16 및 FP8 대비 지연 시간 증가와 처리량 감소가 보고되어 부정적 근거도 존재한다[W:1f4e9ab754][W:2425d148fd][W:547a60d3c4][W:f583ef8dc2][W:4f8bc8bec8].",
+      "rationale": "W2 조건에서도 단일 요청 지연이 약 15ms 증가하는 부정적 근거가 있으나, 전반적으로 지연 유지 및 향상 근거가 더 많다[W:1f4e9ab754][W:f583ef8dc2][W:1f8ecc95e6].",
       "evidence_ids": [
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:4f8bc8bec8",
-       "W:547a60d3c4",
+       "W:1f8ecc95e6",
        "W:f583ef8dc2"
       ],
       "pro_ids": [
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:547a60d3c4",
        "W:f583ef8dc2"
       ],
       "con_ids": [
-       "W:4f8bc8bec8"
+       "W:1f8ecc95e6"
       ],
       "workload": "W2"
      },
      {
       "name": "W2:throughput",
       "weight": 10.0,
-      "score_1to5": 4.0,
-      "llm_score": 4,
-      "rationale": "TurboQuant은 동시성 및 처리량 증가가 보고되었으나, 일부 출처에서는 처리량 감소가 보고되어 긍정적 근거가 부정보다 많지만 부정적 근거도 존재한다[W:47e03b64c9][W:a012ebff4e][W:cbec803bf6][W:f583ef8dc2][W:4f8bc8bec8].",
+      "score_1to5": 5.0,
+      "llm_score": 5,
+      "rationale": "W2 조건에서 TurboQuant는 8배 배치 처리량 향상과 다중 동시 요청 처리량 증가를 보고하는 긍정적 근거가 다수 존재한다[W:1f8ecc95e6][W:366b77cefc][W:cbec803bf6][W:f583ef8dc2][W:ff892d97ed].",
       "evidence_ids": [
-       "W:47e03b64c9",
-       "W:4f8bc8bec8",
-       "W:a012ebff4e",
+       "W:1f8ecc95e6",
+       "W:366b77cefc",
        "W:cbec803bf6",
-       "W:f583ef8dc2"
+       "W:f583ef8dc2",
+       "W:ff892d97ed"
       ],
       "pro_ids": [
-       "W:47e03b64c9",
-       "W:a012ebff4e",
+       "W:1f8ecc95e6",
+       "W:366b77cefc",
        "W:cbec803bf6",
-       "W:f583ef8dc2"
+       "W:f583ef8dc2",
+       "W:ff892d97ed"
       ],
-      "con_ids": [
-       "W:4f8bc8bec8"
-      ],
+      "con_ids": [],
       "workload": "W2"
      },
      {
@@ -902,22 +860,20 @@
       "weight": 10.0,
       "score_1to5": 5.0,
       "llm_score": 5,
-      "rationale": "TurboQuant은 W2 조건에서도 정확도 손실 없이 KV 캐시 압축이 가능하다는 긍정적 근거가 다수 보고되었다[W:1f4e9ab754][W:2425d148fd][W:33b0a969f7][W:47e03b64c9][W:547a60d3c4][W:82e218b79f]. 부정적 근거는 없다.",
+      "rationale": "W2 조건에서도 TurboQuant는 정확도 손실이 없거나 무시할 수준이라는 근거가 여러 출처에서 보고되었다[W:1ec4392a31][W:1f4e9ab754][W:98bd19a4c4][W:ff892d97ed][P:turboquant-018].",
       "evidence_ids": [
+       "P:turboquant-018",
+       "W:1ec4392a31",
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:33b0a969f7",
-       "W:47e03b64c9",
-       "W:547a60d3c4",
-       "W:82e218b79f"
+       "W:98bd19a4c4",
+       "W:ff892d97ed"
       ],
       "pro_ids": [
+       "P:turboquant-018",
+       "W:1ec4392a31",
        "W:1f4e9ab754",
-       "W:2425d148fd",
-       "W:33b0a969f7",
-       "W:47e03b64c9",
-       "W:547a60d3c4",
-       "W:82e218b79f"
+       "W:98bd19a4c4",
+       "W:ff892d97ed"
       ],
       "con_ids": [],
       "workload": "W2"
@@ -925,50 +881,39 @@
      {
       "name": "W2:integration",
       "weight": 10.0,
-      "score_1to5": 4.0,
-      "llm_score": 4,
-      "rationale": "W2 조건에서도 TurboQuant은 런타임 적용 가능하다는 긍정적 근거가 있으나, 실시간 구현 복잡성과 기존 서빙 엔진과의 통합 난이도에 대한 우려가 일부 존재한다[W:366b77cefc][W:547a60d3c4][W:8d4cb9dd1a].",
-      "evidence_ids": [
-       "W:366b77cefc",
-       "W:547a60d3c4",
-       "W:8d4cb9dd1a"
-      ],
-      "pro_ids": [
-       "W:366b77cefc",
-       "W:547a60d3c4"
-      ],
-      "con_ids": [
-       "W:8d4cb9dd1a"
-      ],
+      "score_1to5": null,
+      "llm_score": null,
+      "rationale": "TurboQuant의 W2 통합 난이도에 관한 근거가 부족하여 판단할 수 없다.",
+      "evidence_ids": [],
+      "pro_ids": [],
+      "con_ids": [],
       "workload": "W2"
      }
     ],
-    "score": 4.6,
-    "summary": "TurboQuant은 KV 캐시를 3비트로 압축하여 메모리 사용량을 크게 줄이고 정확도 손실 없이 지연 시간과 처리량 측면에서 개선된 결과가 다수 보고되었다[W:1f4e9ab754][W:2425d148fd][W:547a60d3c4][W:f583ef8dc2]. 다만, 통합 난이도와 일부 조건에서 지연 및 처리량 증가 우려가 존재한다[W:8d4cb9dd1a][W:4f8bc8bec8].",
+    "score": 4.75,
+    "summary": "TurboQuant는 KV 캐시를 3비트까지 압축하면서 6배 이상의 메모리 절감과 비용 절감을 보고했으며, 정확도 손실이 없다는 근거가 다수 존재한다[W:1ec4392a31][W:1f4e9ab754][W:1f8ecc95e6]. 단일 요청 지연이 약간 증가하는 부정적 근거가 있으나, 전반적으로 지연 유지 및 처리량 향상 근거가 더 많다[W:1f4e9ab754][W:f583ef8dc2][W:1f8ecc95e6]. 통합 난이도에 관한 근거는 부족하다.",
     "pro_ids": [
      "P:turboquant-018",
+     "W:1ec4392a31",
      "W:1f4e9ab754",
-     "W:2425d148fd",
-     "W:33b0a969f7",
+     "W:1f8ecc95e6",
      "W:366b77cefc",
-     "W:47e03b64c9",
-     "W:4f8bc8bec8",
-     "W:547a60d3c4",
-     "W:82e218b79f",
-     "W:a012ebff4e",
-     "W:c6012b2e12",
+     "W:98bd19a4c4",
      "W:cbec803bf6",
-     "W:f583ef8dc2"
+     "W:cda0aceef6",
+     "W:f583ef8dc2",
+     "W:ff892d97ed"
     ],
     "con_ids": [
-     "W:4f8bc8bec8",
-     "W:8d4cb9dd1a"
+     "W:1f8ecc95e6"
     ],
     "limitations": [
-     "통합 난이도 관련 근거가 일부 출처에 한정되어 있어 일반화에 한계가 있다.",
-     "W2 지연 및 처리량 관련 부정적 근거가 존재하여 조건별 성능 차이가 있을 수 있다."
+     "통합 난이도(W1, W2) 관련 근거 부족으로 평가 불가",
+     "지연 관련 근거 중 일부는 단일 요청 지연 증가를 보고해 조건 불일치 가능성 존재",
+     "기술 고유 한계 근거가 독립 계열 1개로 2계열 미만(근거 부족)",
+     "조건 불일치 근거 1건이 있어 신뢰도를 한 단계 낮춤"
     ],
-    "confidence": "high",
+    "confidence": "low",
     "trl_low": null,
     "trl_high": null,
     "low_ids": [],
@@ -983,14 +928,12 @@
       "weight": 10.0,
       "score_1to5": null,
       "llm_score": 5,
-      "rationale": "ITME는 GPU 메모리를 최상위 계층으로, 호스트 메모리를 오버플로우 계층으로 사용하는 다계층 메모리 구조를 통해 모델 크기와 문맥 길이 증가에 따른 용량 한계를 해결한다[P:itme-003]. 또한 SK hynix는 HBM 용량 한계를 극복하기 위해 GPU 근처에 새로운 NAND 제품을 개발할 계획이다[W:cb78e33245]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
+      "rationale": "ITME는 GPU 메모리를 최상위 계층으로, 호스트 메모리를 KV 블록 오버플로우 용도로 사용하는 다계층 메모리 구조를 통해 용량 한계를 극복하는 방식을 제시했다[P:itme-003]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
       "evidence_ids": [
-       "P:itme-003",
-       "W:cb78e33245"
+       "P:itme-003"
       ],
       "pro_ids": [
-       "P:itme-003",
-       "W:cb78e33245"
+       "P:itme-003"
       ],
       "con_ids": [],
       "workload": "W1"
@@ -1000,7 +943,7 @@
       "weight": 10.0,
       "score_1to5": null,
       "llm_score": 5,
-      "rationale": "ITME는 LLM 데이터 유형을 지연 민감도와 용량에 따라 분류하고, 지연이 중요한 작업 KV 캐시를 고속 GPU 또는 호스트 메모리 계층에 배치한다[P:itme-002]. 또한 다계층 메모리 구조를 통해 모델 크기와 문맥 길이 증가에 따른 용량 한계를 해결한다[P:itme-003]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
+      "rationale": "ITME는 LLM 데이터 유형을 지연 민감도와 용량에 따라 분류하고, 실시간 토큰 생성에 GPU 메모리를 사용하여 지연을 유지하는 방식을 설명했다[P:itme-002][P:itme-003]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
       "evidence_ids": [
        "P:itme-002",
        "P:itme-003"
@@ -1017,7 +960,7 @@
       "weight": 10.0,
       "score_1to5": null,
       "llm_score": 5,
-      "rationale": "ITME는 NVMe-oF 분산 스토리지 기준 대비 1.8배 처리량 향상과 대용량 KV 캐시 확장 시 최대 35.7% 처리량 향상을 달성했다[W:9648c54559]. 긍정적 근거가 1계열 이상이며 부정 근거가 없다.",
+      "rationale": "ITME는 NVMe-oF 분산 스토리지 대비 1.8배 처리량 향상과 최대 35.7% 처리량 개선을 보고했다[W:9648c54559]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
       "evidence_ids": [
        "W:9648c54559"
       ],
@@ -1054,14 +997,12 @@
       "weight": 10.0,
       "score_1to5": null,
       "llm_score": 5,
-      "rationale": "ITME는 GPU 메모리를 최상위 계층으로, 호스트 메모리를 오버플로우 계층으로 사용하는 다계층 메모리 구조를 통해 모델 크기와 문맥 길이 증가에 따른 용량 한계를 해결한다[P:itme-003]. 또한 SK hynix는 HBM 용량 한계를 극복하기 위해 GPU 근처에 새로운 NAND 제품을 개발할 계획이다[W:cb78e33245]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
+      "rationale": "W2에서도 ITME는 다계층 메모리 구조를 통해 비용 측면에서 GPU 메모리와 호스트 메모리의 역할 분담으로 용량 문제를 해결하는 점이 보고되었다[P:itme-003]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
       "evidence_ids": [
-       "P:itme-003",
-       "W:cb78e33245"
+       "P:itme-003"
       ],
       "pro_ids": [
-       "P:itme-003",
-       "W:cb78e33245"
+       "P:itme-003"
       ],
       "con_ids": [],
       "workload": "W2"
@@ -1071,7 +1012,7 @@
       "weight": 10.0,
       "score_1to5": null,
       "llm_score": 5,
-      "rationale": "ITME는 LLM 데이터 유형을 지연 민감도와 용량에 따라 분류하고, 지연이 중요한 작업 KV 캐시를 고속 GPU 또는 호스트 메모리 계층에 배치한다[P:itme-002]. 또한 다계층 메모리 구조를 통해 모델 크기와 문맥 길이 증가에 따른 용량 한계를 해결한다[P:itme-003]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
+      "rationale": "W2 조건에서도 ITME는 지연 민감도에 따른 데이터 분류와 다계층 메모리 활용으로 지연을 유지하는 결과가 보고되었다[P:itme-002][P:itme-003]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
       "evidence_ids": [
        "P:itme-002",
        "P:itme-003"
@@ -1088,7 +1029,7 @@
       "weight": 10.0,
       "score_1to5": null,
       "llm_score": 5,
-      "rationale": "ITME는 NVMe-oF 분산 스토리지 기준 대비 1.8배 처리량 향상과 대용량 KV 캐시 확장 시 최대 35.7% 처리량 향상을 달성했다[W:9648c54559]. 긍정적 근거가 1계열 이상이며 부정 근거가 없다.",
+      "rationale": "W2 조건에서 ITME는 NVMe-oF 대비 1.8배 처리량 향상과 최대 35.7% 개선을 보고했다[W:9648c54559]. 긍정적 근거가 2계열 이상이며 부정 근거가 없다.",
       "evidence_ids": [
        "W:9648c54559"
       ],
@@ -1122,16 +1063,16 @@
      }
     ],
     "score": null,
-    "summary": "ITME는 다계층 메모리 구조를 활용해 GPU 메모리 용량 한계를 극복하고, 처리량과 지연 측면에서 개선된 결과가 보고되었다[P:itme-003][P:itme-002][W:9648c54559]. 다만 정확도 영향과 통합 난이도에 대한 근거가 부족하여 평가가 어렵다.",
+    "summary": "ITME는 다계층 메모리 구조를 활용하여 GPU 메모리와 호스트 메모리의 역할 분담으로 비용과 지연 측면에서 용량 문제를 해결하는 결과가 보고되었다[P:itme-002][P:itme-003]. 또한 NVMe-oF 대비 처리량이 1.8배 이상 향상된 점도 확인되었다[W:9648c54559]. 다만 정확도 영향과 통합 난이도에 대한 근거가 부족하여 평가가 제한적이다.",
     "pro_ids": [
      "P:itme-002",
      "P:itme-003",
-     "W:9648c54559",
-     "W:cb78e33245"
+     "W:9648c54559"
     ],
     "con_ids": [],
     "limitations": [
-     "정확도 영향과 통합 난이도에 대한 근거 부족으로 일부 기준은 판단 보류됨",
+     "정확도 영향과 통합 난이도에 대한 근거가 1계열 이하로 판단 보류되었다.",
+     "근거의 실험 조건이 W1·W2 조건과 완전히 일치하는지 명확하지 않아 신뢰도에 제한이 있을 수 있다.",
      "기술 고유 한계 근거가 독립 계열 0개로 2계열 미만(근거 부족)"
     ],
     "confidence": "low",
@@ -1149,15 +1090,15 @@
    "turboquant": {
     "market": {
      "score": null,
-     "one_liner": ""
+     "one_liner": "TurboQuant는 KV 캐시 메모리 사용량을 최대 6배 줄이고 최대 8배 속도 향상을 달성했으나, 시장 규모와 생태계 지원에 대한 구체적 근거는 부족하다[W:5ad090a99a][W:6d6d5eb106]."
     },
     "stakeholder": {
      "score": 5.0,
-     "one_liner": "TurboQuant은 KV 캐시 메모리 사용량을 6배까지 줄이고 정확도 손실 없이 추론 비용 절감과 대규모 모델 지원 가능성에 대해 긍정적 평가를 받았다[W:1ec4392a31][W:9b1c466cdc]."
+     "one_liner": "TurboQuant는 클라우드·데이터센터 사업자와 개발자 커뮤니티에서 긍정적 평가가 우세하나 GPU·메모리 벤더 집단에서는 근거 부족으로 평가가 어렵다[W:1ec4392a31][W:236cf44a78]."
     },
     "domain": {
-     "score": 4.6,
-     "one_liner": "TurboQuant은 3비트 압축으로 KV 캐시 메모리 사용량을 크게 줄이고 지연 시간과 처리량을 개선했으나, 통합 난이도와 일부 조건에서 성능 저하 우려가 있다[W:1f4e9ab754][W:8d4cb9dd1a]."
+     "score": 4.75,
+     "one_liner": "TurboQuant는 KV 캐시를 3비트까지 압축해 6배 이상 메모리 절감과 정확도 손실 없는 성능을 보고하며, 지연 유지 및 처리량 향상 근거가 다수 존재한다[W:1f4e9ab754][W:1f8ecc95e6]."
     },
     "trl": {
      "score": 6.0,
@@ -1166,20 +1107,20 @@
    },
    "itme": {
     "market": {
-     "score": null,
-     "one_liner": ""
+     "score": 5.0,
+     "one_liner": "ITME는 LLM 추론 시장 성장과 NAND 기반 KV 캐시 확장 기술을 개발하며, 하드웨어 최적화와 생태계 통합 전략 근거가 구체적이다[W:135ea1bd4e][W:3da8afdb7a]."
     },
     "stakeholder": {
-     "score": 3.5,
-     "one_liner": "ITME는 클라우드·데이터센터 사업자와 투자·분석 집단에서 KV 캐시 최적화와 CXL 메모리 확장에 대해 긍정적 평가가 다수 보고되었으나, 메모리 수요 성장 둔화 우려도 존재한다[W:03cc028368][W:0647b3444e]."
+     "score": 4.33,
+     "one_liner": "ITME는 클라우드·데이터센터 사업자와 GPU·메모리 벤더에서 긍정적 평가를 받으나, 투자·분석·언론 집단에서는 긍정과 우려가 혼재되어 있다[W:03cc028368][W:28a4c1b156]."
     },
     "domain": {
      "score": null,
-     "one_liner": "ITME는 다계층 메모리 구조를 활용해 GPU 메모리 한계를 극복하고 처리량과 지연 개선을 보였으나, 정확도 영향과 통합 난이도에 대한 근거는 부족하다[P:itme-002][W:9648c54559]."
+     "one_liner": "ITME는 다계층 메모리 구조로 비용과 지연 문제를 해결하고 NVMe-oF 대비 처리량 1.8배 이상 향상을 보고하나, 정확도 영향과 통합 난이도 근거는 부족하다[P:itme-002][W:9648c54559]."
     },
     "trl": {
      "score": 5.5,
-     "one_liner": "TRL 5–6 (신뢰도 mid)"
+     "one_liner": "TRL 5–6 (신뢰도 high)"
     }
    }
   },
@@ -1190,7 +1131,18 @@
      "stakeholder",
      "domain"
     ],
-    "gap": 0.4,
+    "gap": 0.25,
+    "label": "일치",
+    "explanation": "",
+    "hypothesis_tags": []
+   },
+   {
+    "tech_id": "itme",
+    "pair": [
+     "market",
+     "stakeholder"
+    ],
+    "gap": 0.67,
     "label": "일치",
     "explanation": "",
     "hypothesis_tags": []
@@ -1198,78 +1150,62 @@
   ],
   "hypotheses": {
    "H1": {
-    "verdict": "판단 보류",
-    "rationale": "TurboQuant: TRL 5–7 (신뢰도 high), 시장성 판단 보류 → 판단 보류; ITME: TRL 5–6 (신뢰도 mid), 시장성 판단 보류 → 판단 보류 (C.5 격자, 코드 계산)",
+    "verdict": "부분 지지",
+    "rationale": "TurboQuant: TRL 5–7 (신뢰도 high), 시장성 판단 보류 → 판단 보류; ITME: TRL 5–6 (신뢰도 high), 시장성 5.0 → 부분 괴리 (기대 선행) (C.5 격자, 코드 계산)",
     "evidence_ids": [
      "P:itme-015",
      "P:itme-021",
-     "W:47e03b64c9",
-     "W:4f8bc8bec8",
-     "W:808328cc3a",
+     "P:turboquant-016",
+     "P:turboquant-017",
+     "P:turboquant-019",
      "W:9648c54559",
      "W:a012ebff4e",
      "W:b66c125b1d",
-     "W:cda0aceef6",
-     "W:f583ef8dc2"
+     "W:cb78e33245",
+     "W:cda0aceef6"
     ]
    },
    "H2": {
-    "verdict": "판단 보류",
-    "rationale": "TurboQuant은 기술 자체 언급이 10회, 생태계 언급이 6회로 기술 중심의 근거가 다소 우세하나, ITME는 기술 언급 3회에 비해 생태계 언급이 9회로 생태계·전략 측면 근거가 더 많아 두 기술 간 이해관계자 근거의 비중 차이가 명확하다. 그러나 두 기술 모두 이해관계자 평가가 긍정적이나 일부 우려도 공존하여 명확한 지지나 기각 판단은 어렵다.",
-    "evidence_ids": [
-     "W:1ec4392a31",
-     "W:03cc028368",
-     "W:9648c54559",
-     "W:82e218b79f",
-     "W:b4d7b88405",
-     "W:0ca35123a3",
-     "W:561cb603e6"
-    ]
+    "verdict": "지지",
+    "rationale": "TurboQuant는 기술 자체에 대한 언급이 15건으로 많고 생태계 언급은 5건에 불과한 반면, ITME는 기술 언급이 5건, 생태계 언급이 9건으로 생태계·전략 측면의 언급이 더 많아 두 기술의 이해관계자 근거 비중이 다르다.",
+    "evidence_ids": []
    },
    "H3": {
-    "verdict": "지지",
-    "rationale": "TurboQuant의 도메인 평가 점수는 W1 4.8점, W2 4.4점으로 3점 기준을 크게 상회하며, 각 세부 기준도 모두 4점 이상으로 우수하다. ITME는 도메인 평가 점수가 부재하여 비교가 불가하나, TurboQuant의 점수 분포는 W1과 W2 간 큰 차이가 없고 모두 높은 수준임을 보여준다.",
-    "evidence_ids": [
-     "W:1f4e9ab754",
-     "W:9648c54559",
-     "W:8d4cb9dd1a"
-    ]
+    "verdict": "판단 보류",
+    "rationale": "TurboQuant의 도메인 평가 점수는 W1과 W2 모두 4.75점으로 동일하며, ITME는 도메인 점수가 부재하여 W1과 W2 점수 차이에 따른 판정 기준 적용이 어렵다.",
+    "evidence_ids": []
    },
    "H4": {
     "verdict": "판단 보류",
-    "rationale": "두 기술 모두 KV 캐시 메모리 최적화라는 공통 목표를 가지며, TurboQuant는 압축 중심, ITME는 다계층 메모리 및 CXL 하이브리드 메모리 통합 중심으로 접근한다. 그러나 두 방식을 함께 쓰는 사례나 도입 주체 차이를 명확히 보여주는 근거는 발견되지 않아 판단 보류한다.",
-    "evidence_ids": [
-     "W:03cc028368",
-     "W:d3e95f2c8c",
-     "W:8d4cb9dd1a"
-    ]
+    "rationale": "두 기술을 함께 사용하는 사례나 도입 주체 차이를 명확히 보여주는 근거가 부족하여 판단이 어렵다.",
+    "evidence_ids": []
    }
   },
   "h1_grid": {
    "turboquant": "판단 보류",
-   "itme": "판단 보류"
+   "itme": "부분 괴리 (기대 선행)"
   },
   "sensitivity": {
    "conflict": [
     {
      "variant": "상충 기준 2.0→2.5",
      "changed": 0,
-     "cells": 1
+     "cells": 2
     },
     {
      "variant": "상충 기준 2.0→1.5",
      "changed": 0,
-     "cells": 1
+     "cells": 2
     },
     {
      "variant": "부분 상충 기준 1.0→1.5",
      "changed": 0,
-     "cells": 1
+     "cells": 2
     },
     {
      "variant": "부분 상충 기준 1.0→0.5",
-     "changed": 0,
-     "cells": 1
+     "changed": 1,
+     "cells": 2
     }
    ],
    "h1": [
@@ -1277,77 +1213,77 @@
      "variant": "TRL 경계 3.5→3.0",
      "changed": 0,
      "cells": 2,
-     "verdict": "판단 보류"
+     "verdict": "부분 지지"
     },
     {
      "variant": "TRL 경계 3.5→4.0",
      "changed": 0,
      "cells": 2,
-     "verdict": "판단 보류"
+     "verdict": "부분 지지"
     },
     {
      "variant": "TRL 경계 6.5→6.0",
      "changed": 0,
      "cells": 2,
-     "verdict": "판단 보류"
+     "verdict": "부분 지지"
     },
     {
      "variant": "TRL 경계 6.5→7.0",
      "changed": 0,
      "cells": 2,
-     "verdict": "판단 보류"
+     "verdict": "부분 지지"
     },
     {
      "variant": "시장 경계 2.0→1.5",
      "changed": 0,
      "cells": 2,
-     "verdict": "판단 보류"
+     "verdict": "부분 지지"
     },
     {
      "variant": "시장 경계 2.0→2.5",
      "changed": 0,
      "cells": 2,
-     "verdict": "판단 보류"
+     "verdict": "부분 지지"
     },
     {
      "variant": "시장 경계 4.0→3.5",
      "changed": 0,
      "cells": 2,
-     "verdict": "판단 보류"
+     "verdict": "부분 지지"
     },
     {
      "variant": "시장 경계 4.0→4.5",
      "changed": 0,
      "cells": 2,
-     "verdict": "판단 보류"
+     "verdict": "부분 지지"
     }
    ],
    "h2_stats": {
     "turboquant": {
-     "tech_mentions": 10,
-     "ecosystem_mentions": 6
+     "tech_mentions": 15,
+     "ecosystem_mentions": 5
     },
     "itme": {
-     "tech_mentions": 3,
+     "tech_mentions": 5,
      "ecosystem_mentions": 9
     }
    },
    "h3_stats": {
     "turboquant": {
      "split_criteria": [],
-     "W1": 4.8,
-     "W2": 4.4,
+     "W1": 4.75,
+     "W2": 4.75,
      "criteria": {
       "W1:cost": 5.0,
-      "W1:latency": 5.0,
+      "W1:latency": 4.0,
       "W1:throughput": 5.0,
       "W1:accuracy": 5.0,
-      "W1:integration": 4.0,
+      "W1:integration": null,
       "W2:cost": 5.0,
       "W2:latency": 4.0,
-      "W2:throughput": 4.0,
+      "W2:throughput": 5.0,
       "W2:accuracy": 5.0,
-      "W2:integration": 4.0
+      "W2:integration": null
      }
     },
     "itme": {
@@ -1370,12 +1306,9 @@
    }
   },
   "statements": {
-   "S1": "TurboQuant은 기술 자체 언급이 10회, 생태계 언급이 6회로 기술 중심의 근거가 다소 우세하나, ITME는 기술 언급 3회에 비해 생태계 언급이 9회로 생태계·전략 측면 근거가 더 많아 두 기술 간 이해관계자 근거의 비중 차이가 명확하다.",
-   "S2": "그러나 두 기술 모두 이해관계자 평가가 긍정적이나 일부 우려도 공존하여 명확한 지지나 기각 판단은 어렵다.",
-   "S3": "TurboQuant의 도메인 평가 점수는 W1 4.8점, W2 4.4점으로 3점 기준을 크게 상회하며, 각 세부 기준도 모두 4점 이상으로 우수하다.",
-   "S4": "ITME는 도메인 평가 점수가 부재하여 비교가 불가하나, TurboQuant의 점수 분포는 W1과 W2 간 큰 차이가 없고 모두 높은 수준임을 보여준다.",
-   "S5": "두 기술 모두 KV 캐시 메모리 최적화라는 공통 목표를 가지며, TurboQuant는 압축 중심, ITME는 다계층 메모리 및 CXL 하이브리드 메모리 통합 중심으로 접근한다.",
-   "S6": "그러나 두 방식을 함께 쓰는 사례나 도입 주체 차이를 명확히 보여주는 근거는 발견되지 않아 판단 보류한다."
+   "S1": "TurboQuant는 기술 자체에 대한 언급이 15건으로 많고 생태계 언급은 5건에 불과한 반면, ITME는 기술 언급이 5건, 생태계 언급이 9건으로 생태계·전략 측면의 언급이 더 많아 두 기술의 이해관계자 근거 비중이 다르다.",
+   "S2": "TurboQuant의 도메인 평가 점수는 W1과 W2 모두 4.75점으로 동일하며, ITME는 도메인 점수가 부재하여 W1과 W2 점수 차이에 따른 판정 기준 적용이 어렵다.",
+   "S3": "두 기술을 함께 사용하는 사례나 도입 주체 차이를 명확히 보여주는 근거가 부족하여 판단이 어렵다."
   }
  },
  "judge_scores": {
@@ -1389,15 +1322,15 @@
    "checks": {
     "max_origin_share": 0.5,
     "pro_origins": {
-     "turboquant": 3,
-     "itme": 1
+     "turboquant": 2,
+     "itme": 2
     },
     "con_origins": {
      "turboquant": 3,
-     "itme": 2
+     "itme": 1
     },
     "bound_origins": {
-     "turboquant": 3,
+     "turboquant": 2,
      "itme": 1
     },
     "lexicon_hits": 0
@@ -1406,21 +1339,20 @@
   "market": {
    "grounding": 4,
    "neutrality": 4,
-   "source_diversity": 3,
+   "source_diversity": 4,
    "completeness": 4,
    "passed": false,
    "unsupported_claim_ids": [
-    "ITME는 대규모 LLM 추론 시장의 성장과 수요에 부합하는 기술로, GPU 메모리 한계를 극복하는 계층형 메모리 관리 전략을 제시한다[P:itme-002, W:135ea1bd4e, W:cb78e33245].",
-    "실증 플랫폼과 최신 인터페이스를 활용해 생태계 지원도 일부 확보했다[W:678fa8c7fb, W:9648c54559]."
+    "TurboQuant는 KV 캐시 메모리 사용량을 크게 줄이고 속도 향상을 달성하는 기술로 실험적 평가가 보고되었으며, 메모리 절감과 정확도 손실 간 상충관계를 극복하는 도입 비용 구조를 갖추고 있다. 다만 시장 규모·성장과 생태계 지원에 대한 구체적 근거는 부족하다."
    ],
    "checks": {
-    "max_origin_share": 0.5,
+    "max_origin_share": 0.4,
     "pro_origins": {
      "turboquant": 3,
-     "itme": 3
+     "itme": 4
     },
     "con_origins": {
-     "turboquant": 3,
+     "turboquant": 0,
      "itme": 0
     },
     "bound_origins": {},
@@ -1428,19 +1360,17 @@
    }
   },
   "stakeholder": {
-   "grounding": 4,
+   "grounding": 5,
    "neutrality": 4,
-   "source_diversity": 4,
+   "source_diversity": 5,
    "completeness": 4,
    "passed": true,
-   "unsupported_claim_ids": [
-    "ITME 기술은 클라우드·데이터센터 사업자와 투자·분석·언론 집단에서 KV cache 최적화와 CXL 메모리 확장에 대해 긍정적 평가가 다수 보고되었으며[W:03cc028368][W:0ca35123a3][W:1ae3c72ba6][W:9648c54559][W:d3e95f2c8c][W:561cb603e6][W:c172a91bd3], GPU·메모리 벤더 집단에서는 메모리 수요 성장 둔화 우려가 제기되었다[W:0647b3444e][W:a50ff149e2]. 개발자 커뮤니티는 메모리 병목 해소에 긍정적 평가를 내렸다[W:546fbbd718]. 이러한 점에서 ITME는 시장과 이해관계자 관점에서 긍정적 평가와 함께 일부 우려가 공존하는 기술임을 알 수 있다."
-   ],
+   "unsupported_claim_ids": [],
    "checks": {
-    "max_origin_share": 0.167,
+    "max_origin_share": 0.143,
     "pro_origins": {
-     "turboquant": 11,
-     "itme": 7
+     "turboquant": 14,
+     "itme": 9
     },
     "con_origins": {
      "turboquant": 2,
@@ -1457,16 +1387,17 @@
    "completeness": 4,
    "passed": false,
    "unsupported_claim_ids": [
-    "ITME는 다계층 메모리 구조를 활용해 GPU 메모리 용량 한계를 극복하고, 처리량과 지연 측면에서 개선된 결과가 보고되었다[P:itme-003][P:itme-002][W:9648c54559]. 다만 정확도 영향과 통합 난이도에 대한 근거가 부족하여 평가가 어렵다."
+    "TurboQuant의 통합 난이도에 관한 근거가 부족하여 판단할 수 없다.",
+    "정확도 영향과 통합 난이도에 대한 근거가 1계열 이하로 판단 보류한다."
    ],
    "checks": {
-    "max_origin_share": 0.5,
+    "max_origin_share": 1.0,
     "pro_origins": {
-     "turboquant": 10,
+     "turboquant": 6,
      "itme": 2
     },
     "con_origins": {
-     "turboquant": 2,
+     "turboquant": 1,
      "itme": 0
     },
     "bound_origins": {},
@@ -1487,23 +1418,23 @@
     "pro_origins": {},
     "con_origins": {},
     "bound_origins": {},
-    "lexicon_hits": 1
+    "lexicon_hits": 0
    }
   }
  },
  "perspective_retry_count": {
-  "trl": 2,
+  "trl": 0,
   "market": 2,
-  "stakeholder": 0,
+  "stakeholder": 2,
   "domain": 2
  },
  "warnings": [
   "도메인 적합성 관점 ITME: 빠진 가중치가 50%를 넘어 판단 보류",
   "시장성 관점 TurboQuant: 빠진 가중치가 50%를 넘어 판단 보류",
   "시장성 관점 ITME: 빠진 가중치가 50%를 넘어 판단 보류",
-  "근거 ID 충돌: W:5ad090a99a의 원문 내용이 이전 기록과 다름(기존 항목 유지)",
   "근거 ID 충돌: W:597be4c6d3의 원문 내용이 이전 기록과 다름(기존 항목 유지)",
   "근거 ID 충돌: W:cb78e33245의 원문 내용이 이전 기록과 다름(기존 항목 유지)",
+  "근거 ID 충돌: W:e8caf54bbb의 원문 내용이 이전 기록과 다름(기존 항목 유지)",
   "판정 불확실: 시장성 관점이 재실행 한도(2회) 후에도 Judge 기준 미달",
   "판정 불확실: 도메인 적합성 관점이 재실행 한도(2회) 후에도 Judge 기준 미달"
  ],
@@ -1681,7 +1612,7 @@
    "source_class": "vendor",
    "source_group": "arxiv:2606.12556",
    "origin_group": "skhynix",
-   "attempt": 2
+   "attempt": 0
   },
   {
    "evidence_id": "P:itme-017",
@@ -1761,7 +1692,7 @@
    "source_class": "vendor",
    "source_group": "arxiv:2606.12556",
    "origin_group": "skhynix",
-   "attempt": 2
+   "attempt": 0
   },
   {
    "evidence_id": "P:itme-022",
@@ -1850,15 +1781,18 @@
    "section": "Introduction",
    "tech": "turboquant",
    "perspectives": [
+    "domain",
     "selection",
     "tech_brief"
    ],
-   "stances": [],
+   "stances": [
+    "pro"
+   ],
    "scope": "tech_specific",
    "source_class": "vendor",
    "source_group": "arxiv:2504.19874",
    "origin_group": "google",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "P:turboquant-002",
@@ -1952,7 +1886,7 @@
    "source_class": "vendor",
    "source_group": "arxiv:2504.19874",
    "origin_group": "google",
-   "attempt": 2
+   "attempt": 0
   },
   {
    "evidence_id": "P:turboquant-017",
@@ -1968,6 +1902,7 @@
    "section": "Needle-In-A-Haystack",
    "tech": "turboquant",
    "perspectives": [
+    "domain",
     "market",
     "selection",
     "tech_brief",
@@ -2087,7 +2022,7 @@
    "source_class": "third_party",
    "source_group": "semiwiki.com",
    "origin_group": "semiwiki.com",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:0647b3444e",
@@ -2112,38 +2047,13 @@
    "source_class": "third_party",
    "source_group": "biggo.com",
    "origin_group": "biggo.com",
-   "attempt": 0
-  },
-  {
-   "evidence_id": "W:0a9e1dce9e",
-   "kind": "web",
-   "claim": "TurboQuant is a lightweight, online-capable vector quantization algorithm designed for KV cache quantization that balances low distortion and accelerator compatibility for real-time AI applications.",
-   "summary": "For comparison, we benchmark our approach against several state-of-the-art memory-efficient methods, including PolarQuant, SnapKV, PyramidKV, and KIVI. Each method is tested under a memory compression ratio of 0.25, meaning that only 25% of the full KV cache is utilized. [...] Existing VQ algorithms present a trade-off: either they lack accelerator (vectorization) compatibility and exhibit slow computation, making them unsuitable for real-time AI applications like KV cache quantization, or they suffer from suboptimal distortion bounds relative to bit-width. Our objective is to introduce an algorithm that addresses these limitations. Specifically, we design TurboQuant: a lightweight, capable of online application (crucial for scenarios like KV cache quantization), and [...] followed by a 1-bit Quantized JL (QJL) transform on the residual, resulting in an unbiased inner product quantizer. We also provide a formal proof of the information-theoretic lower bounds on best achievable distortion rate by any vector quantizer, demonstrating that TurboQuant closely matches these bounds, differing only by a small constant (\\approx 2.7) factor. Experimental results validate our theoretical find",
-   "source_url": "https://arxiv.org/html/2504.19874v1",
-   "doc_id": "",
-   "title": "TurboQuant: Online Vector Quantization with Near-optimal ...",
-   "publisher": "arxiv.org",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "turboquant",
-   "perspectives": [
-    "domain"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "academic",
-   "source_group": "arxiv.org",
-   "origin_group": "arxiv.org",
-   "attempt": 1
+   "attempt": 2
   },
   {
    "evidence_id": "W:0aedd2770b",
    "kind": "web",
-   "claim": "TurboQuant achieves KV cache compression with 6x memory reduction and up to 8x faster attention speed on H100 GPUs at 4-bit quantization without accuracy loss.",
-   "summary": "### KV cache compression benchmarks\n\n50.06\n\nLongBench score\n\n3.5-bit = full cache\n\n100\n\nNeedle In A Haystack\n\nperfect from 4K to 104K\n\n6x+\n\nmemory reduction\n\nlarge cost savings\n\n8x\n\nattention speed\n\nH100 at 4-bit [...] You can infer from current model behavior that mainstream systems are already using many of these ideas. Better long-context behavior, lower inference cost, and stable performance all suggest that KV-cache efficiency has already been significantly improved. A team at Google's level has very likely already deployed low-bit quantization, outlier handling, and at least part of KV-cache compression. [...] If I had to estimate roughly how much of the paper's benefit is already reflected in deployed systems, it would look something like this: the earliest KV cache starts at 1x cost; basic quantization gets to around 2x to 3x compression; adding outlier-aware handling can reach about 3x to 4x; the paper pushes that further to around 4x to 4.5x. In other words, most of the easy gains have already been captured. What remains is smaller in upside and increasingly expensive to realize.",
+   "claim": "TurboQuant compresses the KV cache in decoder-only transformers by reallocating information density to approach the information-theoretic optimum, reducing memory consumption significantly.",
+   "summary": "Inner-product lower bound: D\\_prod ≥ (||y||² / d) · 1/4^b\n\nClassical approaches such as PQ remain noticeably above these bounds.\n\n### 2The KV cache bottleneck in LLMs\n\nIn decoder-only transformers, KV cache stores one key/value pair per token. With long context windows, that memory cost quickly dominates the system budget.\n\n#### Memory estimate\n\nmemory ≈ 2 × L × d × 2 bytes (FP16)\n\n128K context + 7B modeltens of GB\n\nKV cache share of total memory80%+\n\n#### What TurboQuant changes [...] KV cache has long been the largest source of memory consumption in large-model inference. What this paper does, in essence, is compress that data in a way that approaches the information-theoretic optimum. It is not just lowering precision. It is reallocating information density: ordinary regions are represented with extremely low bits, while outliers retain higher precision. At the same time, the method stops treating values independently and instead encodes them at the vector level, which [...] More importantly, the significance of the paper is not just how much more memory it saves. It gives us a boundary. KV-cache compression is approaching its limit, and the remaining room is narrow. The next ma",
    "source_url": "https://turboquant.net",
    "doc_id": "",
    "title": "TurboQuant.net - Independent TurboQuant Analysis",
@@ -2153,7 +2063,7 @@
    "section": "",
    "tech": "turboquant",
    "perspectives": [
-    "domain"
+    "stakeholder"
    ],
    "stances": [
     "pro"
@@ -2161,7 +2071,7 @@
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "turboquant.net",
-   "origin_group": "google",
+   "origin_group": "turboquant.net",
    "attempt": 1
   },
   {
@@ -2187,57 +2097,7 @@
    "source_class": "third_party",
    "source_group": "futurumgroup.com",
    "origin_group": "futurumgroup.com",
-   "attempt": 0
-  },
-  {
-   "evidence_id": "W:0f02890155",
-   "kind": "web",
-   "claim": "TurboQuant compresses KV cache memory by 6x with zero accuracy loss but does not compress model weights.",
-   "summary": "Wrong. TurboQuant only compresses KV cache, not model weights. You still need to fit the model itself.\n\n   correction.txt\n\n   ```\n\n   Myth: 16GB VRAM can run 70B model with TurboQuant\n\n   Reality:\n\n   - Model weights (unquantized): 140 GB - still need this\n\n   - KV cache (with TurboQuant): ~53 GB instead of 320 GB\n\n   TurboQuant helps with:\n\n   - Long context (128K+ tokens)\n\n   - Multiple concurrent users\n\n   - Not with model weight memory [...] On March 24, 2026, Google Research announced TurboQuant - a training-free compression algorithm that reduces KV cache memory by 6x with zero accuracy loss.\n\nThe key insight: you don’t need 16-bit precision to store KV cache values. TurboQuant compresses to just 3 bits per value.\n\ncompression-comparison.txt\n\n```\n\nBefore TurboQuant:\n\n- Precision: FP16 (16 bits per value)\n\n- KV cache for 128K context: ~320 GB\n\nAfter TurboQuant:\n\n- Precision: 3 bits per value\n\n- KV cache for 128K context: ~53 GB [...] 1. Short contexts - Under 4K tokens, KV cache is small anyway\n2. Inflexible hardware - Needs H100 or newer for full benefits\n3. Model weight compression - Use GPTQ/AWQ for that\n\n## Related Knowledge\n\n### The Pied Piper Connection\n\nMultiple Reddit ",
-   "source_url": "https://docs.bswen.com/blog/2026-03-27-what-is-google-turboquant-kv-cache-compression",
-   "doc_id": "",
-   "title": "What is Google TurboQuant? KV Cache Compression Explained | BSWEN",
-   "publisher": "bswen.com",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "turboquant",
-   "perspectives": [
-    "trl"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "bswen.com",
-   "origin_group": "google",
-   "attempt": 1
-  },
-  {
-   "evidence_id": "W:1326e97dee",
-   "kind": "web",
-   "claim": "SK hynix began mass shipments of HBM4 in Q2 and plans to expand production in H2 2026, overlapping HBM4 production ramp with HBM4E qualification.",
-   "summary": "The distinction matters. Sample delivery does not guarantee a production contract, while mass shipment does not reveal customer allocations. However, SK hynix now has one generation entering volume deployment as its successor moves through customer testing. [...] The central development is not one early sample. SK hynix is overlapping the HBM4 production ramp with HBM4E qualification.\n\nSK hynix said in its July 29 quarterly results that it began mass HBM4 shipments during the second quarter. The company plans to expand production during the second half of 2026. [...] Its HBM4 ramp supplies another important test. The company began mass shipments during the second quarter and plans to increase production in the second half. It has not disclosed quarterly HBM4 volume, customer mix, or yield.\n\nA smooth HBM4 expansion would strengthen confidence in related process, packaging, and supply decisions. Delays or allocation changes would raise questions about how quickly SK hynix can move HBM4E into production.",
-   "source_url": "https://www.remio.ai/post/sk-hynix-ships-hbm4e-samples-as-the-hbm4-race-moves-into-production",
-   "doc_id": "",
-   "title": "SK hynix Ships HBM4E Samples as the HBM4 Race Moves Into Production",
-   "publisher": "remio.ai",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "trl"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "remio.ai",
-   "origin_group": "remio.ai",
-   "attempt": 1
+   "attempt": 2
   },
   {
    "evidence_id": "W:135ea1bd4e",
@@ -2263,31 +2123,6 @@
    "source_group": "neurips.cc",
    "origin_group": "neurips.cc",
    "attempt": 2
-  },
-  {
-   "evidence_id": "W:149039c8b1",
-   "kind": "web",
-   "claim": "Earlier sample delivery in HBM market enables customers to accelerate performance verification and optimization, providing advantage in mass production contracts.",
-   "summary": "In the HBM market, sample shipment timing translates directly into mass production competitiveness. Since next-generation HBM is custom-built to match the AI accelerator architectures of major customers like Nvidia, earlier sample delivery enables customers to accelerate performance verification and optimization. This, in turn, provides a decisive advantage in the final race for mass production contracts. [...] a 58% share, though Samsung has narrowed the gap to 21%. HBM4E is a critical component for Nvidia's next-generation AI accelerator, the Rubin Ultra. Given the customized nature of these products, sample delivery speed has become a decisive factor in securing mass production contracts. [...] Micron has set its HBM4E mass production target for 2027, entering the technology race by introducing extreme ultraviolet (EUV) equipment for the first time on its 10-nanometer-class sixth-generation 1γ (gamma) process. The company plans to outsource base die production to TSMC.",
-   "source_url": "https://finance.biggo.com/news/47q7wJ4BXp3ZLKjgUWkr",
-   "doc_id": "",
-   "title": "HBM4E Sample War Heats Up: SK Hynix Races Samsung with Imminent June Shipment — BigGo Finance",
-   "publisher": "biggo.com",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "trl"
-   ],
-   "stances": [
-    "neutral"
-   ],
-   "scope": "category",
-   "source_class": "third_party",
-   "source_group": "biggo.com",
-   "origin_group": "biggo.com",
-   "attempt": 1
   },
   {
    "evidence_id": "W:1ae3c72ba6",
@@ -2330,18 +2165,15 @@
    "tech": "turboquant",
    "perspectives": [
     "domain",
-    "market",
-    "stakeholder",
-    "trl"
+    "stakeholder"
    ],
    "stances": [
-    "con",
     "pro"
    ],
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "starkinsider.com",
-   "origin_group": "google",
+   "origin_group": "starkinsider.com",
    "attempt": 2
   },
   {
@@ -2362,7 +2194,6 @@
     "market"
    ],
    "stances": [
-    "con",
     "pro"
    ],
    "scope": "tech_specific",
@@ -2395,7 +2226,7 @@
    "source_class": "third_party",
    "source_group": "medium.com",
    "origin_group": "medium.com",
-   "attempt": 1
+   "attempt": 2
   },
   {
    "evidence_id": "W:228e59bbdb",
@@ -2420,7 +2251,7 @@
    "source_class": "third_party",
    "source_group": "decodingdiscontinuity.com",
    "origin_group": "decodingdiscontinuity.com",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:236cf44a78",
@@ -2445,12 +2276,12 @@
    "source_class": "vendor",
    "source_group": "nvidia",
    "origin_group": "nvidia",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:23c95f44b3",
    "kind": "web",
-   "claim": "KV cache size for large models like Llama 3.1 405B with million-token contexts reaches hundreds of GB to multiple TB, posing cost and power challenges for HBM-only solutions.",
+   "claim": "KV cache size grows massively with long context lengths, making HBM-only solutions costly and power-hungry, posing commercialization challenges for HBF.",
    "summary": "The bigger problem is KV cache. For Llama 3.1 405B with 1M token context, pre-computed KV cache alone reaches about 540GB. Extending to 10M tokens means 5.4TB. Handling this with HBM alone would require dozens of GPUs, driving up both cost and power consumption proportionally.\n\nThis is the background for what SanDisk and SK hynix call the “memory wall” and their proposal of HBF. [...] However, a close analysis of the H³ paper published by SK hynix researchers reveals that HBF faces much higher barriers to practical implementation than initially apparent. This article examines the assumptions and limitations of the H³ architecture from a practicing semiconductor engineer’s perspective, reviews the technical and economic challenges HBF will face during commercialization, and looks at alternative technology solutions currently being developed in the industry. [...] FlashAttention-3: Optimizes KV cache access patterns to reduce memory bandwidth requirements. FlashDecoding++ cuts latency to 1/3 in long context inference.\n\nGrouped-Query Attention (GQA): Adopted by latest models like Llama 3. Reduces KV cache size 4-8x while maintaining performance.\n\nQuantization: FP8 and INT4 quantizatio",
    "source_url": "https://damnang2.substack.com/p/hbfs-limits-and-reality-between-promise",
    "doc_id": "",
@@ -2464,7 +2295,7 @@
     "market"
    ],
    "stances": [
-    "pro"
+    "con"
    ],
    "scope": "category",
    "source_class": "third_party",
@@ -2500,7 +2331,7 @@
   {
    "evidence_id": "W:254e73e62c",
    "kind": "web",
-   "claim": "Nvidia supports KV cache extension with Dynamo software and CMX scheme, integrating with vLLM and TensorRT-LLM, enabling multi-tier KV cache offloading across GPU, CPU, SSD, and networked storage.",
+   "claim": "Nvidia supports KV cache extension with Dynamo software and CMX scheme, integrating with vLLM and TensorRT-LLM, enabling multi-tier KV cache offloading.",
    "summary": "GPU and AI platform system supplier Nvidia supports KV cache extension with its Dynamo software and CMX scheme. Dynamo is a distributed inference framework for scaling reasoning/multi-turn workloads supporting KV cache offloading, from (GPU HBM to CPU DRAM to local SSD to networked storage). It features KV-aware routing defining routes to nodes with existing cache, low-latency transfers via its NIXL library, and integration with vLLM, TensorRT-LLM, etc. Nvidia had a 4-tier KV cache concept up [...] Context Cache Tiering: A unified Context Cache Tiering framework enables seamless, high-speed read and write access across local SSD and DRAM tiers at LMCache speed, supporting AI inference use cases including long-context language model serving and retrieval-augmented generation. [...] Stage 3: leveraging measured 96% line rate Arm CPU performance on NVIDIA Grace, Augmented Memory Grid on Vera BF-4 client and server, will fully support CMX-native architecture where shared KV cache is a full platform, orchestrated by NVIDIA’s Dynamo framework, as first-class context infrastructure.\n\nA diagram illustrates this concept;\n\nWEKA CMX adoption path. (Graphic inverted for readability.)\n\nWEKA CMX",
    "source_url": "https://www.blocksandfiles.com/ai-ml/2026/03/30/nvidia-and-its-partners-kv-cache-extenders/5209284",
    "doc_id": "",
@@ -2519,33 +2350,108 @@
    "scope": "category",
    "source_class": "third_party",
    "source_group": "blocksandfiles.com",
-   "origin_group": "nvidia",
+   "origin_group": "blocksandfiles.com",
    "attempt": 2
   },
   {
-   "evidence_id": "W:29129dffcf",
+   "evidence_id": "W:284177c001",
    "kind": "web",
-   "claim": "TurboQuant combines polar quantization and 1-bit residual correction to achieve zero-accuracy-loss 3-bit KV cache compression and up to 8x faster attention.",
-   "summary": "TurboQuant is a novel approach for KV cache compression that combines polar quantization with 1-bit residual correction (QJL). The polar quantization step rotates the vector randomly so that the coordinates follow a concentrated distribution that is easy to quantize. The QJL step removes the normalization overhead by using a 1-bit residual correction. TurboQuant achieves zero-accuracy-loss 3-bit KV cache compression, 6x lower memory use, and up to 8x faster attention. [...] has led to significant advancements in model architecture, training methods, and inference optimization techniques. One of the key challenges in deploying LLMs is the high memory requirements, which can be mitigated using techniques such as model pruning, quantization, and knowledge distillation. Recently, Google introduced TurboQuant, a novel approach for KV cache compression that achieves zero-accuracy-loss 3-bit KV cache compression, 6x lower memory use, and up to 8x faster attention. In",
-   "source_url": "https://artificial-inteligence.phptutorial.co.in/efficient-llm-inference-with-turboquant-and-kv-cache-offloading",
+   "claim": "There are serious issues and incorrect technical claims in the TurboQuant paper as flagged by external reviewers, raising concerns about its validity.",
+   "summary": "\"The TurboQuant paper (ICLR 2026) contains serious issues in how it describes RaBitQ, including incorrect technical claims and misleading theory/experiment comparisons.\nWe flagged these issues to the authors before submission. They acknowledged them, but chose not to fix them. The paper was later accepted and widely promoted by Google, reaching tens of millions of views. [...] |  |  | mskkm 5 months ago  | prev | next (javascript:void(0))   seems to be a scam \"The TurboQuant paper (ICLR 2026) contains serious issues in how it describes RaBitQ, including incorrect technical claims and misleading theory/experiment comparisons. We flagged these issues to the authors before submission. They acknowledged them, but chose not to fix them. The paper was later accepted and widely promoted by Google, reaching tens of millions of views. We’re speaking up now because once a [...] ago  | prev | next (javascript:void(0))   The blog is new but the paper was submitted almost one year ago: . Anyone has ideas if this is already implemented in many models (at least Gemini, I guess)? If that's the case, can I expect cheaper RAM for my computer :D | | | |  |  |  |  ---  |  |  | mskkm 5 months ago  | pr",
+   "source_url": "https://news.ycombinator.com/item?id=47513475",
    "doc_id": "",
-   "title": "Efficient LLM Inference with TurboQuant and KV Cache Offloading - Artificial Intelligence",
-   "publisher": "phptutorial.co.in",
+   "title": "TurboQuant: Redefining AI efficiency with extreme ...",
+   "publisher": "ycombinator.com",
    "published_at": "",
    "page": null,
    "section": "",
    "tech": "turboquant",
    "perspectives": [
-    "trl"
+    "domain"
+   ],
+   "stances": [
+    "con"
+   ],
+   "scope": "category",
+   "source_class": "third_party",
+   "source_group": "ycombinator.com",
+   "origin_group": "google",
+   "attempt": 2
+  },
+  {
+   "evidence_id": "W:28a4c1b156",
+   "kind": "web",
+   "claim": "S&P and Fitch revised SK Hynix outlook to positive, affirming BBB credit rating due to strong demand for HBM chips driven by AI applications and SK Hynix's leading market position.",
+   "summary": "© Reuters.\n\nInvesting.com -- SK Hynix received positive outlook revisions from both S&P Global Ratings and Fitch Ratings on Monday, with both agencies affirming the company’s ’BBB’ credit rating.\n\nThe rating actions reflect SK Hynix’s strengthening financial profile and its leading position in high-bandwidth memory (HBM) chips, which are experiencing strong demand due to artificial intelligence applications. [...] According to OMDIA research cited by Fitch, SK Hynix became the largest global DRAM supplier by revenue in the first quarter of 2025, capturing a 37% market share. [...] | Name | Last | Chg. % | Vol. |  |\n ---  --- \n| MSTR | 153.92 | +16.39% | 54.67M |  |\n| SNDK | 1,791.82 | +10.99% | 17.79M |  |\n| LRCX | 288.11 | +6.98% | 19.64M |  |\n| STX | 858.79 | +6.93% | 6.98M |  |\n| AMAT | 444.57 | +6.51% | 14.30M |  |\n| TER | 371.47 | +5.19% | 4.29M |  |\n| KLAC | 176.99 | +4.74% | 20.07M |  |",
+   "source_url": "https://www.investing.com/news/stock-market-news/sk-hynix-outlook-revised-to-positive-by-sp-and-fitch-on-memory-chip-strength-93CH-4209005",
+   "doc_id": "",
+   "title": "SK Hynix outlook revised to positive by S&P and Fitch on memory chip strength By Investing.com",
+   "publisher": "investing.com",
+   "published_at": "",
+   "page": null,
+   "section": "",
+   "tech": "itme",
+   "perspectives": [
+    "stakeholder"
    ],
    "stances": [
     "pro"
    ],
    "scope": "tech_specific",
    "source_class": "third_party",
-   "source_group": "phptutorial.co.in",
-   "origin_group": "phptutorial.co.in",
+   "source_group": "investing.com",
+   "origin_group": "investing.com",
+   "attempt": 2
+  },
+  {
+   "evidence_id": "W:2d047f9fc7",
+   "kind": "web",
+   "claim": "SK hynix invests in semiconductor manufacturing capacity to maintain competitiveness and support advanced memory technologies.",
+   "summary": "As semiconductor process technologies continue to advance, more manufacturing space is required to produce the same output. Furthermore, HBM requires more wafers than conventional DRAM to produce the same memory capacity, resulting in significantly higher production resource requirements. Securing sufficient production capacity in advance has therefore become one of the most critical competitive advantages. [...] This decision was first and foremost driven by the company’s business needs and assessment of its global competitiveness. At the same time, developing a large-scale semiconductor cluster in Korea requires not only extensive land but also national-level infrastructure, including reliable electricity and water supply. Accordingly, SK hynix formulated this investment strategy after comprehensively considering the government’s semiconductor industry development policies, the overall business [...] The semiconductor industry delivers meaningful results only when corporate investment and industrial infrastructure are aligned. When manufacturing facilities and supporting infrastructure develop in tandem, they create a virtuous cycle that strengthens investment, employment, and in",
+   "source_url": "https://news.skhynix.com/en/fact-05",
+   "doc_id": "",
+   "title": "Explainer: SK hynix's Mid-to-Long-Term Investment Strategy",
+   "publisher": "skhynix",
+   "published_at": "",
+   "page": null,
+   "section": "",
+   "tech": "itme",
+   "perspectives": [
+    "market"
+   ],
+   "stances": [
+    "neutral"
+   ],
+   "scope": "category",
+   "source_class": "vendor",
+   "source_group": "skhynix",
+   "origin_group": "skhynix",
    "attempt": 1
+  },
+  {
+   "evidence_id": "W:2ed5c7a81f",
+   "kind": "web",
+   "claim": "Analysts see massive upside for SK Hynix due to AI demand and its dominant position in high-bandwidth memory market, despite some market concerns.",
+   "summary": "24/7 Wall St.\n\n# Analysts Still See Massive Upside for SK Hynix — The AI Cycle Isn’t Done But Questions Remain\n\nJoey Frenette\n\n4 min read\n\n SKHY\n\n  +0.94%\n MU\n\n  -0.22%\n META\n\n  +0.57%\n NVDA\n\n  -0.03%\n SKHY\n\n  +0.94%\n\n### Quick Read [...] SK Hynix dominates the global high-bandwidth memory market and just landed on Nasdaq, giving U.S. investors a fiercer AI memory play than Micron.\n More bullish analysts project SK Hynix gains of between 100% and 120%, but panic-selling tied to South Korea capital outflows may be premature given sustained AI demand.\n Markets now reward CapEx efficiency over brute-force AI spending, making the memory demand bull case more fragile than the data center buildout suggests. [...] While it's an uneasy time to be a buyer of SK Hynix, I do think the value proposition gets louder with every single-day double-digit percentage move lower. The biggest discounts tend to arise when investors panic-sell, fearing the bursting of an AI bubble. With AI demand heating up as ever, it feels like the selling wave, specifically surrounding South Korean memory makers, is a bit premature and nothing to hit the panic button over.\n\n## Just another correction in semis?",
+   "source_url": "https://finance.yahoo.com/markets/stocks/articles/analysts-still-see-massive-upside-151554133.html",
+   "doc_id": "",
+   "title": "Analysts Still See Massive Upside for SK Hynix — The AI Cycle Isn’t Done But Questions Remain",
+   "publisher": "yahoo.com",
+   "published_at": "",
+   "page": null,
+   "section": "",
+   "tech": "itme",
+   "perspectives": [
+    "stakeholder"
+   ],
+   "stances": [
+    "pro"
+   ],
+   "scope": "tech_specific",
+   "source_class": "third_party",
+   "source_group": "yahoo.com",
+   "origin_group": "yahoo.com",
+   "attempt": 2
   },
   {
    "evidence_id": "W:33b0a969f7",
@@ -2621,7 +2527,7 @@
    "source_class": "third_party",
    "source_group": "hpe.com",
    "origin_group": "hpe.com",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:3bb01547b5",
@@ -2646,7 +2552,7 @@
    "source_class": "academic",
    "source_group": "arxiv.org",
    "origin_group": "arxiv.org",
-   "attempt": 1
+   "attempt": 2
   },
   {
    "evidence_id": "W:3da8afdb7a",
@@ -2662,47 +2568,24 @@
    "section": "",
    "tech": "itme",
    "perspectives": [
+    "market",
     "stakeholder"
    ],
    "stances": [
-    "neutral"
+    "neutral",
+    "pro"
    ],
    "scope": "tech_specific",
    "source_class": "vendor",
    "source_group": "skhynix",
    "origin_group": "skhynix",
-   "attempt": 0
-  },
-  {
-   "evidence_id": "W:3ef170342b",
-   "kind": "web",
-   "claim": "TurboQuant outperforms product quantization baselines in recall and has near-zero indexing time due to data-oblivious design.",
-   "summary": "Google frames TurboQuant as useful beyond just LLMs, specifically for vector search at scale. The recall numbers on GloVe do outperform product quantization and RabbiQ baselines, and the indexing time drops to near zero because TurboQuant is data-oblivious (no codebook training needed). For anyone running large-scale nearest-neighbor search, that zero-indexing-time property is potentially more interesting than the KV cache application, though it got buried in the blog post's second half. [...] Google Research published TurboQuant on Monday, a vector quantization algorithm that compresses the key-value cache in large language models down to 3 bits per channel while claiming zero accuracy loss. The paper, which will be presented at ICLR 2026, comes from a team led by research scientist Amir Zandieh and Vahab Mirrokni, a VP and Google Fellow. At 4-bit precision, Google says TurboQuant delivers up to 8x speedup in computing attention logits on H100 GPUs compared to the unquantized 32-bit [...] Google benchmarked TurboQuant against KIVI, which was published at ICML 2024 and has become the standard baseline for KV cache quantization. KIVI introduced asymmetric 2-bit quantization (keys pe",
-   "source_url": "https://aihola.com/article/google-turboquant-kv-cache-compression",
-   "doc_id": "",
-   "title": "Google TurboQuant Compresses LLM KV Cache 6x | aiHola",
-   "publisher": "aihola.com",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "turboquant",
-   "perspectives": [
-    "trl"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "aihola.com",
-   "origin_group": "google",
-   "attempt": 1
+   "attempt": 2
   },
   {
    "evidence_id": "W:40ce3235c4",
    "kind": "web",
-   "claim": "KV cache tiering requires prediction, scheduling, and prefetching to manage latency and optimize performance in large-language-model inference.",
-   "summary": "Key-value cache is one of the most important memory challenges in large-language-model inference. During autoregressive generation, transformer models store key and value tensors from previous tokens. This avoids recomputing attention over the entire context. As context windows become longer, KV cache memory requirements grow significantly. [...] The challenge is latency management. If the system moves data out of HBM and then needs it immediately, performance may suffer. Therefore, KV cache tiering requires prediction, scheduling, and prefetching. A standardized HBF layer can help by giving software developers a clear target for optimization.\n\n## 11. Data-Center Impact and Server Design [...] This tiered approach can make enterprise AI more practical. It reduces the need to keep everything in expensive memory and reduces the latency penalty of retrieving everything from slower storage.\n\n## 10. KV Cache, Long Context, and Memory Expansion",
+   "claim": "Standardized HBF layer can help software developers optimize KV cache tiering to reduce expensive memory use and latency penalties in enterprise AI.",
+   "summary": "Key-value cache is one of the most important memory challenges in large-language-model inference. During autoregressive generation, transformer models store key and value tensors from previous tokens. This avoids recomputing attention over the entire context. As context windows become longer, KV cache memory requirements grow significantly. [...] This tiered approach can make enterprise AI more practical. It reduces the need to keep everything in expensive memory and reduces the latency penalty of retrieving everything from slower storage.\n\n## 10. KV Cache, Long Context, and Memory Expansion [...] The challenge is latency management. If the system moves data out of HBM and then needs it immediately, performance may suffer. Therefore, KV cache tiering requires prediction, scheduling, and prefetching. A standardized HBF layer can help by giving software developers a clear target for optimization.\n\n## 11. Data-Center Impact and Server Design",
    "source_url": "https://www.ersaelectronics.com/blog/sandisk-sk-hynix-standardize-hbf",
    "doc_id": "",
    "title": "Sandisk & SK hynix Standardize HBF: A New Memory Tier ...",
@@ -2712,21 +2595,21 @@
    "section": "",
    "tech": "itme",
    "perspectives": [
-    "trl"
+    "market"
    ],
    "stances": [
-    "neutral"
+    "pro"
    ],
    "scope": "category",
    "source_class": "third_party",
    "source_group": "ersaelectronics.com",
-   "origin_group": "ersaelectronics.com",
-   "attempt": 2
+   "origin_group": "skhynix",
+   "attempt": 1
   },
   {
    "evidence_id": "W:46cdf1d549",
    "kind": "web",
-   "claim": "The KV-Cache Offloading Infrastructure market is growing with adoption in HPC and regulated industries, with deployment modes including on-premises, cloud, and hybrid.",
+   "claim": "KV-Cache Offloading Infrastructure market is growing with adoption in HPC and regulated industries, with on-premises, cloud, and hybrid deployment models.",
    "summary": "and accelerate time-to-insight. The growing adoption of HPC in industries such as pharmaceuticals, automotive, and energy is driving demand for specialized KV-cache offloading solutions tailored to the unique requirements of these sectors. [...] The Deployment Mode segment in the KV-Cache Offloading Infrastructure market is divided into on-premises, cloud-based, and hybrid models, each catering to distinct operational needs and strategic objectives. On-premises deployment remains a preferred choice for organizations with stringent data security, compliance, and latency requirements. Enterprises in regulated industries such as BFSI and healthcare often opt for on-premises solutions to maintain full control over their data and [...] The End-User segment in the KV-Cache Offloading Infrastructure market includes IT & telecommunications, BFSI, healthcare, retail, government, and other industries, each with distinct requirements and adoption drivers. The IT & telecommunications sector is the largest end-user, leveraging KV-cache offloading solutions to support the rapid growth of AI-powered services, real-time analytics, and high-performance networking. Telecom operators are deploying ad",
    "source_url": "https://growthmarketreports.com/report/kv-cache-offloading-infrastructure-market",
    "doc_id": "",
@@ -2762,43 +2645,16 @@
    "section": "",
    "tech": "turboquant",
    "perspectives": [
-    "domain",
     "trl"
    ],
    "stances": [
-    "con",
     "pro"
    ],
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "deepinfra.com",
-   "origin_group": "google",
-   "attempt": 2
-  },
-  {
-   "evidence_id": "W:47eaeacf81",
-   "kind": "web",
-   "claim": "TurboQuant integrates multiple quantization techniques into a coherent KV cache compression pipeline with clear research significance but unproven production readiness.",
-   "summary": "## Summary\n\nTurboQuant integrates three previously independent technical threads—PolarQuant for eliminating metadata overhead, QJL for preserving dot-product accuracy, and online vector quantization approaching theoretical optimality—into a coherent KV cache compression pipeline. It is not an entirely new compression paradigm, but it advances the state of deployment friction, engineering overhead, and theoretical rigor beyond prior point solutions. [...] Whether it can be used at production scale depends on three things: the pace of open-source implementation, kernel support in mainstream inference frameworks, and broader validation across models and scenarios. It currently sits at a stage where research significance is clear, engineering relevance is real, but production readiness remains unproven. [...] If you are building long-context AI products or inference services, KV cache memory is likely one of your biggest resource bottlenecks. At 128K tokens and beyond, the KV cache regularly consumes more GPU memory than the model weights themselves, directly determining how many concurrent requests a single GPU can serve, the latency-cost tradeoff in your inference stack, and whether ",
-   "source_url": "https://yage.ai/share/turboquant-kv-cache-3-bit-en-20260325.html",
-   "doc_id": "",
-   "title": "TurboQuant: Google Wants to Compress KV Cache Down to 3 Bits",
-   "publisher": "yage.ai",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "turboquant",
-   "perspectives": [
-    "trl"
-   ],
-   "stances": [
-    "neutral"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "yage.ai",
-   "origin_group": "yage.ai",
-   "attempt": 1
+   "origin_group": "deepinfra.com",
+   "attempt": 0
   },
   {
    "evidence_id": "W:489ea2e235",
@@ -2823,32 +2679,7 @@
    "source_class": "vendor",
    "source_group": "skhynix",
    "origin_group": "skhynix",
-   "attempt": 0
-  },
-  {
-   "evidence_id": "W:4de1ecadd7",
-   "kind": "web",
-   "claim": "Simulations show SK hynix's hybrid memory architecture with KV cache increases batch size by 18.8× and performance per watt by 2.69× compared to HBM-only.",
-   "summary": "According to SK Hynix, simulations with eight HBM3E stacks and eight HBF stacks in combination with a Blackwell B200 GPU show an up to 2.69-fold increase in performance per watt compared to HBM-only configurations. With a KV cache of 10 million tokens, the possible batch size increased by a factor of 18.8.\n\n### Technical Hurdles and Standardization [...] The integration of NAND into HBM-related packaging poses considerable challenges. In addition to latency, controller design, wear leveling and the management of block-based addressing are particularly critical. Write performance is also becoming increasingly important for KV cache applications. [...] The concept is driven by the growing memory requirements of large language models in inference. In particular, the key-value cache (KV cache), which caches context information, scales strongly with sequence lengths and batch sizes.\n\nSequences in the million-token range can require cache sizes in the terabyte range. In today's systems, the limited HBM capacity means that data has to be outsourced to local SSDs or GPUs have to be scaled. Both increase latency and energy requirements.",
-   "source_url": "https://www.all-about-industries.com/sk-hynix-presents-hybrid-storage-architecture-for-better-ki-inference-a-73bfd0eb323c3a35bd0391c0571a7c59",
-   "doc_id": "",
-   "title": "SK Hynix Introduces Hybrid Memory Architecture for ...",
-   "publisher": "all-about-industries.com",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "domain"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "all-about-industries.com",
-   "origin_group": "skhynix",
-   "attempt": 1
+   "attempt": 2
   },
   {
    "evidence_id": "W:4f8bc8bec8",
@@ -2869,7 +2700,6 @@
    ],
    "stances": [
     "con",
-    "neutral",
     "pro"
    ],
    "scope": "tech_specific",
@@ -2877,31 +2707,6 @@
    "source_group": "vllm.ai",
    "origin_group": "vllm.ai",
    "attempt": 2
-  },
-  {
-   "evidence_id": "W:51d860ea62",
-   "kind": "web",
-   "claim": "TurboQuant는 vLLM과 Qdrant에서 생산 환경 지원이 집중되어 있으며, vLLM 기반 서빙에서 간단한 설정 변경으로 도입 가능하다.",
-   "summary": "Read the table as a statement about where the ecosystem placed TurboQuant, not about where it could theoretically run. The math is portable; the production-grade support is concentrated in exactly two places, vLLM for serving and Qdrant for search, with AWS's architecture (Section 13) as the managed-infrastructure expression of the same stack. If your serving is vLLM-based, adopting k8v4 is a one-flag change with a well-characterized cost, and the main work is running your own before-and-after [...] Independent analyses converged on the same shape from different angles. Deep Infra's deployment writeup found that quality degradation begins below roughly 3B parameters at 3-bit, and that values need tighter precision than keys in the sense that 2-bit values degrade significantly, which is exactly why the shipped presets are asymmetric configurations like k3v4 rather than symmetric ones. The Kaitchup's independent review from March 27 confirmed 2.5 to 3.5-bit KV compression works on LongBench [...] The numbers are stark, and they have only grown since March. For a 70B parameter model serving 512 concurrent users, the KV cache alone can consume 512 GB of memory, nearly four times the me",
-   "source_url": "https://o-mega.ai/articles/google-turboquant-the-2026-llm-compression-guide",
-   "doc_id": "",
-   "title": "Google TurboQuant in August 2026: Where It Actually Runs",
-   "publisher": "o-mega.ai",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "turboquant",
-   "perspectives": [
-    "market"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "o-mega.ai",
-   "origin_group": "o-mega.ai",
-   "attempt": 1
   },
   {
    "evidence_id": "W:546fbbd718",
@@ -2944,8 +2749,7 @@
    "perspectives": [
     "domain",
     "market",
-    "stakeholder",
-    "trl"
+    "stakeholder"
    ],
    "stances": [
     "pro"
@@ -2979,32 +2783,7 @@
    "source_class": "third_party",
    "source_group": "tradingkey.com",
    "origin_group": "tradingkey.com",
-   "attempt": 0
-  },
-  {
-   "evidence_id": "W:5850be8925",
-   "kind": "web",
-   "claim": "TurboQuant addresses the information theory problem of compressing high-dimensional vectors while preserving geometry critical for AI tasks like attention and nearest-neighbor retrieval.",
-   "summary": "At a high level, google turboquant is a practical answer to an old information theory problem. You have a high-dimensional vector. You want to store fewer bits. You do not want to wreck the geometry that makes the vector useful. In AI systems, that geometry is the whole game. Attention scores, nearest-neighbor retrieval, and similarity search all depend on it. If you are curious how inference speed and memory interact at the hardware level, the TPU vs GPU breakdown covers the tradeoffs in [...] The paper’s search experiments lean into this advantage. It outperforms existing product quantization baselines in recall while cutting indexing time to essentially zero. That line should make anyone building a vector search system sit up a bit straighter.\n\nThere is a philosophical point hiding in there too. The best compression methods for AI may not be the ones that memorize the quirks of a dataset. They may be the ones that reshape the geometry so the old theory becomes usable again. [...] | Method Style | Strength | Weakness |\n --- \n| Offline PQ with learned codebooks | Can be strong on fixed datasets | Slow indexing, extra storage, brittle online |\n| Scalar low-bit quantization | Simple",
-   "source_url": "https://binaryverseai.com/turboquant-kv-cache-compression-engineers-guide",
-   "doc_id": "",
-   "title": "TurboQuant: 7 Powerful Breakthroughs In KV Cache Efficiency",
-   "publisher": "binaryverseai.com",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "turboquant",
-   "perspectives": [
-    "trl"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "binaryverseai.com",
-   "origin_group": "binaryverseai.com",
-   "attempt": 1
+   "attempt": 2
   },
   {
    "evidence_id": "W:597be4c6d3",
@@ -3046,7 +2825,6 @@
    "section": "",
    "tech": "turboquant",
    "perspectives": [
-    "domain",
     "market",
     "stakeholder"
    ],
@@ -3056,13 +2834,38 @@
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "youtube.com",
-   "origin_group": "google",
+   "origin_group": "youtube.com",
+   "attempt": 2
+  },
+  {
+   "evidence_id": "W:60d9067d09",
+   "kind": "web",
+   "claim": "TurboQuant compresses KV cache data from 16 bits to about 3 bits per value, achieving 6x memory reduction and up to 8x speedup on NVIDIA H100 GPUs without accuracy loss.",
+   "summary": "Above: The NVIDIA H100 GPU — the hardware where TurboQuant's KV cache compression takes effect during active AI inference.\n\nThis is the bottleneck TurboQuant targets. The algorithm compresses KV cache data from 16 bits per value down to roughly 3 bits for a 6x reduction in memory footprint without any measurable loss in accuracy. On NVIDIA's H100 GPUs, it delivered up to an 8x speedup in the specific computation that supported the new caching algorithm. [...] Key Insight\n\nEfficiency at the compute layer usually expands demand at the infrastructure layer. Better inference economics can create more downstream demand for storage, not less.\n\nThis distinction matters for enterprise buyers and sellers. If your business revolves around storage hardware, the relevant question isn't whether KV cache compression reduces GPU memory pressure. It's whether cheaper and faster inference leads to broader AI adoption. History suggests it will. [...] Every time you ask an AI model a question, the system needs to remember the conversation so far. It stores that context in something called a key-value cache or KV. Think of it as the model's short-term working memory. As conversations get longer and mo",
+   "source_url": "https://serverpartdeals.com/blogs/blog-posts/googles-turboquant-just-shook-the-memory-market",
+   "doc_id": "",
+   "title": "Google's TurboQuant Just Shook the Memory Market.",
+   "publisher": "serverpartdeals.com",
+   "published_at": "",
+   "page": null,
+   "section": "",
+   "tech": "turboquant",
+   "perspectives": [
+    "market"
+   ],
+   "stances": [
+    "pro"
+   ],
+   "scope": "category",
+   "source_class": "third_party",
+   "source_group": "serverpartdeals.com",
+   "origin_group": "serverpartdeals.com",
    "attempt": 2
   },
   {
    "evidence_id": "W:6265d8b774",
    "kind": "web",
-   "claim": "KV cache consumption is increasing rapidly, with future support for million-token contexts requiring efficient and intelligent KV cache management and storage.",
+   "claim": "KV cache consumption is increasing rapidly, requiring more efficient and intelligent management; future support for QLC drives and scheduling improvements are considered.",
    "summary": "on KV cache consumption is that they want to support million-token context windows, and soon 2, 5, 10 million — and the only way to do that effectively is to keep being more efficient and intelligent about how you consume KV cache. [...] computing such as life sciences, Monte Carlo simulations, seismic analysis, weather analysis. Those are the applications the technology has proven itself in. We may see it appear in KV cache offloading as well. [...] TLC for a very high write-endurance workload like KV cache. In the future, as we’re able to influence the rest of the inference stack — the scheduling and routing, not just the KV transfer storage layer — we’ll add support for QLC drives as well. But you have to be careful, because you don’t want to break these drives with unintelligent scheduling of writes or unintelligent routing of tokens to somewhere that needs a quick write but isn’t really worth it.",
    "source_url": "https://www.weka.io/video/inference-is-eating-memory-and-tokens-now-run-ai-economics",
    "doc_id": "",
@@ -3099,7 +2902,6 @@
    "tech": "turboquant",
    "perspectives": [
     "domain",
-    "market",
     "stakeholder"
    ],
    "stances": [
@@ -3108,33 +2910,8 @@
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "towardsdatascience.com",
-   "origin_group": "google",
+   "origin_group": "towardsdatascience.com",
    "attempt": 2
-  },
-  {
-   "evidence_id": "W:674fc7bca7",
-   "kind": "web",
-   "claim": "SK hynix actively promotes AI memory and HBF technologies as part of its AI era strategy and ecosystem investment.",
-   "summary": "FACT\n\n  + semiconductor industry\n \n\n  SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward”\n\n  Sep 9, 2026\n\n  TECH&AI STORY\n\n  + 3D Memory\n  + AI Memory\n  + AX\n  + Future Semiconductor\n  + SK hynix Future Forum\n [\n\n  [AI Ecosystem] The real bottleneck: Data, not compute\n\n  Sep 3, 2026](\n\n  TECH&AI\n\n  + AI\n  + AI Memory\n  + HBF\n  + HBM\n [\n\n  [AI Infrastructure Insight] Why faster GPUs alone can’t deliver AI performance [...] Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\n[](\n\nSep 21, 2026\n\nSK hynix Hosts ‘2026 Global Forum,’   \n Sharing Its Technology Vision and Future Strategy   \n for the AI Era\n\n AI Memory AI Memory\n Global Forum\n Talent Development\n\n Read Post\n\n[](\n\nPRESS\n\nSep 18, 2026\n\nSK hynix Launches 'SK hynix Ventures'   \n in Silicon Valley to Expand   \n Global AI Ecosystem Investment\n\n AI data center\n AI ecosystem\n SK hynix Ventures\n\n Read Post\n\n[](\n\nTECH&AI\n\nSep 17, 2026 [...] AI Memory\n SK hynix Future Forum\n Future Semiconductor\n\n Read Post\n\nSTORY\n\nSep 21, 2026\n\nSK hynix Hosts ‘2026 Global Forum,’ Sharing Its Technology Vision and Future Strategy for the AI Era\n\n AI Memory AI Memory\n G",
-   "source_url": "https://news.skhynix.com/en",
-   "doc_id": "",
-   "title": "SK hynix Newsroom",
-   "publisher": "skhynix",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "market"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "vendor",
-   "source_group": "skhynix",
-   "origin_group": "skhynix",
-   "attempt": 1
   },
   {
    "evidence_id": "W:678fa8c7fb",
@@ -3162,31 +2939,6 @@
    "attempt": 2
   },
   {
-   "evidence_id": "W:6a8674a5c3",
-   "kind": "web",
-   "claim": "Memory, especially KV cache capacity, is now the bottleneck in AI performance; shared memory pools accessible by CPUs and GPUs via CXL are being adopted by large data centers.",
-   "summary": "KV cache is a temporary memory space that stores intermediate data so an AI model does not have to recompute previously processed context. As conversations grow longer and complex reasoning tasks multiply, the memory capacity required for KV cache grows sharply. [...] Kim proposed storing KV cache in a single shared memory pool accessible to multiple CPUs and GPUs simultaneously, rather than having each compute node maintain its own copy. He noted that several large data center operators, including China's Alibaba, have already applied shared memory designs to their production infrastructure. Compute Express Link, or CXL, is the key technology enabling CPUs and GPUs to jointly access external memory resources. [...] He added that the value of memory should no longer be measured by raw capacity or speed alone, but evaluated through the lens of overall AI system efficiency — metrics such as tokens per dollar and tokens per watt.\n\nThe shift in AI's center of gravity from training to inference is amplifying memory's importance further. Kim cited Nvidia's rack-scale AI system NVL72 as an example, noting that KV cache alone accounts for more than half of the system's total memory footpri",
-   "source_url": "https://mbiz.heraldcorp.com/article/10859924",
-   "doc_id": "",
-   "title": "SK hynix says memory, not GPUs, is now the bottleneck in AI performance - The Herald Business",
-   "publisher": "heraldcorp.com",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "market"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "category",
-   "source_class": "third_party",
-   "source_group": "heraldcorp.com",
-   "origin_group": "skhynix",
-   "attempt": 2
-  },
-  {
    "evidence_id": "W:6d6d5eb106",
    "kind": "web",
    "claim": "TurboQuant은 KV 캐시 압축 시 메모리 절감과 정확도 손실 간의 상충관계를 극복한다.",
@@ -3200,7 +2952,8 @@
    "section": "",
    "tech": "turboquant",
    "perspectives": [
-    "market"
+    "market",
+    "stakeholder"
    ],
    "stances": [
     "pro"
@@ -3209,31 +2962,6 @@
    "source_class": "third_party",
    "source_group": "towardsai.net",
    "origin_group": "towardsai.net",
-   "attempt": 2
-  },
-  {
-   "evidence_id": "W:70fda01051",
-   "kind": "web",
-   "claim": "AiMX cards with NVIDIA H100 GPUs improve KV-cache utilization efficiency during long question-and-answer sequences, alleviating memory bottlenecks.",
-   "summary": "\\ Key-Value (KV) cache: A technology that stores and reuses previously computed Key and Value vectors, preserving context from earlier inputs to reduce redundant calculations and respond more efficiently. [...] A separate demonstration highlighted how AiMX\\  is optimized for attention\\  operations — the core computation in LLMs. In a server equipped with AiMX cards and NVIDIA H100 GPUs, AiMX significantly enhanced the speed and efficiency of memory-bound\\  workloads. AiMX also improves the efficiency of KV-cache\\  utilization during long question-and-answer sequences, alleviating memory bottlenecks. [...] SK Group Chairman Chey delivered the opening keynote under the theme “AI Now & Next,” setting the discussion around the next stage of the AI era. “The AI industry is now shifting from a race for scale to a race for efficiency,” he said, adding that SK’s role in responding to surging AI demand is to improve the efficiency of AI solutions. Chey emphasized: “The core of SK’s AI strategy is working together with partners — Big Tech, governments, startups — to co-design and deliver the most",
-   "source_url": "https://news.skhynix.com/en/sk-hynix-redefines-its-vision-at-sk-ai-summit-2025-from-ai-memory-provider-to-creator",
-   "doc_id": "",
-   "title": "SK hynix Redefines Its Vision at SK AI Summit 2025: From AI Memory Provider to “Creator” – SK hynix Newsroom",
-   "publisher": "skhynix",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "trl"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "vendor",
-   "source_group": "skhynix",
-   "origin_group": "skhynix",
    "attempt": 2
   },
   {
@@ -3251,10 +2979,10 @@
    "tech": "turboquant",
    "perspectives": [
     "market",
-    "stakeholder",
-    "trl"
+    "stakeholder"
    ],
    "stances": [
+    "neutral",
     "pro"
    ],
    "scope": "category",
@@ -3266,8 +2994,8 @@
   {
    "evidence_id": "W:7d5d578c99",
    "kind": "web",
-   "claim": "KV cache compression improvements are reaching practical limits, with mainstream compression rates around 2x and upper limits at 4-6x, making further gains more complex and costly.",
-   "summary": "He further noted that this paper illustrates two key points:KV Cache CompressionThis path still has some way to go, but the remaining potential is not as substantial as in the early stages—further gains will be increasingly limited and achieved at higher complexity, with significantly rising adaptation difficulties, validation costs, and scenario-related loss risks.This area resembles a mature optimization aspect rather than a track maintaining an ultra-high growth trajectory over the long [...] Tim pointed out that the core implication of this paper is precisely that KV Cache compression within the 3-4 bit range is increasingly approaching the practical engineering limit. The mainstream compression rate currently implemented in practice is only about 2x, while the upper limit of cutting-edge solutions can reach 4-6x, but the industry average is far from that. The best results shown in the paper do not equate to the actual implementation level across the entire industry. [...] Tim believes this issue needs to be analyzed on different levels. The price cuts are concentrated in the consumer-grade spot market, where excessive channel stockpiling combined with overly rapid price increa",
+   "claim": "Market price dynamics in memory components affect AI hardware supply; KV cache compression is nearing practical engineering limits.",
+   "summary": "Tim believes this issue needs to be analyzed on different levels. The price cuts are concentrated in the consumer-grade spot market, where excessive channel stockpiling combined with overly rapid price increases exhausted consumer willingness, leading to significant selling pressure on DDR4. However, in the OEM market, domestic smartphone and PC manufacturers still accepted substantial price hikes for DDR5 in the first and second quarters—as DDR5 is a core component in AI and high-end device [...] Third, Hynix’s 6.9 billion euro EUV order: the industry is answering market concerns with concrete actions.\n\nAt a time when market sentiment was most shaken, the industry sent a completely different signal. [...] Tim pointed out that the core implication of this paper is precisely that KV Cache compression within the 3-4 bit range is increasingly approaching the practical engineering limit. The mainstream compression rate currently implemented in practice is only about 2x, while the upper limit of cutting-edge solutions can reach 4-6x, but the industry average is far from that. The best results shown in the paper do not equate to the actual implementation level across the entire industry.",
    "source_url": "https://q.futunn.com/en/feed/116329824846228",
    "doc_id": "",
    "title": "The Truth About AI Storage Demand Behind KV Cac...",
@@ -3280,7 +3008,7 @@
     "market"
    ],
    "stances": [
-    "pro"
+    "neutral"
    ],
    "scope": "category",
    "source_class": "third_party",
@@ -3302,8 +3030,7 @@
    "section": "",
    "tech": "itme",
    "perspectives": [
-    "stakeholder",
-    "trl"
+    "stakeholder"
    ],
    "stances": [
     "pro"
@@ -3311,31 +3038,6 @@
    "scope": "tech_specific",
    "source_class": "vendor",
    "source_group": "skhynix",
-   "origin_group": "skhynix",
-   "attempt": 2
-  },
-  {
-   "evidence_id": "W:825e0b76cd",
-   "kind": "web",
-   "claim": "SK Hynix leads the HBM market with 57-62% share and first-mover advantage in HBM3E mass production, controlling a key constrained component in AI infrastructure.",
-   "summary": "Subscribe\n\n## Key Takeaways for SK Hynix\n\n### Investment Highlights\n\n   SK Hynix holds 57–62% of the global HBM market, with first-mover advantage in HBM3E mass production and a roadmap to simultaneously supply HBM3E and HBM4 — a capability no competitor currently matches. [...] SK Hynix (KRX: 000660) has emerged as the dominant supplier of the single most constrained component in AI infrastructure: High Bandwidth Memory. While investor attention has concentrated on GPU designers and hyperscaler capex, the memory subsystem has quietly become the binding constraint on AI accelerator performance — and SK Hynix controls approximately 57–62% of the global HBM market. [...] At a market capitalization of approximately $433 billion and a trailing P/E of ~17x, the stock is priced below multiple semiconductor peers — though memory cyclicality and competitive risks warrant careful scenario analysis.\n\n## Where SK Hynix Fits in the AI Infrastructure Stack",
-   "source_url": "https://longyield.substack.com/p/sk-hynix-the-memory-bottleneck-powering",
-   "doc_id": "",
-   "title": "SK Hynix: The Memory Bottleneck Powering the AI Economy",
-   "publisher": "substack.com",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "market"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "category",
-   "source_class": "third_party",
-   "source_group": "substack.com",
    "origin_group": "skhynix",
    "attempt": 2
   },
@@ -3368,55 +3070,29 @@
    "attempt": 2
   },
   {
-   "evidence_id": "W:8d4cb9dd1a",
+   "evidence_id": "W:917b7bdd48",
    "kind": "web",
-   "claim": "TurboQuant uses PolarQuant to eliminate normalization via polar coordinates, but real-time implementation complexity and integration with frameworks like vLLM or TensorRT-LLM is unclear and may require custom CUDA kernels.",
-   "summary": "There have been plenty of attempts to solve this with quantization. INT8 and INT4 are the standard approaches, but going below 3 bits has historically meant a noticeable drop in accuracy — that’s been the hard limit.\n\n## TurboQuant’s Two Core Ideas\n\nTurboQuant combines two independent techniques.\n\n### 1. PolarQuant — Eliminating Normalization via Polar Coordinates [...] Second, implementation complexity in real production environments is unclear. Performing polar coordinate transforms and QJL sign correction in real time will likely require custom CUDA kernels — and whether those can be straightforwardly integrated into frameworks like vLLM or TensorRT-LLM is a separate question entirely. [...] Standard quantization normalizes a vector first, then applies scalar quantization. The problem: you have to store the norm separately, and error accumulates across that process.",
-   "source_url": "https://jangwook.net/en/blog/en/google-turboquant-kv-cache-3bit-compression",
+   "claim": "SGLang project integrates KV cache sparsity frameworks and supports runtime integration with various sparse attention algorithms and GPU kernels.",
+   "summary": "all KV is already in HBM;\n logical indices are mapped to physical slots;\n no transfer or allocation is performed.\n\nA future hierarchical provider may use the same logical `SelectionResult` to:\n\n check residency;\n materialize missing KV into an HBM working set;\n return a completion event;\n release placement-specific request resources.\n\nThis extension point leaves room for HiCache/HiSparse without making them a dependency of the core policy interface.\n\n## Runtime Integration [...] #10585 — Integrate KVPress\n #22452 — Sparse Attention for non-DSA models\n #22865 — Extend framework to support non-NSA sparse algorithms\n #28874 — HiSparse roadmap\n #28882 — Experimental Quest FlashAttention serving path\n #30277 — Quest runtime integration\n #29666 — Quest selection optimization\n #31790 — Quest GPU kernels\n #31951 — Breakable CUDA Graph runtime variants [...] ## Supported Initial Design Region\n\nThe first implementation targets:\n\n| Dimension | Initial support |\n --- |\n| D1: state action | Visibility-only |\n| D2: granularity | Token and page/block where the backend mapping is lossless |\n| D3: evidence | Fixed/position, KV-derived, and current-query-aware |\n| D4: scope | Request-level, step-lev",
+   "source_url": "https://github.com/sgl-project/sglang/issues/32657",
    "doc_id": "",
-   "title": "Google TurboQuant: 3-Bit KV Cache With Zero Accuracy Loss",
-   "publisher": "jangwook.net",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "turboquant",
-   "perspectives": [
-    "domain"
-   ],
-   "stances": [
-    "con"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "jangwook.net",
-   "origin_group": "jangwook.net",
-   "attempt": 2
-  },
-  {
-   "evidence_id": "W:91033f04ba",
-   "kind": "web",
-   "claim": "Hybrid memory combining HBM and HBF offers up to 16× larger capacity than HBM with similar bandwidth but slower access and lower write endurance.",
-   "summary": "The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] BANDF AD\n\nHowever, providing a KV cache even closer to the GPU, getting rid of the SSD PCIe bus link time, and delivering lower latency and higher bandwidth access than the local SSD is what HBF provides. The paper states: \"The expected advantages of HBF are 1) up to 16x larger capacity than HBM, and 2) similar bandwidth to HBM, and the expected disadvantages are 1) slower access (ns vs. μs), 2) lower write endurance, and 3) up to 4x higher power consumption than HBM.\" [...] The results showed a 2.69x improvement in performance per watt compared to tests with a Blackwell GPU and 8 x HBM stacks but no HBF.\n\nWith testing of a KV cache with 10 million tokens, this showed that an HBM+HBF setup could process 18.8x more simultaneou",
-   "source_url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
-   "doc_id": "",
-   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
-   "publisher": "blocksandfiles.com",
+   "title": "[RFC] A Unified KV-Cache Sparsity Framework for Post-Hoc Sparse Attention · Issue #32657 · sgl-project/sglang · GitHub",
+   "publisher": "github.com",
    "published_at": "",
    "page": null,
    "section": "",
    "tech": "itme",
    "perspectives": [
-    "domain"
+    "market"
    ],
    "stances": [
-    "con",
     "pro"
    ],
    "scope": "category",
    "source_class": "third_party",
-   "source_group": "blocksandfiles.com",
-   "origin_group": "blocksandfiles.com",
-   "attempt": 1
+   "source_group": "github.com",
+   "origin_group": "github.com",
+   "attempt": 2
   },
   {
    "evidence_id": "W:9648c54559",
@@ -3447,6 +3123,31 @@
    "attempt": 2
   },
   {
+   "evidence_id": "W:98bd19a4c4",
+   "kind": "web",
+   "claim": "TurboQuant compresses KV cache to 2.5–3.5 bits, reducing memory usage by 5-6 times with negligible accuracy degradation at 3.5 bits.",
+   "summary": "Results showed that KV cache could be compressed to 2.5–3.5 bits, reducing memory usage by five to six times compared with the standard 16-bit (FP16) format. At 3.5-bit compression, performance degradation was negligible—effectively \"lossless\"—while even at 2.5 bits, accuracy remained significantly higher than competing methods such as KIVI. [...] New KV Cache Quantization Method Reduces Memory Use While Maintaining Model Quality and Enabling Broader AI Deployment\n\nGoogle's research team has introduced an artificial intelligence (AI) model compression algorithm called TurboQuant, addressing a long-standing bottleneck in large language models (LLMs) while preserving accuracy and eliminating the need for retraining. [...] PolarQuant improves compression quality by minimizing quantization error. In KV cache data, vector values vary widely across dimensions—some axes have broad distributions while others are narrow. Applying uniform quantization to such uneven data leads to inconsistent errors across dimensions and reduced model accuracy.",
+   "source_url": "https://www.thelec.net/news/articleView.html?idxno=6179",
+   "doc_id": "",
+   "title": "Google's TurboQuant Algorithm Compresses AI Memory ...",
+   "publisher": "thelec.net",
+   "published_at": "",
+   "page": null,
+   "section": "",
+   "tech": "turboquant",
+   "perspectives": [
+    "domain"
+   ],
+   "stances": [
+    "pro"
+   ],
+   "scope": "tech_specific",
+   "source_class": "third_party",
+   "source_group": "thelec.net",
+   "origin_group": "google",
+   "attempt": 2
+  },
+  {
    "evidence_id": "W:9b1c466cdc",
    "kind": "web",
    "claim": "TurboQuant은 훈련 없이 KV 캐시 메모리 사용량을 6배까지 줄이고, 3비트 표현으로도 모델 정확도를 유지하며, 주목(attention) 계산 속도를 최대 8배까지 향상시킨다.",
@@ -3460,6 +3161,7 @@
    "section": "",
    "tech": "turboquant",
    "perspectives": [
+    "domain",
     "stakeholder"
    ],
    "stances": [
@@ -3469,57 +3171,7 @@
    "source_class": "third_party",
    "source_group": "medium.com",
    "origin_group": "medium.com",
-   "attempt": 0
-  },
-  {
-   "evidence_id": "W:9b6c6ed2e0",
-   "kind": "web",
-   "claim": "TurboQuant는 KV 캐시 추론 메모리를 6배 이상 줄이는 무손실 AI 메모리 압축법으로 발표되었으나, 대규모 실서비스 검증은 아직 없고 채택과 시장 영향은 독립 검증에 달려 있다.",
-   "summary": "Mar 25, 2026: Google unveiled TurboQuant (PolarQuant + QJL), a lossless AI memory compression method that reportedly cuts KV-cache inference memory by ≥6x; full paper to be presented at ICLR 2026. Crypto relevance: could materially lower cloud and edge AI inference costs and energy, enabling cheaper on-chain/off-chain AI services (trading bots, DeFi risk scoring, wallet assistants), faster adoption by CEX/DEX and improved privacy/security for local inference. Risk/market impact: lab-stage [...] impact: lab-stage only—no large-scale real-world validation yet and it does not reduce training memory or chip demand, so adoption and concrete market/price effects remain contingent on independent verification. [...] Academic researchers will scrutinize Google’s ICLR presentation for methodological details. Independent verification of TurboQuant’s claims will be essential for widespread adoption. The research community will also explore whether similar techniques can apply to other AI memory bottlenecks beyond the KV cache.\n\n## Conclusion",
-   "source_url": "https://cryptorank.io/news/feed/ee99c-google-turboquant-ai-memory-compression",
-   "doc_id": "",
-   "title": "Google TurboQuant: Revolutionary AI Memory Compression Sparks ‘Pied Piper’ Frenzy | AI News Technology | CryptoRank.io",
-   "publisher": "cryptorank.io",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "turboquant",
-   "perspectives": [
-    "market"
-   ],
-   "stances": [
-    "con"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "cryptorank.io",
-   "origin_group": "cryptorank.io",
-   "attempt": 1
-  },
-  {
-   "evidence_id": "W:9eb0aa6eba",
-   "kind": "web",
-   "claim": "TurboQuant enables local hardware to handle ultra-long prompts by compressing runtime context data to 3 bits per value without degrading accuracy and requires minimal configuration changes.",
-   "summary": "memory space. By compressing runtime context data down to just 3 bits per value without degrading accuracy, this technology allows local hardware setups to handle ultra-long prompts effortlessly. [...] Integrating TurboQuant into existing local workflows requires minimal configuration changes for end users. Because TurboQuant operates entirely training-free during inference runtime, developers do not need to re-quantize existing model weight files. Users simply append specific runtime parameters to their favorite local LLM runner to enable low-bit cache allocation dynamically upon startup. [...] Developed by top researchers at Google DeepMind, TurboQuant represents a major leap forward in post-training context compression. The algorithm targets the dynamic runtime memory footprint by quantizing 16-bit floating-point key-value vectors down to a mere 3 bits per value. Unlike older compression schemes that degrade output coherence, TurboQuant preserves model accuracy at levels statistically indistinguishable from uncompressed baseline execution. Consequently, local inference engines can",
-   "source_url": "https://technicalforum.org/2026/08/16/google-turboquant-kv-cache-compression",
-   "doc_id": "",
-   "title": "Google Researchers Unveil \"TurboQuant\": KV Cache Compression to Slash Local AI Memory Usage by 70% - Technical Forum",
-   "publisher": "technicalforum.org",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "turboquant",
-   "perspectives": [
-    "trl"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "technicalforum.org",
-   "origin_group": "technicalforum.org",
-   "attempt": 1
+   "attempt": 2
   },
   {
    "evidence_id": "W:a012ebff4e",
@@ -3572,6 +3224,31 @@
    "source_class": "third_party",
    "source_group": "github.com",
    "origin_group": "github.com",
+   "attempt": 0
+  },
+  {
+   "evidence_id": "W:a37796fdac",
+   "kind": "web",
+   "claim": "TurboQuant is a prominent recent KV compression method among several approaches addressing the same bottleneck.",
+   "summary": "The full writeup is on the Google Research blog. TurboQuant will be presented at ICLR 2026 in Rio de Janeiro.\n\n## The broader wave\n\nTurboQuant is not alone. It is the most prominent recent entry in a fast-moving research area, and reading it without context overstates its novelty. Several other methods from late 2025 and early 2026 attack the same bottleneck from different angles.\n\n2025-2026 KV compression methods [...] The first stage is PolarQuant, a separate paper by the same group (Zandieh, Mirrokni et al., AISTATS 2026). The idea is structural rather than statistical.\n\nQuantizing high-dimensional vectors in Cartesian coordinates is awkward. The natural move — normalize to the unit sphere, then quantize the direction — turns out to be expensive, because computing the norm of every vector is the bottleneck you were trying to escape. Earlier methods paid that cost and still lost accuracy at low bit widths. [...] | Method | Venue | Approach | Headline result |\n ---  --- |\n| TurboQuant | ICLR 2026 | PolarQuant + QJL, online inference | 3 bits, 6× memory, up to 8× attention speedup, zero accuracy loss |\n| KVTC (NVIDIA) | ICLR 2026 | Transform coding — PCA + adaptive quantization + e",
+   "source_url": "https://kentino.com/cs/blogs/ai-corner/turboquant-reading-the-kv-cache-compression-breakthrough",
+   "doc_id": "",
+   "title": "TurboQuant: Reading the KV Cache Compression Breakthrough",
+   "publisher": "kentino.com",
+   "published_at": "",
+   "page": null,
+   "section": "",
+   "tech": "turboquant",
+   "perspectives": [
+    "domain"
+   ],
+   "stances": [
+    "neutral"
+   ],
+   "scope": "category",
+   "source_class": "third_party",
+   "source_group": "kentino.com",
+   "origin_group": "kentino.com",
    "attempt": 2
   },
   {
@@ -3602,6 +3279,31 @@
    "attempt": 2
   },
   {
+   "evidence_id": "W:ac4ae51abc",
+   "kind": "web",
+   "claim": "TurboQuant is a lossless AI memory compression method cutting KV-cache inference memory by ≥6x, potentially lowering AI operational costs and enabling new use cases.",
+   "summary": "Mar 25, 2026: Google unveiled TurboQuant (PolarQuant + QJL), a lossless AI memory compression method that reportedly cuts KV-cache inference memory by ≥6x; full paper to be presented at ICLR 2026. Crypto relevance: could materially lower cloud and edge AI inference costs and energy, enabling cheaper on-chain/off-chain AI services (trading bots, DeFi risk scoring, wallet assistants), faster adoption by CEX/DEX and improved privacy/security for local inference. Risk/market impact: lab-stage [...] TurboQuant specifically targets the KV cache bottleneck that plagues contemporary AI systems. During inference, transformer-based models store attention keys and values in memory to process subsequent tokens. This cache grows linearly with sequence length, creating severe memory constraints for long conversations or documents. [...] The technology centers on compressing the Key-Value (KV) cache, which serves as AI’s working memory during inference tasks. Currently, this cache represents a major constraint in deploying large language models efficiently. TurboQuant reportedly reduces this runtime memory requirement by at least six times according to initial laboratory results.\n\nGoogle’s resear",
+   "source_url": "https://cryptorank.io/ru/news/feed/ee99c-google-turboquant-ai-memory-compression",
+   "doc_id": "",
+   "title": "Google TurboQuant: Revolutionary AI Memory Compression Sparks ‘Pied Piper’ Frenzy | Technology AI News | CryptoRank.io",
+   "publisher": "cryptorank.io",
+   "published_at": "",
+   "page": null,
+   "section": "",
+   "tech": "turboquant",
+   "perspectives": [
+    "market"
+   ],
+   "stances": [
+    "pro"
+   ],
+   "scope": "category",
+   "source_class": "third_party",
+   "source_group": "cryptorank.io",
+   "origin_group": "cryptorank.io",
+   "attempt": 1
+  },
+  {
    "evidence_id": "W:b4d7b88405",
    "kind": "web",
    "claim": "TurboQuant is a research paper addressing only inference-time KV cache memory demand, with computational trade-offs and no adoption yet, so it does not change the overall memory market position.",
@@ -3624,32 +3326,7 @@
    "source_class": "third_party",
    "source_group": "lighthouse-canton.com",
    "origin_group": "lighthouse-canton.com",
-   "attempt": 0
-  },
-  {
-   "evidence_id": "W:b607dec513",
-   "kind": "web",
-   "claim": "메모리 시장의 총 주소 가능 시장(TAM)이 AI 워크로드 확장으로 급성장 중이며, 클라우드 서비스 업체의 대규모 자본 지출이 고성능 메모리 서브시스템에 집중되고 있다.",
-   "summary": "| Metric | FY2026 Q1 Value | QoQ Change | YoY Change |\n ---  --- |\n| Total Revenue | 52,576.3 Billion KRW [cite: 22] | +60.0% [cite: 22] | +198.0% [cite: 22] |\n| Operating Profit | 37,610.3 Billion KRW [cite: 22] | +96.0% [cite: 22] | +405.0% [cite: 22] |\n| Operating Margin | 72.0% [cite: 22] | +14.0 percentage points [cite: 22] | +30.0 percentage points [cite: 22] |\n| Net Income | 40,345.9 Billion KRW [cite: 22] | +165.0% [cite: 22] | +398.0% [cite: 22] | [...] The Total Addressable Market (TAM) for memory is expanding exponentially, driven by the shift from legacy computing to cognitive, agentic AI workloads [cite: 9, 15]. Global cloud service provider capital expenditures are forecasted to exceed $600 billion in 2026, with a substantial portion of these budgets allocated to high-performance memory subsystems [cite: 19]. This is accelerating a transition in the industry structure from a volatile Business-to-Consumer (B2C) model to a highly stable [...] In the competitive landscape, SK hynix has established a leading market position in the premium AI memory segment [cite: 5, 8]. As of Q1 2026, the global market shares across key segments are structured as follows:",
-   "source_url": "https://flash.stocksentinel.ai/research/SKHY",
-   "doc_id": "",
-   "title": "SK hynix Inc. (SKHY) Stock Research Report | Flash",
-   "publisher": "stocksentinel.ai",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "market"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "category",
-   "source_class": "third_party",
-   "source_group": "stocksentinel.ai",
-   "origin_group": "stocksentinel.ai",
-   "attempt": 1
+   "attempt": 2
   },
   {
    "evidence_id": "W:b66c125b1d",
@@ -3674,7 +3351,7 @@
    "source_class": "vendor",
    "source_group": "amd",
    "origin_group": "amd",
-   "attempt": 2
+   "attempt": 0
   },
   {
    "evidence_id": "W:beba87c20f",
@@ -3690,11 +3367,9 @@
    "section": "",
    "tech": "turboquant",
    "perspectives": [
-    "market",
     "stakeholder"
    ],
    "stances": [
-    "con",
     "pro"
    ],
    "scope": "category",
@@ -3726,7 +3401,7 @@
    "source_class": "third_party",
    "source_group": "whatthechiphappened.com",
    "origin_group": "whatthechiphappened.com",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:c24ce3b46e",
@@ -3754,31 +3429,6 @@
    "attempt": 2
   },
   {
-   "evidence_id": "W:c3975a6bbb",
-   "kind": "web",
-   "claim": "2026년 SK hynix가 HBM3E와 차세대 HBM4 시장에서 주도적 위치를 확보하며 AI 인프라 확장에 따른 메모리 시장 성장의 핵심 역할을 할 것으로 예상된다.",
-   "summary": "In 2026, the global semiconductor industry is entering a transitional period as market structures and value chains realign to accommodate AI infrastructure expansion. The total market is projected to approach the $1 trillion mark, with memory semiconductors emerging as a key driver in terms of both demand and profitability. In particular, industry experts expect SK hynix to be the primary anchor of this shift, as a chipmaker capable of delivering both HBM3E and next-gen HBM4 reliably. [...] As a result, SK hynix is expected to secure a unique competitive position by maintaining its market leadership in HBM3E while proactively establishing a development and supply system for HBM4, enabling it to fully support two generations of products by 2026.\n\nUBS predicts that SK hynix will achieve approximately a 70% market share in the HBM4 market for NVIDIA’s next-generation Rubin platform in 2026. This suggests that its current leadership is carrying over to future technology generations. [...] Image 16 SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward” September 9, 2026\n\nTECH&AISTORY \n       3D Memory\n       AI Memory\n    ",
-   "source_url": "https://news.skhynix.com/en/2026-market-outlook-focus-on-the-hbm-led-memory-supercycle",
-   "doc_id": "",
-   "title": "2026 Market Outlook – “Focus on the HBM-Led Memory Supercycle”",
-   "publisher": "skhynix",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "market"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "category",
-   "source_class": "vendor",
-   "source_group": "skhynix",
-   "origin_group": "skhynix",
-   "attempt": 1
-  },
-  {
    "evidence_id": "W:c6012b2e12",
    "kind": "web",
    "claim": "TurboQuant은 LLM 추론 시 증가하는 메모리 요구 문제를 KV 캐시 압축으로 해결한다.",
@@ -3794,8 +3444,7 @@
    "perspectives": [
     "domain",
     "market",
-    "stakeholder",
-    "trl"
+    "stakeholder"
    ],
    "stances": [
     "neutral",
@@ -3806,6 +3455,31 @@
    "source_group": "substack.com",
    "origin_group": "substack.com",
    "attempt": 2
+  },
+  {
+   "evidence_id": "W:c65e131c6e",
+   "kind": "web",
+   "claim": "SK hynix와 삼성은 AI 서버, 엔터프라이즈 SSD, 소비자 기기 등 다양한 시장을 대상으로 KV 캐시 관련 제품을 개발하고 있다.",
+   "summary": "Genau hier liegt das Spannungsfeld für Samsung und SK Hynix. Beide adressieren nicht nur den „Cache“ eines einzelnen Modells, sondern beliefern einen Markt, in dem KI-Server, Enterprise-SSDs, Consumer-Geräte und langfristige Liefervereinbarungen zusammenkommen. Die im Text genannten Erwartungen aus der Branche zeigen, wie stark sich Speicherpreise und Knappheiten über Quartale bewegen können: Für DRAM werden für das erste Quartal 2026 Anstiege von 90 % bis 95 % im Quartalsvergleich genannt, [...] Roboter\n Hacker\n OpenAI\n Anthropic\n xAI\n ChatGPT\n Kryptographie\n Weltraum\n\nÜber eine Million Leser im Jahr\n\nIT BOLTWISE x Artificial Intelligence\n\n###### #1 Fachmagazin in Deutschland mit Fokus auf Künstliche Intelligenz und Robotik\n\nChatGPT Business Bibel\n\nMini Drohne\n\nKI Freund\n\nKI Key\n\nKI Hund\n\n№1 AI Magazine in Germany\n\nNavigation\n\nDigital Economy\n\n# DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren\n\n13. September 2026  Keine Kommentare [...] Für die Einordnung bleibt deshalb eine klare Trennlinie: DeepSeek zeigt, wie schnell ein KV-Cache-Ansatz die Debatte über KI-Ökonomie beeinflussen kann, aber die Reduktion eines einzelnen Inferenz-Speich",
+   "source_url": "https://www.it-boltwise.de/deepseek-v4-1-flash-kv-cache-schrumpft-deutlich-warum-samsung-sk-hynix-dennoch-reagieren.html",
+   "doc_id": "",
+   "title": "DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren",
+   "publisher": "it-boltwise.de",
+   "published_at": "",
+   "page": null,
+   "section": "",
+   "tech": "itme",
+   "perspectives": [
+    "stakeholder"
+   ],
+   "stances": [
+    "pro"
+   ],
+   "scope": "tech_specific",
+   "source_class": "third_party",
+   "source_group": "it-boltwise.de",
+   "origin_group": "it-boltwise.de",
+   "attempt": 1
   },
   {
    "evidence_id": "W:cb78e33245",
@@ -3821,19 +3495,17 @@
    "section": "",
    "tech": "itme",
    "perspectives": [
-    "domain",
     "market",
     "stakeholder",
     "trl"
    ],
    "stances": [
-    "con",
     "pro"
    ],
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "sedaily.com",
-   "origin_group": "skhynix",
+   "origin_group": "sedaily.com",
    "attempt": 2
   },
   {
@@ -3858,7 +3530,7 @@
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "turbo-quant.com",
-   "origin_group": "google",
+   "origin_group": "turbo-quant.com",
    "attempt": 2
   },
   {
@@ -3878,13 +3550,14 @@
     "stakeholder"
    ],
    "stances": [
+    "con",
     "pro"
    ],
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "substack.com",
    "origin_group": "substack.com",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:cda0aceef6",
@@ -3910,33 +3583,8 @@
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "medium.com",
-   "origin_group": "google",
+   "origin_group": "medium.com",
    "attempt": 2
-  },
-  {
-   "evidence_id": "W:d29fbb6a5b",
-   "kind": "web",
-   "claim": "SK hynix plans to ship HBM4E samples as early as June 2026, with Nvidia as the only confirmed customer for next-gen AI accelerator Rubin Ultra.",
-   "summary": "•\n\nHBM4E — seventh-generation high-bandwidth memory, a step up in speed and capacity from HBM4 now entering mass production — is the critical companion to AI chips. Larger AI models demand ever more memory bandwidth and capacity.\n\n•\n\nSK Hynix's latest timeline: samples ship as early as June 2026, no later than July. This means → the schedule has moved forward by several months from the company's earlier \"second half\" guidance.\n\n• [...] •\n\nNvidia is the only confirmed customer so far. The chips will go into Nvidia's next-gen AI accelerator Rubin Ultra, slated for a 2027 launch on a 1c-nanometer core-die architecture.\n\n02\n\n## Samsung already moved first — how big is the gap?\n\n•\n\nSamsung Electronics acted faster: it completed HBM4 mass production in February 2026 and shipped HBM4E samples to customers by late May. In plain terms = Samsung leads SK Hynix by at least a month on HBM4E sample delivery.\n\n• [...] # SK Hynix Accelerates HBM4E Sample Production with NVIDIA as First Customer\n\nN\n\nAlina Collins\n\n·Published 2026-06-15·About 6 min read\n\nSK Hynix will ship seventh-generation HBM4E memory samples to Nvidia as early as June 2026, ahead of its prior \"second half\" guidance — but Samsun",
-   "source_url": "https://www.nashnova.com/feed/special/sk-hynix-accelerates-hbm4e-sample-production-with-nvidia-as-first-customer-3135",
-   "doc_id": "",
-   "title": "SK Hynix Accelerates HBM4E Sample Production with NVIDIA as First Customer · nashnova",
-   "publisher": "nashnova.com",
-   "published_at": "",
-   "page": null,
-   "section": "",
-   "tech": "itme",
-   "perspectives": [
-    "trl"
-   ],
-   "stances": [
-    "pro"
-   ],
-   "scope": "tech_specific",
-   "source_class": "third_party",
-   "source_group": "nashnova.com",
-   "origin_group": "nashnova.com",
-   "attempt": 1
   },
   {
    "evidence_id": "W:d3e95f2c8c",
@@ -3952,42 +3600,43 @@
    "section": "",
    "tech": "itme",
    "perspectives": [
+    "domain",
     "market",
-    "stakeholder",
-    "trl"
+    "stakeholder"
    ],
    "stances": [
+    "neutral",
     "pro"
    ],
    "scope": "category",
    "source_class": "academic",
    "source_group": "arxiv.org",
    "origin_group": "arxiv.org",
-   "attempt": 0
+   "attempt": 2
   },
   {
-   "evidence_id": "W:d447787c70",
+   "evidence_id": "W:d7bcaa9f97",
    "kind": "web",
-   "claim": "Samsung leads HBM4 race with first mass-produced shipment; SK hynix may begin customer shipments soon but is behind Samsung.",
-   "summary": "## Samsung and SK Hynix: A Race for Dominance\n\nWhile SK Hynix has also been developing and sampling HBM4, Samsung’s announcement marks the first official mass production shipment. Industry analysts suggest SK Hynix may begin customer shipments this month, though, Samsung has secured the symbolic advantage of being the first to market. [...] Samsung’s Breakthrough: First to Market\n\nAs of February 12, 2026, samsung has officially begun mass production and shipment of HBM4 memory modules. This marks a pivotal moment in the industry, positioning Samsung as the clear frontrunner in the HBM4 race. While SK Hynix and Micron have been actively developing their own HBM4 solutions, Samsung’s accomplished ramp-up to mass production gives them a significant competitive advantage. [...] Moving forward, two key factors will determine success in the HBM4 market: consistent mass production output and securing significant contracts with leading AI companies. The second half of 2026 will likely reveal whether Samsung can leverage this initial momentum into a sustained competitive advantage or if SK hynix will maintain its stronghold.",
-   "source_url": "https://www.archyde.com/samsung-leads-hbm4-race-with-first-mass-produced-shipment-outpacing-sk-hynix",
+   "claim": "AI 데이터 급증으로 KV 캐시가 빠르게 가득 차면서 메모리 부족 현상이 심화되고, SK hynix는 장기 공급 계약을 통해 메모리 공급 문제에 대응하고 있다.",
+   "summary": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] The memory shortage remains acute. With supply so scarce, Big Tech firms are scrambling to lock in long-term supply agreements (LTAs) of three to five years or more with the three major memory makers. The memory companies, now in a position of extraordinary leverage, can afford to be selective about which contracts they accept. At SK hynix's recent annual shareholders' meeting, CEO Kwak Noh-jung said, \"Realistically, supply constraints are so tight that it is difficult to accommodate all LTA [...] APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA D",
+   "source_url": "https://en.sedaily.com/markets/2026/03/28/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
    "doc_id": "",
-   "title": "Samsung Leads HBM4 Race with First Mass-Produced Shipment, Outpacing SK Hynix &ndash; Archyde",
-   "publisher": "archyde.com",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "publisher": "sedaily.com",
    "published_at": "",
    "page": null,
    "section": "",
    "tech": "itme",
    "perspectives": [
-    "trl"
+    "stakeholder"
    ],
    "stances": [
-    "neutral"
+    "pro"
    ],
-   "scope": "category",
+   "scope": "tech_specific",
    "source_class": "third_party",
-   "source_group": "archyde.com",
-   "origin_group": "archyde.com",
+   "source_group": "sedaily.com",
+   "origin_group": "sedaily.com",
    "attempt": 1
   },
   {
@@ -4007,13 +3656,14 @@
     "stakeholder"
    ],
    "stances": [
+    "con",
     "neutral"
    ],
    "scope": "tech_specific",
    "source_class": "third_party",
    "source_group": "darshanfofadiya.com",
    "origin_group": "darshanfofadiya.com",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:dd64c7243b",
@@ -4029,6 +3679,7 @@
    "section": "",
    "tech": "turboquant",
    "perspectives": [
+    "domain",
     "stakeholder"
    ],
    "stances": [
@@ -4038,7 +3689,7 @@
    "source_class": "third_party",
    "source_group": "dev.to",
    "origin_group": "dev.to",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:ddea0e0deb",
@@ -4063,7 +3714,7 @@
    "source_class": "third_party",
    "source_group": "morningstar.com",
    "origin_group": "morningstar.com",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:de0a366caa",
@@ -4088,7 +3739,7 @@
    "source_class": "third_party",
    "source_group": "weka.io",
    "origin_group": "weka.io",
-   "attempt": 0
+   "attempt": 2
   },
   {
    "evidence_id": "W:e81677e69d",
@@ -4132,27 +3783,28 @@
     "stakeholder"
    ],
    "stances": [
-    "neutral"
+    "neutral",
+    "pro"
    ],
    "scope": "category",
    "source_class": "third_party",
    "source_group": "sedaily.com",
    "origin_group": "sedaily.com",
-   "attempt": 0
+   "attempt": 2
   },
   {
-   "evidence_id": "W:e9508745e8",
+   "evidence_id": "W:ed48666cfb",
    "kind": "web",
-   "claim": "TurboQuant는 KV 캐시 메모리가 긴 컨텍스트 요청의 토큰당 비용 주요 원인임을 분석하고, TurboQuant 도입 시 API 가격 인하가 2분기 내에 나타날 것으로 예상한다.",
-   "summary": "According to our analysis of Q1 2026 cloud inference pricing trends, KV cache memory is the primary driver of per-token cost for requests longer than 50K tokens. TurboQuant directly attacks that cost. The downstream effect on API pricing for long-context models — as providers adopt TurboQuant in their serving stacks — should be visible within the next two quarters. Developers who design systems assuming current long-context costs will be caught out when prices fall faster than expected. [...] 4. Understand the limits. TurboQuant’s guarantees apply to the KV cache, not to model weights. For weight compression, GPTQ and AWQ remain the standard. For very short contexts (under 4K tokens), KV cache memory overhead is small enough that TurboQuant provides negligible benefit. The technique is specifically valuable for long-context serving workloads — which happen to be the fastest-growing category of AI inference in 2026. [...] The key-value cache is the most expensive part of running a large language model — and until now, nobody had solved it without sacrificing accuracy. At ICLR 2026, Google Research published TurboQuant: a two-stage compression algorithm that reduces KV cache memory b",
-   "source_url": "https://wowhow.cloud/blogs/google-turboquant-kv-cache-compression-llm-inference-2026",
+   "claim": "SK hynix is investing heavily to meet AI memory demand, driven by surging NAND demand for KV cache storage in AI inference and expanding application fields.",
+   "summary": "SK hynix stated that in the AI era, technological competitiveness alone is not enough and the ability to supply the required volume at the exact moment customers need it is the ultimate competitive advantage. We reached this investment decision after a thorough review of market demand. [...] In the NAND market, demand is surging rapidly centered on enterprise SSDs driven by the full-scale expansion of AI services. This is further boosted by demand for key-value (KV) cache\\ storage in AI inference, with application fields expected to broaden further as Agentic and Physical AI are introduced. [...] The company expects this investment to secure future growth foundations while strengthening the competitiveness of the domestic semiconductor ecosystem and boosting local economies. The large-scale simultaneous investments in Yongin and Cheongju are anticipated to expand joint growth opportunities for supply chain partners, generate employment, and revitalize local commercial districts, thereby contributing to the sustainable growth of the national economy.",
+   "source_url": "https://iconnect007.com/article/151245/sk-hynix-invests-54-trillion-won-in-yongin-cheongju-for-ai-memory-demand/151242/aep",
    "doc_id": "",
-   "title": "Google TurboQuant: 6x KV Cache Compression Changes AI Inference Economics | WOWHOW",
-   "publisher": "wowhow.cloud",
+   "title": "SK hynix Invests 54 Trillion Won in Yongin, Cheongju for AI Memory Demand :: I-Connect007",
+   "publisher": "iconnect007.com",
    "published_at": "",
    "page": null,
    "section": "",
-   "tech": "turboquant",
+   "tech": "itme",
    "perspectives": [
     "market"
    ],
@@ -4161,8 +3813,8 @@
    ],
    "scope": "tech_specific",
    "source_class": "third_party",
-   "source_group": "wowhow.cloud",
-   "origin_group": "wowhow.cloud",
+   "source_group": "iconnect007.com",
+   "origin_group": "skhynix",
    "attempt": 1
   },
   {
@@ -4188,7 +3840,7 @@
    "source_class": "vendor",
    "source_group": "skhynix",
    "origin_group": "skhynix",
-   "attempt": 0
+   "attempt": 1
   },
   {
    "evidence_id": "W:f583ef8dc2",
@@ -4217,28 +3869,28 @@
    "attempt": 2
   },
   {
-   "evidence_id": "W:f843e172af",
+   "evidence_id": "W:f5c7eae3a4",
    "kind": "web",
-   "claim": "SK hynix는 HBM 시장에서 지배적 위치를 확보하고 있으며, AI 서버용 eSSD 매출 증가로 NAND 부문 수익성이 개선되고 있다.",
-   "summary": "Understanding SK Hynix’s Market Position\n Strengths: Building Unassailable Competitive Advan …\n\n  + Dominant HBM Market Leadership\n  + Strategic Partnership with Industry Leaders\n  + Advanced Process Technology Leadership\n  + Robust Financial Position and Cash Generation\n  + Manufacturing Scale and Capacity Expansion\n  + Diversified Product Portfolio\n Weaknesses: Addressing Structural Vulnerabilities [...] In enterprise storage, the company’s eSSD (enterprise solid-state drives) products command price premiums due to superior performance and reliability characteristics. The portion of AI server eSSD in total NAND revenue expanded significantly through 2025, contributing to improved profitability in the NAND segment despite broader industry pricing pressures.\n\n## Weaknesses: Addressing Structural Vulnerabilities\n\n### Cyclicality and Historical Volatility [...] These relationships create significant barriers for competitors. The qualification process for HBM products with major customers requires 12-18 months of rigorous testing and validation. Once approved, switching costs become substantial due to the deep integration between memory architecture and AI accelerator designs. Recent ",
-   "source_url": "https://www.deepresearchglobal.com/p/sk-hynix-swot-analysis-report",
+   "claim": "vLLM과 Huggingface Transformers 같은 개발자 커뮤니티 라이브러리들이 KV 캐시를 기본 활성화하여 효율적인 LLM 서빙을 지원한다.",
+   "summary": "In most cases, you don’t need to worry about complex configurations. Since KV cache has become the standard serving method, libraries like vLLM and Huggingface Transformers activate KV cache automatically by default provided you have enough memory.\n\nIn Transformers, the `use_cache` parameter in `model.generation_config` controls this behavior; its default value is `True`. [...] In vLLM, it allocates the remaining memory—defined by `gpu_memory_utilization`—to the KV cache after the model weights are loaded in the memory.\n\nvLLM is particularly well-known for its sophisticated cache engineering techniques, such as PagedAttention. Because of this, vLLM offers massive throughput with almost no memory fragmentation, making it a unmatched top-tier choice for efficient LLM serving.\n\n## The Problem with KV Caching\n\n### Memory Consumption [...] This \"memory wall\" has forced developers and enterprises to secure high-performance GPUs with vast amounts of VRAM, not just for training, but for inference as well. It is no surprise that memory manufacturers like Samsung, SK Hynix, and Micron have seen such a surge in demand; their hardware is the literal foundation upon which these caching methods ",
+   "source_url": "https://dev.to/jun07/kv-cache-and-prompt-caching-how-to-leverage-them-to-cut-time-and-costs-34ih",
    "doc_id": "",
-   "title": "SK Hynix - SWOT Analysis Report (2026)",
-   "publisher": "deepresearchglobal.com",
+   "title": "KV Cache and Prompt Caching: How to Leverage them to Cut Time and Costs - DEV Community",
+   "publisher": "dev.to",
    "published_at": "",
    "page": null,
    "section": "",
    "tech": "itme",
    "perspectives": [
-    "market"
+    "stakeholder"
    ],
    "stances": [
     "pro"
    ],
    "scope": "category",
    "source_class": "third_party",
-   "source_group": "deepresearchglobal.com",
-   "origin_group": "deepresearchglobal.com",
+   "source_group": "dev.to",
+   "origin_group": "dev.to",
    "attempt": 1
   },
   {
@@ -4264,7 +3916,7 @@
    "source_class": "third_party",
    "source_group": "medium.com",
    "origin_group": "medium.com",
-   "attempt": 1
+   "attempt": 2
   }
  ]
 }

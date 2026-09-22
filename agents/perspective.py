@@ -15,7 +15,7 @@ from typing import Callable, Optional
 
 from graph.runtime import ROOT, audit, config, llm_json
 from graph.state import Criterion, Evidence, TechAssessment, Technology
-from tools.evidence import assign_origin_groups, cap_origin_share, developer_groups
+from tools.evidence import assign_origin_groups, cap_origin_share, developer_groups, rereport_family
 from tools.paper_retrieve import search_papers
 from tools.web_search import search_web
 
@@ -137,6 +137,7 @@ def collect(spec: PerspectiveSpec, tech: Technology, attempt: int, feedback: str
             sufficient: Callable[[list[Evidence], dict], bool], tag: str) -> Collected:
     col = Collected()
     seen: dict[str, Evidence] = {}
+    rereport: dict[str, str] = {}
     exclude = developer_groups(tech.tech_id) if spec.exclude_developer else []
     sn = search_name(tech)
     for rnd in range(MAX_ROUNDS):
@@ -160,8 +161,10 @@ def collect(spec: PerspectiveSpec, tech: Technology, attempt: int, feedback: str
                     new.append(e)
         col.ann.update(annotate(spec, tech, new, f"{tag}:r{rnd}"))
         col.rounds = rnd + 1
-        rep = {i: a.get("republished_vendor") or "" for i, a in col.ann.items()}
-        col.evidence = assign_origin_groups(list(seen.values()), rep)
+        for e in new:  # document-level re-report decision shared by all perspectives (D50)
+            if e.evidence_id not in rereport:
+                rereport[e.evidence_id] = rereport_family(e)
+        col.evidence = assign_origin_groups(list(seen.values()), rereport)
         if sufficient(col.evidence, col.ann):
             break
     # keep only relevant evidence, annotated claim/scope/stances copied onto the Evidence objects
@@ -212,6 +215,23 @@ def criteria_block(spec: PerspectiveSpec, evs: list[Evidence], ann: dict, exclud
     return crit, "\n".join(lines)
 
 
+def match_scored(crit: list[Criterion], items: list, names_ko: dict[str, str]) -> list[dict]:
+    """The LLM sometimes answers with the Korean display name instead of the key: match by key, then by Korean
+    name, then by position when the counts agree."""
+    items = [x for x in items if isinstance(x, dict)]
+    out = []
+    for i, c in enumerate(crit):
+        ko = names_ko.get(c.name, "")
+        tail = ko.split(" ", 1)[-1] if c.workload else ko
+        d = next((x for x in items if str(x.get("name", "")) == c.name), None)
+        d = d or next((x for x in items if c.workload and c.workload in str(x.get("name", ""))
+                       and (c.name.split(":")[1] in str(x.get("name", "")) or tail in str(x.get("name", "")))), None)
+        d = d or next((x for x in items if not c.workload and ko and ko in str(x.get("name", ""))), None)
+        d = d or (items[i] if len(items) == len(crit) else {})
+        out.append(d)
+    return out
+
+
 def assess(spec: PerspectiveSpec, tech: Technology, col: Collected, tag: str) -> TechAssessment:
     exclude = developer_groups(tech.tech_id) if spec.exclude_developer else []
     crit, block = criteria_block(spec, col.evidence, col.ann, exclude)
@@ -219,9 +239,8 @@ def assess(spec: PerspectiveSpec, tech: Technology, col: Collected, tag: str) ->
                                                 developer=tech.developer, rubric=RUBRIC, extra=spec.score_extra,
                                                 criteria_block=block)
     data = llm_json("generator", sys, "위 기준별 근거로 채점하라.", tag=f"{tag}:score")
-    by_name = {c.get("name"): c for c in data.get("criteria", []) if isinstance(c, dict)}
-    for c in crit:
-        d = by_name.get(c.name, {})
+    names_ko = {c.key: c.name_ko for c in spec.criteria}
+    for c, d in zip(crit, match_scored(crit, data.get("criteria", []), names_ko)):
         c.llm_score = d.get("score") if isinstance(d.get("score"), (int, float)) else None
         c.rationale = d.get("rationale", "")
     pro_o = origin_sets(col.evidence, col.ann, "pro", exclude)

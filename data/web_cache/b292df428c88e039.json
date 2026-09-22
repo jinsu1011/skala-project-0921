@@ -1,0 +1,44 @@
+{
+ "query": "independent academic evaluation of Google TurboQuant KV cache technology maturity level TRL",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:53:25+09:00",
+ "results": [
+  {
+   "url": "https://qvac.tether.io/blog/turboquant-in-qvac-sdk-0-12-0-kv-cache-quantization-for-production-local-ai",
+   "title": "TurboQuant in QVAC SDK 0.12.0: KV-cache quantization for pr…",
+   "content": "TurboQuant is a two-stage compression algorithm for the Key-Value (KV) cache that transformer language models maintain during inference. Introduced by Zandieh et al. at ICLR 2026 with support from Google Research, it achieves near-lossless quantization of the KV cache down to about 3 bits per value, an up to 5x reduction from the standard 16 bits.\n\nTwo technical properties make TurboQuant practical at scale: [...] | Cache config | BPW | RULER main % | LongBench Avg | ZS Avg | L-Eval Avg |\n ---  ---  --- |\n| f16/f16 (baseline) | 16.00 | 96.2 | 37.52 | 22.86 | 14.17 |\n| q4\\_0/q4\\_0 | 4.50 | 97.5 | 37.22 | 20.67 | 18.75 |\n| tbq3\\_0/pq3\\_0 | 3.75 | 93.7 | 34.97 | 19.88 | 16.25 |\n| tbq4\\_0/pq4\\_0 | 4.75 | 94.8 | 37.04 | 18.45 | 16.25 |\n| tbq4\\_0/q4\\_0 | 4.88 | 96.0 | 37.57 | 21.57 | 18.75 |\n\nMore details can be found on the test protocol here.\n\n# TurboQuant in QVAC SDK 0.12.0 [...] Total representation: ~4 bits per KV component, with near-zero residual error and no per-model calibration required.\n\nFor the full mathematical formulation and derivation, see Zandieh et al. (ICLR 2026) at the Google Research blog.\n\n## Validated benchmarks\n\nImage 2: Results of the benchmark of Turboquant on Qwen 3.5-4B. Near lossless compression.\n\nBelow are the benchmarks measured by the QVAC team on Qwen3.5-4B Q8 model.",
+   "published_date": null,
+   "score": 0.42462727
+  },
+  {
+   "url": "https://boringbot.substack.com/p/turboquant-the-new-and-controversial",
+   "title": "TurboQuant: the new(?) and controversial ground breaking ...",
+   "content": "TurboQuant is Google’s proposed approach to one of the most consequential unsolved problems in production large language model efficiency: what do you do when the memory your model needs during inference grows faster than your hardware budget? KV cache compression is where that question gets answered or doesn’t, and TurboQuant claims to have cracked it. We’ll look at the benchmarks, surface an active academic controversy that most mainstream coverage has ignored entirely, and pull in what real [...] The key-value (KV) cache is the memory structure that allows transformer models to “remember” everything they’ve seen in a conversation or document during inference. Without it, the model would have to reprocess the entire context from scratch on every token generation step. The problem is architectural and unforgiving: KV cache memory grows linearly with both sequence length and batch size, which means serving real users at scale pushes it past comfortable limits fast. [...] TurboQuant’s core mechanism applies quantization to KV cache tensors during inference, compressing the floating-point representations from 16-bit (BF16 or FP16) down to as low as 3 bits per value. The “Turbo” in the name refers to a novel transform applied to the KV cache tensors before quantization, the authors argue this transform smooths the distribution of values, making them more amenable to aggressive compression without the rounding errors that normally cause quality degradation.",
+   "published_date": null,
+   "score": 0.40344992
+  },
+  {
+   "url": "https://medium.com/@michael.hannecke/googles-turboquant-changes-the-economics-of-local-ai-inference-acce5839014d",
+   "title": "TurboQuant Changes the Economics of Local AI Inference - Medium",
+   "content": "The academic attribution is contested. The authors of RaBitQ (ETH Zurich) publicly raised concerns on Zhihu and OpenReview on March 27, 2026, regarding the characterization of their prior work in the TurboQuant paper — specifically, structural similarities in the core mechanism (random rotation + quantization) and what they consider insufficient citation. This does not change TurboQuant’s technical effectiveness for KV cache compression, but it belongs to a complete assessment. [...] Local AI inference does not fail because of model quality. It fails because of memory. TurboQuant proves that this bottleneck was never fundamental. It was an engineering problem, and it now has a mathematically near-optimal solution.\n\nNear-zero accuracy loss at 6x KV cache compression. No training required. Independently validated by numerous community reimplementations on at least five different platforms, working from the paper alone, without any code from Google. [...] Google Research published a blog post in March 2026 promoting TurboQuant , an algorithm available on arXiv since April 2025 and scheduled for presentation at ICLR 2026 in April . TurboQuant compresses the KV cache to as low as 3 bits, achieving at least 6x memory reduction in benchmark evaluations. No retraining. Near-zero accuracy degradation. For enterprise architects evaluating local inference, this changes the math.\n\n## Why Memory Is the Real Bottleneck",
+   "published_date": null,
+   "score": 0.4003513
+  },
+  {
+   "url": "https://www.thelec.net/news/articleView.html?idxno=6179",
+   "title": "Google's TurboQuant Algorithm Compresses AI Memory ...",
+   "content": "Results showed that KV cache could be compressed to 2.5–3.5 bits, reducing memory usage by five to six times compared with the standard 16-bit (FP16) format. At 3.5-bit compression, performance degradation was negligible—effectively \"lossless\"—while even at 2.5 bits, accuracy remained significantly higher than competing methods such as KIVI. [...] The logic of KV cache quantization via QJL transform. Amir Zandieh was an independent researcher at the time of writing the paper. (Source: \n\nThe logic of KV cache quantization via QJL transform. Amir Zandieh was an independent researcher at the time of writing the paper. (Source: \"QJL: 1-Bit Quantized JL Transform for KV Cache Quantization with Zero Overhead\") [...] The research was led by Amir Zandieh and Vahab Mirrokni, a vice president and Google Fellow, with collaborators from KAIST and New York University. Insu Han, a professor in the Department of Electrical Engineering at KAIST, was also a co-author. Notably, Zandieh was an independent researcher when he published the QJL paper in July 2024, but is listed as a Google researcher on the subsequent PolarQuant and TurboQuant papers.",
+   "published_date": null,
+   "score": 0.36670366
+  },
+  {
+   "url": "https://deepinfra.com/blog/google-turboquant",
+   "title": "What Is Google TurboQuant and What Does It Mean ...",
+   "content": "The combined result: the KV cache can be compressed to around 3.5 bits per value, compared to 16 bits in standard FP16, with near-zero accuracy loss. That is roughly a 4.5x reduction in KV cache memory. At 3 bits the compression ratio improves further, though quality starts degrading on smaller models. [...] What Is Google TurboQuant and What Does It Mean for Open Source Inference? - Deep Infra\n\nIn late March 2026, Google Research published a paper that got more attention outside of academic circles than most AI research does. TurboQuant, a new compression algorithm for the key-value cache in large language models, landed with enough noise that Cloudflare CEO Matthew Prince called it Google’s DeepSeek moment. The Silicon Valley Pied Piper comparisons followed shortly after on social media.",
+   "published_date": null,
+   "score": 0.3480693
+  }
+ ]
+}

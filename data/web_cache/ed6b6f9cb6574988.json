@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache market potential market size growth adoption cost ecosystem support analysis",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:53:54+09:00",
+ "results": [
+  {
+   "url": "https://growthmarketreports.com/report/kv-cache-offloading-infrastructure-market",
+   "title": "KV-Cache Offloading Infrastructure Market Research ...",
+   "content": "According to our latest research, the global KV-Cache Offloading Infrastructure market size reached USD 1.87 billion in 2024, driven by exponential growth in AI and high-performance computing workloads. The market is expected to expand at a robust CAGR of 23.6% from 2025 to 2033, reaching a projected value of USD 14.99 billion by 2033. This rapid market expansion is primarily attributed to the surging adoption of generative AI models, the proliferation of data centers, and the critical need for [...] Regionally, North America continues to dominate the KV-Cache Offloading Infrastructure market, owing to its advanced technological ecosystem, early adoption of AI/ML technologies, and the presence of major cloud service providers. However, the Asia Pacific region is witnessing the fastest growth, fueled by robust investments in AI infrastructure, the expansion of hyperscale data centers, and the rapid digital transformation of enterprises. Europe is also emerging as a key market, driven by [...] Europe represents a significant market for KV-Cache Offloading Infrastructure, with a market size of USD 0.36 billion in 2024. The region is characterized by stringent data protection regulations, such as the General Data Protection Regulation (GDPR), which are driving the adoption of advanced cache management solutions that ensure data privacy and regulatory compliance. Key markets in Europe include Germany, the United Kingdom, and France, where enterprises are leveraging KV-cache offloading",
+   "published_date": null,
+   "score": 0.72907686
+  },
+  {
+   "url": "https://www.cnbc.com/2026/03/25/sk-hynix-confidential-us-listing-adr-ai-memory.html#MainContent",
+   "title": "SK Hynix files for U.S. listing as it rides 'unprecedented growth' in memory market",
+   "content": "Local media reported the company is considering raising between 10 trillion won and 15 trillion won, or roughly $6.7 billion to $10 billion at current exchange rates.\n\nSK Hynix is one of the world's leading suppliers of high-bandwidth memory (HBM) chips used in AI processors. Demand for such memory chips has accelerated so fast that it triggered a global memory shortage and a resulting surge in prices. [...] \"The final decision on the listing will be made after comprehensively considering the SEC's review of the application, market conditions, demand forecasting, and other relevant factors,\" the filing said, according to a Google translation.\n\nThe company said it will make another disclosure when specific details are finalized or within six months. [...] On Tuesday, SK Hynix announced plans to purchase 11.95 trillion won ($7.97 billion) worth of advanced chipmaking equipment from ASML in one of the largest single disclosed orders for such tools.\n\nShares of SK Hynix rose more than 5% in Seoul on Wednesday. The stock rose 274% in 2025 and is up about 60% year to date.",
+   "published_date": null,
+   "score": 0.3929895
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate [...] #### 2. Memory economics break at scale\n\nHBM and DRAM are among the highest-cost resources in the data center. As of 2025, HBM media (HBM3E 12Hi) cost about $14/GB, and DRAM media (DDR5) about $8.50/GB.4 As KV cache sizes and retention windows increase, storing context in memory becomes economically unsustainable at scale.\n\n#### 3. Recomputing context wastes GPU capacity and power [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage",
+   "published_date": null,
+   "score": 0.3656837
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=kMtFsu9yAlo",
+   "title": "SK Hynix Moves to Capitalize on Memory Chip Demand",
+   "content": "[30:00] called Access Checks where we write, you know, small 1 to $2 million access checks in these gigantic rounds to have a seat at the table, to have a seed to\n[30:09] the ecosystem to support the founders and participate for, you know, with those that actually make it big. So while our core checks are focused on [...] [21:45] That's a good that's a good development. That doesn't mean the CapEx cycle is over, but that ebbing and flowing between the two is a natural kind of\n[21:53] governing factor. Just some of the things that make this market so interesting that Max Kettner over at HSBC, Mike Wilson of Morgan [...] [37:42] that Asian buyers will snap up these cargoes and also to make it worthwhile to charter a tanker to go into the Persian Gulf, collect this stuff and get\n[37:51] out, because that is in no way assured that process is still very much up in the air. And so I think that this is not necessarily, uh, something that we're going to see happen in the long term.\n[38:01] This is a temporary thing just to get that market, um, unplugged.",
+   "published_date": null,
+   "score": 0.31226563
+  },
+  {
+   "url": "https://news.skhynix.com/en/fact-05",
+   "title": "Explainer: SK hynix's Mid-to-Long-Term Investment Strategy",
+   "content": "Having grown on the foundation of its production bases in Icheon and Cheongju, SK hynix is now preparing for its next leap forward by expanding its manufacturing footprint to Yongin and onward to the Southwestern Region. As long as demand continues and the necessary infrastructure is in place, SK hynix will further strengthen its contribution to the advancement of the global AI ecosystem. SK hynix will continue to anticipate and lead market growth through proactive investment based on [...] To respond to these market changes, SK hynix has established a KRW 1,100 trillion mid-to-long-term investment strategy encompassing Yongin, Cheongju, and the Southwestern Region. The company plans to invest KRW 600 trillion in Yongin, KRW 100 trillion in Cheongju, and KRW 400 trillion in the Southwestern Region in phases. [...] SK hynix’s mid-to-long-term investment strategy begins with its responsibility as a global memory leader to respond reliably to rapidly growing AI memory demand. Resolving global memory supply shortages and establishing a stable supply chain are essential foundations for the continued development of the global AI ecosystem.",
+   "published_date": null,
+   "score": 0.2795437
+  }
+ ]
+}
