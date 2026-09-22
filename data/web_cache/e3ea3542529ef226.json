@@ -1,0 +1,44 @@
+{
+ "query": "Google TurboQuant KV cache vLLM integration production deployment",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:16:49+09:00",
+ "results": [
+  {
+   "url": "https://github.com/OnlyTerp/turboquant",
+   "title": "GitHub - OnlyTerp/turboquant: First open-source implementation of Google TurboQuant (ICLR 2026) -- near-optimal KV cache compression for LLM inference. 5x compression with near-zero quality loss. · GitHub",
+   "content": "vLLM plugin is a scaffold — Not yet tested at scale with actual vLLM serving. For production, use upstream `--kv-cache-dtype turboquant_` (merged) or the `turboquant-plus-vllm` PyPI package. [...] 3-bit modes are not production-ready — Independent evaluations consistently find unacceptable accuracy drops on reasoning + >128K retrieval. Use `4bit_nc` or FP8 for production; reserve 3-bit for edge / memory-bound deployments.\n QJL is on by default for backward compatibility — But you should turn it off (`qjl_score_weight=0.0`). See tip #3. [...] | Engine | Status (May 2026) | Entry point |\n --- \n| vLLM (upstream) | Merged — see docs | `--kv-cache-dtype turboquant_{k8v4, 4bit_nc, k3v4_nc, 3bit_nc}` |\n| vLLM (production fork) | `turboquant-plus-vllm` on PyPI — CUDA dequant kernels, MoE support | `vllm serve varjosoft/Qwen3.6-35B-A3B-TQ3-native --kv-cache-dtype turboquant_3bit_native` |\n| vLLM (our plugin) | `vllm_plugin/` — works on vLLM ≥ 0.4.0 without patching | `--attention-backend turboquant` |",
+   "published_date": null,
+   "score": 0.850382
+  },
+  {
+   "url": "https://rocm.blogs.amd.com/artificial-intelligence/turboquant-vllm-agentic/README.html",
+   "title": "Productionizing TurboQuant on AMD GPUs for KV-Cache-Bound ...",
+   "content": "In this post, we share our experience building and deploying an improved, productionized version of TurboQuant on AMD GPUs via vLLM. TurboQuant matters most when KV-cache capacity, rather than compute, becomes the bottleneck—a regime that commonly appears in long-context, multi-turn agentic workloads, where improving KV-cache residency and hit rate can materially reduce latency and increase throughput. We will break down our analysis of the algorithm, the refinements we made to resolve the [...] ## Summary#\n\nWe presented a production-ready implementation of TurboQuant on AMD GPUs via vLLM, demonstrating that 4-bit KV-cache quantization can deliver meaningful gains for real-world LLM serving. [...] The current Triton TQ kernel in VLLM is based on scalar LUT lookups per-query-head causing redundant KV cache loads across GQA groups and non-coalesced memory access. Our improved Triton kernel gives a 2X improvement over the current implementation. We incorporate a series of optimizations:",
+   "published_date": null,
+   "score": 0.8145405
+  },
+  {
+   "url": "https://regolo.ai/why-turboquant-matters-for-real-world-llm-inference",
+   "title": "Why TurboQuant matters for real-world LLM inference",
+   "content": "In production, the KV cache is often the first scaling problem that really hurts. As prompts get longer, chats persist across many turns, or RAG systems attach more retrieved context to every request, KV-cache memory grows quickly and starts limiting concurrency, latency, and infrastructure efficiency. [...] Skip to content\n\nRegolo Logo\n\nRegolo Logo\n\nSelf‑Hosting & DevOps\n\n# Why TurboQuant matters for real-world LLM inference\n\nAlex Genovese\n\n5 min read\n\n Share\n\nTurboQuant is a KV-cache compression method from Google Research that was presented at ICLR 2026. In the reported results, it compresses KV cache values to roughly 3–3.5 bits while reducing KV-cache memory by at least 6x and delivering up to 8x speedup in attention-logit computation on H100 GPUs. [...] Use TurboQuant when serving Llama 3 or Llama 3.1 Instruct with long context and many concurrent chats, where KV-cache memory starts limiting how many sessions a single GPU can sustain. In that setting, the goal is not only to save memory, but to keep long histories practical without moving too early to a larger GPU tier.",
+   "published_date": null,
+   "score": 0.75377536
+  },
+  {
+   "url": "https://vllm.ai/blog/2026-05-11-turboquant",
+   "title": "A First Comprehensive Study of TurboQuant: Accuracy and ... - vLLM",
+   "content": "TurboQuant 4bit-nc offers a compelling memory-for-throughput tradeoff. This variant provides up to 3.4x KV-cache capacity with modest accuracy degradation of 1-4 points on most benchmarks. It is particularly valuable for memory-constrained deployments where the TTFT improvement at burst load outweighs the negative impact on all other metrics. Thoroughly validate accuracy on the target workload before deploying. [...] TurboQuant `4bit-nc` is likely the most practical TurboQuant variant: it helps under KV-cache memory pressure, but trades the extra capacity for moderate accuracy, latency, and throughput costs. It may still be viable for edge deployments where memory is the dominant constraint. [...] TurboQuant `k3v4-nc` and `3bit-nc` show meaningful accuracy drops, especially on reasoning and very long-context tasks, while also substantially degrading latency and throughput. This makes them poor candidates for production deployments.",
+   "published_date": null,
+   "score": 0.72629017
+  },
+  {
+   "url": "https://medium.com/@michael.hannecke/googles-turboquant-changes-the-economics-of-local-ai-inference-acce5839014d",
+   "title": "TurboQuant Changes the Economics of Local AI Inference - Medium",
+   "content": "TurboQuant is not the only KV cache method. NVIDIA’s KVTC (KV Cache Transform Coding), also presented at ICLR 2026, achieves up to 20x compression at less than 1 percentage point of accuracy loss — tested on models from 1.5B to 70B, a significantly broader range than TurboQuant’s benchmarks. KVTC requires calibration data and integrates into NVIDIA’s Dynamo framework with vLLM compatibility. The tradeoff: TurboQuant’s data-oblivious simplicity (immediately deployable, no calibration overhead) [...] request in vLLM (Issue #38171) shows that production serving frameworks are also planning integration . [...] Numerous independent implementations. At least five different platforms. Consistent results. Implementations are already expanding beyond text LLMs: a vLLM plugin (`turboquant-vllm`) has been validated on vision-language models (Molmo2-4B/8B), where visual tokens create significantly higher KV cache pressure than text alone. The community-driven validation, without any code from Google, is itself a trust indicator. The results come from practitioners with no commercial incentive to inflate",
+   "published_date": null,
+   "score": 0.70702106
+  }
+ ]
+}

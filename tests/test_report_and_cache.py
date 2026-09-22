@@ -90,6 +90,12 @@ def test_markdown_and_pdf_generation(tmp_path, monkeypatch):
     assert pdf.exists() and pdf.stat().st_size > 10_000
     written = (tmp_path / "outputs" / f"{plat.output_stem()}.md").read_text()
     assert written.startswith("# 목차") and written.endswith(md)          # TOC page + report body
-    assert "| **SUMMARY** | 3 |" in written and "| **4. 관점별 평가** | 3 |" in written   # cover 1, TOC 2
+    assert "| **SUMMARY** |  | 3 |" in written and "| **4. 관점별 평가** |  | 3 |" in written   # cover 1, TOC 2
     assert (tmp_path / "deliverables" / pdf.name).exists()
     assert out["report_pdf_path"] == str(pdf)
+
+
+def test_trl_number_guard():
+    from agents.report_writer import guard_numbers
+    txt = "TurboQuant은 TRL 5–7로 추정됐다 [W:a]. TurboQuant은 TRL 3에서 7까지 추정됐다 [W:b]."
+    assert guard_numbers(txt, [(5, 7), (5, 6)]) == "TurboQuant은 TRL 5–7로 추정됐다 [W:a]."

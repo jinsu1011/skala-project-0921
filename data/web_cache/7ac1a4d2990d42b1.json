@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache roadmap commercialization plan",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:26:15+09:00",
+ "results": [
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262120548-skhynix-cpo-extends-to-memory-interface-tradingkey",
+   "title": "SK Hynix Unveils CPO Roadmap: Optical Interconnect Technology Extends to Memory Interfaces for the First Time",
+   "content": "The paper also outlines the evolutionary path from 2D packaging to 2.5D interposers and then to 3D heterogeneous integration, listing key technical challenges that must be overcome for commercialization.\n\nSeung-Hoon Hong, head of SK Hynix's AI Infrastructure Team, stated that memory companies are evolving from providing single components to becoming partners that help customers enhance overall system competitiveness through technologies such as CPO. [...] On August 20, 2026, SK Hynix published a paper in Nature Electronics detailing its Co-Packaged Optics (CPO) roadmap to overcome the AI \"bandwidth wall.\" Boosted by this roadmap and a 40 trillion KRW buyback plan, SK Hynix shares surged 12.73% to 1.691 million KRW. Addressing widening gaps between computing power and interconnect bandwidth, the research proposes an \"optics-centric\" architecture extending optical interconnects to memory interfaces via photonic interposers. Targets include [...] Driven by the dual positive catalysts of the CPO roadmap disclosure and a 40 trillion KRW (approximately $28.6 billion) buyback plan, SK Hynix's South Korean shares closed up 12.73% for the day at 1.691 million KRW.\n\n[Source: SKhynix]\n\n[Source: TradingView]\n\nThe paper points out that as AI clusters expand from single chips to ultra-large-scale clusters composed of thousands of GPUs and HBMs, data transmission between racks is becoming a new constraint.",
+   "published_date": null,
+   "score": 0.48060113
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] ### 4.2. ITME I/O Scheduling and Prefetching\n\nThe primary role of ITME is to efficiently orchestrate KV cache movement across the multi-tier hierarchy, leveraging specific access patterns and device characteristics. It manages this entire lifecycle, from migrating blocks immediately upon GPU eviction to proactively prefetching them based on upcoming execution demands. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.42706275
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] Low-latency and high-bandwidth KV cache transfer. Reusing KV caches can save GPU computation, but it may introduce I/O transfer bottlenecks. The KV cache store must not only provide the maximum bandwidth of a GPU form factor, PCI Express® (PCIe®) 5.0 ×16, but also minimize latency.\n\n#### Managing KV cache across hybrid storage tiers",
+   "published_date": null,
+   "score": 0.39019752
+  },
+  {
+   "url": "https://www.ersaelectronics.com/blog/sandisk-sk-hynix-standardize-hbf",
+   "title": "Sandisk & SK hynix Standardize HBF: A New Memory Tier ...",
+   "content": "Key-value cache is one of the most important memory challenges in large-language-model inference. During autoregressive generation, transformer models store key and value tensors from previous tokens. This avoids recomputing attention over the entire context. As context windows become longer, KV cache memory requirements grow significantly. [...] The challenge is latency management. If the system moves data out of HBM and then needs it immediately, performance may suffer. Therefore, KV cache tiering requires prediction, scheduling, and prefetching. A standardized HBF layer can help by giving software developers a clear target for optimization.\n\n## 11. Data-Center Impact and Server Design [...] This tiered approach can make enterprise AI more practical. It reduces the need to keep everything in expensive memory and reduces the latency penalty of retrieving everything from slower storage.\n\n## 10. KV Cache, Long Context, and Memory Expansion",
+   "published_date": null,
+   "score": 0.35528317
+  },
+  {
+   "url": "https://news.skhynix.com/en/fms-2026",
+   "title": "The Next-Generation Memory Architecture in the AI Era? ...",
+   "content": "The 375-layer 4D NAND is characterized by 2.5 times higher performance per watt than the previous generation, making it optimized for AI infrastructure environments such as data centers that require both power efficiency and performance. Building on it, SK hynix plans to begin mass production of high-performance eSSD (enterprise SSD) in the first half of next year, and is preparing to commercialize a range of specialized features — including IOPS (input/output operations per second) [...] SK hynix also demonstrated the same ReAct AI Agent Serving system using CMM-Hybrid\\, confirming that the implemented system can efficiently store and rapidly reuse the large volumes of KV cache generated on an ongoing basis. In particular, the demonstration showcased both the ability to quickly predict the KV cache needed based on prior conversation and task history, and the performance to prefetch the required KV cache into DRAM for rapid processing. It also proved that storing the entire KV [...] First, the ReAct (Reasoning and Acting) AI Agent Serving demo presented a distributed AI Agent Serving system that connects multiple servers and GPUs using Pooled Memory\\. Through this, SK hynix demonstrated that transferring or reusing the KV cache\\ on the basis of CXL Pooled Memory can significantly improve the performance of an AI Agent Serving system compared with legacy systems that rely on network communication.",
+   "published_date": null,
+   "score": 0.30281404
+  }
+ ]
+}

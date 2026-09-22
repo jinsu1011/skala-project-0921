@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache opinion industry experts",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:31+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate",
+   "published_date": null,
+   "score": 0.54201555
+  },
+  {
+   "url": "https://news.skhynix.com/en/sk-hynix-showcases-full-stack-ai-memory-portfolio-at-2025-ocp-global-summit",
+   "title": "SK hynix Showcases Full-Stack AI Memory Portfolio at ...",
+   "content": "▲ SK hynix shared its industry expertise through presentation sessions\n\n▲ SK hynix shared its industry expertise through presentation sessions\n\n▲ Vice President Chunsung Kim, head of eSSD Product Development, presenting on storage solutions for the AI era\n\n▲ “Thomas” Wonha Choi of Next-Gen Memory & Storage speaking on how storage can meet market demands\n\n▲ SK hynix shared its industry expertise through presentation sessions [...] ▲ SK hynix shared its industry expertise through presentation sessions\n\n▲ Vice President Chunsung Kim, head of eSSD Product Development, presenting on storage solutions for the AI era\n\n▲ “Thomas” Wonha Choi of Next-Gen Memory & Storage speaking on how storage can meet market demands [...] \\ Memory-bound: A situation in which system performance is limited not by the processor’s computational power but by memory access speed, causing delays while waiting for data access.  \n\\ Key-Value (KV) cache: A technology that stores and reuses previously computed Key and Value vectors, preserving context from earlier inputs to reduce redundant calculations and respond more efficiently.  \n\\ Memory wall: A bottleneck that occurs when memory access speed lags behind data processor speed.",
+   "published_date": null,
+   "score": 0.4436251
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] Efficient multi-tier KV caching relies on maintaining data contiguity across storage boundaries to enable high-bandwidth prefetching without reorganization overhead. To maximize offloading performance, ITME aggregates evicted KV cache blocks into large-scale chunks (e.g., 512 MB) within the CPU staging buffer. During the eviction process, ITME sequentially appends blocks into these chunks as they are released from GPU memory. This sequential appending naturally restores the logical sequence of",
+   "published_date": null,
+   "score": 0.42305335
+  },
+  {
+   "url": "https://news.skhynix.com/en/fms-2026",
+   "title": "The Next-Generation Memory Architecture in the AI Era? ...",
+   "content": "SK hynix also demonstrated the same ReAct AI Agent Serving system using CMM-Hybrid\\, confirming that the implemented system can efficiently store and rapidly reuse the large volumes of KV cache generated on an ongoing basis. In particular, the demonstration showcased both the ability to quickly predict the KV cache needed based on prior conversation and task history, and the performance to prefetch the required KV cache into DRAM for rapid processing. It also proved that storing the entire KV [...] \\ KV Cache (Key Value Cache): Temporary memory that stores previously computed results as a large language model-based AI agent generates text. It grows exponentially as conversations lengthen and workloads increase, so the memory capability to store and process it efficiently has a significant impact on an AI agent’s performance. [...] the entire KV cache on SSD can deliver fast read performance and large-capacity storage at the same time.",
+   "published_date": null,
+   "score": 0.32021567
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.28191733
+  }
+ ]
+}

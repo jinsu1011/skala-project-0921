@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache github implementation",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:33:31+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] ## 4. ITME Implementation\n\nIn this section, we present the overall architecture of our proposed ITME, implemented on top of the vLLM framework (Kwon et al., 2023), across the multi-tier memory hierarchy, as illustrated in Figure 6.\n\n### 4.1. KV Cache Block Management [...] Efficient multi-tier KV caching relies on maintaining data contiguity across storage boundaries to enable high-bandwidth prefetching without reorganization overhead. To maximize offloading performance, ITME aggregates evicted KV cache blocks into large-scale chunks (e.g., 512 MB) within the CPU staging buffer. During the eviction process, ITME sequentially appends blocks into these chunks as they are released from GPU memory. This sequential appending naturally restores the logical sequence of",
+   "published_date": null,
+   "score": 0.6426349
+  },
+  {
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ap3bkt/kv_cache_is_huge_and_bottlenecks_llm_inference_we",
+   "title": "KV Cache is huge and bottlenecks LLM inference. We ...",
+   "content": "Skip to main contentKV Cache is huge and bottlenecks LLM inference. We quantize them to 2bit in a finetuning-free + plug-and-play fashion. : r/LocalLLaMA [...] evolution diagrams for your own project (portal coming soon at llmtree.ai). [...] a 500B+ model with `bs=512` and `seqlen=2048` has a total KV cache about 3TB — this is 3 times the model weight and brings another I/O challenge as the GPU will need to load the entire KV cache into memory for the next token generation, where, once again, the compute core is mostly idle.",
+   "published_date": null,
+   "score": 0.40500212
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] Figure 4. KV cache offloading and prefix caching via a tiered KV cache store.\n\n## Solution architecture\n\n#### Components and disaggregation\n\nThe proposed solution employs SK hynix PS1010 3.84TB SSDs and Seagate Exos® 30TB hard drives, powered by Mozaic™ (HAMR) (Table 1). It uses NVIDIA Dynamo, an open-source distributed inference framework for serving generative AI models.\n\nTable 1. GPU, SSD, and hard drive server specifications. [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage",
+   "published_date": null,
+   "score": 0.38345712
+  },
+  {
+   "url": "https://martinlwx.github.io/en/llm-inference-optimization-kv-cache",
+   "title": "LLM inference optimization (1): KV Cache - MartinLwx's Blog",
+   "content": "In summary, in each iteration, we will use the output of the previous round as a new input for the LLM. Generally, this process will continue until the output reaches the maximum length we predefined or the LLM itself generates a special token, signifying the completion of the generating process.\n\n## Demystify the KV Cache\n\nInfo\n\nThe inference process of the LLM is easy to understand, but this simple implementation has a drawback - there is a significant amount of redundant computation🧐 [...] Prefill stage: During the initial forward pass, the model processes the entire input (prompt) and computes the Q/K/V representations for all input tokens in parallel.\n Decode stage: The model generates tokens autoregressively, producing each next token conditioned on all previously generated tokens. It still needs to process the entire input and compute the Q/K/V representations for all input tokens. [...] Prefill stage: During the initial forward pass, the model processes the entire prompt and computes the Q/K/V representations for all input tokens in parallel. At the same time, it stores the K/V in the KV Cache.",
+   "published_date": null,
+   "score": 0.37841368
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.24550577
+  }
+ ]
+}

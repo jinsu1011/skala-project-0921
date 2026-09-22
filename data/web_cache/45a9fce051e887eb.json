@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache integration ecosystem support framework",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:18:59+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "To build such a shared context layer, the ecosystem is exploring both storage-centric and memory-centric designs. On the storage side, networking and DPU vendors such as NVIDIA (NVIDIA, 2026b; NVIDIA, 2025b), Broadcom (Broadcom, 2020), Marvell (Marvell Technology, 2026a; Marvell Technology, 2026b), Xsight Labs (Xsight Labs, 2026), and Chelsio (Chelsio Communications, 2026) are combining RDMA/NVMe-oF, SmartNICs, and DPUs with dense SSDs from storage vendors such as SK hynix (SK hynix, 2026) and [...] Support for Heterogeneous KV Object Sizes. [...] This paper presents HyMCache, a KV-cache framework that integrates CXL-hybrid memory (CXL-HM) for multi-turn LLM serving. CXL-HM combines a small amount of in-device DRAM with large SSD-backed capacity behind a CXL interface. By exploiting the read-dominant, predictable, and append-only nature of multi-turn KV-cache access, HyMCache rethinks DRAM management within CXL-HM to efficiently support TB-scale SSD-backed KV reuse. It uses request-level prefix prefetching and opportunistic write",
+   "published_date": null,
+   "score": 0.6083387
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Figure 4. KV cache offloading and prefix caching via a tiered KV cache store.\n\n## Solution architecture\n\n#### Components and disaggregation\n\nThe proposed solution employs SK hynix PS1010 3.84TB SSDs and Seagate Exos® 30TB hard drives, powered by Mozaic™ (HAMR) (Table 1). It uses NVIDIA Dynamo, an open-source distributed inference framework for serving generative AI models.\n\nTable 1. GPU, SSD, and hard drive server specifications. [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles",
+   "published_date": null,
+   "score": 0.39894548
+  },
+  {
+   "url": "https://github.com/sgl-project/sglang/issues/32657",
+   "title": "[RFC] A Unified KV-Cache Sparsity Framework for Post-Hoc Sparse Attention · Issue #32657 · sgl-project/sglang · GitHub",
+   "content": "all KV is already in HBM;\n logical indices are mapped to physical slots;\n no transfer or allocation is performed.\n\nA future hierarchical provider may use the same logical `SelectionResult` to:\n\n check residency;\n materialize missing KV into an HBM working set;\n return a completion event;\n release placement-specific request resources.\n\nThis extension point leaves room for HiCache/HiSparse without making them a dependency of the core policy interface.\n\n## Runtime Integration [...] #10585 — Integrate KVPress\n #22452 — Sparse Attention for non-DSA models\n #22865 — Extend framework to support non-NSA sparse algorithms\n #28874 — HiSparse roadmap\n #28882 — Experimental Quest FlashAttention serving path\n #30277 — Quest runtime integration\n #29666 — Quest selection optimization\n #31790 — Quest GPU kernels\n #31951 — Breakable CUDA Graph runtime variants [...] ## Supported Initial Design Region\n\nThe first implementation targets:\n\n| Dimension | Initial support |\n --- |\n| D1: state action | Visibility-only |\n| D2: granularity | Token and page/block where the backend mapping is lossless |\n| D3: evidence | Fixed/position, KV-derived, and current-query-aware |\n| D4: scope | Request-level, step-level, and layer-level |\n| KV placement | Complete KV resident in HBM |\n| Model scope | Existing dense MHA/GQA checkpoints without a native sparse indexer |",
+   "published_date": null,
+   "score": 0.37284824
+  },
+  {
+   "url": "https://www.blocksandfiles.com/ai-ml/2026/03/30/nvidia-and-its-partners-kv-cache-extenders/5209284",
+   "title": "Nvidia and its partners' KV Cache extenders",
+   "content": "GPU and AI platform system supplier Nvidia supports KV cache extension with its Dynamo software and CMX scheme. Dynamo is a distributed inference framework for scaling reasoning/multi-turn workloads supporting KV cache offloading, from (GPU HBM to CPU DRAM to local SSD to networked storage). It features KV-aware routing defining routes to nodes with existing cache, low-latency transfers via its NIXL library, and integration with vLLM, TensorRT-LLM, etc. Nvidia had a 4-tier KV cache concept up [...] Context Cache Tiering: A unified Context Cache Tiering framework enables seamless, high-speed read and write access across local SSD and DRAM tiers at LMCache speed, supporting AI inference use cases including long-context language model serving and retrieval-augmented generation. [...] Stage 3: leveraging measured 96% line rate Arm CPU performance on NVIDIA Grace, Augmented Memory Grid on Vera BF-4 client and server, will fully support CMX-native architecture where shared KV cache is a full platform, orchestrated by NVIDIA’s Dynamo framework, as first-class context infrastructure.\n\nA diagram illustrates this concept;\n\nWEKA CMX adoption path. (Graphic inverted for readability.)\n\nWEKA CMX adoption path. (Graphic inverted for readability.)",
+   "published_date": null,
+   "score": 0.35033303
+  },
+  {
+   "url": "https://www.weka.io/video/inference-is-eating-memory-and-tokens-now-run-ai-economics",
+   "title": "Inference Is Eating Memory, and Tokens Now Run AI Economics",
+   "content": "on KV cache consumption is that they want to support million-token context windows, and soon 2, 5, 10 million — and the only way to do that effectively is to keep being more efficient and intelligent about how you consume KV cache. [...] computing such as life sciences, Monte Carlo simulations, seismic analysis, weather analysis. Those are the applications the technology has proven itself in. We may see it appear in KV cache offloading as well. [...] TLC for a very high write-endurance workload like KV cache. In the future, as we’re able to influence the rest of the inference stack — the scheduling and routing, not just the KV transfer storage layer — we’ll add support for QLC drives as well. But you have to be careful, because you don’t want to break these drives with unintelligent scheduling of writes or unintelligent routing of tokens to somewhere that needs a quick write but isn’t really worth it.",
+   "published_date": null,
+   "score": 0.19891903
+  }
+ ]
+}

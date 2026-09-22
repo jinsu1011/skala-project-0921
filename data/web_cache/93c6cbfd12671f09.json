@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache positive evaluations by different stakeholder groups with direct quotes or specific evidence",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:28:39+09:00",
+ "results": [
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] Korea Investment & Securities\n\nSeoul Economic Daily\n\nSeoul Economic Daily\n\nKorea Investment & Securities",
+   "published_date": null,
+   "score": 0.49377534
+  },
+  {
+   "url": "https://www.gate.com/news/detail/23368788",
+   "title": "SK Hynix and Marvell Unveil CXL Memory Module With 5.5x GPU Throughput | Gate News",
+   "content": "## CMM-Ax Achieves 5.5x Throughput Gain Over Single GPU in LLM Inference Tests\n\nThe module's primary target application is KV cache processing in large language model inference. The approach processes portions of the cache within the memory domain, reducing GPU round-trip delays. In evaluations, 512GB configurations per device recorded 5.5 times the throughput of a single GPU and 3.6 times that of dual GPUs.\n\n## Yole Group Projects CXL Market Growth to $16 Billion by 2028 [...] In evaluations using 512GB configurations per device, CMM-Ax achieved 5.5 times the throughput of a single GPU and 3.6 times the throughput of dual GPUs in large language model inference KV cache processing tasks. [...] SK Hynix and Marvell unveiled CMM-Ax, a CXL-based near-memory computing module combining SK Hynix high-performance DRAM with Marvell's Structera A near-memory processing engine. The module integrates 16 Arm datacenter CPU cores into the CXL controller and delivers up to 200GB/s internal bandwidth when processing data directly within memory. The design targets large language model inference workloads, specifically KV cache operations, by processing portions of the cache in the memory domain to",
+   "published_date": null,
+   "score": 0.40471974
+  },
+  {
+   "url": "https://www.it-boltwise.de/deepseek-v4-1-flash-kv-cache-schrumpft-deutlich-warum-samsung-sk-hynix-dennoch-reagieren.html",
+   "title": "DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren",
+   "content": "Genau hier liegt das Spannungsfeld für Samsung und SK Hynix. Beide adressieren nicht nur den „Cache“ eines einzelnen Modells, sondern beliefern einen Markt, in dem KI-Server, Enterprise-SSDs, Consumer-Geräte und langfristige Liefervereinbarungen zusammenkommen. Die im Text genannten Erwartungen aus der Branche zeigen, wie stark sich Speicherpreise und Knappheiten über Quartale bewegen können: Für DRAM werden für das erste Quartal 2026 Anstiege von 90 % bis 95 % im Quartalsvergleich genannt, [...] Der Kernpunkt, der die Kursbewegung ausgelöst haben dürfte, ist die KV-Cache-Reduktion – allerdings in einem engeren Sinn als die Schlagzeilen vermuten lassen. DeepSeek beschreibt in seinem technischen Report auf Hugging Face, dass CSA2, FP4 Key-Value Caching und SWA Bounded Replay den globalen KV-Cache-Footprint auf rund 890 Byte pro Token senken, also auf etwa ein Viertel im Vergleich zu DeepSeek-V4-Flash. Zusätzlich nennt das Unternehmen, dass persistentes KV-Storage auf ungefähr ein Achtel [...] Roboter\n Hacker\n OpenAI\n Anthropic\n xAI\n ChatGPT\n Kryptographie\n Weltraum\n\nÜber eine Million Leser im Jahr\n\nIT BOLTWISE x Artificial Intelligence\n\n###### #1 Fachmagazin in Deutschland mit Fokus auf Künstliche Intelligenz und Robotik\n\nChatGPT Business Bibel\n\nMini Drohne\n\nKI Freund\n\nKI Key\n\nKI Hund\n\n№1 AI Magazine in Germany\n\nNavigation\n\nDigital Economy\n\n# DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren\n\n13. September 2026  Keine Kommentare",
+   "published_date": null,
+   "score": 0.37586737
+  },
+  {
+   "url": "https://cryptoaimeta.com/deepseek-v4-1-flash-cuts-ai-memory-use-should-micron-and-sk-hynix-investors-worry",
+   "title": "DeepSeek V4.1-Flash: Should Micron, SK Hynix Worry?",
+   "content": "AI Overview: DeepSeek released V4.1-Flash on September 10, 2026, claiming roughly one-eighth the persistent KV-cache footprint of its prior model, which cuts the high-bandwidth memory needed per inference session. SK Hynix and Samsung shares fell in Korea on the news; Micron and Nvidia’s specific moves are harder to separate from a broader semiconductor selloff that same day. The bigger question isn’t whether the model is efficient — it’s whether cheaper inference shrinks total memory demand or [...] DeepSeek released V4.1-Flash on September 10, 2026, claiming roughly one-eighth the persistent KV-cache footprint of its prior V4-Flash model.\n SK Hynix fell as much as 5.8% in Korea trading on the news; Micron and Nvidia’s specific moves are harder to isolate from a broader semiconductor and macro selloff that same day. [...] ## Why KV-Cache Compression Matters to HBM Demand\n\nHBM places stacked memory close to an AI accelerator so data can move quickly. Nvidia, AMD, and custom accelerator makers need it because modern models constantly move weights, activations, and cache data. SK Hynix has been a major HBM supplier, while Micron has expanded its HBM business and described AI memory as a strategic growth engine — part of the broader AI memory shortage that has been pushing HBM and DRAM prices higher through 2026.",
+   "published_date": null,
+   "score": 0.32104528
+  },
+  {
+   "url": "https://in.investing.com/equities/sk-hynix-inc",
+   "title": "SK Hynix Share Price Today | KS: 000660 - Investing.com IN",
+   "content": "Revenue\n\n189.17 T\n\nNet Income\n\n161.97 M\n\nEPS\n\n227,588.301\n\nEPS Growth Forecast\n\nImage 8: unlockUnlock\n\nNext Earnings Date\n\n26 Oct 2026\n\nDividend (Yield)3,000.00 (0.17%)\n\nDividends Payment Streak \n\nImage 9: unlockUnlock\n\nRSI(14)60.18\n\nP/E Ratio\n\n7.96\n\nReturn on Assets\n\n67.8%\n\nReturn on Equity\n\n92.7%\n\nGross Profit Margin\n\n76.3%\n\nPrice/Book\n\n5.16\n\nEBITDA\n\n143.6 T\n\nEV/EBITDA\n\n8.53\n\nBeta\n\n2.39\n\nBook Value / Share\n\n370,438.68\n\nISIN KR7000660001\n\nMore metrics for 000660\n\nShow More [...] Fair Value\n\nImage 2: unlockUnlock\n\nFair Value Upside\n\nImage 3: unlockUnlock\n\nMarket Cap\n\n1.35 P\n\nShares Outstanding\n\n728.87 M\n\nRevenue\n\n189.17 T\n\nNet Income\n\n161.97 M\n\nEPS\n\n227,588.301\n\nEPS Growth Forecast\n\nImage 4: unlockUnlock\n\nNext Earnings Date\n\n26 Oct 2026\n\nDividend (Yield)3,000.00 (0.17%)\n\nDividends Payment Streak \n\nImage 5: unlockUnlock\n\nRSI(14)60.18\n\nP/E Ratio\n\n7.96\n\nReturn on Assets\n\n67.8%\n\nReturn on Equity\n\n92.7%\n\nGross Profit Margin\n\n76.3%\n\nPrice/Book\n\n5.16\n\nEBITDA\n\n143.6 T [...] As of 20-09-2026, the SK Hynix share price is 18,57,000, with a previous close of 18,57,000. The share price has ranged from 18,05,000 to 18,57,000 today, while the 52-week range spans from 3,33,000 to 29,87,000.\n\n### What Is the SK Hynix Market Cap?\n\nAs of today, SK Hynix market cap is 1,353.5T.\n\n### Does SK Hynix Pay Dividends? What's The Current Dividend Yield?\n\nThe SK Hynix dividend yield is 0.17%.\n\n### What Is the SK Hynix (000660) Share Price Target?",
+   "published_date": null,
+   "score": 0.31072626
+  }
+ ]
+}

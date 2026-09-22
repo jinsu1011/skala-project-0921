@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache GPU memory vendor competitor response",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:06+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] hynix, 2026) and Samsung (Samsung Electronics, 2026b) to build remote flash tiers (Sun et al., 2025; Guo et al., 2023; Min et al., 2021; Zhan et al., 2024). On the memory side, memory vendors, cloud providers, and startups, including SK hynix (SK hynix, 2025; SK hynix, 2024), [...] To build such a shared context layer, the ecosystem is exploring both storage-centric and memory-centric designs. On the storage side, networking and DPU vendors such as NVIDIA (NVIDIA, 2026b; NVIDIA, 2025b), Broadcom (Broadcom, 2020), Marvell (Marvell Technology, 2026a; Marvell Technology, 2026b), Xsight Labs (Xsight Labs, 2026), and Chelsio (Chelsio Communications, 2026) are combining RDMA/NVMe-oF, SmartNICs, and DPUs with dense SSDs from storage vendors such as SK hynix (SK hynix, 2026) and",
+   "published_date": null,
+   "score": 0.55623144
+  },
+  {
+   "url": "https://www.cbinsights.com/company/sk-hynix-memory-solutions-america",
+   "title": "SK hynix memory solutions America - Products, Competitors, Financials, Employees, Headquarters Locations",
+   "content": "SK hynix memory solutions America's headquarters is located at 3103 North First Street, San Jose.\n Who are SK hynix memory solutions America's competitors?\n\n  Competitors of SK hynix memory solutions America include MEXT.ai and 6 more.\n\nLoading...\n\n## Compare SK hynix memory solutions America to Competitors\n\nTuxera Logo\n\nTuxera [...] Tuxera\n\nTuxera is a provider of data storage management software and networking technologies, offering file systems, software flash controllers, and connectivity solutions. The company serves sectors that require data management, including aerospace, automotive, cloud services, defense, and healthcare. It is based in Espoo, Finland.\n\nKove Logo\n\nKove [...] Kove Logo\n\nKove\n\nKove develops software-defined memory solutions for the enterprise sector. The company offers Kove:SDM4, a technology that allows servers to utilize a shared memory pool for various computational tasks. Kove's products are targeted at sectors that require computing capabilities, including financial services, life sciences, energy, and defense. It was founded in 2004 and is based in Chicago, Illinois.\n\nPliops Logo\n\nPliops",
+   "published_date": null,
+   "score": 0.4603137
+  },
+  {
+   "url": "https://www.blocksandfiles.com/ai-ml/2026/03/30/nvidia-and-its-partners-kv-cache-extenders/5209284",
+   "title": "Nvidia and its partners' KV Cache extenders",
+   "content": "As with PEAK:AIO, Nvidia’s CMX/STX offering enables other storage suppliers to have competing KV cache extension products.\n\n## QCT\n\nQuanta CMX storage server.\n\nQuanta CMX storage server.\n\nThe #QuantaPlex S26F-2U is an CMX server with Al-native storage enabled by BF-4 to extend GPU memory across the POD with high-density NVMe storage and ultra-high-speed networking. Apart from it having BF-4, detailed configuration information is not available.\n\n## Supermicro\n\nSupermicro CMX storage server. [...] Published\n\nNvidia upset the AI inferencing memory KV Caching applecart with its latest CMX concept and STX reference architecture at the GTC 2026 event. Suppliers like VAST Data had their way forward eased. Others like Hammerspace and WEKA, who had placed bets on using local SSDs in a GPU server, could be caught up or bypassed. [...] ## VAST Data\n\nVAST’s CMX implementation has its CNode software running inside a GPU server’s BF-4, enabling zero-copy from a remote SSD to GPU memory, and virtio-fs provides the control-plane interface into the GPU host. (This suggests that ICMS will still use a file interface here.) The KV cache data blocks are stored in the G3.5 JBOFs - VAST D-nodes - with local BF-4s linked to the GPU server’s BF-4s.\n\nVAST Data's CMX implementation.\n\nVAST Data's CMX implementation.",
+   "published_date": null,
+   "score": 0.424341
+  },
+  {
+   "url": "https://www.cnbc.com/amp/2026/01/28/sk-hynix-smashes-earnings-estimates-as-ai-memory-demand-drives-record-profit.html",
+   "title": "SK Hynix doubles profit in 2025 amid memory shortage",
+   "content": "SK Hynix will hold an earnings call with investors on Thursday. Samsung, SK Hynix's leading competitor in the memory market, including HBM, is also set to report earnings the same day.\n\nIn this article\n\n SKHY\n\nTrending Now\n\n 1\n\n  Trump announces deal with Venezuela to secure more than 65 billion barrels of oil reserves\n 2\n\n  China’s super-rich fled Singapore. Now they want to come back\n 3",
+   "published_date": null,
+   "score": 0.42190963
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale - Aerospike",
+   "content": "hold every useful cache entry. [...] KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per [...] consume a larger share of GPU memory.",
+   "published_date": null,
+   "score": 0.29548955
+  }
+ ]
+}

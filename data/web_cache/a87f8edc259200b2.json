@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache skepticism concerns criticism",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:19+09:00",
+ "results": [
+  {
+   "url": "https://finance.biggo.com/news/d8eafdaf-6ff4-490e-b2ea-62f13e1974c9",
+   "title": "DeepSeek's New Model Claims Sharp Cut in HBM Usage; Samsung and SK Hynix Plunge Over 3% Intraday",
+   "content": "Chinese AI startup DeepSeek released its V4.1 Flash model, claiming that KV Cache compression reduces HBM demand to 25% of the previous generation and SSD demand to 12.5%, sparking concerns about slowing memory demand. South Korea's Samsung Electronics and SK Hynix plunged more than 3% intraday on Friday, dragging the Kospi below the 7,000-point level. Japan's pure-play NAND maker Kioxia closed down 6.99%, the steepest decline among memory stocks that day, while Taiwan's TAIEX fell 1.61%. [...] Another trader offered a bearish take: \"DeepSeek V4.1 Flash claims KV cache footprint is reduced 75% on HBM and 87.5% on SSD. KV represents 35% of SanDisk's 2030 AI flash memory market forecast. Under a fixed workload, the full, unmodeled savings imply roughly a 31% reduction in AI flash demand. This is scenario analysis; actual cuts have not been confirmed.\"\n\nAdd preferred source [...] Relative to the original model, DeepSeek's KV Cache has cumulatively shrunk by a factor of 437.\n\n### Korean stocks lead declines as Asia-Pacific markets come under broad pressure",
+   "published_date": null,
+   "score": 0.4889428
+  },
+  {
+   "url": "https://startupfortune.com/deepseeks-new-ai-model-spooked-samsung-and-sk-hynix-investors",
+   "title": "DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors",
+   "content": "DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors\n\nDeepSeek says V4.1-Flash cuts its KV cache memory use to a quarter of the prior model. Samsung and SK Hynix investors treated that narrow technical claim like a warning shot at the whole AI memory trade. [...] and SK Hynix, but the operative phrase is KV cache. That is temporary inference memory. It is not the entire memory bill for an AI data center. [...] Here's the catch. The memory claim is narrower than the share-price reaction made it look. DeepSeek's Hugging Face technical report says CSA2, FP4 key-value caching and SWA Bounded Replay reduce the global KV cache footprint to roughly 890 bytes per token, about one quarter of DeepSeek-V4-Flash. It also says persistent KV storage falls to about one eighth of the prior model. A Yahoo Finance article carried through Stocktwits framed the same point as a pressure point for Samsung and SK Hynix,",
+   "published_date": null,
+   "score": 0.39641917
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.2556622
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.25539052
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles",
+   "published_date": null,
+   "score": 0.24786039
+  }
+ ]
+}

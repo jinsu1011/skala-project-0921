@@ -1,0 +1,44 @@
+{
+ "query": "Google TurboQuant KV cache multi-turn serving concurrency memory capacity",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:16:47+09:00",
+ "results": [
+  {
+   "url": "https://community.intel.com/t5/Blogs/Tech-Innovation/Data-Center/Enhancing-long-context-high-concurrency-LLM-serving-on-a-32-GB/post/1751209",
+   "title": "Enhancing long-context, high-concurrency LLM serving on a 32 GB ...",
+   "content": "The way TurboQuant saves KV cache usage is different. It compresses whatever KV the model stores, so the two effects compound. This is why Gemma-4-E4B reaches the largest absolute KV-token capacities in our results (1.32M tokens at 3 bits) and the largest throughput uplifts under concurrent load.\n\nReferences : algorithm1 , google research blog and upstream implementation,\n\n2. Supported Quantization Configurations [...] TurboQuant1 is an online KV-cache compression method developed by Google Research. It requires no calibration data, no fine-tuning, and no architecture-specific changes; the compression happens at runtime as KV vectors are stored to and read from the cache. [...] _Figure 1. Per-GPU memory profile on Intel Arc Pro B70. Weights and runtime overhead are constant; only the KV cache slice shrinks under TurboQuant. Llama runs on TP=1; the three larger models use TP=2._\n\n7. Key Results\n\nWe organize results around the four axes that matter for a serving deployment: capacity, concurrency, accuracy, and throughput.\n\n7.1 KV Cache Capacity: up to 3.53× the BF16 baseline",
+   "published_date": null,
+   "score": 0.741169
+  },
+  {
+   "url": "https://blog.everpuredata.com/purely-technical/turboquant-compresses-kv-cache-by-5x-does-that-mean-you-need-less-memory",
+   "title": "TurboQuant Compresses KV Cache by 5X. Does That Mean You ...",
+   "content": "Let me start with a number. Running a 70B parameter model for 128 concurrent users at 32K context consumes roughly 2.6TB of KV cache memory. That’s HBM on your GPUs, the scarcest and most expensive resource in your inference stack. An H100 gives you 80GB of it. Even the B200, NVIDIA’s current flagship, tops out at 192GB. You can do the math on how many cards you need just to hold the memory of past conversations before you’ve done a single FLOP of actual computation. [...] ### Summary\n\nTurboQuant is a new compression algorithm from Google Research that delivers 5X KV cache compression with near-zero accuracy loss, freeing scarce GPU memory so LLMs can support longer contexts, more users, and bigger models on existing infrastructure.\n\nimage_pdfimage_print [...] First, you can run bigger models on the same GPUs. The KV cache pre-allocation that used to crowd out model weights now takes a fraction of the space. A model that previously required eight GPUs to serve at 32K context might fit on four. Better results, new capabilities, no hardware upgrade. Same results, half the cluster.",
+   "published_date": null,
+   "score": 0.6455898
+  },
+  {
+   "url": "https://regolo.ai/why-turboquant-matters-for-real-world-llm-inference",
+   "title": "Why TurboQuant matters for real-world LLM inference",
+   "content": "The practical promise of TurboQuant is simple: more useful context capacity on the same hardware. If KV-cache memory shrinks substantially while model quality stays stable on the reported benchmarks, a serving stack can fit more active sessions per GPU, support longer contexts, or postpone an infrastructure upgrade. [...] In production, the KV cache is often the first scaling problem that really hurts. As prompts get longer, chats persist across many turns, or RAG systems attach more retrieved context to every request, KV-cache memory grows quickly and starts limiting concurrency, latency, and infrastructure efficiency. [...] Use TurboQuant when serving Llama 3 or Llama 3.1 Instruct with long context and many concurrent chats, where KV-cache memory starts limiting how many sessions a single GPU can sustain. In that setting, the goal is not only to save memory, but to keep long histories practical without moving too early to a larger GPU tier.",
+   "published_date": null,
+   "score": 0.5889134
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "## TurboQuant เป็นผู้นำในด้านตัวชี้วัดผลการดำเนินงาน\n\nTurboQuant ของ Google ประสบความสำเร็จในด้านประสิทธิภาพและการบีบอัดที่ก้าวล้ำ โดยสามารถบีบอัดข้อมูลเวกเตอร์ขนาด 32 บิต หรือ 16 บิต ให้เหลือเพียงประมาณ 3 บิต ด้วยอัตราการบีบอัดที่สูงถึง 6 เท่า ซึ่งช่วยลดการใช้พื้นที่หน่วยความจำของ KV Cache ในโมเดลขนาดใหญ่ลงเหลือเพียงหนึ่งในหกของระดับเดิมได้โดยตรง [...] TurboQuant เป็นอัลกอริทึมการบีบอัดเวกเตอร์ (vector compression) ใหม่ที่เปิดตัวอย่างเป็นทางการโดย Google Research ในเดือนมีนาคม 2026 โดยมีเป้าหมายเพื่อแก้ปัญหาสำคัญในขั้นตอนการประมวลผล (inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) และเครื่องมือค้นหาเวกเตอร์ (vector search engines) นั่นคือการใช้หน่วยความจำมหาศาลของ Key-Value Cache (KV Cache) ทั้งนี้ รายละเอียดทางเทคนิคจะถูกเผยแพร่อย่างเป็นทางการและผ่านการพิจารณาโดยผู้ทรงคุณวุฒิในรูปแบบของบทความวิชาการในงาน ICLR 2026 (International Conference on [...] เป้าหมายการเพิ่มประสิทธิภาพของ TurboQuant ถูกล็อกไว้ที่โมดูล KV cache และดัชนีเวกเตอร์ (vector index) อย่างแม่นยำ ซึ่งเป็นส่วนประกอบที่ใช้หน่วยความจำมากที่สุดในสถานการณ์การประมวลผล (Inference) AI เมื่อเทคโนโลยีนี้ถูกนำมาใช้งานในวงกว้าง เซิร์ฟเวอร์เพียงเครื่องเดียวจะมีความสามารถในการ \"รองรับโมเดลได้มากขึ้นโดยใช้หน่วยความจำน้อยลง\" สิ่งนี้ได้กระตุ้นความกังวลในตลาดว่าอัตราการเติบโตของความต้องการความจุ DRAM อาจชะลอตัวลง ซึ่งเป็นสาเหตุโดยตรงของการเปลี่ยนแปลงบรรยากาศในตลาดเมื่อเร็ว ๆ นี้",
+   "published_date": null,
+   "score": 0.53866833
+  },
+  {
+   "url": "https://finance.yahoo.com/markets/stocks/articles/turboquant-actually-means-ai-memory-125500558.html",
+   "title": "What TurboQuant Actually Means for AI Memory Stocks",
+   "content": "Google's TurboQuant targets something called the Key-Value (KV) cache – the working memory AI models use to store contextual information so they don't have to recompute it with every new token they generate. As models process longer inputs, the KV cache grows rapidly, consuming GPU memory at an alarming rate. TurboQuant compresses that cache from 16 bits per value down to just 3 bits – a 6x reduction in memory footprint – with, per Google's benchmarks, zero loss in model accuracy. No retraining [...] TurboQuant, if widely adopted, compresses the KV cache by 6x. So the bearish argument goes that if the KV cache is 6x smaller, we'll need 6x less memory.\n\n'Memory demand – and memory stocks – will crater. Sell everything.'\n\nWells Fargo (WFC) analyst Andrew Rocha articulated this cleanly: if TurboQuant is adopted broadly, it quickly raises the question of how much memory capacity the industry actually needs.\n\nThat's a fair question. It's just that the answer isn't what the bears think.",
+   "published_date": null,
+   "score": 0.5053471
+  }
+ ]
+}

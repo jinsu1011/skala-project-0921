@@ -1,0 +1,44 @@
+{
+ "query": "Google TurboQuant KV cache cloud provider data center reaction",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:16:46+09:00",
+ "results": [
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "Meanwhile, TurboQuant's ability to compress AI inference memory to one-sixth of its original level has led cloud providers and data centers to significantly lower their procurement forecasts for high-end memory. Market concerns that memory manufacturers' growth might slow as a result have caused sharp, short-term volatility in the stock prices of storage chip giants like Micron. While these emotional reactions may be somewhat overblown, they reflect the shock to existing industrial [...] TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27.",
+   "published_date": null,
+   "score": 0.6690754
+  },
+  {
+   "url": "https://priyankavergadia.substack.com/p/understanding-google-turboquant",
+   "title": "What is Google TurboQuant - Cloud Girl",
+   "content": "Google just cut the cable. Not with new silicon, not with a bigger data center, not with a proprietary API you’ll pay per token to access. With math. An algorithm called TurboQuant, published at ICLR 2026, that compresses the KV cache by a factor of six, speeds up inference by a factor of eight, and this is the part that sounds too good to be true and isn’t loses nothing a benchmark can measure. [...] The answer is that KV cache compression is catastrophically sensitive to errors in a way that image compression simply isn’t. When a JPEG loses some detail in a sky gradient, the image still looks like a sky. When the KV cache gets a quantization error in a key vector that determines whether the model pays attention to a critical piece of information from three thousand tokens ago, the model doesn’t look slightly blurry. It confidently hallucinates. It drops a constraint you specified at the [...] Every time a transformer processes a new token, it doesn’t evaluate that token in isolation. It attends to every preceding token in the sequence — computing relevance scores, deciding what to focus on, what to carry forward, what to treat as background. To avoid recomputing these scores from scratch on every new step, it stores intermediate Key and Value vectors for every token it has seen. That is the KV Cache: a running record of the conversation’s entire history, held in GPU memory, growing",
+   "published_date": null,
+   "score": 0.64880073
+  },
+  {
+   "url": "https://www.digitalapplied.com/blog/google-turboquant-6x-llm-memory-compression-guide",
+   "title": "Google TurboQuant: 6x LLM Memory Compression Guide",
+   "content": "For enterprises operating or planning AI inference at scale, TurboQuant shifts several key planning assumptions. The most immediate impact is on GPU procurement and cloud compute budgets. Cloud providers currently charge premium rates for high-memory GPU instances required to serve large models. A 6x reduction in KV cache memory requirements could enable organizations to serve the same workloads on significantly cheaper infrastructure or deploy substantially larger models within existing memory [...] Google Research published TurboQuant on March 25, 2026, a training-free compression algorithm that reduces LLM key-value cache memory by 6x while claiming zero accuracy loss. Within 24 hours, the announcement triggered a sell-off across memory chip manufacturers, with Samsung, SK Hynix, and Micron all posting significant declines. The market reaction was immediate and pointed: if AI inference requires dramatically less memory, the demand curve for high-bandwidth memory chips shifts. [...] For API providers and cloud inference platforms, TurboQuant represents an opportunity to improve margins without raising prices. If the KV cache accounts for a significant portion of per-request GPU memory allocation, compressing it by 6x allows the provider to serve more concurrent requests per GPU, directly improving revenue per unit of hardware. Organizations evaluating theirAI agent inference cost structures should factor in KV cache compression as a near-term cost lever.",
+   "published_date": null,
+   "score": 0.6058229
+  },
+  {
+   "url": "https://www.starkinsider.com/2026/03/google-turboquant-llm-compression-less-memory.html",
+   "title": "Google’s TurboQuant: The Unsexy AI Breakthrough Worth Watching",
+   "content": "If you’ve ever had a long conversation with ChatGPT, Claude, or Gemini and noticed things slowing down, or gotten a message that your context is too long, that’s the KV cache hitting its limit. We’ve all experienced compaction (compacting), which is another method to manage the cache by throwing away what you don’t need in a conversation. Cloud providers manage this behind the scenes with massive hardware. But the constraint is real, and it costs them (and eventually you) money. For anyone [...] The KV cache is a temporary memory store that LLMs use during conversations. It keeps track of all previous turns in a chat so the model can maintain context. When you have a long conversation with ChatGPT, Claude, or Gemini, the KV cache grows with each message. This is why very long conversations can slow down or hit context limits. The KV cache consumes GPU memory, and compressing it means longer conversations on less hardware.\n\nHow could TurboQuant help small businesses running local AI? [...] What is Google TurboQuant?\n\nTurboQuant is a compression algorithm developed by Google Research that reduces the memory footprint of large language models by up to 6x with zero accuracy loss. It compresses the key-value cache (the model's conversational memory) down to as few as 3 bits per number, enabling longer conversations and faster inference on less hardware. The paper was first published in April 2025 and will be formally presented at ICLR 2026.\n\nCan I use TurboQuant today?",
+   "published_date": null,
+   "score": 0.53181785
+  },
+  {
+   "url": "https://community.hpe.com/t5/software-general/how-google-turboquant-stirred-the-ai-industry/td-p/7265346",
+   "title": "How Google TurboQuant Stirred the AI Industry",
+   "content": "TurboQuant takes a different approach. First, it rotates and reshapes the cloud into a more predictable pattern, so the grid itself becomes cheaper to describe. Then, it corrects the remaining bias in the attention-score estimate.\n\nIt operates in two specific stages to create an accuracy-preserving low-bit KV-cache compression in tested settings (operating practically in the 3-bit to 3.5-bit regime):",
+   "published_date": null,
+   "score": 0.49099278
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache adoption deployment industry demand",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:18:57+09:00",
+ "results": [
+  {
+   "url": "https://growthmarketreports.com/report/kv-cache-offloading-infrastructure-market",
+   "title": "KV-Cache Offloading Infrastructure Market Research Report 2033",
+   "content": "and accelerate time-to-insight. The growing adoption of HPC in industries such as pharmaceuticals, automotive, and energy is driving demand for specialized KV-cache offloading solutions tailored to the unique requirements of these sectors. [...] The Deployment Mode segment in the KV-Cache Offloading Infrastructure market is divided into on-premises, cloud-based, and hybrid models, each catering to distinct operational needs and strategic objectives. On-premises deployment remains a preferred choice for organizations with stringent data security, compliance, and latency requirements. Enterprises in regulated industries such as BFSI and healthcare often opt for on-premises solutions to maintain full control over their data and [...] The End-User segment in the KV-Cache Offloading Infrastructure market includes IT & telecommunications, BFSI, healthcare, retail, government, and other industries, each with distinct requirements and adoption drivers. The IT & telecommunications sector is the largest end-user, leveraging KV-cache offloading solutions to support the rapid growth of AI-powered services, real-time analytics, and high-performance networking. Telecom operators are deploying advanced cache management infrastructure",
+   "published_date": null,
+   "score": 0.65835214
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache Demands - Seoul Economic Daily",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] \"As the AI market expands from training to inference-centric operations, the role of NAND is rapidly changing into a key element in configuring the AI memory hierarchy,\" SK hynix said. \"We will expand our NAND product families to secure new growth drivers.\"\n\n#SKhynix#NAND#KVCache#AIMemory#HBM#GPU#AIChips\n\n## Companies in this story\n\nSK hynix\n\n000660.KS · Semiconductor\n\nAI KEY Company Analysis →\n\nOriginal reporting by Kim Yoon-soofor Seoul Economic Daily.",
+   "published_date": null,
+   "score": 0.5689194
+  },
+  {
+   "url": "https://www.weka.io/article/nvidia-is-defining-the-future-of-shared-kv-cache-weka-provides-the-adoption-roadmap",
+   "title": "AI Storage Powers Shared KV Cache Adoption",
+   "content": "Most environments must integrate this direction within existing constraints, including:\n\n Deployed GPU servers and established inference software stacks\n Requirements for deployment velocity, stability, and operational risk management\n Near-term economics and hardware availability [...] In this stage, customers adopt an optimized solution over higher-bandwidth network fabrics, enabling KV cache to be pooled and reused across GPU servers. Context begins to behave like shared infrastructure, accessed over these higher-bandwidth paths that are designed for throughput, predictability, and reuse.\n\nCrucially, this architecture: [...] In this stage, KV cache capacity is extended beyond GPU HBM using familiar North–South access paths and standard interfaces (such as POSIX or NFS). This allows customers to relieve HBM pressure, improve utilization, and support larger or more concurrent contexts without changing inference runtimes or operational tooling.\n\nThis stage prioritizes:\n\n Immediate benefit on existing systems\n Minimal disruption\n Full backward compatibility\n\nIt is intentionally incremental—a fast on-ramp.",
+   "published_date": null,
+   "score": 0.4286405
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "the CXL-hybrid memory in ITME fully adopts the PCIe Gen5 interface, delivering the high bandwidth essential for rapid KV cache swapping in multi-tier pipelines. [...] Once chunks are staged in the CPU staging buffer, the system balances a fundamental trade-off between block-wise and layer-wise transfer granularities. While a block-wise approach enables rapid slot reclamation through a single DMA operation, it serializes execution and leaves the GPU idle until the entire block transfer completes. To align with model weight streaming and maximize pipeline efficiency, ITME adopts a layer-wise prefetching strategy for the KV cache. This strategy enables a [...] ### 4.2. ITME I/O Scheduling and Prefetching\n\nThe primary role of ITME is to efficiently orchestrate KV cache movement across the multi-tier hierarchy, leveraging specific access patterns and device characteristics. It manages this entire lifecycle, from migrating blocks immediately upon GPU eviction to proactively prefetching them based on upcoming execution demands.",
+   "published_date": null,
+   "score": 0.40584955
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] As inference workloads scale—driven by increasing user demand and longer context windows—enterprises and AI infrastructure builders require high-capacity KV cache architectures similar to those already adopted by hyperscalers. Offloading KV blocks to a composable NVMe-oF target eliminates the need to recompute prompts during multi-turn interactions, reducing GPU load and power consumption while improving TTFT and overall responsiveness. Implementing targets as a hybrid SSD–hard drive tier [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory.",
+   "published_date": null,
+   "score": 0.38769087
+  }
+ ]
+}

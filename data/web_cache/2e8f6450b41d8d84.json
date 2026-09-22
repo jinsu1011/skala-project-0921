@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache technology TRL 7 external validation commercial service operation customer demonstration independent source",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:27:29+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "Functional Prototyping via FPGA. A functional prototype, implemented on an Intel Agilex 7 I-Series FPGA (Altera, 2026), validates the hardware-level control logic and the software prefetcher. This platform integrates 32 GB of DDR4 DRAM as a hardware-managed cache for two SK Hynix Platinum P51 PCIe Gen5 NVMe SSDs (TechPowerUp, 2024). This setup establishes the feasibility of our expansion tier, successfully realizing a multi-terabyte, byte-addressable memory footprint by leveraging the [...] Multi-tier KV Cache and Prefetching. [...] Efficient multi-tier KV caching relies on maintaining data contiguity across storage boundaries to enable high-bandwidth prefetching without reorganization overhead. To maximize offloading performance, ITME aggregates evicted KV cache blocks into large-scale chunks (e.g., 512 MB) within the CPU staging buffer. During the eviction process, ITME sequentially appends blocks into these chunks as they are released from GPU memory. This sequential appending naturally restores the logical sequence of",
+   "published_date": null,
+   "score": 0.4048609
+  },
+  {
+   "url": "https://news.skhynix.com/en/fms-2026",
+   "title": "The Next-Generation Memory Architecture in the AI Era? ...",
+   "content": "SK hynix also demonstrated the same ReAct AI Agent Serving system using CMM-Hybrid\\, confirming that the implemented system can efficiently store and rapidly reuse the large volumes of KV cache generated on an ongoing basis. In particular, the demonstration showcased both the ability to quickly predict the KV cache needed based on prior conversation and task history, and the performance to prefetch the required KV cache into DRAM for rapid processing. It also proved that storing the entire KV [...] the entire KV cache on SSD can deliver fast read performance and large-capacity storage at the same time. [...] First, the ReAct (Reasoning and Acting) AI Agent Serving demo presented a distributed AI Agent Serving system that connects multiple servers and GPUs using Pooled Memory\\. Through this, SK hynix demonstrated that transferring or reusing the KV cache\\ on the basis of CXL Pooled Memory can significantly improve the performance of an AI Agent Serving system compared with legacy systems that rely on network communication.",
+   "published_date": null,
+   "score": 0.39873472
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-begins-mass-production-233000494.html",
+   "title": "SK hynix Begins Mass Production of 321-Layer QLC NAND Flash",
+   "content": "Development of the industry's highest-density QLC product completed, commercial launch scheduled for the first half of next year following completion of customer validation\n Expansion of independent operation units (\"planes\") enables simultaneous large capacity and high performance, optimized for ultra-high-capacity eSSDs for AI servers\n Company to broaden cost-competitive, high-capacity product lineup in response to rapidly growing AI demand and high-performance requirements",
+   "published_date": null,
+   "score": 0.35066646
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] Storage-aware tiering. A tiered architecture combines hard drives with SSDs. Hard drives provide durable, high-capacity storage, while SSDs provide active, high-performance storage. Storing KV caches on hard drives reduces re-computation, while using SSDs as a cache layer delivers low-latency transfer. In multi-turn scenarios, a reusable KV cache is promoted from hard drives to SSDs while being delivered to the GPU. Subsequent KV cache requests mapped to the SSD are handled entirely within the",
+   "published_date": null,
+   "score": 0.34145126
+  },
+  {
+   "url": "https://nvidianews.nvidia.com/news/sk-hynix-ai-factory",
+   "title": "NVIDIA and SK hynix Announce Multiyear Technology ...",
+   "content": "June 7, 2026 \n\nImage 9: NVIDIA and SK hynix\n\nNews Summary: [...] NVIDIA in Brief\n   Exec Bios\n   NVIDIA Blog\n   Podcast\n   Media Assets\n   In the News\n   Press Contacts\n   Online Press Kits\n\nPress Release \n\nShare\n\nTweet Twitter\n\nShare LinkedIn\n\nShare Facebook\n\nEmail\n\n# NVIDIA and SK hynix Announce Multiyear Technology Partnership to Advance Memory for AI Factories\n\nCollaboration Supports Next-Generation Memory Codevelopment With NVIDIA’s AI Infrastructure Roadmap and Expands Supply for the Accelerating Global AI Factory Buildout\n\n June 7, 2026 [...] About SK hynix Inc.  \n SK hynix Inc., headquartered in Korea, is the world’s top tier semiconductor supplier offering Dynamic Random Access Memory chips (“DRAM”) and flash memory chips (“NAND flash”) for a wide range of distinguished customers globally. The Company’s shares are traded on the Korea Exchange, and the Global Depository shares are listed on the Luxembourg Stock Exchange. Further information about SK hynix is available at www.skhynix.com, news.skhynix.com.",
+   "published_date": null,
+   "score": 0.20215988
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "query": "Google TurboQuant KV cache technology TRL 7 evidence commercial deployment OR customer demonstration independent verification",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:26:52+09:00",
+ "results": [
+  {
+   "url": "https://o-mega.ai/articles/google-turboquant-the-2026-llm-compression-guide",
+   "title": "Google TurboQuant in August 2026: Where It Actually Runs",
+   "content": "The unanswered enterprise question is the one everyone asks first: does Google itself run TurboQuant behind Gemini? There is still no public evidence either way. Google published the papers and the blog post, never released code, and has said nothing about internal deployment. The circumstantial case (why publish a production-grade efficiency technique and then not use it?) is plausible in both directions, since publishing research and hardening it into a serving fleet are different [...] | Deployment Scenario | TurboQuant Status (verified September 9, 2026) | Recommended Setup | Honest Expected Impact |\n ---  --- |\n| vLLM cloud serving | Merged upstream (PR #38479); presets live in v0.28.0 | `--kv-cache-dtype turboquant_k8v4` | 2.6x KV capacity, +1.17% PPL, 79-100% throughput; burst TTFT protection | [...] Independent analyses converged on the same shape from different angles. Deep Infra's deployment writeup found that quality degradation begins below roughly 3B parameters at 3-bit, and that values need tighter precision than keys in the sense that 2-bit values degrade significantly, which is exactly why the shipped presets are asymmetric configurations like k3v4 rather than symmetric ones. The Kaitchup's independent review from March 27 confirmed 2.5 to 3.5-bit KV compression works on LongBench",
+   "published_date": null,
+   "score": 0.60694176
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "TurboQuant เป็นอัลกอริทึมการบีบอัดเวกเตอร์ (vector compression) ใหม่ที่เปิดตัวอย่างเป็นทางการโดย Google Research ในเดือนมีนาคม 2026 โดยมีเป้าหมายเพื่อแก้ปัญหาสำคัญในขั้นตอนการประมวลผล (inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) และเครื่องมือค้นหาเวกเตอร์ (vector search engines) นั่นคือการใช้หน่วยความจำมหาศาลของ Key-Value Cache (KV Cache) ทั้งนี้ รายละเอียดทางเทคนิคจะถูกเผยแพร่อย่างเป็นทางการและผ่านการพิจารณาโดยผู้ทรงคุณวุฒิในรูปแบบของบทความวิชาการในงาน ICLR 2026 (International Conference on [...] สามารถนำไปใช้ในเชิงพาณิชย์ได้จริงในปัจจุบัน [...] ในระหว่างกระบวนการประมวลผลของโมเดลภาษาขนาดใหญ่ KV Cache จะทำหน้าที่เป็น \"สมุดบันทึกชั่วคราว\" ของโมเดล โดยบทสนทนาทุกรอบและส่วนของข้อความที่ป้อนเข้ามาจะถูกแปลงเป็นเวกเตอร์หลายมิติและจัดเก็บไว้ชั่วคราวเพื่อให้ข้อมูลบริบทสำหรับขั้นตอนการประมวลผลถัดไป เพื่อให้มั่นใจในความแม่นยำของการประมวลผล โดยทั่วไปแล้วโซลูชันแบบดั้งเดิมจะจัดเก็บข้อมูลเวกเตอร์ในรูปแบบทศนิยม 16 บิต (FP16/BF16) อย่างไรก็ตาม เมื่อความยาวของบทสนทนาเพิ่มขึ้นหรือขนาดของข้อความขยายตัว KV Cache จะใช้หน่วยความจำแบนด์วิดท์สูง",
+   "published_date": null,
+   "score": 0.60610276
+  },
+  {
+   "url": "https://cryptorank.io/ru/news/feed/ee99c-google-turboquant-ai-memory-compression",
+   "title": "Google TurboQuant: Revolutionary AI Memory Compression Sparks ‘Pied Piper’ Frenzy | Technology AI News | CryptoRank.io",
+   "content": "Mar 25, 2026: Google unveiled TurboQuant (PolarQuant + QJL), a lossless AI memory compression method that reportedly cuts KV-cache inference memory by ≥6x; full paper to be presented at ICLR 2026. Crypto relevance: could materially lower cloud and edge AI inference costs and energy, enabling cheaper on-chain/off-chain AI services (trading bots, DeFi risk scoring, wallet assistants), faster adoption by CEX/DEX and improved privacy/security for local inference. Risk/market impact: lab-stage [...] The technology centers on compressing the Key-Value (KV) cache, which serves as AI’s working memory during inference tasks. Currently, this cache represents a major constraint in deploying large language models efficiently. TurboQuant reportedly reduces this runtime memory requirement by at least six times according to initial laboratory results.\n\nGoogle’s research team developed two complementary methods that make TurboQuant possible: [...] Academic researchers will scrutinize Google’s ICLR presentation for methodological details. Independent verification of TurboQuant’s claims will be essential for widespread adoption. The research community will also explore whether similar techniques can apply to other AI memory bottlenecks beyond the KV cache.\n\n## Conclusion",
+   "published_date": null,
+   "score": 0.466433
+  },
+  {
+   "url": "https://tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27.",
+   "published_date": null,
+   "score": 0.4654124
+  },
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27.",
+   "published_date": null,
+   "score": 0.4654124
+  }
+ ]
+}

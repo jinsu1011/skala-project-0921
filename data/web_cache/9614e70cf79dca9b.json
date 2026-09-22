@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache hype overstated claims",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:26:13+09:00",
+ "results": [
+  {
+   "url": "https://news.whatthechiphappened.com/p/the-market-just-sold-micron-on-a",
+   "title": "The Market Just Sold Micron on a Paper It Did Not Read",
+   "content": "The problem is that the paper never made that claim. KV cache is one slice of the total GPU memory. It does not touch model weights. It does not touch training. It does not touch activations. The paper tested only on small models, 8 billion parameters or fewer. No results exist for the 70B+ frontier models or mixture-of-experts architectures that drive the bulk of hyperscaler spending. [The headline wrote a check that the paper cannot cash.] [...] A company reinventing the storage system is still placing massive orders of HBM and other memory solutions\n\nSK Hynix called KV cache offloading\n\n> “essential to ensure smooth inference services.” [...] The equipment supplier building the factories sees KV cache as the primary demand driver. Not a risk. A driver. We read 24 management quotes from 11 companies over the past 90 days. Zero described memory compression as a risk to demand. Not one. The market invented a narrative that no industry participant supports. [That should tell you something.] Our AI/Semiconductor Research Community (Get 33% Off With This Link)",
+   "published_date": null,
+   "score": 0.65887916
+  },
+  {
+   "url": "https://startupfortune.com/deepseeks-new-ai-model-spooked-samsung-and-sk-hynix-investors",
+   "title": "DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors",
+   "content": "DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors\n\nDeepSeek says V4.1-Flash cuts its KV cache memory use to a quarter of the prior model. Samsung and SK Hynix investors treated that narrow technical claim like a warning shot at the whole AI memory trade. [...] Here's the catch. The memory claim is narrower than the share-price reaction made it look. DeepSeek's Hugging Face technical report says CSA2, FP4 key-value caching and SWA Bounded Replay reduce the global KV cache footprint to roughly 890 bytes per token, about one quarter of DeepSeek-V4-Flash. It also says persistent KV storage falls to about one eighth of the prior model. A Yahoo Finance article carried through Stocktwits framed the same point as a pressure point for Samsung and SK Hynix, [...] Home › Ai\n\n# DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors\n\nDeepSeek's new V4.1 Flash model claims a fourfold cut in KV cache memory use, and Korean investors reacted fast: Samsung fell 3.5% and SK Hynix 2.2% in Seoul on September 11 while Micron and SanDisk held steady in the US. The drop came just two days after Goldman Sachs called a bottom in the memory downturn, complicating the idea that DeepSeek alone drove the selloff.\n\nRon Patel\n\n· 5 min read · 2.2K reads",
+   "published_date": null,
+   "score": 0.56517935
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=TYgCRPCAFhE",
+   "title": "We Don't Need KV Cache Anymore?",
+   "content": "[7:58] cache. And what does this prove? It proves it's correct. It proves it's marov. You can see the memory\n[8:04] difference. This is tiny. I could run this on a Raspberry Pi if I wanted to.\n[8:11] Now, you probably noticed that there was a speed difference on the RS version. It was running uh a lot slower because I was recmputing it every time. But when\n[8:20] you see my KV direct version, which is the same version I ran at the beginning of the uh uh the the video, then what [...] The residual stream — the model's internal state vector — is the\ncomplete computational state at every layer. K and V are linear\nprojections of it. They contain no information the residual\ndoesn't already hold.\n\nI prove this empirically: zero difference at every layer,\ntoken-for-token identical output, running code you can verify\nyourself. Then I build bounded inference around it — 92% of\nstandard KV speed at 15% of the memory, stable performance at\nevery turn while standard KV degrades. [...] [17:18] context. The residual carries the address. Six dimensions for the address, three for infrastructure. 99.6% of the residual is basically headroom.\n[17:28] And the attention mechanism reads those compass bearings. The KV cache is an optimization not a requirement. Residual\n[17:35] stream is the requirement. It's what the model actually computes with and it's only a few kilobytes of state, not a gigabyte of cache tensors. And once you",
+   "published_date": null,
+   "score": 0.4133593
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "It was a week in which global semiconductor stocks — particularly Korea's two memory chip giants Samsung Electronics (005930.KS) and SK hynix (000660.KS) — were rocked by TurboQuant, an artificial intelligence compression technology unveiled by Google. Memory chipmakers' shares had been hitting record highs day after day on the back of surging demand. As the AI market shifted from training to inference, demand for not only high-bandwidth memory (HBM) but also DRAM and NAND flash grew [...] Samsung to Double HBM4 Output Next Year, Sources Say\n2. 2\n\n   Court Rejects 100 Million Won Suit Against Min Hee-jin Over ILLIT Plagiarism Claims\n\n   Court Rejects 100 Million Won Suit Against Min Hee-jin Over ILLIT Plagiarism Claims\n3. 3\n\n   China's UBTECH Opens Plant Making a Humanoid Robot Every 10 Minutes\n\n   China's UBTECH Opens Plant Making a Humanoid Robot Every 10 Minutes\n4. 4\n\n   KOSPI Opens 2.54% Higher at 6,885.70\n\n   KOSPI Opens 2.54% Higher at 6,885.70\n5. 5 [...] Korea's Leading Business News Since 1960\n\n# Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix\n\n■ Reporter Seo Jong-gap's Gap World <50> · Google's 'TurboQuant' Shrinks AI Notepad to One-Sixth · \"Memory Demand Could Fall\" Sparks Market Panic · Industry and Experts Dismiss Fears as Overblown · Similar to DeepSeek Scare… \"AI Usage Will Only Grow\"\n\nFinance|\n|\n\nBy Seo Jong-gap (Commentary)\n\n||",
+   "published_date": null,
+   "score": 0.35106683
+  },
+  {
+   "url": "https://www.theinvestor.co.kr/article/10716199",
+   "title": "Google TurboQuant: Separating hype from reality - THE INVESTOR",
+   "content": "How much that matters depends on how long the input is. In a state-of-the-art model, the KV cache accounts for less than 1 percent of total memory during short exchanges, Han said. But during long-context tasks of 200,000 tokens or more, it can exceed 60 percent and become the primary bottleneck.\n\n\"If you compress the KV cache by 6x in a long-context environment, overall memory reduction could reach approximately 2x,\" Han said.\n\nIs it really lossless?",
+   "published_date": null,
+   "score": 0.30890954
+  }
+ ]
+}

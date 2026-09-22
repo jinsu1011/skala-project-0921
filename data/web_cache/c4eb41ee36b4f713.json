@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache sample shipment mass production",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:33:34+09:00",
+ "results": [
+  {
+   "url": "https://finance.biggo.com/news/47q7wJ4BXp3ZLKjgUWkr",
+   "title": "HBM4E Sample War Heats Up: SK Hynix Races Samsung with Imminent June Shipment — BigGo Finance",
+   "content": "In the HBM market, sample shipment timing translates directly into mass production competitiveness. Since next-generation HBM is custom-built to match the AI accelerator architectures of major customers like Nvidia, earlier sample delivery enables customers to accelerate performance verification and optimization. This, in turn, provides a decisive advantage in the final race for mass production contracts. [...] a 58% share, though Samsung has narrowed the gap to 21%. HBM4E is a critical component for Nvidia's next-generation AI accelerator, the Rubin Ultra. Given the customized nature of these products, sample delivery speed has become a decisive factor in securing mass production contracts. [...] Micron has set its HBM4E mass production target for 2027, entering the technology race by introducing extreme ultraviolet (EUV) equipment for the first time on its 10-nanometer-class sixth-generation 1γ (gamma) process. The company plans to outsource base die production to TSMC.",
+   "published_date": null,
+   "score": 0.67243975
+  },
+  {
+   "url": "https://www.remio.ai/post/sk-hynix-ships-hbm4e-samples-as-the-hbm4-race-moves-into-production",
+   "title": "SK hynix Ships HBM4E Samples as the HBM4 Race Moves Into Production",
+   "content": "The distinction matters. Sample delivery does not guarantee a production contract, while mass shipment does not reveal customer allocations. However, SK hynix now has one generation entering volume deployment as its successor moves through customer testing. [...] The central development is not one early sample. SK hynix is overlapping the HBM4 production ramp with HBM4E qualification.\n\nSK hynix said in its July 29 quarterly results that it began mass HBM4 shipments during the second quarter. The company plans to expand production during the second half of 2026. [...] Its HBM4 ramp supplies another important test. The company began mass shipments during the second quarter and plans to increase production in the second half. It has not disclosed quarterly HBM4 volume, customer mix, or yield.\n\nA smooth HBM4 expansion would strengthen confidence in related process, packaging, and supply decisions. Delays or allocation changes would raise questions about how quickly SK hynix can move HBM4E into production.",
+   "published_date": null,
+   "score": 0.5911811
+  },
+  {
+   "url": "https://www.nashnova.com/feed/special/sk-hynix-accelerates-hbm4e-sample-production-with-nvidia-as-first-customer-3135",
+   "title": "SK Hynix Accelerates HBM4E Sample Production with NVIDIA as First Customer · nashnova",
+   "content": "•\n\nHBM4E — seventh-generation high-bandwidth memory, a step up in speed and capacity from HBM4 now entering mass production — is the critical companion to AI chips. Larger AI models demand ever more memory bandwidth and capacity.\n\n•\n\nSK Hynix's latest timeline: samples ship as early as June 2026, no later than July. This means → the schedule has moved forward by several months from the company's earlier \"second half\" guidance.\n\n• [...] •\n\nNvidia is the only confirmed customer so far. The chips will go into Nvidia's next-gen AI accelerator Rubin Ultra, slated for a 2027 launch on a 1c-nanometer core-die architecture.\n\n02\n\n## Samsung already moved first — how big is the gap?\n\n•\n\nSamsung Electronics acted faster: it completed HBM4 mass production in February 2026 and shipped HBM4E samples to customers by late May. In plain terms = Samsung leads SK Hynix by at least a month on HBM4E sample delivery.\n\n• [...] # SK Hynix Accelerates HBM4E Sample Production with NVIDIA as First Customer\n\nN\n\nAlina Collins\n\n·Published 2026-06-15·About 6 min read\n\nSK Hynix will ship seventh-generation HBM4E memory samples to Nvidia as early as June 2026, ahead of its prior \"second half\" guidance — but Samsung has already delivered samples. Whoever clears customer validation first wins the volume orders.\n\n01\n\n## What is HBM4E, and why the rush?\n\n•",
+   "published_date": null,
+   "score": 0.5087155
+  },
+  {
+   "url": "https://www.archyde.com/samsung-leads-hbm4-race-with-first-mass-produced-shipment-outpacing-sk-hynix",
+   "title": "Samsung Leads HBM4 Race with First Mass-Produced Shipment, Outpacing SK Hynix &ndash; Archyde",
+   "content": "## Samsung and SK Hynix: A Race for Dominance\n\nWhile SK Hynix has also been developing and sampling HBM4, Samsung’s announcement marks the first official mass production shipment. Industry analysts suggest SK Hynix may begin customer shipments this month, though, Samsung has secured the symbolic advantage of being the first to market. [...] Samsung’s Breakthrough: First to Market\n\nAs of February 12, 2026, samsung has officially begun mass production and shipment of HBM4 memory modules. This marks a pivotal moment in the industry, positioning Samsung as the clear frontrunner in the HBM4 race. While SK Hynix and Micron have been actively developing their own HBM4 solutions, Samsung’s accomplished ramp-up to mass production gives them a significant competitive advantage. [...] Moving forward, two key factors will determine success in the HBM4 market: consistent mass production output and securing significant contracts with leading AI companies. The second half of 2026 will likely reveal whether Samsung can leverage this initial momentum into a sustained competitive advantage or if SK hynix will maintain its stronghold.",
+   "published_date": null,
+   "score": 0.46453777
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] Korea Investment & Securities\n\nSeoul Economic Daily\n\nSeoul Economic Daily\n\nKorea Investment & Securities",
+   "published_date": null,
+   "score": 0.40952834
+  }
+ ]
+}

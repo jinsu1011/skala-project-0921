@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache customers partners production use",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:20+09:00",
+ "results": [
+  {
+   "url": "https://ar5iv.labs.arxiv.org/html/2606.12556",
+   "title": "[2606.12556] ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "Performance Potential Analysis via CMM. To evaluate the performance potential of the proposed architecture, we developed a production-grade empirical platform integrating an SK Hynix CMM (32) and two KIOXIA PCIe Gen5 NVMe SSDs (18). To maintain architectural consistency with the FPGA prototype, we utilized 32 GB of the CMM capacity as the DRAM cache. Leveraging the SPDK framework (15) with 8 PCIe lanes (4 lanes per SSD), this setup achieves a peak read throughput of approximately 22 GB/s. [...] ### 4.2. ITME I/O Scheduling and Prefetching\n\nThe primary role of ITME is to efficiently orchestrate KV cache movement across the multi-tier hierarchy, leveraging specific access patterns and device characteristics. It manages this entire lifecycle, from migrating blocks immediately upon GPU eviction to proactively prefetching them based on upcoming execution demands. [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.4517382
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] Korea Investment & Securities\n\nSeoul Economic Daily\n\nSeoul Economic Daily\n\nKorea Investment & Securities",
+   "published_date": null,
+   "score": 0.43900222
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "these performance improvements and consistent service standards as model size, context windows, precision requirements, and concurrency demands continue to grow.” [...] The result is lower latency, higher throughput, increased efficiency of GPU clusters, consistent achievement of stringent service-level agreements (SLAs), and faster time-to-first-token (TTFT). [...] Cost and power efficiency: The server enables organizations to maximize the efficient use of GPUs by adding large memory pools and optimizes clusters by right-sizing GPUs and memory. Additionally, the solution provides efficient operation, drawing less power than equivalent GPU servers.",
+   "published_date": null,
+   "score": 0.40330887
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/08/19/sk-hynix-cuts-dram-use-to-one-16th-with-nand-linked-memory",
+   "title": "SK hynix Cuts DRAM Use to One-16th With NAND-Linked Memory - Seoul Economic Daily",
+   "content": "The problem lies in the \"key-value (KV) cache\" — working data that AI stores so it does not have to recompute results it has already calculated. As AI agent services spread, the KV cache grows sharply in scale, deepening the concerns of companies. The industry projects that demand for KV cache will reach up to 100 exabytes (EB, or 1 billion GB) next year, double to 200 EB the following year, and expand to 1 zettabyte (ZB, or 1 trillion GB) by 2030.",
+   "published_date": null,
+   "score": 0.3838728
+  },
+  {
+   "url": "https://www.it-boltwise.de/deepseek-v4-1-flash-kv-cache-schrumpft-deutlich-warum-samsung-sk-hynix-dennoch-reagieren.html",
+   "title": "DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren",
+   "content": "auf seinen Kontext zugreift, kann dadurch günstiger betrieben werden. Für Nutzer ist das attraktiv, weil mehr Durchläufe, längere Sitzungen und breitere Automatisierungsfälle wirtschaftlich werden. Gleichzeitig wird es für Zulieferer weniger bequem, deren jüngstes Argument auf der Annahme beruhte, ernsthafte KI-Workloads würden zwangsläufig immer mehr Speicher nachfragen. [...] MIT-Lizenz, was die Schwelle für Entwickler senkt, um Latenz, Speichernutzung und Kosten in eigenen Workloads gegenzutesten – allerdings nur dort, wo die passende Hardware vorhanden ist. [...] ungefähr ein Achtel zurückgeht. Der Unterschied ist entscheidend: KV-Cache meint vor allem temporären Inferenz-Speicher, der während der Verarbeitung aktiv ist, nicht automatisch den gesamten Speicherbedarf eines Rechenzentrums inklusive aller Schichten, die auch in anderen Komponenten (z. B. Training, Datenspeicherung, weitere Caches, Workload-Puffer) wirken. Wer diese Trennung ignoriert, kann aus einer besseren Speicherkennzahl fälschlich ableiten, die HBM-Nachfrage steuere bereits auf einen",
+   "published_date": null,
+   "score": 0.37463108
+  }
+ ]
+}

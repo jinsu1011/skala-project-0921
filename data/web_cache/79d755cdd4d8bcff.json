@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache criticism skeptical hype",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:26:21+09:00",
+ "results": [
+  {
+   "url": "https://startupfortune.com/deepseeks-new-ai-model-spooked-samsung-and-sk-hynix-investors",
+   "title": "DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors",
+   "content": "DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors\n\nDeepSeek says V4.1-Flash cuts its KV cache memory use to a quarter of the prior model. Samsung and SK Hynix investors treated that narrow technical claim like a warning shot at the whole AI memory trade. [...] and SK Hynix, but the operative phrase is KV cache. That is temporary inference memory. It is not the entire memory bill for an AI data center. [...] Frankly, the cleaner point is this: DeepSeek has exposed how jumpy the AI memory trade has become. Investors are right to watch model efficiency. They are wrong if they treat a KV cache reduction as proof that HBM demand has peaked. That's the mistake. Samsung and SK Hynix sold off because the market saw the number first and the footnote second. In AI infrastructure, that order can move billions of dollars before anyone has finished reading the technical report.",
+   "published_date": null,
+   "score": 0.47957736
+  },
+  {
+   "url": "https://blog.lmcache.ai/en/2026/04/28/stop-calling-it-kv-cache-its-something-much-bigger",
+   "title": "Stop Calling It KV Cache: It's Something Much Bigger",
+   "content": "KV cache is not just reusable. It is semantically meaningful. It represents the model’s internal understanding of context: a compressed encoding of everything the model has processed, directly usable by the model, and opaque to humans.\n\nPut another way, KV cache is the native memory format of a Transformer. And once you see it that way, the old framing falls apart entirely.\n\n## From Immutable Cache to Mutable Memory [...] Third, it is semantically mutable. It can be edited to improve model outcomes. It encodes meaning, not just computation.\n\nGiven all of this, the term “KV cache” is actively misleading. It implies ephemerality, simplicity, and a lack of intrinsic value. None of those things are true anymore. [...] For a long time, that description held. Even though KV cache was theoretically reusable across requests, in practice GPU memory was too limited and too expensive to justify persistence. Cross-request reuse was rare, and the system treated KV cache as disposable.\n\n## 2025: The Turning Point\n\nEverything changed when KV cache began leaving GPU memory.",
+   "published_date": null,
+   "score": 0.40330887
+  },
+  {
+   "url": "https://en.sedaily.com/technology/2026/03/29/googles-turboquant-compresses-kv-cache-to-one-sixth",
+   "title": "Google's TurboQuant Compresses 'KV Cache' to One-Sixth, Rattling Chip Stocks - Seoul Economic Daily",
+   "content": "The market impact was immediate. After TurboQuant's release, global semiconductor stocks including Samsung Electronics (005930.KS) and SK hynix (000660.KS) were shaken, with SK hynix shares plunging over two days. The sell-off reflected concerns that if memory usage can be sharply reduced, demand for memory chips would ultimately decline as well. The shock was amplified when Matthew Prince, CEO of Cloudflare, wrote on his X account that \"this is Google's DeepSeek.\" [...] #TurboQuant#GoogleAI#KVCache#SamsungElectronics#SKhynix#Semiconductor#AIMemory#LLM#DeepMind\n\nOriginal reporting by Seo Ji-hyefor Seoul Economic Daily.\n\nAI-translated from Korean. Quotes from foreign sources are based on Korean-language reports and may not reflect exact original wording.\n\nView Korean original↗Translation Policy\n\nWatch · Seoul Economic Daily\n\nMore →\n\n2:02\n\n### Most Read This Week\n\n1-5\n\n1. 1\n\n   Court Rejects 100 Million Won Suit Against Min Hee-jin Over ILLIT Plagiarism Claims [...] At the same time, however, concerns that the technology could reduce memory chip demand and derail the semiconductor super-cycle have sent markets into turmoil.",
+   "published_date": null,
+   "score": 0.4031679
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "predictability and dominate the overall memory footprint. Table1 summarizes the characteristics and target tiering for LLM data types. Activations transient and small with high performance criticality. Working KV caches, although larger than activations, are also latency critical, while having lower predictability. Consequently, activations and working KV cache are better placed in high-speed GPU or host memory tiers. In contrast, model weights and long-context KV caches, which represent the [...] DPU-based Storage and KV Caching. [...] Multi-tier KV Cache and Prefetching.",
+   "published_date": null,
+   "score": 0.36806548
+  },
+  {
+   "url": "https://www.weka.io/article/the-real-state-of-ai-hype-vs-reality",
+   "title": "AI storage that fixes KV cache bottlenecks | WEKA",
+   "content": "Skip to content\n\nContact UsProduct Tour\n\n# The Real State of AI: Hype vs. Reality\n\nVB\n\nVal Bercovici\n\nKey Value (KV) Cache technology is everywhere right now and for good reason. As LLMs grow larger and context windows expand, efficient handling of KV memory becomes mission-critical. But not all KV Cache solutions are created equal.",
+   "published_date": null,
+   "score": 0.36752048
+  }
+ ]
+}

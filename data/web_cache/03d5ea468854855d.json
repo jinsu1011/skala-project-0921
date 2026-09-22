@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache limitations production serving challenges",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:28+09:00",
+ "results": [
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] This blog examines KV cache compression through an infrastructure lens: not only what the algorithms do, but whether they can actually run in production. An entire field is devoted to compressing the KV cache so that long inference fits in GPU memory; most of it works in the lab, much less in real deployment. The gap comes down to two infrastructure problems that papers almost never discuss. This post surveys the field's main ideas, traces where they collide with these problems, and shows how a [...] The hard part of KV cache compression is not choosing which tokens to keep — it is two collisions with production infrastructure. Existing methods need historical attention scores, but the FlashAttention kernel never writes those scores into GPU memory. And paged attention reclaims memory only when a block holds no KV at all — yet after token eviction the survivors leave almost every block partially occupied, so the \"freed\" memory never actually comes back.\n\nContents",
+   "published_date": null,
+   "score": 0.65914243
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "## Challenges\n\n### Scaling infrastructure with context growth\n\nFundamentally, HBM and DRAM aren’t equipped for massive capacity. As inference workloads grow in volume and duration, storing the KV cache in HBM and DRAM breaks down. What worked for short interactions does not hold for persistent, multi-turn, and agent-driven workloads. Three constraints drive this limitation: capacity, cost, and compute inefficiency.\n\n#### 1. Memory capacity does not scale with context growth [...] The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges",
+   "published_date": null,
+   "score": 0.6058229
+  },
+  {
+   "url": "https://www.linkedin.com/posts/iamhimanshu0_in-one-of-the-previous-posts-we-discussed-activity-7411360225150205952-Y4xr",
+   "title": "KV Cache Drawbacks: Memory Growth and Scalability Issues | Himanshu T. posted on the topic | LinkedIn",
+   "content": "on the GPU, a few long-running sessions can dominate memory and reduce overall throughput. A practical example: Consider a chatbot serving 20 users with a 8k context window. Even if each user generates slowly, the combined KV cache can exceed GPU memory, forcing request queuing or failures. KV cache also creates challenges for long-context agents. Agentic systems that reason over many steps or loop through tools accumulate cache over time. This increases latency, memory pressure, and makes it [...] In one of the previous posts, we discussed KV cache and why it is a powerful optimization for Transformer inference. It looks like an obvious win — faster generation and lower compute cost — but in production systems, KV cache also introduces important disadvantages that engineers must understand. The biggest drawback of KV cache is memory growth. KV cache stores Keys and Values for every generated token, for every layer, and for every attention head. As the context length grows, memory usage [...] grows, memory usage increases linearly. For long conversations or agent workflows, this can quickly exhaust GPU memory. This happens because past tokens cannot be discarded. Each new token must attend to all previous Keys and Values, so the cache keeps growing until generation stops or the context is truncated. Another disadvantage is limited scalability with batch size. When serving multiple users simultaneously, each request maintains its own KV cache. Even if the model fits on the GPU, a few",
+   "published_date": null,
+   "score": 0.5489884
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "Recently, the conventional inference hierarchy has begun to evolve beyond local storage toward a more centralized and reusable design. In large-scale serving systems, keeping KV cache state in local SSDs leads to fragmentation across nodes and limits reuse when requests are rescheduled or migrated. To address this limitation, recent systems like NVIDIA CMX Context Memory Storage (NVIDIA, 2026b) have introduced a disaggregated, intermediate shared storage tier for inference states. This [...] of the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly [...] Performance Potential Analysis via CMM. To evaluate the performance potential of the proposed architecture, we developed a production-grade empirical platform integrating an SK Hynix CMM (SK hynix, 2024) and two KIOXIA PCIe Gen5 NVMe SSDs (KIOXIA, 2024). To maintain architectural consistency with the FPGA prototype, we utilized 32 GB of the CMM capacity as the DRAM cache. Leveraging the SPDK framework (Intel, 2016) with 8 PCIe lanes (4 lanes per SSD), this setup achieves a peak read throughput",
+   "published_date": null,
+   "score": 0.5253938
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale - Aerospike",
+   "content": "A single conversation with a 10,000-token prompt requires approximately 10,000 tokens × 0.5 MB ≈ 5 GB of KV cache.\n\nNow consider a production deployment serving multiple users simultaneously:\n\n| Concurrent sessions | Context length | Approximate KV cache |\n --- \n| 10 | 10,000 tokens | 50 GB |\n| 20 | 10,000 tokens | 100 GB |\n| 50 | 10,000 tokens | 250 GB |\n| 100 | 10,000 tokens | 500 GB | [...] GPU memory is volatile. Whenever an inference server restarts, whether due to maintenance, software upgrades, failures, or autoscaling events, the entire KV cache is immediately lost. Every subsequent request must perform a full prefill operation because none of the previously computed key/value vectors are preserved. For production workloads, rebuilding these warm caches can take tens of minutes before performance returns to steady state, depending on traffic patterns and model behavior. These [...] Large language models (LLMs) are remarkably efficient at generating text, but serving them at a production scale remains an infrastructure challenge for many organizations. And while the industry at large focuses on larger GPUs, faster interconnects, or more efficient inference engines, another bottleneck quietly grows alongside every conversation: the key-value (KV) cache.",
+   "published_date": null,
+   "score": 0.52100873
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache not production ready research stage criticism",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:22+09:00",
+ "results": [
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "This blog examines KV cache compression through an infrastructure lens: not only what the algorithms do, but whether they can actually run in production. An entire field is devoted to compressing the KV cache so that long inference fits in GPU memory; most of it works in the lab, much less in real deployment. The gap comes down to two infrastructure problems that papers almost never discuss. This post surveys the field's main ideas, traces where they collide with these problems, and shows how a [...] Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] The hard part of KV cache compression is not choosing which tokens to keep — it is two collisions with production infrastructure. Existing methods need historical attention scores, but the FlashAttention kernel never writes those scores into GPU memory. And paged attention reclaims memory only when a block holds no KV at all — yet after token eviction the survivors leave almost every block partially occupied, so the \"freed\" memory never actually comes back.\n\nContents",
+   "published_date": null,
+   "score": 0.41534993
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "for each data type. Model weights are streamed layer-by-layer to match the execution flow, whereas KV cache blocks are retrieved in their original aggregated order to preserve the spatial locality established during their initial storage in large chunks. To maximize throughput, ITME proactively prefetches these chunks into host memory at the onset of each inference turn, ensuring they are staged and ready for the subsequent GPU-side pipeline. [...] Efficient multi-tier KV caching relies on maintaining data contiguity across storage boundaries to enable high-bandwidth prefetching without reorganization overhead. To maximize offloading performance, ITME aggregates evicted KV cache blocks into large-scale chunks (e.g., 512 MB) within the CPU staging buffer. During the eviction process, ITME sequentially appends blocks into these chunks as they are released from GPU memory. This sequential appending naturally restores the logical sequence of [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy.",
+   "published_date": null,
+   "score": 0.3700438
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Onboarding phase. This phase represents the read stage from the KV cache. The I/O pattern is dominated by 83% random reads and 17% sequential reads. As turns progress, additional KV cache write operations are generated at Output Sequence Length (OSL)-sized granularity; however, they account for less than 1% of total I/O and are therefore negligible (Figure 11). Based on the I/O pattern, the KV cache store must be optimized for random access with data sizes of 128KB or larger. [...] KV cache offloading and prefix caching. Prefill is computebound,7 making KV reuse critical to reducing TTFT. In multiturn scenarios, KV cache can be offloaded and stored, then prefix caching loads it when needed (Figure 4). This reduces repeated computation and improves response time and GPU utilization while lowering power consumption. [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage",
+   "published_date": null,
+   "score": 0.36602354
+  },
+  {
+   "url": "https://clausaasholm.substack.com/p/lam-what-is-the-kv-cache-hiding",
+   "title": "LAM: What is the KV Cache Hiding? - by Claus Aasholm",
+   "content": "The Chinese memory makers were not part of the same oversupply cycle that crushed Samsung and SK Hynix. They were still in build-out and ramp mode throughout 2022-2023, constructing greenfield capacity from scratch. So their equipment spending continued even as Korean and US memory makers slammed the brakes. [...] I am writing this from sunny Zurich, where I have just delivered a live presentation of the state of the Semiconductor supply network and the drivers of demand and supply. For a lowlander like me, it is very challenging to operate at the dizzying altitude of 400 meters. The highest point of the island of Lolland, where I live, is 30 meters, so I am literally in the dead zone. Any errors in this article will be solely due to the lack of oxygen.",
+   "published_date": null,
+   "score": 0.28572106
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "แม้ว่าอัลกอริทึม TurboQuant จะสามารถลดความต้องการหน่วยความจำได้ในทางทฤษฎี แต่เทคโนโลยีดังกล่าวยังคงอยู่ในขั้นตอนการวิจัยและยังไม่ได้รับการตรวจสอบในเชิงพาณิชย์ [...] ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.24454379
+  }
+ ]
+}
