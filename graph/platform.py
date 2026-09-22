@@ -252,7 +252,7 @@ def pdf_renderer(state: dict) -> dict:
     pages = _heading_pages(pdf, [t for _, t in toc_entries(state["report_markdown"])])
     md = with_toc(state["report_markdown"], pages)
     pdf = build(md)
-    md_path.write_text(md)
+    md_path.write_text(md.rstrip() + "\n")
     dst = ROOT / "deliverables" / pdf.name
     shutil.copy(pdf, dst)
     return {"report_pdf_path": str(pdf), "audit_log": audit("pdf_renderer", pdf=str(pdf.relative_to(ROOT)),
