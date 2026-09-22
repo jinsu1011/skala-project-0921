@@ -8,6 +8,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 from typing import Optional
 
 import requests
@@ -63,12 +64,20 @@ def tavily(query: str, days: Optional[int] = None, topic: str = "general", max_r
     return results
 
 
+_FOREIGN = re.compile(r"[\u0E00-\u0E7F\u3040-\u30FF\u4E00-\u9FFF\u0400-\u04FF\u0600-\u06FF]")
+
+
+def readable(title: str, content: str) -> bool:
+    """Korean/English sources only: the report cites titles verbatim and reviewers must be able to read them."""
+    return not _FOREIGN.search(title or "") and len(_FOREIGN.findall(content or "")) < 20
+
+
 def search_web(query: str, days: Optional[int] = None, stance: str = "neutral", tech: str = "",
                perspective: str = "", attempt: int = 0, max_results: int = 5) -> list[Evidence]:
     out = []
     for x in tavily(query, days=days, max_results=max_results):
         url = x.get("url") or ""
-        if not url:
+        if not url or not readable(x.get("title", ""), x.get("content", "")):
             continue
         group, cls = classify_url(url)
         out.append(Evidence(

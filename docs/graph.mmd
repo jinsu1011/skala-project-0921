@@ -1,0 +1,58 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	%% drawer-only edges to the deferred synthesizer removed (see scripts/render_graph.py)
+	__start__([<p>__start__</p>]):::first
+	initialize(initialize)
+	index_builder(index_builder)
+	selection_validator(selection_validator)
+	query_planner(query_planner)
+	hybrid_retriever(hybrid_retriever)
+	retrieval_grader(retrieval_grader)
+	query_rewriter(query_rewriter)
+	tech_research(tech_research)
+	trl_assessor(trl_assessor)
+	market_evaluator(market_evaluator)
+	stakeholder_evaluator(stakeholder_evaluator)
+	domain_evaluator(domain_evaluator)
+	synthesizer(synthesizer<hr/><small><em>defer = True</em></small>)
+	judge(judge)
+	retry_router(retry_router)
+	report_writer(report_writer)
+	final_check(final_check)
+	pdf_renderer(pdf_renderer)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> initialize;
+	domain_evaluator --> synthesizer;
+	final_check -.-> pdf_renderer;
+	final_check -.-> report_writer;
+	hybrid_retriever --> retrieval_grader;
+	index_builder --> selection_validator;
+	initialize --> index_builder;
+	judge --> retry_router;
+	market_evaluator --> synthesizer;
+	query_planner --> hybrid_retriever;
+	query_rewriter --> hybrid_retriever;
+	report_writer --> final_check;
+	retrieval_grader -.-> query_rewriter;
+	retrieval_grader -.-> tech_research;
+	retry_router -.-> domain_evaluator;
+	retry_router -.-> market_evaluator;
+	retry_router -.-> report_writer;
+	retry_router -.-> stakeholder_evaluator;
+	retry_router -.-> trl_assessor;
+	selection_validator --> query_planner;
+	stakeholder_evaluator --> synthesizer;
+	synthesizer --> judge;
+	tech_research --> domain_evaluator;
+	tech_research --> market_evaluator;
+	tech_research --> stakeholder_evaluator;
+	tech_research --> trl_assessor;
+	trl_assessor --> synthesizer;
+	pdf_renderer --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

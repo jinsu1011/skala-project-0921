@@ -395,8 +395,8 @@ TRL은 성숙도 척도라 인식 점수와 섞지 않는다. H1은 아래 격�
 | `failed_perspectives` | `list[str]` | judge | retry_router | 기준에 못 미친 관점 |
 | `judge_feedback` | `dict[str, str]` | judge | 관점 노드 | 관점별 보완 지시 |
 | `perspective_retry_count` | `dict[str, int]` | retry_router | retry_router, report_writer | 관점별 재실행 횟수(최대 2) |
-| `report_markdown` | `str` | report_writer | final_check, pdf_renderer | 인용 번호가 달린 보고서 원문 |
-| `references` | `list[Reference]` | report_writer | final_check, pdf_renderer | 본문에 실제로 인용한 자료 목록 |
+| `report_markdown` | `str` | report_writer, final_check(한도 소진 후 후처리) | final_check, pdf_renderer | 인용 번호가 달린 보고서 원문 |
+| `references` | `list[Reference]` | report_writer, final_check(한도 소진 후 후처리) | final_check, pdf_renderer | 본문에 실제로 인용한 자료 목록 |
 | `report_retry_count` | `int` | final_check | 라우터 | 보고서 수정 횟수(최대 1) |
 | `report_pdf_path` | `str` | pdf_renderer | app.py | 만든 PDF 경로 |
 | `warnings` | `Annotated[list[str], add_unique]` | 여러 노드 | report_writer, final_check | 근거 부족, 재시도 초과, 출처 편중 경고. 보고서 한계점에 싣는다 |

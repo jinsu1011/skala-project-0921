@@ -204,22 +204,52 @@ def output_stem() -> str:
     return f"RAG-Output_{team['campus']}_{team['class']}_" + "+".join(m["name"] for m in team["members"])
 
 
+def _heading_pages(pdf, headings: list[str]) -> dict[str, int]:
+    import pymupdf
+
+    found, start = {}, 0
+    with pymupdf.open(pdf) as doc:
+        # extracted text drops/splits spaces, so compare with all whitespace removed
+        texts = [re.sub(r"\s+", "", p.get_text()) for p in doc]
+    toc_page = next((i for i, t in enumerate(texts) if "목차" in t), 0)
+    start = toc_page + 1
+    for h in headings:
+        key = re.sub(r"\s+", "", h)
+        for i in range(start, len(texts)):
+            if key in texts[i]:
+                found[h] = i + 1
+                start = i
+                break
+    return found
+
+
 def pdf_renderer(state: dict) -> dict:
     from report.docx_builder import CoverInfo, ReportBuilder, docx_to_pdf
 
     team = config()["team"]
     out = ROOT / "outputs"
     stem = output_stem()
+    from agents.report_writer import toc_entries, with_toc
+
     md_path = out / f"{stem}.md"
     md_path.parent.mkdir(parents=True, exist_ok=True)
-    md_path.write_text(state["report_markdown"])
     cover = CoverInfo(title="KV cache 최적화 기술 다관점 평가 보고서",
                       members=[(m["id"], m["name"]) for m in team["members"]], date=team["submit_date"],
                       report_kind="과제 제출 보고서 · 평가 보고서", doc_info=False)
-    rb = ReportBuilder(cover)
-    rb.markdown(state["report_markdown"], ROOT / "outputs")
-    docx = rb.save(out / f"{stem}.docx")
-    pdf = docx_to_pdf(docx, out / f"{stem}.pdf")
+
+    def build(md: str):
+        rb = ReportBuilder(cover)
+        rb.markdown(md, ROOT / "outputs")
+        docx = rb.save(out / f"{stem}.docx")
+        return docx_to_pdf(docx, out / f"{stem}.pdf")
+
+    # pass 1 renders with an empty page column, pass 2 fills the pages found in the PDF (same layout)
+    md = with_toc(state["report_markdown"])
+    pdf = build(md)
+    pages = _heading_pages(pdf, [t for _, t in toc_entries(state["report_markdown"])])
+    md = with_toc(state["report_markdown"], pages)
+    pdf = build(md)
+    md_path.write_text(md)
     dst = ROOT / "deliverables" / pdf.name
     shutil.copy(pdf, dst)
     return {"report_pdf_path": str(pdf), "audit_log": audit("pdf_renderer", pdf=str(pdf.relative_to(ROOT)),

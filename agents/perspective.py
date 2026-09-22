@@ -258,8 +258,12 @@ def id_conflict_warnings(state: dict, new: list[Evidence]) -> list[str]:
     """D.2: the same evidence id arriving with different source content is kept once and reported as a warning."""
     old = {e.evidence_id: e for e in state.get("evidence", [])}
     return [f"근거 ID 충돌: {e.evidence_id}의 원문 내용이 이전 기록과 다름(기존 항목 유지)" for e in new
-            if e.evidence_id in old and old[e.evidence_id].summary and e.summary
-            and old[e.evidence_id].summary[:200] != e.summary[:200]]
+            if e.evidence_id in old and _content_key(old[e.evidence_id]) != _content_key(e)]
+
+
+def _content_key(e: Evidence) -> str:
+    # web snippets are query-dependent, so a web document is identified by its title; paper chunks by their text
+    return (e.title or "").strip().lower() if e.kind == "web" else e.summary[:200]
 
 
 def run_perspective(spec: PerspectiveSpec, state: dict, sufficient_factory=None):

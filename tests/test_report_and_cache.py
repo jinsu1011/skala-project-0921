@@ -46,7 +46,7 @@ def test_citer_groups_papers_and_numbers_in_order():
           "W:abc": Evidence(evidence_id="W:abc", kind="web", source_url="https://a.com/x", source_group="a.com",
                             title="T", published_at="2026-03-24")}
     c = Citer(ev)
-    assert c.sub("문장 [W:abc]. 다음 [P:tq-001, P:tq-002].") == "문장 [1]. 다음 [2, p.3; 2, p.5]."
+    assert c.sub("문장 [W:abc]. 다음 [P:tq-001, P:tq-002].") == "문장 [1]. 다음 [2, p.3·5]."
     refs = c.references()
     assert [r.num for r in refs] == [1, 2]
     assert refs[0].text.startswith("a.com(2026-03-24). T. a.com, https://a.com/x")
@@ -88,6 +88,8 @@ def test_markdown_and_pdf_generation(tmp_path, monkeypatch):
     out = plat.pdf_renderer({"report_markdown": md})
     pdf = tmp_path / "outputs" / f"{plat.output_stem()}.pdf"
     assert pdf.exists() and pdf.stat().st_size > 10_000
-    assert (tmp_path / "outputs" / f"{plat.output_stem()}.md").read_text() == md
+    written = (tmp_path / "outputs" / f"{plat.output_stem()}.md").read_text()
+    assert written.startswith("# 목차") and written.endswith(md)          # TOC page + report body
+    assert "| **SUMMARY** | 3 |" in written and "| **4. 관점별 평가** | 3 |" in written   # cover 1, TOC 2
     assert (tmp_path / "deliverables" / pdf.name).exists()
     assert out["report_pdf_path"] == str(pdf)

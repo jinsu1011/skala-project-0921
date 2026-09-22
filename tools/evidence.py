@@ -61,6 +61,7 @@ def classify_url(url: str) -> tuple[str, str]:
 
 def web_id(url: str) -> str:
     norm = re.sub(r"[#?].*$", "", url.strip()).rstrip("/")
+    norm = re.sub(r"^https?://(www\.)?", "", norm.lower())  # http/https and www variants are one document
     return "W:" + hashlib.sha1(norm.encode()).hexdigest()[:10]
 
 
