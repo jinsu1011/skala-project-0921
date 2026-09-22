@@ -436,7 +436,7 @@ JudgeScore        = {grounding, neutrality, source_diversity, completeness (1-5)
 
 흐름은 네 단계로 나뉜다. ① 선정 검증과 RAG 준비(공통 검색 반복 포함), ② 기술 조사와 네 관점 병렬 평가, 종합, ③ Judge 검증과 선택적 재실행, ④ 보고서 작성·검수와 PDF 생성이다. 그림 2에 노드 18개를 모두 그렸고, Mermaid 소스는 그다음에 싣는다.
 
-![그림 2. 전체 그래프(노드 18개). 실선은 항상 지나는 경로, 점선은 조건에 따라 갈리는 경로이고, 마름모는 다음 경로를 정하는 노드이다](graph_overview.png)<!--img:11.2-->
+![그림 2. 전체 그래프(노드 18개). 실선은 항상 지나는 경로, 점선은 조건에 따라 갈리는 경로이고, 마름모는 다음 경로를 정하는 노드이다](graph_overview.png)<!--img:7.2-->
 
 **그림 2 Mermaid 소스**
 
@@ -459,7 +459,7 @@ flowchart TB
             SH["stakeholder_evaluator<br/>이해관계자"]
             DM["domain_evaluator<br/>도메인 W1·W2"]
         end
-        TR --> TRL & MK & SH & DM
+        TR ---> TRL & MK & SH & DM
         TRL & MK & SH & DM --> SY["synthesizer<br/>일치·상충 · H1~H4"]
     end
     subgraph S3["3. Judge 검증 및 선택적 재실행"]
@@ -470,12 +470,12 @@ flowchart TB
         FC -.->|"수정 필요 · 수정<1"| RWR
         FC -.->|"통과 · 한도 소진 후 보정"| PDF["pdf_renderer<br/>SKALA 양식 PDF"]
     end
-    GR -.->|"충족 · 한도 소진"| TR
+    GR -...->|"충족 · 한도 소진"| TR
     GR -.->|"부족 · 재시도<2"| QRW
     QRW --> RET
-    SY --> JD
+    SY ---> JD
     RR -.->|"미달 관점만 · 재실행<2"| FAN
-    RR -.->|"모두 통과 · 한도 소진"| RWR
+    RR -..->|"모두 통과 · 한도 소진"| RWR
     PDF --> END(["END"])
     classDef agent fill:#EEE8FA,stroke:#7F4ACB,color:#161A58;
     classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
