@@ -102,7 +102,8 @@ def annotate(spec: PerspectiveSpec, tech: Technology, evs: list[Evidence], tag: 
         return {}
     sys = prompt("perspective_annotate.md").format(
         perspective_ko=spec.name_ko, tech_name=tech.name, developer=tech.developer, camp=tech.camp, rubric=RUBRIC,
-        criteria=", ".join(f"{c.key}({c.name_ko})" for c in spec.criteria if not c.workload or c.workload == "W1"),
+        criteria=", ".join(f"{c.key.split(':')[-1]}({c.name_ko.split(' ', 1)[-1] if c.workload else c.name_ko})"
+                           for c in spec.criteria if not c.workload or c.workload == "W1"),
         extra=spec.extra_prompt, extra_fields=spec.extra_fields)
     items = [{"id": e.evidence_id, "source": e.publisher or e.source_group, "title": e.title,
               "date": e.published_at, "text": e.summary[:900]} for e in sorted(evs, key=lambda x: x.evidence_id)]
