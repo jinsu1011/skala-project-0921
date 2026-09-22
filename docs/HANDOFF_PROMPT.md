@@ -107,7 +107,7 @@
 - 근거가 부족한 기준은 낮은 점수가 아니라 "판단 보류"로 두고 계산에서 뺀다. 빠진 가중치가 50%를 넘으면 그 관점 전체를 "판단 보류"로 한다.
 
 **3-4. `graph/workflow.py`: 그래프 (그림 2)**
-- 흐름: `initialize → selection_validator → index_builder → query_planner → hybrid_retriever → retrieval_grader`
+- 흐름: `initialize → index_builder → selection_validator → query_planner → hybrid_retriever → retrieval_grader`
   - 부족하고 재시도 < 2이면 `query_rewriter → hybrid_retriever`로 돌아간다.
   - 충분하면 `tech_research → [trl_assessor, market_evaluator, stakeholder_evaluator, domain_evaluator]`(Fan-out) `→ synthesizer`(defer) `→ judge → retry_router`로 간다.
 - **`retry_router`는 노드이다.** 조건부 엣지 함수는 State를 갱신할 수 없기 때문이다.

@@ -391,7 +391,7 @@ TRL은 성숙도 척도라 인식 점수와 섞지 않는다. H1은 아래 격�
 | `selected_techs` | `list[Technology]` | initialize | selection_validator, query_planner | 조가 고른 기술 2건과 진영, 선정 이유. 실행 중 바뀌지 않음 |
 | `selection_validation` | `SelectionValidation` | selection_validator | report_writer | 기준별 점수, 원문 근거, 약점, 통과 여부 |
 | `document_manifest` | `list[DocumentMeta]` | index_builder | report_writer | 문서, 쪽수, 역할, 200쪽 한도 확인 |
-| `index_status` | `IndexStatus` | index_builder | hybrid_retriever, report_writer | 청크 수, 모델, 인덱스 재사용 여부 |
+| `index_status` | `IndexStatus` | index_builder | selection_validator, hybrid_retriever, report_writer | 청크 수, 모델, 인덱스 재사용 여부 |
 | `queries` | `dict[str, list[Query]]` | query_planner | hybrid_retriever | 기술별 공통 질의 |
 | `rewritten_queries` | `dict[str, list[Query]]` | query_rewriter | hybrid_retriever | 다시 쓴 질의. 있으면 `queries` 대신 쓰고 재시도마다 바꾼다 |
 | `retrieved_chunks` | `dict[str, list[Evidence]]` | hybrid_retriever | retrieval_grader, tech_research | 공통 검색 결과 |
@@ -444,9 +444,9 @@ JudgeScore        = {grounding, neutrality, source_diversity, completeness (1-5)
 flowchart TB
     H0(["Human 기술 선정 (2안)<br/>TurboQuant · ITME"]) --> INIT
     subgraph S1["1. 선정 검증 및 RAG 준비"]
-        INIT["initialize<br/>State 초기화"] --> VAL["selection_validator<br/>선정 타당성 검증·기록"]
-        VAL --> IDX["index_builder<br/>PDF 로드·청킹·인덱스"]
-        IDX --> QP["query_planner<br/>기술별 개요 질의"]
+        INIT["initialize<br/>State 초기화"] --> IDX["index_builder<br/>PDF 로드·청킹·인덱스"]
+        IDX --> VAL["selection_validator<br/>선정 타당성 검증·기록"]
+        VAL --> QP["query_planner<br/>기술별 개요 질의"]
         QP --> RET["hybrid_retriever<br/>3중 RRF + reranker"]
         RET --> GR{"retrieval_grader<br/>검색 품질 충족?"}
         QRW["query_rewriter<br/>누락 요소 반영"]
@@ -494,7 +494,7 @@ flowchart TB
 
 ## D.4 분기, 합류, 종료 규칙
 
-1. 선정 검증은 분기하지 않는다. `selection_validator`는 결과를 기록하고, 충족하지 못한 항목은 경고로 남긴 뒤 항상 다음으로 넘어간다.
+1. 선정 검증은 분기하지 않는다. `selection_validator`는 `index_builder`가 만든 인덱스에서 원문 근거를 찾아 결과를 기록하고, 충족하지 못한 항목은 경고로 남긴 뒤 항상 다음으로 넘어간다.
 2. 공통 검색에서 `retrieval_grader`가 부족하다고 보고 재시도가 2번 미만이면 `query_rewriter`를 거쳐 다시 검색한다. 한도에 이르면 경고를 남기고 `tech_research`로 간다.
 3. `tech_research` 다음에 관점 노드 4개가 동시에 실행된다. 각자 자기 결과 키에만 쓰고, 공유 키는 reducer로 합친다.
 4. `synthesizer`는 `defer=True`로 등록해, 그 단계에서 실행된 관점 노드가 모두 끝난 뒤 한 번만 실행된다. 일부 관점만 다시 돌 때도 멈추지 않는다.

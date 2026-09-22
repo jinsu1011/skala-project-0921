@@ -1,9 +1,9 @@
 flowchart TB
     H0(["Human 기술 선정 (2안)<br/>TurboQuant · ITME"]) --> INIT
     subgraph S1["1. 선정 검증 및 RAG 준비"]
-        INIT["initialize<br/>State 초기화"] --> VAL["selection_validator<br/>선정 타당성 검증·기록"]
-        VAL --> IDX["index_builder<br/>PDF 로드·청킹·인덱스"]
-        IDX --> QP["query_planner<br/>기술별 개요 질의"]
+        INIT["initialize<br/>State 초기화"] --> IDX["index_builder<br/>PDF 로드·청킹·인덱스"]
+        IDX --> VAL["selection_validator<br/>선정 타당성 검증·기록"]
+        VAL --> QP["query_planner<br/>기술별 개요 질의"]
         QP --> RET["hybrid_retriever<br/>3중 RRF + reranker"]
         RET --> GR{"retrieval_grader<br/>검색 품질 충족?"}
         QRW["query_rewriter<br/>누락 요소 반영"]
