@@ -207,7 +207,11 @@ def merge_by_id(left: list[Evidence] | None, right: list[Evidence] | None) -> li
         if cur is None:
             out[e.evidence_id] = e
             continue
+        # conservative origin: if any perspective saw the item as a re-reported vendor release, keep that family
+        origin = e.origin_group if e.source_class != "vendor" and e.origin_group != e.source_group \
+            and cur.origin_group == cur.source_group else cur.origin_group
         out[e.evidence_id] = cur.model_copy(update={
+            "origin_group": origin,
             "perspectives": sorted(set(cur.perspectives) | set(e.perspectives)),
             "stances": sorted(set(cur.stances) | set(e.stances)),
             "attempt": max(cur.attempt, e.attempt),

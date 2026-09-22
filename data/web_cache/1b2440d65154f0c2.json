@@ -1,0 +1,44 @@
+{
+ "query": "independent third-party evaluation of SK hynix ITME KV cache technology maturity level TRL",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:53:52+09:00",
+ "results": [
+  {
+   "url": "https://www.stocktitan.net/news/KEYS/keysight-enables-sk-hynix-to-achieve-top-tier-ocp-s-a-f-e-evaluation-2wf614geqpuh.html",
+   "title": "Keysight Enables SK hynix to Earn First OCP S.A.F.E. Recognition | KEYS Stock News",
+   "content": "Woonhyug Jee, VP of eSSD Firmware & Product Engineering at SK hynix, said: “Keysight’s structured approach, responsiveness, and technical rigor played a key role in our successful evaluation. Their deep expertise and close collaboration with our developers ensured a smooth process from start to finish.” [...] Marc Witteman, Technical Director at Keysight, said: “OCP S.A.F.E. creates a shared foundation of trust across the hyperscale ecosystem. Keysight’s role is to make the evaluation process as thorough, efficient, and insightful as possible, enabling customers to strengthen product security while accelerating adoption in high-trust environments. With this in mind, SK hynix’s PEB110 E1.S device aligns rigorously with the design principles set forth by OCP S.A.F.E., and according to Keysight’s [...] For the SK hynix evaluation, Keysight applied its proprietary code security evaluation framework, combining industry standards such as the Common Vulnerability Scoring System (CVSS) with Keysight-developed criteria, to conduct an in-depth Scope 1 assessment of firmware security and hardware interactions. SK hynix achieved a high rating, reflecting the effectiveness of Keysight’s structured methodology and the client’s robust engineering practices.",
+   "published_date": null,
+   "score": 0.42648935
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "## 6. Evaluation\n\n### 6.1. Performance: GPU Memory (T1) vs. ITME\n\nThe performance of ITME is evaluated using the ShareGPT dataset with a configuration of 128 concurrent conversations, each spanning up to 5 turns with a minimum of 2000 tokens per conversation. As memory pressure intensifies in later stages, we focus on Turns 3–5, where the total KV cache footprint reaches 40 GB. [...] To isolate the impact of weight prefetching from prefix KV cache prefetching, we evaluate the performance of ITME by prefetching model weights only. We employ the Mooncake workload with a batch size of 16 and a 4K input sequence length. The primary objective of this evaluation is to demonstrate how closely ITME matches the host memory baseline, where all weights reside in host DRAM. Since the baseline represents the theoretical performance upper bound, this analysis focuses on the efficiency of [...] Without a way to effectively manage or delay these writes, the system cannot retrieve data while busy with incoming traffic. Furthermore, the absence of a dedicated prefetching mechanism prevents the system from hiding this delay by moving data in advance. As a result, the required KV blocks fail to reach the CPU in time, forcing the system to perform slow recomputation. While NVMe-oF could be further enhanced through specialized optimizations, our evaluation focuses on the intrinsic I/O",
+   "published_date": null,
+   "score": 0.42090955
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] From the second turn onward, the KV cache is mapped to the SSD: cached blocks are read from it, while newly generated blocks are written directly to it (as shown in the onboarding phase in Figure 9).\n\nFigure 9. Multi-turn evaluation scenario for hybrid storage using LMBenchmark.\n\nFigure 9. Multi-turn evaluation scenario for hybrid storage using LMBenchmark.\n\n## LMBenchmark results\n\n#### Workload characteristic [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles",
+   "published_date": null,
+   "score": 0.25254574
+  },
+  {
+   "url": "https://rocketreach.co/sk-hynix-profile_b5c65362f42e0cb2",
+   "title": "SK hynix Information",
+   "content": "More information [...] Semiconductors are essential to all IT products, and its performance often determines the performance of the final products. SK hynix is a global leader in producing semiconductor, such as DRAM, NAND Flash. With these technology driven semiconductor products, SK hynix consistently led the industry and is now the second largest memory chip maker. IT devices become more pervasive as new imaginative and innovative IT products continue to grab imagination and desires of consumers. SK hynix has [...] SK hynix has enhanced its competency with the best level of technology and a wide range of business portfolios in order to satisfy all those demand from customers. As a member of SK Group, SK hynix is aiming at becoming the world’s best semiconductor company. SK Group is one of South Korea's top three industrial conglomerates. It has about 198 affiliated companies, ranging from energy, telecommunications, finance, and construction.",
+   "published_date": null,
+   "score": 0.2363051
+  },
+  {
+   "url": "https://news.skhynix.com/en/research-inside-ep1",
+   "title": "[Inside the Research] SK hynix's CTI innovation advances 176-layer ...",
+   "content": "and improves charge retention by more than 45%",
+   "published_date": null,
+   "score": 0.19817312
+  }
+ ]
+}

@@ -62,3 +62,19 @@ def test_origin_share_cap(mkweb):
     assert max_origin_share(evs) == 0.8
     capped = cap_origin_share(evs)
     assert max_origin_share(capped) <= 0.5
+
+
+def test_merge_keeps_vendor_rereport_origin(mkweb):
+    plain = mkweb("7", "medium.com")                                    # one perspective: independent article
+    rerep = mkweb("7", "medium.com").model_copy(update={"origin_group": "google"})   # another: re-reported release
+    assert merge_by_id([plain], [rerep])[0].origin_group == "google"
+    assert merge_by_id([rerep], [plain])[0].origin_group == "google"
+
+
+def test_llm_score_matching_by_korean_name():
+    from agents.perspective import match_scored
+    from graph.state import Criterion
+    crit = [Criterion(name="size_growth"), Criterion(name="adoption")]
+    got = match_scored(crit, [{"name": "상용화·채택", "score": 4}, {"name": "시장 규모·성장", "score": 2}, {"name": "x"}],
+                       {"size_growth": "시장 규모·성장", "adoption": "상용화·채택"})
+    assert [g["score"] for g in got] == [2, 4]

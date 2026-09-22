@@ -4,7 +4,8 @@ The developer's own statements (Google for TurboQuant, SK hynix for ITME) are ci
 from __future__ import annotations
 
 from agents.perspective import (Collected, CriterionSpec, PerspectiveSpec, apply_condition_mismatch, collect,
-                                id_conflict_warnings, origin_sets, pro_con_sufficient, prompt, RUBRIC, weighted)
+                                id_conflict_warnings, match_scored, origin_sets, pro_con_sufficient, prompt, RUBRIC,
+                                weighted)
 from graph.runtime import audit, llm_json
 from graph.state import Criterion, PerspectiveResult, TechAssessment
 from tools.evidence import developer_groups
@@ -78,9 +79,7 @@ def assess(t, col: Collected, tag: str) -> TechAssessment:
         extra="- 집단별 점수: 집단 안 근거의 다수가 지지하면 5, 다수가 우려하면 1, 비슷하거나 중립이면 3, 근거가 없으면 null. 개발사 발언은 세지 않는다.",
         criteria_block="\n".join(lines))
     data = llm_json("generator", sys, "위 기준별 근거로 채점하라.", tag=f"{tag}:score")
-    by_name = {c.get("name"): c for c in data.get("criteria", []) if isinstance(c, dict)}
-    for c in crit:
-        d = by_name.get(c.name, {})
+    for c, d in zip(crit, match_scored(crit, data.get("criteria", []), {f"group_{g}": f"({g})" for g, _ in GROUPS})):
         c.llm_score = d.get("score") if isinstance(d.get("score"), (int, float)) else None
         c.rationale = d.get("rationale", "")
     pro_o = origin_sets(col.evidence, col.ann, "pro", exclude)

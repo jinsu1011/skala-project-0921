@@ -1,0 +1,44 @@
+{
+ "query": "independent evaluation of SK hynix ITME KV cache advantages in domain suitability",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:54:00+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles",
+   "published_date": null,
+   "score": 0.4018996
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "To balance latency hiding and DRAM utilization, KV Manager dynamically allocates the prefetch window according to the prefix-hit footprint of each request while enforcing a bounded maximum prefetch window. Based on our prototype evaluation, allocating up to approximately 128 MB of prefetched KV data per request provides sustained performance. Consequently, KV Manager adjusts the prefetch window according to the KV-block size, up to eight blocks for 16 MB KV blocks and four blocks for 32 MB KV [...] This paper presents HyMCache, a KV-cache framework that integrates CXL-hybrid memory for multi-turn LLM serving. Leveraging the read-dominant, predictable, and append-only access patterns of multi-turn KV caches, HyMCache rethinks DRAM management within CXL-HM through request-level prefix prefetching and opportunistic write buffering. This allows latency-critical reusable KV blocks to be staged in device DRAM while relying on SSD-backed capacity for TB-scale KV reuse. Our evaluation on a real [...] ## 6. Evaluation\n\n### 6.1. PD-Disaggregated Serving Performance\n\n#### 6.1.1. Overall Performance Comparison\n\nFigure 8 shows the results under PD-disaggregated serving on Qwen2.5-32B using AIPerf synthetic inputs. This workload stresses cache capacity because the reusable prefix state quickly exceeds the capacity of GPU-only prefix caching and limited local DRAM caching, while generating approximately 1.5TB of reusable KV-cache footprint across turns.",
+   "published_date": null,
+   "score": 0.34946668
+  },
+  {
+   "url": "https://aclanthology.org/2026.acl-long.859.pdf",
+   "title": "Speculative KV Cache Reuse for Efficient RAG Serving",
+   "content": "only a small overhead (about 5%) relative to Prefill. Moreover, in our implementa-tion, both Score and Align are executed while the framework streams precomputed KV caches from host memory into GPU memory; since these oper-ations are independent, their costs can be hidden behind KV loading and thus have little visible im-pact on TTFT. EPIC attains lowest TTFT because it avoids token selection and adopts a static pol-icy that recomputes only a fixed subset of tokens. [...] of SpecCache on significantly larger ar-chitectures (e.g., 70B parameters) and to assess its robustness across a broader spectrum of complex, domain-specific datasets. [...] All layers Last 2/3 layers Last 1/3 layers Last layer 0.162 0.168 0.174 0.180 0.186 F1-Score (a) Mistral-7B All layers Last 2/3 layers Last 1/3 layers Last layer 0.170 0.175 0.180 0.185 0.190 0.195 (b) Llama3-8B All layers Last 2/3 layers Last 1/3 layers Last layer 0.225 0.240 0.255 0.270 0.285 (c) Yi-Coder-9B All layers Last 2/3 layers Last 1/3 layers Last layer Figure 8: Impact of selected layers across models.\nGoodput Evaluation.",
+   "published_date": null,
+   "score": 0.334177
+  },
+  {
+   "url": "https://eureka.patsnap.com/patent/CN122363619A",
+   "title": "CN122363619A – A kv cache memory strength management method based on a four-dimensional discrete space-time cognitive system | Patsnap Eureka",
+   "content": "1. Claim 1 (Independent Claim): A KV cache memory strength management method based on a four-dimensional discrete spatiotemporal cognitive system, characterized in that, include: Based on a unified four-dimensional discrete spatiotemporal coordinate system, four-dimensional coordinates are assigned to each token information unit. ; The memory strength of the token is calculated based on the coordinates, and the strength is determined by repetition reinforcement, clue matching, encoding depth, [...] 12. Claim 12 (Independent Claim): A computer-readable storage medium having a computer program stored thereon, characterized in that, When the program is executed by a processor, it implements the method described in any one of claims 1 to 11.\n\n13. Claim 13 (Independent Claim): A KV cache management system, characterized in that, include: The module includes a coordinate generation module, a memory strength calculation module, an interference correction module, and a cache eviction module. [...] It significantly improves the retention rate and inference stability of key information in long contexts in large language models, and is suitable for cache management in cross-domain scenarios.\n\n✦ Generated by Eureka AI based on patent content.\n\n## Smart Images\n\n Figure FT_1\n\n  Figure FT\\_1\n Figure FT_2\n\n  Figure FT\\_2\n Figure FT_3\n\n  Figure FT\\_3\n\nPatent Text Reader \n\n### Abstract",
+   "published_date": null,
+   "score": 0.3329396
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "KV Cache-Aware Routing: mapping KV cache states across potentially thousands of GPUs and routes new requests to the GPU with the best knowledge match, avoiding costly re-computations\n\n   Disaggregated Serving: separating the compute-intensive prefill phase from the memory-bandwidth-bound decode phase for independent scaling [...] ## Additional benefits over other KV cache implementations [...] ## Performance Results and Analysis",
+   "published_date": null,
+   "score": 0.30197972
+  }
+ ]
+}

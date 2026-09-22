@@ -1,0 +1,44 @@
+{
+ "query": "independent evaluation of SK hynix ITME KV cache accuracy and domain suitability",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:52:30+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2604.13226v1",
+   "title": "KV Packet: Recomputation-Free Context-Independent KV Caching for LLMs",
+   "content": "To evaluate the transferability and robustness of our learnable adapters, we conducted a cross-domain experiment in which KV Packets were trained on a specific source domain and evaluated across all other target domains. As detailed in Table 1, the No Recompute baseline fails consistently across all benchmarks (0.010.01–0.390.39), while adapters trained on specialized tasks like Biography achieve near-perfect in-domain performance (0.960.96), they struggle with the logical complexity of [...] Biography-specific model (0.950.95) and significantly outperforming all other single-domain adapters on the challenging MusiQue reasoning benchmark (0.430.43). This suggests that heterogeneous training teaches the adapters generalizable structural patterns for cache stitching, making the universal configuration a practical drop-in solution for real-world RAG, where document domains are unpredictable. [...] Overall, the experimental results validate KV Packet as an effective alternative to recomputation-based strategies, achieving state-of-the-art accuracy on both extraction and reasoning tasks while eliminating the recomputation overhead entirely at inference time.\n\n### 4.4 Compatibility with KV Compression",
+   "published_date": null,
+   "score": 0.5835125
+  },
+  {
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ap3bkt/kv_cache_is_huge_and_bottlenecks_llm_inference_we",
+   "title": "KV Cache is huge and bottlenecks LLM inference. We ...",
+   "content": "Evaluation-wise, our take is PPL is not that precise of a performance indicator when the margin is small. Thus, we solely conduct KIVI evaluation on real tasks from LongBench and LM-Eval. KVQuant reports great PPL results, and we would love to see their performance on similar tasks. [...] We leverage the fact that this kind of outliers exists constantly in specific channels of the K cache and purpose to quantize the K cache in a per-channel manner (in contrast to the standard per-token practice). This addresses the OOD issue and, therefore, delivers acceptable performance (<1% acc drop on average on real tasks). You can checkout ourpaperor take a quick peek at our main eval tableshere.\n\n6 more replies \n\n6 more replies \n\n6 more replies\n\nMore replies [...] Our method achieves an acceptable performance drop (<1% accuracy drop on average when evaluated against real tasks like LM-Eval and LongBench) with KV cache quantized in 2bits. This brings 2.6× less peak memory on the Llama/Mistral/Falcon models we evaluated while enabling 4x larger batch size, resulting in 2.35× - 3.47× throughput improvement.\n\n🥝 KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache  \n📰 Paper:   \n😼 Code:   \n📈 A quick peek of main results\n\n Share",
+   "published_date": null,
+   "score": 0.33522078
+  },
+  {
+   "url": "https://www.ersaelectronics.com/blog/sandisk-sk-hynix-standardize-hbf",
+   "title": "Sandisk & SK hynix Standardize HBF: A New Memory Tier ...",
+   "content": "Key-value cache is one of the most important memory challenges in large-language-model inference. During autoregressive generation, transformer models store key and value tensors from previous tokens. This avoids recomputing attention over the entire context. As context windows become longer, KV cache memory requirements grow significantly. [...] HBM is the correct place for the most active KV cache data. However, not all session history is equally active. Older cache blocks or less frequently accessed context may be candidates for tiering. DRAM and HBF can support overflow or warm-cache strategies if software can manage migration intelligently. [...] The challenge is latency management. If the system moves data out of HBM and then needs it immediately, performance may suffer. Therefore, KV cache tiering requires prediction, scheduling, and prefetching. A standardized HBF layer can help by giving software developers a clear target for optimization.\n\n## 11. Data-Center Impact and Server Design",
+   "published_date": null,
+   "score": 0.28132463
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "From the second turn onward, the KV cache is mapped to the SSD: cached blocks are read from it, while newly generated blocks are written directly to it (as shown in the onboarding phase in Figure 9).\n\nFigure 9. Multi-turn evaluation scenario for hybrid storage using LMBenchmark.\n\nFigure 9. Multi-turn evaluation scenario for hybrid storage using LMBenchmark.\n\n## LMBenchmark results\n\n#### Workload characteristic [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] Baseline (no backing storage). This configuration measures the cost of regenerating the KV cache rather than reusing it. Prefix caching and KV offloading are disabled, requiring the KV cache to be recomputed from scratch during each prefill stage.\n\nSSD block storage target. This configuration evaluates KV cache reuse with storage on SSD. Prefix caching and KV offloading are enabled, allowing KV data to persist across turns. The KV cache resides in both HBM and SSD.",
+   "published_date": null,
+   "score": 0.25712845
+  },
+  {
+   "url": "https://aclanthology.org/2026.findings-acl.201.pdf",
+   "title": "HqeKV: Towards Hybrid Quantization and Eviction for KV ...",
+   "content": "K or V 1 →2-bit 2 →4-bit 4 →FP16 Sum K Cache 1.18% 2.16% 0 3.33% V Cache 1.3% 2.09% 0 3.39% Table 7: Transitions of KV Cache from lower precision to higher precision in decoding phase.\n4149 As shown in Table 7, only a minimal fraction of the KV Cache transitions from lower precision to higher precision. These low transition rates suggest that the occurrence of higher precision transitions can be effectively disregarded. [...] Let the average bit-width of compressed KV Cache to be Bavg and the ratios of 4, 2, 1 bit-widths and eviction to be δ1, δ2, δ3, δ4. Then the allocation of ratios for different precision can be expressed by Equation (3).\n( 4δ1 + 2δ2 + δ3 = Bavg δ1 + δ2 + δ3 + δ4 = 1 s.t. Bavg > 0, 0 ≤δ1, · · · δ4 ≤1. [...] 5.2 KV Cache Quantization KV Cache Quantization is an effective strategy to reduce memory use of KV Cache. Atom (Zhao et al., 2024) adopts uniform group quantization on KV Cache. KIVI (Liu et al., 2024) applies per-channel and per-token uniform group quanti-zation on Key Cache and Value Cache. KVQuant (Hooper et al., 2024) uses the K-means cluster-ing weighted by the fisher information matrix and quantizes Key Cache before RoPE, storing outliers separately in full precision. SKVQ (Duanmu et",
+   "published_date": null,
+   "score": 0.2104095
+  }
+ ]
+}

@@ -133,3 +133,20 @@ def cap_origin_share(evs: list[Evidence], limit: float = 0.5) -> list[Evidence]:
         idx = max(i for i, e in enumerate(web) if e.origin_group == top)
         web.pop(idx)
     return others + web
+
+
+REREPORT_SYS = """너는 출처 분류기이다. 웹 문서 하나의 제목과 주소만 보고, 이 문서가 특정 회사의 보도자료·공식 블로그 발표를
+옮겨 쓴 기사인지 판단한다. 독자적인 분석·실험·비평·인터뷰가 중심이면 null이다.
+회사 키는 google, skhynix, nvidia, samsung, micron, intel, amd, microsoft, amazon, meta, deepseek 중 하나이다.
+JSON: {"rereport_of": "google" | null}"""
+
+
+def rereport_family(e: Evidence) -> str:
+    """One cached decision per document (title + URL only), so every perspective sees the same origin family."""
+    from graph.runtime import llm_json
+
+    if e.kind != "web" or e.source_class == "vendor":
+        return ""
+    d = llm_json("generator", REREPORT_SYS, f"title: {e.title}\nurl: {e.source_url}", tag="origin:rereport")
+    fam = d.get("rereport_of")
+    return fam if fam in VENDOR_FAMILIES else ""

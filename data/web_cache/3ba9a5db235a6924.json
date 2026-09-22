@@ -1,0 +1,44 @@
+{
+ "query": "Google TurboQuant KV cache limitations ITME accuracy integration challenges research papers technical blogs",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:59:57+09:00",
+ "results": [
+  {
+   "url": "https://kentino.com/cs/blogs/ai-corner/turboquant-reading-the-kv-cache-compression-breakthrough",
+   "title": "TurboQuant: Reading the KV Cache Compression Breakthrough",
+   "content": "The full writeup is on the Google Research blog. TurboQuant will be presented at ICLR 2026 in Rio de Janeiro.\n\n## The broader wave\n\nTurboQuant is not alone. It is the most prominent recent entry in a fast-moving research area, and reading it without context overstates its novelty. Several other methods from late 2025 and early 2026 attack the same bottleneck from different angles.\n\n2025-2026 KV compression methods [...] The first stage is PolarQuant, a separate paper by the same group (Zandieh, Mirrokni et al., AISTATS 2026). The idea is structural rather than statistical.\n\nQuantizing high-dimensional vectors in Cartesian coordinates is awkward. The natural move — normalize to the unit sphere, then quantize the direction — turns out to be expensive, because computing the norm of every vector is the bottleneck you were trying to escape. Earlier methods paid that cost and still lost accuracy at low bit widths. [...] | Method | Venue | Approach | Headline result |\n ---  --- |\n| TurboQuant | ICLR 2026 | PolarQuant + QJL, online inference | 3 bits, 6× memory, up to 8× attention speedup, zero accuracy loss |\n| KVTC (NVIDIA) | ICLR 2026 | Transform coding — PCA + adaptive quantization + entropy coding | Up to 20× compression for offline cache storage and reuse |\n| ChunkKV | OpenReview, Sept 2025 | Semantic-chunk compression unit | Up to +8.7% precision at the same compression ratio |",
+   "published_date": null,
+   "score": 0.65861565
+  },
+  {
+   "url": "https://news.ycombinator.com/item?id=47513475",
+   "title": "TurboQuant: Redefining AI efficiency with extreme ...",
+   "content": "\"The TurboQuant paper (ICLR 2026) contains serious issues in how it describes RaBitQ, including incorrect technical claims and misleading theory/experiment comparisons.\nWe flagged these issues to the authors before submission. They acknowledged them, but chose not to fix them. The paper was later accepted and widely promoted by Google, reaching tens of millions of views. [...] |  |  | mskkm 5 months ago  | prev | next (javascript:void(0))   seems to be a scam \"The TurboQuant paper (ICLR 2026) contains serious issues in how it describes RaBitQ, including incorrect technical claims and misleading theory/experiment comparisons. We flagged these issues to the authors before submission. They acknowledged them, but chose not to fix them. The paper was later accepted and widely promoted by Google, reaching tens of millions of views. We’re speaking up now because once a [...] ago  | prev | next (javascript:void(0))   The blog is new but the paper was submitted almost one year ago: . Anyone has ideas if this is already implemented in many models (at least Gemini, I guess)? If that's the case, can I expect cheaper RAM for my computer :D | | | |  |  |  |  ---  |  |  | mskkm 5 months ago  | prev | next (javascript:void(0))   seems to be a scam \"The TurboQuant paper (ICLR 2026) contains serious issues in how it describes RaBitQ, including incorrect technical claims and",
+   "published_date": null,
+   "score": 0.5087155
+  },
+  {
+   "url": "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression",
+   "title": "TurboQuant: Redefining AI efficiency with extreme ...",
+   "content": "About \n\nSearch\n\nImage 55: TurboQuant: Redefining AI efficiency with extreme compression\n\n1.   Home\n2.   Blog\n\n# TurboQuant: Redefining AI efficiency with extreme compression\n\nMarch 24, 2026\n\nAmir Zandieh, Research Scientist, and Vahab Mirrokni, VP and Google Fellow, Google Research\n\nWe introduce a set of advanced theoretically grounded quantization algorithms that enable massive compression for large language models and vector search engines.\n\n## Quick links [...] Today, we introduce TurboQuant (to be presented at ICLR 2026), a compression algorithm that optimally addresses the challenge of memory overhead in vector quantization. We also present Quantized Johnson-Lindenstrauss (QJL), and PolarQuant (to be presented at AISTATS 2026), which TurboQuant uses to achieve its results. In testing, all three techniques showed great promise for reducing key-value bottlenecks without sacrificing AI model performance. This has potentially profound implications for [...] ## How TurboQuant works\n\nTurboQuant is a compression method that achieves a high reduction in model size with zero accuracy loss, making it ideal for supporting both key-value (KV) cache compression and vector search. It accomplishes this via two key steps:",
+   "published_date": null,
+   "score": 0.5060794
+  },
+  {
+   "url": "https://blog.everpuredata.com/purely-technical/turboquant-compresses-kv-cache-by-5x-does-that-mean-you-need-less-memory",
+   "title": "TurboQuant Compresses KV Cache by 5X. Does That Mean You ...",
+   "content": "Google Research dropped TurboQuant on March 24, and it compresses that cache down to 3 bits per coordinate with zero measurable accuracy loss. Not weight quantization. Not activation compression. The KV cache specifically, the thing that actually dominates your memory at inference time. I want to walk through the math in a way that’s easy to follow, then talk about what it means for your infrastructure.\n\n## What did Google do that’s actually new here? [...] ### Summary\n\nTurboQuant is a new compression algorithm from Google Research that delivers 5X KV cache compression with near-zero accuracy loss, freeing scarce GPU memory so LLMs can support longer contexts, more users, and bigger models on existing infrastructure.\n\nimage_pdfimage_print [...] generation heavy (decode). This is where you want to be on the prefill/decode curve.",
+   "published_date": null,
+   "score": 0.43597415
+  },
+  {
+   "url": "https://boringbot.substack.com/p/turboquant-the-new-and-controversial",
+   "title": "TurboQuant: the new(?) and controversial ground breaking ...",
+   "content": "Google drops a research paper promising to compress KV caches to 3-bit precision with zero accuracy loss, and the AI community collectively raises an eyebrow.\n\nIt’s the kind of headline that spreads fast on AI Twitter/X, 8x throughput, 6x memory reduction, no degradation, and it’s exactly the kind of claim that deserves more than a retweet before anyone starts restructuring their GPU infrastructure around it. [...] The key-value (KV) cache is the memory structure that allows transformer models to “remember” everything they’ve seen in a conversation or document during inference. Without it, the model would have to reprocess the entire context from scratch on every token generation step. The problem is architectural and unforgiving: KV cache memory grows linearly with both sequence length and batch size, which means serving real users at scale pushes it past comfortable limits fast. [...] TurboQuant KV cache compression targets exactly this bottleneck, which is why the research got immediate attention from practitioners who have been living inside this constraint for years. The promise of AI memory quantization that doesn’t compromise output quality is one of the most commercially valuable things a research team could deliver right now.\n\n### What Google claims TurboQuant actually does",
+   "published_date": null,
+   "score": 0.36514026
+  }
+ ]
+}

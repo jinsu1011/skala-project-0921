@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache stakeholder positive evaluations group_b group_c specific evidence",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T12:00:26+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "## 6. Evaluation\n\n### 6.1. Performance: GPU Memory (T1) vs. ITME\n\nThe performance of ITME is evaluated using the ShareGPT dataset with a configuration of 128 concurrent conversations, each spanning up to 5 turns with a minimum of 2000 tokens per conversation. As memory pressure intensifies in later stages, we focus on Turns 3–5, where the total KV cache footprint reaches 40 GB. [...] effectiveness in managing the cumulative growth of the KV cache footprint and its ability to mask retrieval latencies from the CXL-hybrid memory (T3.5) tier through software prefetching. [...] Multi-tier KV Cache and Prefetching.",
+   "published_date": null,
+   "score": 0.36033198
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] Korea Investment & Securities\n\nSeoul Economic Daily\n\nSeoul Economic Daily\n\nKorea Investment & Securities",
+   "published_date": null,
+   "score": 0.31564152
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate",
+   "published_date": null,
+   "score": 0.29652742
+  },
+  {
+   "url": "https://www.investing.com/news/stock-market-news/sk-hynix-outlook-revised-to-positive-by-sp-and-fitch-on-memory-chip-strength-93CH-4209005",
+   "title": "SK Hynix outlook revised to positive by S&P and Fitch on memory chip strength By Investing.com",
+   "content": "© Reuters.\n\nInvesting.com -- SK Hynix received positive outlook revisions from both S&P Global Ratings and Fitch Ratings on Monday, with both agencies affirming the company’s ’BBB’ credit rating.\n\nThe rating actions reflect SK Hynix’s strengthening financial profile and its leading position in high-bandwidth memory (HBM) chips, which are experiencing strong demand due to artificial intelligence applications. [...] According to OMDIA research cited by Fitch, SK Hynix became the largest global DRAM supplier by revenue in the first quarter of 2025, capturing a 37% market share. [...] | Name | Last | Chg. % | Vol. |  |\n ---  --- \n| MSTR | 153.92 | +16.39% | 54.67M |  |\n| SNDK | 1,791.82 | +10.99% | 17.79M |  |\n| LRCX | 288.11 | +6.98% | 19.64M |  |\n| STX | 858.79 | +6.93% | 6.98M |  |\n| AMAT | 444.57 | +6.51% | 14.30M |  |\n| TER | 371.47 | +5.19% | 4.29M |  |\n| KLAC | 176.99 | +4.74% | 20.07M |  |",
+   "published_date": null,
+   "score": 0.21817793
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.16775002
+  }
+ ]
+}
