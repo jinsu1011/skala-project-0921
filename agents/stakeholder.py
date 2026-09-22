@@ -3,8 +3,8 @@
 The developer's own statements (Google for TurboQuant, SK hynix for ITME) are cited for reference but never scored."""
 from __future__ import annotations
 
-from agents.perspective import (Collected, CriterionSpec, PerspectiveSpec, collect, origin_sets, pro_con_sufficient,
-                                prompt, RUBRIC, weighted)
+from agents.perspective import (Collected, CriterionSpec, PerspectiveSpec, apply_condition_mismatch, collect,
+                                id_conflict_warnings, origin_sets, pro_con_sufficient, prompt, RUBRIC, weighted)
 from graph.runtime import audit, llm_json
 from graph.state import Criterion, PerspectiveResult, TechAssessment
 from tools.evidence import developer_groups
@@ -88,10 +88,12 @@ def assess(t, col: Collected, tag: str) -> TechAssessment:
     if len(pro_o) < 2 or len(con_o) < 2:
         lim.append(f"개발사 제외 기술 고유 근거: 지지 {len(pro_o)}계열, 우려 {len(con_o)}계열(2계열 미만은 근거 부족)")
     scored = [e for e in col.evidence if e.origin_group not in exclude]
+    conf = "high" if len(pro_o) >= 2 and len(con_o) >= 2 else ("mid" if pro_o and con_o else "low")
+    conf, lim = apply_condition_mismatch(crit, col, conf, lim)
     return TechAssessment(
         criteria=crit, score=weighted(crit), summary=data.get("summary", ""),
         pro_ids=sorted({i for c in crit for i in c.pro_ids}), con_ids=sorted({i for c in crit for i in c.con_ids}),
-        limitations=lim, confidence="high" if len(pro_o) >= 2 and len(con_o) >= 2 else ("mid" if pro_o and con_o else "low"),
+        limitations=lim, confidence=conf,
         tech_mention_ids=sorted(e.evidence_id for e in scored if col.ann.get(e.evidence_id, {}).get("mention") == "tech"),
         ecosystem_mention_ids=sorted(e.evidence_id for e in scored
                                      if col.ann.get(e.evidence_id, {}).get("mention") == "ecosystem"))
@@ -107,6 +109,7 @@ def stakeholder_evaluator(state: dict) -> dict:
         ta = assess(t, col, tag)
         by_tech[t.tech_id] = ta
         evidence += col.evidence
+        warns += id_conflict_warnings(state, col.evidence)
         if ta.score is None:
             warns.append(f"이해관계자 관점 {t.name}: 빠진 가중치가 50%를 넘어 판단 보류")
         events += audit("stakeholder_evaluator", tech=t.tech_id, attempt=attempt, rounds=col.rounds,

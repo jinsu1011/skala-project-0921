@@ -1,6 +1,7 @@
 """paper_retrieve tool (B.7): hybrid search over the Doc Pool, returning Evidence with P:<chunk_id> ids."""
 from __future__ import annotations
 
+import threading
 from typing import Optional
 
 from langchain_core.tools import tool
@@ -21,12 +22,17 @@ def to_english(query: str) -> str:
     return llm_text("generator", REWRITE_SYS, query, tag="query_en").strip().strip('"')
 
 
+_SEARCH_LOCK = threading.Lock()  # the embedding/reranker models are not thread-safe on MPS: one search at a time
+
+
 def search_papers(query: str, camp: Optional[str] = None, tech: Optional[str] = None, role: Optional[str] = None,
                   k: Optional[int] = None, query_en: Optional[str] = None) -> list[Evidence]:
     cfg = config()["retrieval"]
     k = k or cfg["top_k"]
     q_en = query_en or to_english(query)
-    hits = rt().retriever().search(query, k=k, query_en=q_en, camp=camp, tech=tech, role=role, pool=cfg["rerank_pool"])
+    with _SEARCH_LOCK:
+        hits = rt().retriever().search(query, k=k, query_en=q_en, camp=camp, tech=tech, role=role,
+                                       pool=cfg["rerank_pool"])
     out = []
     for h in hits:
         c = h.chunk

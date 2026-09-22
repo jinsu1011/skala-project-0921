@@ -26,3 +26,8 @@ dependencies = [
     "tiktoken>=0.14.0",
     "transformers>=4.51",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import json
 
-from agents.perspective import (Collected, CriterionSpec, PerspectiveSpec, collect, prompt)
+from agents.perspective import (Collected, CriterionSpec, PerspectiveSpec, collect, id_conflict_warnings, prompt)
 from graph.runtime import audit, llm_json
 from graph.state import (Criterion, PerspectiveResult, SelectionCheck, SelectionValidation, TechAssessment, TechBrief)
 from tools.evidence import developer_groups
@@ -163,6 +163,7 @@ def trl_assessor(state: dict) -> dict:
         ta = trl_assess_tech(t, col, tag)
         by_tech[t.tech_id] = ta
         evidence += col.evidence
+        warns += id_conflict_warnings(state, col.evidence)
         if ta.trl_low is None:
             warns.append(f"TRL {t.name}: 범위를 추정할 근거 부족")
         events += audit("trl_assessor", tech=t.tech_id, attempt=attempt, rounds=col.rounds, queries=col.queries,
