@@ -525,7 +525,7 @@ passed = LLM_OK and COMMON and PER_PERSPECTIVE[perspective]
 - 모든 주장에 근거를 붙이고, REFERENCE에는 본문에 인용한 자료만 적는다. 형식은 논문 `저자(연도). 제목. 학회/학술지, 권(호), 쪽.`, 웹 `기관(YYYY-MM-DD). 제목. 사이트, URL`, 특허 `출원인(YYYY-MM). 특허명, 번호, URL`이다.
 - 기술 간 우열이나 추천을 쓰지 않는다.
 - TRL은 공개 정보로 추정한 값임을 밝히고 범위와 신뢰도로 적는다.
-- 파일명은 `RAG-Output_판교_9반_김정인+김진수+전진만+정원준.pdf`이다.
+- 파일명은 `RAG-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf`이다.
 
 ---pagebreak---
 

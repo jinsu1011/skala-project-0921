@@ -177,3 +177,6 @@
 **D42. `index_builder`를 `selection_validator`보다 먼저 실행한다.**
 - 근거: `selection_validator`는 원문을 보고 선정을 검증하고(A.6, D1) 결과에 원문 근거를 남기는데, PDF를 읽고 인덱싱하는 노드는 `index_builder`뿐이다(D5). 기존 순서(`initialize → selection_validator → index_builder`)로는 검증 시점에 원문을 볼 수 없다. 순서를 `initialize → index_builder → selection_validator → query_planner`로 바꾸고, `index_status`를 읽는 노드에 `selection_validator`를 더했다. 노드 수, 분기, 루프 한도는 바꾸지 않았다.
 - 대안: `selected_techs`의 선정 이유만으로 검증(원문 근거가 없어 D1의 추적성 목적과 맞지 않음).
+
+**D43. 팀원 명단에 김지수(P285)를 다시 넣는다.**
+- 근거: 팀 확인 결과 제출 명단은 5명(김정인, 김지수, 김진수, 전진만, 정원준)이다. `config.yaml`의 `team.members`를 고쳐 설계서 표지와 파일명(`RAG-Design_판교-9반_김정인+김지수+김진수+전진만+정원준`), 평가 보고서 파일명(`RAG-Output_판교_9반_김정인+김지수+김진수+전진만+정원준`)에 함께 반영했다.
