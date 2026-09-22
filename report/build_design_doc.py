@@ -128,6 +128,9 @@ def fill(md: str) -> str:
         "메모리(MB)": [b1.loc[m, "mps_alloc_mb"] for m in order],
     })
     rep["{{EMB_ALL}}"] = _md_table(eall, "3.1,1.6,1.4,1.2,1.2,2.4,2.3,1.3,1.5")
+    short = {"qwen3-embedding-0.6b": "Qwen3"}  # the two models that pass the length requirement
+    rep["{{EMB_V1_SWHW}}"] = ", ".join(
+        f"{short.get(m, m)} {b1.loc[m, 'mrr@10_SW']:.3f} / {b1.loc[m, 'mrr@10_HW']:.3f}" for m in order[:2])
     names2 = {k: v.replace("**", "") for k, v in names.items()}
     names2[H3 + RERANK] = "**3중 RRF + reranker (채택)**"
     names2[H2 + RERANK] = "2중 RRF + reranker"
