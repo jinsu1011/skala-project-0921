@@ -24,7 +24,7 @@ PUBLISHER = {"google": "Google", "skhynix": "SK hynix", "nvidia": "NVIDIA", "sam
              "intel": "Intel", "amd": "AMD", "microsoft": "Microsoft", "amazon": "Amazon", "meta": "Meta"}
 ACCESS_DATE = "2026-09-22"
 ID_RE = re.compile(r"\[((?:[PW]:[^\]\s,]+)(?:\s*,\s*[PW]:[^\]\s,]+)*)\]")
-CITE_RE = re.compile(r"\[\d+(?:, p\.\d+)?(?:; \d+(?:, p\.\d+)?)*\]")
+CITE_RE = re.compile(r"\[\d+(?:, p\.[\d·]+)?(?:; \d+(?:, p\.[\d·]+)?)*\]")
 KO = {"trl": "TRL", "market": "시장성", "stakeholder": "이해관계자", "domain": "도메인 적합성"}
 SUMMARY_MAX_CHARS = 760   # about half an A4 page of the SKALA template at 10 pt (checked on the rendered PDF)
 CHECKED_SECTIONS = ("SUMMARY", "3.", "4.", "5.")
@@ -44,7 +44,7 @@ class Citer:
         return f"paper:{e.doc_id}" if e.kind == "paper" else e.evidence_id
 
     def cite(self, ids: list[str]) -> str:
-        parts = []
+        order, pages = [], {}
         for i in ids:
             e = self.ev.get(i)
             if e is None:
@@ -54,9 +54,13 @@ class Citer:
                 self.num[k] = len(self.refs) + 1
                 self.refs.append((k, e, []))
             self.refs[self.num[k] - 1][2].append(i)
-            part = f"{self.num[k]}, p.{e.page}" if e.kind == "paper" and e.page else str(self.num[k])
-            if part not in parts:
-                parts.append(part)
+            n = self.num[k]
+            if n not in pages:
+                order.append(n)
+                pages[n] = []
+            if e.kind == "paper" and e.page and e.page not in pages[n]:
+                pages[n].append(e.page)
+        parts = [f"{n}, p.{'·'.join(str(p) for p in sorted(pages[n]))}" if pages[n] else str(n) for n in order]
         return f"[{'; '.join(parts)}]" if parts else ""
 
     def sub(self, text: str) -> str:
@@ -435,8 +439,15 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add("")
     add("---pagebreak---")
     add("")
-    # ---------------- REFERENCE
-    refs = ct.references()
+    # ---------------- REFERENCE (papers first, then web; numbers follow first citation within each group)
+    old = ct.references()
+    ordered = [r for r in old if r.kind == "paper"] + [r for r in old if r.kind != "paper"]
+    remap = {r.num: i for i, r in enumerate(ordered, 1)}
+    refs = [r.model_copy(update={"num": remap[r.num]}) for r in ordered]
+    body = "\n".join(L)
+    body = CITE_RE.sub(lambda m: re.sub(r"(?<=[\[;] )(\d+)|(?<=\[)(\d+)",
+                                        lambda n: str(remap[int(n.group(0))]), m.group(0)), body)
+    L[:] = body.split("\n")
     add("# REFERENCE")
     for kind, ko in (("paper", "논문"), ("web", "웹페이지"), ("patent", "특허")):
         items = [r for r in refs if r.kind == kind]
@@ -459,6 +470,27 @@ def report_writer(state: dict) -> dict:
     md, refs = build_markdown(state, nar)
     return {"report_markdown": md, "references": refs,
             "audit_log": audit("report_writer", revision=bool(revision), refs=len(refs), chars=len(md))}
+
+
+# ---------------------------------------------------------------- table of contents (E.1)
+def toc_entries(md: str) -> list[tuple[int, str]]:
+    out = []
+    for ln in md.split("\n"):
+        m = re.match(r"^(#{1,2}) (.+)", ln)
+        if m and m.group(2) != "목차":
+            out.append((len(m.group(1)), m.group(2).strip()))
+    return out
+
+
+def with_toc(md: str, pages: dict[str, int] | None = None) -> str:
+    """Insert a 목차 page before SUMMARY. `pages` maps heading text to the printed page (second render pass)."""
+    body = re.sub(r"^# 목차\n.*?---pagebreak---\n\n", "", md, flags=re.S)
+    rows = []
+    for lvl, text in toc_entries(body):
+        pg = str(pages.get(text, "")) if pages else ""
+        rows.append([("**" + text + "**") if lvl == 1 else "\u2003" + text, pg])
+    toc = "# 목차\n\n" + _table(["장·절", "쪽"], rows, "14.0,2.0") + "\n\n---pagebreak---\n\n"
+    return toc + body
 
 
 # ---------------------------------------------------------------- checks used by final_check

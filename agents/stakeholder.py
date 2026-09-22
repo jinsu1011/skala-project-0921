@@ -21,6 +21,7 @@ SPEC = PerspectiveSpec(
          ("neutral", "{sn} developers community discussion"),
          ("neutral", "{sn} analyst investor stock reaction")],
         [("con", "{sn} skepticism concerns criticism"),
+         ("con", "{sn} hype overstated claims"),
          ("pro", "{sn} industry support endorsement")],
         [("con", "{sn} doubts limitations analyst view"),
          ("neutral", "{sn} opinion industry experts")],
