@@ -233,9 +233,33 @@ def assess(spec: PerspectiveSpec, tech: Technology, col: Collected, tag: str) ->
         lim.append(f"기술 고유 장점 근거가 독립 계열 {len(pro_o)}개로 2계열 미만(근거 부족)")
     if len(con_o) < 2:
         lim.append(f"기술 고유 한계 근거가 독립 계열 {len(con_o)}개로 2계열 미만(근거 부족)")
+    conf = "high" if len(pro_o) >= 2 and len(con_o) >= 2 else ("mid" if pro_o and con_o else "low")
+    conf, lim = apply_condition_mismatch(crit, col, conf, lim)
     return TechAssessment(criteria=crit, score=weighted(crit), summary=data.get("summary", ""), pro_ids=pro_ids,
-                          con_ids=con_ids, limitations=lim,
-                          confidence="high" if len(pro_o) >= 2 and len(con_o) >= 2 else ("mid" if pro_o and con_o else "low"))
+                          con_ids=con_ids, limitations=lim, confidence=conf)
+
+
+def apply_condition_mismatch(crit: list[Criterion], col: Collected, conf: str, lim: list[str]) -> tuple[str, list[str]]:
+    """C.6: evidence whose experimental conditions do not match W1/W2 or the public claim is marked '조건 불일치'
+    and lowers the confidence one step."""
+    mism = sorted(i for i, a in col.ann.items() if a.get("condition_mismatch") and a.get("relevant"))
+    used = {i for c in crit for i in c.evidence_ids}
+    hit = [i for i in mism if i in used]
+    if not hit:
+        return conf, lim
+    for c in crit:
+        if set(c.evidence_ids) & set(hit):
+            c.rationale = (c.rationale + " (조건 불일치 근거 포함: " + ", ".join(sorted(set(c.evidence_ids) & set(hit))) + ")").strip()
+    lim = lim + [f"조건 불일치 근거 {len(hit)}건이 있어 신뢰도를 한 단계 낮춤"]
+    return {"high": "mid", "mid": "low", "low": "low"}[conf], lim
+
+
+def id_conflict_warnings(state: dict, new: list[Evidence]) -> list[str]:
+    """D.2: the same evidence id arriving with different source content is kept once and reported as a warning."""
+    old = {e.evidence_id: e for e in state.get("evidence", [])}
+    return [f"근거 ID 충돌: {e.evidence_id}의 원문 내용이 이전 기록과 다름(기존 항목 유지)" for e in new
+            if e.evidence_id in old and old[e.evidence_id].summary and e.summary
+            and old[e.evidence_id].summary[:200] != e.summary[:200]]
 
 
 def run_perspective(spec: PerspectiveSpec, state: dict, sufficient_factory=None):
@@ -251,6 +275,7 @@ def run_perspective(spec: PerspectiveSpec, state: dict, sufficient_factory=None)
         ta = assess(spec, t, col, tag)
         by_tech[t.tech_id] = ta
         evidence += col.evidence
+        warns += id_conflict_warnings(state, col.evidence)
         if ta.score is None and spec.key != "trl":
             warns.append(f"{spec.name_ko} 관점 {t.name}: 빠진 가중치가 50%를 넘어 판단 보류")
         events += audit(spec.key, tech=t.tech_id, attempt=attempt, rounds=col.rounds, queries=col.queries,

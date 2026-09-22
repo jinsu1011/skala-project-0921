@@ -118,7 +118,10 @@ def _narrative(state: dict, revision: str) -> dict:
         "synthesis": {"conflicts": [{"tech": c.tech_id, "pair": c.pair, "gap": c.gap, "label": c.label,
                                      "explanation": c.explanation} for c in syn.conflicts],
                       "hypotheses": {h: v.model_dump() for h, v in syn.hypotheses.items()},
-                      "unsupported_sentences_to_avoid": [syn.statements[s] for s in drop if s in syn.statements]},
+                      "unsupported_sentences_to_avoid": [syn.statements[s] for s in drop if s in syn.statements] + [
+                          x for p in ("trl", "market", "stakeholder", "domain")
+                          for x in (state.get("judge_scores", {}).get(p).unsupported_claim_ids
+                                    if state.get("judge_scores", {}).get(p) else [])]},
         "evidence": [{"id": i, "tech": ev[i].tech, "origin": ev[i].origin_group, "claim": ev[i].claim}
                      for i in sorted(used) if i in ev],
     }

@@ -40,7 +40,7 @@ def initialize(state: dict) -> dict:
 
 
 def index_builder(state: dict) -> dict:
-    import fitz
+    import pymupdf as fitz
 
     from rag.loader import PAPER_DIR
 

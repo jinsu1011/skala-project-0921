@@ -17,6 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 
 
 def parse_tech(s: str | None) -> dict[str, str] | None:
