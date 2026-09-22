@@ -43,7 +43,7 @@
 | (v1.4) 최악 superstep·recursion_limit | 통과. 약 30 / 50, LangGraph 1.2.x 고정 |
 | (v1.4) 도메인 1개(과제 안내) | 통과. 데이터센터 장문맥 서빙, W1·W2는 평가 조건 |
 | (v1.4) 에이전트 채점 Rubric | 통과. C.6 점수 앵커·기준별 신호·사람 표본 점검 |
-| (v1.4) H1 격자·TRL 검사·개발사 발언 제외 | 통과. 상세는 `docs/REVISION_v1.4.md` 2절 |
+| (v1.4) H1 격자·TRL 검사·개발사 발언 제외 | 통과. 상세는 `docs/archive/REVISION_v1.4.md` 2절 |
 
 ## Phase 4: 개발 결과와 설계 일치 점검 (2026-09-22)
 

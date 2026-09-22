@@ -9,6 +9,7 @@ import hashlib
 import json
 import os
 import re
+import time
 from typing import Optional
 
 import requests
@@ -52,8 +53,12 @@ def tavily(query: str, days: Optional[int] = None, topic: str = "general", max_r
         body["days"] = days
     elif (tr := _time_range(days)):
         body["time_range"] = tr
-    resp = requests.post(TAVILY_URL, json=body, timeout=60,
-                         headers={"Authorization": f"Bearer {os.environ['TAVILY_API_KEY']}"})
+    for wait in (0, 5, 15, 30, 60):  # back off on rate limits (429) instead of failing the whole run
+        time.sleep(wait)
+        resp = requests.post(TAVILY_URL, json=body, timeout=60,
+                             headers={"Authorization": f"Bearer {os.environ['TAVILY_API_KEY']}"})
+        if resp.status_code != 429:
+            break
     resp.raise_for_status()
     results = [{k: x.get(k) for k in ("url", "title", "content", "published_date", "score")}
                for x in resp.json().get("results", [])]
@@ -73,7 +78,7 @@ def readable(title: str, content: str) -> bool:
 
 
 def search_web(query: str, days: Optional[int] = None, stance: str = "neutral", tech: str = "",
-               perspective: str = "", attempt: int = 0, max_results: int = 5) -> list[Evidence]:
+               perspective: str = "", attempt: int = 0, max_results: int = 8) -> list[Evidence]:
     out = []
     for x in tavily(query, days=days, max_results=max_results):
         url = x.get("url") or ""

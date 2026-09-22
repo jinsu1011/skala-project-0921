@@ -77,6 +77,7 @@ def rubric_score(pro: set[str], con: set[str], neutral: set[str]) -> Optional[fl
     """C.6 evidence conditions. None = 판단 보류 (<= 1 origin family for the criterion)."""
     if len(pro | con | neutral) <= 1:
         return None
+    # neutral-only evidence from >= 2 families scores 3: C.6 row 3 "평가 없이 사실만 전한다 / 중립 서술 위주"
     p, c = len(pro), len(con)
     if p >= 2 and c == 0:
         return 5.0
@@ -173,12 +174,24 @@ def collect(spec: PerspectiveSpec, tech: Technology, attempt: int, feedback: str
         a = col.ann.get(e.evidence_id)
         if not a or not a.get("relevant"):
             continue
+        if a.get("scope") == "tech_specific" and not names_tech(e, tech):
+            a["scope"] = "category"   # C.6 concretised: tech-specific evidence must name the technology (D52)
         stances = sorted({s.get("stance") for s in a.get("signals", []) if s.get("stance") in ("pro", "con", "neutral")})
         kept.append(e.model_copy(update={"claim": a.get("claim", ""), "scope": a.get("scope", "tech_specific")
                                          if a.get("scope") in ("tech_specific", "category") else "tech_specific",
                                          "stances": stances or ["neutral"]}))
     col.evidence = cap_origin_share(kept)
     return col
+
+
+def names_tech(e: Evidence, tech: Technology) -> bool:
+    """True when the evidence title or text names the technology (config aliases, case-insensitive). The primary
+    paper's own chunks count as naming it."""
+    if e.kind == "paper":
+        return e.tech == tech.tech_id
+    aliases = config()["tech_meta"].get(tech.tech_id, {}).get("aliases", [tech.name])
+    text = f"{e.title} {e.summary}".lower()
+    return any(a.lower() in text for a in aliases)
 
 
 def pro_con_sufficient(exclude: list[str]):
@@ -254,8 +267,37 @@ def assess(spec: PerspectiveSpec, tech: Technology, col: Collected, tag: str) ->
         lim.append(f"기술 고유 한계 근거가 독립 계열 {len(con_o)}개로 2계열 미만(근거 부족)")
     conf = "high" if len(pro_o) >= 2 and len(con_o) >= 2 else ("mid" if pro_o and con_o else "low")
     conf, lim = apply_condition_mismatch(crit, col, conf, lim)
-    return TechAssessment(criteria=crit, score=weighted(crit), summary=data.get("summary", ""), pro_ids=pro_ids,
-                          con_ids=con_ids, limitations=lim, confidence=conf)
+    co, ad = h4_tags(col)
+    return TechAssessment(criteria=crit, score=weighted(crit), summary=tool_summary(spec, tech, col, data, tag),
+                          pro_ids=pro_ids, con_ids=con_ids, limitations=lim, confidence=conf, co_use_ids=co,
+                          adopter_ids=ad, claims=local_claims(col))
+
+
+def local_claims(col: Collected) -> dict[str, str]:
+    """Keep this perspective's own claim per evidence id: the shared, merged Evidence keeps only the first one."""
+    return {e.evidence_id: e.claim for e in col.evidence if e.claim}
+
+
+def tool_summary(spec: PerspectiveSpec, tech: Technology, col: Collected, data: dict, tag: str) -> str:
+    """Perspective summary via the summarize_sources tool (B.7): every sentence keeps its evidence ids."""
+    from tools.summarize import summarize
+
+    evs = [e for e in col.evidence if col.ann.get(e.evidence_id, {}).get("scope") == "tech_specific"] or col.evidence
+    sents = summarize(evs[:30], f"{tech.name}의 {spec.name_ko} 평가: 장점과 한계를 함께", tag=f"{tag}:summary")
+    text = " ".join(f"{x['text'].rstrip('.')} [{', '.join(x['evidence_ids'])}]." if "[" not in x["text"] else x["text"]
+                    for x in sents)
+    return text or data.get("summary", "")
+
+
+def h4_tags(col: Collected) -> tuple[list[str], dict[str, list[str]]]:
+    kept = {e.evidence_id for e in col.evidence}
+    co = sorted(i for i, a in col.ann.items() if i in kept and a.get("relevant") and a.get("co_use") is True)
+    ad: dict[str, list[str]] = {}
+    for i, a in col.ann.items():
+        k = a.get("adopter")
+        if i in kept and a.get("relevant") and k in ("existing_gpu", "new_infra", "both"):
+            ad.setdefault(k, []).append(i)
+    return co, {k: sorted(v) for k, v in ad.items()}
 
 
 def apply_condition_mismatch(crit: list[Criterion], col: Collected, conf: str, lim: list[str]) -> tuple[str, list[str]]:

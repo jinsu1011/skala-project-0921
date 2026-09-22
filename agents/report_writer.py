@@ -34,6 +34,25 @@ def _fmt(x) -> str:
     return "판단 보류" if x is None else (f"{x:.2f}" if isinstance(x, float) else str(x))
 
 
+def url_date(url: str) -> str:
+    """Publication date from dated URL paths (/2026/03/24/, /2026-03-24, /20260324...), else ''."""
+    m = re.search(r"/(20\d{2})[/-](\d{1,2})[/-](\d{1,2})(?:/|-|$)", url) or re.search(r"/(20\d{2})(\d{2})(\d{2})\d{0,4}(?:/|$)", url)
+    if m:
+        y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        if 1 <= mo <= 12 and 1 <= d <= 31:
+            return f"{y:04d}-{mo:02d}-{d:02d}"
+    m = re.search(r"/(20\d{2})/(\d{1,2})/", url)
+    return f"{int(m.group(1)):04d}-{int(m.group(2)):02d}" if m and 1 <= int(m.group(2)) <= 12 else ""
+
+
+def split_site(title: str, fallback: str) -> tuple[str, str]:
+    """'Headline - Site Name' / 'Headline | Site' -> (headline, site name); keeps the domain when no suffix."""
+    m = re.match(r"^(.{15,}?)\s+[-|·–]\s+([^-|·–]{2,40})$", title.strip())
+    if m and not re.search(r"\.\.\.|…", m.group(2)):
+        return m.group(1).strip(), m.group(2).strip()
+    return title.strip(), fallback
+
+
 class Citer:
     """Maps evidence ids to reference numbers in order of first citation (papers grouped per arXiv id)."""
 
@@ -74,10 +93,10 @@ class Citer:
                 out.append(Reference(num=n, kind="paper", text=PAPER_REFS.get(e.doc_id, f"{e.title}. arXiv, {e.doc_id}."),
                                      evidence_ids=sorted(set(ids))))
             else:
-                org = PUBLISHER.get(e.source_group, e.source_group)
-                date = e.published_at or f"{ACCESS_DATE} 접속"
                 site = re.sub(r"^https?://(www\.)?", "", e.source_url).split("/")[0]
-                title = (e.title or site).replace("|", "·")
+                title, org = split_site(e.title or site, PUBLISHER.get(e.source_group, e.source_group))
+                date = e.published_at or url_date(e.source_url) or f"{ACCESS_DATE} 접속"
+                title = title.replace("|", "·")
                 out.append(Reference(num=n, kind="web", text=f"{org}({date}). {title}. {site}, {e.source_url}",
                                      evidence_ids=sorted(set(ids))))
         return out
@@ -103,6 +122,7 @@ def _narrative(state: dict, revision: str) -> dict:
                if state.get("judge_scores", {}).get("synthesis") else [])
     persp = {}
     used = set()
+    claims: dict[str, str] = {}
     for p in ("trl", "market", "stakeholder", "domain"):
         r = state.get(f"{p}_result")
         persp[p] = {}
@@ -113,6 +133,7 @@ def _narrative(state: dict, revision: str) -> dict:
             ids = sorted({i for c in ta.criteria for i in c.evidence_ids} | set(ta.pro_ids) | set(ta.con_ids)
                          | set(ta.low_ids) | set(ta.high_ids))
             used |= set(ids)
+            claims.update({i: c for i, c in ta.claims.items() if i not in claims})
             persp[p][t.name] = {"score": ta.score, "trl": [ta.trl_low, ta.trl_high], "confidence": ta.confidence,
                                 "summary": ta.summary, "limitations": ta.limitations,
                                 "criteria": [{"name": c.name, "score": c.score_1to5, "rationale": c.rationale,
@@ -126,8 +147,8 @@ def _narrative(state: dict, revision: str) -> dict:
                           x for p in ("trl", "market", "stakeholder", "domain")
                           for x in (state.get("judge_scores", {}).get(p).unsupported_claim_ids
                                     if state.get("judge_scores", {}).get(p) else [])]},
-        "evidence": [{"id": i, "tech": ev[i].tech, "origin": ev[i].origin_group, "claim": ev[i].claim}
-                     for i in sorted(used) if i in ev],
+        "evidence": [{"id": i, "tech": ev[i].tech, "origin": ev[i].origin_group,
+                      "claim": claims.get(i) or ev[i].claim} for i in sorted(used) if i in ev],
     }
     sys = prompt("report_writer.md").format(revision=revision)
     return llm_json("generator", sys, json.dumps(payload, ensure_ascii=False), tag=f"report_writer:{bool(revision)}")
@@ -268,8 +289,6 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         ["원 논문"] + [f"arXiv {t.paper_arxiv}" for t in techs],
         ["보고된 성능 근거"] + [ct.cite(brief_ids(t.tech_id, 2)) for t in techs]], "3.4,6.3,6.3"))
     add("")
-    add("---pagebreak---")
-    add("")
     # ---------------- 4
     add("# 4. 관점별 평가")
     add("## 4.0 평가 기준")
@@ -358,8 +377,6 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     if nar.get("domain"):
         add(ct.sub(neutralize(nar["domain"])))
     add("")
-    add("---pagebreak---")
-    add("")
     # ---------------- 5
     add("# 5. 시사점")
     add("## 5.1 관점 간 일치·상충 표")
@@ -397,7 +414,7 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         v = syn.hypotheses.get(h)
         if not v:
             continue
-        if h == "H1":
+        if h in ("H1", "H3"):
             reason = (v.rationale.replace("신뢰도 high", "신뢰도 높음").replace("신뢰도 mid", "신뢰도 보통")
                       .replace("신뢰도 low", "신뢰도 낮음") + " " + ct.cite(v.evidence_ids[:4]))
         else:
@@ -422,8 +439,6 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add(_table(["바꾼 기준(±0.5)", "판정이 바뀐 칸"], rows, "7.0,9.0"))
     add("")
     add("2.0·1.0과 격자 경계는 절대 기준이 아니라 분류를 일관되게 하려고 미리 정한 값이므로, 각 값을 0.5씩 바꿨을 때 판정이 달라지는 칸 수를 함께 보고한다.")
-    add("")
-    add("---pagebreak---")
     add("")
     # ---------------- 6
     add("# 6. 한계점")
@@ -472,8 +487,6 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         add("- 실행 중 기록된 경고: " + "; ".join(other[:8]))
     if idx:
         add(f"- RAG 문서는 Doc Pool 논문 {len(manifest)}편 {idx.total_pages}쪽(한도 {idx.page_cap}쪽), 청크 {idx.n_chunks}개이다.")
-    add("")
-    add("---pagebreak---")
     add("")
     # ---------------- REFERENCE (papers first, then web; numbers follow first citation within each group)
     old = ct.references()

@@ -93,7 +93,7 @@ def _payload(perspective: str, result, ev: dict, techs) -> str:
             "confidence": ta.confidence, "summary": ta.summary, "limitations": ta.limitations,
             "criteria": [{"name": c.name, "score": c.score_1to5, "rationale": c.rationale} for c in ta.criteria],
             "evidence": [{"id": i, "origin": ev[i].origin_group, "class": ev[i].source_class, "scope": ev[i].scope,
-                          "claim": ev[i].claim or ev[i].summary[:200]} for i in ids if i in ev],
+                          "claim": ta.claims.get(i) or ev[i].claim or ev[i].summary[:200]} for i in ids if i in ev],
         }
     return json.dumps({"perspective": perspective, "by_tech": body}, ensure_ascii=False)
 

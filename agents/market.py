@@ -12,7 +12,8 @@ SPEC = PerspectiveSpec(
     rounds=[
         [("pro", "{sn} adoption deployment industry demand"),
          ("pro", "{sn} integration ecosystem support framework"),
-         ("con", "{sn} limitations adoption barriers cost concerns")],
+         ("con", "{sn} limitations adoption barriers cost concerns"),
+         ("neutral", "{sn} combined with other KV cache techniques quantization offloading CXL memory tiering")],
         [("pro", "{sn} customers partners production use"),
          ("con", "{sn} criticism skeptical hype"),
          ("con", "{sn} not production ready research stage")],

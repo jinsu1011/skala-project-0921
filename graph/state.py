@@ -131,6 +131,10 @@ class TechAssessment(BaseModel):
     # stakeholder only: evidence ids tagged as about the technology itself vs its ecosystem/strategy (H2)
     tech_mention_ids: list[str] = Field(default_factory=list)
     ecosystem_mention_ids: list[str] = Field(default_factory=list)
+    # H4: evidence about combined use with the other camp, and adopter type (existing_gpu / new_infra / both)
+    claims: dict[str, str] = Field(default_factory=dict)  # this perspective's reading of each cited evidence id
+    co_use_ids: list[str] = Field(default_factory=list)
+    adopter_ids: dict[str, list[str]] = Field(default_factory=dict)
 
 
 class PerspectiveResult(BaseModel):

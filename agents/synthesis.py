@@ -66,6 +66,41 @@ def h1_verdict(cells: dict[str, str]) -> str:
     return "기각"
 
 
+def h3_verdict(h3: dict, names: dict, domain) -> Hypothesis:
+    """C.7 H3 per technology: a criterion whose W1 and W2 scores fall on opposite sides of 3 supports H3; none
+    means the technology's evidence leans against it; no W1/W2 scores = 판단 보류 (D51)."""
+    per, ids = {}, []
+    for t, v in h3.items():
+        if v["W1"] is None or v["W2"] is None:
+            per[t] = "판단 보류"
+        else:
+            per[t] = "지지" if v["split_criteria"] else "기각"
+        ta = domain.by_tech.get(t) if domain else None
+        if ta:
+            ids += [i for c in ta.criteria if c.evidence_ids for i in c.evidence_ids[:1]][:3]
+    vals = [x for x in per.values() if x != "판단 보류"]
+    if not vals:
+        verdict = "판단 보류"
+    elif all(x == "지지" for x in vals) and len(vals) == len(per):
+        verdict = "지지"
+    elif "지지" in vals:
+        verdict = "부분 지지"
+    elif len(vals) == len(per):
+        verdict = "기각"
+    else:
+        verdict = "판단 보류"
+    parts = []
+    for t, v in h3.items():
+        if per[t] == "판단 보류":
+            parts.append(f"{names[t]}: W1·W2 점수를 낼 근거가 부족해 판단 보류")
+        else:
+            sp = ", ".join(v["split_criteria"]) or "없음"
+            parts.append(f"{names[t]}: W1 {v['W1']}, W2 {v['W2']}, 3점을 사이에 두고 갈리는 기준 {sp} → {per[t]}")
+    note = "" if verdict != "판단 보류" or not vals else " (평가 가능한 기술이 일부뿐이라 가설 전체는 판단 보류)"
+    return Hypothesis(verdict=verdict, rationale="; ".join(parts) + note + " (C.7 기준, 코드 계산)",
+                      evidence_ids=sorted(set(ids)))
+
+
 def sensitivity(scores, trl_mid, market) -> dict:
     base = {(c.tech_id, c.pair): c.label for c in conflicts_for(scores)}
     rows = []
@@ -90,7 +125,7 @@ SYS = """너는 평가 종합 에이전트이다. 상충 판정과 H1 판정은 
 1) conflicts: 각 상충·부분 상충 항목(키)에 대해 두 관점 점수가 왜 갈리는지 1~2문장으로 설명하고 관련 가설 태그(H1~H4)를 단다.
 2) H2: 이해관계자 근거 중 기술 자체 언급과 생태계·전략 언급의 비중(코드 집계)을 보고 판정한다.
 3) H3: 도메인 평가에서 W1과 W2 점수가 3점을 사이에 두고 갈리는 기준(코드 집계)을 보고 판정한다.
-4) H4: 두 방식을 함께 쓰는 사례나 도입 주체의 차이를 보여 주는 근거가 있는지 보고 판정한다. 근거가 없으면 판단 보류.
+4) H4: h4_stats(함께 쓰는 사례 근거 co_use_ids, 도입 주체별 근거 adopters)를 보고 판정한다. 함께 쓰는 사례와 도입 주체 차이가 모두 있으면 지지, 한쪽만 있으면 부분 지지, 둘 다 없으면 판단 보류. evidence_ids에 사용한 근거 ID를 반드시 적는다.
 판정은 "지지", "부분 지지", "기각", "판단 보류" 중 하나이다.
 5) one_liners: 기술별·관점별 한 줄 요약(근거 ID 포함).
 JSON: {"conflicts": {"<키>": {"explanation": "...", "tags": ["H2"]}}, "hypotheses": {"H2": {"verdict": "...", "rationale": "...", "evidence_ids": [...]}, "H3": {...}, "H4": {...}}, "one_liners": {"<tech>": {"<perspective>": "..."}}}"""
@@ -141,14 +176,24 @@ def synthesizer(state: dict) -> dict:
             w[wl] = round(sum(c.score_1to5 for c in cs) / len(cs), 2) if len(cs) * 2 >= 5 else None
         h3[t.tech_id] = {"split_criteria": split, "W1": w["W1"], "W2": w["W2"],
                          "criteria": {k: v for k, v in by.items()}}
+    h4 = {}
+    for t in techs:
+        co, ad = set(), {}
+        for p in SCORED:
+            ta = results[p].by_tech.get(t.tech_id) if results[p] else None
+            if ta:
+                co |= set(ta.co_use_ids)
+                for k, v in ta.adopter_ids.items():
+                    ad.setdefault(k, set()).update(v)
+        h4[t.tech_id] = {"co_use_ids": sorted(co), "adopters": {k: sorted(v) for k, v in ad.items()}}
     ev = {e.evidence_id: e for e in state.get("evidence", [])}
     cited = sorted({i for p in SCORED if results[p] for ta in results[p].by_tech.values()
-                    for i in ta.pro_ids + ta.con_ids + ta.tech_mention_ids + ta.ecosystem_mention_ids})
+                    for i in ta.pro_ids + ta.con_ids + ta.tech_mention_ids + ta.ecosystem_mention_ids + ta.co_use_ids})
     payload = {
         "techs": {t.tech_id: t.name for t in techs}, "scores": scores, "trl": trl_txt,
         "conflicts": {f"{c.tech_id}:{c.pair[0]}-{c.pair[1]}": {"gap": c.gap, "label": c.label} for c in conflicts
                       if c.label != "일치"},
-        "h1_grid": h1_grid, "h2_stats": h2, "h3_stats": h3,
+        "h1_grid": h1_grid, "h2_stats": h2, "h3_stats": h3, "h4_stats": h4,
         "summaries": {p: {t: ta.summary for t, ta in results[p].by_tech.items()} for p in results if results[p]},
         "evidence": [{"id": i, "tech": ev[i].tech, "claim": ev[i].claim} for i in cited if i in ev][:80],
     }
@@ -162,7 +207,8 @@ def synthesizer(state: dict) -> dict:
         f"{h1_grid[t.tech_id]}" for t in techs) + " (C.5 격자, 코드 계산)",
         evidence_ids=sorted({i for t in techs for i in ((results['trl'].by_tech[t.tech_id].low_ids +
                              results['trl'].by_tech[t.tech_id].high_ids) if results['trl'] and t.tech_id in results['trl'].by_tech else [])}))}
-    for h in ("H2", "H3", "H4"):
+    hyps["H3"] = h3_verdict(h3, {t.tech_id: t.name for t in techs}, results.get("domain"))
+    for h in ("H2", "H4"):
         d = data.get("hypotheses", {}).get(h, {})
         v = d.get("verdict") if d.get("verdict") in ("지지", "부분 지지", "기각", "판단 보류") else "판단 보류"
         hyps[h] = Hypothesis(verdict=v, rationale=d.get("rationale", "근거 부족"),
@@ -177,7 +223,7 @@ def synthesizer(state: dict) -> dict:
         for s in split_sentences(c.explanation):
             statements[f"S{k}"] = s
             k += 1
-    for h in ("H2", "H3", "H4"):
+    for h in ("H2", "H4"):
         for s in split_sentences(hyps[h].rationale):
             statements[f"S{k}"] = s
             k += 1
