@@ -42,9 +42,12 @@ class Hit:
 class HybridRetriever:
     """Auto-builds the FAISS index if missing, reuses it if the corpus fingerprint matches."""
 
-    def __init__(self, model_key: str, rrf_k: int = 60, reranker: str | None = None, rebuild: bool = False):
+    def __init__(self, model_key: str, rrf_k: int = 60, reranker: str | None = None, rebuild: bool = False,
+                 max_len: int | None = None):
         self.chunks = load_or_build_chunks(rebuild=rebuild)
-        self.embedder = Embedder(model_key)
+        self.embedder = Embedder(model_key, max_len=max_len)
+        self.max_len = self.embedder.model.max_seq_length
+        self.reused = False
         self.rrf_k = rrf_k
         self.index = self._load_or_build_index(model_key, rebuild)
         self.bm25 = BM25Okapi([bm25_tokenize(embed_text(c)) for c in self.chunks])
@@ -56,9 +59,10 @@ class HybridRetriever:
 
     def _load_or_build_index(self, model_key: str, rebuild: bool) -> faiss.Index:
         d = INDEX_DIR / model_key
-        fp = corpus_fingerprint(self.chunks)
+        fp = f"{corpus_fingerprint(self.chunks)}:{self.max_len}"
         meta = d / "meta.json"
         if not rebuild and meta.exists() and json.loads(meta.read_text()).get("fingerprint") == fp:
+            self.reused = True
             return faiss.read_index(str(d / "faiss.index"))
         vecs = self.embedder.embed_documents([embed_text(c) for c in self.chunks])
         index = faiss.IndexFlatIP(vecs.shape[1])

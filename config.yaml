@@ -3,6 +3,21 @@ selected_techs:
   sw: turboquant
   hw: itme
 
+# per-technology metadata; `developer_groups` are origin groups whose statements are excluded from stakeholder scores
+tech_meta:
+  turboquant: {name: TurboQuant, camp: SW, developer: Google, developer_groups: [google], arxiv: "2504.19874",
+               aliases: ["TurboQuant"], market: "LLM 추론 서빙 최적화 SW"}
+  itme:       {name: ITME, camp: HW, developer: SK hynix, developer_groups: [skhynix], arxiv: "2606.12556",
+               aliases: ["ITME", "Inference Tiered Memory Expansion"], market: "CXL 메모리 확장 HW"}
+  kivi:       {name: KIVI, camp: SW, developer: KIVI authors, developer_groups: [], arxiv: "2402.02750",
+               aliases: ["KIVI"], market: "LLM 추론 서빙 최적화 SW"}
+  mla:        {name: DeepSeek MLA, camp: SW, developer: DeepSeek, developer_groups: [deepseek], arxiv: "2405.04434",
+               aliases: ["Multi-head Latent Attention", "MLA"], market: "LLM 추론 서빙 최적화 SW"}
+  infinigen:  {name: InfiniGen, camp: HW, developer: InfiniGen authors, developer_groups: [], arxiv: "2406.19707",
+               aliases: ["InfiniGen"], market: "KV 오프로딩 시스템"}
+  cxl_pnm:    {name: CXL-PNM, camp: HW, developer: CXL-PNM authors, developer_groups: [], arxiv: "2511.00321",
+               aliases: ["CXL-PNM", "Processing-Near-Memory"], market: "CXL 메모리 확장 HW"}
+
 llm:
   generator: gpt-4.1-mini   # verified callable 2026-09-21
   judge: gpt-4.1            # different model from generator (cross-model check)
@@ -40,7 +55,7 @@ team:
   campus: 판교
   class: 9반
   group: 1조
-  submit_date: "2026. 09. 22."   # TODO: DAY 3 날짜 확인
+  submit_date: "2026. 09. 22."   # DAY 3
   members:
     - {id: P284, name: 김정인}
     - {id: P285, name: 김지수}
