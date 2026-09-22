@@ -2,6 +2,40 @@
 본 프로젝트는 KV cache 최적화 기술을 소프트웨어, 하드웨어 두 진영에서 선정하여,
 기술 성숙도(TRL)·시장·이해관계자·도메인 관점에서 평가하는 Agentic RAG를 개발하는 프로젝트 임.
 
+## Directory Structure
+```
+├── app.py                 # 실행 스크립트 (CLI 옵션, API 키 없으면 offline 자동 전환)
+├── config.yaml            # 선정 기술·기술 메타데이터(별칭·개발사)·LLM·코퍼스·검색·그래프 한도·팀 정보
+├── agents/                # Agent 모듈
+│   ├── tech_research.py   #   기술 조사 (selection_validator, tech_research, trl_assessor)
+│   ├── market.py          #   시장 평가 (market_evaluator)
+│   ├── stakeholder.py     #   이해관계자 평가 (stakeholder_evaluator)
+│   ├── domain.py          #   도메인 평가 (domain_evaluator)
+│   ├── perspective.py     #   관점 에이전트 공통 엔진(찬반 검색·근거 표시·Rubric 채점)
+│   ├── synthesis.py       #   평가 종합 (synthesizer: 상충·H1·H3·민감도 코드 계산)
+│   ├── judge.py           #   Judge (D.5 판정식)
+│   └── report_writer.py   #   보고서 생성·검수 규칙
+├── graph/                 # LangGraph
+│   ├── state.py           #   State 27키·모델·reducer
+│   ├── workflow.py        #   그래프(노드 18개)
+│   ├── platform.py        #   보조 노드(initialize, index_builder, retry_router, final_check, pdf_renderer 등)
+│   └── runtime.py         #   LLM 응답 캐시·offline 재생·우열 어휘 사전
+├── tools/                 # @tool: paper_retrieve, web_search, summarize_sources, 출처 계열(evidence.py)
+├── rag/                   # PDF 로딩·청킹·임베딩·하이브리드 검색(HybridRetriever)
+├── prompts/               # 프롬프트 템플릿(C.6 Rubric·C.4 TRL 규칙 원문 포함)
+├── tests/                 # 단위 테스트(mock·fixture, API 호출 없음)
+├── eval/                  # 임베딩·검색 구성 평가(42문항 평가셋)
+├── report/                # SKALA 양식 PDF 빌더, Mermaid 로컬 렌더러
+├── scripts/               # 논문 다운로드, 그래프 이미지 렌더링, Rubric 표본 점검
+├── data/                  # LLM·웹 검색 캐시(커밋), 논문 PDF·인덱스(실행 시 재생성, 커밋 안 함)
+├── docs/                  # 설계 원문(DESIGN)·결정 기록(DECISIONS)·그래프·자체 점검·Rubric 점검·발표 노트
+│   └── archive/           #   설계 개정 이력(v1.0~v1.4)·작업 지시서 보관
+├── outputs/               # 평가 보고서 Markdown·docx·PDF, 실행 결과 스냅샷, 임베딩 평가 결과
+├── deliverables/          # 설계서·평가 보고서 PDF (실행 시 자동 복사)
+├── submission/            # 최종 제출 파일 모음(보고서·설계서 PDF, Git 링크, 제출 안내·팀원 설명, 발표 노트)
+├── pyproject.toml / uv.lock
+└── README.md
+```
 
 ## Overview
 - Objective : 하나의 기술을 복수 관점에서 비교 평가 (우열·추천 판정 없이, 관점별 인식 차이와 그 근거·조건을 추적)
@@ -73,40 +107,6 @@
 - 설계 그림(요약본) : `docs/graph_overview.png`, 설계 원문 `docs/DESIGN.md`, 결정 기록 `docs/DECISIONS.md`
 
 
-## Directory Structure
-```
-├── app.py                 # 실행 스크립트 (CLI 옵션, API 키 없으면 offline 자동 전환)
-├── config.yaml            # 선정 기술·기술 메타데이터(별칭·개발사)·LLM·코퍼스·검색·그래프 한도·팀 정보
-├── agents/                # Agent 모듈
-│   ├── tech_research.py   #   기술 조사 (selection_validator, tech_research, trl_assessor)
-│   ├── market.py          #   시장 평가 (market_evaluator)
-│   ├── stakeholder.py     #   이해관계자 평가 (stakeholder_evaluator)
-│   ├── domain.py          #   도메인 평가 (domain_evaluator)
-│   ├── perspective.py     #   관점 에이전트 공통 엔진(찬반 검색·근거 표시·Rubric 채점)
-│   ├── synthesis.py       #   평가 종합 (synthesizer: 상충·H1·H3·민감도 코드 계산)
-│   ├── judge.py           #   Judge (D.5 판정식)
-│   └── report_writer.py   #   보고서 생성·검수 규칙
-├── graph/                 # LangGraph
-│   ├── state.py           #   State 27키·모델·reducer
-│   ├── workflow.py        #   그래프(노드 18개)
-│   ├── platform.py        #   보조 노드(initialize, index_builder, retry_router, final_check, pdf_renderer 등)
-│   └── runtime.py         #   LLM 응답 캐시·offline 재생·우열 어휘 사전
-├── tools/                 # @tool: paper_retrieve, web_search, summarize_sources, 출처 계열(evidence.py)
-├── rag/                   # PDF 로딩·청킹·임베딩·하이브리드 검색(HybridRetriever)
-├── prompts/               # 프롬프트 템플릿(C.6 Rubric·C.4 TRL 규칙 원문 포함)
-├── tests/                 # 단위 테스트(mock·fixture, API 호출 없음)
-├── eval/                  # 임베딩·검색 구성 평가(42문항 평가셋)
-├── report/                # SKALA 양식 PDF 빌더, Mermaid 로컬 렌더러
-├── scripts/               # 논문 다운로드, 그래프 이미지 렌더링, Rubric 표본 점검
-├── data/                  # LLM·웹 검색 캐시(커밋), 논문 PDF·인덱스(실행 시 재생성, 커밋 안 함)
-├── docs/                  # 설계 원문(DESIGN)·결정 기록(DECISIONS)·그래프·자체 점검·Rubric 점검·발표 노트
-│   └── archive/           #   설계 개정 이력(v1.0~v1.4)·작업 지시서 보관
-├── outputs/               # 평가 보고서 Markdown·docx·PDF, 실행 결과 스냅샷, 임베딩 평가 결과
-├── deliverables/          # 설계서·평가 보고서 PDF (실행 시 자동 복사)
-├── submission/            # 최종 제출 파일 모음(보고서·설계서 PDF, Git 링크, 제출 안내·팀원 설명, 발표 노트)
-├── pyproject.toml / uv.lock
-└── README.md
-```
 
 
 ## Usage
