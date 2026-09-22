@@ -90,6 +90,13 @@ def main(argv: list[str] | None = None) -> int:
     }
     (log_dir / f"run-{stamp}.json").write_text(json.dumps(
         summary | {"audit_log": [e.model_dump() for e in final.get("audit_log", [])]}, ensure_ascii=False, indent=1))
+    snap = {k: (v.model_dump() if hasattr(v, "model_dump") else
+                {kk: vv.model_dump() for kk, vv in v.items()} if isinstance(v, dict) and v and hasattr(next(iter(v.values())), "model_dump")
+                else v)
+            for k, v in final.items() if k in ("trl_result", "market_result", "stakeholder_result", "domain_result",
+                                               "synthesis", "judge_scores", "perspective_retry_count", "warnings")}
+    snap["evidence"] = [e.model_dump() for e in final.get("evidence", [])]
+    (ROOT / "outputs" / "state_snapshot.json").write_text(json.dumps(snap, ensure_ascii=False, indent=1, default=str))
     log.info("done: %s", json.dumps(summary, ensure_ascii=False))
     return 0
 
