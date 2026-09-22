@@ -69,3 +69,18 @@
 | 원 출처 계열·50% 규칙 | C.2 | `tools/evidence.py` `assign_origin_groups`, `cap_origin_share` | `test_origin_group_republished_press_release_and_syndicated_title`, `test_origin_share_cap` | 일치(D46) |
 | 보고서 목차·규칙 | E.1·E.3 | `agents/report_writer.py` `build_markdown`, `check_report`(:525) | `test_summary_length_check`, `test_citation_reference_consistency`, `test_lexicon_detects_and_neutralizes`, PDF 페이지 이미지 확인 | 일치 |
 | offline 재현 | B.8 | `graph/runtime.py` 응답 캐시(`data/cache/llm_agents.sqlite`), `tools/web_search.py` 캐시 | `test_offline_cache_replay`, 새 clone에서 `.env` 없이 `app.py --offline` 실행 | 일치 |
+
+### 재현성·보안 검사 결과 (2026-09-22, 실제 실행)
+
+| 항목 | 방법 | 결과 |
+|---|---|---|
+| 새 clone + `.env` 없이 offline | `git clone` → `uv sync` → `uv run python app.py --offline` (키 환경변수 제거) | 통과. 논문 6편 다운로드(136쪽) → 청크·FAISS 인덱스 새로 생성 → 노드 29회 실행 → PDF 생성. LLM 호출 0회(캐시 498건), 웹 호출 0회(캐시 171건). 보고서 Markdown이 커밋본과 동일 |
+| 인덱스 삭제 후 재생성 | 위 clone에는 `data/index/`가 없음(gitignore) | 통과. `chunks.jsonl`, `bge-m3/` 인덱스 재생성 |
+| 키 없을 때 자동 offline | clone에서 `--offline` 없이 실행 | 통과. "offline 재생(API 키 없음, 자동 전환)"으로 실행, LLM·웹 호출 0회 |
+| 발견·수정한 결함 | 첫 clone 실행에서 논문 다운로드 스크립트의 `sys.exit()`가 그래프를 조용히 종료 | 수정(커밋 3dcd15a) 후 재검증 통과 |
+| `.env` 미추적 | `git ls-files` | 추적 안 됨 |
+| 논문 PDF 미추적 | `git ls-files data/papers` | 추적 안 됨 |
+| 비밀키 패턴 | HANDOFF 52행 스캔 명령 + 실제 키 값 문자열 대조 | 실제 키 0건. 넓은 패턴의 적중은 모두 `sk-hynix-…` URL 문자열(오탐) |
+| 공백 오류 | `git diff --check` | 통과(생성 보고서 끝 빈 줄 수정 후) |
+| 커밋 작성자 | `git log` | jinsoo kim만, Co-Authored-By·AI 표기 0건 |
+| 단위 테스트 | `uv run pytest -q` | 31 passed (API 호출 없음) |

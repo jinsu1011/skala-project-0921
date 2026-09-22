@@ -275,4 +275,3 @@ H1은 TRL 범위의 가운데 값과 시장성 점수로 설계서 C.5의 3×3 �
 - [32] medium.com(2026-09-22 접속). Medium. medium.com, https://medium.com/@anupkawarase.akz/turboquant-how-googles-6x-kv-cache-compression-changes-llm-inference-forever-1110e4be289e
 - [33] Intel(2026-09-22 접속). Enhancing long-context, high-concurrency LLM serving on a 32 GB .... community.intel.com, https://community.intel.com/t5/Blogs/Tech-Innovation/Data-Center/Enhancing-long-context-high-concurrency-LLM-serving-on-a-32-GB/post/1751209
 - [34] regolo.ai(2026-09-22 접속). Why TurboQuant matters for real-world LLM inference. regolo.ai, https://regolo.ai/why-turboquant-matters-for-real-world-llm-inference
-
