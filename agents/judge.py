@@ -52,8 +52,9 @@ def code_checks(perspective: str, result, ev: dict, techs) -> JudgeChecks:
         evs = [ev[i] for i in used if i in ev]
         shares.append(max_origin_share(evs))
         excl = set(developer_groups(t.tech_id)) if perspective == "stakeholder" else set()
-        spec = lambda ids: {ev[i].origin_group for i in ids if i in ev and ev[i].scope == "tech_specific"  # noqa: E731
-                            and ev[i].origin_group not in excl}
+        # pro_ids / con_ids are already restricted to tech-specific evidence by the perspective's own annotation;
+        # the shared Evidence.scope keeps the first perspective's label, so it is not re-checked here
+        spec = lambda ids: {ev[i].origin_group for i in ids if i in ev and ev[i].origin_group not in excl}  # noqa: E731
         chk.pro_origins[t.tech_id] = len(spec(ta.pro_ids))
         chk.con_origins[t.tech_id] = len(spec(ta.con_ids))
         if perspective == "trl":

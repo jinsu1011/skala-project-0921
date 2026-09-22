@@ -45,4 +45,27 @@
 | (v1.4) 에이전트 채점 Rubric | 통과. C.6 점수 앵커·기준별 신호·사람 표본 점검 |
 | (v1.4) H1 격자·TRL 검사·개발사 발언 제외 | 통과. 상세는 `docs/REVISION_v1.4.md` 2절 |
 
-## Phase 4 이후 (개발): `docs/HANDOFF_PROMPT.md` 참조
+## Phase 4: 개발 결과와 설계 일치 점검 (2026-09-22)
+
+자동 검사는 `uv run pytest -q`(28개, API 호출 없음)로 재현한다.
+
+| 항목 | 설계 기준 | 구현 근거 | 검증 | 결과 |
+|---|---|---|---|---|
+| 노드 18개 | D.1·그림 2 | `graph/workflow.py` `build_graph()`에 노드 18개 등록, 재선정 분기 없음 | `tests/test_graph.py::test_graph_has_the_18_design_nodes_and_limit`, `docs/graph.png`(실제 컴파일 그래프) | 일치 |
+| 그래프 순서 | D42 | `initialize → index_builder → selection_validator → query_planner` (`graph/workflow.py`) | `docs/graph.png` | 일치 |
+| State 키 27개 | D.2 | `graph/state.py:227` `State`, 키 순서까지 표 D.2와 동일 | `test_state_has_exactly_the_27_design_keys` | 일치 |
+| reducer 3개 | D.2 | `evidence: merge_by_id`(`graph/state.py:202`), `warnings: add_unique`(:218), `audit_log: operator.add`(:254) | `test_reducers_only_on_three_keys`, `test_merge_by_id_unions_perspectives_and_keeps_first` | 일치 |
+| 공통 검색 루프 ≤2 | D.4-2 | `graph/platform.py:16` `MAX_RETRIEVAL`, `route_after_grade` | `test_query_rewrite_loop_success_and_exhaustion`, `test_common_retrieval_loop_limit` | 일치 |
+| 관점 내부 루프 ≤2 | D.1 | `agents/perspective.py:23` `MAX_ROUNDS = 1 + 2`, 라운드별 `audit_log`에 기록 | 실행 로그 `rounds` 값(최대 3) | 일치 |
+| 관점 재실행 ≤2, 실패 관점만 | D.4-5 | `graph/platform.py:161` `retry_router -> Command[Literal[...]]`, `Command(goto=[관점 노드])`, `Send` 미사용 | `test_only_failed_perspective_is_rerun`, `test_rerun_limit_exhausted_records_uncertain` | 일치 |
+| 보고서 수정 ≤1, 한도 후 결정적 후처리 | D.4-7 | `graph/platform.py` `final_check`·`route_after_check`, `agents/report_writer.py:545` `postprocess` | `test_uncited_prose_is_flagged_and_removed` | 일치(D44: 후처리 시 `final_check`가 보고서 키를 씀) |
+| synthesizer defer | D.4-4 | `graph/workflow.py:38` `defer=True` | `test_fan_out_fan_in_once`(1회), 재실행 시 2회 | 일치 |
+| recursion_limit 50 | D.4-8 | `graph/workflow.py:18`, `app.py`의 `graph.stream(config=...)` | 테스트, 실제 실행 | 일치 |
+| Judge 판정식 | D.5 | `agents/judge.py:70` `verdict` = `LLM_OK and COMMON and PER_PERSPECTIVE`, TRL은 `bound_origins` | `test_judge_verdict_pass_and_fail` | 일치 |
+| 통과 관점 동결, 재실행 관점·종합 해설만 채점 | D.4-5, D38 | `agents/judge.py` `judge()`의 `prev[p].passed` 건너뛰기, 종합 문장 `unsupported_claim_ids` | `test_only_failed_perspective_is_rerun` | 일치 |
+| 상충·H1·민감도 코드 계산 | C.5, D.4-6 | `agents/synthesis.py:24` `conflict_label`, `:47` `h1_cell`, `:69` `sensitivity` | `test_conflict_labels`, `test_h1_grid_and_verdict`, `test_sensitivity_counts_changed_cells` | 일치 |
+| Rubric 점수 규칙 | C.6 | `agents/perspective.py:76` `rubric_score`(근거 조건), 가중치 50% 규칙 `weighted` | `test_rubric_anchors`, `test_missing_weight_over_half_is_held`, `docs/RUBRIC_CHECK.md` | 일치(D45) |
+| 개발사 발언 점수 제외 | C.2 | `agents/stakeholder.py` `exclude=developer_groups`, 판정 시에도 제외 | `docs/RUBRIC_CHECK.md` 표본 | 일치 |
+| 원 출처 계열·50% 규칙 | C.2 | `tools/evidence.py` `assign_origin_groups`, `cap_origin_share` | `test_origin_group_republished_press_release_and_syndicated_title`, `test_origin_share_cap` | 일치(D46) |
+| 보고서 목차·규칙 | E.1·E.3 | `agents/report_writer.py` `build_markdown`, `check_report`(:525) | `test_summary_length_check`, `test_citation_reference_consistency`, `test_lexicon_detects_and_neutralizes`, PDF 페이지 이미지 확인 | 일치 |
+| offline 재현 | B.8 | `graph/runtime.py` 응답 캐시(`data/cache/llm_agents.sqlite`), `tools/web_search.py` 캐시 | `test_offline_cache_replay`, 새 clone에서 `.env` 없이 `app.py --offline` 실행 | 일치 |
