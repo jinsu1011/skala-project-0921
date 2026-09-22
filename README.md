@@ -72,6 +72,7 @@
 ├── data/                  # LLM·웹 검색 캐시(커밋), 논문 PDF·인덱스(재생성, 커밋 안 함)
 ├── docs/                  # 설계 원문, 결정 기록, 그래프, 자체 점검, Rubric 점검, 발표 노트
 ├── deliverables/          # 설계서·평가 보고서 PDF
+├── submission/            # 최종 제출 파일 모음(보고서·설계서 PDF, Git 링크, 제출 안내·팀원 설명, 발표 노트)
 ├── outputs/               # 보고서 Markdown·PDF, 평가 결과, 실행 로그
 ├── pyproject.toml / uv.lock
 └── README.md
