@@ -49,7 +49,10 @@ def index_builder(state: dict) -> dict:
     if missing:
         try:
             import runpy
-            runpy.run_path(str(ROOT / "scripts" / "download_papers.py"), run_name="__main__")
+            # call main() directly: running the script as __main__ would sys.exit() the whole app
+            rc = runpy.run_path(str(ROOT / "scripts" / "download_papers.py"))["main"]()
+            if rc:
+                raise RuntimeError(f"페이지 수가 한도를 넘었습니다(download_papers.py 반환값 {rc})")
         except Exception as ex:  # noqa: BLE001
             raise RuntimeError(f"논문 PDF가 없습니다({', '.join(missing)}). 해결: `uv run python scripts/download_papers.py` "
                                f"를 실행해 data/papers/ 에 받아 주세요. 원인: {ex}") from ex
