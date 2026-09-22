@@ -10,7 +10,7 @@
 | Embedding 선택 | 10 | B.6: 후보 4종 자체 교차언어 평가(42문항, 복수 정답, 26% 사람 검수), 정확도·균형·길이·비용·라이선스 기준표, 초안 가정(Qwen3)을 측정 결과로 교체 | 평가셋 규모 한계(4장에 명시) |
 | 평가 기준 설계 | 15 | C: 4관점 × 대상·기준·증거 유형·출력 형식, TRL 증거 사다리, 척도·상충 규칙, 가설 H1–H4, 편향 방지 | — |
 | State Schema | 15 | D.2: 27개 키 × 타입·작성·읽기·갱신, reducer 명시, 객체 스키마 | 구현 때 1:1 유지 필요 |
-| Graph 설계 | 15 | D.3–D.5: Loop(검색·관점 내부·보고서), Branch(선정·Judge·검수), Fan-out/Fan-in(`defer`), `Send` 선택적 재실행, 종료 보장 | 구현 후 `draw_mermaid_png`와 대조 |
+| Graph 설계 | 15 | D.3–D.5: Loop(검색·관점 내부·보고서), Branch(Judge·검수, 재선정 분기 없음), Fan-out/Fan-in(`defer`), `retry_router` + `Command(goto)` 선택적 재실행(v1.4에서 `Send` 대신 채택), 종료 보장 | 구현 후 대조 완료(`docs/graph.png`, Phase 4 표) |
 | 보고서 구조 | 10 | E: Notion 목차 순서, 장별 원천 State 매핑, SUMMARY ½p·REFERENCE 규칙 | — |
 
 ## v1.1 개정 점검 (2026-09-21, 자동 대조 스크립트 결과 포함)
