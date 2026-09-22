@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache industry support endorsement",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:21+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.45842203
+  },
+  {
+   "url": "https://semiwiki.com/forum/threads/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference.24754",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "The paper argues that H³ is well-suited to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] Nvidia's ICMSP software extends the KV cache to local NVMe SSDs so that they enable the processing to complete much faster than if the tokens and vectors had to be recomputed when HBM capacity runs out. [...] Cache-augmented generation (CAG) is such a workload. \"When the LLM receives a query, it reads the gigantic shared pre-computed KV cache, performs a computation, and then outputs a response. In other words, the shared precomputed KV cache is inherently read-only.\"",
+   "published_date": null,
+   "score": 0.392221
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly",
+   "published_date": null,
+   "score": 0.3759361
+  },
+  {
+   "url": "https://futurumgroup.com/insights/will-sk-hynixs-record-265bn-adr-issuance-help-close-its-capex-intensity-gap",
+   "title": "SK Hynix ADR Issuance Strategy",
+   "content": "Accelerator-in-memory: its AiM/AiMX processing-in-memory line, which needs a volume commitment to move from prototype to product.\n\nHigh Bandwidth Flash (HBF): the new NAND-based tier it is standardizing with Sandisk to hold the exploding KV cache in AI inference.\n\nCustom HBM (cHBM): base dies co-designed to a customer’s AI chip and workload, where the margin and lock-in of the next cycle will live. [...] ###### Read the full Futurum Group Disclosure.\n\n### Author Information\n\nBrendan Burke, Research Director\n\n##### Brendan Burke\n\nBrendan is Research Director, Semiconductors, Supply Chain, and Emerging Tech. He advises clients on strategic initiatives and leads the Futurum Semiconductors Practice. He is an experienced tech industry analyst who has guided tech leaders in identifying market opportunities spanning edge processors, generative AI applications, and hyperscale data centers. [...] ###### Declaration of generative AI and AI-assisted technologies in the writing process: This content has been generated with the support of artificial intelligence technologies. Due to the fast pace of content creation and the continuous evolution of data and information, The Futurum Group and its analysts strive to ensure the accuracy and factual integrity of the information presented. However, the opinions and interpretations expressed in this content reflect those of the individual",
+   "published_date": null,
+   "score": 0.30991113
+  },
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/more/261873534-sk-hynix-memory-shortage-capacity-tradingkey",
+   "title": "SK Hynix Capacity Hits Zero: Tech Giants Offer to Fund Factories Amid AI Chip Shortage",
+   "content": "Werner noted that beyond the current capacity shortage, the memory industry's current boom is fundamentally different from past cyclical fluctuations, and supply constraints may persist for a long time. He identified three factors driving the explosion in KV cache demand: increasingly long context windows, larger model parameter counts, and a growing user base, with context length currently growing at a rate of 30 times per year. Since KV cache growth directly consumes HBM capacity, future [...] Previously, both Samsung Electronics and SK Hynix moved away from their long-standing short-term supply contract models, instead requiring customers to sign long-term supply agreements (LTAs) of three to five years, primarily to offset the cyclical volatility of the memory industry.",
+   "published_date": null,
+   "score": 0.29304066
+  }
+ ]
+}

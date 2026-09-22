@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache limitations or criticisms from various stakeholder groups with direct quotes or specific evidence",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:28:42+09:00",
+ "results": [
+  {
+   "url": "https://www.it-boltwise.de/deepseek-v4-1-flash-kv-cache-schrumpft-deutlich-warum-samsung-sk-hynix-dennoch-reagieren.html",
+   "title": "DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren",
+   "content": "Genau hier liegt das Spannungsfeld für Samsung und SK Hynix. Beide adressieren nicht nur den „Cache“ eines einzelnen Modells, sondern beliefern einen Markt, in dem KI-Server, Enterprise-SSDs, Consumer-Geräte und langfristige Liefervereinbarungen zusammenkommen. Die im Text genannten Erwartungen aus der Branche zeigen, wie stark sich Speicherpreise und Knappheiten über Quartale bewegen können: Für DRAM werden für das erste Quartal 2026 Anstiege von 90 % bis 95 % im Quartalsvergleich genannt, [...] Roboter\n Hacker\n OpenAI\n Anthropic\n xAI\n ChatGPT\n Kryptographie\n Weltraum\n\nÜber eine Million Leser im Jahr\n\nIT BOLTWISE x Artificial Intelligence\n\n###### #1 Fachmagazin in Deutschland mit Fokus auf Künstliche Intelligenz und Robotik\n\nChatGPT Business Bibel\n\nMini Drohne\n\nKI Freund\n\nKI Key\n\nKI Hund\n\n№1 AI Magazine in Germany\n\nNavigation\n\nDigital Economy\n\n# DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren\n\n13. September 2026  Keine Kommentare [...] 4. MacBook Pro mit M5 Pro und M5 Max: bis zu 600 US-Dollar Rabatt im Flash-Deal LONDON (IT BOLTWISE) – Mehrere große Händler setzen am 9. September 2026 den Hebel an: Das 14-Zoll-MacBook Pro mit M5 Pro-Chip ist im Flash-Deal für 2.899 US-Dollar statt 3.099 US-Dollar zu haben. B&H begrenzt den...",
+   "published_date": null,
+   "score": 0.45536873
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.42276734
+  },
+  {
+   "url": "https://ar5iv.labs.arxiv.org/html/2606.12556",
+   "title": "[2606.12556] ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly [...] ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] ### 4.2. ITME I/O Scheduling and Prefetching\n\nThe primary role of ITME is to efficiently orchestrate KV cache movement across the multi-tier hierarchy, leveraging specific access patterns and device characteristics. It manages this entire lifecycle, from migrating blocks immediately upon GPU eviction to proactively prefetching them based on upcoming execution demands.",
+   "published_date": null,
+   "score": 0.40726325
+  },
+  {
+   "url": "https://cryptoaimeta.com/deepseek-v4-1-flash-cuts-ai-memory-use-should-micron-and-sk-hynix-investors-worry",
+   "title": "DeepSeek V4.1-Flash: Should Micron, SK Hynix Worry?",
+   "content": "DeepSeek released V4.1-Flash on September 10, 2026, claiming roughly one-eighth the persistent KV-cache footprint of its prior V4-Flash model.\n SK Hynix fell as much as 5.8% in Korea trading on the news; Micron and Nvidia’s specific moves are harder to isolate from a broader semiconductor and macro selloff that same day. [...] AI Overview: DeepSeek released V4.1-Flash on September 10, 2026, claiming roughly one-eighth the persistent KV-cache footprint of its prior model, which cuts the high-bandwidth memory needed per inference session. SK Hynix and Samsung shares fell in Korea on the news; Micron and Nvidia’s specific moves are harder to separate from a broader semiconductor selloff that same day. The bigger question isn’t whether the model is efficient — it’s whether cheaper inference shrinks total memory demand or [...] ## Why KV-Cache Compression Matters to HBM Demand\n\nHBM places stacked memory close to an AI accelerator so data can move quickly. Nvidia, AMD, and custom accelerator makers need it because modern models constantly move weights, activations, and cache data. SK Hynix has been a major HBM supplier, while Micron has expanded its HBM business and described AI memory as a strategic growth engine — part of the broader AI memory shortage that has been pushing HBM and DRAM prices higher through 2026.",
+   "published_date": null,
+   "score": 0.40063268
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Decoding the Jargon and Impact on Samsung, SK Hynix",
+   "content": "The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] To understand what TurboQuant is and what impact it may have, one must first decode the alien terminology. AI reads human language by breaking it into units called tokens — fragments of words. As a conversation grows longer, the AI temporarily writes down earlier tokens' context in memory such as HBM so it does not lose track. It is like sticking Post-it notes beside a thick book to remember the content. This temporary AI notepad is called the KV cache (Key-Value Cache).",
+   "published_date": null,
+   "score": 0.3374442
+  }
+ ]
+}

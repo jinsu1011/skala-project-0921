@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache limitations adoption barriers cost concerns",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:01+09:00",
+ "results": [
+  {
+   "url": "https://damnang2.substack.com/p/hbfs-limits-and-reality-between-promise",
+   "title": "HBF's Limits and Reality: Between Promise and Structural Obstacles (H³ Paper Review)",
+   "content": "The bigger problem is KV cache. For Llama 3.1 405B with 1M token context, pre-computed KV cache alone reaches about 540GB. Extending to 10M tokens means 5.4TB. Handling this with HBM alone would require dozens of GPUs, driving up both cost and power consumption proportionally.\n\nThis is the background for what SanDisk and SK hynix call the “memory wall” and their proposal of HBF. [...] However, a close analysis of the H³ paper published by SK hynix researchers reveals that HBF faces much higher barriers to practical implementation than initially apparent. This article examines the assumptions and limitations of the H³ architecture from a practicing semiconductor engineer’s perspective, reviews the technical and economic challenges HBF will face during commercialization, and looks at alternative technology solutions currently being developed in the industry. [...] FlashAttention-3: Optimizes KV cache access patterns to reduce memory bandwidth requirements. FlashDecoding++ cuts latency to 1/3 in long context inference.\n\nGrouped-Query Attention (GQA): Adopted by latest models like Llama 3. Reduces KV cache size 4-8x while maintaining performance.\n\nQuantization: FP8 and INT4 quantization cut memory footprint to half or less. NVIDIA H100/B200 natively support FP8.",
+   "published_date": null,
+   "score": 0.41905406
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "## Challenges\n\n### Scaling infrastructure with context growth\n\nFundamentally, HBM and DRAM aren’t equipped for massive capacity. As inference workloads grow in volume and duration, storing the KV cache in HBM and DRAM breaks down. What worked for short interactions does not hold for persistent, multi-turn, and agent-driven workloads. Three constraints drive this limitation: capacity, cost, and compute inefficiency.\n\n#### 1. Memory capacity does not scale with context growth [...] The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate",
+   "published_date": null,
+   "score": 0.40726325
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute – SK hynix Newsroom",
+   "content": "One of the biggest challenges in this process is the KV cache. Each time a Transformer-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model. [...] There are two primary approaches to narrowing this gap: increasing memory bandwidth itself or placing memory closer to the processor to reduce the distance data must travel.\n\n Petaflops(PFLOPS): A unit of compute performance equal to one quadrillion floating-point operations per second\n\n### The inference era: KV cache is taking over GPU memory [...] KV cache: A technique that stores and reuses previously generated key and value vectors, avoiding the inefficiency of repeatedly performing the same computations\n\n Transformer: A neural network architecture introduced by Google in 2017. It uses self-attention to understand context and forms the foundation of nearly all modern LLMs.\n\nImage 4",
+   "published_date": null,
+   "score": 0.35434425
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "devices is not cost-effective  (Tsai et al., 2020); thus, various software techniques have been proposed to maximize their efficiency (Sun et al., 2025; Guo et al., 2023; Min et al., 2021a; Zhan et al., 2024). Despite these advancements, there is currently no clear consensus on the optimal way to handle the massive KV cache state required to realize a shared storage tier for large-scale LLM inference. [...] the CXL-hybrid memory in ITME fully adopts the PCIe Gen5 interface, delivering the high bandwidth essential for rapid KV cache swapping in multi-tier pipelines. [...] NVMe-oF Integration: We integrated an NVMe-oF (NVMe over Fabrics) stack to enable storage access. This allows the baseline to offload and retrieve KV cache blocks from a storage node, rather than relying solely on local CPU memory or costly recomputation.",
+   "published_date": null,
+   "score": 0.26567072
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "— no retraining, and less than 4% latency overhead. LongLive 2.0 (#ref-13) takes the same track to production scale, quantizing both weights and KV cache to NVFP4 (4-bit) on a 5B-parameter generator for 1.84× throughput at negligible quality cost — and its detail worth dwelling on is the fused parallel dequantization kernel (Figure 10). Storing the cache in 4 bits means every block must be dequantized before each attention step, and the naive approach launches one GPU kernel per block. [...] When a Transformer generates a token, it computes a query, a key, and a value vector; the new query attends over all previous keys and values to read the model's own history. The KV cache is what makes this affordable: each token's K and V are computed once and saved, and every later step reuses them instead of recomputing — O(n) work per step instead of O(n²). But nothing ever shrinks it: every generated token appends new K and V rows across all layers and heads. [...] This blog examines KV cache compression through an infrastructure lens: not only what the algorithms do, but whether they can actually run in production. An entire field is devoted to compressing the KV cache so that long inference fits in GPU memory; most of it works in the lab, much less in real deployment. The gap comes down to two infrastructure problems that papers almost never discuss. This post surveys the field's main ideas, traces where they collide with these problems, and shows how a",
+   "published_date": null,
+   "score": 0.18387224
+  }
+ ]
+}

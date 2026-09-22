@@ -1,0 +1,44 @@
+{
+ "query": "market limitations or challenges of SK hynix ITME KV cache technology",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:27:18+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "## Challenges\n\n### Scaling infrastructure with context growth\n\nFundamentally, HBM and DRAM aren’t equipped for massive capacity. As inference workloads grow in volume and duration, storing the KV cache in HBM and DRAM breaks down. What worked for short interactions does not hold for persistent, multi-turn, and agent-driven workloads. Three constraints drive this limitation: capacity, cost, and compute inefficiency.\n\n#### 1. Memory capacity does not scale with context growth [...] The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] In contrast, KV cache reuse maintains stable performance even as user count scales.\n\nAlthough an SSD-based KV cache store outperforms regeneration, relying solely on SSDs to retain KV cache data for days or weeks becomes impractical as model size and context length grow. For example, Qwen2.5-7B requires 56KB of KV cache per token, whereas Qwen2.5-72B requires 320KB per token. Combining SSDs with hard drives offers a more scalable solution by balancing cost and capacity.",
+   "published_date": null,
+   "score": 0.7244226
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute",
+   "content": "One of the biggest challenges in this process is the KV cache. Each time a Transformer-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model. [...] There are two primary approaches to narrowing this gap: increasing memory bandwidth itself or placing memory closer to the processor to reduce the distance data must travel.\n\n Petaflops(PFLOPS): A unit of compute performance equal to one quadrillion floating-point operations per second\n\n### The inference era: KV cache is taking over GPU memory",
+   "published_date": null,
+   "score": 0.5637388
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "of the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.52086246
+  },
+  {
+   "url": "https://q.futunn.com/en/feed/116329824846228",
+   "title": "The Truth About AI Storage Demand Behind KV Cac...",
+   "content": "Tim believes this issue needs to be analyzed on different levels. The price cuts are concentrated in the consumer-grade spot market, where excessive channel stockpiling combined with overly rapid price increases exhausted consumer willingness, leading to significant selling pressure on DDR4. However, in the OEM market, domestic smartphone and PC manufacturers still accepted substantial price hikes for DDR5 in the first and second quarters—as DDR5 is a core component in AI and high-end device [...] Third, Hynix’s 6.9 billion euro EUV order: the industry is answering market concerns with concrete actions.\n\nAt a time when market sentiment was most shaken, the industry sent a completely different signal. [...] Tim pointed out that the core implication of this paper is precisely that KV Cache compression within the 3-4 bit range is increasingly approaching the practical engineering limit. The mainstream compression rate currently implemented in practice is only about 2x, while the upper limit of cutting-edge solutions can reach 4-6x, but the industry average is far from that. The best results shown in the paper do not equate to the actual implementation level across the entire industry.",
+   "published_date": null,
+   "score": 0.40147716
+  },
+  {
+   "url": "https://www.weka.io/video/inference-is-eating-memory-and-tokens-now-run-ai-economics",
+   "title": "Inference Is Eating Memory, and Tokens Now Run AI Economics",
+   "content": "Vik: Right. This is great, because KV cache optimizations are clearly on the way. TurboQuant, for one, scared the daylights out of the market; everyone thought memory was dead, HBM was dead, everything was dead. But it turns out quantization is a good thing, because we only need about one-tenth, 90% lower, KV cache storage for 100,000 tokens. So 100,000 tokens went from 50 GB to 5 GB. That’s great, because with existing models we can run far more agents and do a lot more work. So the demand [...] Vik: Exactly, and that’s what we were talking about last time. The KV cache started getting so big when agents arrived on the scene that you couldn’t keep it all on expensive HBM. It’s a limited resource that has to be preserved and used judiciously. So there was a lot of talk about offloading to DRAM and then, as agents started working more and having greater context length, offloading to context memory storage — the rack NVIDIA calls STX. [...] Val: The cliché “this time it’s different” applies here too. Every time there’s a massive new innovation in KV cache compression, it’s not different. It’s Jevons paradox kicking in over and over again: We see a higher increase in demand every time there’s a reduction in unit consumption. Context windows aren’t stopping at one million and it won’t be long before we’re at 2, 5, and 10 million, maybe by the end of this year. Everybody wants more context, and we’re going longer-horizon in our",
+   "published_date": null,
+   "score": 0.33102292
+  }
+ ]
+}

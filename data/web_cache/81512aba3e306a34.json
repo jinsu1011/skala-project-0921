@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache vLLM serving evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:35+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid ...",
+   "content": "## 5. Experimental Setup\n\nSystem configurations. We evaluate HyMCache in a vLLM-based serving environment where workers access a remote CXL-HM KV tier over an RDMA-capable network. Our experiments cover two settings: PD-disaggregated serving, where prefill and decode execution are separated, and single-node serving, where they are co-located on the same worker. [...] Models and Workloads. We evaluate HyMCache using LLMs with different KV-cache footprints. Unless otherwise stated, we use FP16/BF16 KV cache and a vLLM block size of 128 tokens. We select Llama-3.1-8B and Qwen2.5-32B to cover different KV-object sizes used in our experiments. In our configuration, Llama-3.1-8B generates 16 MB KV blocks, while Qwen2.5-32B generates 32 MB KV blocks. [...] ## 6. Evaluation\n\n### 6.1. PD-Disaggregated Serving Performance\n\n#### 6.1.1. Overall Performance Comparison\n\nFigure8 shows the results under PD-disaggregated serving on Qwen2.5-32B using AIPerf synthetic inputs. This workload stresses cache capacity because the reusable prefix state quickly exceeds the capacity of GPU-only prefix caching and limited local DRAM caching, while generating approximately 1.5TB of reusable KV-cache footprint across turns.",
+   "published_date": null,
+   "score": 0.7339103
+  },
+  {
+   "url": "https://www.vastdata.com/blog/accelerating-inference",
+   "title": "Accelerating Inference",
+   "content": "The results of our testing indicate a dramatic reduction in the time required for the initial prefill stage. By directly loading the KV cache, vLLM+LMCache can reduce the token read time (TTFT) from over 11 seconds to just 1.5 seconds at the maximum context window size (128,000).\n\nThe time spent generating the KV cache vs. reading it from storage represents a 10x improvement in request\\_prefill\\_time performance for large context scenarios! [...] 1. vLLM is a popular inference engine that efficiently manages KV cache in GPU memory. It also supports extensions via plugins for offloading the KV cache to other locations.\n\n2. LMCache works very closely with vLLM and enables offloading KV cache:\n\na.  CPU memory is the first location where the KV cache is destaged as it’s typically larger than GPU memory. It’s faster to store/load the KV cache to CPU memory as it stays local to the machine. [...] Model: Qwen/Qwen3-32B\n Context Size: 130,858 tokens (max: 128,000)\n KV Cache Size: 32 GB (for a 130K token context)\n Conventional Prefill Rate: 500 Tokens Per Second (TPS)\n System Overhead: 1 second (for initialization and other processes)\n\nKV Cache Loading Calculation:\n\nUsing vLLM v0.9.0-170 and LMCache v0.3.0-1, the pre-computed 32 GB KV cache can be loaded directly into the GPU.",
+   "published_date": null,
+   "score": 0.6636041
+  },
+  {
+   "url": "https://vllm.ai/blog/2026-01-08-kv-offloading-connector",
+   "title": "Inside vLLM's New KV Offloading Connector",
+   "content": "The results show throughput increases with the CPU KV cache hit rate. We observe that the throughput increases by up to X9, even though TTFT for this prompt size only decreased by X2. This demonstrates that the major gain in KV cache offloading is throughput maximization.\n\n## vLLM versions of the Offloading Connector [...] Serving LLM models is a computationally complex operation, which at its core involves computing blobs of data known as KV data. The initial step for generating a response to a user’s prompt is the computation of the KV values which correspond to that prompt. This phase is known as the prefill stage in the request-handling lifecycle. The prefill stage, where KV values are calculated per prompt, is computationally expensive, and requires specialized accelerated hardware (such as a GPU) to [...] Note that the new vLLM KV cache layout yields a physical block size of about 0.5-2 MB, while in the old layout it is only a few KB. Combining this with the numbers we got from the GPU-CPU microbenchmark, we expect the DMA approach to have comparable performance, or slightly inferior (depending on the model), to the custom kernel approach.\n\n# End-to-end Evaluation of Copy Methods\n\nIn the next section, we use the two vLLM micro-benchmarks to compare the two variants of the offloading connector:",
+   "published_date": null,
+   "score": 0.6469293
+  },
+  {
+   "url": "https://github.com/vllm-project/vllm/discussions/17054",
+   "title": "KV cache in VLLM serve · vllm-project/vllm · Discussion #17054 · GitHub",
+   "content": "you are running in `auto` mode which defaults to FP16, each of those 14 billion parameters takes up 2 bytes of memory. That means the model weights alone are occupying about 28 or 29 GB of your VRAM. Since vLLM reserves a specific percentage of the GPU for overhead and execution, you are likely left with only about 14 GB of free space for the KV cache. This lines up perfectly with the error message as it is telling you that you have just enough room for about 73,000 tokens rather than the full [...] | Hi @farouk09,  I see exactly what is happening here. The short answer is that a 1 million token context window requires a massive amount of VRAM which is way more than a single A6000 can handle. The error you are seeing is vLLM doing its safety check and realizing that even with the empty space on your card, it cannot physically allocate enough memory pages to support that full context length.  Regarding your math, the estimate for the model weights was a little bit low. Since you are running [...] ~14B parameters, so in FP16 it should use ~28GB of VRAM (please correct me if that’s inaccurate).  Running in auto mode (which defaults to FP16), the weights should take ~14GB.  That leaves ~36GB, which I thought would be enough for the KV cache for a 1M context length. But apparently not?   So I have two questions:   1. Is my assumption about the memory breakdown (weights vs KV cache) correct? 2. How can we estimate the required VRAM for a given number of context tokens? Is there a formula or",
+   "published_date": null,
+   "score": 0.6266047
+  },
+  {
+   "url": "https://jarvislabs.ai/blog/vllm-optimization-techniques",
+   "title": "vLLM Optimization Techniques: 5 Practical Methods to ...",
+   "content": "FP8 (8-bit floating point) KV-Cache is a memory optimization technique that reduces the precision of key-value tensors stored in GPU memory. Instead of using standard FP16 (16-bit) or FP32 (32-bit) precision, vLLM can store KV-cache data in FP8 format, cutting memory usage roughly in half compared to FP16.",
+   "published_date": null,
+   "score": 0.51325434
+  }
+ ]
+}

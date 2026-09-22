@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache multi-turn serving concurrency memory capacity",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:11+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "The memory-capacity pressure created by modern LLM serving\ntranslates into expensive GPU and DRAM provisioning\nand lower serving efficiency.\nSpecifically, KV cache\nreuse reduces repeated context-processing work by retaining the intermediate state generated for previously processed tokens, but it also turns the KV cache into reusable data whose capacity, movement, and sharing increasingly influence serving efficiency across turns, sessions, and workers. [...] A CXL memory expander is a DRAM-based CXL memory module that targets latency- and bandwidth-sensitive workloads by expanding memory capacity beyond local DIMM channels while preserving memory-semantic access (SK hynix, 2025; Samsung Electronics, 2026a). For KV-cache reuse, such devices can provide a low-latency capacity tier for KV blocks that no longer fit in GPU memory but still require fast access. A CXL switch-based memory pool extends this model to rack-scale environments by aggregating [...] by aggregating multiple CXL memory devices into a pooled memory appliance, allowing memory capacity to be flexibly allocated and shared across hosts (Samsung Electronics, 2024; SK hynix, 2024; Yang et al., 2025). This model is attractive for distributed LLM serving because reusable KV states can be shared across workers rather than being replicated in each server. In contrast, CXL-HM combines internal DRAM with high-capacity SSD, exposing SSD-backed capacity through a memory interface while",
+   "published_date": null,
+   "score": 0.6747586
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "Figure 10 vs. ITME ‣ 6. Evaluation ‣ ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories\") compares the multi-turn inference performance of ITME against the CPU-offload and recompute-only baselines. The figure evaluates inference efficiency using 256 concurrent conversations from the ShareGPT dataset. To stress-test KV cache capacity, we designed a 35-turn benchmark that generates a massive total footprint. In this setup, the CPU-offload baseline allocates a large 128 [...] Long-context Prefix KV Cache: Multi-turn and agentic workloads exhibit an append-write, sequential-restore access pattern. As shown in Figure 2 (a), ITME leverages scheduler-aware fetching to restore shared-prefix KV chunks from the CXL-hybrid memorys ahead of execution. Rather than eagerly reconstructing the entire prefix on the GPU, chunks are staged and replayed layer-wise. This allows prefix reuse to overlap with attention execution while efficiently exploiting the large sequential chunk [...] states. This disaggregated context storage layer enables multiple compute nodes in a cluster to access a shared KV cache pool through high-speed interconnects such as RDMA. This shift improves resource utilization and enables context reuse at cluster scale, making disaggregated inference increasingly practical for long-context and multi-turn workloads.",
+   "published_date": null,
+   "score": 0.6350646
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] To provide the enormous capacity needed for multi-turn KV caches, system architects have begun offloading KV cache blocks to SSDs and hard drives. Hard drives provide durable, high-capacity storage, while SSDs serve as a cache layer for low-latency transfers. KV cache blocks can be loaded back onto the GPU when user activity resumes, avoiding the need to recompute prior prompts. Where HBM and DDR5 offer capacity in the gigabyte range, SSDs provide terabytes of storage, and hard drives can store [...] The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges",
+   "published_date": null,
+   "score": 0.572078
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "that moves it from CPU RAM onto the GPU and transferred in chunks to keep data flowing efficiently. This isolates the benchmark to a clean measurement of G4's ability to sustain high-concurrency, multi-turn workloads, proving that large-scale context persistence is achievable on a single node, eliminating the need to provision additional GPU nodes. [...] very large context windows. For production deployments handling long documents, multi-turn conversations, or large system prompts, this translates to a more responsive, scalable and cost-efficient inference architecture. [...] cache. As LLMs process long-context workloads, multi-turn conversations, agentic workflows, and deep research tasks, KV cache grows linearly and the prefill compute effort grows quadratically with prompt length. This rapidly exhausts expensive GPU memory, forcing costly trade-offs between re-computation, context window limits, and additional GPU provisioning. Dynamo resolves this through three composable KV cache capabilities:",
+   "published_date": null,
+   "score": 0.4054258
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "KV cache server increases memory capacity by integrating 3 TB of DDR5 main memory and up to eight 1 TB CXL Add-in Cards (AICs). [...] A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] these performance improvements and consistent service standards as model size, context windows, precision requirements, and concurrency demands continue to grow.”",
+   "published_date": null,
+   "score": 0.38380352
+  }
+ ]
+}

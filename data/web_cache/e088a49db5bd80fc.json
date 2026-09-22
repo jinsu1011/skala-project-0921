@@ -1,0 +1,44 @@
+{
+ "query": "advantages of SK hynix ITME KV cache in domain suitability with experimental or design evidence from multiple independent sources",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:35:07+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid ...",
+   "content": "reduce redundant computation(NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix(SK hynix, 2025; SK hynix, 2024), Samsung(Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba(Alibaba Cloud, 2024), Liqid(Liqid, 2026), UniFabriX(CXL Consortium, 2023), and XCENA(XCENA, 2026), as well as research systems such as TraCT and Beluga(Yoon et al., [...] of commercial CXL hardware, many early studies relied on simulation, emulation, or software-based modeling to evaluate CXL memory behavior(Esmaili-Dokht et al., 2024; Fridman et al., 2023; Arif et al., 2022). More recent commercial and prototype systems demonstrate several CXL design points, including DRAM-based CXL memory expanders(SK hynix, 2025; Samsung Electronics, 2026a), switch-based CXL memory pools and appliances(Samsung Electronics, 2024; SK hynix, 2024; Yang et al., 2025), and CXL-HM [...] As a middle ground, major memory vendors such as SK hynix(Jang et al., 2026) and Samsung(Sun, 2025) have proposed CXL-hybrid memory, or CXL-HM, as a compromise between DRAM-only memory expansion and SSD-based capacity expansion. CXL-HM exposes the SSD-backed capacity to the host through a memory interface (i.e., CXL.mem), while using the device-side DRAM transparently as an internal cache. This makes it an attractive substrate for remote KV caching: the SSD-backed region provides TB-scale",
+   "published_date": null,
+   "score": 0.35837606
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.33528608
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] Large-capacity KV cache store. To increase the prefix caching hit ratio, a KV cache pool must retain caches from multiple GPUs for periods ranging from days to weeks. Larger retention windows increase the chance that prior context can be reused instead of recomputed. [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent",
+   "published_date": null,
+   "score": 0.33024487
+  },
+  {
+   "url": "https://blog.lmcache.ai/en/2026/04/28/stop-calling-it-kv-cache-its-something-much-bigger",
+   "title": "Stop Calling It KV Cache: It's Something Much Bigger",
+   "content": "KV cache already departs from traditional caching in three fundamental ways.\n\nFirst, it is persistent and multi-tier. It is stored across GPU, CPU, SSD, and cloud, survives beyond a single request, and is managed more like a data pipeline than a local buffer.\n\nSecond, it is not a black box. It can be compressed, quantized, and transformed. Its internal structure is exposed and exploitable by the systems that manage it. [...] ## 2026: A First-Class Data Object\n\nFast forward to today. KV cache is no longer an optimization at the margins of inference. It is the core infrastructure.\n\nNVIDIA introduced ICMS (now renamed CMX) to formalize inference context storage. KV cache now represents the majority of the inference storage footprint. DRAM and SSD costs are becoming a significant line item in AI system budgets.\n\nWe are witnessing the emergence of a new category:inference-time data as a persistent, valuable asset. [...] KV cache is not just reusable. It is semantically meaningful. It represents the model’s internal understanding of context: a compressed encoding of everything the model has processed, directly usable by the model, and opaque to humans.\n\nPut another way, KV cache is the native memory format of a Transformer. And once you see it that way, the old framing falls apart entirely.\n\n## From Immutable Cache to Mutable Memory",
+   "published_date": null,
+   "score": 0.26045105
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.14999175
+  }
+ ]
+}

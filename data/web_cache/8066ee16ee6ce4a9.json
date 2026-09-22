@@ -1,0 +1,44 @@
+{
+ "query": "Google TurboQuant KV cache product launch availability customers",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:16:47+09:00",
+ "results": [
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "TurboQuant เป็นอัลกอริทึมการบีบอัดเวกเตอร์ (vector compression) ใหม่ที่เปิดตัวอย่างเป็นทางการโดย Google Research ในเดือนมีนาคม 2026 โดยมีเป้าหมายเพื่อแก้ปัญหาสำคัญในขั้นตอนการประมวลผล (inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) และเครื่องมือค้นหาเวกเตอร์ (vector search engines) นั่นคือการใช้หน่วยความจำมหาศาลของ Key-Value Cache (KV Cache) ทั้งนี้ รายละเอียดทางเทคนิคจะถูกเผยแพร่อย่างเป็นทางการและผ่านการพิจารณาโดยผู้ทรงคุณวุฒิในรูปแบบของบทความวิชาการในงาน ICLR 2026 (International Conference on [...] Google Research เปิดตัว TurboQuant อัลกอริทึมบีบอัดเวกเตอร์ ลดการใช้หน่วยความจำ KV Cache ใน AI inference ได้ถึง 6 เท่า โดยไม่กระทบความแม่นยำ ประสิทธิภาพการประมวลผลเพิ่มขึ้นสูงสุด 8 เท่า  \n  \nTurboQuant ใช้ PolarQuant และ QJL จัดการ KV Cache ลดภาระหน่วยความจำ ช่วยให้รันโมเดลใหญ่ขึ้นบนอุปกรณ์ที่มีข้อจำกัด ส่งผลดีต่อ HBM แต่กระทบ Server DRAM และ NAND Flash เล็กน้อย [...] อัลกอริทึมการบีบอัดเวกเตอร์ใหม่นี้ได้รับการปรับแต่งมาเป็นพิเศษเพื่อประสิทธิภาพการใช้หน่วยความจำในช่วงขั้นตอนการอนุมานของ AI (AI inference phase) โดยมีความโดดเด่นอย่างยิ่งในการแก้ปัญหาการครองพื้นที่ Key-Value Cache (KV Cache) ในระดับสูง ซึ่งหมายความว่าโมเดล AI จะสามารถประมวลผลข้อมูลได้มากขึ้นด้วยการใช้หน่วยความจำที่ลดลง ขณะเดียวกันก็นำมาซึ่งความท้าทายใหม่ๆ สำหรับอุตสาหกรรม",
+   "published_date": null,
+   "score": 0.6353361
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "TurboQuant เป็นอัลกอริทึมการบีบอัดเวกเตอร์ (vector compression) ใหม่ที่เปิดตัวอย่างเป็นทางการโดย Google Research ในเดือนมีนาคม 2026 โดยมีเป้าหมายเพื่อแก้ปัญหาสำคัญในขั้นตอนการประมวลผล (inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) และเครื่องมือค้นหาเวกเตอร์ (vector search engines) นั่นคือการใช้หน่วยความจำมหาศาลของ Key-Value Cache (KV Cache) ทั้งนี้ รายละเอียดทางเทคนิคจะถูกเผยแพร่อย่างเป็นทางการและผ่านการพิจารณาโดยผู้ทรงคุณวุฒิในรูปแบบของบทความวิชาการในงาน ICLR 2026 (International Conference on [...] Google Research เปิดตัว TurboQuant อัลกอริทึมบีบอัดเวกเตอร์ ลดการใช้หน่วยความจำ KV Cache ใน AI inference ได้ถึง 6 เท่า โดยไม่กระทบความแม่นยำ ประสิทธิภาพการประมวลผลเพิ่มขึ้นสูงสุด 8 เท่า  \n  \nTurboQuant ใช้ PolarQuant และ QJL จัดการ KV Cache ลดภาระหน่วยความจำ ช่วยให้รันโมเดลใหญ่ขึ้นบนอุปกรณ์ที่มีข้อจำกัด ส่งผลดีต่อ HBM แต่กระทบ Server DRAM และ NAND Flash เล็กน้อย [...] อัลกอริทึมการบีบอัดเวกเตอร์ใหม่นี้ได้รับการปรับแต่งมาเป็นพิเศษเพื่อประสิทธิภาพการใช้หน่วยความจำในช่วงขั้นตอนการอนุมานของ AI (AI inference phase) โดยมีความโดดเด่นอย่างยิ่งในการแก้ปัญหาการครองพื้นที่ Key-Value Cache (KV Cache) ในระดับสูง ซึ่งหมายความว่าโมเดล AI จะสามารถประมวลผลข้อมูลได้มากขึ้นด้วยการใช้หน่วยความจำที่ลดลง ขณะเดียวกันก็นำมาซึ่งความท้าทายใหม่ๆ สำหรับอุตสาหกรรม",
+   "published_date": null,
+   "score": 0.6353361
+  },
+  {
+   "url": "https://tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27. [...] Through the synergy of two underlying technologies, TurboQuant achieves extreme KV Cache compression with zero additional memory overhead and almost no impact on inference precision. [...] During the inference process of large language models, the KV Cache acts as the model's \"temporary notebook,\" where every round of dialogue and segment of input text is converted into high-dimensional vectors and stored temporarily to provide context for subsequent inference steps. To ensure inference precision, traditional solutions typically store vector data in 16-bit floating-point (FP16/BF16) formats. However, as dialogue length grows or the scale of text expands, the KV Cache consumes GPU",
+   "published_date": null,
+   "score": 0.49611887
+  },
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27. [...] Through the synergy of two underlying technologies, TurboQuant achieves extreme KV Cache compression with zero additional memory overhead and almost no impact on inference precision. [...] During the inference process of large language models, the KV Cache acts as the model's \"temporary notebook,\" where every round of dialogue and segment of input text is converted into high-dimensional vectors and stored temporarily to provide context for subsequent inference steps. To ensure inference precision, traditional solutions typically store vector data in 16-bit floating-point (FP16/BF16) formats. However, as dialogue length grows or the scale of text expands, the KV Cache consumes GPU",
+   "published_date": null,
+   "score": 0.49611887
+  },
+  {
+   "url": "https://deepinfra.com/blog/google-turboquant",
+   "title": "What Is Google TurboQuant and What Does It Mean ...",
+   "content": "TurboQuant targets the KV cache directly. It compresses the key and value vectors at runtime, storing them at much lower precision while preserving the accuracy of the attention computations that depend on them. [...] There is also an open feature request on the vLLM project to integrate TurboQuant as a native KV cache quantization option. vLLM is the inference engine that underlies a large share of production open source model serving, so a native integration there would bring TurboQuant to the majority of open source inference deployments relatively quickly. [...] The combined result: the KV cache can be compressed to around 3.5 bits per value, compared to 16 bits in standard FP16, with near-zero accuracy loss. That is roughly a 4.5x reduction in KV cache memory. At 3 bits the compression ratio improves further, though quality starts degrading on smaller models.",
+   "published_date": null,
+   "score": 0.40373197
+  }
+ ]
+}

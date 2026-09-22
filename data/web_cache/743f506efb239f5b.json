@@ -1,0 +1,44 @@
+{
+ "query": "advantages of SK hynix ITME KV cache in market potential with multiple independent sources",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:20:38+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "states. This disaggregated context storage layer enables multiple compute nodes in a cluster to access a shared KV cache pool through high-speed interconnects such as RDMA. This shift improves resource utilization and enables context reuse at cluster scale, making disaggregated inference increasingly practical for long-context and multi-turn workloads. [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] Efficient multi-tier KV caching relies on maintaining data contiguity across storage boundaries to enable high-bandwidth prefetching without reorganization overhead. To maximize offloading performance, ITME aggregates evicted KV cache blocks into large-scale chunks (e.g., 512 MB) within the CPU staging buffer. During the eviction process, ITME sequentially appends blocks into these chunks as they are released from GPU memory. This sequential appending naturally restores the logical sequence of",
+   "published_date": null,
+   "score": 0.52071625
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] Large-capacity KV cache store. To increase the prefix caching hit ratio, a KV cache pool must retain caches from multiple GPUs for periods ranging from days to weeks. Larger retention windows increase the chance that prior context can be reused instead of recomputed. [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent",
+   "published_date": null,
+   "score": 0.49992734
+  },
+  {
+   "url": "https://www.sec.gov/Archives/edgar/data/2120882/000119312526299963/d32785d424b4.htm",
+   "title": "424(B)(4)",
+   "content": "advantages, we face increasing competition from emerging companies that may significantly expand the scale of their operations, as well as from potential repositioning and expansion by storage\nsolution companies and customers that may develop memory solutions in-house. In addition, in recent years, various industrialized countries have taken measures to promote the development and expansion of [...] As the first company to mass-produce multiple generations of HBM\nproducts, including HBM3 and HBM3E, SK hynix is a leading player in the HBM market, with a 56.4% market share by revenue in the first quarter of 2026, according to IDC.\n\n92\n\n##### Table of Contents\n\nNAND Flash Memory\n\nThe following graph provides market share information of the global NAND flash memory market for the periods indicated.\n\nGlobal NAND Flash Memory Market Shares by Revenue(1)\n\nLOGO\n\nLOGO [...] Certain data is\nalso based on our estimates, which are derived from our review of internal surveys as well as independent sources. Although we believe these sources are reliable, we have not independently verified the information and cannot guarantee its accuracy\nor completeness.\n\n2\n\n##### Table of Contents",
+   "published_date": null,
+   "score": 0.23480159
+  },
+  {
+   "url": "https://news.skhynix.com/en/fact-05",
+   "title": "Explainer: SK hynix's Mid-to-Long-Term Investment Strategy",
+   "content": "As semiconductor process technologies continue to advance, more manufacturing space is required to produce the same output. Furthermore, HBM requires more wafers than conventional DRAM to produce the same memory capacity, resulting in significantly higher production resource requirements. Securing sufficient production capacity in advance has therefore become one of the most critical competitive advantages. [...] The memory semiconductor market is already under significant supply pressure, with demand outpacing supply. If this imbalance continues to intensify, it could result not only in excessive price increases but also, over the long term, in market contraction and constraints on the growth of the AI industry. Ensuring a stable and sustainable market will require a substantial expansion of memory semiconductor supply. [...] overall business environment, and future market demand. Beginning today, the company will work closely with the central and local governments on specific infrastructure development plans and permitting procedures.",
+   "published_date": null,
+   "score": 0.22856991
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.2104095
+  }
+ ]
+}

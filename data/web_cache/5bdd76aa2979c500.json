@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache drawbacks hardware requirements compatibility",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:19:33+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "DRAM Capacity Scaling: Conversely, doubling the DRAM cache size to 64 GB for a 1 TB SSD doubles the number of cache sets to 1 M, requiring an expanded 20-bit index. This leads to a disproportionate 86.7% surge in SRAM requirements, pushing the footprint up to 28 MB.\n\nConsidering the significant SRAM penalty, expanding the DRAM to 64 GB is not resource-efficient. Thus, we selected 32 GB as the baseline capacity, which strikes a practical balance for our hardware-managed cache. [...] backend SSD-to-DRAM throughput remains severely constrained at 9 GB/s. This bandwidth mismatch is critical, as it starves the hardware prefetcher and limits its ability to supply data to the cache at a rate sufficient to saturate the host-side bandwidth during cache misses. [...] As illustrated in Figure 5, the prefetch walkthrough translates an application-level virtual address (VA) ➊ into a hardware-compatible command. The library first performs a page table lookup through the kernel’s /proc/[pid]/pagemap interface ➋ to obtain the corresponding physical address (PA) ➌. This PA, together with the required page count, is then written to the VA-mapped CXL-Hybrid register set ➍, which is exposed to user space via mmap(). This direct access path triggers the hardware",
+   "published_date": null,
+   "score": 0.445506
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] The hard part of KV cache compression is not choosing which tokens to keep — it is two collisions with production infrastructure. Existing methods need historical attention scores, but the FlashAttention kernel never writes those scores into GPU memory. And paged attention reclaims memory only when a block holds no KV at all — yet after token eviction the survivors leave almost every block partially occupied, so the \"freed\" memory never actually comes back.\n\nContents [...] Figure 1. Schematic, not to scale: every token the model generates appends its keys and values to the running history — the KV cache — so cache memory grows with output length while the weights stay fixed. Let generation run long enough, and the cache alone drives the GPU out of memory.",
+   "published_date": null,
+   "score": 0.3963491
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] Low-latency and high-bandwidth KV cache transfer. Reusing KV caches can save GPU computation, but it may introduce I/O transfer bottlenecks. The KV cache store must not only provide the maximum bandwidth of a GPU form factor, PCI Express® (PCIe®) 5.0 ×16, but also minimize latency.\n\n#### Managing KV cache across hybrid storage tiers [...] In contrast, KV cache reuse maintains stable performance even as user count scales.\n\nAlthough an SSD-based KV cache store outperforms regeneration, relying solely on SSDs to retain KV cache data for days or weeks becomes impractical as model size and context length grow. For example, Qwen2.5-7B requires 56KB of KV cache per token, whereas Qwen2.5-72B requires 320KB per token. Combining SSDs with hard drives offers a more scalable solution by balancing cost and capacity.",
+   "published_date": null,
+   "score": 0.38901308
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale - Aerospike",
+   "content": "These requirements underscore why KV cache tiering differs fundamentally from traditional caching. Conventional cache systems are designed to manage millions of small objects with relatively predictable access patterns. KV cache systems, by contrast, handle a much smaller number of extremely large tensor objects with highly asymmetric read and write behavior. Supporting these workloads requires a new class of caching infrastructure purpose-built for AI inference, with specialized data-layer [...] KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per [...] For example, in a 70-billion-parameter model with 80 transformer layers, eight KV heads, and a head dimension of 128, a 1,000-token prefix can require approximately 328 MB of KV cache using FP16 precision, 164 MB using INT8, or 82 MB using INT4. These are the sizes of individual cache objects, meaning production inference systems may routinely need to retrieve hundreds of megabytes of cached tensor data to serve requests efficiently.",
+   "published_date": null,
+   "score": 0.33183438
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.2287249
+  }
+ ]
+}

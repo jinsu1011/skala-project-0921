@@ -133,6 +133,17 @@ def _narrative(state: dict, revision: str) -> dict:
     return llm_json("generator", sys, json.dumps(payload, ensure_ascii=False), tag=f"report_writer:{bool(revision)}")
 
 
+_TRL_RANGE = re.compile(r"TRL\s*(\d)\s*(?:~|–|-|에서)\s*(\d)")
+
+
+def guard_numbers(text: str, ranges: list[tuple[int, int]]) -> str:
+    """Drop narrative sentences whose TRL range differs from the code-computed ranges (LLM number slips)."""
+    ok = set(ranges)
+    kept = [x for x in re.split(r"(?<=[.!?])\s+", (text or "").strip()) if x
+            and all((int(a), int(b)) in ok for a, b in _TRL_RANGE.findall(x))]
+    return " ".join(kept)
+
+
 def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     techs = state["selected_techs"]
     names = {t.tech_id: t.name for t in techs}
@@ -152,11 +163,31 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         b = briefs.get(tid)
         return b.evidence_ids[:n] if b else []
 
-    # ---------------- SUMMARY
+    trl_r = state["trl_result"].by_tech
+    ranges = [(v.trl_low, v.trl_high) for v in trl_r.values() if v.trl_low is not None]
+    for k in ("trl", "market", "stakeholder", "domain"):
+        nar[k] = guard_numbers(nar.get(k, ""), ranges)
+    # ---------------- SUMMARY: result lines are generated from State; the LLM adds at most two findings
     add("# SUMMARY")
     add("")
-    for s in nar.get("summary", [])[:5]:
-        add(f"- {ct.sub(neutralize(s))}")
+    conf_ko = {"high": "높음", "mid": "보통", "low": "낮음"}
+    for t in techs:
+        tr = trl_r.get(t.tech_id)
+        m = syn.matrix.get(t.tech_id, {})
+        ids = (tr.low_ids[:1] + tr.high_ids[:1]) if tr else []
+        add(f"- {t.name}: TRL {tr.trl_low}–{tr.trl_high}(추정, 신뢰도 {conf_ko[tr.confidence]}), " if tr and tr.trl_low is not None
+            else f"- {t.name}: TRL 판단 보류, ")
+        L[-1] += (f"시장성 {_fmt(m['market'].score)}, 이해관계자 {_fmt(m['stakeholder'].score)}, "
+                  f"도메인 적합성 {_fmt(m['domain'].score)} {ct.cite(ids)}")
+    hy = syn.hypotheses
+    add("- 가설 판정: " + ", ".join(f"{h} {hy[h].verdict}" for h in ("H1", "H2", "H3", "H4") if h in hy) + " "
+        + ct.cite(sorted({i for h in hy.values() for i in h.evidence_ids})[:3]))
+    extra = [x for x in nar.get("summary", []) if "우열이나 추천이 아니라" not in x]
+    for x in extra[:2]:
+        g = guard_numbers(x, ranges)
+        if g and ID_RE.search(g):
+            add(f"- {ct.sub(neutralize(g))}")
+    add("- 우열이나 추천이 아니라 관점별 평가 차이와 그 근거를 정리한 결과이다(판단 보류는 근거 부족을 뜻함).")
     add("")
     add("---pagebreak---")
     add("")
@@ -367,7 +398,8 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         if not v:
             continue
         if h == "H1":
-            reason = v.rationale + " " + ct.cite(v.evidence_ids[:4])
+            reason = (v.rationale.replace("신뢰도 high", "신뢰도 높음").replace("신뢰도 mid", "신뢰도 보통")
+                      .replace("신뢰도 low", "신뢰도 낮음") + " " + ct.cite(v.evidence_ids[:4]))
         else:
             kept = [s for s in split_sentences(v.rationale) if stmt_by_text.get(s) not in drop]
             reason = ct.sub(neutralize(" ".join(kept))) or "근거 문장이 Judge 검사를 통과하지 못함"
@@ -431,7 +463,11 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add(f"- Judge(gpt-4.1)는 생성 모델(gpt-4.1-mini)보다 상위 모델이지만 같은 계열이라 자기 평가 편향을 줄이는 효과가 제한적이다.")
     add("- 평가 주체인 우리 조가 SK 교육과정 소속이고 ITME는 SK hynix 기술이다. 두 기술에 같은 질의 틀·검색 한도·Rubric을 썼지만 소속에 따른 편향 가능성을 배제할 수 없다.")
     add("- 웹 근거는 Tavily 검색 결과에 의존하며 검색 시점(2026-09-22)의 자료만 반영한다. 점수는 근거 개수를 가중치로 쓰지 않지만 검색되는 자료의 양에 영향을 받는다.")
-    other = [w for w in state.get("warnings", []) if not w.startswith("판정 불확실") and not w.startswith("보고서 검수")]
+    ws = state.get("warnings", [])
+    other = [w for w in ws if not w.startswith(("판정 불확실", "보고서 검수", "근거 ID 충돌"))]
+    n_conf = sum(1 for w in ws if w.startswith("근거 ID 충돌"))
+    if n_conf:
+        other.append(f"같은 근거 ID에 다른 제목이 들어온 경우 {n_conf}건(기존 항목 유지, 실행 로그에 기록)")
     if other:
         add("- 실행 중 기록된 경고: " + "; ".join(other[:8]))
     if idx:
@@ -486,10 +522,14 @@ def with_toc(md: str, pages: dict[str, int] | None = None) -> str:
     """Insert a 목차 page before SUMMARY. `pages` maps heading text to the printed page (second render pass)."""
     body = re.sub(r"^# 목차\n.*?---pagebreak---\n\n", "", md, flags=re.S)
     rows = []
+    pg = lambda t: str(pages.get(t, "")) if pages else ""  # noqa: E731
     for lvl, text in toc_entries(body):
-        pg = str(pages.get(text, "")) if pages else ""
-        rows.append([("**" + text + "**") if lvl == 1 else "\u2003" + text, pg])
-    toc = "# 목차\n\n" + _table(["장·절", "쪽"], rows, "14.0,2.0") + "\n\n---pagebreak---\n\n"
+        if lvl == 1:
+            rows.append([f"**{text}**", [], pg(text)])
+        elif rows:
+            rows[-1][1].append(f"{text} ({pg(text)})" if pages else text)
+    rows = [[a, " · ".join(b), c] for a, b, c in rows]
+    toc = "# 목차\n\n" + _table(["장", "절 (쪽)", "쪽"], rows, "3.6,11.2,1.2") + "\n\n---pagebreak---\n\n"
     return toc + body
 
 

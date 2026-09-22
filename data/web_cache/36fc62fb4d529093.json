@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache not production ready research stage",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:26:23+09:00",
+ "results": [
+  {
+   "url": "https://blog.dailydoseofds.com/p/rethinking-kv-caching-for-production",
+   "title": "Rethinking KV Caching For Production Inference",
+   "content": "LMCache isn’t a research prototype but rather ships with the infrastructure that production teams expect.\n\n Prometheus and OpenTelemetry integration for tracking cache hit rates and I/O performance.\n Kubernetes operator for deployment\n CLI for debugging and benchmarking.\n\nIf the inference engine crashes, LMCache preserves all cached data on CPU and storage, so recovery doesn’t start cold. [...] Every KV cache library runs inside the inference engine’s process. That means cache operations (storing, loading, moving KV tensors around) and the actual inference computation share the same resources.\n\nThey can’t run at the same time, so when the engine is busy managing cache, it stops doing inference, and vice versa. [...] All the heavy work of actually moving KV tensors between GPU, CPU, and storage happens inside LMCache’s own process. The inference engine doesn’t even notice it’s happening.\n\nThis separation produces three benefits:",
+   "published_date": null,
+   "score": 0.49318945
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "Efficient multi-tier KV caching relies on maintaining data contiguity across storage boundaries to enable high-bandwidth prefetching without reorganization overhead. To maximize offloading performance, ITME aggregates evicted KV cache blocks into large-scale chunks (e.g., 512 MB) within the CPU staging buffer. During the eviction process, ITME sequentially appends blocks into these chunks as they are released from GPU memory. This sequential appending naturally restores the logical sequence of [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] for each data type. Model weights are streamed layer-by-layer to match the execution flow, whereas KV cache blocks are retrieved in their original aggregated order to preserve the spatial locality established during their initial storage in large chunks. To maximize throughput, ITME proactively prefetches these chunks into host memory at the onset of each inference turn, ensuring they are staged and ready for the subsequent GPU-side pipeline.",
+   "published_date": null,
+   "score": 0.47373086
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Onboarding phase. This phase represents the read stage from the KV cache. The I/O pattern is dominated by 83% random reads and 17% sequential reads. As turns progress, additional KV cache write operations are generated at Output Sequence Length (OSL)-sized granularity; however, they account for less than 1% of total I/O and are therefore negligible (Figure 11). Based on the I/O pattern, the KV cache store must be optimized for random access with data sizes of 128KB or larger. [...] Offloading phase. This phase represents the write stage of the KV cache. The observed I/O pattern consists of 72% random writes and 28% sequential writes. Each request is issued at 128KB, matching the maximum data transfer size (MDTS) supported by the hybrid storage (Figure 10).\n\nFigure 10. System I/O pattern during the offloading phase.\n\nFigure 10. System I/O pattern during the offloading phase. [...] Baseline (no backing storage). This configuration measures the cost of regenerating the KV cache rather than reusing it. Prefix caching and KV offloading are disabled, requiring the KV cache to be recomputed from scratch during each prefill stage.\n\nSSD block storage target. This configuration evaluates KV cache reuse with storage on SSD. Prefix caching and KV offloading are enabled, allowing KV data to persist across turns. The KV cache resides in both HBM and SSD.",
+   "published_date": null,
+   "score": 0.4678915
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] A CXL memory expander is a DRAM-based CXL memory module that targets latency- and bandwidth-sensitive workloads by expanding memory capacity beyond local DIMM channels while preserving memory-semantic access (SK hynix, 2025; Samsung Electronics, 2026a). For KV-cache reuse, such devices can provide a low-latency capacity tier for KV blocks that no longer fit in GPU memory but still require fast access. A CXL switch-based memory pool extends this model to rack-scale environments by aggregating [...] opportunistic write buffering to stage latency-critical reads in device DRAM, enabling DRAM-scale KV-cache efficiency at SSD-level cost.",
+   "published_date": null,
+   "score": 0.42076674
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale - Aerospike",
+   "content": "GPU memory is volatile. Whenever an inference server restarts, whether due to maintenance, software upgrades, failures, or autoscaling events, the entire KV cache is immediately lost. Every subsequent request must perform a full prefill operation because none of the previously computed key/value vectors are preserved. For production workloads, rebuilding these warm caches can take tens of minutes before performance returns to steady state, depending on traffic patterns and model behavior. These [...] Inference performance in production environments is no longer constrained solely by compute capacity; it is increasingly limited by the finite amount of high-bandwidth memory (HBM) available on GPUs. As context windows expand from thousands to hundreds of thousands of tokens, applications shift toward longer multi-turn interactions, and workloads such as retrieval-augmented generation (RAG) and autonomous AI agent workflows become commonplace, KV cache growth will increasingly consume a larger",
+   "published_date": null,
+   "score": 0.32878852
+  }
+ ]
+}

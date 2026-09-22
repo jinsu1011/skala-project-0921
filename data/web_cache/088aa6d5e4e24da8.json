@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache demo prototype evaluation partners",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:26:12+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "To balance latency hiding and DRAM utilization, KV Manager dynamically allocates the prefetch window according to the prefix-hit footprint of each request while enforcing a bounded maximum prefetch window. Based on our prototype evaluation, allocating up to approximately 128 MB of prefetched KV data per request provides sustained performance. Consequently, KV Manager adjusts the prefetch window according to the KV-block size, up to eight blocks for 16 MB KV blocks and four blocks for 32 MB KV [...] studies relied on simulation, emulation, or software-based modeling to evaluate CXL memory behavior (Esmaili-Dokht et al., 2024; Fridman et al., 2023; Arif et al., 2022). More recent commercial and prototype systems demonstrate several CXL design points, including DRAM-based CXL memory expanders (SK hynix, 2025; Samsung Electronics, 2026a), switch-based CXL memory pools and appliances (Samsung Electronics, 2024; SK hynix, 2024; Yang et al., 2025), and CXL-HM devices that combine internal DRAM [...] prototypes such as SK hynix Niagara further show that shared CXL memory can remain sub-microsecond, reporting 600 ns access latency (SK hynix, 2024).",
+   "published_date": null,
+   "score": 0.47986987
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory.",
+   "published_date": null,
+   "score": 0.47475353
+  },
+  {
+   "url": "https://news.skhynix.com/en/sk-hynix-redefines-its-vision-at-sk-ai-summit-2025-from-ai-memory-provider-to-creator",
+   "title": "SK hynix Redefines Its Vision at SK AI Summit 2025: From AI Memory Provider to “Creator” – SK hynix Newsroom",
+   "content": "\\ Key-Value (KV) cache: A technology that stores and reuses previously computed Key and Value vectors, preserving context from earlier inputs to reduce redundant calculations and respond more efficiently. [...] A separate demonstration highlighted how AiMX\\  is optimized for attention\\  operations — the core computation in LLMs. In a server equipped with AiMX cards and NVIDIA H100 GPUs, AiMX significantly enhanced the speed and efficiency of memory-bound\\  workloads. AiMX also improves the efficiency of KV-cache\\  utilization during long question-and-answer sequences, alleviating memory bottlenecks. [...] SK Group Chairman Chey delivered the opening keynote under the theme “AI Now & Next,” setting the discussion around the next stage of the AI era. “The AI industry is now shifting from a race for scale to a race for efficiency,” he said, adding that SK’s role in responding to surging AI demand is to improve the efficiency of AI solutions. Chey emphasized: “The core of SK’s AI strategy is working together with partners — Big Tech, governments, startups — to co-design and deliver the most",
+   "published_date": null,
+   "score": 0.32972667
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.15521957
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.15521957
+  }
+ ]
+}

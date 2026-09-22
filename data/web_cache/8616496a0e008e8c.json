@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache impact on accuracy and domain suitability independent sources",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:27:28+09:00",
+ "results": [
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] อัลกอริทึมของ Google ช่วยเพิ่มประสิทธิภาพในการจัดการปัญหาคอขวดด้านพื้นที่จัดเก็บข้อมูลในระหว่างกระบวนการประมวลผล (Inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) โดยช่วยลดการใช้หน่วยความจำและเพิ่มความเร็วในการประมวลผลโดยไม่สูญเสียความแม่นยำ อย่างไรก็ตาม เทคโนโลยีนี้จะเข้ามาดิสรัปชันความต้องการในอุตสาหกรรมเซมิคอนดักเตอร์จริงหรือไม่? และผลกระทบในระยะสั้นจะมีนัยสำคัญเพียงใด?\n\n## การตรวจสอบความสมเหตุสมผลสำหรับการซื้อขายหุ้นกลุ่มชิป AI [...] นอกจากนี้ เมื่อพิจารณาว่าจำนวนพารามิเตอร์ในโมเดล AI กำลังเติบโตแบบทวีคูณ อัลกอริทึมดังกล่าวสามารถช่วยประหยัดพื้นที่จัดเก็บข้อมูลผ่านการบีบอัดได้สูงสุดเพียง 6 เท่าในปัจจุบัน ซึ่งอาจเป็นเพียงการแก้ปัญหาเพียงเล็กน้อยเมื่อเทียบกับขนาดความต้องการทั้งหมด",
+   "published_date": null,
+   "score": 0.1645839
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] อัลกอริทึมของ Google ช่วยเพิ่มประสิทธิภาพในการจัดการปัญหาคอขวดด้านพื้นที่จัดเก็บข้อมูลในระหว่างกระบวนการประมวลผล (Inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) โดยช่วยลดการใช้หน่วยความจำและเพิ่มความเร็วในการประมวลผลโดยไม่สูญเสียความแม่นยำ อย่างไรก็ตาม เทคโนโลยีนี้จะเข้ามาดิสรัปชันความต้องการในอุตสาหกรรมเซมิคอนดักเตอร์จริงหรือไม่? และผลกระทบในระยะสั้นจะมีนัยสำคัญเพียงใด?\n\n## การตรวจสอบความสมเหตุสมผลสำหรับการซื้อขายหุ้นกลุ่มชิป AI [...] นอกจากนี้ เมื่อพิจารณาว่าจำนวนพารามิเตอร์ในโมเดล AI กำลังเติบโตแบบทวีคูณ อัลกอริทึมดังกล่าวสามารถช่วยประหยัดพื้นที่จัดเก็บข้อมูลผ่านการบีบอัดได้สูงสุดเพียง 6 เท่าในปัจจุบัน ซึ่งอาจเป็นเพียงการแก้ปัญหาเพียงเล็กน้อยเมื่อเทียบกับขนาดความต้องการทั้งหมด",
+   "published_date": null,
+   "score": 0.1645839
+  },
+  {
+   "url": "https://www.investing.com/equities/sk-hynix-inc-company-profile",
+   "title": "About SK Hynix Inc (000660) - Investing.com",
+   "content": "SK hynix Inc. through its subsidiaries, engages in research, develops, manufactures, distributes, and sells semiconductor devices in Korea, China, rest of Asia, the United States, Europe, and internationally. It offers DRAM, such as server memory, graphics memory, mobile memory, PC memory, consumer memory; NAND flash memory; SSD; and MCP products. It also engages in foundry business, produces non-memory semiconductors. The company serves its products for server, networking, mobile, personal [...] mobile, personal computer, consumer, and automotive applications. The company was formerly known as Hynix Semiconductor Inc. and changed its name to SK hynix Inc. in March 2012. SK hynix Inc. was incorporated in 1949 and is headquartered in Icheon-si, South Korea. [...] | Name | Last | Chg. % | Vol. |  |\n ---  --- \n| LITE | 919.40 | +9.59% | 6.48M |  |\n| ALAB | 269.18 | +6.59% | 3.61M |  |\n| AXON | 468.42 | +5.96% | 2.63M |  |\n| SPCX | 150.88 | +5.15% | 106.70M |  |\n| GEV | 925.09 | +4.79% | 3.13M |  |\n| EW | 89.28 | +4.13% | 5.01M |  |\n| INTC | 101.05 | +4.03% | 119.92M |  |",
+   "published_date": null,
+   "score": 0.10821744
+  },
+  {
+   "url": "https://www.independent.co.uk",
+   "title": "The Independent | Latest news and features from US, UK and worldwide | The Independent",
+   "content": "Tech\n\nImage 35\n\n## Apple’s Tim Cook praises Australia’s under-16 social media ban as ‘world-leading’\n\nLifestyle\n\nImage 36: <p>There is a legitimate reason why days feel shorter as you age</p>\n\n## Why the days feel shorter as you get older, according to science\n\nNews\n\nImage 37: Ed Sheeran performs at the iHeartRadio Jingle Ball\n\n## Ed Sheeran reveals stance on Gaza in emotional apology at first show since Macklemore fallout\n\n# Product Reviews [...] Lifestyle\n\n## Flight attendant reveals the two drinks you should never order on a plane\n\nLifestyle\n\nImage 32: <p>Target is starting the 2026 holiday season with Target Circle Deal Days on October 6 and 7</p>\n\n## Christmas comes early: Best Buy, Target and Amazon kick off holiday shopping – in October\n\nNEWS\n\nImage 33: A young adult Humpback Whale breaches into the air during a migratory frolic \n\n## Humpback whale spotted in California river, traveling 60 miles from Pacific Ocean\n\nNEWS [...] politics\n\n## Fox News personality ridicules Trump’s obsession with her: ‘Why is this man not busier?’\n\nPOLITICS\n\n## Trump’s ICE deportation push leaves Minnesota teachers all saying the same thing\n\npolitics\n\nImage 16: <p>President Donald Trump’s pressure for GOP-led states to redraw their congressional districts may have backfired ahead of the midterm elections </p>\n\n## Trump demanded gerrymandered districts ahead of the midterms. His plan could backfire badly\n\nPOLITICS",
+   "published_date": null,
+   "score": 0.018834975
+  },
+  {
+   "url": "https://www.independent.co.uk/us",
+   "title": "The Independent | Latest news and features from US, UK and worldwide",
+   "content": "US politics\n\n## CNN, Politico and MS NOW sue Trump administration over White House ban\n\n\n\n## Presley Gerber, son of Cindy Crawford and Rande Gerber, dies at 27\n\n\n\n## The Independent Climate 100 List 2026\n\n The Independent’s Climate 100 list celebrates hope in a troubled world\n Erin Brockovich on her fight against ‘secretive’ data centres\n\n<p>Left-leaning Fox News host Jessica Tarlov questioned why President Trump isn’t ‘busier’ in response to his frequent criticisms of her </p> [...] # €1\n\n## for 6 months\n\nAlready have an account? Log in [...] NEWS\n\n## What is Yom Kippur? The significance of holiest Jewish festival\n\nEd Sheeran performs at the iHeartRadio Jingle Ball\n\n## Ed Sheeran cries onstage as he calls plight of Palestinians 'unjustifiable' at solo concert after support acts quit amid Gaza controversy\n\n Ed Sheeran’s tour with Macklemore has imploded. Here’s why\n Sheeran and King Charles brutally mocked in SNL UK Diana sketch\n Singer's fans say he ‘doesn’t deserve this’ after Macklemore row",
+   "published_date": null,
+   "score": 0.013606685
+  }
+ ]
+}

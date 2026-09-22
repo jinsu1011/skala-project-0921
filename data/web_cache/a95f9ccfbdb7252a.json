@@ -1,0 +1,44 @@
+{
+ "query": "Google TurboQuant KV cache technology technical readiness level advantages site:.edu OR site:.gov OR site:.org",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:20:08+09:00",
+ "results": [
+  {
+   "url": "https://technicalforum.org/2026/08/16/google-turboquant-kv-cache-compression",
+   "title": "Google Researchers Unveil \"TurboQuant\": KV Cache Compression to Slash Local AI Memory Usage by 70% - Technical Forum",
+   "content": "memory space. By compressing runtime context data down to just 3 bits per value without degrading accuracy, this technology allows local hardware setups to handle ultra-long prompts effortlessly. [...] Integrating TurboQuant into existing local workflows requires minimal configuration changes for end users. Because TurboQuant operates entirely training-free during inference runtime, developers do not need to re-quantize existing model weight files. Users simply append specific runtime parameters to their favorite local LLM runner to enable low-bit cache allocation dynamically upon startup. [...] Developed by top researchers at Google DeepMind, TurboQuant represents a major leap forward in post-training context compression. The algorithm targets the dynamic runtime memory footprint by quantizing 16-bit floating-point key-value vectors down to a mere 3 bits per value. Unlike older compression schemes that degrade output coherence, TurboQuant preserves model accuracy at levels statistically indistinguishable from uncompressed baseline execution. Consequently, local inference engines can",
+   "published_date": null,
+   "score": 0.6326168
+  },
+  {
+   "url": "https://yage.ai/share/turboquant-kv-cache-3-bit-en-20260325.html",
+   "title": "TurboQuant: Google Wants to Compress KV Cache Down to 3 Bits",
+   "content": "## Summary\n\nTurboQuant integrates three previously independent technical threads—PolarQuant for eliminating metadata overhead, QJL for preserving dot-product accuracy, and online vector quantization approaching theoretical optimality—into a coherent KV cache compression pipeline. It is not an entirely new compression paradigm, but it advances the state of deployment friction, engineering overhead, and theoretical rigor beyond prior point solutions. [...] Whether it can be used at production scale depends on three things: the pace of open-source implementation, kernel support in mainstream inference frameworks, and broader validation across models and scenarios. It currently sits at a stage where research significance is clear, engineering relevance is real, but production readiness remains unproven. [...] If you are building long-context AI products or inference services, KV cache memory is likely one of your biggest resource bottlenecks. At 128K tokens and beyond, the KV cache regularly consumes more GPU memory than the model weights themselves, directly determining how many concurrent requests a single GPU can serve, the latency-cost tradeoff in your inference stack, and whether you need to upgrade to more expensive hardware.",
+   "published_date": null,
+   "score": 0.6016175
+  },
+  {
+   "url": "https://artificial-inteligence.phptutorial.co.in/efficient-llm-inference-with-turboquant-and-kv-cache-offloading",
+   "title": "Efficient LLM Inference with TurboQuant and KV Cache Offloading - Artificial Intelligence",
+   "content": "TurboQuant is a novel approach for KV cache compression that combines polar quantization with 1-bit residual correction (QJL). The polar quantization step rotates the vector randomly so that the coordinates follow a concentrated distribution that is easy to quantize. The QJL step removes the normalization overhead by using a 1-bit residual correction. TurboQuant achieves zero-accuracy-loss 3-bit KV cache compression, 6x lower memory use, and up to 8x faster attention. [...] has led to significant advancements in model architecture, training methods, and inference optimization techniques. One of the key challenges in deploying LLMs is the high memory requirements, which can be mitigated using techniques such as model pruning, quantization, and knowledge distillation. Recently, Google introduced TurboQuant, a novel approach for KV cache compression that achieves zero-accuracy-loss 3-bit KV cache compression, 6x lower memory use, and up to 8x faster attention. In",
+   "published_date": null,
+   "score": 0.599087
+  },
+  {
+   "url": "https://binaryverseai.com/turboquant-kv-cache-compression-engineers-guide",
+   "title": "TurboQuant: 7 Powerful Breakthroughs In KV Cache Efficiency",
+   "content": "At a high level, google turboquant is a practical answer to an old information theory problem. You have a high-dimensional vector. You want to store fewer bits. You do not want to wreck the geometry that makes the vector useful. In AI systems, that geometry is the whole game. Attention scores, nearest-neighbor retrieval, and similarity search all depend on it. If you are curious how inference speed and memory interact at the hardware level, the TPU vs GPU breakdown covers the tradeoffs in [...] The paper’s search experiments lean into this advantage. It outperforms existing product quantization baselines in recall while cutting indexing time to essentially zero. That line should make anyone building a vector search system sit up a bit straighter.\n\nThere is a philosophical point hiding in there too. The best compression methods for AI may not be the ones that memorize the quirks of a dataset. They may be the ones that reshape the geometry so the old theory becomes usable again. [...] | Method Style | Strength | Weakness |\n --- \n| Offline PQ with learned codebooks | Can be strong on fixed datasets | Slow indexing, extra storage, brittle online |\n| Scalar low-bit quantization | Simple and fast | Often biased for inner products |\n| Token pruning methods | Saves memory by keeping less context | Can lose the wrong context entirely |",
+   "published_date": null,
+   "score": 0.575517
+  },
+  {
+   "url": "https://aihola.com/article/google-turboquant-kv-cache-compression",
+   "title": "Google TurboQuant Compresses LLM KV Cache 6x | aiHola",
+   "content": "Google frames TurboQuant as useful beyond just LLMs, specifically for vector search at scale. The recall numbers on GloVe do outperform product quantization and RabbiQ baselines, and the indexing time drops to near zero because TurboQuant is data-oblivious (no codebook training needed). For anyone running large-scale nearest-neighbor search, that zero-indexing-time property is potentially more interesting than the KV cache application, though it got buried in the blog post's second half. [...] Google Research published TurboQuant on Monday, a vector quantization algorithm that compresses the key-value cache in large language models down to 3 bits per channel while claiming zero accuracy loss. The paper, which will be presented at ICLR 2026, comes from a team led by research scientist Amir Zandieh and Vahab Mirrokni, a VP and Google Fellow. At 4-bit precision, Google says TurboQuant delivers up to 8x speedup in computing attention logits on H100 GPUs compared to the unquantized 32-bit [...] Google benchmarked TurboQuant against KIVI, which was published at ICML 2024 and has become the standard baseline for KV cache quantization. KIVI introduced asymmetric 2-bit quantization (keys per-channel, values per-token) and showed 2.6x memory reduction with minimal quality loss. TurboQuant claims better results at 3 bits with no quality loss at all, and the LongBench numbers on Llama-3.1-8B-Instruct do look favorable.",
+   "published_date": null,
+   "score": 0.5221784
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "query": "SK hynix ITME KV cache criticism skeptical accuracy loss",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:26:19+09:00",
+ "results": [
+  {
+   "url": "https://venturebeat.com/orchestration/new-kv-cache-compaction-technique-cuts-llm-memory-50x-without-accuracy-loss",
+   "title": "New KV cache compaction technique cuts LLM memory 50x without accuracy loss | VentureBeat",
+   "content": "The KV cache scales with conversation length because the model is forced to retain these keys and values for all previous tokens in a given interaction. This consumes expensive hardware resources. \"In practice, KV cache memory is the biggest bottleneck to serving models at ultra-long context,\" Adam Zweiger, co-author of the paper, told VentureBeat. \"It caps concurrency, forces smaller batches, and/or requires more aggressive offloading.\" [...] In modern enterprise use cases, such as analyzing massive legal contracts, maintaining multi-session customer dialogues, or running autonomous coding agents, the KV cache can balloon to many gigabytes of memory for a single user request. [...] The key finding was the ability of Attention Matching to compact the model’s KV cache by 50x without reducing the accuracy, while taking only seconds to process the documents. To achieve that same level of quality previously, Cartridges required hours of intensive GPU computation per context.\n\nAttention matching on Qwen 3\n\nAttention Matching with Qwen-3 (source: arXiv)",
+   "published_date": null,
+   "score": 0.5126688
+  },
+  {
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ap3bkt/kv_cache_is_huge_and_bottlenecks_llm_inference_we",
+   "title": "KV Cache is huge and bottlenecks LLM inference. We ...",
+   "content": "We leverage the fact that this kind of outliers exists constantly in specific channels of the K cache and purpose to quantize the K cache in a per-channel manner (in contrast to the standard per-token practice). This addresses the OOD issue and, therefore, delivers acceptable performance (<1% acc drop on average on real tasks). You can checkout ourpaperor take a quick peek at our main eval tableshere.\n\n6 more replies \n\n6 more replies \n\n6 more replies\n\nMore replies [...] 4 more replies\n\n quantized to around 4bit while experiencing no or minor acc drop.\n\nFor 2bit, the challenge is how to handle channel-wise outliers exiting in the K cache. For an extreme example, suppose we have a token of `[10, 20, 999999, 30] (d=4)`; it would be pretty tough to find a 2bit representation that can handle it, as this `999999` will likely take the `11` and everything else would be `00` due to the OOD nature of the former. [...] Our method achieves an acceptable performance drop (<1% accuracy drop on average when evaluated against real tasks like LM-Eval and LongBench) with KV cache quantized in 2bits. This brings 2.6× less peak memory on the Llama/Mistral/Falcon models we evaluated while enabling 4x larger batch size, resulting in 2.35× - 3.47× throughput improvement.\n\n🥝 KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache  \n📰 Paper:   \n😼 Code:   \n📈 A quick peek of main results\n\n Share",
+   "published_date": null,
+   "score": 0.35173458
+  },
+  {
+   "url": "https://arxiv.org/html/2407.18003v1",
+   "title": "A Review on Methods to Optimize LLM's KV-Cache ...",
+   "content": "Kang et al. (2024) proposed GEAR (Generative Inference with Approximation Error Reduction) which integrates three techniques: (1) Uniform quantization for the majority of entries. (2) Low-rank matrix approximation for quantization residuals. (3) Sparse matrix to handle errors from outlier entries.\n\n#### Full quantization\n\nSheng et al. (2023) proposed FlexGen which compresses both model weights and attention cache to 4 bits without significant accuracy loss. [...] | Model | GQA | MoE | PC | LC | HD | nhn\\_{h} | nq¯\\bar{n\\_{q}} | SH​SS\\_{HS} | SK​VS\\_{KV} | F/A | ℛ\\mathcal{R} |\n ---  ---  ---  ---  ---  --- |\n| Grok1 | Yes | 8(2) | 314B | 64 | 6144 | 48 | 8 | 12K | 163K | 6\\2 | 13 |\n| DBRX | Yes | 16(4) | 132B | 40 | 6144 | 48 | 8 | 12K | 163K | 2.06\\4 | 13 |\n| Gemma | No | – | 8.5B | 28 | 3072 | 16 | 16 | 6K | 468K | 4.5 | 75 |\n| Gemma | Yes | – | 2.5B | 18 | 2048 | 8 | 1 | 4K | 18K | 9.6 | 4.5 | [...] However, the use of KV-Cache is not all advantageous. KV-Cache will increase linearly with the length of the sequence, and the memory required will become larger and larger, especially for giant models like GPT-3 (Floridi & Chiriatti, 2020). Moreover, each individual dialogue needs to save its own KV-Cache, and different dialogues can hardly reuse them, which will become a bottleneck in the generation speed on modern inference hardware like GPU as they usually suffers from the low memory",
+   "published_date": null,
+   "score": 0.2916164
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] KV cache offloading and prefix caching. Prefill is computebound,7 making KV reuse critical to reducing TTFT. In multiturn scenarios, KV cache can be offloaded and stored, then prefix caching loads it when needed (Figure 4). This reduces repeated computation and improves response time and GPU utilization while lowering power consumption. [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly",
+   "published_date": null,
+   "score": 0.28862974
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.2523799
+  }
+ ]
+}

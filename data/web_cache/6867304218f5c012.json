@@ -1,0 +1,44 @@
+{
+ "query": "Google TurboQuant KV cache criticism skeptical accuracy loss",
+ "days": null,
+ "topic": "general",
+ "max_results": 5,
+ "fetched_at": "2026-09-22T11:25:50+09:00",
+ "results": [
+  {
+   "url": "https://www.mindstudio.ai/blog/what-is-google-turboquant-kv-cache-compression",
+   "title": "What Is Google TurboQuant? The KV Cache Compression That ...",
+   "content": "TurboQuant is a KV cache quantization algorithm from Google DeepMind that compresses cache storage from 16 bits to 3 bits with minimal accuracy loss.\n   The resulting improvements — 8x faster inference and 6x memory reduction on H100 GPUs — are significant enough to materially change AI infrastructure economics.\n   The technique uses per-head calibration and outlier-aware compression to maintain quality, and is designed for hardware efficiency on real GPU architectures. [...] Google’s research claims accuracy that is statistically indistinguishable from full-precision KV cache on standard benchmarks, including long-context tasks. However, “zero accuracy loss” in this context means performance within the margin of error on the specific benchmarks tested, not a mathematical guarantee. Results may vary slightly depending on the task, model size, and context type. Independent replication of the benchmarks is still in early stages. [...] In late 2024, Google DeepMind introduced TurboQuant — a KV cache compression algorithm that squeezes memory usage down to 3 bits per value with essentially zero accuracy loss. The result: up to 8x faster inference and 6x reduction in memory consumption on H100 GPUs. When that news landed, Micron and SK Hynix saw their stock prices drop sharply. Investors realized that the industry’s assumption — more AI means more memory demand — had just gotten significantly more complicated.",
+   "published_date": null,
+   "score": 0.7460839
+  },
+  {
+   "url": "https://www.starkinsider.com/2026/03/google-turboquant-llm-compression-less-memory.html",
+   "title": "Google’s TurboQuant: The Unsexy AI Breakthrough Worth Watching",
+   "content": "KEY POINTS:\n\n Google’s TurboQuant compresses LLM key-value cache by 6x with zero accuracy loss. No retraining required.\n It’s a research paper (April 2025), not a product. No official code released. Independent developers are already implementing it from the math alone.\n The real story: the AI efficiency race may matter more than the parameter race. Compression is what puts AI on edge devices, home labs, and small businesses. [...] What is Google TurboQuant?\n\nTurboQuant is a compression algorithm developed by Google Research that reduces the memory footprint of large language models by up to 6x with zero accuracy loss. It compresses the key-value cache (the model's conversational memory) down to as few as 3 bits per number, enabling longer conversations and faster inference on less hardware. The paper was first published in April 2025 and will be formally presented at ICLR 2026.\n\nCan I use TurboQuant today? [...] 3-bit quantization of the KV cache with no training, no fine-tuning, and no measurable accuracy loss\n Perfect scores on needle-in-a-haystack tests (finding a single fact buried in massive text) across all benchmarks\n Up to 8x speedup in computing attention on H100 GPUs compared to unquantized 32-bit keys\n Superior recall ratios in vector search compared to state-of-the-art methods, even those using larger codebooks and dataset-specific tuning",
+   "published_date": null,
+   "score": 0.6952351
+  },
+  {
+   "url": "https://medium.com/@tahirbalarabe2/turboquant-vs-traditional-quantization-eliminating-memory-overhead-in-llms-24524af4adb8",
+   "title": "TurboQuant vs Traditional Quantization Eliminating Memory ...",
+   "content": "### 3. How does TurboQuant achieve zero accuracy loss?\n\nTurboQuant uses a two-stage process:\n\nThe result is lossless performance (e.g., perfect recall in needle-in-a-haystack tasks) at very low bitwidths.\n\n### 4. What bitwidths does TurboQuant support, and what compression ratios does it achieve?\n\nTurboQuant compresses the KV cache to as low as 3 bits without fine-tuning or accuracy loss. This yields a memory reduction of at least 6× compared to full-precision (32-bit) representations. [...] ## Key-Value Cache Compression\n\nTurboQuant compressed the key-value cache down to 3 bits. That is a 6x reduction in memory. And the models performed exactly the same. No accuracy loss. None.\n\nPerformance across diverse tasks:\n\n## Speed Improvements\n\nOn H100 GPUs, the 4-bit version ran up to 8 times faster than the original 32-bit version. That is not a typo. Eight times faster.\n\nThe speedup comes from:\n\n## Vector Search Performance",
+   "published_date": null,
+   "score": 0.5792344
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "ด้วยสถาปัตยกรรมสองขั้นตอนที่ประกอบด้วย Polar Quantization (PolarQuant) และ Error Correction (QJL) อัลกอริทึมใหม่ของ Google นี้สามารถบีบอัดการใช้หน่วยความจำของ KV cache ให้เหลือเพียง 1 ใน 6 ของขนาดเดิม โดยไม่สูญเสียความแม่นยำของโมเดล และช่วยเพิ่มประสิทธิภาพได้สูงสุดถึง 8 เท่า [...] นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน [...] Bank of America ( BAC) นักวิเคราะห์ Vivek Arya ระบุในรายงานฉบับล่าสุดว่า แม้อุปสงค์ที่เกิดขึ้นใหม่จาก eSSD สำหรับศูนย์ข้อมูลและการถ่ายโอนภาระงาน KV cache ของ Nvidia จะช่วยสนับสนุนตลาด NAND flash จริง แต่ข้อมูลจาก Applied Materials แสดงให้เห็นว่าอุปสงค์ที่เกี่ยวข้องกับ KV cache คิดเป็นสัดส่วนเพียงเลขหลักเดียวของตลาด NAND ทั้งหมด ซึ่งทำให้ Micron ยากที่จะรักษาอัตรากำไรขั้นต้นที่สูงกว่า 80% ได้ในระยะยาว",
+   "published_date": null,
+   "score": 0.5749443
+  },
+  {
+   "url": "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression",
+   "title": "TurboQuant: Redefining AI efficiency with extreme ...",
+   "content": "## How TurboQuant works\n\nTurboQuant is a compression method that achieves a high reduction in model size with zero accuracy loss, making it ideal for supporting both key-value (KV) cache compression and vector search. It accomplishes this via two key steps:",
+   "published_date": null,
+   "score": 0.57236487
+  }
+ ]
+}
