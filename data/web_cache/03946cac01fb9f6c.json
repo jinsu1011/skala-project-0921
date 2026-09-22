@@ -1,0 +1,65 @@
+{
+ "query": "advantages of SK hynix ITME KV cache in domain suitability with multiple supporting series",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:02:38+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] Large-capacity KV cache store. To increase the prefix caching hit ratio, a KV cache pool must retain caches from multiple GPUs for periods ranging from days to weeks. Larger retention windows increase the chance that prior context can be reused instead of recomputed. [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent",
+   "published_date": null,
+   "score": 0.42548645
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "With limited staging space, remote reads are throttled by buffer availability, overlap is reduced, and cache-hit latency appears on the critical path. The required buffer also scales with KV-loading bandwidth; 100–400 Gbps links or multiple NICs need more staging space to keep KV reads in flight. [...] by aggregating multiple CXL memory devices into a pooled memory appliance, allowing memory capacity to be flexibly allocated and shared across hosts (Samsung Electronics, 2024; SK hynix, 2024; Yang et al., 2025). This model is attractive for distributed LLM serving because reusable KV states can be shared across workers rather than being replicated in each server. In contrast, CXL-HM combines internal DRAM with high-capacity SSD, exposing SSD-backed capacity through a memory interface while [...] A CXL memory expander is a DRAM-based CXL memory module that targets latency- and bandwidth-sensitive workloads by expanding memory capacity beyond local DIMM channels while preserving memory-semantic access (SK hynix, 2025; Samsung Electronics, 2026a). For KV-cache reuse, such devices can provide a low-latency capacity tier for KV blocks that no longer fit in GPU memory but still require fast access. A CXL switch-based memory pool extends this model to rack-scale environments by aggregating",
+   "published_date": null,
+   "score": 0.3880387
+  },
+  {
+   "url": "https://community.netapp.com/community/discussion/466018/engineering-inference-kv-cache-shared-storage-and-the-economics-of-ai",
+   "title": "Engineering Inference: KV Cache, Shared Storage, and the ...",
+   "content": "KV cache architecture sits directly in the middle of this shift. When you reuse KV blocks instead of recomputing them, you reduce GPU cycles. When you offload intelligently to CPU memory or shared storage, you avoid overprovisioning expensive accelerators. When you design for multi-node reuse rather than isolated GPUs, you turn memory into shared infrastructure rather than a per-GPU constraint. [...] In multi-node environments, this consistency matters. You want predictable behavior across instances, especially when routing requests round-robin behind a router. A shared, connector-driven KV layer ensures that cache semantics are stable regardless of which node handles the request. The result is not just faster responses. It is better resource utilization, smoother scaling, and fewer surprises when you move from one GPU to many. [...] This is whereLMCachechanges the design. Instead of treating KV cache as a private, in-process memory structure,LMCache treats it as shared infrastructure. KV blocks can be offloaded to CPU memory and shared storage, and multiple vLLM instances can reference the same cached content. In a multi-node setup, that means the second instance does not need to recompute what the first one already processed. You are no longer scaling GPUs in isolation. You are scaling with a shared memory plane.",
+   "published_date": null,
+   "score": 0.34296808
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "BANDF AD\n\nHowever, providing a KV cache even closer to the GPU, getting rid of the SSD PCIe bus link time, and delivering lower latency and higher bandwidth access than the local SSD is what HBF provides. The paper states: \"The expected advantages of HBF are 1) up to 16x larger capacity than HBM, and 2) similar bandwidth to HBM, and the expected disadvantages are 1) slower access (ns vs. μs), 2) lower write endurance, and 3) up to 4x higher power consumption than HBM.\" [...] The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] The results showed a 2.69x improvement in performance per watt compared to tests with a Blackwell GPU and 8 x HBM stacks but no HBF.\n\nWith testing of a KV cache with 10 million tokens, this showed that an HBM+HBF setup could process 18.8x more simultaneous queries, its batch size, than an HBM-only configuration. By using HBF,  such workloads, which could include 32 GPUs and their HBM, can be processed with only two GPUs, substantially reducing electricity consumption.",
+   "published_date": null,
+   "score": 0.33306974
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "Multi-tenant performance: Support concurrent access from multiple training and inference tasks and teams without performance degradation or resource contention.\n\n   Dataset versioning and management: Provide efficient snapshot and cloning capabilities for experiment reproducibility and dataset lineage tracking. [...] Parallelism and Scalability: AI training and inference often span multiple GPUs and nodes, requiring a storage foundation that can support high-performance parallel file systems. The Petascale architecture is a proven industry standard for parallel file system applications, providing the necessary structural foundation for distributed data. [...] ## Additional benefits over other KV cache implementations",
+   "published_date": null,
+   "score": 0.32514593
+  },
+  {
+   "url": "https://www.ersaelectronics.com/blog/sandisk-sk-hynix-standardize-hbf",
+   "title": "Sandisk & SK hynix Standardize HBF: A New Memory Tier for ...",
+   "content": "Key-value cache is one of the most important memory challenges in large-language-model inference. During autoregressive generation, transformer models store key and value tensors from previous tokens. This avoids recomputing attention over the entire context. As context windows become longer, KV cache memory requirements grow significantly. [...] This tiered approach can make enterprise AI more practical. It reduces the need to keep everything in expensive memory and reduces the latency penalty of retrieving everything from slower storage.\n\n## 10. KV Cache, Long Context, and Memory Expansion [...] HBM is the correct place for the most active KV cache data. However, not all session history is equally active. Older cache blocks or less frequently accessed context may be candidates for tiering. DRAM and HBF can support overflow or warm-cache strategies if software can manage migration intelligently.",
+   "published_date": null,
+   "score": 0.31447196
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "HiFC directly utilizes pre-generated Flash cache files, whereas the DRAM baseline must allocate tensors for every KV block upon each initialization. These findings highlight the scalability advantage of Flash-based KV cache initialization, making it a compelling solution for large-batch or long-context LLM inference scenarios. [...] Third, maintaining consistent SSD performance often requires domain-specific expertise in system configuration and filesystem tuning, which may hinder practical deployment. As future work, we plan to explore hybrid Flash–DRAM caching schemes that maintain stable performance across diverse workloads, and to share resources and know-how for SSD optimization. [...] 2. Optimized GPU-SSD Direct Swapping. By leveraging GDS and pSLC optimizations, we enable direct and efficient data transfers between a GPU and a Flash-based KV cache, bypassing the bottlenecks of host CPU and DRAM-based buffering.",
+   "published_date": null,
+   "score": 0.20315401
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.200699
+  }
+ ]
+}

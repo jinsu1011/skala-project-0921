@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache developers community discussion",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:21+09:00",
+ "results": [
+  {
+   "url": "https://dev.to/jun07/kv-cache-and-prompt-caching-how-to-leverage-them-to-cut-time-and-costs-34ih",
+   "title": "KV Cache and Prompt Caching: How to Leverage them to Cut Time and Costs - DEV Community",
+   "content": "In most cases, you don’t need to worry about complex configurations. Since KV cache has become the standard serving method, libraries like vLLM and Huggingface Transformers activate KV cache automatically by default provided you have enough memory.\n\nIn Transformers, the `use_cache` parameter in `model.generation_config` controls this behavior; its default value is `True`. [...] In vLLM, it allocates the remaining memory—defined by `gpu_memory_utilization`—to the KV cache after the model weights are loaded in the memory.\n\nvLLM is particularly well-known for its sophisticated cache engineering techniques, such as PagedAttention. Because of this, vLLM offers massive throughput with almost no memory fragmentation, making it a unmatched top-tier choice for efficient LLM serving.\n\n## The Problem with KV Caching\n\n### Memory Consumption [...] This \"memory wall\" has forced developers and enterprises to secure high-performance GPUs with vast amounts of VRAM, not just for training, but for inference as well. It is no surprise that memory manufacturers like Samsung, SK Hynix, and Micron have seen such a surge in demand; their hardware is the literal foundation upon which these caching methods reside.",
+   "published_date": null,
+   "score": 0.63125396
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles",
+   "published_date": null,
+   "score": 0.4977301
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "### 4.2. ITME I/O Scheduling and Prefetching\n\nThe primary role of ITME is to efficiently orchestrate KV cache movement across the multi-tier hierarchy, leveraging specific access patterns and device characteristics. It manages this entire lifecycle, from migrating blocks immediately upon GPU eviction to proactively prefetching them based on upcoming execution demands. [...] ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] Efficient multi-tier KV caching relies on maintaining data contiguity across storage boundaries to enable high-bandwidth prefetching without reorganization overhead. To maximize offloading performance, ITME aggregates evicted KV cache blocks into large-scale chunks (e.g., 512 MB) within the CPU staging buffer. During the eviction process, ITME sequentially appends blocks into these chunks as they are released from GPU memory. This sequential appending naturally restores the logical sequence of",
+   "published_date": null,
+   "score": 0.46060488
+  },
+  {
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1mhlj69/whats_the_verdict_on_using_quantized_kv_cache",
+   "title": "What's the verdict on using quantized KV cache? - Reddit",
+   "content": "•1y ago\n\nI use Q4 KV cache almost exclusively, but with Gemma 3 adding SWA, that meant I could afford to drop to Q8. I didn't notice any difference at all. I then reduced the context a bit and dropped to FP8, no real obvious difference... I dropped a bit more context and ran at FP16... No real obvious change. [...] but imo, typos are minor errors. like it will forget an underscore in a variable name while coding, and instead leave a space, (but the code is correct otherwise), or it will cite something wrong, like in the context it is 9:15pm, but then it says it is 7:15pm (but when I re ran it got it right, and was hard to reproduce)\n\nImage 29: u/mayo551 avatar\n\nmayo551\n\n•1y ago\n\nFP16 Context. Always.\n\nQ8 can be okay at times, but still noticeable. Anything below Q8 is garbage. [...] •1y ago\n\n> But it's hard to really point the finger on what causes issues between inherent model intelligence, weight quant, KV quant, context degradation. Really anything could attribute to it.\n\nExactly! Let alone the hugely varying responses across multiple attempts.\n\n Reply  Share \n\n1 more reply \n\n1 more reply \n\n1 more reply\n\nMore replies\n\nImage 14: u/cristoper avatar\n\ncristoper\n\nImage 15: Cake icon•1y ago",
+   "published_date": null,
+   "score": 0.40204045
+  },
+  {
+   "url": "https://developer.nvidia.com/blog/how-to-reduce-kv-cache-bottlenecks-with-nvidia-dynamo",
+   "title": "How to Reduce KV Cache Bottlenecks with NVIDIA Dynamo",
+   "content": "The KV Cache is a data structure at the core of an LLM’s attention mechanism created during the initial phase of inference known as prefill. The KV Cache stores intermediate attention data that helps the model focus on the most relevant parts of the input during the generation or response phase. [...] Technical Blog\n\nRelated Resources\n\nData Center / Cloud\n\n# How to Reduce KV Cache Bottlenecks with NVIDIA Dynamo\n\nSep 18, 2025\n\nBy Amr Elmeleegy and Akshatha Kamath\n\nDiscuss (0)\n\n L\n T\n F\n R\n E\n\n \n\n## AI-Generated Summary [...] Model integration layer: Connects popular AI inference engines like NVIDIA TensorRT-LLM and vLLM, with support for SGLang coming soon, to the KVBM system. This removes the need for model-specific integrations and enables consistent functionality across different engines.\n Memory management layer: Handles how memory is allocated, organized, and reused. It tracks where data lives and enables developers to customize KV Cache offload strategies without impacting the whole system.",
+   "published_date": null,
+   "score": 0.24817456
+  },
+  {
+   "url": "https://news.skhynix.com/en/future-forum-2026",
+   "title": "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward” – SK hynix Newsroom",
+   "content": "The panel discussion, “Memory Outside-In: ‘New Perspectives, New Opportunities’,” offered a chance to look at where SK hynix stands today and the direction it should take next through the lens of the broader ecosystem. The panel brought together April Li, Director of AI & HPC Business Development at TSMC; Jooyoung Kim, CEO of HyperAccel; Hyungjun Kim, CEO of SqueezeBits; Sunghyun Park, CEO of Rebellions; and Jungsoo Kang, Head of the Research Center at Bluedot AI. [...] The event was made up of three keynote presentations and a panel discussion. Industry figures from Korea and abroad, along with professors from leading universities, took part in the presentations and discussion, adding to their weight. Key SK hynix executives also shared their memory insights, including Vice President Kyunghoon Kim, head of the Design Research Lab; Vice President Hyungsoo Kim, head of the DRAM Design department; Vice President Hoyoung Son, head of the Advanced Package [...] Image 25\n\n▲ April Li, Director of AI & HPC Business Development at TSMC, taking part in the panel discussion.\n\nImage 26\n\n▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left)\n\nImage 27\n\n▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left)",
+   "published_date": null,
+   "score": 0.21065299
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.18759397
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.18759397
+  }
+ ]
+}

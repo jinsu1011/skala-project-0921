@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache infrastructure cost overhead drawbacks",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:13:02+09:00",
+ "results": [
+  {
+   "url": "https://pub.towardsai.net/googles-turboquant-how-they-cut-llm-memory-by-6x-without-losing-accuracy-971313c9aa7e",
+   "title": "Google's TurboQuant Explained: How They Cut LLM ...",
+   "content": "--\n\n2\n\nListen\n\nShare\n\nRunning large language models isn’t just expensive.\n\nIt’s wasteful.\n\nEvery time you send a long prompt, the model stores massive amounts of intermediate data in something called the KV cache. This cache grows with every token, quickly eating up GPU memory, slowing responses, and increasing cost.\n\nMost solutions try to compress this memory, but there’s always a tradeoff. You either save memory or you lose accuracy.\n\nGoogle’s TurboQuant breaks that tradeoff.",
+   "published_date": null,
+   "score": 0.65412235
+  },
+  {
+   "url": "https://regolo.ai/why-turboquant-matters-for-real-world-llm-inference",
+   "title": "Why TurboQuant matters for real-world LLM inference",
+   "content": "In production, the KV cache is often the first scaling problem that really hurts. As prompts get longer, chats persist across many turns, or RAG systems attach more retrieved context to every request, KV-cache memory grows quickly and starts limiting concurrency, latency, and infrastructure efficiency. [...] The practical promise of TurboQuant is simple: more useful context capacity on the same hardware. If KV-cache memory shrinks substantially while model quality stays stable on the reported benchmarks, a serving stack can fit more active sessions per GPU, support longer contexts, or postpone an infrastructure upgrade. [...] The previous paradigm was straightforward: quantize the KV cache with lower precision, usually with traditional scalar quantization, and accept some degradation if the memory savings were worth it. That approach is still useful, but as teams push it to lower bit widths, the risk of hurting long-context behavior rises, especially in retrieval-heavy or memory-constrained workloads.",
+   "published_date": null,
+   "score": 0.6504012
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน [...] Bank of America ( BAC) นักวิเคราะห์ Vivek Arya ระบุในรายงานฉบับล่าสุดว่า แม้อุปสงค์ที่เกิดขึ้นใหม่จาก eSSD สำหรับศูนย์ข้อมูลและการถ่ายโอนภาระงาน KV cache ของ Nvidia จะช่วยสนับสนุนตลาด NAND flash จริง แต่ข้อมูลจาก Applied Materials แสดงให้เห็นว่าอุปสงค์ที่เกี่ยวข้องกับ KV cache คิดเป็นสัดส่วนเพียงเลขหลักเดียวของตลาด NAND ทั้งหมด ซึ่งทำให้ Micron ยากที่จะรักษาอัตรากำไรขั้นต้นที่สูงกว่า 80% ได้ในระยะยาว [...] ด้วยสถาปัตยกรรมสองขั้นตอนที่ประกอบด้วย Polar Quantization (PolarQuant) และ Error Correction (QJL) อัลกอริทึมใหม่ของ Google นี้สามารถบีบอัดการใช้หน่วยความจำของ KV cache ให้เหลือเพียง 1 ใน 6 ของขนาดเดิม โดยไม่สูญเสียความแม่นยำของโมเดล และช่วยเพิ่มประสิทธิภาพได้สูงสุดถึง 8 เท่า",
+   "published_date": null,
+   "score": 0.62852204
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน [...] Bank of America ( BAC) นักวิเคราะห์ Vivek Arya ระบุในรายงานฉบับล่าสุดว่า แม้อุปสงค์ที่เกิดขึ้นใหม่จาก eSSD สำหรับศูนย์ข้อมูลและการถ่ายโอนภาระงาน KV cache ของ Nvidia จะช่วยสนับสนุนตลาด NAND flash จริง แต่ข้อมูลจาก Applied Materials แสดงให้เห็นว่าอุปสงค์ที่เกี่ยวข้องกับ KV cache คิดเป็นสัดส่วนเพียงเลขหลักเดียวของตลาด NAND ทั้งหมด ซึ่งทำให้ Micron ยากที่จะรักษาอัตรากำไรขั้นต้นที่สูงกว่า 80% ได้ในระยะยาว [...] ด้วยสถาปัตยกรรมสองขั้นตอนที่ประกอบด้วย Polar Quantization (PolarQuant) และ Error Correction (QJL) อัลกอริทึมใหม่ของ Google นี้สามารถบีบอัดการใช้หน่วยความจำของ KV cache ให้เหลือเพียง 1 ใน 6 ของขนาดเดิม โดยไม่สูญเสียความแม่นยำของโมเดล และช่วยเพิ่มประสิทธิภาพได้สูงสุดถึง 8 เท่า",
+   "published_date": null,
+   "score": 0.62852204
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "ด้วยการผสานพลังของเทคโนโลยีพื้นฐานสองประการ TurboQuant จึงสามารถบีบอัด KV Cache ได้อย่างมีประสิทธิภาพสูงสุด โดยไม่มีภาระหน่วยความจำเพิ่มเติม (zero additional memory overhead) และแทบจะไม่ส่งผลกระทบต่อความแม่นยำในการประมวลผล [...] ฮาร์ดดิสก์ไดรฟ์เป็นสื่อจัดเก็บข้อมูลแบบถาวรเช่นกัน และไม่มีส่วนเกี่ยวข้องกับตรรกะการทำงานของ KV caching เลย เทคโนโลยีการเพิ่มประสิทธิภาพการประมวลผลของ TurboQuant จึงส่งผลกระทบต่อความต้องการฮาร์ดดิสก์เป็นศูนย์\n\nความต้องการ HDD ในปัจจุบันส่วนใหญ่มาจากสถานการณ์ต่าง ๆ เช่น การจัดเก็บข้อมูลที่เข้าถึงไม่บ่อย (cold data storage) และการเก็บถาวร (archiving) ความต้องการเหล่านี้ไม่เกี่ยวข้องกับการปรับปรุงประสิทธิภาพในการประมวลผล AI และตรรกะความต้องการในระยะยาวยังคงมีความเสถียร [...] ความคิดเห็นส่วนใหญ่ในอุตสาหกรรมชี้ให้เห็นว่า อุปสรรคของโมเดลขนาดใหญ่ในปัจจุบันไม่ใช่จำนวนพารามิเตอร์ แต่คือความจุของหน่วยความจำ ยิ่งบริบทมีความยาวมากเท่าใด ปริมาณการใช้หน่วยความจำของ KV Cache ก็จะยิ่งมากขึ้นเท่านั้น จนในที่สุดก็ถึงขีดจำกัดของฮาร์ดแวร์ก่อนที่พารามิเตอร์ของโมเดลจะถึงเสียอีก ซึ่งถือเป็นปัญหาหลักที่พบร่วมกันในงานต่างๆ เช่น การสร้างข้อความขนาดยาว และการทำความเข้าใจเอกสารที่มีความยาวมาก\n\nความสำเร็จที่ก้าวล้ำของ TurboQuant เข้ามาช่วยแก้ไขปัญหาดังกล่าวได้โดยตรง",
+   "published_date": null,
+   "score": 0.61140573
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "ด้วยการผสานพลังของเทคโนโลยีพื้นฐานสองประการ TurboQuant จึงสามารถบีบอัด KV Cache ได้อย่างมีประสิทธิภาพสูงสุด โดยไม่มีภาระหน่วยความจำเพิ่มเติม (zero additional memory overhead) และแทบจะไม่ส่งผลกระทบต่อความแม่นยำในการประมวลผล [...] ฮาร์ดดิสก์ไดรฟ์เป็นสื่อจัดเก็บข้อมูลแบบถาวรเช่นกัน และไม่มีส่วนเกี่ยวข้องกับตรรกะการทำงานของ KV caching เลย เทคโนโลยีการเพิ่มประสิทธิภาพการประมวลผลของ TurboQuant จึงส่งผลกระทบต่อความต้องการฮาร์ดดิสก์เป็นศูนย์\n\nความต้องการ HDD ในปัจจุบันส่วนใหญ่มาจากสถานการณ์ต่าง ๆ เช่น การจัดเก็บข้อมูลที่เข้าถึงไม่บ่อย (cold data storage) และการเก็บถาวร (archiving) ความต้องการเหล่านี้ไม่เกี่ยวข้องกับการปรับปรุงประสิทธิภาพในการประมวลผล AI และตรรกะความต้องการในระยะยาวยังคงมีความเสถียร [...] ความคิดเห็นส่วนใหญ่ในอุตสาหกรรมชี้ให้เห็นว่า อุปสรรคของโมเดลขนาดใหญ่ในปัจจุบันไม่ใช่จำนวนพารามิเตอร์ แต่คือความจุของหน่วยความจำ ยิ่งบริบทมีความยาวมากเท่าใด ปริมาณการใช้หน่วยความจำของ KV Cache ก็จะยิ่งมากขึ้นเท่านั้น จนในที่สุดก็ถึงขีดจำกัดของฮาร์ดแวร์ก่อนที่พารามิเตอร์ของโมเดลจะถึงเสียอีก ซึ่งถือเป็นปัญหาหลักที่พบร่วมกันในงานต่างๆ เช่น การสร้างข้อความขนาดยาว และการทำความเข้าใจเอกสารที่มีความยาวมาก\n\nความสำเร็จที่ก้าวล้ำของ TurboQuant เข้ามาช่วยแก้ไขปัญหาดังกล่าวได้โดยตรง",
+   "published_date": null,
+   "score": 0.61140573
+  },
+  {
+   "url": "https://blog.everpuredata.com/purely-technical/turboquant-compresses-kv-cache-by-5x-does-that-mean-you-need-less-memory",
+   "title": "TurboQuant Compresses KV Cache by 5X. Does That Mean You ...",
+   "content": "TurboQuant eliminates this overhead entirely. The core insight comes from a property of high-dimensional geometry called concentration of measure. But before we get into the math, let me set up the problem.\n\n### The problem with raw KV vectors [...] Here’s a concrete example. Say channel 37 has value 5.2 and channel 104 has value 0.01. At 3 bits per coordinate, you get eight buckets. Eight evenly spaced buckets can’t cover a range from 0.01 to 5.2 with any precision, so prior methods break the vector into small blocks and store full-precision scale constants to normalize each block’s range first. That metadata adds up: at 3-bit quantization with blocks of 32, the overhead bumps you to 4 bits per element effectively. You asked for 3-bit, [...] (how wide the range is) and a zero-point (where the range starts) for every small block of values, typically 32 or 64 elements. These constants stay in full precision (FP16), because quantizing them would compound the error. Those constants add 1–2 extra bits of overhead per element, which partially defeats the purpose of quantizing in the first place.",
+   "published_date": null,
+   "score": 0.6083387
+  },
+  {
+   "url": "https://ibl.ai/blog/turboquant-ai-memory-compression-own-infrastructure",
+   "title": "Google's TurboQuant Cuts AI Memory 6x — What It Means… - ibl.ai",
+   "content": "The problem is that this cache grows linearly with context length and model size. For organizations running models locally, KV cache memory is often the binding constraint — not model quality, not compute speed, but raw memory.\n\nTraditional compression techniques (vector quantization) help, but they introduce their own memory overhead: quantization constants that add 1-2 extra bits per number, partially defeating the purpose.\n\nTurboQuant solves this with a two-stage approach:",
+   "published_date": null,
+   "score": 0.6052631
+  }
+ ]
+}

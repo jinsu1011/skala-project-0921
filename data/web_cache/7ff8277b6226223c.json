@@ -1,0 +1,65 @@
+{
+ "query": "limitations of SK hynix ITME KV cache regarding technology readiness level TRL with multiple independent references",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:03:03+09:00",
+ "results": [
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.285243
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "Multi-tier KV Cache and Prefetching. [...] Functional Prototyping via FPGA. A functional prototype, implemented on an Intel Agilex 7 I-Series FPGA (Altera, 2026), validates the hardware-level control logic and the software prefetcher. This platform integrates 32 GB of DDR4 DRAM as a hardware-managed cache for two SK Hynix Platinum P51 PCIe Gen5 NVMe SSDs (TechPowerUp, 2024). This setup establishes the feasibility of our expansion tier, successfully realizing a multi-terabyte, byte-addressable memory footprint by leveraging the [...] ## References",
+   "published_date": null,
+   "score": 0.21428047
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "Date Version Changes June 29, 2026 1.3 Added YouTube video embed (thumbnail link) for the Context Without Limits episode below the H1 title, with accompanying description.June 12, 2026 1.2 Updated References section: Fixed NVIDIA Networking & Software References heading formatting to use proper markdown H2 syntax. Added missing NVIDIA Dynamo Inference Serving Framework reference link. Corrected Supermicro NVIDIA Blackwell Portfolio URL to point to specific product page (SYS-212GB-FNR) instead [...] While GPU HBM (G1), System DRAM (G2), and local NVMe (G3) support cross-node KV cache movement via east-west fabrics, each tier remains fundamentally bounded by per-node physical capacities. GPU HBM provides the bandwidth required for real-time token generation, but its premium cost and capacity limits make it suboptimal for long-term KV Cache retention. Keeping idle KV caches in HBM directly displaces active computation, severely restricting maximum batch sizes and aggregate throughput. [...] KV Cache-Aware Routing: mapping KV cache states across potentially thousands of GPUs and routes new requests to the GPU with the best knowledge match, avoiding costly re-computations\n\n   Disaggregated Serving: separating the compute-intensive prefill phase from the memory-bandwidth-bound decode phase for independent scaling",
+   "published_date": null,
+   "score": 0.20084003
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory. [...] Large-capacity KV cache store. To increase the prefix caching hit ratio, a KV cache pool must retain caches from multiple GPUs for periods ranging from days to weeks. Larger retention windows increase the chance that prior context can be reused instead of recomputed.",
+   "published_date": null,
+   "score": 0.19701187
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "BANDF AD\n\nHowever, providing a KV cache even closer to the GPU, getting rid of the SSD PCIe bus link time, and delivering lower latency and higher bandwidth access than the local SSD is what HBF provides. The paper states: \"The expected advantages of HBF are 1) up to 16x larger capacity than HBM, and 2) similar bandwidth to HBM, and the expected disadvantages are 1) slower access (ns vs. μs), 2) lower write endurance, and 3) up to 4x higher power consumption than HBM.\" [...] Nvidia's ICMSP software extends the KV cache to local NVMe SSDs so that they enable the processing to complete much faster than if the tokens and vectors had to be recomputed when HBM capacity runs out.\n\nBANDF AD [...] The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\"",
+   "published_date": null,
+   "score": 0.13961938
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale - Aerospike",
+   "content": "KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per [...] A single conversation with a 10,000-token prompt requires approximately 10,000 tokens × 0.5 MB ≈ 5 GB of KV cache.\n\nNow consider a production deployment serving multiple users simultaneously:\n\n| Concurrent sessions | Context length | Approximate KV cache |\n --- \n| 10 | 10,000 tokens | 50 GB |\n| 20 | 10,000 tokens | 100 GB |\n| 50 | 10,000 tokens | 250 GB |\n| 100 | 10,000 tokens | 500 GB | [...] KV cache retrieval typically involves loading entire tensor blocks before inference can continue. Storage systems optimized for small random reads provide limited value when workloads require moving hundreds of megabytes at a time.\n\n### Asynchronous writes\n\nCache persistence should not add latency to user requests. Most tiering systems write cache entries asynchronously after inference completes, allowing response generation to remain focused on minimizing user-facing latency.",
+   "published_date": null,
+   "score": 0.13483313
+  },
+  {
+   "url": "https://www.wing.vc/content/the-memory-triopoly",
+   "title": "The Memory Triopoly | Wing Venture Capital",
+   "content": "Wing Logo in blue, all lower case letters.\n\nThe 2026 ET30 is Live\n\n# The Memory Triopoly\n\n###### May 12, 2026\n\nPerspectives\n\nWe’ve been talking a lot about memory lately — from KV Cache dynamics across prefill and decode to memory itself as the structural bottleneck in AI compute. The constraint is no longer raw FLOPS. It is the ability to move bytes in and out of those FLOPS fast enough to keep increasingly massive models fed. [...] 2. KV cache now dominates inference memory. During inference, every prior token’s “key” and “value” representations have to stay in memory for the next token to attend to them. This is the KV cache, and it grows with context length × batch size. Llama 3 70B at 128K context with batch size 32 needs ~80 GB just for KV cache — more than the model weights themselves. At 1M context, KV cache exceeds 600 GB per request. This is why H200’s 141 GB and B200’s 192 GB are a step change versus H100’s 80",
+   "published_date": null,
+   "score": 0.13455996
+  },
+  {
+   "url": "https://www.stocktitan.net/news/HXSCL/sk-hynix-presents-future-dram-technology-roadmap-at-ieee-vlsi-v6pl049dg34b.html",
+   "title": "SK hynix Unveils 4F² VG DRAM Technology at IEEE VLSI Symposium | SKHY Stock News",
+   "content": "\"Until around 2010, DRAM technology was expected to face limitations at 20 nanometers, but with constant innovation, we have made it this far,\" said CTO Cha. \"SK hynix will continue to guide the future of long-term technological innovation to be a milestone for young engineers in the field of DRAM and maintain cooperation within the industry to bring future of DRAM into reality.\" [...] In his speech, CTO Cha explained that it is increasingly difficult to improve performance and capacity with scaling through current technology platform\\. \"In order to overcome such limitations, SK hynix will apply the 4F² VG (Vertical Gate) platform and 3D DRAM technology to technologies of 10-nanometer level or below with innovation in structure, material and components,\" he said.\n\n\\ Tech Platform: A technological framework that can be applied to various generations of products [...] ### More on SKHY\n\n SK hynix Holds Groundbreaking Ceremony for HBM Production Base in Indiana, \"Beginning a New Future for US-Korea AI\" Aug 27, 2026\n SK hynix Accelerates 40 Trillion won Share Repurchase and Cancellation Program, Pursues Shareholder Return Expansion to 'Over 50% of FCF' Aug 19, 2026\n SK hynix Invests 54 Trillion Won in Yongin Y2 and Cheongju M17 to Secure Mid-to-Long-Term Production Base for AI Memory Demand Aug 7, 2026\n\n### Trending in the feed",
+   "published_date": null,
+   "score": 0.11400327
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache criticism skeptical hype",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:02+09:00",
+ "results": [
+  {
+   "url": "https://wccftech.com/two-of-the-biggest-dram-suppliers-are-skeptical-about-increasing-production",
+   "title": "Two of the Biggest DRAM Suppliers, Samsung and SK Hynix, Are Skeptical About Increasing Production as They Eye \"Long-Term\" Profitability",
+   "content": "lead to an 'oversupply' situation once the AI hype fades out. [...] supercycle', stating that shortages are expected to persist for several quarters ahead. [...] GPUs will remain under supply constraints.",
+   "published_date": null,
+   "score": 0.4302197
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] Korea Investment & Securities\n\nSeoul Economic Daily\n\nSeoul Economic Daily\n\nKorea Investment & Securities",
+   "published_date": null,
+   "score": 0.35662642
+  },
+  {
+   "url": "https://seekingalpha.com/article/4937711-sk-hynix-the-market-is-so-skeptical",
+   "title": "SK hynix: The Market Is So Skeptical (NASDAQ:SKHY)",
+   "content": "## Investing Groups\n\n## Portfolios\n\n## Find & Compare\n\n# SK hynix: The Market Is So Skeptical\n\n## Summary\n\nApple iPhone 6 NAND flash IC chip \n\nPoravute/iStock Editorial via Getty Images\n\nApple iPhone 6 NAND flash IC chip\n\nPoravute/iStock Editorial via Getty Images\n\nSK hynix Inc. (SKHY) is, of course, a high-flyer that has seen its sales and earnings explode higher. But the market has been skeptical in the first few weeks of public trading. The explosion in higher sales\n\n## More on my IG service [...] . I have no business relationship with any company whose stock is mentioned in this article. [...] who may not be licensed or certified by any institute or regulatory body.",
+   "published_date": null,
+   "score": 0.3502663
+  },
+  {
+   "url": "https://q.futunn.com/en/feed/116329824846228",
+   "title": "Alpha Call | The Truth About AI Storage Demand Behind KV Cac...",
+   "content": "China's daily token usage has exceeded 140 trillion, growing over a thousand times in two years. However, a research paper on KV Cache compression triggered a sharp decline in the storage sector, followed by SK Hynix$CSOP SK Hynix Daily Max (2x) Leveraged Product (07709.HK)$ securing a nearly 6.9 billion euro EUV equipment order.$ASML Holding (ASML.US)$ Between emotional panic and industrial reality, which one should we believe? [...] SK Hynix recently placed an order for EUV lithography machines worth approximately 6.9 billion euros. Estimating the cost of a single Low-NA EUV unit at around 230 to 250 million euros, this corresponds to about 25 to 30 units. The order was finalized in March this year and is expected to be delivered by the end of 2027. Both the scale and timing significantly exceed market expectations.\n\nTim believes there are two key signals behind this order. [...] Third, Hynix’s 6.9 billion euro EUV order: the industry is answering market concerns with concrete actions.\n\nAt a time when market sentiment was most shaken, the industry sent a completely different signal.",
+   "published_date": null,
+   "score": 0.34979975
+  },
+  {
+   "url": "https://www.tomshardware.com/tech-industry/semiconductors/sk-hynix-says-hybrid-bonding-wont-be-ready-for-hbm4e-as-ai-memory-runs-into-a-775-micron-ceiling",
+   "title": "Hot Chips 2026: SK hynix pushes hybrid bonding to HBM5 ...",
+   "content": "Lee answered that training workloads demand both bandwidth and capacity, then added that inference may split the difference, keeping the KV cache in high-bandwidth memory while offloading to LPDDR. That split already exists in products like Nvidia's Vera Rubin platform, which pools LPDDR5X with HBM4 over NVLink-C2C for exactly this purpose, and theHigh Bandwidth Flash spec that SK hynix co-developed with Sandisk extends the tiering idea to NAND. [...] Image 94: Fujitsu Chip Illustration CPUs Hot Chips 2026: Fujitsu's Monaka CPU stacks its entire cache on a separate 5nm die and narrows to 256-bit SVE2\n\n- [x] \n\nNo comments yetComment from the forums\n\nTom's Hardware is part of Future US Inc, an international media group and leading digital publisher. Visit our corporate site. [...] placing cheaper memory around it?\"",
+   "published_date": null,
+   "score": 0.27545044
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] BANDF AD\n\nHowever, providing a KV cache even closer to the GPU, getting rid of the SSD PCIe bus link time, and delivering lower latency and higher bandwidth access than the local SSD is what HBF provides. The paper states: \"The expected advantages of HBF are 1) up to 16x larger capacity than HBM, and 2) similar bandwidth to HBM, and the expected disadvantages are 1) slower access (ns vs. μs), 2) lower write endurance, and 3) up to 4x higher power consumption than HBM.\" [...] Cache-augmented generation (CAG) is such a workload. \"When the LLM receives a query, it reads the gigantic shared pre-computed KV cache, performs a computation, and then outputs a response. In other words, the shared precomputed KV cache is inherently read-only.\"\n\nIEEE SK Hynix H3 paper combined HBM and HBF structure diagrams.\n\nIEEE SK Hynix H³ paper combined HBM and HBF structure diagrams",
+   "published_date": null,
+   "score": 0.2528362
+  },
+  {
+   "url": "https://clausaasholm.substack.com/p/lam-what-is-the-kv-cache-hiding",
+   "title": "LAM: What is the KV Cache Hiding? - by Claus Aasholm",
+   "content": "The Chinese memory makers were not part of the same oversupply cycle that crushed Samsung and SK Hynix. They were still in build-out and ramp mode throughout 2022-2023, constructing greenfield capacity from scratch. So their equipment spending continued even as Korean and US memory makers slammed the brakes. [...] I prioritise closing the quarter, as there is much insight to be gained from analysing the totals across the entire Semiconductor network, but I have to balance it against the insights from the overlapping investor calls. While it is tempting, the way I do analysis is not by jumping from news to news like a happy bunny rabbit (it might look that way), I need to close and conclude on the broader semiconductor network for my analytics tools to work. [...] I am writing this from sunny Zurich, where I have just delivered a live presentation of the state of the Semiconductor supply network and the drivers of demand and supply. For a lowlander like me, it is very challenging to operate at the dizzying altitude of 400 meters. The highest point of the island of Lolland, where I live, is 30 meters, so I am literally in the dead zone. Any errors in this article will be solely due to the lack of oxygen.",
+   "published_date": null,
+   "score": 0.22805373
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/SK_Group",
+   "title": "SK Group",
+   "content": "SK Hynix (KRX: 000660) is the world's 3rd-largest semiconductor manufacturer and the 2nd-largest in South Korea after Samsung Electronics which is the leader in the global semiconductor industry. SK Hynix was founded in 1983 as \"Hyundai Electronics\", which is the origin of its name \"Hynix\", and merged to SK Group in 2012 when SK Telecom became the major shareholder. The major products are DRAM, flash memory, and many other semiconductor materials. While its headquarter is located at Icheon, [...] SKC, SK E&S, SK Shipping and K Power. SK acquired Hynix for US$3 billion in February 2012, rebranding it to SK Hynix. [...] 25. ↑ Park, Ju-Min (November 11, 2011). \"SK Telecom picked for $3 bln Hynix deal\". Reuters. Seoul.\n26. ↑ Lee, Jung-Ah (November 14, 2011). \"SK Telecom to Buy Hynix Stake for $3.04 Billion\". The Wall Street Journal. Seoul.\n27. ↑ \"Hynix names Chey as co-CEO as SK completes $3 billion deal\". Reuters. Seoul. February 14, 2012.\n28. ↑ \"Deals of the day-Mergers and acquisitions\". U.S. Archived from the original on 2023-04-25. Retrieved 2025-04-25.",
+   "published_date": null,
+   "score": 0.17638801
+  }
+ ]
+}

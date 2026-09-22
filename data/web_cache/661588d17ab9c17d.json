@@ -1,0 +1,65 @@
+{
+ "query": "advantages of SK hynix ITME KV cache in domain suitability",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:21:43+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly",
+   "published_date": null,
+   "score": 0.5040288
+  },
+  {
+   "url": "https://www.ersaelectronics.com/blog/sandisk-sk-hynix-standardize-hbf",
+   "title": "Sandisk & SK hynix Standardize HBF: A New Memory Tier for ...",
+   "content": "Key-value cache is one of the most important memory challenges in large-language-model inference. During autoregressive generation, transformer models store key and value tensors from previous tokens. This avoids recomputing attention over the entire context. As context windows become longer, KV cache memory requirements grow significantly. [...] This tiered approach can make enterprise AI more practical. It reduces the need to keep everything in expensive memory and reduces the latency penalty of retrieving everything from slower storage.\n\n## 10. KV Cache, Long Context, and Memory Expansion [...] The challenge is latency management. If the system moves data out of HBM and then needs it immediately, performance may suffer. Therefore, KV cache tiering requires prediction, scheduling, and prefetching. A standardized HBF layer can help by giving software developers a clear target for optimization.\n\n## 11. Data-Center Impact and Server Design",
+   "published_date": null,
+   "score": 0.43482184
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "A CXL memory expander is a DRAM-based CXL memory module that targets latency- and bandwidth-sensitive workloads by expanding memory capacity beyond local DIMM channels while preserving memory-semantic access (SK hynix, 2025; Samsung Electronics, 2026a). For KV-cache reuse, such devices can provide a low-latency capacity tier for KV blocks that no longer fit in GPU memory but still require fast access. A CXL switch-based memory pool extends this model to rack-scale environments by aggregating [...] reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] by aggregating multiple CXL memory devices into a pooled memory appliance, allowing memory capacity to be flexibly allocated and shared across hosts (Samsung Electronics, 2024; SK hynix, 2024; Yang et al., 2025). This model is attractive for distributed LLM serving because reusable KV states can be shared across workers rather than being replicated in each server. In contrast, CXL-HM combines internal DRAM with high-capacity SSD, exposing SSD-backed capacity through a memory interface while",
+   "published_date": null,
+   "score": 0.36629558
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV cache tiering: Why GPU memory alone won't scale your LLM app",
+   "content": "KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per [...] As a result, KV cache tiering requires a fundamentally different approach to infrastructure design. The challenge is not merely finding additional capacity for storing cache data, but also efficiently moving large computational artifacts across storage tiers while maintaining the low-latency performance that makes caching effective in the first place.\n\nAchieving this requires several critical capabilities:\n\n### High-throughput bulk transfers [...] These requirements underscore why KV cache tiering differs fundamentally from traditional caching. Conventional cache systems are designed to manage millions of small objects with relatively predictable access patterns. KV cache systems, by contrast, handle a much smaller number of extremely large tensor objects with highly asymmetric read and write behavior. Supporting these workloads requires a new class of caching infrastructure purpose-built for AI inference, with specialized data-layer",
+   "published_date": null,
+   "score": 0.334503
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "Context Without Limits: A High-Performance KV Cache Platform for Large-Scale AI Inference",
+   "content": "KV Cache-Aware Routing: mapping KV cache states across potentially thousands of GPUs and routes new requests to the GPU with the best knowledge match, avoiding costly re-computations\n\n   Disaggregated Serving: separating the compute-intensive prefill phase from the memory-bandwidth-bound decode phase for independent scaling [...] When the KV cache for an active session cannot fit within available HBM, inference frameworks must either evict and recompute it or stall the decode pipeline entirely; both outcomes represent significant waste of resources. Re-computation is particularly costly: regenerating a KV cache for a long context requires a full forward pass through the model, consuming GPU cycles that could otherwise be spent generating new tokens, effectively increasing the compute cost of serving returning users or [...] ## Additional benefits over other KV cache implementations",
+   "published_date": null,
+   "score": 0.33180192
+  },
+  {
+   "url": "https://blog.everpuredata.com/purely-technical/20x-faster-inference-first-kv-cache-for-s3-and-nfs",
+   "title": "20x Faster Inference with the First KV Cache for S3 and NFS | Everpure Blog",
+   "content": "Up to twenty times faster inference using NFS-backed KV caching\n Up to six times faster inference using S3-backed KV caching\n Validated across both small and large LLMs (e.g., cache sizes from approximately 50MB to 10GB)\n Two to three times faster than other KV caching solutions\n\nThese gains enable enterprise teams to reduce GPU hours, scale more cost-effectively, and improve responsiveness without changing model architecture or deployment stack.\n\n#### Technical Integration [...] Of course, KV caching is only as effective as the storage layer behind it… which is where Pure Storage® FlashBlade® comes in.\n\n## Fast Cache, Smarter Inference: The FlashBlade + Pure KVA Advantage [...] in modern AI systems.",
+   "published_date": null,
+   "score": 0.32979143
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] นอกจากนี้ เมื่อพิจารณาว่าจำนวนพารามิเตอร์ในโมเดล AI กำลังเติบโตแบบทวีคูณ อัลกอริทึมดังกล่าวสามารถช่วยประหยัดพื้นที่จัดเก็บข้อมูลผ่านการบีบอัดได้สูงสุดเพียง 6 เท่าในปัจจุบัน ซึ่งอาจเป็นเพียงการแก้ปัญหาเพียงเล็กน้อยเมื่อเทียบกับขนาดความต้องการทั้งหมด",
+   "published_date": null,
+   "score": 0.28248852
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] นอกจากนี้ เมื่อพิจารณาว่าจำนวนพารามิเตอร์ในโมเดล AI กำลังเติบโตแบบทวีคูณ อัลกอริทึมดังกล่าวสามารถช่วยประหยัดพื้นที่จัดเก็บข้อมูลผ่านการบีบอัดได้สูงสุดเพียง 6 เท่าในปัจจุบัน ซึ่งอาจเป็นเพียงการแก้ปัญหาเพียงเล็กน้อยเมื่อเทียบกับขนาดความต้องการทั้งหมด",
+   "published_date": null,
+   "score": 0.28248852
+  }
+ ]
+}

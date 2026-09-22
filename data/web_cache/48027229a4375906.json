@@ -1,0 +1,65 @@
+{
+ "query": "limitations of SK hynix ITME KV cache in market potential",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:04:32+09:00",
+ "results": [
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "6 Limitation and Future Plan While HiFC eliminates the need for DRAM and achieves cost-efficient scalability through direct GPU–SSD I/O, several limitations remain. First, in short-context or latency-sensitive workloads, Flash access latency may introduce delays in token processing. Second, in multi-GPU settings, efficient bandwidth scheduling for shared Flash cache becomes increasingly critical to avoid contention. [...] Answer: [Yes] Justification: The paper discusses several limitations of the proposed HiFC system. In par-ticular, the effectiveness of the Flash cache depends on the SSD’s endurance characteristics, including susceptibility to internal operations such as garbage collection and TLC-to-pSLC migration. The experiments were conducted under controlled SSD configurations with pSLC mode, and real-world deployments may encounter variance in I/O throughput and durability. Additionally, while the [...] These limitations motivate the design of a DRAM-free offloading architecture that bypasses interme-diate memory staging and enables direct, high-bandwidth data transfer between GPUs and SSDs. This architecture avoids cumulative latency and bandwidth bottlenecks inherent in existing approaches, while simplifying the overall system design and reducing operational cost.",
+   "published_date": null,
+   "score": 0.5530473
+  },
+  {
+   "url": "https://q.futunn.com/en/feed/116329824846228",
+   "title": "Alpha Call | The Truth About AI Storage Demand Behind KV Cac...",
+   "content": "He further noted that this paper illustrates two key points:KV Cache CompressionThis path still has some way to go, but the remaining potential is not as substantial as in the early stages—further gains will be increasingly limited and achieved at higher complexity, with significantly rising adaptation difficulties, validation costs, and scenario-related loss risks.This area resembles a mature optimization aspect rather than a track maintaining an ultra-high growth trajectory over the long [...] Tim pointed out that the core implication of this paper is precisely that KV Cache compression within the 3-4 bit range is increasingly approaching the practical engineering limit. The mainstream compression rate currently implemented in practice is only about 2x, while the upper limit of cutting-edge solutions can reach 4-6x, but the industry average is far from that. The best results shown in the paper do not equate to the actual implementation level across the entire industry. [...] SK Hynix recently placed an order for EUV lithography machines worth approximately 6.9 billion euros. Estimating the cost of a single Low-NA EUV unit at around 230 to 250 million euros, this corresponds to about 25 to 30 units. The order was finalized in March this year and is expected to be delivered by the end of 2027. Both the scale and timing significantly exceed market expectations.\n\nTim believes there are two key signals behind this order.",
+   "published_date": null,
+   "score": 0.45856747
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] Performance Potential Analysis via CMM. To evaluate the performance potential of the proposed architecture, we developed a production-grade empirical platform integrating an SK Hynix CMM (SK hynix, 2024) and two KIOXIA PCIe Gen5 NVMe SSDs (KIOXIA, 2024). To maintain architectural consistency with the FPGA prototype, we utilized 32 GB of the CMM capacity as the DRAM cache. Leveraging the SPDK framework (Intel, 2016) with 8 PCIe lanes (4 lanes per SSD), this setup achieves a peak read throughput",
+   "published_date": null,
+   "score": 0.43655056
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-inc-fra-hy9h-071111657.html",
+   "title": "SK Hynix Inc (FRA:HY9H) Q3 2024 Earnings Call Highlights: Record Revenue and Profit Amidst ...",
+   "content": "SK Hynix Inc (FRA:HY9H) is experiencing limitations in production capacity to meet the rapidly increasing demand for HBM products.\n The company is carrying inventory for some products where demand is declining and prices are falling, which may impact future profitability. [...] Demand recovery in conventional applications such as PCs and smartphones was delayed, impacting sales volume of conventional DRAM products.\n The company faced a decline in shipment volume due to weak procurement demand from PC and mobile customers.\n There is a potential risk of oversupply in the memory market due to aggressive capacity expansion by Chinese suppliers.",
+   "published_date": null,
+   "score": 0.38193452
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory. [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage",
+   "published_date": null,
+   "score": 0.3563576
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-infra-summit-2026",
+   "title": "SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’",
+   "content": "He also emphasized, “HBF, which combines high bandwidth and large capacity to improve the efficiency of long-context workloads, and PIM technology, which improves performance and efficiency in the fast-decoding workloads of premium services, are excellent alternatives that can move beyond existing limits. SALT-KV, too, which raises processing efficiency by taking into account the characteristics and reusability of the KV cache, holds ample potential to drive the evolution of AI systems.” [...] In the SALT-KV session, a server equipped with SK hynix’s eSSD was displayed, and a monitor set up beside it allowed visitors to see for themselves — through actual data — how the SALT-KV solution works and how data storage shifts within a real AI system. SALT-KV (Semantic-Aware Lifecycle Tiering for KV Cache) divides an LLM’s KV cache\\ into context-based segments and comprehensively assesses their reuse value and storage cost. Based on this, it places data in the most suitable storage tier [...] Through its participation in AI Infra Summit 2026, SK hynix introduced next-generation AI memory solutions such as PIM, HBF, and SALT-KV, and shared its vision to lead innovation in AI infrastructure. SK hynix will continue to strengthen its technological competitiveness so that it can stay one step ahead in responding to the diverse demands of the AI era.\n\n### Related content\n\nSK Hynix Newsroom",
+   "published_date": null,
+   "score": 0.34800282
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] Wall Street ระบุว่าหากมีการนำไปใช้งานอย่างประสบความสำเร็จ ความต้องการพื้นที่จัดเก็บข้อมูลอาจลดลงอย่างมาก ซึ่งอาจส่งผลกระทบต่อความต้องการ DRAM และ NAND Flash ที่ก่อนหน้านี้ได้รับแรงหนุนจากการเติบโตของ AI โดยในเดือนมกราคม Samsung Electronics ได้ปรับราคาตามสัญญาของ NAND flash ขึ้นมากกว่า 100% หลังจากที่ราคา DRAM พุ่งสูงขึ้นเกือบ 70% ตอกย้ำถึงความร้อนแรงในตลาดเซมิคอนดักเตอร์",
+   "published_date": null,
+   "score": 0.3145351
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.3145351
+  }
+ ]
+}

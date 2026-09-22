@@ -1,0 +1,65 @@
+{
+ "query": "advantages of SK hynix ITME KV cache in market potential and commercialization with supporting evidence from independent sources",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:02:46+09:00",
+ "results": [
+  {
+   "url": "https://news.skhynix.com/en/2026-market-outlook-focus-on-the-hbm-led-memory-supercycle",
+   "title": "2026 Market Outlook – “Focus on the HBM-Led Memory Supercycle”",
+   "content": "The term “supercycle” has been used in the industry to describe the strong momentum in the memory sector since 2024. The Bank of America (BofA) defines 2026 as a “supercycle similar to the boom of the 1990s,” forecasting global DRAM revenue to surge by 51% and NAND by 45% year-over-year, with Average Selling Prices (ASP) rising by 33% and 26%, respectively. Furthermore, BofA named SK hynix as the global memory industry’s “Top Pick,” predicting it will be one of the primary beneficiaries of this [...] As a result, SK hynix is expected to secure a unique competitive position by maintaining its market leadership in HBM3E while proactively establishing a development and supply system for HBM4, enabling it to fully support two generations of products by 2026.\n\nUBS predicts that SK hynix will achieve approximately a 70% market share in the HBM4 market for NVIDIA’s next-generation Rubin platform in 2026. This suggests that its current leadership is carrying over to future technology generations. [...] According to Counterpoint Research, SK hynix maintains a dominant position ranking No. 1 in the market with a 62% share of HBM shipments as of Q2 2025 and 57% of revenue as of Q3. Goldman Sachs assessed that “SK hynix will maintain its dominant position in HBM3 and HBM3E until at least 2026, sustaining a total HBM market share of over 50%.” UBS highlighted the company’s standing among Big Tech clients, noting that SK hynix will be the first HBM3E supplier for Google’s latest Tensor Processing",
+   "published_date": null,
+   "score": 0.3336557
+  },
+  {
+   "url": "https://news.skhynix.com/en/future-forum-2026",
+   "title": "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward” – SK hynix Newsroom",
+   "content": "a core competitive advantage for future AI systems. [...] He drew an analogy: while the memory market of the past was a “straight road” where the race was about who could run faster, today it is like driving on a “winding road” that shifts from moment to moment. On this point, he emphasized that what matters is not only internal capabilities but also the speed with which the company reads the pace and direction of external change and becomes flexible. [...] SK hynix will evolve beyond a supplier of memory devices into a Full-Stack AI memory creator that understands AI systems and designs them together with its partners.",
+   "published_date": null,
+   "score": 0.3203113
+  },
+  {
+   "url": "https://www.reuters.com/world/asia-pacific/sk-hynix-expects-ai-memory-market-grow-30-year-2030-2025-08-11",
+   "title": "SK Hynix expects AI memory market to grow 30% a year ...",
+   "content": "Cookies, opens new tab\n   Terms & Conditions\n   Privacy, opens new tab\n   Copyright, opens new tab\n   Digital Accessibility, opens new tab\n   Corrections\n   Data Disclosure and Sources, opens new tab\n   Site Feedback, opens new tab\n   Manage Cookies\n\n© 2026 Reuters. All rights reserved\n\nReport AdImage 24\n\nImage 25Image 26Image 27Image 28Image 29Image 30Image 31Image 32Image 33Image 34Image 35Image 36Image 42: dot image pixel [...] Access unmatched financial data, news and content in a highly-customised workflow experience on desktop, web and mobile. \n   #### Data Catalogue, opens new tab\n\nBrowse an unrivalled portfolio of real-time and historical market data and insights from worldwide sources and experts. \n   #### World-Check, opens new tab\n\nScreen for heightened risk individual and entities globally to help uncover hidden risks in business relationships and human networks. [...] Advertise With Us, opens new tab\n   Advertising Guidelines\n   Purchase Licensing Rights, opens new tab\n\n   Cookies, opens new tab\n   Terms & Conditions\n   Privacy, opens new tab\n   Copyright, opens new tab\n   Digital Accessibility, opens new tab\n   Corrections\n   Data Disclosure and Sources, opens new tab\n   Site Feedback, opens new tab\n   Manage Cookies\n\nAll quotes delayed a minimum of 15 minutes. See here for a list of exchanges and delays.",
+   "published_date": null,
+   "score": 0.2919191
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory.",
+   "published_date": null,
+   "score": 0.28412437
+  },
+  {
+   "url": "https://rocketreach.co/sk-hynix-it-department_b5c65362f42e0cb2",
+   "title": "[SK hynix IT Department](/sk-hynix-it-department_b5c65362f42e0cb2 \"SK hynix Management\")",
+   "content": "Image 29: G2 Leader Summer 2026Image 30: G2 Best Est ROI Mid-Market Summer 2026Image 31: G2 Easiest Admin Mid-Market Summer 2026Image 32: G2 Most Implementable Summer 2026Image 33: G2 Best Results Mid-Market Summer 2026Image 34: G2 Lead Capture Mid-Market Summer 2026Image 35: Inc Fastest Growing Private Companies 2026Image 36: Inc Best Workplace 2026\n\nImage 37: g2crowd\n\n G2Crowd Trusted\n\nImage 38: chromestore\n\n300K+ Plugin Users \n\nImage 39: RocketReach Footer Logo\n\n   47.6177115,-122.2034444 [...] More information",
+   "published_date": null,
+   "score": 0.22841497
+  },
+  {
+   "url": "https://news.skhynix.com/en/fact-05",
+   "title": "Explainer: SK hynix's Mid-to-Long-Term Investment Strategy",
+   "content": "As semiconductor process technologies continue to advance, more manufacturing space is required to produce the same output. Furthermore, HBM requires more wafers than conventional DRAM to produce the same memory capacity, resulting in significantly higher production resource requirements. Securing sufficient production capacity in advance has therefore become one of the most critical competitive advantages. [...] overall business environment, and future market demand. Beginning today, the company will work closely with the central and local governments on specific infrastructure development plans and permitting procedures. [...] Developing a new mega fab requires not only a large development site but also the supporting infrastructure, including reliable electricity and water supply.\n\nThe Southwestern Region offers the potential to secure a large-scale site, while both the central and local governments have demonstrated a strong commitment to developing the necessary infrastructure, including electricity and water supply.",
+   "published_date": null,
+   "score": 0.2036762
+  },
+  {
+   "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/sourceId/101641382",
+   "title": "Research Update: SK Hynix Outlook Revised To Posi | S&P Global Ratings",
+   "content": "Reflecting this, the HBM market should continue to expand at least into 2027. While SK Hynix's competitors may capture bigger shares of the overall HBM market, the company is unlikely to lose its strong position over the next two years. This is given its competitive edge in production technology and track record. [...] Competition from Samsung Electronics Co. Ltd. and Micron Technology Inc. could intensify, potentially leading to some pricing pressure, particularly in HBM3Es over the next 12 months. However, we believe SK Hynix will maintain a large market share in next-generation HBM4 chips, with support from its better production technology and strong track record with customers. [...] SK Hynix is one of the world's largest memory chip producers. The company is the world's largest supplier of DRAM, with about a 36% market share in the first quarter of 2025. It became the second-largest player in the NAND flash memory chip market after acquiring Intel Corp.'s NAND business in 2021, with about a 17% market share in the first quarter of 2025.",
+   "published_date": null,
+   "score": 0.1749456
+  },
+  {
+   "url": "https://news.skhynix.com/en/sk-hynix-charts-its-direction-at-the-2026-future-forum-now-is-the-golden-time-to-leap-forward",
+   "title": "SK hynix Charts Its Direction at the 2026 Future Forum—”Now ...",
+   "content": "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward”\n\nSeptember 9, 2026\n\nTECH&AISTORY\n\n 3D Memory\n AI Memory\n AX\n Future Semiconductor\n SK hynix Future Forum\n\n[\n\n[AI Ecosystem] The real bottleneck: Data, not compute\n\nSeptember 3, 2026](\n\nTECH&AI\n\n AI\n AI Memory\n HBF\n HBM\n\n[\n\n[AI Infrastructure Insight] Why faster GPUs alone can’t deliver AI performance\n\nAugust 31, 2026](\n\nTECH&AI\n\n AI data center\n AI Infra\n AI Memory\n GPU [...] No plans have been confirmed regarding the reported talks between SK hynix and Intel on memory chip production in the U.S.\n\n  September 16, 2026\n\n  FACT\n\n  + semiconductor industry\n \n\n  SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward”\n\n  September 9, 2026\n\n  TECH&AISTORY\n\n  + 3D Memory\n  + AI Memory\n  + AX\n  + Future Semiconductor\n  + SK hynix Future Forum\n [\n\n  [AI Ecosystem] The real bottleneck: Data, not compute [...] Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\n## YOUTUBE\n\nSK hynix Charts Its Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward”\n\nSeptember 9, 2026\n\n### Related content\n\nNo plans have been confirmed regarding the reported talks between SK hynix and Intel on memory chip production in the U.S.\n\nSeptember 16, 2026\n\nFACT\n\n semiconductor industry",
+   "published_date": null,
+   "score": 0.16242018
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "What are the specific advantages and supporting evidence of SK hynix ITME KV cache technology for stakeholders, including detailed claims and rationale from groups B, C, and D?",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:11:16+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] Functional Prototyping via FPGA. A functional prototype, implemented on an Intel Agilex 7 I-Series FPGA (Altera, 2026), validates the hardware-level control logic and the software prefetcher. This platform integrates 32 GB of DDR4 DRAM as a hardware-managed cache for two SK Hynix Platinum P51 PCIe Gen5 NVMe SSDs (TechPowerUp, 2024). This setup establishes the feasibility of our expansion tier, successfully realizing a multi-terabyte, byte-addressable memory footprint by leveraging the",
+   "published_date": null,
+   "score": 0.4169159
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.3908251
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent",
+   "published_date": null,
+   "score": 0.3184009
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "BANDF AD\n\nHowever, providing a KV cache even closer to the GPU, getting rid of the SSD PCIe bus link time, and delivering lower latency and higher bandwidth access than the local SSD is what HBF provides. The paper states: \"The expected advantages of HBF are 1) up to 16x larger capacity than HBM, and 2) similar bandwidth to HBM, and the expected disadvantages are 1) slower access (ns vs. μs), 2) lower write endurance, and 3) up to 4x higher power consumption than HBM.\" [...] The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] The results showed a 2.69x improvement in performance per watt compared to tests with a Blackwell GPU and 8 x HBM stacks but no HBF.\n\nWith testing of a KV cache with 10 million tokens, this showed that an HBM+HBF setup could process 18.8x more simultaneous queries, its batch size, than an HBM-only configuration. By using HBF,  such workloads, which could include 32 GPUs and their HBM, can be processed with only two GPUs, substantially reducing electricity consumption.",
+   "published_date": null,
+   "score": 0.30489007
+  },
+  {
+   "url": "https://news.skhynix.com/en/future-forum-2026",
+   "title": "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward” – SK hynix Newsroom",
+   "content": "a core competitive advantage for future AI systems. [...] SK hynix will evolve beyond a supplier of memory devices into a Full-Stack AI memory creator that understands AI systems and designs them together with its partners. [...] it focused on examining ‘what we should do’ and on defining ‘the direction in which memory should advance.’",
+   "published_date": null,
+   "score": 0.29408872
+  },
+  {
+   "url": "https://rocketreach.co/sk-hynix-it-department_b5c65362f42e0cb2",
+   "title": "[SK hynix IT Department](/sk-hynix-it-department_b5c65362f42e0cb2 \"SK hynix Management\")",
+   "content": "Image 29: G2 Leader Summer 2026Image 30: G2 Best Est ROI Mid-Market Summer 2026Image 31: G2 Easiest Admin Mid-Market Summer 2026Image 32: G2 Most Implementable Summer 2026Image 33: G2 Best Results Mid-Market Summer 2026Image 34: G2 Lead Capture Mid-Market Summer 2026Image 35: Inc Fastest Growing Private Companies 2026Image 36: Inc Best Workplace 2026\n\nImage 37: g2crowd\n\n G2Crowd Trusted\n\nImage 38: chromestore\n\n300K+ Plugin Users \n\nImage 39: RocketReach Footer Logo\n\n   47.6177115,-122.2034444 [...] More information [...] - [x] checkbox label label\n\n- [x] checkbox label label\n\n- [x] checkbox label label\n\nConfirm My Choices\n\nImage 41: Powered by Onetrust",
+   "published_date": null,
+   "score": 0.16442282
+  },
+  {
+   "url": "https://www.skhynix.com",
+   "title": "SK hynix",
+   "content": "## Products & Solutions 새창\nDRAM · CMM · SSD · NAND Storage · MCP AI · Server · Networking · Mobile · PC · Consumer · Automotive\n\n## Investor Relations\n\nFinancial StatementsDisclosuresEarnings Release\n\n   A new window opens Newsroom\n   A new window opens YouTube\n   A new window opens Instagram\n   A new window opens Linked in\n\nTOP\n\n   한국장애인단체총연합회 한국웹접근성인증평가원 웹 접근성 우수사이트 인증마크(WA인증마크) [...] 닫기\n\nImage 1\n\n- [x] Don't show this message today 닫기\n\n# SK hynix\n\n   새창 Newsroom\n   새창 YouTube\n   새창 Instagram\n   새창 Linked in\n\n   A new window opens Newsroom\n   A new window opens YouTube\n   A new window opens Instagram\n   A new window opens Linked in\n\n   A new window opens Newsroom\n   A new window opens YouTube\n   A new window opens Instagram\n   A new window opens Linked in\n\n다국어 닫기 열기\n\n한국어;)English;)中文(简);)中文(繁);)\n\n검색 열기 닫기\n\n전체메뉴 열기 닫기\n\n   한국어;)\n   English;)\n   中文(简);)\n   中文(繁);)\n\n   Home",
+   "published_date": null,
+   "score": 0.1391976
+  },
+  {
+   "url": "https://seekingalpha.com/article/4926618-sk-hynix-inc-skhy-q2-2026-earnings-call-transcript",
+   "title": "SK hynix Inc. (SKHY) Q2 2026 Earnings Call Transcript | Seeking Alpha",
+   "content": "H. Kwon - JPMorgan Chase & Co, Research Division  \nRok-ho Kim - Hana Financial Investment Co., Ltd., Research Division  \nSunwoo Kim - Meritz Securities Co., Ltd., Research Division  \nS. K. Kim - Daiwa Securities Co. Ltd., Research Division  \nDong Hee Han - SK Securities Co., Ltd., Research Division  \nNicolas Gaudois - UBS Investment Bank, Research Division  \nSanjeev Rana  \nHyung-keun Ryu - Daishin Securities Co. Ltd., Research Division [...] Let me issue a disclaimer that our second quarter results included in this conference call are consolidated figures and provisional in nature as the external auditor's review has not yet been completed. Accordingly, they remain subject to change. In addition, forward-looking statements, including market outlook and the\n\n### Recommended For You [...] Young Ho Ryu - NH Investment & Securities Co., Ltd., Research Division  \nSurim Lee",
+   "published_date": null,
+   "score": 0.10503621
+  }
+ ]
+}

@@ -7,20 +7,20 @@
 | **1. 분석 배경** | 1.1 KV cache 병목 (4) · 1.2 두 진영의 접근과 함께 쓰는 경우 (4) · 1.3 분석 도메인과 문제 정의 (4) · 1.4 분석 질문과 가설 (4) | 4 |
 | **2. 기술 선정** | 2.1 선정 방식과 기준 (4) · 2.2 후보 평가표 (5) · 2.3 선정 결과와 사유 (5) · 2.4 에이전트의 선정 검증 결과 (5) | 4 |
 | **3. 기술 개요** | 3.1 TurboQuant (6) · 3.2 ITME (6) · 3.3 비교표 (7) | 6 |
-| **4. 관점별 평가** | 4.0 평가 기준 (8) · 4.1 기술 성숙도(TRL) (8) · 4.2 시장성 (8) · 4.3 이해관계자 (9) · 4.4 도메인 적합성(W1·W2) (9) | 8 |
-| **5. 시사점** | 5.1 관점 간 일치·상충 표 (11) · 5.2 주요 상충 지점 (11) · 5.3 가설 판정 (11) · 5.4 조건별 시사점(추천 아님) (11) · 5.5 기준값 민감도 점검 (12) | 11 |
-| **6. 한계점** | 6.1 공개 정보 기반 추정의 한계 (13) · 6.2 확증편향 방지 조치와 실행 결과 (13) · 6.3 분석 방법의 한계 (13) | 13 |
-| **REFERENCE** |  | 15 |
+| **4. 관점별 평가** | 4.0 평가 기준 (7) · 4.1 기술 성숙도(TRL) (8) · 4.2 시장성 (8) · 4.3 이해관계자 (9) · 4.4 도메인 적합성(W1·W2) (9) | 7 |
+| **5. 시사점** | 5.1 관점 간 일치·상충 표 (10) · 5.2 주요 상충 지점 (10) · 5.3 가설 판정 (10) · 5.4 조건별 시사점(추천 아님) (11) · 5.5 기준값 민감도 점검 (11) | 10 |
+| **6. 한계점** | 6.1 공개 정보 기반 추정의 한계 (11) · 6.2 확증편향 방지 조치와 실행 결과 (12) · 6.3 분석 방법의 한계 (12) | 11 |
+| **REFERENCE** |  | 13 |
 
 ---pagebreak---
 
 # SUMMARY
 
-- TurboQuant: TRL 5–7(추정, 신뢰도 높음), 시장성 판단 보류, 이해관계자 5.00, 도메인 적합성 4.75 [1, p.15; 3]
-- ITME: TRL 5–6(추정, 신뢰도 높음), 시장성 5.00, 이해관계자 4.33, 도메인 적합성 판단 보류 [2, p.8; 4]
-- 가설 판정: H1 부분 지지, H2 지지, H3 판단 보류, H4 판단 보류 [2, p.8·10; 1, p.15]
-- TurboQuant은 TRL 5에서 7 사이로 실험실 검증부터 시제품 시연 단계까지 근거가 보고되었다[1, p.15·16·19; 5; 6; 3].
-- ITME는 TRL 5에서 6 사이로 실제 서버 환경과 FPGA 프로토타입 검증, 시제품 시연 가능성 근거가 존재한다[2, p.8·10; 7; 4].
+- TurboQuant: TRL 4–6(추정, 신뢰도 높음), 시장성 4.45, 이해관계자 5.00, 도메인 적합성 4.78 [1, p.15; 3]
+- ITME: TRL 5–6(추정, 신뢰도 보통), 시장성 판단 보류, 이해관계자 4.50, 도메인 적합성 판단 보류 [2, p.8]
+- 가설 판정: H1 부분 지지, H2 기각, H3 판단 보류, H4 부분 지지 [2, p.2·8]
+- TurboQuant은 NVIDIA A100 GPU와 실제 데이터셋을 이용한 KV cache 양자화 실험과 긴 문맥 검색 벤치마크를 통해 TRL 4~6 범위에서 실험실 환경 검증이 이루어졌다[1, p.15·16·19; 3; 4; 5].
+- ITME는 Dell 서버와 CXL-하이브리드 메모리 환경에서 FPGA 프로토타입을 통한 실환경 검증으로 TRL 5~6 단계로 평가되며, SK hynix의 NAND 제품 개발 계획이 시제품 시연 가능성을 시사한다[2, p.8·10; 6].
 - 우열이나 추천이 아니라 관점별 평가 차이와 그 근거를 정리한 결과이다(판단 보류는 근거 부족을 뜻함).
 
 ---pagebreak---
@@ -101,8 +101,6 @@ SW 진영은 KV를 작게 만들고 HW 진영은 KV를 둘 공간을 넓힌다. 
 | 원 논문 | arXiv 2504.19874 | arXiv 2606.12556 |
 | 보고된 성능 근거 | [1, p.1] | [2, p.1·2] |
 
----pagebreak---
-
 # 4. 관점별 평가
 ## 4.0 평가 기준
 기준마다 1점(부정적 평가가 많음)~5점(긍정적 평가가 많음)의 인식 점수를 설계서 C.6 Rubric의 근거 조건으로 매긴다. 점수는 기술의 품질이 아니라 공개 자료에 나타난 평가의 방향이다. 해당 기술 고유 근거만 세고 같은 원 출처 계열은 하나로 센다. 근거가 1계열 이하인 기준은 판단 보류로 두고 계산에서 빼며, 빠진 가중치가 50%를 넘으면 관점 전체를 판단 보류로 한다. 가중치는 시장성 25/30/30/15, 이해관계자 집단별 25, 도메인 W1·W2 각 50(항목별 20)이다.
@@ -110,63 +108,62 @@ SW 진영은 KV를 작게 만들고 HW 진영은 KV를 둘 공간을 넓힌다. 
 <!--w:2.6,2.6,1.8,4.5,4.5-->
 | 기술 | TRL 범위(추정) | 신뢰도 | 하한 근거 | 상한 근거 |
 |---|---|---|---|---|
-| TurboQuant | 5–7 | 높음 | [1, p.15·16·19; 5] | [3; 5; 6] |
-| ITME | 5–6 | 높음 | [2, p.8·10; 7] | [4] |
+| TurboQuant | 4–6 | 높음 | [1, p.15·16·19; 7; 8; 9; 10; 11; 12; 13; 14; 15] | [3; 16; 5; 17; 4] |
+| ITME | 5–6 | 보통 | [2, p.8·10] | [2, p.8·10; 6] |
 
 TRL은 공개 정보로 추정한 범위이다. 하한은 공개 근거로 확인된 가장 높은 단계, 상한은 발표·계획 같은 부분 신호로 보이는 단계이며, 양쪽 모두 개발사 외 독립 근거가 있으면 신뢰도 높음, 한쪽만 있으면 보통, 개발사 자료뿐이면 낮음이다(설계서 C.4).
-TurboQuant은 NVIDIA A100 GPU에서 KV 캐시 양자화 실험과 여러 데이터셋 검증을 통해 TRL 4 단계 실험실 환경 검증을 충족하며, vLLM 엔진에서 AMD GPU용 생산 준비 구현으로 TRL 5 단계 유사 환경 통합 검증 근거가 있다[1, p.15·16·19; 5]. 또한, 생산 서빙 프레임워크 통합 계획과 공식 출시 발표로 TRL 7 단계 시제품 시연 가능성도 보고되었다[6; 3]. 다만 실제 고객사 시범 적용이나 장기간 실서비스 시험에 대한 공개 정보는 아직 없다. ITME는 실제 서버와 GPU를 포함한 하드웨어 환경에서 기능과 성능을 검증하고 FPGA 프로토타입으로 하드웨어 구현 가능성을 입증했으며, vLLM 프레임워크와 통합하여 유사 환경에서 검증된 점이 확인된다[2, p.8·10; 7]. SK hynix의 NAND 제품 개발 보도는 시제품 시연 단계 가능성을 시사하나 구체적 시연 결과는 공개되지 않았다[4].
+TurboQuant은 NVIDIA A100 GPU 기반 실험과 긴 문맥 검색 벤치마크를 통해 TRL 4~6 범위에서 실험실 환경 검증이 이루어졌으며, 커뮤니티 구현이 vLLM과 통합되어 실제 워크로드에서 성능 개선을 보이고 있다. 다만 Google 공식 구현은 아직 공개되지 않아 완전한 생산 준비성은 확인되지 않았다[1, p.15·16·19; 3; 4; 5]. ITME는 Dell 서버와 CXL-하이브리드 메모리 환경에서 FPGA 프로토타입을 통한 실환경 검증으로 TRL 5~6 단계로 평가되며, SK hynix의 NAND 제품 개발 계획은 시제품 시연 가능성을 보여주나 실제 시제품 시연이나 고객사 적용에 대한 공개 정보는 부족하다[2, p.8·10; 6].
 ## 4.2 시장성
 <!--w:4.0,6.0,6.0-->
 | 기준 (가중치) | TurboQuant | ITME |
 |---|---|---|
-| 시장 규모·성장 (25) | 판단 보류  | 5.00 [8; 4] |
-| 상용화·채택 (30) | 5.00 [9; 10] | 판단 보류 [2, p.9] |
-| 생태계 지원 (30) | 판단 보류  | 5.00 [11; 12] |
-| 도입 비용 구조 (15) | 판단 보류 [13] | 판단 보류  |
-| **가중 평균** | **판단 보류** | **5.00** |
+| 시장 규모·성장 (25) | 4.00 [18; 19; 20] | 판단 보류 [2, p.2] |
+| 상용화·채택 (30) | 4.00 [8; 21; 22; 23] | 판단 보류 [2, p.9] |
+| 생태계 지원 (30) | 5.00 [24; 21] | 판단 보류 [25] |
+| 도입 비용 구조 (15) | 5.00 [26; 27] | 판단 보류  |
+| **가중 평균** | **4.45** | **판단 보류** |
 
-TurboQuant는 KV 캐시 메모리 사용량을 크게 줄이고 속도 향상을 달성하는 기술로 실험적 평가가 보고되었으며, 메모리 절감과 정확도 손실 간 상충관계를 극복하는 도입 비용 구조를 갖추고 있다[10; 9; 13]. 다만 시장 규모·성장과 생태계 지원에 대한 구체적 근거는 부족하여 시장성 평가가 보류되었다. ITME는 LLM 추론 시장 성장과 수요에 부합하는 NAND 기반 KV 캐시 확장 기술을 개발하고 있으며, 실제 Llama-3.1 모델에서 성능 향상을 입증하고 AiMX 카드와 같은 하드웨어 최적화 사례도 존재한다[2, p.9; 11]. 또한 CXL 하이브리드 메모리와 PCIe Gen5 인터페이스를 활용한 다계층 메모리 관리 및 생태계 통합 측면에서 구체적인 구현과 전략이 보고되었다[11; 12; 7]. 다만 도입 비용 구조에 관한 근거는 부족하다.
+TurboQuant은 KV 캐시 메모리 사용량을 최대 6배까지 줄이면서 정확도 손실이 거의 없다는 긍정적 평가가 다수 보고되었고, vLLM, llama.cpp 등 주요 오픈소스 추론 엔진에 통합되어 초기 검증이 진행 중이다[18; 8; 21; 28; 29]. 다만 일부 평가에서는 KV 캐시만 줄이며 전체 메모리 감소로 직결되지 않고 기존 방법 대비 성능이 떨어진다는 의견도 있어 수요가 불확실하다[20]. ITME는 대규모 추론 지원과 성능 향상 근거가 클라우드·데이터센터 사업자 집단에서 보고되었으나, 도입 비용 구조에 관한 근거가 부족해 시장성 판단은 보류된다[30; 31].
 ## 4.3 이해관계자
 <!--w:4.0,6.0,6.0-->
 | 집단 (각 25) | TurboQuant | ITME |
 |---|---|---|
-| (a) 클라우드·데이터센터 | 지지(5) [14; 15; 10] | 지지(5) [16; 17; 18] |
-| (b) GPU·메모리 벤더 | 판단 보류  | 지지(5) [19; 20] |
-| (c) 개발자 | 지지(5) [21; 22; 23] | 판단 보류  |
-| (d) 투자·분석·언론 | 지지(5) [24; 25; 26] | 중립·혼재(3) [27; 28; 29] |
-| **가중 평균** | **5.00** | **4.33** |
+| (a) 클라우드·데이터센터 | 지지(5) [18; 28; 32] | 지지(5) [30; 31; 33] |
+| (b) GPU·메모리 벤더 | 지지(5) [34] | 중립·혼재(3) [35; 36] |
+| (c) 개발자 | 지지(5) [37; 38; 29] | 지지(5) [39; 40; 41] |
+| (d) 투자·분석·언론 | 지지(5) [42; 19; 43] | 지지(5) [44; 45; 22] |
+| **가중 평균** | **5.00** | **4.50** |
 
 개발사(TurboQuant는 Google, ITME는 SK hynix)의 발언과 보도자료는 점수에서 제외하고 참고로만 인용했다.
-TurboQuant는 클라우드·데이터센터 사업자 집단에서 KV 캐시 압축과 메모리 사용량 감소, 속도 향상, 정확도 유지 측면에서 긍정적 평가가 다수 보고되었으며[14; 15; 10], 개발자 커뮤니티와 투자·분석·언론 집단에서는 긍정적 평가가 우세하나 일부 우려와 중립 의견도 존재한다[21; 30; 31]. GPU·메모리 벤더 집단에서는 근거가 부족하여 평가가 어렵다. ITME는 클라우드·데이터센터 사업자와 GPU·메모리 벤더 집단에서 KV 캐시 최적화와 대규모 AI 추론 서비스 지원에 긍정적 평가를 받고 있으나[16; 19], 투자·분석·언론 집단에서는 긍정과 우려가 혼재되어 시장 수요에 대한 불확실성이 존재한다[28; 27]. 개발자 커뮤니티의 의견은 근거 부족으로 평가가 어렵다.
+TurboQuant은 클라우드·데이터센터 사업자, GPU·메모리 벤더, 개발자 커뮤니티, 투자·분석·언론 집단에서 GPU 메모리 비용 절감과 동시성 향상, 정확도 유지 등의 긍정적 평가를 받으나, 일부에서는 연구 단계에 머물러 있고 실제 채택 사례가 부족하다는 우려도 있다[28; 34; 37; 19; 46]. ITME는 클라우드·데이터센터 사업자 집단에서 대규모 추론 지원과 성능 향상 근거로 강한 지지를 받았으나, GPU·메모리 벤더와 투자·분석·언론 집단에서는 긍정적 평가와 함께 일부 우려가 공존하며, 개발자 커뮤니티는 기술 중요성을 인정하면서도 메모리 풋프린트 문제를 지적하였다[30; 31; 36; 35; 47; 39; 48].
 ## 4.4 도메인 적합성(W1·W2)
 <!--w:3.2,3.2,3.2,3.2,3.2-->
 | 항목 (각 20) | TurboQuant W1 | TurboQuant W2 | ITME W1 | ITME W2 |
 |---|---|---|---|---|
-| 비용 | 5.00 [14; 9] | 5.00 [14; 9] | 판단 보류 [2, p.2] | 판단 보류 [2, p.2] |
-| 지연 | 4.00 [9; 32] | 4.00 [9; 32] | 판단 보류 [2, p.2] | 판단 보류 [2, p.2] |
-| 처리량·동시성 | 5.00 [32; 33] | 5.00 [32; 33] | 판단 보류 [7] | 판단 보류 [7] |
-| 정확도 영향 | 5.00 [1, p.18; 14] | 5.00 [1, p.18; 14] | 판단 보류  | 판단 보류  |
-| 통합 난이도 | 판단 보류  | 판단 보류  | 판단 보류  | 판단 보류  |
-| **가중 평균** | **4.75** |  | **판단 보류** |  |
+| 비용 | 5.00 [49; 50] | 5.00 [49; 51] | 판단 보류 [2, p.2] | 판단 보류 [2, p.2] |
+| 지연 | 5.00 [24; 51] | 4.00 [24; 51] | 판단 보류 [2, p.2] | 판단 보류 [2, p.2] |
+| 처리량·동시성 | 5.00 [50; 52] | 4.00 [52; 53] | 판단 보류 [25] | 판단 보류 [25] |
+| 정확도 영향 | 5.00 [1, p.18; 49] | 5.00 [49; 24] | 판단 보류  | 판단 보류  |
+| 통합 난이도 | 5.00 [54; 55] | 판단 보류 [55] | 판단 보류  | 판단 보류  |
+| **가중 평균** | **4.78** |  | **판단 보류** |  |
 
-워크로드별 평균: TurboQuant W1 4.75, W2 4.75; ITME W1 판단 보류, W2 판단 보류. 가중 평균 행은 기술별 W1·W2 합산값이다(W1 열에 표기).
-TurboQuant는 KV 캐시를 3비트까지 압축하면서 6배 이상의 메모리 절감과 비용 절감을 보고했으며, 정확도 손실이 없다는 근거가 다수 존재한다[14; 9; 32]. 단일 요청 지연이 약간 증가하는 부정적 근거가 있으나, 전반적으로 지연 유지 및 처리량 향상 근거가 더 많다[9; 34; 32]. 통합 난이도에 관한 근거는 부족하다. ITME는 다계층 메모리 구조를 활용하여 GPU 메모리와 호스트 메모리의 역할 분담으로 비용과 지연 측면에서 용량 문제를 해결하는 결과가 보고되었으며, NVMe-oF 대비 처리량이 1.8배 이상 향상된 점도 확인되었다[2, p.2; 7]. 다만 정확도 영향과 통합 난이도에 대한 근거가 부족하여 평가가 제한적이다.
-
----pagebreak---
+워크로드별 평균: TurboQuant W1 5.00, W2 4.50; ITME W1 판단 보류, W2 판단 보류. 가중 평균 행은 기술별 W1·W2 합산값이다(W1 열에 표기).
+TurboQuant은 Llama-3.1-8B-Instruct, Ministral-7B-Instruct 등 모델을 대상으로 긴 문맥 시나리오에서 KV 캐시를 FP16에서 약 3비트로 압축하여 정확도 손실 없이 5~6배 메모리 절감과 최대 8배 속도 향상을 달성하였다[49; 24; 19; 29]. 다만 일부 환경에서는 지연 및 처리량 관련 부정적 근거가 있어 추가 검증이 필요하다[53]. ITME는 LLM 데이터 유형을 지연 민감도와 용량에 따라 분류하고, 다계층 메모리 구조와 소프트웨어 프리페칭으로 메모리 용량과 I/O 병목을 완화하여 처리량 개선을 달성하였다[25; 2, p.2]. 정확도 영향과 통합 난이도에 대한 근거는 부족하여 판단 보류된다.
 
 # 5. 시사점
 ## 5.1 관점 간 일치·상충 표
 <!--w:3.2,3.2,3.2,3.2,3.2-->
 | 기술 | TRL(범위) | 시장성 | 이해관계자 | 도메인 |
 |---|---|---|---|---|
-| TurboQuant | 5–7 | 판단 보류 | 5.00 | 4.75 |
-| ITME | 5–6 | 5.00 | 4.33 | 판단 보류 |
+| TurboQuant | 4–6 | 4.45 | 5.00 | 4.78 |
+| ITME | 5–6 | 판단 보류 | 4.50 | 판단 보류 |
 
 <!--w:3.0,6.0,2.5,4.5-->
 | 기술 | 관점 쌍 | 점수 차 | 판정 |
 |---|---|---|---|
-| TurboQuant | 이해관계자 – 도메인 적합성 | 0.25 | 일치 |
-| ITME | 시장성 – 이해관계자 | 0.67 | 일치 |
+| TurboQuant | 시장성 – 이해관계자 | 0.55 | 일치 |
+| TurboQuant | 시장성 – 도메인 적합성 | 0.33 | 일치 |
+| TurboQuant | 이해관계자 – 도메인 적합성 | 0.22 | 일치 |
 
 판정 기준: 점수 차 2.0 이상 상충, 1.0 이상 2.0 미만 부분 상충, 1.0 미만 일치. 같은 기술 안에서만 비교하고 두 기술을 합치거나 순위를 매기지 않는다.
 ## 5.2 주요 상충 지점
@@ -175,25 +172,25 @@ TurboQuant는 KV 캐시를 3비트까지 압축하면서 6배 이상의 메모�
 <!--w:1.4,2.2,12.4-->
 | 가설 | 판정 | 근거 |
 |---|---|---|
-| H1 | 부분 지지 | TurboQuant: TRL 5–7 (신뢰도 높음), 시장성 판단 보류 → 판단 보류; ITME: TRL 5–6 (신뢰도 높음), 시장성 5.0 → 부분 괴리 (기대 선행) (C.5 격자, 코드 계산) [2, p.8·10; 1, p.15·16] |
-| H2 | 지지 | TurboQuant는 기술 자체에 대한 언급이 15건으로 많고 생태계 언급은 5건에 불과한 반면, ITME는 기술 언급이 5건, 생태계 언급이 9건으로 생태계·전략 측면의 언급이 더 많아 두 기술의 이해관계자 근거 비중이 다르다. |
-| H3 | 판단 보류 | TurboQuant의 도메인 평가 점수는 W1과 W2 모두 4.75점으로 동일하며, ITME는 도메인 점수가 부재하여 W1과 W2 점수 차이에 따른 판정 기준 적용이 어렵다. |
-| H4 | 판단 보류 | 근거 문장이 Judge 검사를 통과하지 못함 |
+| H1 | 부분 지지 | TurboQuant: TRL 4–6 (신뢰도 높음), 시장성 4.45 → 부분 괴리 (기대 선행); ITME: TRL 5–6 (신뢰도 보통), 시장성 판단 보류 → 판단 보류 (C.5 격자, 코드 계산) [2, p.8·10; 1, p.15·16] |
+| H2 | 기각 | TurboQuant: 기술 언급 14건, 생태계·전략 언급 7건 → 기각; ITME: 기술 언급 14건, 생태계·전략 언급 8건 → 기각 (개발사 발언 제외, C.7 기준, 코드 계산) [56; 30; 18; 42] |
+| H3 | 판단 보류 | TurboQuant: W1 5.0, W2 4.5, 3점을 사이에 두고 갈리는 기준 없음 → 기각; ITME: W1·W2 점수를 낼 근거가 부족해 판단 보류 (평가 가능한 기술이 일부뿐이라 가설 전체는 판단 보류) (C.7 기준, 코드 계산) [2, p.2; 49; 24] |
+| H4 | 부분 지지 | TurboQuant은 도입 주체별 근거가 있으나 함께 쓰는 사례 근거가 없고, ITME는 함께 쓰는 사례 근거가 있으나 도입 주체별 근거가 별도로 존재한다. 따라서 두 조건 중 하나만 충족되어 부분 지지로 판단한다. [57; 30; 58] |
 
-H1은 TRL 범위의 가운데 값과 시장성 점수로 설계서 C.5의 3×3 격자에서 코드로 판정했다: TurboQuant 판단 보류; ITME 부분 괴리 (기대 선행).
+H1은 TRL 범위의 가운데 값과 시장성 점수로 설계서 C.5의 3×3 격자에서 코드로 판정했다: TurboQuant 부분 괴리 (기대 선행); ITME 판단 보류.
 ## 5.4 조건별 시사점(추천 아님)
-- GPU 메모리 용량 한계가 중요한 워크로드에서는 ITME의 다계층 메모리 구조와 NAND 기반 확장 기술 근거가 관련된다[2, p.2; 4].
-- 기존에 NVIDIA A100 GPU를 보유한 환경에서는 TurboQuant의 KV 캐시 3비트 압축과 실험실 검증 근거가 적용될 수 있다[1, p.15·16].
-- 클라우드·데이터센터 사업자가 도입 주체일 경우 TurboQuant와 ITME 모두에서 긍정적 평가 근거가 다수 보고되어 관련 근거가 참고된다[14; 16].
-- 투자·분석·언론 집단의 시장 수요 판단에서는 TurboQuant가 긍정과 우려가 혼재된 반면, ITME는 긍정과 부정 근거가 혼재되어 불확실성 근거가 관련된다[28; 31].
+- 긴 문맥 처리와 다중 동시 요청이 중요한 워크로드에서는 TurboQuant의 3비트 KV 캐시 압축과 최대 8배 속도 향상 근거가 관련된다[49; 19; 29].
+- 기존 GPU 보유 여부가 중요한 도입 주체에서는 TurboQuant가 기존 서빙 엔진을 크게 수정하지 않고 드롭인 최적화가 가능하다는 점이 관련된다[54; 55].
+- 대규모 추론 지원과 메모리 용량 확장이 필요한 클라우드·데이터센터 사업자에서는 ITME의 다계층 메모리 구조와 FPGA 프로토타입 실환경 검증 근거가 관련된다[2, p.8·10; 30].
+- 고성능 서버 환경에서 메모리 I/O 병목 완화가 필요한 경우 ITME의 소프트웨어 프리페칭과 읽기 우선 스케줄링에 의한 처리량 개선 근거가 관련된다[25].
 ## 5.5 기준값 민감도 점검
 <!--w:7.0,9.0-->
 | 바꾼 기준(±0.5) | 판정이 바뀐 칸 |
 |---|---|
-| 상충 기준 2.0→2.5 | 0 / 2칸 |
-| 상충 기준 2.0→1.5 | 0 / 2칸 |
-| 부분 상충 기준 1.0→1.5 | 0 / 2칸 |
-| 부분 상충 기준 1.0→0.5 | 1 / 2칸 |
+| 상충 기준 2.0→2.5 | 0 / 3칸 |
+| 상충 기준 2.0→1.5 | 0 / 3칸 |
+| 부분 상충 기준 1.0→1.5 | 0 / 3칸 |
+| 부분 상충 기준 1.0→0.5 | 1 / 3칸 |
 | TRL 경계 3.5→3.0 | 0 / 2칸 (H1 판정: 부분 지지) |
 | TRL 경계 3.5→4.0 | 0 / 2칸 (H1 판정: 부분 지지) |
 | TRL 경계 6.5→6.0 | 0 / 2칸 (H1 판정: 부분 지지) |
@@ -201,11 +198,9 @@ H1은 TRL 범위의 가운데 값과 시장성 점수로 설계서 C.5의 3×3 �
 | 시장 경계 2.0→1.5 | 0 / 2칸 (H1 판정: 부분 지지) |
 | 시장 경계 2.0→2.5 | 0 / 2칸 (H1 판정: 부분 지지) |
 | 시장 경계 4.0→3.5 | 0 / 2칸 (H1 판정: 부분 지지) |
-| 시장 경계 4.0→4.5 | 0 / 2칸 (H1 판정: 부분 지지) |
+| 시장 경계 4.0→4.5 | 1 / 2칸 (H1 판정: 기각) |
 
 2.0·1.0과 격자 경계는 절대 기준이 아니라 분류를 일관되게 하려고 미리 정한 값이므로, 각 값을 0.5씩 바꿨을 때 판정이 달라지는 칸 수를 함께 보고한다.
-
----pagebreak---
 
 # 6. 한계점
 ## 6.1 공개 정보 기반 추정의 한계
@@ -216,13 +211,14 @@ H1은 TRL 범위의 가운데 값과 시장성 점수로 설계서 C.5의 3×3 �
 <!--w:2.2,2.9,1.9,4.2,1.4,1.4,2.0-->
 | 관점 | Judge 근거·중립·다양성·완결 | 최대 계열 비중 | 찬반·범위 근거 계열 | 우열 어휘 | 재실행 | 결과 |
 |---|---|---|---|---|---|---|
-| TRL | 5/5/4/4 | 50% | TurboQuant 하·상한 2, ITME 하·상한 1 | 0 | 0 | 통과 |
-| 시장성 | 4/4/4/4 | 40% | TurboQuant 찬3/반0, ITME 찬4/반0 | 0 | 2 | 판정 불확실 |
-| 이해관계자 | 5/4/5/4 | 14% | TurboQuant 찬14/반2, ITME 찬9/반2 | 0 | 2 | 통과 |
-| 도메인 적합성 | 4/5/4/4 | 100% | TurboQuant 찬6/반1, ITME 찬2/반0 | 0 | 2 | 판정 불확실 |
+| TRL | 5/5/4/4 | 100% | TurboQuant 하·상한 5, ITME 하·상한 1 | 0 | 2 | 판정 불확실 |
+| 시장성 | 4/4/4/4 | 100% | TurboQuant 찬14/반3, ITME 찬2/반0 | 2 | 2 | 판정 불확실 |
+| 이해관계자 | 4/4/4/4 | 19% | TurboQuant 찬16/반3, ITME 찬14/반3 | 0 | 2 | 통과 |
+| 도메인 적합성 | 4/4/3/4 | 100% | TurboQuant 찬23/반1, ITME 찬2/반0 | 0 | 2 | 판정 불확실 |
 
-- 본문 인용 근거의 출처 구분: 벤더 26건, 제3자 24건, 학술 3건. 관점마다 지지·반대 질의를 짝지어 검색했고, 한 원 출처 계열이 웹 근거의 50%를 넘지 않게 했으며, 개발사 발언은 이해관계자 점수에서 뺐다.
+- 본문 인용 근거의 출처 구분: 벤더 24건, 제3자 47건, 학술 6건. 관점마다 지지·반대 질의를 짝지어 검색했고, 한 원 출처 계열이 웹 근거의 50%를 넘지 않게 했으며, 개발사 발언은 이해관계자 점수에서 뺐다.
 - Judge 판정식은 설계서 D.5를 그대로 썼다. 기준에 못 미친 관점만 최대 2회 다시 실행했고, 한도 후에도 미달이면 판정 불확실로 남겼다.
+- 판정 불확실: TRL 관점이 재실행 한도(2회) 후에도 Judge 기준 미달
 - 판정 불확실: 시장성 관점이 재실행 한도(2회) 후에도 Judge 기준 미달
 - 판정 불확실: 도메인 적합성 관점이 재실행 한도(2회) 후에도 Judge 기준 미달
 ## 6.3 분석 방법의 한계
@@ -230,10 +226,8 @@ H1은 TRL 범위의 가운데 값과 시장성 점수로 설계서 C.5의 3×3 �
 - Judge(gpt-4.1)는 생성 모델(gpt-4.1-mini)보다 상위 모델이지만 같은 계열이라 자기 평가 편향을 줄이는 효과가 제한적이다.
 - 평가 주체인 우리 조가 SK 교육과정 소속이고 ITME는 SK hynix 기술이다. 두 기술에 같은 질의 틀·검색 한도·Rubric을 썼지만 소속에 따른 편향 가능성을 배제할 수 없다.
 - 웹 근거는 Tavily 검색 결과에 의존하며 검색 시점(2026-09-22)의 자료만 반영한다. 점수는 근거 개수를 가중치로 쓰지 않지만 검색되는 자료의 양에 영향을 받는다.
-- 실행 중 기록된 경고: 도메인 적합성 관점 ITME: 빠진 가중치가 50%를 넘어 판단 보류; 시장성 관점 TurboQuant: 빠진 가중치가 50%를 넘어 판단 보류; 시장성 관점 ITME: 빠진 가중치가 50%를 넘어 판단 보류; 같은 근거 ID에 다른 제목이 들어온 경우 3건(기존 항목 유지, 실행 로그에 기록)
+- 실행 중 기록된 경고: 도메인 적합성 관점 ITME: 빠진 가중치가 50%를 넘어 판단 보류; 시장성 관점 ITME: 빠진 가중치가 50%를 넘어 판단 보류; 같은 근거 ID에 다른 제목이 들어온 경우 5건(기존 항목 유지, 실행 로그에 기록)
 - RAG 문서는 Doc Pool 논문 6편 136쪽(한도 200쪽), 청크 159개이다.
-
----pagebreak---
 
 # REFERENCE
 **논문**
@@ -243,35 +237,59 @@ H1은 TRL 범위의 가운데 값과 시장성 점수로 설계서 C.5의 3×3 �
 
 **웹페이지**
 
-- [3] tradingkey.com(2026-09-22 접속). What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?. tradingkey.com, https://tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey
-- [4] sedaily.com(2026-09-22 접속). SK hynix Developing New NAND Products for KV Cache Demands - Seoul Economic Daily. en.sedaily.com, https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands
-- [5] AMD(2026-09-22 접속). Productionizing TurboQuant on AMD GPUs for KV-Cache-Bound .... rocm.blogs.amd.com, https://rocm.blogs.amd.com/artificial-intelligence/turboquant-vllm-agentic/README.html
-- [6] medium.com(2026-09-22 접속). TurboQuant Changes the Economics of Local AI Inference - Medium. medium.com, https://medium.com/@michael.hannecke/googles-turboquant-changes-the-economics-of-local-ai-inference-acce5839014d
-- [7] arxiv.org(2026-09-22 접속). ITME: Inference Tiered Memory Expansion with .... arxiv.org, https://arxiv.org/html/2606.12556v2
-- [8] neurips.cc(2026-09-22 접속). HiFC: High-efficiency Flash-based KV Cache Swapping for .... papers.neurips.cc, https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf
-- [9] Google(2026-09-22 접속). TurboQuant: Redefining AI efficiency with extreme .... research.google, https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression
-- [10] youtube.com(2026-09-22 접속). Google's TurboQuant Memory Reduction Claim vs Reality. youtube.com, https://www.youtube.com/watch?v=haoAI2lIZ74
-- [11] SK hynix(2026-09-22 접속). SK hynix Showcases Full-Stack AI Memory Portfolio at .... news.skhynix.com, https://news.skhynix.com/en/sk-hynix-showcases-full-stack-ai-memory-portfolio-at-2025-ocp-global-summit
-- [12] arxiv.org(2026-09-22 접속). [2606.12556] ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories. ar5iv.labs.arxiv.org, https://ar5iv.labs.arxiv.org/html/2606.12556
-- [13] towardsai.net(2026-09-22 접속). Google's TurboQuant Explained: How They Cut LLM .... pub.towardsai.net, https://pub.towardsai.net/googles-turboquant-how-they-cut-llm-memory-by-6x-without-losing-accuracy-971313c9aa7e
-- [14] starkinsider.com(2026-09-22 접속). Google’s TurboQuant: The Unsexy AI Breakthrough Worth Watching. starkinsider.com, https://www.starkinsider.com/2026/03/google-turboquant-llm-compression-less-memory.html
-- [15] hpe.com(2026-09-22 접속). How Google TurboQuant Stirred the AI Industry. community.hpe.com, https://community.hpe.com/t5/software-general/how-google-turboquant-stirred-the-ai-industry/td-p/7265346
-- [16] semiwiki.com(2026-09-22 접속). SK Hynix proposes HBM and HBF hybrid for LLM inference. semiwiki.com, https://semiwiki.com/forum/threads/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference.24754
-- [17] seagate.com(2026-09-22 접속). Enabling inference at massive scale with hybrid storage for .... seagate.com, https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading
-- [18] tradingkey.com(2026-09-22 접속). SK Hynix Capacity Hits Zero: Tech Giants Offer to Fund Factories Amid AI Chip Shortage. tradingkey.com, https://www.tradingkey.com/analysis/stocks/more/261873534-sk-hynix-memory-shortage-capacity-tradingkey
-- [19] futurumgroup.com(2026-09-22 접속). SK Hynix ADR Issuance Strategy. futurumgroup.com, https://futurumgroup.com/insights/will-sk-hynixs-record-265bn-adr-issuance-help-close-its-capex-intensity-gap
-- [20] whatthechiphappened.com(2026-09-22 접속). The Market Just Sold Micron on a Paper It Did Not Read. news.whatthechiphappened.com, https://news.whatthechiphappened.com/p/the-market-just-sold-micron-on-a
-- [21] NVIDIA(2026-09-22 접속). Why Turboquant saves DGX twice - NVIDIA Developer Forums. forums.developer.nvidia.com, https://forums.developer.nvidia.com/t/why-turboquant-saves-dgx-twice/364736
-- [22] towardsdatascience.com(2026-09-22 접속). KV Cache Is Eating Your VRAM. Here's How Google Fixed .... towardsdatascience.com, https://towardsdatascience.com/kv-cache-is-eating-your-vram-heres-how-google-fixed-it-with-turboquant
-- [23] reddit.com(2026-09-22 접속). [google research] TurboQuant: Redefining AI efficiency .... reddit.com, https://www.reddit.com/r/LocalLLaMA/comments/1s2su28/google_research_turboquant_redefining_ai
-- [24] decodingdiscontinuity.com(2026-09-22 접속). Why TurboQuant Triggered a $100B Memory Stock Sell-Off. decodingdiscontinuity.com, https://www.decodingdiscontinuity.com/p/turboquant-memory-stock-sell-off-panic-paper-google
-- [25] yahoo.com(2026-09-22 접속). What TurboQuant Actually Means for AI Memory Stocks. finance.yahoo.com, https://finance.yahoo.com/markets/stocks/articles/turboquant-actually-means-ai-memory-125500558.html
-- [26] mindstudio.ai(2026-09-22 접속). What Is Google TurboQuant? The KV Cache Compression That .... mindstudio.ai, https://www.mindstudio.ai/blog/what-is-google-turboquant-kv-cache-compression
-- [27] biggo.com(2026-09-22 접속). DeepSeek's New Model Claims Sharp Cut in HBM Usage; Samsung and SK Hynix Plunge Over 3% Intraday. finance.biggo.com, https://finance.biggo.com/news/d8eafdaf-6ff4-490e-b2ea-62f13e1974c9
-- [28] investing.com(2026-09-22 접속). SK Hynix outlook revised to positive by S&P and Fitch on memory chip strength By Investing.com. investing.com, https://www.investing.com/news/stock-market-news/sk-hynix-outlook-revised-to-positive-by-sp-and-fitch-on-memory-chip-strength-93CH-4209005
-- [29] yahoo.com(2026-09-22 접속). Analysts Still See Massive Upside for SK Hynix — The AI Cycle Isn’t Done But Questions Remain. finance.yahoo.com, https://finance.yahoo.com/markets/stocks/articles/analysts-still-see-massive-upside-151554133.html
-- [30] everpuredata.com(2026-09-22 접속). TurboQuant Compresses KV Cache by 5X. Does That Mean You .... blog.everpuredata.com, https://blog.everpuredata.com/purely-technical/turboquant-compresses-kv-cache-by-5x-does-that-mean-you-need-less-memory
-- [31] lighthouse-canton.com(2026-09-22 접속). TurboQuant: Why It Changes Nothing for Memory - Lighthouse Canton. lighthouse-canton.com, https://www.lighthouse-canton.com/insights/turboquant-why-it-changes-nothing-for-the-memory-trade-equity-insights
-- [32] medium.com(2026-09-22 접속). Medium. medium.com, https://medium.com/@anupkawarase.akz/turboquant-how-googles-6x-kv-cache-compression-changes-llm-inference-forever-1110e4be289e
-- [33] Intel(2026-09-22 접속). Enhancing long-context, high-concurrency LLM serving on a 32 GB .... community.intel.com, https://community.intel.com/t5/Blogs/Tech-Innovation/Data-Center/Enhancing-long-context-high-concurrency-LLM-serving-on-a-32-GB/post/1751209
-- [34] regolo.ai(2026-09-22 접속). Why TurboQuant matters for real-world LLM inference. regolo.ai, https://regolo.ai/why-turboquant-matters-for-real-world-llm-inference
+- [3] medium.com(2026-09-22 접속). Medium. medium.com, https://medium.com/@anupkawarase.akz/turboquant-how-googles-6x-kv-cache-compression-changes-llm-inference-forever-1110e4be289e
+- [4] dev.to(2026-09-22 접속). TurboQuant: What Developers Need to Know About .... dev.to, https://dev.to/arshtechpro/turboquant-what-developers-need-to-know-about-googles-kv-cache-compression-eeg
+- [5] ThePromptBuddy(2026-09-22 접속). Google TurboQuant: The KV-Cache Breakthrough That Could Make Large AI Models Cheaper. thepromptbuddy.com, https://www.thepromptbuddy.com/prompts/google-turboquant-the-kv-cache-breakthrough-that-could-make-large-ai-models-cheaper
+- [6] sedaily.com(2026-07-29). SK hynix Developing New NAND Products for KV Cache .... en.sedaily.com, https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands
+- [7] arxiv.org(2026-09-22 접속). TurboQuant: Online Vector Quantization with Near-optimal .... arxiv.org, https://arxiv.org/html/2504.19874v1
+- [8] Artificial Intelligence(2026-09-22 접속). Efficient LLM Inference with TurboQuant and KV Cache Offloading. artificial-inteligence.phptutorial.co.in, https://artificial-inteligence.phptutorial.co.in/efficient-llm-inference-with-turboquant-and-kv-cache-offloading
+- [9] github.com(2026-09-22 접속). OmarHory/turboquant: Open-source implementation .... github.com, https://github.com/OmarHory/turboquant
+- [10] deepinfra.com(2026-09-22 접속). What Is Google TurboQuant and What Does It Mean .... deepinfra.com, https://deepinfra.com/blog/google-turboquant
+- [11] o-mega.ai(2026-09-22 접속). Google TurboQuant in August 2026: Where It Actually Runs. o-mega.ai, https://o-mega.ai/articles/google-turboquant-the-2026-llm-compression-guide
+- [12] Tech Bytes(2026-09-22 접속). Google TurboQuant: Technical Analysis of 6x KV Cache Compression. techbytes.app, https://techbytes.app/posts/google-turboquant-llm-memory-compression-breakthrough
+- [13] Bizrescuepro(2026-09-22 접속). Canadian Technology Magazine: Google’s TurboQuant and the KV Cache. bizrescuepro.com, https://bizrescuepro.com/googles-turboquant-explained-kv-cache-compression-for-cheaper-faster-llm-inference
+- [14] arxiv.org(2026-09-22 접속). Token-Operations-Oriented Inference Optimization Techniques for .... arxiv.org, https://arxiv.org/html/2606.20295v2
+- [15] WOWHOW(2026-09-22 접속). Google TurboQuant: 6x KV Cache Compression Changes AI Inference Economics. wowhow.cloud, https://wowhow.cloud/blogs/google-turboquant-kv-cache-compression-llm-inference-2026
+- [16] yage.ai(2026-09-22 접속). TurboQuant: Google Wants to Compress KV Cache Down to 3 Bits. yage.ai, https://yage.ai/share/turboquant-kv-cache-3-bit-en-20260325.html
+- [17] github.com(2026-09-22 접속). GitHub - back2matching/turboquant: First open-source TurboQuant.... github.com, https://github.com/back2matching/turboquant
+- [18] starkinsider.com(2026-03). Google’s TurboQuant: The Unsexy AI Breakthrough Worth Watching. starkinsider.com, https://www.starkinsider.com/2026/03/google-turboquant-llm-compression-less-memory.html
+- [19] mindstudio.ai(2026-09-22 접속). What Is Google TurboQuant? The KV Cache Compression .... mindstudio.ai, https://www.mindstudio.ai/blog/what-is-google-turboquant-kv-cache-compression
+- [20] reddit.com(2026-09-22 접속). Will Google's TurboQuant technology save us? : r/StableDiffusion. reddit.com, https://www.reddit.com/r/StableDiffusion/comments/1s6t8yu/will_googles_turboquant_technology_save_us
+- [21] github.com(2026-09-22 접속). Add TurboQuant KV Cache Quantization for Memory-Efficient Long .... github.com, https://github.com/sgl-project/sglang/issues/21618
+- [22] youtube.com(2026-09-22 접속). Google's TurboQuant Memory Reduction Claim vs Reality. youtube.com, https://www.youtube.com/watch?v=haoAI2lIZ74
+- [23] digitalapplied.com(2026-09-22 접속). Google TurboQuant: 6x LLM Memory Compression Guide. digitalapplied.com, https://www.digitalapplied.com/blog/google-turboquant-6x-llm-memory-compression-guide
+- [24] Google(2026-09-22 접속). TurboQuant: Redefining AI efficiency with extreme .... research.google, https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression
+- [25] arxiv.org(2026-09-22 접속). ITME: Inference Tiered Memory Expansion with .... arxiv.org, https://arxiv.org/html/2606.12556v2
+- [26] tradingkey.com(2026-09-22 접속). What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?. tradingkey.com, https://tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey
+- [27] CryptoRank.io(2026-09-22 접속). Google TurboQuant: Revolutionary AI Memory Compression Sparks ‘Pied Piper’ Frenzy · Technology AI News. cryptorank.io, https://cryptorank.io/ru/news/feed/ee99c-google-turboquant-ai-memory-compression
+- [28] hpe.com(2026-09-22 접속). How Google TurboQuant Stirred the AI Industry. community.hpe.com, https://community.hpe.com/t5/software-general/how-google-turboquant-stirred-the-ai-industry/td-p/7265346
+- [29] towardsdatascience.com(2026-09-22 접속). KV Cache Is Eating Your VRAM. Here's How Google Fixed .... towardsdatascience.com, https://towardsdatascience.com/kv-cache-is-eating-your-vram-heres-how-google-fixed-it-with-turboquant
+- [30] seagate.com(2026-09-22 접속). Enabling inference at massive scale with hybrid storage for .... seagate.com, https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading
+- [31] arxiv.org(2026-09-22 접속). ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories. arxiv.org, https://arxiv.org/html/2606.12556
+- [32] medium.com(2026-09-22 접속). KV Cache Compression and LLM Evaluation with W&B. medium.com, https://medium.com/online-inference/implementing-googles-turboquant-kv-cache-compression-and-llm-evaluation-with-w-b-1403d460846b
+- [33] Gate News(2026-09-22 접속). SK Hynix and Marvell Unveil CXL Memory Module With 5.5x GPU Throughput. gate.com, https://www.gate.com/news/detail/23368788
+- [34] NVIDIA Developer Forums(2026-09-22 접속). Why Turboquant saves DGX twice. forums.developer.nvidia.com, https://forums.developer.nvidia.com/t/why-turboquant-saves-dgx-twice/364736
+- [35] Micron, SanDisk Hold Up(2026-09-22 접속). SK Hynix, Samsung Shares Dip In Korea After DeepSeek Debuts AI Tech That Uses Less Memory. stocktwits.com, https://stocktwits.com/news-articles/markets/equity/sk-hynix-samsung-shares-dip-in-korea-after-deep-seek-debuts-ai-tech-that-uses-less-memory-micron-san-disk-hold-up/cZtXBNqRBGe
+- [36] semidynamics.com(2026-09-22 접속). Semidynamics Secures a Strategic Investment to Advance Memory-Centric AI Inference Chips. semidynamics.com, https://semidynamics.com/newsroom/press-releases/post/semidynamics-secures-a-strategic-investment-to-advance-memory-centric-ai-inference-chips
+- [37] yahoo.com(2026-09-22 접속). What TurboQuant Actually Means for AI Memory Stocks. finance.yahoo.com, https://finance.yahoo.com/markets/stocks/articles/turboquant-actually-means-ai-memory-125500558.html
+- [38] substack.com(2026-09-22 접속). TurboQuant: What 3-Bit KV Caches Actually Mean for Your Inference .... themlsurgeon.substack.com, https://themlsurgeon.substack.com/p/turboquant-what-3-bit-kv-caches-actually
+- [39] lmcache.ai(2026-04-28). Stop Calling It KV Cache: It's Something Much Bigger. blog.lmcache.ai, https://blog.lmcache.ai/en/2026/04/28/stop-calling-it-kv-cache-its-something-much-bigger
+- [40] WEKA(2026-09-22 접속). AI storage that fixes KV cache bottlenecks. weka.io, https://www.weka.io/article/the-real-state-of-ai-hype-vs-reality
+- [41] arxiv.org(2026-09-22 접속). [2606.12556] ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories. ar5iv.labs.arxiv.org, https://ar5iv.labs.arxiv.org/html/2606.12556
+- [42] decodingdiscontinuity.com(2026-09-22 접속). Why TurboQuant Triggered a $100B Memory Stock Sell-Off. decodingdiscontinuity.com, https://www.decodingdiscontinuity.com/p/turboquant-memory-stock-sell-off-panic-paper-google
+- [43] serverpartdeals.com(2026-09-22 접속). Google's TurboQuant Just Shook the Memory Market.. serverpartdeals.com, https://serverpartdeals.com/blogs/blog-posts/googles-turboquant-just-shook-the-memory-market
+- [44] substack.com(2026-09-22 접속). The memory sector has plummeted ,what is the market panicking .... globalsemiresearch.substack.com, https://globalsemiresearch.substack.com/p/the-memory-sector-has-plummeted-what
+- [45] THE INVESTOR(2026-09-22 접속). Google TurboQuant: Separating hype from reality. theinvestor.co.kr, https://www.theinvestor.co.kr/article/10716199
+- [46] lighthouse-canton.com(2026-09-22 접속). TurboQuant: Why It Changes Nothing for Memory. lighthouse-canton.com, https://www.lighthouse-canton.com/insights/turboquant-why-it-changes-nothing-for-the-memory-trade-equity-insights
+- [47] Seeking Alpha(2026-09-22 접속). SK hynix: The Market Is So Skeptical (NASDAQ:SKHY). seekingalpha.com, https://seekingalpha.com/article/4937711-sk-hynix-the-market-is-so-skeptical
+- [48] medium.com(2026-09-22 접속). KV Cache: Emerging Challenges and Future Trends. medium.com, https://medium.com/foundation-models-deep-dive/kv-cache-guide-part-5-of-5-the-frontier-advanced-challenges-and-future-trends-e4bc20c3ddcc
+- [49] GitHub(2026-09-22 접속). GitHub - AceCastro28/turboquant-vllm: TurboQuant KV cache compression (Google ICLR 2026) integrated natively into vLLM — 3-bit KV cache with zero accuracy loss. github.com, https://github.com/AceCastro28/turboquant-vllm
+- [50] spheron.network(2026-09-22 접속). Google TurboQuant: 6x KV Cache Compression for LLM Inference. spheron.network, https://www.spheron.network/blog/google-turboquant-llm-compression-gpu-cloud
+- [51] vast.ai(2026-09-22 접속). TurboQuant Explained: How It Reduces LLM Memory by 5x and .... vast.ai, https://vast.ai/article/turboquant-explained-llm-memory-inference
+- [52] Intel(2026-09-22 접속). Enhancing long-context, high-concurrency LLM serving on a 32 GB .... community.intel.com, https://community.intel.com/t5/Blogs/Tech-Innovation/Data-Center/Enhancing-long-context-high-concurrency-LLM-serving-on-a-32-GB/post/1751209
+- [53] vLLM(2026-05-11). A First Comprehensive Study of TurboQuant: Accuracy and .... vllm.ai, https://vllm.ai/blog/2026-05-11-turboquant
+- [54] tether.io(2026-09-22 접속). TurboQuant in QVAC SDK 0.12.0: KV-cache quantization for pr…. qvac.tether.io, https://qvac.tether.io/blog/turboquant-in-qvac-sdk-0-12-0-kv-cache-quantization-for-production-local-ai
+- [55] github.com(2026-09-22 접속). TurboQuant: Near-optimal KV cache quantization for LLM .... github.com, https://github.com/0xsero/turboquant
+- [56] futurumgroup.com(2026-09-22 접속). SK Hynix ADR Issuance Strategy. futurumgroup.com, https://futurumgroup.com/insights/will-sk-hynixs-record-265bn-adr-issuance-help-close-its-capex-intensity-gap
+- [57] everpuredata.com(2026-09-22 접속). TurboQuant Compresses KV Cache by 5X. Does That Mean You .... blog.everpuredata.com, https://blog.everpuredata.com/purely-technical/turboquant-compresses-kv-cache-by-5x-does-that-mean-you-need-less-memory
+- [58] arxiv.org(2026-09-22 접속). A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid .... arxiv.org, https://arxiv.org/html/2607.18141v1

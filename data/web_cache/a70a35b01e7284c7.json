@@ -1,0 +1,65 @@
+{
+ "query": "advantages and positive evaluations of SK hynix ITME KV cache by investors, analysts, and media",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:02:33+09:00",
+ "results": [
+  {
+   "url": "https://finance.yahoo.com/markets/stocks/articles/sk-hynix-tells-investors-us-070258447.html",
+   "title": "SK Hynix tells investors its US listing plan wins their strong backing, source says",
+   "content": "By Heekyong Yang\n\nSEOUL, June 4 (Reuters) - SK Hynix told investors this week it received \"tremendously positive\" feedback on its proposed U.S. listing as the chipmaker benefits from strong demand for advanced ‌memory semiconductors needed to run AI data centers, a source familiar with the matter said on ‌Thursday.\n\nThe South Korean memory-chipmaker made a confidential filing to list shares in the U.S. this year, which a source said in March ​could raise as much as $14 billion. [...] The fundraising follows a blistering 250% surge in its share price this year on an AI-driven rally. Its market value topped $1 trillion last week, making it the third company in Asia to hit the milestone after Taiwan's TSMC and Samsung Electronics.\n\nSK Hynix told some investors this week that it had \"tremendously positive\" feedback ‌from stockholders to its U.S. listing ⁠plan given AI demand and the company's competitive position in the memory-chip market, the person said. [...] 5. Best travel cards\n   3. Banking \n      1. Best CD rates\n      2. Best high-yield savings accounts\n      3. Best money market accounts\n      4. Best free checking accounts\n      5. Best online banks\n   4. Mortgage \n      1. Best mortgage lenders\n      2. Best mortgage rates\n      3. Mortgage refinance\n      4. First time homebuyer\n      5. Mortgage payment calculator\n      6. Home affordability calculator\n   5. Insurance \n      1. Find car insurance\n      2. Types of car insurance",
+   "published_date": null,
+   "score": 0.5360463
+  },
+  {
+   "url": "https://www.fitchratings.com/research/corporate-finance/fitch-revises-sk-hynix-outlook-to-positive-affirms-rating-at-bbb-25-08-2025",
+   "title": "Fitch Revises SK hynix's Outlook to Positive; Affirms Rating at 'BBB'",
+   "content": "further through 2025, supporting more stable revenue and reducing cash-flow volatility. [...] Compared to Microchip Technology Inc. (BBB/Stable), SK hynix benefits from greater scale and now higher profitability (EBITDA margin over 40%), while Microchip continues to show lower demand and price volatility. Recent excess supply and high inventories have pressured Microchip's revenues, but it remains a top global microcontroller producer. SK hynix's leverage is now generally stronger, warranting a modest rating differential. [...] has solid access to capital markets and local banks.",
+   "published_date": null,
+   "score": 0.4893821
+  },
+  {
+   "url": "https://www.investing.com/news/stock-market-news/sk-hynix-outlook-revised-to-positive-by-sp-and-fitch-on-memory-chip-strength-93CH-4209005",
+   "title": "SK Hynix outlook revised to positive by S&P and Fitch on memory chip strength By Investing.com",
+   "content": "© Reuters.\n\nInvesting.com -- SK Hynix received positive outlook revisions from both S&P Global Ratings and Fitch Ratings on Monday, with both agencies affirming the company’s ’BBB’ credit rating.\n\nThe rating actions reflect SK Hynix’s strengthening financial profile and its leading position in high-bandwidth memory (HBM) chips, which are experiencing strong demand due to artificial intelligence applications. [...] | Name | Last | Chg. % | Vol. |  |\n ---  --- \n| MSTR | 153.92 | +16.39% | 54.67M |  |\n| SNDK | 1,791.82 | +10.99% | 17.79M |  |\n| LRCX | 288.11 | +6.98% | 19.64M |  |\n| STX | 858.79 | +6.93% | 6.98M |  |\n| AMAT | 444.57 | +6.51% | 14.30M |  |\n| TER | 371.47 | +5.19% | 4.29M |  |\n| KLAC | 176.99 | +4.74% | 20.07M |  | [...] According to OMDIA research cited by Fitch, SK Hynix became the largest global DRAM supplier by revenue in the first quarter of 2025, capturing a 37% market share.",
+   "published_date": null,
+   "score": 0.42477044
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "KV caches are typically stored in high-bandwidth memory (HBM) or dynamic random-access memory (DRAM), both of which are straining as cache sizes grow. Hyperscalers have already seen positive results implementing hybrid storage tiers of SSDs and hard drives for AI applications.1 This multi-tiered system balances capacity, cost, and latency. By following their lead, enterprises and AI infrastructure builders can turn storage into a strategic advantage that enables them to expand the number of [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent",
+   "published_date": null,
+   "score": 0.39117387
+  },
+  {
+   "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3513063",
+   "title": "SK Hynix Upgraded To 'BBB+' On Memory Sales Surge | S&P Global Ratings",
+   "content": "The positive outlook on SK Hynix reflects our expectation the company will improve its operating performance materially over the next 12 months on the back of demand growth and favorable pricing in HBMs and conventional memory. We also expect the company to maintain a disciplined investment policy and shareholder returns. [...] The positive rating outlook reflects our expectation the company will likely further improve its operating performances materially over the next 12 months on the back of continued demand growth and favorable pricing in HBMs and conventional memory, while maintaining disciplined investment policy and shareholder returns. [...] In our base case, we forecast SK Hynix to generate operating cash flow of KRW82 trillion in 2026 and KRW93 trillion in 2027. This far outweighs capex of KRW40 trillion in 2026 and KRW46 trillion in 2027. The sizable free cash flow generated, along with disciplined financial policy, will enable SK Hynix to boost its net cash reserves considerably during that period.",
+   "published_date": null,
+   "score": 0.39103433
+  },
+  {
+   "url": "https://seekingalpha.com/article/4921201-sk-hynix-the-ai-memory-trades-handed-investors-a-rare-second-chance",
+   "title": "SK hynix: The AI Memory Trade Has Handed Investors A Rare Second Chance (SKHYV) | Seeking Alpha",
+   "content": "SK hynix Inc. launches its U.S. ADS at $149, raising $26.5 billion, with strong institutional demand validating continued confidence in the durability of the AI memory supercycle.\n SK hynix is well-positioned to benefit from a two-part re-rate, driven by a narrowing valuation discount to Micron and additive fundamental upside as rising NAND demand compounds its HBM leadership. [...] The SKHY ADS offering gives U.S. investors a rare second chance to participate in a de-risked AI memory compounded with comprehensive leadership across HBM, DRAM, and NAND. [...] Home page Seeking Alpha - Power to Investors\n\nSearch for Symbols, analysts, keywords\n\n# SK hynix: The AI Memory Trade Has Handed Investors A Rare Second Chance\n\nJul 10, 2026, 12:29 PM ETSK hynix Inc. (SKHY) StockMU, SSNLF, NVDA, INTC, INTC:CA, MU:CA, NVDA:CA, SSNHZ, ZINT:CA, ZMIC:CA, ZNVD:CA7 Comments\n\n## Summary",
+   "published_date": null,
+   "score": 0.35851082
+  },
+  {
+   "url": "https://www.marketsentiment.co/p/deep-dive-sk-hynix",
+   "title": "Deep Dive: SK Hynix",
+   "content": "With this investment, SK Hynix now had the best tools in the world. With the deep pockets of the SK group, the scrappy, survivalist culture of Hynix was transformed into that of innovation and tech leadership. This investment surge funded early research into HBMs, which is now helping the firm post record-breaking results. [...] Enter SK group.\n\nSK Group is South Korea’s second-largest conglomerate, specializing in semiconductors, energy, telecommunications, and pharmaceuticals. The Group’s chairman, Chey Tae-Won, said that the group needed a “new growth engine” because the domestic telecom and energy markets were saturated. Although this decision drew backlash from investors and analysts, SK bought a 21% stake in February 2012 for approximately 3.4 trillion won ($3.1 billion). [...] SK Group had massive trust in its newly acquired child. They readily opened their purse for a massive R&D expansion. The banks had previously starved Hynix of cash, and the company could only spend what it earned. SK Group immediately invested $3.5B in the first year, despite the chip market remaining depressed. This gave the company a head start on the next generation of technologies, while its competitors cut costs in a weak market.",
+   "published_date": null,
+   "score": 0.29293448
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] 5.9 จุดเปอร์เซ็นต์ โดยบริษัทระบุว่าในการทดสอบเกณฑ์มาตรฐานนี้ โมเดลดังกล่าวก้าวขึ้นเป็นผู้นำด้านความคุ้มค่าต่อราคาในกลุ่มระดับราคาเดียวกัน",
+   "published_date": null,
+   "score": 0.269629
+  }
+ ]
+}

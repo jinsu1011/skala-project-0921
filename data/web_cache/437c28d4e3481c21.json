@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache product launch availability customers",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:06+09:00",
+ "results": [
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache Demands - Seoul Economic Daily",
+   "content": "SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] Korea's Leading Business News Since 1960\n\n# SK hynix Developing New NAND Products for KV Cache Demands\n\nFinance|\n|\n\nBy Kim Yoon-soo\n\n||\n\nSK hynix's 321-layer QLC NAND product. Photo courtesy of SK hynix - Seoul Economic Daily Finance News from South Korea\n\nSK hynix's 321-layer QLC NAND product. Photo courtesy of SK hynix",
+   "published_date": null,
+   "score": 0.5689194
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] prototypes such as SK hynix Niagara further show that shared CXL memory can remain sub-microsecond, reporting 600 ns access latency (SK hynix, 2024). [...] hynix, 2026) and Samsung (Samsung Electronics, 2026b) to build remote flash tiers (Sun et al., 2025; Guo et al., 2023; Min et al., 2021; Zhan et al., 2024). On the memory side, memory vendors, cloud providers, and startups, including SK hynix (SK hynix, 2025; SK hynix, 2024),",
+   "published_date": null,
+   "score": 0.32988858
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory. [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage",
+   "published_date": null,
+   "score": 0.2636271
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] Wall Street ระบุว่าหากมีการนำไปใช้งานอย่างประสบความสำเร็จ ความต้องการพื้นที่จัดเก็บข้อมูลอาจลดลงอย่างมาก ซึ่งอาจส่งผลกระทบต่อความต้องการ DRAM และ NAND Flash ที่ก่อนหน้านี้ได้รับแรงหนุนจากการเติบโตของ AI โดยในเดือนมกราคม Samsung Electronics ได้ปรับราคาตามสัญญาของ NAND flash ขึ้นมากกว่า 100% หลังจากที่ราคา DRAM พุ่งสูงขึ้นเกือบ 70% ตอกย้ำถึงความร้อนแรงในตลาดเซมิคอนดักเตอร์",
+   "published_date": null,
+   "score": 0.17464978
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.17464978
+  },
+  {
+   "url": "https://clausaasholm.substack.com/p/lam-what-is-the-kv-cache-hiding",
+   "title": "LAM: What is the KV Cache Hiding? - by Claus Aasholm",
+   "content": "The Chinese memory makers were not part of the same oversupply cycle that crushed Samsung and SK Hynix. They were still in build-out and ramp mode throughout 2022-2023, constructing greenfield capacity from scratch. So their equipment spending continued even as Korean and US memory makers slammed the brakes. [...] Also, Chinese customers were aggressively front-loading equipment purchases ahead of the anticipated tightening of US export restrictions. There was a genuine urgency to secure as many tools as possible before the window closed.\n\nFrom a product perspective, LAM’s tool revenue is distributed like this: [...] A guidance of $6.6B means revenue growth accelerates from 9% to 13% a quarter, and LAM is in its steepest revenue growth period in recent times.\n\nUnlike the tool market in general, LAM experienced a sharp downturn, and the $6.6B guidance puts the company 25% above its last cyclical peak. This brings LAM back into the pack that collectively had reached 19% growth from the peak to Q4-25.\n\nThe reason for this is the LAM dependency on memory customers, as will be visible later.",
+   "published_date": null,
+   "score": 0.16514862
+  },
+  {
+   "url": "https://rocketreach.co/sk-hynix-it-department_b5c65362f42e0cb2",
+   "title": "[SK hynix IT Department](/sk-hynix-it-department_b5c65362f42e0cb2 \"SK hynix Management\")",
+   "content": "More information [...] When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences, or your device, and is mostly used to make the site work as you expect. The information does not usually identify you directly, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to learn more [...] to learn more and change our default settings. Blocking some types of cookies may impact your experience of the site and the services we are able to offer.",
+   "published_date": null,
+   "score": 0.15376535
+  },
+  {
+   "url": "https://finance.yahoo.com/news/worlds-only-sk-hynix-leveraged-000000665.html?fr=sycsrp_catchall",
+   "title": "The World's Only SK hynix Leveraged Exchange Traded Product Debuts in Hong Kong Today",
+   "content": "Tied to innovation and growth, SK hynix's product line includes DRAM, NAND flash memory, and SRAM chips. It captured the lion's share of DRAM market with 36% in Q2 2025, surpassing all competitors. From 2020 to 2024, the compound annual growth rate (CAGR) of its yearly revenue, operating income, and net income reached 20%, 54%, and 58%. Leading the charge in semiconductor, SK hynix is ambitiously growing into a full stack AI memory provider. SK hynix has expanded into the NAND business through [...] HONG KONG, Oct. 16, 2025 /PRNewswire/ -- CSOP Asset Management Limited (CSOP), one of Asia's premier Exchange Traded Product (ETP) issuers, announces the launch of the CSOP SK Hynix Daily (2x) Leveraged Product (stock code: 7709.HK) on the Hong Kong Stock Exchange (HKEX) on 16 October 2025. This follows the successful listing of leveraged and inverse products tracking its peer, Samsung Electronics, in May 2025. The CSOP SK Hynix Daily (2x) Leveraged Product is the world's only leveraged [...] This document is not legally binding. CSOP takes no responsibility for the contents of this document and expressly disclaim any liability for any loss arising from or in reliance upon the whole or any part of the contents of this Document. This document does not confer upon the recipient any copyright or intellectual property rights (whether direct, indirect, or implied) in the use of the information contained herein. Any information or any part of this document should not be copied,",
+   "published_date": null,
+   "score": 0.14673436
+  }
+ ]
+}

@@ -414,7 +414,7 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         v = syn.hypotheses.get(h)
         if not v:
             continue
-        if h in ("H1", "H3"):
+        if h in ("H1", "H2", "H3"):
             reason = (v.rationale.replace("신뢰도 high", "신뢰도 높음").replace("신뢰도 mid", "신뢰도 보통")
                       .replace("신뢰도 low", "신뢰도 낮음") + " " + ct.cite(v.evidence_ids[:4]))
         else:

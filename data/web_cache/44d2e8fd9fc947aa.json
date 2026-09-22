@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache integration ecosystem support framework",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:20+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid ...",
+   "content": "To build such a shared context layer, the ecosystem is exploring both storage-centric and memory-centric designs. On the storage side, networking and DPU vendors such as NVIDIA(NVIDIA, 2026b; NVIDIA, 2025b), Broadcom(Broadcom, 2020), Marvell(Marvell Technology, 2026a; Marvell Technology, 2026b), Xsight Labs(Xsight Labs, 2026), and Chelsio(Chelsio Communications, 2026) are combining RDMA/NVMe-oF, SmartNICs, and DPUs with dense SSDs from storage vendors such as SK hynix(SK hynix, 2026) and [...] framework that integrates CXL-hybrid memory (CXL-HM) for multi-turn LLM serving. CXL-HM combines a small amount of in-device DRAM with large SSD-backed capacity behind a CXL interface. By exploiting the read-dominant, predictable, and append-only nature of multi-turn KV-cache access, HyMCache rethinks DRAM management within CXL-HM to efficiently support TB-scale SSD-backed KV reuse. It uses request-level prefix prefetching and opportunistic write buffering to stage latency-critical reads in [...] Support for Heterogeneous KV Object Sizes. Because HyMCache manages KV placement at object granularity, KV objects from different models, workers, and workloads can coexist in the same unified CXL-HM address space. Each request carries its model-specific KV object size, and its prefix list preserves the order in which KV objects are consumed. KV Manager uses this object size to determine the prefetch window and internal DRAM staging budget independently for each request. This allows concurrent",
+   "published_date": null,
+   "score": 0.599087
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] ## 4. ITME Implementation\n\nIn this section, we present the overall architecture of our proposed ITME, implemented on top of the vLLM framework (Kwon et al., 2023), across the multi-tier memory hierarchy, as illustrated in Figure 6.\n\n### 4.1. KV Cache Block Management [...] Performance Potential Analysis via CMM. To evaluate the performance potential of the proposed architecture, we developed a production-grade empirical platform integrating an SK Hynix CMM (SK hynix, 2024) and two KIOXIA PCIe Gen5 NVMe SSDs (KIOXIA, 2024). To maintain architectural consistency with the FPGA prototype, we utilized 32 GB of the CMM capacity as the DRAM cache. Leveraging the SPDK framework (Intel, 2016) with 8 PCIe lanes (4 lanes per SSD), this setup achieves a peak read throughput",
+   "published_date": null,
+   "score": 0.5376489
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] Korea Investment & Securities\n\nSeoul Economic Daily\n\nSeoul Economic Daily\n\nKorea Investment & Securities",
+   "published_date": null,
+   "score": 0.39096457
+  },
+  {
+   "url": "https://news.skhynix.com/en/hbm-to-essd",
+   "title": "From HBM to eSSD: How SK hynix is charting the future of full-stack ...",
+   "content": "HBF is also drawing attention as a next-generation storage technology for the AI inference era. Positioned as a new memory layer between HBM and SSDs, HBF is being discussed as a way to improve the efficiency of data processing for large-scale computation data and KV caches\\ generated during AI inference. SK hynix is also participating in efforts to build the HBF ecosystem through global standardization collaboration. [Related article] [...] SK hynix is also strengthening its organizational structure and research foundation to respond more closely to changes in the AI ecosystem. Its plan to establish a U.S.-based AI company is a step toward expanding opportunities for AI system-level optimization and collaboration within the data center ecosystem. Based on its global research capabilities, the company is also deepening its understanding of computing systems and exploring next-generation memory solutions suited to customer workloads [...] Together, these four pillars turn the vision of becoming a full-stack AI memory creator into a clear execution strategy. Through a portfolio spanning HBM, AI-DRAM, and AI-NAND, collaboration across the global AI ecosystem, and continued investment in manufacturing and advanced packaging, SK hynix is building the foundation for next-generation AI systems.",
+   "published_date": null,
+   "score": 0.38706517
+  },
+  {
+   "url": "https://www.all-about-industries.com/sk-hynix-presents-hybrid-storage-architecture-for-better-ki-inference-a-73bfd0eb323c3a35bd0391c0571a7c59",
+   "title": "SK Hynix Introduces Hybrid Memory Architecture for Improved AI Inference",
+   "content": "The integration of NAND into HBM-related packaging poses considerable challenges. In addition to latency, controller design, wear leveling and the management of block-based addressing are particularly critical. Write performance is also becoming increasingly important for KV cache applications. [...] The concept is driven by the growing memory requirements of large language models in inference. In particular, the key-value cache (KV cache), which caches context information, scales strongly with sequence lengths and batch sizes.\n\nSequences in the million-token range can require cache sizes in the terabyte range. In today's systems, the limited HBM capacity means that data has to be outsourced to local SSDs or GPUs have to be scaled. Both increase latency and energy requirements. [...] H3 provides for read-only data such as model weights or pre-calculated, shared KV caches to be stored in the HBF, while dynamic data remains in the HBM. This decouples HBM from capacity load and focuses more strongly on bandwidth-critical operations.",
+   "published_date": null,
+   "score": 0.38546777
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] Nvidia's ICMSP software extends the KV cache to local NVMe SSDs so that they enable the processing to complete much faster than if the tokens and vectors had to be recomputed when HBM capacity runs out.\n\nBANDF AD [...] The H³ paper diagrams show the concept. D2D is die-to-die transfer. The HBM and HBF controllers are each located on their own base die. Model weights and shared pre-computed KV caches are stored in the HBF. The generated KV caches and other data are stored in the HBM. To compensate for the longer NAND flash latency, a latency hiding buffer (LHB), which is a kind of pre-fetch buffer, is integrated into the base die of the HBM in this diagram.\n\nBANDF AD",
+   "published_date": null,
+   "score": 0.29279795
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/SK_Group",
+   "title": "SK Group",
+   "content": "SK Hynix (KRX: 000660) is the world's 3rd-largest semiconductor manufacturer and the 2nd-largest in South Korea after Samsung Electronics which is the leader in the global semiconductor industry. SK Hynix was founded in 1983 as \"Hyundai Electronics\", which is the origin of its name \"Hynix\", and merged to SK Group in 2012 when SK Telecom became the major shareholder. The major products are DRAM, flash memory, and many other semiconductor materials. While its headquarter is located at Icheon,",
+   "published_date": null,
+   "score": 0.22222754
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.19887234
+  }
+ ]
+}

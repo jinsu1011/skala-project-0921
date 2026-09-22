@@ -1,0 +1,65 @@
+{
+ "query": "advantages of SK hynix ITME KV cache from stakeholder perspectives",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:18:19+09:00",
+ "results": [
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent",
+   "published_date": null,
+   "score": 0.53488034
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.531672
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] นอกจากนี้ เมื่อพิจารณาว่าจำนวนพารามิเตอร์ในโมเดล AI กำลังเติบโตแบบทวีคูณ อัลกอริทึมดังกล่าวสามารถช่วยประหยัดพื้นที่จัดเก็บข้อมูลผ่านการบีบอัดได้สูงสุดเพียง 6 เท่าในปัจจุบัน ซึ่งอาจเป็นเพียงการแก้ปัญหาเพียงเล็กน้อยเมื่อเทียบกับขนาดความต้องการทั้งหมด",
+   "published_date": null,
+   "score": 0.34733838
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.34733838
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "Context Without Limits: A High-Performance KV Cache Platform for Large-Scale AI Inference",
+   "content": "KV Cache-Aware Routing: mapping KV cache states across potentially thousands of GPUs and routes new requests to the GPU with the best knowledge match, avoiding costly re-computations\n\n   Disaggregated Serving: separating the compute-intensive prefill phase from the memory-bandwidth-bound decode phase for independent scaling [...] ## Additional benefits over other KV cache implementations [...] When the KV cache for an active session cannot fit within available HBM, inference frameworks must either evict and recompute it or stall the decode pipeline entirely; both outcomes represent significant waste of resources. Re-computation is particularly costly: regenerating a KV cache for a long context requires a full forward pass through the model, consuming GPU cycles that could otherwise be spent generating new tokens, effectively increasing the compute cost of serving returning users or",
+   "published_date": null,
+   "score": 0.29491046
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV cache tiering: Why GPU memory alone won't scale your LLM app",
+   "content": "KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per [...] As a result, KV cache tiering requires a fundamentally different approach to infrastructure design. The challenge is not merely finding additional capacity for storing cache data, but also efficiently moving large computational artifacts across storage tiers while maintaining the low-latency performance that makes caching effective in the first place.\n\nAchieving this requires several critical capabilities:\n\n### High-throughput bulk transfers [...] These requirements underscore why KV cache tiering differs fundamentally from traditional caching. Conventional cache systems are designed to manage millions of small objects with relatively predictable access patterns. KV cache systems, by contrast, handle a much smaller number of extremely large tensor objects with highly asymmetric read and write behavior. Supporting these workloads requires a new class of caching infrastructure purpose-built for AI inference, with specialized data-layer",
+   "published_date": null,
+   "score": 0.2714724
+  },
+  {
+   "url": "https://seekingalpha.com/article/4929575-sk-hynix-key-strengths-in-the-agentic-ai-era",
+   "title": "SK hynix: Key Strengths In The Agentic AI Era (NASDAQ:SKHY)",
+   "content": "## Summary\n\n SK hynix Inc. is positioned as the leading HBM provider and a top player in DRAM and NAND, benefiting from agentic AI's rising memory demand.\n SKHY's HBM expertise, yield advantage, and deep partnerships with Nvidia and TSMC underpin their competitive edge and long-term growth prospects.\n Long-term supply agreements and the shift to metered, service-driven memory demand should dampen cyclicality and improve free cash flow margins. [...] same investment, but had to pay taxes every year of 35% out of the 15% that you earned, then your return would be 15% minus 35% of 15%—or only 9.75% per year compounded. So, the difference there is over 3.5%. And what 3.5% does to the numbers over long holding periods like 30 years is truly eye-opening. If you sit back for long, long stretches in great companies, you can get a huge edge from nothing but the way that income taxes work.\" [...] who may not be licensed or certified by any institute or regulatory body.",
+   "published_date": null,
+   "score": 0.21378765
+  },
+  {
+   "url": "https://clausaasholm.substack.com/p/lam-what-is-the-kv-cache-hiding",
+   "title": "LAM: What is the KV Cache Hiding? - by Claus Aasholm",
+   "content": "The LAM result from a revenue perspective was as expected, a couple of per cent above the Q1-26 guidance. However, profitability is increasing at a faster rate, supporting LAM’s operating-leverage narrative.\n\nThe manufacturing expansion from prior years is now operational and generates higher volumes without similar cost growth, tool-maturity impacts, warranty costs, or installation costs. [...] The Chinese memory makers were not part of the same oversupply cycle that crushed Samsung and SK Hynix. They were still in build-out and ramp mode throughout 2022-2023, constructing greenfield capacity from scratch. So their equipment spending continued even as Korean and US memory makers slammed the brakes. [...] The geographic perspective shows that the cyclical collapse affected Korea more than China, whose revenue share shot up to 50%.\n\nThis is somehow counterintuitive as China also relies on memory tools from LAM, but the Chinese memory companies were in a different state.",
+   "published_date": null,
+   "score": 0.1783973
+  }
+ ]
+}

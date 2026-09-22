@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache skepticism concerns criticism",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:55+09:00",
+ "results": [
+  {
+   "url": "https://startupfortune.com/deepseeks-new-ai-model-spooked-samsung-and-sk-hynix-investors",
+   "title": "DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors - Startup Fortune",
+   "content": "DeepSeek's New AI Model Spooked Samsung and SK Hynix Investors\n\nDeepSeek says V4.1-Flash cuts its KV cache memory use to a quarter of the prior model. Samsung and SK Hynix investors treated that narrow technical claim like a warning shot at the whole AI memory trade. [...] and SK Hynix, but the operative phrase is KV cache. That is temporary inference memory. It is not the entire memory bill for an AI data center. [...] Here's the catch. The memory claim is narrower than the share-price reaction made it look. DeepSeek's Hugging Face technical report says CSA2, FP4 key-value caching and SWA Bounded Replay reduce the global KV cache footprint to roughly 890 bytes per token, about one quarter of DeepSeek-V4-Flash. It also says persistent KV storage falls to about one eighth of the prior model. A Yahoo Finance article carried through Stocktwits framed the same point as a pressure point for Samsung and SK Hynix,",
+   "published_date": null,
+   "score": 0.40655622
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "predictability and dominate the overall memory footprint. Table1 summarizes the characteristics and target tiering for LLM data types. Activations transient and small with high performance criticality. Working KV caches, although larger than activations, are also latency critical, while having lower predictability. Consequently, activations and working KV cache are better placed in high-speed GPU or host memory tiers. In contrast, model weights and long-context KV caches, which represent the [...] DPU-based Storage and KV Caching. [...] Multi-tier KV Cache and Prefetching.",
+   "published_date": null,
+   "score": 0.37127393
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] ขอแนะนำให้ปรึกษาทางการเงินอิสระเพื่อทำความเข้าใจความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้",
+   "published_date": null,
+   "score": 0.2556622
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] ขอแนะนำให้ปรึกษาทางการเงินอิสระเพื่อทำความเข้าใจความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้",
+   "published_date": null,
+   "score": 0.2556622
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly [...] The AI trial phase is over. As enterprises and cloud builders move pilots into production, inference workloads are scaling faster than the infrastructure designed to support them. Context windows are growing, driven by agentic workflows that involve multiturn exchanges. With each inference request, a Key-Value (KV) cache accumulates the model’s attention values from the tokens computed by the GPU. Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles",
+   "published_date": null,
+   "score": 0.24786039
+  },
+  {
+   "url": "https://seekingalpha.com/article/4937711-sk-hynix-the-market-is-so-skeptical",
+   "title": "SK hynix: The Market Is So Skeptical (NASDAQ:SKHY) | Seeking Alpha",
+   "content": "## Investing Groups\n\n## Portfolios\n\n## Find & Compare\n\n# SK hynix: The Market Is So Skeptical\n\n## Summary\n\nApple iPhone 6 NAND flash IC chip \n\nPoravute/iStock Editorial via Getty Images\n\nApple iPhone 6 NAND flash IC chip\n\nPoravute/iStock Editorial via Getty Images\n\nSK hynix Inc. (SKHY) is, of course, a high-flyer that has seen its sales and earnings explode higher. But the market has been skeptical in the first few weeks of public trading. The explosion in higher sales\n\n## More on my IG service [...] . I have no business relationship with any company whose stock is mentioned in this article. [...] who may not be licensed or certified by any institute or regulatory body.",
+   "published_date": null,
+   "score": 0.24720559
+  },
+  {
+   "url": "https://wccftech.com/everyone-thought-google-turboquant-would-solve-the-memory-crisis-but-makes-it-worse",
+   "title": "Everyone Thought Google's TurboQuant Would Solve The Memory Crisis, But SK Hynix Says It Will Only Make It Worse",
+   "content": "Back in March, Google launched a new algorithm called TurboQuant, which significantly compressed the KV Cache. The result was a drastic savings, up to 6x, in memory requirements for AI workloads. As soon as the algorithm was announced, reports emerged that memory prices were seeing a drastic price reduction.\n\n##### Related Story Acer Chairman Jason Chen Declares Memory Shortage Can’t Last Until 2030, Yet Prices Still Climb Before Mid-2027 Relief [...] #### Claude Code Was Used To Tackle A Notorious Problem During Video Calls, Spending Long Minutes Pretending To Be Attentive; AI Helped Made A Video Loop To Be Used In Apps\n\n#### FromSoftware’s Dark Souls 3 Gets Next-Gen Leap With Path Tracing and NVIDIA DLSS 5, As New Video Showcases Remake-Level Visuals\n\n### Popular Discussions [...] no pausing of the demand in sight.",
+   "published_date": null,
+   "score": 0.19678025
+  },
+  {
+   "url": "https://clausaasholm.substack.com/p/lam-what-is-the-kv-cache-hiding",
+   "title": "LAM: What is the KV Cache Hiding? - by Claus Aasholm",
+   "content": "The Chinese memory makers were not part of the same oversupply cycle that crushed Samsung and SK Hynix. They were still in build-out and ramp mode throughout 2022-2023, constructing greenfield capacity from scratch. So their equipment spending continued even as Korean and US memory makers slammed the brakes. [...] # LAM: What is the KV Cache Hiding?\n\n### An analysis of LAM's Q1-2026 result and long term growth prospects\n\nClaus Aasholm\n\n∙ Paid\n\nThis period of the year is always quite challenging from a business intelligence perspective, as Q1 reporting rolls in quickly. As most Semiconductor companies have their fiscal year aligned with the calendar year, Q4 reporting is later and more spread out than in other quarters. This overlaps with the quick reporting of the Q1 numbers. [...] I am writing this from sunny Zurich, where I have just delivered a live presentation of the state of the Semiconductor supply network and the drivers of demand and supply. For a lowlander like me, it is very challenging to operate at the dizzying altitude of 400 meters. The highest point of the island of Lolland, where I live, is 30 meters, so I am literally in the dead zone. Any errors in this article will be solely due to the lack of oxygen.",
+   "published_date": null,
+   "score": 0.18988171
+  }
+ ]
+}

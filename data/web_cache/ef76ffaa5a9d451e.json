@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache domain suitability limitations challenges evidence",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:13:11+09:00",
+ "results": [
+  {
+   "url": "https://www.all-about-industries.com/sk-hynix-presents-hybrid-storage-architecture-for-better-ki-inference-a-73bfd0eb323c3a35bd0391c0571a7c59",
+   "title": "SK Hynix Introduces Hybrid Memory Architecture for Improved AI Inference",
+   "content": "The integration of NAND into HBM-related packaging poses considerable challenges. In addition to latency, controller design, wear leveling and the management of block-based addressing are particularly critical. Write performance is also becoming increasingly important for KV cache applications. [...] The concept is driven by the growing memory requirements of large language models in inference. In particular, the key-value cache (KV cache), which caches context information, scales strongly with sequence lengths and batch sizes.\n\nSequences in the million-token range can require cache sizes in the terabyte range. In today's systems, the limited HBM capacity means that data has to be outsourced to local SSDs or GPUs have to be scaled. Both increase latency and energy requirements. [...] In H3, HBM and HBF stacks are connected in cascade. Access is via shared addressing; the GPU can use both memory areas as main memory. A prefetch or latency-hiding buffer integrated in the HBM base die is intended to cushion the higher NAND latencies.\n\n### Focus on KV Cache in Inference",
+   "published_date": null,
+   "score": 0.45246392
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "of the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.38560653
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] AI-translated from Korean. Quotes from foreign sources are based on Korean-language reports and may not reflect exact original wording.\n\nView Korean original↗Translation Policy\n\nWatch · Seoul Economic Daily\n\nMore →\n\n2:02\n\n### Most Read This Week\n\n1-5\n\n1. 1\n\n   Court Rejects 100 Million Won Suit Against Min Hee-jin Over ILLIT Plagiarism Claims\n\n   Court Rejects 100 Million Won Suit Against Min Hee-jin Over ILLIT Plagiarism Claims\n2. 2 [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.34820226
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141",
+   "title": "HyMCache: A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid Memory",
+   "content": "Thus, our central challenge is to design CXL-HM for HyMCache to overcome the limitations of conventional CMM-H devices and directly support the observed workload characteristics of multi-turn LLM serving.\n\n### 3.3. LLM Targeted CXL-HM [...] reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] hynix, 2026) and Samsung (Samsung Electronics, 2026b) to build remote flash tiers (Sun et al., 2025; Guo et al., 2023; Min et al., 2021; Zhan et al., 2024). On the memory side, memory vendors, cloud providers, and startups, including SK hynix (SK hynix, 2025; SK hynix, 2024),",
+   "published_date": null,
+   "score": 0.31913248
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] Nvidia's ICMSP software extends the KV cache to local NVMe SSDs so that they enable the processing to complete much faster than if the tokens and vectors had to be recomputed when HBM capacity runs out.\n\nBANDF AD [...] The results showed a 2.69x improvement in performance per watt compared to tests with a Blackwell GPU and 8 x HBM stacks but no HBF.\n\nWith testing of a KV cache with 10 million tokens, this showed that an HBM+HBF setup could process 18.8x more simultaneous queries, its batch size, than an HBM-only configuration. By using HBF,  such workloads, which could include 32 GPUs and their HBM, can be processed with only two GPUs, substantially reducing electricity consumption.",
+   "published_date": null,
+   "score": 0.2607474
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] อัลกอริทึมของ Google ช่วยเพิ่มประสิทธิภาพในการจัดการปัญหาคอขวดด้านพื้นที่จัดเก็บข้อมูลในระหว่างกระบวนการประมวลผล (Inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) โดยช่วยลดการใช้หน่วยความจำและเพิ่มความเร็วในการประมวลผลโดยไม่สูญเสียความแม่นยำ อย่างไรก็ตาม เทคโนโลยีนี้จะเข้ามาดิสรัปชันความต้องการในอุตสาหกรรมเซมิคอนดักเตอร์จริงหรือไม่? และผลกระทบในระยะสั้นจะมีนัยสำคัญเพียงใด?\n\n## การตรวจสอบความสมเหตุสมผลสำหรับการซื้อขายหุ้นกลุ่มชิป AI",
+   "published_date": null,
+   "score": 0.17435436
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] อัลกอริทึมของ Google ช่วยเพิ่มประสิทธิภาพในการจัดการปัญหาคอขวดด้านพื้นที่จัดเก็บข้อมูลในระหว่างกระบวนการประมวลผล (Inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) โดยช่วยลดการใช้หน่วยความจำและเพิ่มความเร็วในการประมวลผลโดยไม่สูญเสียความแม่นยำ อย่างไรก็ตาม เทคโนโลยีนี้จะเข้ามาดิสรัปชันความต้องการในอุตสาหกรรมเซมิคอนดักเตอร์จริงหรือไม่? และผลกระทบในระยะสั้นจะมีนัยสำคัญเพียงใด?\n\n## การตรวจสอบความสมเหตุสมผลสำหรับการซื้อขายหุ้นกลุ่มชิป AI",
+   "published_date": null,
+   "score": 0.17435436
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/SK_Group",
+   "title": "SK Group",
+   "content": "SK Hynix (KRX: 000660) is the world's 3rd-largest semiconductor manufacturer and the 2nd-largest in South Korea after Samsung Electronics which is the leader in the global semiconductor industry. SK Hynix was founded in 1983 as \"Hyundai Electronics\", which is the origin of its name \"Hynix\", and merged to SK Group in 2012 when SK Telecom became the major shareholder. The major products are DRAM, flash memory, and many other semiconductor materials. While its headquarter is located at Icheon,",
+   "published_date": null,
+   "score": 0.12548296
+  }
+ ]
+}

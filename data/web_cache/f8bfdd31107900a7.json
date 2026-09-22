@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache infrastructure cost overhead drawbacks",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:20+09:00",
+ "results": [
+  {
+   "url": "https://www.linkedin.com/posts/iamhimanshu0_in-one-of-the-previous-posts-we-discussed-activity-7411360225150205952-Y4xr",
+   "title": "KV Cache Drawbacks: Memory Growth and Scalability Issues | Himanshu T. posted on the topic | LinkedIn",
+   "content": "In one of the previous posts, we discussed KV cache and why it is a powerful optimization for Transformer inference. It looks like an obvious win — faster generation and lower compute cost — but in production systems, KV cache also introduces important disadvantages that engineers must understand. The biggest drawback of KV cache is memory growth. KV cache stores Keys and Values for every generated token, for every layer, and for every attention head. As the context length grows, memory usage [...] and makes it harder to support very long reasoning chains without pruning or compression strategies. Another subtle issue is poor utilization for short outputs. For very short generations, the overhead of allocating and managing KV cache may not provide meaningful performance benefits compared to recomputation. The key interview takeaway is this: KV cache is a memory–latency trade-off, not a free optimization. In production, teams often mitigate these issues using: - Context truncation or [...] GB - Total ~30 GB -> fits comfortably on 80GB GPU - Freed memory allows larger batch size or longer context 𝐅𝐨𝐥𝐥𝐨𝐰-𝐔𝐩 𝐐𝐮𝐞𝐬𝐭𝐢𝐨𝐧: \"How do you optimize speculative decoding?\" 𝐘𝐨𝐮: 1. Asynchronous verification kernels -> reduce idle GPU cycles 2. Dynamic speculation window -> adjust ahead-predict size based on draft entropy 3. Chunked KV updates -> minimize recomputation memory overhead 4. Mixed precision draft -> FP16 or INT8 to reduce memory footprint 𝐅𝐨𝐥𝐥𝐨𝐰-𝐔𝐩 𝐐𝐮𝐞𝐬𝐭𝐢𝐨𝐧: \"Any trade-offs to",
+   "published_date": null,
+   "score": 0.60805947
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "## Challenges\n\n### Scaling infrastructure with context growth\n\nFundamentally, HBM and DRAM aren’t equipped for massive capacity. As inference workloads grow in volume and duration, storing the KV cache in HBM and DRAM breaks down. What worked for short interactions does not hold for persistent, multi-turn, and agent-driven workloads. Three constraints drive this limitation: capacity, cost, and compute inefficiency.\n\n#### 1. Memory capacity does not scale with context growth [...] #### 2. Memory economics break at scale\n\nHBM and DRAM are among the highest-cost resources in the data center. As of 2025, HBM media (HBM3E 12Hi) cost about $14/GB, and DRAM media (DDR5) about $8.50/GB.4 As KV cache sizes and retention windows increase, storing context in memory becomes economically unsustainable at scale.\n\n#### 3. Recomputing context wastes GPU capacity and power [...] SK hynix, a leader in flash and SSD storage, and Seagate, a leader in hard drive storage, partnered together to explore the use of SSD and hard drive storage tiers for KV cache offloading over remote direct memory access (RDMA)-accelerated networking. In the proposed joint solution:\n\nThe paper concludes with performance projections, cost analyses, and drive type mix for infrastructure architects, platform teams, and CTO leadership as they build storage architectures\n\n### About Seagate",
+   "published_date": null,
+   "score": 0.4526091
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "### 5.1. Baselines and Benchmarks\n\nTo demonstrate the advantages of ITME, we implement and evaluate it within a highly optimized version of vLLM (v0.17.0) (Kwon et al., 2023).\n\nBaseline (vLLM with CPU Offloading). By default, vLLM handles host memory pressure by evicting and recomputing KV caches, which incurs significant overhead. To create a competitive and realistic baseline, we developed vLLM, an extended version of vLLM with the following custom implementations: [...] Efficient multi-tier KV caching relies on maintaining data contiguity across storage boundaries to enable high-bandwidth prefetching without reorganization overhead. To maximize offloading performance, ITME aggregates evicted KV cache blocks into large-scale chunks (e.g., 512 MB) within the CPU staging buffer. During the eviction process, ITME sequentially appends blocks into these chunks as they are released from GPU memory. This sequential appending naturally restores the logical sequence of [...] devices is not cost-effective  (Tsai et al., 2020); thus, various software techniques have been proposed to maximize their efficiency (Sun et al., 2025; Guo et al., 2023; Min et al., 2021a; Zhan et al., 2024). Despite these advancements, there is currently no clear consensus on the optimal way to handle the massive KV cache state required to realize a shared storage tier for large-scale LLM inference.",
+   "published_date": null,
+   "score": 0.4031679
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] — no retraining, and less than 4% latency overhead. LongLive 2.0 (#ref-13) takes the same track to production scale, quantizing both weights and KV cache to NVFP4 (4-bit) on a 5B-parameter generator for 1.84× throughput at negligible quality cost — and its detail worth dwelling on is the fused parallel dequantization kernel (Figure 10). Storing the cache in 4 bits means every block must be dequantized before each attention step, and the naive approach launches one GPU kernel per block. [...] overhead below 2%.",
+   "published_date": null,
+   "score": 0.39908597
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "HiFC: High-efficiency Flash-based KV Cache Swapping for Scaling LLM Inference Inho Jeong1,2∗ Sunghyeon Woo1,3∗ Sol Namkung1 Dongsuk Jeon1† 1Seoul National University 2SK hynix 3NAVER Cloud Abstract Large-language-model inference with long contexts often produces key–value (KV) caches whose footprint exceeds the capacity of high-bandwidth memory on a GPU. Prior LLM inference frameworks such as vLLM mitigate this pressure by swapping KV cache pages to host DRAM. However, the high cost of large [...] 9 mechanisms such as garbage collection and TLC migration. When the write workload exceeded the pSLC capacity, performance degraded significantly. These findings suggest that structuring KV cache access as sequential I/O is essential for achieving high-performance Flash cache swapping. When the GPU’s compute throughput is sufficiently high, the overhead of KV cache swapping can emerge as a bottleneck in the sequence pipelining process. [...] AI, where a large amount of KV cache is required. Alternatively, offloading to commodity NVMe SSDs can reduce infrastructure cost and provide better memory scalability, 3 Figure 2: HiFC extends Block Manager of vLLM by integrating a FC block allocator, enabling direct GPU-SSD KV cache swapping without relying on host DRAM. The scheduler manages KV block placement based on sequence execution states, and the CUDA-based cache engine leverages GDS to provide an optimized data path between SSD and",
+   "published_date": null,
+   "score": 0.31050667
+  },
+  {
+   "url": "https://www.datagravity.dev/p/why-kv-cache-and-memory-drive-ai",
+   "title": "Why KV Cache and Memory Drive AI Economics",
+   "content": "High Bandwidth Memory (HBM) is the actual scarcity in AI infrastructure right now. NVIDIA’s pricing power is bounded less by chip manufacturing limits than by how much HBM they can physically buy from suppliers like SK Hynix and Samsung. In 2026, the Big 3 Memory Players will sell over $70B of HBM at >60% margins.\n\nThis dynamic creates three durable opportunities and one trap: [...] The KV Cache (Variable Cost): This is the model’s “short-term memory.” It is paid for in High Bandwidth Memory (HBM)—the ultra-fast, ultra-expensive RAM that sits right next to the GPU. This cost is incurred per user, per word, on every single request. It does not amortize. It scales linearly. [...] May 5\n\nthe KV cache as the real variable cost is sharp, this matches the AI infra efficiency we wrote about recently\n\nReplyShare\n\nBehind Intelligent Systems\n\n2d\n\nReally like the framing of KV cache as the variable cost of intelligence.",
+   "published_date": null,
+   "score": 0.25907087
+  },
+  {
+   "url": "https://www.blocksandfiles.com/ai-ml/2026/03/30/nvidia-and-its-partners-kv-cache-extenders/5209284",
+   "title": "Nvidia and its partners' KV Cache extenders",
+   "content": "By maintaining a KV Cache, the model only computes K and V for the new token at each step, appending them to the cache, and then uses the full set of cached KV pairs to compute attention scores with the current query (Q). This drastically reduces computational overhead. [...] Stage 1: backward-compatible KV cache offload on infrastructure customers already run today, using familiar network interfaces and traditional storage that relieves HBM pressure without replatforming runtimes.\n\nStage 2: pooled KV cache over higher-bandwidth context memory fabrics, where context starts behaving like shared DRAM-class infrastructure across GPU servers, delivering 6.5x higher agent token throughput per CapEx & OpEx, ahead of CMX-native availability. [...] The KV cache software – CMX – has to apply to GPUs, GPU servers, and racks of GPU servers, which can be running many different simultaneous inference workloads. Each model/agent workload’s parameter set has to be managed and made available to the right AI model or agent running in the right GPUs, which may change as jobs are scheduled. This means there is a KV cache context metadata management task.",
+   "published_date": null,
+   "score": 0.21011764
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.18164065
+  }
+ ]
+}

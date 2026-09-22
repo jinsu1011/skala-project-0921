@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache vLLM serving evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:25+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid ...",
+   "content": "## 5. Experimental Setup\n\nSystem configurations. We evaluate HyMCache in a vLLM-based serving environment where workers access a remote CXL-HM KV tier over an RDMA-capable network. Our experiments cover two settings: PD-disaggregated serving, where prefill and decode execution are separated, and single-node serving, where they are co-located on the same worker. [...] Models and Workloads. We evaluate HyMCache using LLMs with different KV-cache footprints. Unless otherwise stated, we use FP16/BF16 KV cache and a vLLM block size of 128 tokens. We select Llama-3.1-8B and Qwen2.5-32B to cover different KV-object sizes used in our experiments. In our configuration, Llama-3.1-8B generates 16 MB KV blocks, while Qwen2.5-32B generates 32 MB KV blocks. [...] ## 6. Evaluation\n\n### 6.1. PD-Disaggregated Serving Performance\n\n#### 6.1.1. Overall Performance Comparison\n\nFigure8 shows the results under PD-disaggregated serving on Qwen2.5-32B using AIPerf synthetic inputs. This workload stresses cache capacity because the reusable prefix state quickly exceeds the capacity of GPU-only prefix caching and limited local DRAM caching, while generating approximately 1.5TB of reusable KV-cache footprint across turns.",
+   "published_date": null,
+   "score": 0.7339103
+  },
+  {
+   "url": "https://www.vastdata.com/blog/accelerating-inference",
+   "title": "Accelerating Inference",
+   "content": "The results of our testing indicate a dramatic reduction in the time required for the initial prefill stage. By directly loading the KV cache, vLLM+LMCache can reduce the token read time (TTFT) from over 11 seconds to just 1.5 seconds at the maximum context window size (128,000).\n\nThe time spent generating the KV cache vs. reading it from storage represents a 10x improvement in request\\_prefill\\_time performance for large context scenarios! [...] 1. vLLM is a popular inference engine that efficiently manages KV cache in GPU memory. It also supports extensions via plugins for offloading the KV cache to other locations.\n\n2. LMCache works very closely with vLLM and enables offloading KV cache:\n\na.  CPU memory is the first location where the KV cache is destaged as it’s typically larger than GPU memory. It’s faster to store/load the KV cache to CPU memory as it stays local to the machine. [...] Model: Qwen/Qwen3-32B\n Context Size: 130,858 tokens (max: 128,000)\n KV Cache Size: 32 GB (for a 130K token context)\n Conventional Prefill Rate: 500 Tokens Per Second (TPS)\n System Overhead: 1 second (for initialization and other processes)\n\nKV Cache Loading Calculation:\n\nUsing vLLM v0.9.0-170 and LMCache v0.3.0-1, the pre-computed 32 GB KV cache can be loaded directly into the GPU.",
+   "published_date": null,
+   "score": 0.6636041
+  },
+  {
+   "url": "https://vllm.ai/blog/2026-01-08-kv-offloading-connector",
+   "title": "Inside vLLM's New KV Offloading Connector",
+   "content": "The results show throughput increases with the CPU KV cache hit rate. We observe that the throughput increases by up to X9, even though TTFT for this prompt size only decreased by X2. This demonstrates that the major gain in KV cache offloading is throughput maximization.\n\n## vLLM versions of the Offloading Connector [...] Serving LLM models is a computationally complex operation, which at its core involves computing blobs of data known as KV data. The initial step for generating a response to a user’s prompt is the computation of the KV values which correspond to that prompt. This phase is known as the prefill stage in the request-handling lifecycle. The prefill stage, where KV values are calculated per prompt, is computationally expensive, and requires specialized accelerated hardware (such as a GPU) to [...] Note that the new vLLM KV cache layout yields a physical block size of about 0.5-2 MB, while in the old layout it is only a few KB. Combining this with the numbers we got from the GPU-CPU microbenchmark, we expect the DMA approach to have comparable performance, or slightly inferior (depending on the model), to the custom kernel approach.\n\n# End-to-end Evaluation of Copy Methods\n\nIn the next section, we use the two vLLM micro-benchmarks to compare the two variants of the offloading connector:",
+   "published_date": null,
+   "score": 0.6469293
+  },
+  {
+   "url": "https://www.spheron.network/blog/kv-cache-optimization-guide",
+   "title": "KV Cache Optimization: Serve 10x More Users per GPU (2026)",
+   "content": "1.   Enable PagedAttention (default in vLLM, on by default)\n2.   Set `--gpu-memory-utilization 0.90` (raise to 0.92-0.95 if model fits tightly)\n3.   Use FP8 KV cache on H100/A100: `--kv-cache-dtype fp8`\n4.   Use NVFP4 KV cache on Blackwell only: `--kv-cache-dtype nvfp4`\n5.   Enable prefix caching: `--enable-prefix-caching`\n6.   Set `--swap-space 16` for burst tolerance on bursty workloads\n7.   Choose GQA-native models (Llama 3 family) for long-context serving [...] vLLM's built-in `--enable-prefix-caching` flag detects when a new request's prefix matches a previously-computed prefix and serves it from the in-memory cache. This is zero-configuration and applies within a single server session. [...] For the full weight memory formula including quantization formats, see GPU Memory Requirements for LLMs.\n\n## PagedAttention in vLLM: Virtual Memory for the KV Cache\n\nThe naive approach to KV cache allocation reserves the maximum context-length memory for each request at the moment it arrives. A request with a 32K max context gets 32K worth of KV blocks reserved upfront, even if it only generates 500 tokens. In practice, 60-80% of that reserved memory goes unused.",
+   "published_date": null,
+   "score": 0.62879556
+  },
+  {
+   "url": "https://jarvislabs.ai/blog/vllm-optimization-techniques",
+   "title": "vLLM Optimization Techniques: 5 Practical Methods to ...",
+   "content": "FP8 (8-bit floating point) KV-Cache is a memory optimization technique that reduces the precision of key-value tensors stored in GPU memory. Instead of using standard FP16 (16-bit) or FP32 (32-bit) precision, vLLM can store KV-cache data in FP8 format, cutting memory usage roughly in half compared to FP16. [...] Key Arguments:\n\n   `--kv-offloading-backend`: Specifies the offloading backend. Use `native` for vLLM's built-in CPU offloading or `lmcache` for LMCache integration.\n   `--kv-offloading-size`: Size (in GB) of CPU memory to allocate for KV cache offloading.\n\nBenchmarking:\n\nbash\n\n```\nvllm bench serve \\\n    --model Qwen/Qwen3-32B \\\n    --dataset-name sharegpt \\\n    --dataset-path ShareGPT_V3_unfiltered_cleaned_split.json \\\n    --max-concurrency 500 \\\n    --num-prompts 1000\n```\n\nResults: [...] bash\n\n```\nvllm serve Qwen/Qwen3-32B \\\n    --max-model-len 32768 \\\n    --gpu-memory-utilization 0.9 \\\n    --kv-cache-dtype auto\n```\n\nWith FP8 KV-Cache enabled:\n\nbash\n\n```\nvllm serve Qwen/Qwen3-32B \\\n    --max-model-len 32768 \\\n    --gpu-memory-utilization 0.9 \\\n    --kv-cache-dtype fp8\n```\n\nKey Argument:",
+   "published_date": null,
+   "score": 0.51325434
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=P3B3f651SU8",
+   "title": "KV Cache Acceleration of vLLM using DDN EXAScaler",
+   "content": "is computed. If you continue a prompt chain, the model needs to see all prior prompts in order to \nunderstand the overall context. Without caching, it would have to recomputee the prior context \nevery single time. However, if the context tokens are cached, they can just be retrieved instead of \nbeing recomputed. This speeds up responsiveness in long prompt chains, lowers the latency of \ngetting the tokens to the GPU after a prompt, and allows you to store much larger amounts [...] user requests. The final thing to look at is the capacity implications of KV caching. Even with \na small number of input characters, approximately 200,000 between the two documents we uploaded, \nhave resulted in the cache being populated with 796 files consisting of token chunks and metadata \nat a size of almost 13 gigabytes. You're using KV caching to accelerate the enduser experience. \nThis puts a premium on having extremely high performance shared storage to serve those [...] Key Highlights:\n\n vLLM KV cache optimization on DDN EXAScaler\n Faster LLM inference and model serving\n Improved GPU utilization and lower latency\n Seamless integration with AI pipelines at scale\n\nWhy it matters:\nModern LLMs like vLLM, Llama, and GPT variants rely heavily on efficient KV cache management. DDN’s AI data infrastructure enables real-time inference by sustaining extreme throughput and consistent low-latency data access.\n\nExplore EXAScaler for AI: \n\n \nSUBSCRIBE TO OUR CHANNEL:",
+   "published_date": null,
+   "score": 0.51296157
+  },
+  {
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1olouiw/til_for_longlived_llm_sessions_swapping_kv_cache",
+   "title": "TIL: For long-lived LLM sessions, swapping KV Cache to RAM is ...",
+   "content": "Oh, and KV cache is _slightly_ compressible (I got a 89% compression ratio on a 27 MB sample I had lying around), so if you could decompress it on the GPU while streaming it across the PCI-e bus, maybe it could be another 10% faster.\n\nImage 13: u/Shoddy-Tutor9563 avatar\n\nShoddy-Tutor9563\n\n•1y ago\n\nMy own napkin calculation for a non qunatized KV cache gives me roughly 4 Gb for 16k-tokens-long KV cache context:\n\n   Architecture: 24 layers, 20 attention heads, 128-dim heads, bfloat16 [...] You won't believe how much you get for this price!\n\nLearn More\n\nalibaba.com\n\nImage 23: Clickable image which will reveal the video player: You won't believe how much you get for this price!\n\n Collapse video player \n\nImage 24: u/Lissanro avatar\n\nLissanro\n\n•1y ago\n\nIt depends on the backend... vLLM has  for example (as someone already mentioned here), but it is mostly limited to GPU-only inference. [...] I looked at the code you provided, but to me it looks like it's now just a plaintext chat history is being saved to file. Sorry, I'm probably dumb to follow your illustration. In theory (if inference engines were providing such an option to manipulate directly with KV cache) - instead/in addition to plaintext conversation history, you could have saved the KV cache contents. And load it back to VRAM, when your app feels it's a right moment. At least this is what my imagination is drawing me :)",
+   "published_date": null,
+   "score": 0.48499045
+  },
+  {
+   "url": "https://atul4u.medium.com/mastering-vllm-kv-cache-10-battle-tested-tweaks-for-maximum-token-throughput-9101a4917c5a",
+   "title": "Mastering vLLM KV-Cache: 10 Battle-Tested Tweaks for Maximum Token Throughput",
+   "content": "python -m vllm.entrypoints.openai.api_server \\  \n --model Qwen/Qwen2.5-7 B-Instruct \\  \n --max-model-len 4096 \\  \n --gpu-memory-utilization 0.95 \\  \n --max-num-batched-tokens 8192 \\  \n --enable-metrics\n\n## Mental Model: KV-Cache as Database Buffer\n\nThink of vLLM’s KV-cache like a high-performance database buffer pool: [...] \")\n5.   Step 1: Install vLLM\n6.   Step 2: Choose a Local-Friendly Model\n7.   Step 3: Launch Baseline Server\n8.   Step 4: Test Client Script\n9.   Tweak #1: Right-Size max_model_len (Most Common Mistake)\")\n10.   Why it matters\n11.   Hands-On: Measure the Difference\n12.   Tweak #2: Control KV-Cache via gpu-memory-utilization\n13.   Hands-On: Find Your Optimal Value\n14.   Tweak #3: Use PagedAttention (Don’t Disable It!)\")\n15.   Tweak #4: Shorter Prompts = Faster KV Reuse [...] Sequential: 25.3 TPS  \nConcurrent: 79.0 TPS  \nImprovement: 212%! 🚀\n> _🎯__Application Design Tip:__If you control the application, batch user requests on the backend before sending to vLLM._\n\n## Tweak #6: Prefer Fewer, Longer Generations (Counter-Intuitive)\n\nEach request has two phases:\n\n   Prefill (expensive) — processes the prompt\n   Decode (cheap) — generates tokens one by one\n\nKV-cache amortizes prefill cost over decode steps.\n\n❌ Inefficient:",
+   "published_date": null,
+   "score": 0.48016238
+  }
+ ]
+}

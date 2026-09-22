@@ -66,6 +66,30 @@ def h1_verdict(cells: dict[str, str]) -> str:
     return "기각"
 
 
+def h2_verdict(h2: dict, names: dict, stakeholder) -> Hypothesis:
+    """C.7 H2 by code: per technology, ecosystem/strategy mentions above technology mentions support H2, equal is
+    mixed, below leans against it (D54). No stakeholder evidence = 판단 보류."""
+    per, parts, ids = {}, [], []
+    for t, v in h2.items():
+        te, ec = v["tech_mentions"], v["ecosystem_mentions"]
+        per[t] = "판단 보류" if te + ec == 0 else ("지지" if ec > te else ("혼재" if ec == te else "기각"))
+        parts.append(f"{names[t]}: 기술 언급 {te}건, 생태계·전략 언급 {ec}건 → {per[t]}")
+        ta = stakeholder.by_tech.get(t) if stakeholder else None
+        if ta:
+            ids += ta.ecosystem_mention_ids[:2] + ta.tech_mention_ids[:1]
+    vals = [x for x in per.values() if x != "판단 보류"]
+    if not vals:
+        verdict = "판단 보류"
+    elif all(x == "지지" for x in vals):
+        verdict = "지지"
+    elif all(x == "기각" for x in vals):
+        verdict = "기각"
+    else:
+        verdict = "부분 지지"
+    return Hypothesis(verdict=verdict, rationale="; ".join(parts) + " (개발사 발언 제외, C.7 기준, 코드 계산)",
+                      evidence_ids=sorted(set(ids)))
+
+
 def h3_verdict(h3: dict, names: dict, domain) -> Hypothesis:
     """C.7 H3 per technology: a criterion whose W1 and W2 scores fall on opposite sides of 3 supports H3; none
     means the technology's evidence leans against it; no W1/W2 scores = 판단 보류 (D51)."""
@@ -208,7 +232,8 @@ def synthesizer(state: dict) -> dict:
         evidence_ids=sorted({i for t in techs for i in ((results['trl'].by_tech[t.tech_id].low_ids +
                              results['trl'].by_tech[t.tech_id].high_ids) if results['trl'] and t.tech_id in results['trl'].by_tech else [])}))}
     hyps["H3"] = h3_verdict(h3, {t.tech_id: t.name for t in techs}, results.get("domain"))
-    for h in ("H2", "H4"):
+    hyps["H2"] = h2_verdict(h2, {t.tech_id: t.name for t in techs}, results.get("stakeholder"))
+    for h in ("H4",):
         d = data.get("hypotheses", {}).get(h, {})
         v = d.get("verdict") if d.get("verdict") in ("지지", "부분 지지", "기각", "판단 보류") else "판단 보류"
         hyps[h] = Hypothesis(verdict=v, rationale=d.get("rationale", "근거 부족"),
@@ -223,7 +248,7 @@ def synthesizer(state: dict) -> dict:
         for s in split_sentences(c.explanation):
             statements[f"S{k}"] = s
             k += 1
-    for h in ("H2", "H4"):
+    for h in ("H4",):
         for s in split_sentences(hyps[h].rationale):
             statements[f"S{k}"] = s
             k += 1

@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache open source implementation release",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T13:59:27+09:00",
+ "results": [
+  {
+   "url": "https://github.com/OnlyTerp/turboquant",
+   "title": "GitHub - OnlyTerp/turboquant: First open-source implementation of Google TurboQuant (ICLR 2026) -- near-optimal KV cache compression for LLM inference. 5x compression with near-zero quality loss. · GitHub",
+   "content": "This is an independent open-source implementation of the TurboQuant algorithm. All credit for the algorithm design, theoretical analysis, and original research belongs to the paper authors. [...] TurboQuant is the precision axis of KV compression. There are three axes — precision, selection, and container — and the best 2026 stacks combine all three. Summary (full analysis in LANDSCAPE\\_2026.md): [...] 3-bit modes drop accuracy meaningfully.",
+   "published_date": null,
+   "score": 0.8800674
+  },
+  {
+   "url": "https://github.com/OmarHory/turboquant",
+   "title": "OmarHory/turboquant: Open-source implementation ...",
+   "content": "```\n@inproceedings zandieh2026turboquant title{TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate}{} author{Zandieh, Amir and Daliri, Majid and Hadian, Majid and Mirrokni, Vahab}{} booktitle{International Conference on Learning Representations (ICLR)}{} year{2026}{}\n```\n\n## About\n\nOpen-source implementation of Google's TurboQuant (ICLR 2026) — KV cache compression to 2.5–4 bits with near-zero quality loss. 3.8–5.7x memory reduction on Mistral-7B, no training required. [...] # TurboQuant\n\nAn open-source implementation of TurboQuant — the KV cache compression technique from Google Research. Compresses LLM KV caches to 2.5–4 bits per value with minimal quality loss, no training, and no calibration data.\n\n> Zandieh, Daliri, Hadian, Mirrokni. \"TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate\" ICLR 2026 — arXiv:2504.19874 | Google Research Blog\n\n## Results\n\n### Mistral-7B-Instruct-v0.3 — NVIDIA A100-SXM4-80GB [...] turboquant/ ├── turboquant/ # Core package │ ├── __init__.py │ ├── core.py # TurboQuantMSE, QJL, TurboQuantProd │ ├── cache.py # KV cache: TurboQuantLayer, TQLayerFused │ ├── attention.py # Quantized attention (skip dequantize) │ ├── cuda_kernels.py # Fused Triton CUDA kernels │ └── packing.py # Bit-packing for sub-byte indices ├── benchmarks/ │ ├── local.py # CPU/MPS benchmark │ ├── gpu.py # RunPod GPU benchmark (multi-model, multi-GPU) │ ├── validate_algorithms.py # Paper bounds validation",
+   "published_date": null,
+   "score": 0.8665964
+  },
+  {
+   "url": "https://github.com/hackimov/turboquant-kv",
+   "title": "GitHub - hackimov/turboquant-kv: Open-source PyTorch implementation of Google TurboQuant (ICLR 2026) — extreme KV-cache quantization to ~3 bits with zero accuracy loss. 6x less memory, up to 8x faster inference. · GitHub",
+   "content": "| setup.py | setup.py |  |  |\n|  | [...] 1. High MSE between original and reconstructed K/V is expected. The method optimizes dot products (attention logits), not exact L2 reconstruction; judge quality by score distortion (see `examples/simple_usage.py`). [...] `benchmarks/needle_in_a_haystack_simple.py`, `benchmarks/longbench_simple.py` — simplified runs.",
+   "published_date": null,
+   "score": 0.8616433
+  },
+  {
+   "url": "https://github.com/back2matching/turboquant",
+   "title": "GitHub - back2matching/turboquant: First open-source TurboQuant...",
+   "content": "TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate Amir Zandieh, Majid Daliri, Majid Hadian, Vahab Mirrokni ICLR 2026 | arXiv:2504.19874\n\nThis is an independent implementation, not affiliated with Google Research.\n\nApache 2.0\n\n## About\n\nFirst open-source TurboQuant KV cache compression for LLM inference. Drop-in for HuggingFace. pip install turboquant.\n\n### Topics\n\ncompressiongpuhuggingfaceinferencekv-cachellmmachine-learningpytorchquantizationtransformersturboquantvram [...] ## llama.cpp Integration\n\nA TQ4\\_0 KV cache type was proposed for llama.cpp:\n\n PR: ggml-org/llama.cpp#20995 (closed — premature, multiple competing implementations in progress)\n Usage (if built from branch): `--cache-type-k tq4_0 --cache-type-v f16 --no-kv-offload`\n Status: Multiple community implementations in progress. Google's official code expected Q2 2026.\n\n## Paper\n\nThis implements the algorithm from: [...] When LLMs generate text, they store key-value pairs for every token. This KV cache grows with context length and eats your VRAM. On a 16 GB GPU running a 3B model, the KV cache alone hits 1.2 GB at 4K tokens — and FP16 starts thrashing.\n\nTurboQuant compresses the cache to 4 bits (from 16) using Google's TurboQuant algorithm (ICLR 2026). No training data, no calibration, works with any model. The result: your GPU has room to breathe, and inference stays fast where it used to choke.\n\n## Install",
+   "published_date": null,
+   "score": 0.7827459
+  },
+  {
+   "url": "https://tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27.",
+   "published_date": null,
+   "score": 0.71113056
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "TurboQuant เป็นอัลกอริทึมการบีบอัดเวกเตอร์ (vector compression) ใหม่ที่เปิดตัวอย่างเป็นทางการโดย Google Research ในเดือนมีนาคม 2026 โดยมีเป้าหมายเพื่อแก้ปัญหาสำคัญในขั้นตอนการประมวลผล (inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) และเครื่องมือค้นหาเวกเตอร์ (vector search engines) นั่นคือการใช้หน่วยความจำมหาศาลของ Key-Value Cache (KV Cache) ทั้งนี้ รายละเอียดทางเทคนิคจะถูกเผยแพร่อย่างเป็นทางการและผ่านการพิจารณาโดยผู้ทรงคุณวุฒิในรูปแบบของบทความวิชาการในงาน ICLR 2026 (International Conference on [...] Google Research เปิดตัว TurboQuant อัลกอริทึมบีบอัดเวกเตอร์ ลดการใช้หน่วยความจำ KV Cache ใน AI inference ได้ถึง 6 เท่า โดยไม่กระทบความแม่นยำ ประสิทธิภาพการประมวลผลเพิ่มขึ้นสูงสุด 8 เท่า  \n  \nTurboQuant ใช้ PolarQuant และ QJL จัดการ KV Cache ลดภาระหน่วยความจำ ช่วยให้รันโมเดลใหญ่ขึ้นบนอุปกรณ์ที่มีข้อจำกัด ส่งผลดีต่อ HBM แต่กระทบ Server DRAM และ NAND Flash เล็กน้อย [...] ## TurboQuant เป็นผู้นำในด้านตัวชี้วัดผลการดำเนินงาน\n\nTurboQuant ของ Google ประสบความสำเร็จในด้านประสิทธิภาพและการบีบอัดที่ก้าวล้ำ โดยสามารถบีบอัดข้อมูลเวกเตอร์ขนาด 32 บิต หรือ 16 บิต ให้เหลือเพียงประมาณ 3 บิต ด้วยอัตราการบีบอัดที่สูงถึง 6 เท่า ซึ่งช่วยลดการใช้พื้นที่หน่วยความจำของ KV Cache ในโมเดลขนาดใหญ่ลงเหลือเพียงหนึ่งในหกของระดับเดิมได้โดยตรง",
+   "published_date": null,
+   "score": 0.69498676
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "TurboQuant เป็นอัลกอริทึมการบีบอัดเวกเตอร์ (vector compression) ใหม่ที่เปิดตัวอย่างเป็นทางการโดย Google Research ในเดือนมีนาคม 2026 โดยมีเป้าหมายเพื่อแก้ปัญหาสำคัญในขั้นตอนการประมวลผล (inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) และเครื่องมือค้นหาเวกเตอร์ (vector search engines) นั่นคือการใช้หน่วยความจำมหาศาลของ Key-Value Cache (KV Cache) ทั้งนี้ รายละเอียดทางเทคนิคจะถูกเผยแพร่อย่างเป็นทางการและผ่านการพิจารณาโดยผู้ทรงคุณวุฒิในรูปแบบของบทความวิชาการในงาน ICLR 2026 (International Conference on [...] Google Research เปิดตัว TurboQuant อัลกอริทึมบีบอัดเวกเตอร์ ลดการใช้หน่วยความจำ KV Cache ใน AI inference ได้ถึง 6 เท่า โดยไม่กระทบความแม่นยำ ประสิทธิภาพการประมวลผลเพิ่มขึ้นสูงสุด 8 เท่า  \n  \nTurboQuant ใช้ PolarQuant และ QJL จัดการ KV Cache ลดภาระหน่วยความจำ ช่วยให้รันโมเดลใหญ่ขึ้นบนอุปกรณ์ที่มีข้อจำกัด ส่งผลดีต่อ HBM แต่กระทบ Server DRAM และ NAND Flash เล็กน้อย [...] ## TurboQuant เป็นผู้นำในด้านตัวชี้วัดผลการดำเนินงาน\n\nTurboQuant ของ Google ประสบความสำเร็จในด้านประสิทธิภาพและการบีบอัดที่ก้าวล้ำ โดยสามารถบีบอัดข้อมูลเวกเตอร์ขนาด 32 บิต หรือ 16 บิต ให้เหลือเพียงประมาณ 3 บิต ด้วยอัตราการบีบอัดที่สูงถึง 6 เท่า ซึ่งช่วยลดการใช้พื้นที่หน่วยความจำของ KV Cache ในโมเดลขนาดใหญ่ลงเหลือเพียงหนึ่งในหกของระดับเดิมได้โดยตรง",
+   "published_date": null,
+   "score": 0.69498676
+  },
+  {
+   "url": "https://turboquant.net",
+   "title": "TurboQuant.net - Independent TurboQuant Analysis",
+   "content": "The release framed TurboQuant as a near-optimal online quantization method for both KV cache compression and vector search.\n\n### Why it matters\n\nMarket impact\n\n$MU and $SNDK sold off at the open\n\nAfter $GOOGL released TurboQuant, both $MU and $SNDK were hit sharply at market open.\n\nExpert Commentary\n\n## A practical read on what TurboQuant changes\n\nOne expert view on what is likely already deployed, what still remains hard, and why the paper matters even if most easy gains are gone. [...] Usage\n\n## From paper to production\n\nHow to think about integrating TurboQuant into a real stack\n\n### Current status\n\nThe paper provides theory and pseudocode, but there is no official open-source implementation yet. Community integration work has started.\n\n •llama.cpp Discussion #20969 is tracking integration ideas\n •Experiments in MLX report around 5x compression with 99.5% quality retention\n •Open-source code is widely expected around Q2 2026\n\n### Implementation sketch\n\n1 [...] The paper release quickly turned into implementation work, deployment discussion, and practical evaluation around long-context inference.\n\n### Latest updates\n\nMarch 2026\n\nTurboQuant landed in MLX in 25 minutes with GPT-5.4\n\nA builder reported using GPT-5.4 to complete an MLX implementation of TurboQuant in 25 minutes.\n\nView post\n\nMarch 2026\n\nGoogle Research formally introduced TurboQuant",
+   "published_date": null,
+   "score": 0.63125396
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache benchmark serving cost reduction",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:14+09:00",
+ "results": [
+  {
+   "url": "https://www.spheron.network/blog/kv-cache-optimization-guide",
+   "title": "KV Cache Optimization: Serve 10x More Users per GPU (2026)",
+   "content": "The right GPU is the one where: model weights + optimized KV cache + 10% activation headroom fits in VRAM. Optimizing the KV cache first, then sizing the GPU, is cheaper than throwing more VRAM at an unoptimized stack. For a broader cost reduction framework that goes beyond KV cache, see the GPU cost optimization playbook. For application-layer cost reduction on top of KV cache, see Semantic Caching for LLM Inference. For teams where power availability is capping expansion before budget does, [...] The cost: each eviction/reload adds 2-10ms of latency depending on PCIe bandwidth. For a latency-sensitive application serving strict SLAs, this is not acceptable for the hot path. For a batch processing workload or an application where occasional latency spikes are tolerable, it's the right call over request rejection. [...] Yes, for workloads that fit the memory budget. With FP8 KV cache quantization and PagedAttention, an A100 80GB can serve Llama 3.1 70B at moderate context lengths (up to ~32K) for small batch sizes. The A100 does not support hardware FP8 Tensor Cores (unlike H100), so model weight quantization to FP8 does not provide a throughput gain, only a memory reduction. For 70B inference at scale, H100 is $2.98/hr on-demand against $1.48/hr for A100 as of 21 Sep 2026; the H100's throughput advantage is",
+   "published_date": null,
+   "score": 0.49714416
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "By expanding the capacity of the KV cache store, a heterogeneous architecture of hard drives and SSDs enhances KV cache reuse and improves cost efficiency. In a multi-turn scenario, the user’s prefix-cached KV data is loaded from the hard drive on the first connection (Figure 8). The subsequent KV cache is mapped to the SSD.\n\n#### KV cache and benchmark applications [...] GPU utilization in the prefill phase. By reusing KV caches, hybrid storage reduces GPU utilization during prefill by 76%. The freed GPU capacity can be redirected to generating new KV caches and serving additional queries (Figure 22).\n\nPower utilization in the prefill phase.As a result, the measured power consumption was 52% lower than using GPU regeneration, reducing power consumption per session. [...] In LLM inference, disaggregating prefill workers and decode workers can lower the total cost of ownership.10 KV cache backing storage is deployed as a shared NVMe-oF target, allowing multiple worker nodes to use RDMA hardware automation to optimize performance. When NVMe-oF targets are SSD/hard drive hybrid storage, the burst of activity is serviced from the SSDs during quick turns. Mass-capacity hard drives can save days or weeks of context, avoiding GPU recalculation time and cost.",
+   "published_date": null,
+   "score": 0.40112522
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] ITME serves as a high-performance memory backend that integrates seamlessly with established tiering mechanisms. Furthermore, its internal hardware-level prefetching complements various scheduling policies, effectively hiding access latency by overlapping data movement with ongoing computation. This synergy allows ITME to maximize KV cache reuse and system efficiency within any established inference hierarchy. [...] Figure 10 vs. ITME ‣ 6. Evaluation ‣ ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories\") compares the multi-turn inference performance of ITME against the CPU-offload and recompute-only baselines. The figure evaluates inference efficiency using 256 concurrent conversations from the ShareGPT dataset. To stress-test KV cache capacity, we designed a 35-turn benchmark that generates a massive total footprint. In this setup, the CPU-offload baseline allocates a large 128",
+   "published_date": null,
+   "score": 0.33639696
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "Running a 120-billion parameter model in native 16-bit precision demands over 240GB of VRAM for weights. We used the Hugging Face GPT-OSS 120B model pre-quantized to MXFP4 to reduce the memory footprint and enable this model to run entirely on a single NVIDIA RTX Pro 6000 Blackwell GPU, keeping the benchmark self-contained and cost-competitive. [...] The throughput acceleration benchmark (see the following figure) ran 200 requests against a 120B parameter model at 28 concurrent connections, drawing randomly from 100 unique prompts representing 24 million tokens and 825 GB of KV cache data. One important methodological detail: the G4 cache started empty at the beginning of the run, meaning early requests were served without any cache benefit. Acceleration compounded progressively as cache hit rates built up across the 200-request sequence. [...] Despite this cold-start disadvantage, the results still reveal a dramatic 22x efficiency gain when using IBM Storage Scale ECE as the G4 KV cache backend. Requests per second jumped from just 0.19 with GPU recompute to 4.26 RPS with IBM Storage Scale, and total time to process all 200 requests dropped from 1,048 seconds down to just 46.94 seconds, a reduction of over 95%. We believe the 22x efficiency figure is a conservative number. Had the cache been pre-warmed before the run, the",
+   "published_date": null,
+   "score": 0.3286269
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] SpaceXAI (แผนก AI ภายใต้ SPXC ซึ่งเดิมคือ xAI) ได้เปิดตัว Grok 4.7 เมื่อวันที่ 21 กันยายน โดยวางตำแหน่งให้เป็นรุ่นโมเดลที่มีความสามารถสูงที่สุดในด้านการเขียนโค้ดและการทำงานเชิงความรู้เท่าที่เคยมีมา ด้านราคาบริการยังคงไม่เปลี่ยนแปลงจาก Grok 4.6 โดยอยู่ที่ 2 ดอลลาร์ต่อ 1 ล้านอินพุตโทเค็น และ 6 ดอลลาร์ต่อ 1 ล้านเอาต์พุตโทเค็น ในการทดสอบ CursorBench 4.0 ซึ่งประเมินงานเขียนโค้ดระยะยาวโดยเฉพาะ Grok 4.7 ทำคะแนนได้ 46.3% ซึ่งสูงกว่า Grok 4.6 อยู่ 5.9 จุดเปอร์เซ็นต์",
+   "published_date": null,
+   "score": 0.15262519
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] SpaceXAI (แผนก AI ภายใต้ SPXC ซึ่งเดิมคือ xAI) ได้เปิดตัว Grok 4.7 เมื่อวันที่ 21 กันยายน โดยวางตำแหน่งให้เป็นรุ่นโมเดลที่มีความสามารถสูงที่สุดในด้านการเขียนโค้ดและการทำงานเชิงความรู้เท่าที่เคยมีมา ด้านราคาบริการยังคงไม่เปลี่ยนแปลงจาก Grok 4.6 โดยอยู่ที่ 2 ดอลลาร์ต่อ 1 ล้านอินพุตโทเค็น และ 6 ดอลลาร์ต่อ 1 ล้านเอาต์พุตโทเค็น ในการทดสอบ CursorBench 4.0 ซึ่งประเมินงานเขียนโค้ดระยะยาวโดยเฉพาะ Grok 4.7 ทำคะแนนได้ 46.3% ซึ่งสูงกว่า Grok 4.6 อยู่ 5.9 จุดเปอร์เซ็นต์",
+   "published_date": null,
+   "score": 0.15262519
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=krB97KQerm8",
+   "title": "Accelerating LLM Serving with Prompt Cache Offloading via CXL",
+   "content": "LLM inference uses a key-value (KV) cache to store intermediate activations for token-wise reuse, cutting redundant computation and latency. Prompt caching extends this across multi-turn or long-session workloads, but as user counts and sequence lengths grow, GPU HBM alone cannot sustain the full cache footprint, forcing offloads into higher-capacity media like host DRAM. However, host DRAM is limited in scalability. We address this by integrating CXL-attached memory via PCIe switches, [...] # Accelerating LLM Serving with Prompt Cache Offloading via CXL\n## Open Compute Project\n25400 subscribers\n15 likes\n\n### Description\n1161 views\nPosted: 23 Oct 2025\nDon Moon Director - SK hynix, Taeho Hwang Researcher - SK hynix [...] via PCIe switches, unlocking multi-terabyte capacity beyond host limits. In ShareGPT benchmarks, augmenting a GPU with an additional 80GB of CXL memory (alongside host DRAM) raised prompt cache hit rates by 2.5x, reduced time-to-first-token by 32.9%, and boost overall throughput by 38.5%. This cost-effective tiered design delivers consistent low-latency responses under heavy load while notably reducing infrastructure costs , making LLM service deployment both faster and economical.",
+   "published_date": null,
+   "score": 0.13898711
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale - Aerospike",
+   "content": "#### Redis benchmark\n\nAerospike consistently delivers lower latency and higher throughput than Redis at multi-terabyte scale. It also reduces infrastructure cost per transaction by up to 9.5x under real-world workloads. Download the benchmark report to see how Aerospike compares to Redis in production-level tests.\n\nDownload now\n\n## What a tiering layer needs to get right [...] Large language models (LLMs) are remarkably efficient at generating text, but serving them at a production scale remains an infrastructure challenge for many organizations. And while the industry at large focuses on larger GPUs, faster interconnects, or more efficient inference engines, another bottleneck quietly grows alongside every conversation: the key-value (KV) cache. [...] A single conversation with a 10,000-token prompt requires approximately 10,000 tokens × 0.5 MB ≈ 5 GB of KV cache.\n\nNow consider a production deployment serving multiple users simultaneously:\n\n| Concurrent sessions | Context length | Approximate KV cache |\n --- \n| 10 | 10,000 tokens | 50 GB |\n| 20 | 10,000 tokens | 100 GB |\n| 50 | 10,000 tokens | 250 GB |\n| 100 | 10,000 tokens | 500 GB |",
+   "published_date": null,
+   "score": 0.12827402
+  }
+ ]
+}

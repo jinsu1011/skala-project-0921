@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache drawbacks hardware requirements compatibility",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:01:23+09:00",
+ "results": [
+  {
+   "url": "https://www.linkedin.com/posts/iamhimanshu0_in-one-of-the-previous-posts-we-discussed-activity-7411360225150205952-Y4xr",
+   "title": "KV Cache Drawbacks: Memory Growth and Scalability Issues",
+   "content": "grows, memory usage increases linearly. For long conversations or agent workflows, this can quickly exhaust GPU memory. This happens because past tokens cannot be discarded. Each new token must attend to all previous Keys and Values, so the cache keeps growing until generation stops or the context is truncated. Another disadvantage is limited scalability with batch size. When serving multiple users simultaneously, each request maintains its own KV cache. Even if the model fits on the GPU, a few [...] & Orchestration (Control plane) 🧱 Hardware: CPU stateless 📈 Scale on: RPS + timeout budget 🎯 Control: context caps + caching + prompt versioning ✅ Why: tiny prompt bugs create huge retry + token bills 🤖 Agents & Tools (Execution plane) 🧱 Hardware: CPU tool runners (GPU only if self-host inference) 📈 Scale on: concurrency caps 🎯 Control: tool allowlist + max steps + approval gates + sandbox runners ✅ Why: autonomy multiplies spend + risk 🧠🧠 Multi-agent orchestration 🧱 Hardware: separate pools [...] 🎯 Control: quotas + rate limits + backpressure ✅ Why: pay for signal, not noise 🧼 Cleaning & Prep 🧱 Hardware: CPU + high-memory workers 📈 Scale on: queue depth 🎯 Control: PII-out + dedup + delta processing ✅ Why: dirty data inflates context → inflates tokens 📚 Retrieval & Indexing 🧱 Hardware: RAM-optimized + NVMe/SSD 📈 Scale on: QPS + p95 retrieval 🎯 Control: hot/cold corpora + shard by tenant + re-embed deltas only ✅ Why: “store everything” becomes lifecycle TCO 🧠 Prompt & Orchestration",
+   "published_date": null,
+   "score": 0.7244226
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "DRAM Capacity Scaling: Conversely, doubling the DRAM cache size to 64 GB for a 1 TB SSD doubles the number of cache sets to 1 M, requiring an expanded 20-bit index. This leads to a disproportionate 86.7% surge in SRAM requirements, pushing the footprint up to 28 MB.\n\nConsidering the significant SRAM penalty, expanding the DRAM to 64 GB is not resource-efficient. Thus, we selected 32 GB as the baseline capacity, which strikes a practical balance for our hardware-managed cache. [...] backend SSD-to-DRAM throughput remains severely constrained at 9 GB/s. This bandwidth mismatch is critical, as it starves the hardware prefetcher and limits its ability to supply data to the cache at a rate sufficient to saturate the host-side bandwidth during cache misses. [...] As illustrated in Figure 5, the prefetch walkthrough translates an application-level virtual address (VA) ➊ into a hardware-compatible command. The library first performs a page table lookup through the kernel’s /proc/[pid]/pagemap interface ➋ to obtain the corresponding physical address (PA) ➌. This PA, together with the required page count, is then written to the VA-mapped CXL-Hybrid register set ➍, which is exposed to user space via mmap(). This direct access path triggers the hardware",
+   "published_date": null,
+   "score": 0.445506
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] Low-latency and high-bandwidth KV cache transfer. Reusing KV caches can save GPU computation, but it may introduce I/O transfer bottlenecks. The KV cache store must not only provide the maximum bandwidth of a GPU form factor, PCI Express® (PCIe®) 5.0 ×16, but also minimize latency.\n\n#### Managing KV cache across hybrid storage tiers [...] In contrast, KV cache reuse maintains stable performance even as user count scales.\n\nAlthough an SSD-based KV cache store outperforms regeneration, relying solely on SSDs to retain KV cache data for days or weeks becomes impractical as model size and context length grow. For example, Qwen2.5-7B requires 56KB of KV cache per token, whereas Qwen2.5-72B requires 320KB per token. Combining SSDs with hard drives offers a more scalable solution by balancing cost and capacity.",
+   "published_date": null,
+   "score": 0.38901308
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale - Aerospike",
+   "content": "These requirements underscore why KV cache tiering differs fundamentally from traditional caching. Conventional cache systems are designed to manage millions of small objects with relatively predictable access patterns. KV cache systems, by contrast, handle a much smaller number of extremely large tensor objects with highly asymmetric read and write behavior. Supporting these workloads requires a new class of caching infrastructure purpose-built for AI inference, with specialized data-layer [...] KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per [...] For example, in a 70-billion-parameter model with 80 transformer layers, eight KV heads, and a head dimension of 128, a 1,000-token prefix can require approximately 328 MB of KV cache using FP16 precision, 164 MB using INT8, or 82 MB using INT4. These are the sizes of individual cache objects, meaning production inference systems may routinely need to retrieve hundreds of megabytes of cached tensor data to serve requests efficiently.",
+   "published_date": null,
+   "score": 0.33183438
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.2287249
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.2287249
+  },
+  {
+   "url": "https://www.blocksandfiles.com/ai-ml/2026/03/30/nvidia-and-its-partners-kv-cache-extenders/5209284",
+   "title": "Nvidia and its partners' KV Cache extenders",
+   "content": "The KV cache software – CMX – has to apply to GPUs, GPU servers, and racks of GPU servers, which can be running many different simultaneous inference workloads. Each model/agent workload’s parameter set has to be managed and made available to the right AI model or agent running in the right GPUs, which may change as jobs are scheduled. This means there is a KV cache context metadata management task. [...] The KV Cache is held in data blocks in a GPU’s high-bandwidth memory (HBM). When that is full and new KV pairs are generated they go into HBM and existing content is evicted. If it is needed again then it has to be recomputed, taking time. A KV Cache scheme extends the cache to include, first, the DRAM in the GPU server’s embedded x86 server, then local NVMe SSDs in that server (tier zero), and then external, network-linked NVMe SSDs. Each tier in this KV Cache scheme takes longer to access [...] Stage 1: backward-compatible KV cache offload on infrastructure customers already run today, using familiar network interfaces and traditional storage that relieves HBM pressure without replatforming runtimes.\n\nStage 2: pooled KV cache over higher-bandwidth context memory fabrics, where context starts behaving like shared DRAM-class infrastructure across GPU servers, delivering 6.5x higher agent token throughput per CapEx & OpEx, ahead of CMX-native availability.",
+   "published_date": null,
+   "score": 0.22189859
+  },
+  {
+   "url": "https://www.weka.io/video/inference-is-eating-memory-and-tokens-now-run-ai-economics",
+   "title": "Inference Is Eating Memory, and Tokens Now Run AI Economics",
+   "content": "Vik: Exactly, and that’s what we were talking about last time. The KV cache started getting so big when agents arrived on the scene that you couldn’t keep it all on expensive HBM. It’s a limited resource that has to be preserved and used judiciously. So there was a lot of talk about offloading to DRAM and then, as agents started working more and having greater context length, offloading to context memory storage — the rack NVIDIA calls STX. [...] So SLOs (service level objectives) matter. That’s where we quickly find that even though a lot of vendors talk about memory tiering, including NAND and storage, in the KV cache hierarchy, it’s kind of irrelevant. Most of the benchmarks we see today that include storage in the KV cache tiering hierarchy reflect workloads you could just run on a DGX Spark or a Mac Studio. You don’t even need a big server for some of these smaller models with small context windows and single-turn chat sessions, or [...] TLC for a very high write-endurance workload like KV cache. In the future, as we’re able to influence the rest of the inference stack — the scheduling and routing, not just the KV transfer storage layer — we’ll add support for QLC drives as well. But you have to be careful, because you don’t want to break these drives with unintelligent scheduling of writes or unintelligent routing of tokens to somewhere that needs a quick write but isn’t really worth it.",
+   "published_date": null,
+   "score": 0.19475074
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "limitations of SK hynix ITME KV cache in domain suitability with multiple opposing series",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:02:41+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM ...",
+   "content": "With limited staging space, remote reads are throttled by buffer availability, overlap is reduced, and cache-hit latency appears on the critical path. The required buffer also scales with KV-loading bandwidth; 100–400 Gbps links or multiple NICs need more staging space to keep KV reads in flight. [...] Thus, our central challenge is to design CXL-HM for HyMCache to overcome the limitations of conventional CMM-H devices and directly support the observed workload characteristics of multi-turn LLM serving.\n\n### 3.3. LLM Targeted CXL-HM [...] prototypes such as SK hynix Niagara further show that shared CXL memory can remain sub-microsecond, reporting 600 ns access latency (SK hynix, 2024).",
+   "published_date": null,
+   "score": 0.3648686
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache ...",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] Korea Investment & Securities\n\nSeoul Economic Daily\n\nSeoul Economic Daily\n\nKorea Investment & Securities",
+   "published_date": null,
+   "score": 0.34833524
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "6 Limitation and Future Plan While HiFC eliminates the need for DRAM and achieves cost-efficient scalability through direct GPU–SSD I/O, several limitations remain. First, in short-context or latency-sensitive workloads, Flash access latency may introduce delays in token processing. Second, in multi-GPU settings, efficient bandwidth scheduling for shared Flash cache becomes increasingly critical to avoid contention. [...] Guidelines: • The answer NA means that the paper has no limitation while the answer No means that the paper has limitations, but those are not discussed in the paper.\n• The authors are encouraged to create a separate \"Limitations\" section in their paper. [...] honesty concerning limitations.",
+   "published_date": null,
+   "score": 0.3462102
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The KV cache grows with each additional user and prompt in the context window. But because the KV cache usually lives in the GPU’s HBM or the CPU’s DRAM, most deployments are running out of capacity to retain these contexts over the life of the user’s session or dialog.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\nFigure 1. The KV cache grows at each step in a multi-turn workflow that involves multiple AI agents.\n\n## Challenges [...] Large-capacity KV cache store. To increase the prefix caching hit ratio, a KV cache pool must retain caches from multiple GPUs for periods ranging from days to weeks. Larger retention windows increase the chance that prior context can be reused instead of recomputed. [...] Proporciona a los proveedores herramientas de autoservicio orientadas a las necesidades de sus negocios.\n\nView/edit your profile information\n\nView your dashboard\n\nLogout of your account\n\nEnabling inference at massive scale with hybrid storage for KV cache offloading.\n\n# Enabling inference at massive scale with hybrid storage for KV cache offloading.\n\nseagate-sk-hynix-logos-color-640x640.png\n\nCombining hard drives with SSDs extends Key-Value (KV) cache stores beyond the limits of memory.",
+   "published_date": null,
+   "score": 0.30756646
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "While GPU HBM (G1), System DRAM (G2), and local NVMe (G3) support cross-node KV cache movement via east-west fabrics, each tier remains fundamentally bounded by per-node physical capacities. GPU HBM provides the bandwidth required for real-time token generation, but its premium cost and capacity limits make it suboptimal for long-term KV Cache retention. Keeping idle KV caches in HBM directly displaces active computation, severely restricting maximum batch sizes and aggregate throughput. [...] Parallelism and Scalability: AI training and inference often span multiple GPUs and nodes, requiring a storage foundation that can support high-performance parallel file systems. The Petascale architecture is a proven industry standard for parallel file system applications, providing the necessary structural foundation for distributed data. [...] When the KV cache for an active session cannot fit within available HBM, inference frameworks must either evict and recompute it or stall the decode pipeline entirely; both outcomes represent significant waste of resources. Re-computation is particularly costly: regenerating a KV cache for a long context requires a full forward pass through the model, consuming GPU cycles that could otherwise be spent generating new tokens, effectively increasing the compute cost of serving returning users or",
+   "published_date": null,
+   "score": 0.19255488
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] The hard part of KV cache compression is not choosing which tokens to keep — it is two collisions with production infrastructure. Existing methods need historical attention scores, but the FlashAttention kernel never writes those scores into GPU memory. And paged attention reclaims memory only when a block holds no KV at all — yet after token eviction the survivors leave almost every block partially occupied, so the \"freed\" memory never actually comes back.\n\nContents [...] Figure 1. Schematic, not to scale: every token the model generates appends its keys and values to the running history — the KV cache — so cache memory grows with output length while the weights stay fixed. Let generation run long enough, and the cache alone drives the GPU out of memory.",
+   "published_date": null,
+   "score": 0.16668928
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.13613708
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.13613708
+  }
+ ]
+}

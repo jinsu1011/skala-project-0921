@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache throughput performance domain suitability advantages",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:04:52+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient",
+   "published_date": null,
+   "score": 0.59655124
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "Under concurrent load, our solution demonstrates throughput increases from 0.19 requests-per-second (RPS) to 4.26 RPS, a 22x improvement. Total processing time for 200 requests drops by 95%, confirming significantly improved GPU utilization and scalability for high-volume inference workloads. [...] has significant performance headroom that has yet to be fully utilized. If more 400GbE client-side networking can be added, KV cache retrieval performance can be expected to improve substantially. Organizations deploying this reference architecture can look forward to even lower TTFT latencies and higher request throughput as the full storage bandwidth potential is fully unlocked. [...] cache, the data structure that stores a model's intermediate attention state across all prior tokens grows proportionally with context length, placing severe and often unsustainable pressure on GPU high-bandwidth memory (HBM) and GPU compute power for calculating prefill. Because HBM capacity is finite and shared across concurrent inference requests, larger context windows directly reduce the number of requests a GPU can serve simultaneously, degrading throughput, increasing tail latency, and",
+   "published_date": null,
+   "score": 0.5356092
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "The SK hynix 4TB PS1010 is a TLC-based SSD built on V-NAND technology, offering flexible power states and ultra-fast PCIe Gen 5 performance. It provides maximum bandwidth and parallel processing to deliver KV cache data cached from hard drives. By connecting four SSDs in parallel, it supports the maximum bandwidth of a PCIe 5.0 ×16 GPU interface. Hybrid storage combines the performance advantages of the SK hynix PS1010 with the capacity benefits of Seagate Exos, delivering consistent [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] Scaling hard drive throughput. During the onboarding phase, the throughput performance of the first turn depends on hard drive bandwidth as the KV data is cached from the hard drive to the SSD. As the number of turns increases, more KV cache data is mapped to the SSD, and overall solution performance gradually approaches SSD bandwidth performance. This experiment combines 12 hard drives into a single logical volume. This allows data to be distributed across multiple hard drives, thereby",
+   "published_date": null,
+   "score": 0.50007385
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "BANDF AD\n\nHowever, providing a KV cache even closer to the GPU, getting rid of the SSD PCIe bus link time, and delivering lower latency and higher bandwidth access than the local SSD is what HBF provides. The paper states: \"The expected advantages of HBF are 1) up to 16x larger capacity than HBM, and 2) similar bandwidth to HBM, and the expected disadvantages are 1) slower access (ns vs. μs), 2) lower write endurance, and 3) up to 4x higher power consumption than HBM.\" [...] The results showed a 2.69x improvement in performance per watt compared to tests with a Blackwell GPU and 8 x HBM stacks but no HBF.\n\nWith testing of a KV cache with 10 million tokens, this showed that an HBM+HBF setup could process 18.8x more simultaneous queries, its batch size, than an HBM-only configuration. By using HBF,  such workloads, which could include 32 GPUs and their HBM, can be processed with only two GPUs, substantially reducing electricity consumption. [...] The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\"",
+   "published_date": null,
+   "score": 0.47826138
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "Feature HiFC InstInfer I/O Optimization GPU Direct Storage (GDS) Pipeline-aware scheduling In-storage SparF Attention Flash page-level data layout KV Cache Reduction Standard methods (GQA, FP8) SparF Attention (reduces transfer size) Performance Gains Comparable to DRAM (∼2% diff.) Up to 11.1× throughput over Flex-Gen (with CSD) Swapping Behavior Swaps only when HBM is full Entire KV cache resides in CSD 14 A.1.3 System Compatibility and Generality HiFC is architected as a software-level [...] design sustains a throughput of over 4.7 GiB/s in the pSLC region of SSD, ensuring reliable KV cache swapping operations. As a result, KV swapping with HiFC achieves LLM inference performance comparable to that of DRAM-based approaches, which is validated by our results in Section 5.1. [...] memory with low latency and high effective bandwidth. HiFC stores KV pages in pseudo-SLC (pSLC) regions of commodity NVMe SSDs, sustaining high throughput under sequential I/O and improving write endurance by up to 8×. Leveraging GPU Direct Storage, HiFC enables direct transfers between SSD and GPU, bypassing host DRAM and alleviating PCIe bottlenecks. HiFC employs fine-grained block mapping to confine writes to high-performance pSLC zones, stabilizing latency and throughput under load. HiFC",
+   "published_date": null,
+   "score": 0.3295001
+  },
+  {
+   "url": "https://www.gmicloud.ai/en/blog/gmi-cloud-achieves-4x-llm-performance-boost-with-tensormesh",
+   "title": "SSD KV Cache LLM Inference Benchmark Report | GMI Cloud",
+   "content": "Better compute efficiency: Less recomputation of prefix KV lowers GPU utilization per request.\n More predictable latency: Essential for agent loops, AI companions, and interactive systems.\n Improved cluster throughput: Greater QPS on identical hardware.\n Scalable optimization: SSD-backed caching makes deployment feasible without expensive RAM scaling. [...] The setup lowers GPU utilization per request, increases cluster throughput on identical hardware, stabilizes latency for agent loops and AI companions, and scales without expensive RAM upgrades - delivering pure performance gain at no extra infrastructure cost.\n\nThese performance gains translate directly into significant, measurable business advantages once implemented across GMI’s infrastructure: [...] 1. What performance improvements were achieved in the GMI Cloud and Tensormesh benchmark?The benchmark demonstrated a 4× reduction in Time to First Token (TTFT) when prefix caching was backed by an SSD-augmented KV cache. It also significantly reduced latency variance, increased effective throughput, and lowered redundant GPU computation for real-world conversational workloads.",
+   "published_date": null,
+   "score": 0.30750406
+  },
+  {
+   "url": "https://www.ersaelectronics.com/blog/sandisk-sk-hynix-standardize-hbf",
+   "title": "Sandisk & SK hynix Standardize HBF: A New Memory Tier for ...",
+   "content": "The challenge is latency management. If the system moves data out of HBM and then needs it immediately, performance may suffer. Therefore, KV cache tiering requires prediction, scheduling, and prefetching. A standardized HBF layer can help by giving software developers a clear target for optimization.\n\n## 11. Data-Center Impact and Server Design [...] This tiered approach can make enterprise AI more practical. It reduces the need to keep everything in expensive memory and reduces the latency penalty of retrieving everything from slower storage.\n\n## 10. KV Cache, Long Context, and Memory Expansion [...] HBM is the correct place for the most active KV cache data. However, not all session history is equally active. Older cache blocks or less frequently accessed context may be candidates for tiering. DRAM and HBF can support overflow or warm-cache strategies if software can manage migration intelligently.",
+   "published_date": null,
+   "score": 0.2685023
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions Introduces Industry's First Production-Ready CXL-Based KV Cache Server",
+   "content": "The result is lower latency, higher throughput, increased efficiency of GPU clusters, consistent achievement of stringent service-level agreements (SLAs), and faster time-to-first-token (TTFT). [...] A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] Flexibility to tier cluster memory: CXL-based KV cache delivered by the server creates a new tier of cluster memory to supplement existing high bandwidth memory (HBM) and system DRAM, delivering speeds 10x faster than NVMe-based approaches. This provides new flexibility in offloading KV data for faster access.\n\n Compatibility with NVIDIA Dynamo: The solution is compatible with NVIDIA Dynamo, NVIDIA's software architecture for KV cache memory offloading.",
+   "published_date": null,
+   "score": 0.2620165
+  }
+ ]
+}

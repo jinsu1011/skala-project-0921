@@ -1,0 +1,65 @@
+{
+ "query": "limitations and lack of independent validation of SK hynix ITME KV cache latency, throughput, accuracy, and integration performance",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:23:43+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with ...",
+   "content": "Initially, both systems exhibit identical performance as long as the KV cache remains within the 30 GB CPU staging buffer. Since requests are served directly via buffer hits, the underlying storage latency is effectively masked. However, starting from Turn 5, the performance of the Local NVMe-oF baseline degrades significantly, eventually converging with the recomputation baseline. The performance drop occurs because heavy write traffic blocks the necessary read requests. Without a way to [...] backend SSD-to-DRAM throughput remains severely constrained at 9 GB/s. This bandwidth mismatch is critical, as it starves the hardware prefetcher and limits its ability to supply data to the cache at a rate sufficient to saturate the host-side bandwidth during cache misses. [...] ## 6. Evaluation\n\n### 6.1. Performance: GPU Memory (T1) vs. ITME\n\nThe performance of ITME is evaluated using the ShareGPT dataset with a configuration of 128 concurrent conversations, each spanning up to 5 turns with a minimum of 2000 tokens per conversation. As memory pressure intensifies in later stages, we focus on Turns 3–5, where the total KV cache footprint reaches 40 GB.",
+   "published_date": null,
+   "score": 0.41009519
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "Context Without Limits: A High-Performance KV Cache Platform for Large-Scale AI Inference",
+   "content": "Under concurrent load, our solution demonstrates throughput increases from 0.19 requests-per-second (RPS) to 4.26 RPS, a 22x improvement. Total processing time for 200 requests drops by 95%, confirming significantly improved GPU utilization and scalability for high-volume inference workloads. [...] KV Cache-Aware Routing: mapping KV cache states across potentially thousands of GPUs and routes new requests to the GPU with the best knowledge match, avoiding costly re-computations\n\n   Disaggregated Serving: separating the compute-intensive prefill phase from the memory-bandwidth-bound decode phase for independent scaling [...] cache, the data structure that stores a model's intermediate attention state across all prior tokens grows proportionally with context length, placing severe and often unsustainable pressure on GPU high-bandwidth memory (HBM) and GPU compute power for calculating prefill. Because HBM capacity is finite and shared across concurrent inference requests, larger context windows directly reduce the number of requests a GPU can serve simultaneously, degrading throughput, increasing tail latency, and",
+   "published_date": null,
+   "score": 0.34786987
+  },
+  {
+   "url": "https://www.reddit.com/r/MachineLearning/comments/1q9syiz/d_anyone_running_into_kv_cache_memory_bandwidth",
+   "title": "[D] Anyone running into KV cache / memory bandwidth ...",
+   "content": "Sliding window attention or sparse patterns can work but the accuracy tradeoffs are task-dependent. Works fine for chat, breaks badly for document QA where you need precise retrieval from arbitrary positions in context. [...] as context grows.\n\nEven if we’re BW-limited in both cases, longer context increases KV reads/writes per token (more past tokens to attend over), and in my experiments throughput and/or max concurrency often collapses past ~8k–16k depending on batch and GPU.\n\nMore replies\n\nImage 4: u/mgoblue5453 avatar\n\nmgoblue5453\n\n•8mo ago\n\nHow do you detect that you're hitting HBM limits?\n\n and by finding max feasible batch/context before OOM.\n\nMore replies\n\nImage 5: u/whatwilly0ubuild avatar [...] DeepSeek cache timeImage 23 r/DeepSeek•28d ago    ### DeepSeek cache time    8 upvotes ·12 comments    \n\n  \n\n   Kv cache doubtr/learnmachinelearning•3y ago    ### Kv cache doubt    7 upvotes ·9 comments    \n\n  \n\n   I ignored the \"never quantize the KV cache\" advice — went from 32k to 80k context on the same GPUImage 24 r/LocalLLM•2mo ago    Spoiler ### I ignored the \"never quantize the KV cache\" advice — went from 32k to 80k context on the same GPU    33 upvotes ·36 comments",
+   "published_date": null,
+   "score": 0.3466745
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV cache tiering: Why GPU memory alone won't scale your LLM app",
+   "content": "Inference performance in production environments is no longer constrained solely by compute capacity; it is increasingly limited by the finite amount of high-bandwidth memory (HBM) available on GPUs. As context windows expand from thousands to hundreds of thousands of tokens, applications shift toward longer multi-turn interactions, and workloads such as retrieval-augmented generation (RAG) and autonomous AI agent workflows become commonplace, KV cache growth will increasingly consume a larger [...] KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per [...] GPU memory is volatile. Whenever an inference server restarts, whether due to maintenance, software upgrades, failures, or autoscaling events, the entire KV cache is immediately lost. Every subsequent request must perform a full prefill operation because none of the previously computed key/value vectors are preserved. For production workloads, rebuilding these warm caches can take tens of minutes before performance returns to steady state, depending on traffic patterns and model behavior. These",
+   "published_date": null,
+   "score": 0.23074678
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Figure 12. TTFT measurement as the number of turns increases. LMBenchmark configurations: ISL = 21K, OSL = 100, number of users = 15, and QPS = 0.5.\n\n#### Increasing users.\n\nFigure 13 shows TTFT as the number of users increases. Because KV cache generation is computebound and limited by GPU capacity, per-user latency increases accordingly. When the number of users grows from 10 to 50, TTFT for KV cache regeneration increases by approximately 20×. [...] Low-latency and high-bandwidth KV cache transfer. Reusing KV caches can save GPU computation, but it may introduce I/O transfer bottlenecks. The KV cache store must not only provide the maximum bandwidth of a GPU form factor, PCI Express® (PCIe®) 5.0 ×16, but also minimize latency.\n\n#### Managing KV cache across hybrid storage tiers [...] HBM and DRAM deliver low latency but offer limited capacity. Microsoft demonstrated a throughput of 1.1 million tokens per second on a 72-GPU rack.3 Based on this level of performance, the amount of KV cache data generated may reach approximately 92TB per GPU per day. Under the same assumptions, the NVIDIA H100 GPU features 80GB of HBM that can store roughly 1.2 minutes of KV cache, while a 1TB CPU DRAM can store about 16 minutes. The KV cache grows continuously across users and sessions and",
+   "published_date": null,
+   "score": 0.23035698
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "12. LongLive: Real-time Interactive Long Video Generation. Yang S., Huang W., Chu R., Xiao Y., Zhao Y., et al., Han S., Chen Y. ICLR, 2026. arXiv:2509.22622\n13. LongLive 2.0: An NVFP4 Parallel Infrastructure for Long Video Generation. Chen Y., Wang L., Huang W., Yang S., Zhang B., Xiao Y., Chu R., Mao W., Hu Q., Liu S., Zhao Y., Mao H., Chen Y.-C., Xie E., Qi X., Han S. arXiv preprint, 2026. arXiv:2605.18739 [...] LongLive 2.0 pipeline: an NVFP4 KV cache window of chunks is dequantized in parallel on the model GPU, while latent chunks are asynchronously VAE-decoded to video on a second GPU. [...] — no retraining, and less than 4% latency overhead. LongLive 2.0 (#ref-13) takes the same track to production scale, quantizing both weights and KV cache to NVFP4 (4-bit) on a 5B-parameter generator for 1.84× throughput at negligible quality cost — and its detail worth dwelling on is the fused parallel dequantization kernel (Figure 10). Storing the cache in 4 bits means every block must be dequantized before each attention step, and the naive approach launches one GPU kernel per block.",
+   "published_date": null,
+   "score": 0.22563875
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute",
+   "content": "TurboQuant: A KV cache compression technique presented by Google at ICLR 2026. It uses a rotation transformation to map input data to a standardized distribution before applying predefined compression rules, reducing 16-bit data to around 3-4 bits without additional training while largely preserving model accuracy. [...] Skip to the content\n# Image 1: SK Hynix Newsroom\n\n   FACT\n   PRESS\n   TECH&AI\n   STORY\n   IR\n\nOpen Search\n\nEN\n   EN\n   KR\n   CN\n\nSeach\n\nSeach\n\nOpen Menu\n\n   FACT\n   PRESS\n   TECH&AI\n   STORY\n   IR\n\n   EN\n   KR\n   CN\n\nClose Menu\n\nTECH&AI\n\n## [AI Ecosystem] The real bottleneck: Data, not compute\n\n   AI\n   AI Memory\n   HBF\n   HBM\n\n   September 3, 2026\n   Professor Hoi-Jun Yoo, KAIST\n\n AI Summary [...] One of the biggest challenges in this process is the KV cache. Each time a Transformer-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model.",
+   "published_date": null,
+   "score": 0.21621042
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "BANDF AD\n\nHowever, providing a KV cache even closer to the GPU, getting rid of the SSD PCIe bus link time, and delivering lower latency and higher bandwidth access than the local SSD is what HBF provides. The paper states: \"The expected advantages of HBF are 1) up to 16x larger capacity than HBM, and 2) similar bandwidth to HBM, and the expected disadvantages are 1) slower access (ns vs. μs), 2) lower write endurance, and 3) up to 4x higher power consumption than HBM.\" [...] Nvidia's ICMSP software extends the KV cache to local NVMe SSDs so that they enable the processing to complete much faster than if the tokens and vectors had to be recomputed when HBM capacity runs out.\n\nBANDF AD [...] The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\"",
+   "published_date": null,
+   "score": 0.1722557
+  }
+ ]
+}

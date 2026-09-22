@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache open source implementation release",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-09-22T14:00:04+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2512.18194v1",
+   "title": "Disaggregated LLM Serving withCXL Shared Memory KV Cache at ...",
+   "content": "Codebase.\nThe full implementation consists of approximately 5K lines of C/C++ for the CXL shared-memory library and the KV connector, plus a small Python wrapper integrating the connector into the Dynamo–vLLM runtime.\nWe plan to open-source all our sources upon publication.\n\n## 5 Evaluation\n\n| Workload | A | B | C |\n ---  --- |\n| Input |  | 4449 (2424) |  |\n| Output |  | 215 (263) |  |\n| Unique | 1073 (1549) | 1215 (1693) | 1631 (2027) |\n\n### 5.1 Evaluation setup [...] Release.\nUpon exiting the critical section, the process resets its global\\_lock entry to IDLE and releases its local\\_lock, allowing other processes—both within and across nodes—to compete for future lock acquisitions.\n\n### 3.4 Cache coherence [...] ### 4.4 Other Details",
+   "published_date": null,
+   "score": 0.48689327
+  },
+  {
+   "url": "https://www.seagate.com/resources/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Figure 4. KV cache offloading and prefix caching via a tiered KV cache store.\n\n## Solution architecture\n\n#### Components and disaggregation\n\nThe proposed solution employs SK hynix PS1010 3.84TB SSDs and Seagate Exos® 30TB hard drives, powered by Mozaic™ (HAMR) (Table 1). It uses NVIDIA Dynamo, an open-source distributed inference framework for serving generative AI models.\n\nTable 1. GPU, SSD, and hard drive server specifications. [...] seagate-sk-hynix-logos-color-640x640.png\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nAuthors:Kyung Soo Lee, Principal Engineer, SK hynix   \nJin Na Yang, Staff Engineer, SK hynix   \nThomas Prohofsky, Principal Engineer, Seagate\n\nContenido:\n\nContenido\n\n## Executive summary\n\n#### A tiered system for KV cache blocks can turn storage into a strategic advantage [...] As inference scales up, in both the number of users and context length, the KV cache can become a bottleneck. The KV cache is the memory store for key and value vectors from previously computed tokens. It allows a model to support long, multi-turn exchanges in a single session without recalculating previous prompts (Figure 1). By using a KV cache to skip computations, the inference engine can deliver a faster TTFT while reducing compute burden on the GPU. Ultimately, this delivers a highly",
+   "published_date": null,
+   "score": 0.45318982
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "• While we encourage the release of code and data, we understand that this might not be possible, so “No” is an acceptable answer. Papers cannot be rejected simply for not including code, unless this is central to the contribution (e.g., for a new open-source benchmark). [...] 5.3 Robustness across Diverse Models and Datasets Beyond hardware scaling, we validated performance of HiFC in more realistic scenarios. While our primary experiments used a fixed model and context length for fair comparison, real-world deployments must handle diverse workloads. We therefore conducted additional tests using multiple popular open-source models (DeepSeek-Llama-8B , DeepSeek-Qwen-14B , and Mistral-7B ) and datasets with context lengths ranging from a few hundred to over 18k [...] GPU–Flash Cache Swapping Engine.",
+   "published_date": null,
+   "score": 0.39277983
+  },
+  {
+   "url": "https://lmcache.ai/en",
+   "title": "LMCache – Building the foundation of AI memory tensor with KV Cache Infrastructure",
+   "content": "Tools\n\n   KV Cache Calculator\n   KV Cache Memory Explosion\n\nJoin us via:\n\n[](\n\n[](\n\n[](\n\n[](\n\n[](\n\n LMCache is a community-driven open-source project. Contributions are welcome. \n\n © 2026 LMCache Contributors. \n\nEsc\n\nNo results found.  \nTry a different search term.\n\nStart typing to search…\n\nCtrl K to open ·Esc to close\n\nEnter Enter to open ·↑↓ to navigate [...] ## Nvidia\n\n## Dynamo integrates seamlessly with popular inference engines like vLLM and open source tools like LMCache, enabling efficient cache reuse, reduced recomputation, and better support for long-context and high-concurrency workloads.\n\nRead Article\n\n## Google Cloud\n\n## For Google Kubernetes Engine users, LMCache’s tiered storage solution improves inference performance by using node-local storage, especially for long system prompts that generate large KV Caches.\n\nRead Article\n\n## AMD [...] ## Tensormesh\n\n## Every improvement to LMCache’s architecture means more efficient caching, faster inference, and lower bills for teams running AI workloads at scale.\n\nRead Article\n\nBlog\n\n Sponsored by \n\n[](\n\n   RESEARCH\n\n## Built on Best Research\n\n LMCache grew out of systems research at the University of Chicago and continues to evolve as an open-source project. Join us in building the most efficient LLM serving infrastructure.",
+   "published_date": null,
+   "score": 0.35528317
+  },
+  {
+   "url": "https://www.modular.com/blog/the-five-eras-of-kvcache",
+   "title": "The Five Eras of KVCache - Modular",
+   "content": "✘ Many existing optimizations or architectures are still incompatible with distributed inference like speculative decoding or VLMs\n   ✘ Despite the wide availability of open-source solutions, it still requires expert knowledge and a lot of patience to deploy\n   ✘ Inter-node GPU networking over Infiniband or RoCE is challenging and many libraries like NIXL are nascent [...] 3.   Quantized KV Cache: Low precision datatypes like FP8 help reduce the storage requirements of the KV cache and rely on per-tensor/row/block scaling factors to preserve numerical range. This requires the KV cache implementation to also manage memory for these scaling factors. [...] Hierarchical KVCache: To increase KV cache capacity, cold pagescan be spilled from GPU memory to more abundant CPU RAM or SSD. This extends the effective KV cache size while keeping the hot, frequently accessed pages in GPU memory for low-latency access. The higher latency of loading/storing of KV cache for one model layer from a lower tier of the cache can be hidden by overlapping it with the GPU execution for the prior layer.",
+   "published_date": null,
+   "score": 0.3039905
+  },
+  {
+   "url": "https://www.cnbc.com/2025/04/24/sk-hynix-quarterly-earnings-top-estimates.html",
+   "title": "Nvidia supplier SK Hynix quarterly earnings top estimates",
+   "content": "In its earnings release, SK Hynix credited its first-quarter profits to AI's impact in the memory market. It expects Big Tech's spending on AI to continue with open-source AI model offerings and \"sovereign AI projects\" stocking memory demand.\n\n\"With development cost decreasing, initiatives for AI development have surged, which has led to a sharp increase in demand,\" a company executive said. [...] SK Hynix cited DeepSeek's open-source R1 reasoning model, which achieved competitive performance with limited hardware resources earlier this year, as an example of a catalyst for AI development.\n\nThe company has benefitted from a boom in AI servers as a key supplier of high bandwidth memory, or HBM — a type of DRAM used in artificial intelligence servers — to clients such as the U.S. AI darling Nvidia. Micron Technology and Samsung Electronics are the other players in the space.",
+   "published_date": null,
+   "score": 0.26321495
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] ### SpaceX AI เปิดตัว Grok 4.7: เจเนอเรชันระดับเรือธงสำหรับการเขียนโค้ดและงานด้านความรู้ ในราคาเท่ากับ Grok 4.6",
+   "published_date": null,
+   "score": 0.22802794
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.22802794
+  }
+ ]
+}
