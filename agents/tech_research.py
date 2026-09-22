@@ -149,6 +149,7 @@ def trl_assess_tech(t, col: Collected, tag: str) -> TechAssessment:
     if not low_ids or not high_ids:
         lim.append("범위의 하한 또는 상한 근거가 없음(근거 부족)")
     return TechAssessment(criteria=rows, score=None, summary=data.get("summary", ""), limitations=lim, confidence=conf,
+                          claims={e.evidence_id: e.claim for e in col.evidence if e.claim},
                           trl_low=lo, trl_high=hi, low_ids=low_ids, high_ids=high_ids,
                           pro_ids=low_ids, con_ids=high_ids)
 

@@ -69,3 +69,20 @@ def test_judge_verdict_pass_and_fail():
     assert not verdict("domain", _score("domain", lex=1))
     assert verdict("trl", _score("trl", pro=0, con=0))             # TRL uses bound_origins, not pro/con
     assert not verdict("trl", _score("trl", bound=0))
+
+
+def test_neutral_only_families_score_three():
+    # C.6 row 3: facts without evaluation ("중립 서술 위주") from >= 2 families score 3, not 판단 보류
+    assert rubric_score(set(), set(), {"a", "b"}) == 3
+    assert rubric_score(set(), set(), {"a"}) is None
+
+
+def test_judge_reads_the_perspectives_own_claim(techs, mkweb):
+    import json
+    from agents.judge import _payload
+    from graph.state import PerspectiveResult, TechAssessment
+    shared = mkweb("1", "a.com").model_copy(update={"claim": "market reading"})
+    ta = TechAssessment(pro_ids=["W:1"], claims={"W:1": "domain reading"})
+    body = json.loads(_payload("domain", PerspectiveResult(perspective="domain", by_tech={"turboquant": ta}),
+                               {"W:1": shared}, techs))
+    assert body["by_tech"]["TurboQuant"]["evidence"][0]["claim"] == "domain reading"

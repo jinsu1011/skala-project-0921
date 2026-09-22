@@ -226,6 +226,20 @@ def _heading_pages(pdf, headings: list[str]) -> dict[str, int]:
     return found
 
 
+def _blank_pages(pdf) -> list[int]:
+    """Pages whose only text is the running header and page number."""
+    import pymupdf
+
+    out = []
+    with pymupdf.open(pdf) as doc:
+        for i, p in enumerate(doc):
+            body = re.sub(r"\s+", "", p.get_text())
+            body = re.sub(r"SKALA4기과제제출보고서·평가보고서|-\d+-", "", body)
+            if len(body) < 20:
+                out.append(i + 1)
+    return out
+
+
 def pdf_renderer(state: dict) -> dict:
     from report.docx_builder import CoverInfo, ReportBuilder, docx_to_pdf
 
@@ -252,8 +266,10 @@ def pdf_renderer(state: dict) -> dict:
     pages = _heading_pages(pdf, [t for _, t in toc_entries(state["report_markdown"])])
     md = with_toc(state["report_markdown"], pages)
     pdf = build(md)
+    blank = _blank_pages(pdf)
     md_path.write_text(md.rstrip() + "\n")
     dst = ROOT / "deliverables" / pdf.name
     shutil.copy(pdf, dst)
-    return {"report_pdf_path": str(pdf), "audit_log": audit("pdf_renderer", pdf=str(pdf.relative_to(ROOT)),
+    warns = [f"PDF 빈 페이지: {blank}"] if blank else []
+    return {"report_pdf_path": str(pdf), "warnings": warns, "audit_log": audit("pdf_renderer", blank_pages=blank, pdf=str(pdf.relative_to(ROOT)),
                                                             copy=str(dst.relative_to(ROOT)))}

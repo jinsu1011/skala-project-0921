@@ -158,7 +158,7 @@ def fill(md: str) -> str:
         "{{BGE_MRR}}": f3(b.loc["bge-m3", "mrr@10"]),
         "{{BEST_H1}}": f3(best["hit@1"]), "{{BEST_H5}}": f3(best["hit@5"]), "{{BEST_MRR}}": f3(best["mrr@10"]),
         "{{MERMAID_A}}": (ROOT / "docs/graph_overview.mmd").read_text().rstrip(),
-        "{{REVISION_TABLE}}": _between((ROOT / "docs/REVISION_v1.1.md").read_text(), "<!--CHANGES-->", "<!--/CHANGES-->"),
+        "{{REVISION_TABLE}}": _between((ROOT / "docs/archive/REVISION_v1.1.md").read_text(), "<!--CHANGES-->", "<!--/CHANGES-->"),
     }
     for k, v in rep.items():
         md = md.replace(k, v)
@@ -172,7 +172,7 @@ def fill(md: str) -> str:
 
 def main() -> Path:
     md = fill((ROOT / "docs/DESIGN.md").read_text())
-    (ROOT / "docs/DESIGN_filled.md").write_text(md)
+    (ROOT / "docs/archive/DESIGN_filled.md").write_text(md)
     cover = CoverInfo(title="KV cache 최적화 기술 다관점 평가 Agentic RAG 설계서", members=MEMBERS,
                       date=TEAM["submit_date"], report_kind="과제 제출 보고서 · 설계 산출물", doc_info=False)
     rb = ReportBuilder(cover)

@@ -4,7 +4,7 @@ The developer's own statements (Google for TurboQuant, SK hynix for ITME) are ci
 from __future__ import annotations
 
 from agents.perspective import (Collected, CriterionSpec, PerspectiveSpec, apply_condition_mismatch, collect,
-                                id_conflict_warnings, match_scored, origin_sets, pro_con_sufficient, prompt, RUBRIC,
+                                id_conflict_warnings, h4_tags, local_claims, match_scored, origin_sets, pro_con_sufficient, prompt, RUBRIC,
                                 weighted)
 from graph.runtime import audit, llm_json
 from graph.state import Criterion, PerspectiveResult, TechAssessment
@@ -90,7 +90,8 @@ def assess(t, col: Collected, tag: str) -> TechAssessment:
     scored = [e for e in col.evidence if e.origin_group not in exclude]
     conf = "high" if len(pro_o) >= 2 and len(con_o) >= 2 else ("mid" if pro_o and con_o else "low")
     conf, lim = apply_condition_mismatch(crit, col, conf, lim)
-    return TechAssessment(
+    co, ad = h4_tags(col)
+    return TechAssessment(co_use_ids=co, adopter_ids=ad, claims=local_claims(col),
         criteria=crit, score=weighted(crit), summary=data.get("summary", ""),
         pro_ids=sorted({i for c in crit for i in c.pro_ids}), con_ids=sorted({i for c in crit for i in c.con_ids}),
         limitations=lim, confidence=conf,

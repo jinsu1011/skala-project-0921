@@ -15,7 +15,8 @@ SPEC = PerspectiveSpec(
     rounds=[
         [("pro", "{sn} long context inference throughput latency results"),
          ("pro", "{sn} multi-turn serving concurrency memory capacity"),
-         ("con", "{sn} accuracy degradation latency overhead integration")],
+         ("con", "{sn} accuracy degradation latency overhead integration"),
+         ("neutral", "{sn} used together with KV cache compression or memory offloading in serving systems")],
         [("con", "{sn} criticism skeptical accuracy loss"),
          ("con", "{sn} limitations production serving challenges"),
          ("pro", "{sn} benchmark serving cost reduction")],
