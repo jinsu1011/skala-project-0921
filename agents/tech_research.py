@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 
 from agents.perspective import (Collected, CriterionSpec, PerspectiveSpec, collect, id_conflict_warnings, prompt)
-from graph.runtime import audit, llm_json
+from graph.runtime import audit, config, llm_json
 from graph.state import (Criterion, PerspectiveResult, SelectionCheck, SelectionValidation, TechAssessment, TechBrief)
 from tools.evidence import developer_groups
 from tools.paper_retrieve import search_papers
@@ -27,6 +27,8 @@ JSON: {{"checks": [{{"name": "same_problem", "passed": true, "rationale": "...",
 
 BRIEF_SYS = """너는 기술 조사 에이전트이다. 주어진 원 논문 청크만 보고 기술 개요를 정리한다. 시장·이해관계자는 판단하지 않는다.
 항목: principle(작동 원리), scope(적용 범위·적용 시점), conditions(실험 조건: 모델, 문맥 길이, HW, 기준선), reported_results(보고된 성능과 그 조건), limitations(논문에서 확인되는 한계·다루지 않은 부분).
+conditions는 LLM 추론의 KV cache 실험 조건을 먼저 쓰고, 다른 용도의 실험(예: 임베딩 벡터 최근접 이웃 검색)은 "별도 실험:"으로 구분해 쓴다.
+limitations에는 이 기술 자체의 한계만 쓴다. 비교 대상(기준선·다른 방법)의 한계는 쓰지 않는다.
 각 항목은 한국어 2~3문장이고 문장마다 [근거 ID]를 붙인다. 근거에 없는 수치·주장은 쓰지 않는다. 우열·추천 표현을 쓰지 않는다.
 JSON: {"principle": "...", "scope": "...", "conditions": "...", "reported_results": "...", "limitations": "...", "evidence_ids": ["P:..."]}"""
 
@@ -111,6 +113,7 @@ TRL_SYS = """너는 기술 조사 에이전트의 TRL 추정 담당이다. 아�
 low_ids에는 하한을 뒷받침하는 근거 ID, high_ids에는 상한을 뒷받침하는 근거 ID를 적는다. 두 기술에 같은 규칙을 쓴다. 우열·추천 표현을 쓰지 않는다.
 ladder_rows: 판단에 쓴 근거마다 {{"stage": 단계 숫자, "evidence_id": "...", "note": "한국어 한 문장"}}.
 summary: 추정 결과와 이유를 한국어 2~3문장으로(문장마다 [근거 ID]).
+발표·계획·예정 표현은 근거 자료의 날짜를 함께 적는다(예: "2026-03 자료 기준 ~ 예정"). 보고서 작성일({today}) 이전 시점의 계획이면 "이후 공개 여부는 확인되지 않았다"로 쓴다.
 JSON: {{"trl_low": 4, "trl_high": 5, "low_ids": ["..."], "high_ids": ["..."], "ladder_rows": [...], "summary": "...", "limitations": ["..."]}}"""
 
 
@@ -122,7 +125,7 @@ def _trl_sufficient(exclude):
 
 
 def trl_assess_tech(t, col: Collected, tag: str) -> TechAssessment:
-    data = llm_json("generator", TRL_SYS.format(ladder=prompt("trl_ladder_c4.md")),
+    data = llm_json("generator", TRL_SYS.format(ladder=prompt("trl_ladder_c4.md"), today=config()["team"]["submit_date"]),
                     json.dumps({"technology": t.name, "developer": t.developer, "evidence": [
                         {"id": e.evidence_id, "origin": e.origin_group, "kind": e.kind, "date": e.published_at,
                          "claim": e.claim or e.summary[:300]} for e in sorted(col.evidence, key=lambda x: x.evidence_id)]},

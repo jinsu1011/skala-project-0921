@@ -1,0 +1,65 @@
+{
+ "query": "\"Inference Tiered Memory Expansion\" evaluation analysis",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:44:55+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "To isolate the impact of weight prefetching from prefix KV cache prefetching, we evaluate the performance of ITME by prefetching model weights only. We employ the Mooncake workload with a batch size of 16 and a 4K input sequence length. The primary objective of this evaluation is to demonstrate how closely ITME matches the host memory baseline, where all weights reside in host DRAM. Since the baseline represents the theoretical performance upper bound, this analysis focuses on the efficiency of [...] Models and Datasets. We evaluate the system using Llama-3.1 8B and 70B models to demonstrate the scalability of our architecture across different model scales. The evaluation utilizes the ShareGPT dataset (Kwon et al., 2023) to construct multi-turn conversation workloads with diverse sequence lengths. Furthermore, we conduct a specialized case study using the Mooncake dataset (Qin et al., 2025) to analyze the system’s behavior. These datasets enable us to measure the system’s effectiveness in [...] Empirical Potential Analysis and FPGA Prototyping: We validate ITME by evaluating its performance potential using production-grade SK hynix CMM (SK hynix, 2024) and Gen5 NVMe SSDs (KIOXIA, 2024), while further demonstrating functional feasibility through an FPGA-based hardware prototype. Our evaluation shows that ITME achieves a throughput improvement over NVMe-oF-based disaggregated storage baselines in large-scale LLM inference.\n\n## 2. Background and Motivation",
+   "published_date": null,
+   "score": 0.826278
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2606.12556",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories | alphaXiv",
+   "content": "This paper proposes a disaggregated, KVCache-centric architecture aimed at reducing recomputation, which directly aligns with ITME's objective of creating an efficient shared context tier. The relevance is further highlighted by the fact that the ITME paper uses the Mooncake workload in its evaluation to analyze the performance of its weight prefetching mechanism. [...] ITME System Architecture Figure 3: The ITME system architecture integrated with a GPU server, showing the staging buffers and the remote manager coordination.\n\n## Empirical Results and Performance\n\nThe effectiveness of ITME was evaluated using Llama-3.1 models (8B and 70B) across various datasets. The results highlight how tiered memory expansion can outperform traditional recomputation or standard storage-based offloading.\n\n### Performance against Recomputation [...] architectures accelerates NVMe-over-fabrics (NVMe-oF) target processing, the need for sophisticated software-level optimization and cost-efficiency burdens remain significant. Consequently, the ideal architecture for scaling this shared context infrastructure is still an active area of exploration. In this paper, we propose ITME (Inference Tiered Memory Expansion), which leverages a CXL-hybrid memory to present a massive, TB-scale byte-addressable remote memory expansion. This approach enables",
+   "published_date": null,
+   "score": 0.69746524
+  },
+  {
+   "url": "https://vtechworks.lib.vt.edu/bitstreams/64d13a5f-4f89-4756-86bc-4cb90dad570f/download",
+   "title": "Analysis of Memory Access Patterns for Large Language ...",
+   "content": "Analysis of Memory Access Patterns for Large Language Model In-ference Max H. Fisher (GENERAL AUDIENCE ABSTRACT) Scientific computing often involves running programs with very large memory footprints that might not fit in the available memory for the system on which they run. Because expanding the available memory on a system can be expensive, tiered memory systems, which provide the illusion of a fast and large memory by storing some data in regular small, expensive, and fast memory (DRAM) and [...] Inference Copyright 2025, Max H. Fisher Analysis of Memory Access Patterns for Large Language Model In-ference Max H. Fisher (ABSTRACT) The use of tiered heterogeneous memory systems in HPC workloads is growing in popularity as the increasing memory requirements for these workloads outpace the decline in the cost-per-gigabyte of fast DRAM; however, the Linux kernel has no intelligent strategy to manage these tiered memory systems. Because of this limitation, a great deal of research has been [...] For such a strategy to be implemented for an LLM inference workload, as was explored in Chapter 4, it would require an ML platform team to run a system with heterogeneous tiered memory. The platform team would conduct the analysis described in Chapter 3.2 to identify the access patterns and remote access patterns unique to their system and environment.",
+   "published_date": null,
+   "score": 0.4787
+  },
+  {
+   "url": "https://www.youtube.com/shorts/5mH7-p3FY8c",
+   "title": "Hot Take: Tiered Memory Wins Inference",
+   "content": "Hot Take: Tiered Memory Wins Inference. Why Goodput Matters More Than Throughput *.",
+   "published_date": null,
+   "score": 0.3339163
+  },
+  {
+   "url": "https://pasalabs.org/papers/2025/HPCA25_DLRM.pdf",
+   "title": "Machine Learning-Guided Memory Optimization for DLRM ...",
+   "content": "2025 IEEE International Symposium on High-Performance Computer Architecture (HPCA) Machine Learning-Guided Memory Optimization for DLRM Inference on Tiered Memory Jie Ren†,∗, Bin Ma‡,∗, Shuangyan Yang‡, Benjamin Francis§, Ehsan K. Ardestani§, Min Si§, and Dong Li‡ William & Mary†, Meta§, University of California, Merced‡ {jren03}@wm.edu, {bf0428, ehsanardestani, msi}@meta.com, {bma100, syang127, dli35}@ucmerced.edu Abstract—Deep learning recommendation models (DLRMs) are widely used in industry, [...] Note that our performance model reflects the best-case performance for most baseline strategies, as it does not account for their additional decision-making overheads. For example, Mockingjay, Hawkeye, Berti and BOP require both extra metadata storage space and lookup time. Given the limited tiered memory capacity in DLRM inference scenario, these metadata storage and lookup overheads can significantly im-pact performance. [...] Strategy Utilization Rate (geomean) Total Prefetches (arith mean) Prefetch Hits (arith mean) Berti + LRU 6% 12M 0.8M Mab + LRU 5% 10M 0.6M BOP + LRU 12% 3M 0.7M BOP + CM 9% 3M 0.3M RecMG 35% 2M 1M F. Speedup of End-to-End DLRM Inference Real-world DLRM performance evaluation. We evaluate the inference time of DLRM using different buffer manage-ment solutions. We set the DLRM inference batch size to 512, involving over 600K embedding vectors in one batch.",
+   "published_date": null,
+   "score": 0.3090972
+  },
+  {
+   "url": "https://www.weka.io/video/inference-is-eating-memory-and-tokens-now-run-ai-economics",
+   "title": "Inference Is Eating Memory, and Tokens Now Run AI Economics",
+   "content": "### NAND flash tiering for inference: SLC endurance vs. QLC capacity tradeoffs [...] ### Inside the four-tier memory hierarchy and why real AI workloads break it [...] WEKA is very much following that trend. WEKA has a great legacy of high-performance computing storage, but the new tagline for the company — data and memory infrastructure — reflects the fact that, at a first-principles basis, inference is not storage-centric. Inference is a little compute-centric, as we know, for prefill, and extremely memory-bound for decode and feed-forward. That’s really where WEKA Augmented Memory Grid fits in: You can use it as an inference-only product without any WEKA",
+   "published_date": null,
+   "score": 0.2167322
+  },
+  {
+   "url": "https://link.springer.com/article/10.1007/s10462-026-11651-1",
+   "title": "I/o for LLM inference: a survey of storage and memory bottlenecks | Artificial Intelligence Review | Springer Nature Link",
+   "content": "The analysis so far has been grounded in today’s hardware. But the memory hierarchy is not standing still, and some of the trends are not encouraging for inference.\n\n### 7.1 HBM bandwidth scaling: the widening gap\n\nFig. 4 [...] I/O equations under UMA.\n\nThe tiered-bandwidth assumption (\\(\\beta \\_\\text {HBM} \\gg \\beta \\_\\text {PCIe} \\gg \\beta \\_\\text {SSD}\\)) collapses to two tiers—unified DRAM and on-chip caches—with a single bandwidth \\(\\beta \\_\\text {UMA}\\): [...] TB/s for HBM to about 900 GB/s for NVLink or about 50 GB/s for InfiniBand. Treating the network as a relocation of \\(\\mathcal {W}/\\mathcal {K}/\\mathcal {A}\\) across tiers, rather than as a fourth category, keeps the framework closed. The roofline analysis applies unchanged once the link bandwidth is substituted for \\(\\beta \\), and the same two levers carry over, namely compressing the bytes and raising reuse to amortize the slower link. Concretely, the PD KV transfer is part of \\(\\mathcal {K}\\)",
+   "published_date": null,
+   "score": 0.16603917
+  },
+  {
+   "url": "https://dl.acm.org/doi/10.1145/3701997",
+   "title": "Optimizing Memory-Aware Model Inference for Edge ...",
+   "content": "We aim to optimize operator execution to maximize available memory during model inference, expanding efficiency optimization opportunities.",
+   "published_date": null,
+   "score": 0.097984545
+  }
+ ]
+}

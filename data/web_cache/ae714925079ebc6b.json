@@ -1,0 +1,23 @@
+{
+ "query": "limitations and challenges of InfiniGen KV cache in InfiniGen technology including accuracy degradation, compatibility issues, and performance decline in real deployment environments from diverse independent sources and community discussions",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:01:55+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "In addition to the well-studied challenge of the model size, deploying LLMs now\nencounters a new challenge due to the substantial footprint of the transient\nstate, referred to as the key-value (KV) cache, during long context\nprocessing and generation.\nFor generative LLM inference, the keys and values of all preceding tokens are\nstored in memory to avoid redundant and repeated computation. Unlike the\nmodel weights, however, the KV cache scales with the output sequence length, [...] address the challenges in KV cache management below and thus have subpar\nperformance with offloading-based inference systems. [...] Summary.\nPrior works aiming to reduce the KV cache size through token eviction\ninherently have some challenges.\nGiven the dynamic attention pattern across iterations, permanently excluding\nevicted tokens from future token generation can result in a non-negligible drop\nin accuracy.\nInstead, we need to dynamically select critical tokens from the KV cache\nwhile avoiding the outright eviction of less important ones.\nFurthermore, the fixed size of the KV cache budget in prior works leads to",
+   "published_date": null,
+   "score": 0.5332765
+  },
+  {
+   "url": "https://arxiv.org/abs/2406.19707",
+   "title": "[2406.19707] InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.\n\nHave an idea for a project that will add value for arXiv's community? Learn more about arXivLabs.\n\nSimons Foundation\nSimons Foundation International\nSchmidt Sciences [...] ## Access Paper:\n\nlicense icon\n\n### Current browse context:\n\n### References & Citations\n\n## BibTeX formatted citation\n\n### Bookmark\n\nBibSonomy\nReddit\n\n# Bibliographic and Citation Tools\n\n# Code, Data and Media Associated with this Article\n\n# Demos\n\n# Recommenders and Search Tools\n\n# arXivLabs: experimental projects with community collaborators\n\narXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. [...] archive\n\n# Computer Science > Machine Learning\n\n# Title:InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n|  |  |\n --- |\n| Comments: | OSDI 2024 |\n| Subjects: | Machine Learning (cs.LG); Distributed, Parallel, and Cluster Computing (cs.DC) |\n| Cite as: | arXiv:2406.19707 [cs.LG] |\n|  | (or  arXiv:2406.19707v1 [cs.LG] for this version) |\n|  |  Focus to learn more  arXiv-issued DOI via DataCite |\n\n## Submission history\n\n## Access Paper:",
+   "published_date": null,
+   "score": 0.2130499
+  }
+ ]
+}

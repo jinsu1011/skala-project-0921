@@ -1,0 +1,65 @@
+{
+ "query": "TurboQuant limitations independent review KV cache quantization drawbacks third-party evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:08:49+09:00",
+ "results": [
+  {
+   "url": "https://kaitchup.substack.com/p/turboquant-finally-fast-and-widely",
+   "title": "TurboQuant: Finally, Fast and Widely Available Low-Bit KV Cache Quantization?",
+   "content": "A second limitation is that the evaluation only uses older models, namely Ministral and Llama 3.1 8B.\n\nThe third issue is that the baselines are also quite old. Most of the newer methods, for instance, the numerous ones presented at NeurIPS 2025, are absent from the comparisons.\n\nSo we don’t really know how good it is for newer models, think hybrid like Qwen3.5, and compared to other recent methods. [...] Note: Several early implementations are converging on the view that the drop-in cache format should usually start with the MSE stage alone, while the QJL residual is more natural when you also own the attention kernel and can consume the two-part representation directly. One independent Triton implementation reports that naively adding the QJL correction back into reconstructed cache vectors hurt quality badly, and that switching to the MSE variant fixed the issue and I’ve found that a [...] After rotation, high-dimensional unit vectors have coordinates that are much more uniform and close to independent. In practice, for typical attention head sizes, the coordinates are tightly concentrated around zero and behave roughly like a Gaussian. That means a single fixed scalar codebook can work well across many KV vectors, without calibration.\n\nIn effect, TurboQuant makes hard-to-quantize KV vectors look statistically regular enough that a cheap fixed quantizer works nearly optimally.",
+   "published_date": null,
+   "score": 0.74541736
+  },
+  {
+   "url": "https://github.com/ggml-org/llama.cpp/discussions/20969",
+   "title": "TurboQuant - Extreme KV Cache Quantization · ggml-org/llama.cpp · Discussion #20969 · GitHub",
+   "content": "tbh :)   Known limitations:    No GPU kernels (CUDA/Metal/Vulkan) - CPU only  vec\\_dot does full dequant per block (not fused)  Block size 32 (paper uses 128); a 128-block variant would achieve 3.25 bpw  QJL error correction (Algorithm 2) not implemented - Algorithm 1 alone is sufficient per the paper | [...] routing (turbo3 excluded from mmvq/mmq, routed through dequant-then-cublas for MUL\\_MAT)  Build:  cmake -B build -DGGML\\_CUDA=ON -DCMAKE\\_CUDA\\_ARCHITECTURES=120 -DGGML\\_CUDA\\_FORCE\\_CUBLAS=OFF  Do not use CUDA 13.1 — MMQ kernel segfaults.  Known limitations:  turbo4 not yet ported to CUDA  FA required for turbo3 V (non-FA path materializes O(n²) attention matrix)  Only Tested on sm\\_120 | [...] EXCELLENT baseline are great independent validation though — appreciate you running these. |",
+   "published_date": null,
+   "score": 0.68318754
+  },
+  {
+   "url": "https://rocm.blogs.amd.com/artificial-intelligence/turboquant-vllm-agentic/README.html",
+   "title": "Productionizing TurboQuant on AMD GPUs for KV-Cache-Bound LLM Inference — ROCm Blogs",
+   "content": "## Limitations#\n\nWe note two primary limitations of TQ: [...] Workload-dependent performance: TurboQuant is not a universally better default in every serving regime. Its benefits are strongest when KV-cache capacity is the bottleneck. In compute-bound settings, TurboQuant can underperform BF16 due to quantization and dequantization overheads.\n Agentic workloads: Where long prefixes and high concurrency make KV-cache capacity the bottleneck, TQ 4/4 boosted cache hit rates from 5.3% to 67.7% and cut P50 TTFT from 13.9s to under 1s. [...] We make a couple of observations from Figures 14 and 15. First, we reconfirm our earlier finding that key quantization is more sensitive than value quantization. Additionally, we omitted TQ42 results due to inconsistent accuracy measures. The independent vLLM community study by Red Hat AI  reaches a compatible conclusion: their 4bit-nc preset (TQ K4/V4) stays within 1–4 points of FP8/BF16 on most benchmarks, while 3-bit variants degrade by up to ~20 points on hard reasoning tasks.",
+   "published_date": null,
+   "score": 0.609455
+  },
+  {
+   "url": "https://arxiv.org/html/2504.19874v1",
+   "title": "TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate",
+   "content": "Existing VQ algorithms present a trade-off: either they lack accelerator (vectorization) compatibility and exhibit slow computation, making them unsuitable for real-time AI applications like KV cache quantization, or they suffer from suboptimal distortion bounds relative to bit-width.\nOur objective is to introduce an algorithm that addresses these limitations. [...] We also provide a formal proof of the information-theoretic lower bounds on best achievable distortion rate by any vector quantizer, demonstrating that TurboQuant closely matches these bounds, differing only by a small constant (≈2.7\\approx 2.7) factor.\nExperimental results validate our theoretical findings, showing that for KV cache quantization, we achieve absolute quality neutrality with 3.5 bits per channel and marginal quality degradation with 2.5 bits per channel. [...] For comparison, we benchmark our approach against several state-of-the-art memory-efficient methods, including PolarQuant , SnapKV , PyramidKV , and KIVI . Each method is tested under a memory compression ratio of 0.25, meaning that only 25% of the full KV cache is utilized.",
+   "published_date": null,
+   "score": 0.5450684
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน",
+   "published_date": null,
+   "score": 0.5232017
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน",
+   "published_date": null,
+   "score": 0.5232017
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=V6rq4K2arHY",
+   "title": "TurboQuant Explained: 3-Bit KV Cache Quantization",
+   "content": "[0:46] a little, but the angles shift enough to reshuffle the soft max. That is the premise of turbo quant.\n[0:54] First build a strong course reconstruction, then add a tiny correction targeted directly at the attention score.\n[1:02] Standard quantization has two problems Turboquan is trying to fix. First is the per block metadata tax. A block of low\n[1:10] bit values often needs extra scale and zero point tags. At three bits over 128 coordinates, that overhead is already [...] [1:43] It has structure. Turboquant attacks both pieces. It avoids the usual per block scale and zero point overhead and\n[1:50] it fixes the systematic bias in the score. The first step in turboquant is preconditioning. A raw key vector is\n[1:57] often spiky. A few coordinates carry most of the energy. That makes standard quantization harder because the [...] [1:17] noticeable. Push the bit rate lower and those tags eat more of the savings.\n[1:22] Second is inner product bias. In the simplest one bit sign quantizer, each coordinate keeps only its sign. So the vector snaps to a diagonal direction and\n[1:30] its projection onto the query axis shrinks. In the toy example on screen, the expected dot product is multiplied by 2 over pi about 0.637.\n[1:41] So the error is not just random noise.",
+   "published_date": null,
+   "score": 0.51662046
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "TurboQuant เป็นอัลกอริทึมการบีบอัดเวกเตอร์ (vector compression) ใหม่ที่เปิดตัวอย่างเป็นทางการโดย Google Research ในเดือนมีนาคม 2026 โดยมีเป้าหมายเพื่อแก้ปัญหาสำคัญในขั้นตอนการประมวลผล (inference) ของโมเดลภาษาขนาดใหญ่ (LLMs) และเครื่องมือค้นหาเวกเตอร์ (vector search engines) นั่นคือการใช้หน่วยความจำมหาศาลของ Key-Value Cache (KV Cache) ทั้งนี้ รายละเอียดทางเทคนิคจะถูกเผยแพร่อย่างเป็นทางการและผ่านการพิจารณาโดยผู้ทรงคุณวุฒิในรูปแบบของบทความวิชาการในงาน ICLR 2026 (International Conference on [...] ความคิดเห็นส่วนใหญ่ในอุตสาหกรรมชี้ให้เห็นว่า อุปสรรคของโมเดลขนาดใหญ่ในปัจจุบันไม่ใช่จำนวนพารามิเตอร์ แต่คือความจุของหน่วยความจำ ยิ่งบริบทมีความยาวมากเท่าใด ปริมาณการใช้หน่วยความจำของ KV Cache ก็จะยิ่งมากขึ้นเท่านั้น จนในที่สุดก็ถึงขีดจำกัดของฮาร์ดแวร์ก่อนที่พารามิเตอร์ของโมเดลจะถึงเสียอีก ซึ่งถือเป็นปัญหาหลักที่พบร่วมกันในงานต่างๆ เช่น การสร้างข้อความขนาดยาว และการทำความเข้าใจเอกสารที่มีความยาวมาก\n\nความสำเร็จที่ก้าวล้ำของ TurboQuant เข้ามาช่วยแก้ไขปัญหาดังกล่าวได้โดยตรง [...] ในระหว่างกระบวนการประมวลผลของโมเดลภาษาขนาดใหญ่ KV Cache จะทำหน้าที่เป็น \"สมุดบันทึกชั่วคราว\" ของโมเดล โดยบทสนทนาทุกรอบและส่วนของข้อความที่ป้อนเข้ามาจะถูกแปลงเป็นเวกเตอร์หลายมิติและจัดเก็บไว้ชั่วคราวเพื่อให้ข้อมูลบริบทสำหรับขั้นตอนการประมวลผลถัดไป เพื่อให้มั่นใจในความแม่นยำของการประมวลผล โดยทั่วไปแล้วโซลูชันแบบดั้งเดิมจะจัดเก็บข้อมูลเวกเตอร์ในรูปแบบทศนิยม 16 บิต (FP16/BF16) อย่างไรก็ตาม เมื่อความยาวของบทสนทนาเพิ่มขึ้นหรือขนาดของข้อความขยายตัว KV Cache จะใช้หน่วยความจำแบนด์วิดท์สูง",
+   "published_date": null,
+   "score": 0.5071046
+  }
+ ]
+}

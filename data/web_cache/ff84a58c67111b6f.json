@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen KV cache technology maturity site:github.com OR site:huggingface.co OR site:mlr.press OR site:turbo-quant.com latest deployment integration case study",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:55:53+09:00",
+ "results": [
+  {
+   "url": "https://huggingface.co/papers?q=JVP+kernel",
+   "title": "Daily Papers - Hugging Face",
+   "content": "requests compete for limited memory resources. Even though several recent frameworks for KV cache management have emerged, their comparative trade-offs in memory consumption and inference performance have not been fully understood, especially under varying request sizes and model configurations. In this work, we conduct an empirical study of three state-of-the-art KV cache management frameworks: vLLM, InfiniGen, and H2O. These frameworks employ techniques such as tensor offloading, token [...] has thus become a first-order challenge for scalable LLM deployment. This paper provides a systematic review of recent KV cache optimization techniques, organizing them into five principal directions: cache eviction, cache compression, hybrid memory solutions, novel attention mechanisms, and combination strategies. For each category we analyze the underlying mechanisms, deployment trade-offs, and empirical performance across memory reduction, throughput, and model accuracy metrics. We further [...] hardware accelerator with a dynamic KV cache retrieval engine (DRE), featuring bit-level and early-exit based computing units. V-Rex achieves unprecedented real-time of 3.9-8.3 FPS and energy-efficient streaming video LLM inference on edge deployment with negligible accuracy loss. While DRE only accounts for 2.2% power and 2.0% area, the system delivers 1.9-19.7x speedup and 3.1-18.5x energy efficiency improvements over AGX Orin GPU. This work is the first to comprehensively tackle KV cache",
+   "published_date": null,
+   "score": 0.3795859
+  },
+  {
+   "url": "https://github.com/inpluslab-wuhui/Systems-for-Foundation-Models",
+   "title": "GitHub - inpluslab-wuhui/Systems-for-Foundation-Models · GitHub",
+   "content": "[prefetch kv cache] InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management. Wonbeom Lee, Jungi Lee, Junghwan Seo, Jaewoong Sim. osdi'24\n\n## SOSP\n\n[pipeline parallelism] PipeDream: generalized pipeline parallelism for DNN training. Deepak Narayanan, Aaron Harlap, Amar Phanishayee, Vivek Seshadri, Nikhil R. Devanur, Gregory R. Ganger, Phillip B. Gibbons, Matei Zaharia. SOSP'19 [...] [reuse of kv caches across conversations] Cost-Efficient Large Language Model Serving for Multi-turn Conversations with CachedAttention. Bin Gao, Zhuomin He, Puru Sharma, Qingxuan Kang, Djordje Jevdjic, Junbo Deng, Xingkun Yang, Zhou Yu, Pengfei Zuo. 24\n\n[prefetch kv cache] InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management. Wonbeom Lee, Jungi Lee, Junghwan Seo, Jaewoong Sim. 24 [...] [overlap all-to-all] Shortcut-connected Expert Parallelism for Accelerating Mixture-of-Experts. Weilin Cai, Juyong Jiang, Le Qin, Junwei Cui, Sunghun Kim, Jiayi Huang. 24\n\n[compute and load kv cache] Compute Or Load KV Cache? Why Not Both?. Shuowei Jin, Xueshen Liu, Qingzhao Zhang, Z. Morley Mao. 24",
+   "published_date": null,
+   "score": 0.29500186
+  },
+  {
+   "url": "https://github.com/byungsoo-oh/ml-systems-papers",
+   "title": "GitHub - byungsoo-oh/ml-systems-papers: Curated collection of papers in machine learning systems · GitHub",
+   "content": "[OSDI'24] MonoNN: Enabling a New Monolithic Optimization Space for Neural Network Inference Tasks on Modern GPU-Centric Architectures\n\n[OSDI'24] Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve\n\n[OSDI'24] ServerlessLLM: Low-Latency Serverless Inference for Large Language Models\n\n[OSDI'24] InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n[OSDI'24] Llumnix: Dynamic Scheduling for Large Language Model Serving [...] [MICRO'25] Kelle: Co-design KV Caching and eDRAM for Efficient LLM Serving in Edge Computing\n\n[CLUSTER'25] Scalable and Fast Inference Serving via Hybrid Communication Scheduling on Heterogeneous Networks\n\n[CLUSTER'25] Rock: Serving Multimodal Models in Cloud with Heterogeneous-Aware Resource Orchestration for Thousands of LoRA Adapters\n\n[Survey 🔍] [ACM CSUR'25] Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems [...] [SOSP'24] Improving DNN Inference Throughput Using Practical, Per-Input Compute Adaptation\n\n[SOSP'24] Apparate: Rethinking Early Exits to Tame Latency-Throughput Tensions in ML Serving\n\n[ICPP'24] GMM: An Efficient GPU Memory Management-based Model Serving System for Multiple DNN Inference Models\n\n[SIGCOMM'24] CacheGen: KV Cache Compression and Streaming for Fast Large Language Model Serving",
+   "published_date": null,
+   "score": 0.28600517
+  },
+  {
+   "url": "https://github.com/xlite-dev/Awesome-LLM-Inference",
+   "title": "GitHub - xlite-dev/Awesome-LLM-Inference: 📚A curated list of Awesome LLM/VLM Inference Papers with Codes: Flash-Attention, Paged-Attention, WINT8/4, Parallelism, etc.🎉 · GitHub",
+   "content": "| 2024.06 | 🔥[LOOK-M] LOOK-M: Look-Once Optimization in KV Cache for Efficient Multimodal Long-Context Inference(@osu.edu etc) | ( | ( | ⭐️⭐️ |\n| 2024.06 | 🔥🔥[MInference] MInference 1.0: Accelerating Pre-filling for Long-Context LLMs via Dynamic Sparse Attention(@Microsoft etc) | ( | ( | ⭐️⭐️ |\n| 2024.06 | 🔥🔥[InfiniGen] InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management(@snu) | ( | ⚠️ | ⭐️⭐️ | [...] | 2023.12 | [OpenVINO] Leveraging Speculative Sampling and KV-Cache Optimizations Together for Generative AI using OpenVINO(@Haim Barad etc) | ( | ⚠️ | ⭐️ |\n| 2024.03 | [FlightLLM] FlightLLM: Efficient Large Language Model Inference with a Complete Mapping Flow on FPGAs(@Infinigence-AI) | ( | ⚠️ | ⭐️ |\n| 2024.03 | [Transformer-Lite] Transformer-Lite: High-efficiency Deployment of Large Language Models on Mobile Phone GPUs(@OPPO) | ( | ⚠️ | ⭐️ | [...] | 2023.09 | [KV Cache FP8 + WINT4] Exploration on LLM inference performance optimization(@HPC4AI) | ( | ⚠️ | ⭐️ |\n| 2023.10 | 🔥[TensorRT-LLM KV Cache FP8] NVIDIA TensorRT LLM(@NVIDIA) | ( | ( | ⭐️⭐️ |\n| 2023.10 | 🔥[Adaptive KV Cache Compress] MODEL TELLS YOU WHAT TO DISCARD: ADAPTIVE KV CACHE COMPRESSION FOR LLMS(@illinois.eduµsoft) | ( | ⚠️ | ⭐️⭐️ |\n| 2023.10 | [CacheGen] CacheGen: Fast Context Loading for Language Model Applications(@Chicago University&Microsoft) | ( | ( | ⭐️ |",
+   "published_date": null,
+   "score": 0.22451457
+  },
+  {
+   "url": "https://github.com/chenhongyu2048/LLM-inference-optimization-paper",
+   "title": "GitHub - chenhongyu2048/LLM-inference-optimization-paper: Summary of some awesome work for optimizing  LLM inference · GitHub",
+   "content": "P/D-Serve: Serving Disaggregated Large Language Model at Scale: a P/D based system, with D2D access optimization\n\nInfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management: offload KV Cache\n\nKeep the Cost Down: A Review on Methods to Optimize LLM' s KV-Cache Consumption: a survey for optimizing KV Cache\n\nvTensor: Flexible Virtual Tensor Management for Efficient LLM Serving: tensor management especially for llm inference [...] Token-Picker: Accelerating Attention in Text Generation with Minimized Memory Transfer via Probability Estimation: remove unimportant tokens in KV Cache\n\nCacheGen: KV Cache Compression and Streaming for Fast Large Language Model Serving: compression and streaming transfering of KV Cache, accepted by SIGCOMM'24\n\nCompute Or Load KV Cache? Why Not Both?: recompute and load together for long context [...] MCaM: Efficient LLM Inference with Multi-tier KV Cache Management: use DRAM to store history KV cache, accepted by ICDCS'25\n\nKVCache Cache in the Wild: Characterizing and Optimizing KVCache Cache at a Large Cloud Provider: systematic characterization of the KV$ workload patterns from Aliyun, accepted by ATC'25",
+   "published_date": null,
+   "score": 0.2118245
+  },
+  {
+   "url": "https://huggingface.co/papers?q=DRAM+accesses",
+   "title": "Daily Papers - Hugging Face",
+   "content": "### MemFold: Learning Compact Soft Memory for Long-Context Personalization via On-Policy Optimization\n\n### JevSpawn: Adaptive Agentic Inference through Compositional Action Spaces\n\n### When Does Correction Become Repair? Mechanistic Auditing of Internal Interventions in Tool-Using LLMs\n\nUniversityofBirmingham\n\n### Prefill-Free Cross-Family KV Cache Transfer for Heterogeneous Multi-Agent LLMs\n\nUniversityofSouthernCalifornia\n\n### Controlled Decoding Attacks on Black-Box LLMs [...] Hugging Face's logo\n\nGet trending papers in your email inbox once a day!\n\nGet trending papers in your email inbox!\n\n# Daily Papers\n\n## byAK and the research community\n\n### OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction\n\nNJU\n\n### On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics\n\nCambUni\n\n### Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL\n\ntencent",
+   "published_date": null,
+   "score": 0.0842289
+  },
+  {
+   "url": "https://huggingface.co/papers?q=Unity+Engine",
+   "title": "Daily Papers - Hugging Face",
+   "content": "### MemFold: Learning Compact Soft Memory for Long-Context Personalization via On-Policy Optimization\n\n### JevSpawn: Adaptive Agentic Inference through Compositional Action Spaces\n\n### When Does Correction Become Repair? Mechanistic Auditing of Internal Interventions in Tool-Using LLMs\n\nUniversityofBirmingham\n\n### Prefill-Free Cross-Family KV Cache Transfer for Heterogeneous Multi-Agent LLMs\n\nUniversityofSouthernCalifornia\n\n### Controlled Decoding Attacks on Black-Box LLMs [...] Hugging Face's logo\n\nGet trending papers in your email inbox once a day!\n\nGet trending papers in your email inbox!\n\n# Daily Papers\n\n## byAK and the research community\n\n### OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction\n\nNJU\n\n### On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics\n\nCambUni\n\n### Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL\n\ntencent",
+   "published_date": null,
+   "score": 0.0842289
+  },
+  {
+   "url": "https://huggingface.co/papers?q=frameworks",
+   "title": "Daily Papers - Hugging Face",
+   "content": "AbhiVakil29112001\n\n### Explore Broadly, Reason Sharply: Push Small Models toward the Frontier via Sampling\n\nmorganstanley\n\n### Prefill-Free Cross-Family KV Cache Transfer for Heterogeneous Multi-Agent LLMs\n\nUniversityofSouthernCalifornia\n\n### Does Native 3D Texture Generation Necessarily Require 3D Assets for Training?\n\nTencent-Hunyuan\n\n### Personalized Image Generation with Reasoning and Reflection\n\n### FlexRouter: Learning Complementary Model Sets for Flexible LLM Routing [...] Hugging Face's logo\n\nGet trending papers in your email inbox once a day!\n\nGet trending papers in your email inbox!\n\n# Daily Papers\n\n## byAK and the research community\n\n### On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics\n\nCambUni\n\n### OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction\n\nNJU\n\n### GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis\n\nustc-community [...] Technion\n\n### Devils in Question Relay: Source-Conditioned Relay Steering to Mitigate Hallucinations in Audio-visual Large Language Models\n\n### KaliBench: A Fine-Grained Benchmark for Cybersecurity Tool Use on Kali Linux with Runtime-Free Verifiable Rewards\n\nRISys-Lab\n\n### Prompt2Skill: Unsupervised Skill Optimization From Natural Language Instructions\n\n### Rules to Tools: Executable Checks for LLM Agents in Scientific Computing\n\nAbhiVakil29112001",
+   "published_date": null,
+   "score": 0.077944875
+  }
+ ]
+}

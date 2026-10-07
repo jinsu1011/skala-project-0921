@@ -17,7 +17,7 @@ from langchain_core.tools import tool
 
 from graph.runtime import ROOT, OfflineCacheMiss, now, rt
 from graph.state import Evidence
-from tools.evidence import classify_url, web_id
+from tools.evidence import classify_url, low_quality, own_paper_group, web_id
 
 WEB_CACHE = ROOT / "data" / "web_cache"
 TAVILY_URL = "https://api.tavily.com/search"
@@ -82,14 +82,15 @@ def search_web(query: str, days: Optional[int] = None, stance: str = "neutral", 
     out = []
     for x in tavily(query, days=days, max_results=max_results):
         url = x.get("url") or ""
-        if not url or not readable(x.get("title", ""), x.get("content", "")):
+        if not url or low_quality(url) or not readable(x.get("title", ""), x.get("content", "")):
             continue
         group, cls = classify_url(url)
+        origin = own_paper_group(url, tech) or group
         out.append(Evidence(
             evidence_id=web_id(url), kind="web", summary=(x.get("content") or "")[:1200], source_url=url,
             title=(x.get("title") or "").strip(), publisher=group, published_at=(x.get("published_date") or "")[:10],
             tech=tech, perspectives=[perspective] if perspective else [], stances=[stance] if stance in
-            ("pro", "con", "neutral") else [], source_class=cls, source_group=group, origin_group=group,
+            ("pro", "con", "neutral") else [], source_class=cls, source_group=group, origin_group=origin,
             attempt=attempt))
     return out
 

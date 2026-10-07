@@ -1,0 +1,65 @@
+{
+ "query": "market analysis report on KIVI KV cache technology adoption and growth potential in the industry",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:01:14+09:00",
+ "results": [
+  {
+   "url": "https://growthmarketreports.com/report/kv-cache-offloading-infrastructure-market",
+   "title": "KV-Cache Offloading Infrastructure Market Research Report 2033",
+   "content": "The KV-Cache Offloading Infrastructure market presents substantial opportunities for growth, particularly as enterprises across industries accelerate their adoption of AI and high-performance computing. One of the most significant opportunities lies in the integration of KV-cache offloading solutions with next-generation AI models and edge computing platforms. Organizations that can deliver scalable, low-latency cache management solutions tailored to the unique requirements of AI and edge [...] The End-User segment in the KV-Cache Offloading Infrastructure market includes IT & telecommunications, BFSI, healthcare, retail, government, and other industries, each with distinct requirements and adoption drivers. The IT & telecommunications sector is the largest end-user, leveraging KV-cache offloading solutions to support the rapid growth of AI-powered services, real-time analytics, and high-performance networking. Telecom operators are deploying advanced cache management infrastructure [...] The BFSI sector is a significant adopter of KV-cache offloading infrastructure, driven by the need for real-time fraud detection, risk analytics, and personalized customer experiences. Financial institutions are leveraging advanced cache management solutions to accelerate AI and machine learning workloads, ensure regulatory compliance, and enhance data security. The growing adoption of digital banking, mobile payments, and blockchain technologies is further fueling demand for robust KV-cache",
+   "published_date": null,
+   "score": 0.83710164
+  },
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm, named KIVI. With the hardware-friendly implementation, KIVI can enable Llama (Llama-2), Falcon, and Mistral models to maintain almost the same quality while using 2.6$\\times$ less peak memory usage (including the model weight). This reduction in memory usage enables up to 4x larger batch size, bringing $2.35 \\times \\sim 3.47 \\times$ throughput on real LLM inference workload.} }` [...] Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix}, volume = {235}, series = {Proceedings of Machine Learning Research}, month = {21--27 Jul}, publisher = {PMLR}, pdf = { url = { abstract = {Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed [...] study on the element distribution in KV cache of popular LLMs. Our findings indicate that the key cache should be quantized per-channel, i.e., group elements along the channel dimension and quantize them together. In contrast, the value cache should be quantized per-token. From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm, named KIVI. With the hardware-friendly implementation, KIVI can enable Llama (Llama-2), Falcon, and Mistral models to maintain almost the",
+   "published_date": null,
+   "score": 0.47811517
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "group elements along the channel dimension and quantize them together. In contrast, the value cache should be quantized per-token. From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm named KIVI. With hardware-friendly implementation, KIVI can enable Llama, Falcon, and Mistral models to maintain almost the same quality while using 2.6× less peak memory (including model weight). This reduction in memory usage enables up to 4× larger batch size, bringing [...] The algorithm's compatibility with existing infrastructure and quantization techniques facilitates rapid adoption in current serving stacks, while its tuning-free nature eliminates the need for expensive retraining procedures. This positions KIVI as a practical solution for immediate deployment while establishing a foundation for more sophisticated compression techniques in future work.\n\nFlexgen: High-throughput generative inference of large language models with a single gpu [...] KIVI represents a significant advancement in efficient LLM inference by successfully implementing tuning-free 2-bit KV cache quantization with minimal accuracy loss. The work's data-driven methodology—first analyzing distribution patterns, then designing quantization strategies based on these insights—provides a robust foundation for future research in cache compression.",
+   "published_date": null,
+   "score": 0.46599558
+  },
+  {
+   "url": "https://arxiv.org/html/2402.02750v2",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "In this paper, we systematically analyze KV cache element distribution in popular LLMs.\nWe conclude that key cache should be quantized per-channel and value cache should be quantized per token.\nBased on these observations, we propose KIVI, a plug-and-play 2bit KV cache quantization algorithm without the need for any tuning. In real LLM workload, KIVI allows up to 𝟒×\\mathbf{4\\times} larger batch sizes and 3.47×\\mathbf{3.47\\times} throughput. [...] |  |  |  |\n --- \n| Llama-2-13B | K Per-Token | K Per-Channel |\n| Avg. ‖𝑿K−𝑿K′𝑿K‖F\\|\\frac{{\\bm{X}}\\_{K}-{\\bm{X}}\\_{K}^{\\prime}}{{\\bm{X}}\\_{K}}\\|\\_{F} | 13.67 | 4.55 |\n| Avg. ‖𝑨−𝑨′𝑨‖F\\|\\frac{{\\bm{A}}-{\\bm{A}}^{\\prime}}{{\\bm{A}}}\\|\\_{F} | 47.00 | 9.60 |\n| Attention sparsity | 84.3% | |\n|  | V Per-Token | V Per-Channel |\n| Avg. ‖𝑿V−𝑿V′𝑿V‖F\\|\\frac{{\\bm{X}}\\_{V}-{\\bm{X}}\\_{V}^{\\prime}}{{\\bm{X}}\\_{V}}\\|\\_{F} | 4.57 | 3.73 |\n| Avg. Δ\\Delta | 3.55 | 49.89 |\n\n##### Analysis of Value Cache. [...] To fill the gap, we conducted a comprehensive study on the element distribution in KV cache of popular LLMs. Our findings indicate that the key cache should be quantized per-channel, i.e., group elements along the channel dimension and quantize them together. In contrast, the value cache should be quantized per-token. From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm named KIVI. With hardware-friendly implementation, KIVI can enable Llama, Falcon, and Mistral",
+   "published_date": null,
+   "score": 0.43079433
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI/blob/main/README.md",
+   "title": "KIVI/README.md at main · jy-yuan/KIVI · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] [2024.06.07]: 🎉 KIVI largely inspires the HuggingFace Transformers KV Cache quantization\n [2024.06.06]: (Beta) We extensively optimize the codebase in branch develop to reduce the latency of KIVI. Note that you need to reinstall our CUDA implementation under the `quant` folder.\n [2024.05.01]: 🎉 KIVI has been accepted by ICML 2024! See you in Vienna! [...] ```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```",
+   "published_date": null,
+   "score": 0.37401357
+  },
+  {
+   "url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/liu24bz/liu24bz.pdf",
+   "title": "[PDF] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "a9ER \\vk\\8(jWND`ڔ%2m`mfpLPƕ<sv7FuN?ž\\RHyS\\_08΅K6D{l k + E%M2v}?ސ3\\m/떿k.fa4g]GҺS{d;G)e\\(T'; V%;v1M2Mʩ4.A{-ɴF:K6F0dQJ+ 2ZSC!,Ĕԙ\\[6woR16\\=J q nww^Dz(:%39g`km<a+ 0535ߕ/oߍp??}km;ݿk!\";!wt. ,a+hgޜAqmErsPp>X yaf@ƔzZ݅( [...] a\\_dc< xS J^mXiCШyW+˓Kؿyr52v{=/S[\"GENP$S>eۻ\\Q5 &nKG)|NM;f g9.lLHq6-02Licj-x:w(8ZB7I|'io>5^$J} Q!x6|dӶjfD:ڇtAGꋬ9C:B5#~\\s q|,-zHNOaiI[)ڗ{1D k[&P~c,> !$Ca{8ߝrJI /.UQӨ{❝n0\\Fww=ZHMWժfy'MTT:FKF֣ZDےQO/3[(5>dͯ/y3~PC+y0#k0mxEG<AA8]!Lc [...] Q Y\"Ы4ۖ:Q>~EnK-7In0;5o,{ju\\+kqBS2>mb-׃;͗pxm355l깄4pMif;|E RNnM#i)]OJsͲ^Y?)k&1+9Ffu^ڼ:Os;Y%'y=0$lE-ݕrYh8^.u h\\ҕ 5Gu6S eoUdǼl77\"siݺzZt<W kvR]\\_҆瓭:c;r׶2hĿԗ ѤADS)(5ė葬Cb^Ҵ< PiuZaZmS$(Eõsڧ+q0y&߀1dY&^ r+fY(",
+   "published_date": null,
+   "score": 0.28944245
+  },
+  {
+   "url": "https://stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions unveils first CXL KV cache server | PENG Stock News",
+   "content": "A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] Penguin Solutions MemoryAI KV cache server is the industry's first production-ready KV cache server that utilizes CXL memory technology to address the critical [...] Penguin Solutions MemoryAI KV cache server is the industry's first production-ready KV cache server that utilizes CXL memory technology to address the critical \"memory wall\" challenge in AI inferencing. The innovative solution delivers up to 11 TB of CXL-based memory engineered to optimize performance of enterprise scale inference, including agentic AI.",
+   "published_date": null,
+   "score": 0.27480775
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions unveils first CXL KV cache server | PENG Stock News",
+   "content": "A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] Penguin Solutions MemoryAI KV cache server is the industry's first production-ready KV cache server that utilizes CXL memory technology to address the critical [...] Penguin Solutions MemoryAI KV cache server is the industry's first production-ready KV cache server that utilizes CXL memory technology to address the critical \"memory wall\" challenge in AI inferencing. The innovative solution delivers up to 11 TB of CXL-based memory engineered to optimize performance of enterprise scale inference, including agentic AI.",
+   "published_date": null,
+   "score": 0.27480775
+  }
+ ]
+}

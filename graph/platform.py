@@ -214,7 +214,8 @@ def pdf_renderer(state: dict) -> dict:
     """Render the SKALA-template PDF within PAGE_LIMIT pages. If the full report is longer, optional sub-sections are
     dropped in a fixed order (agents.report_writer.COMPACT_LEVELS) and citations / REFERENCE are renumbered, so the
     four perspective sections, SUMMARY and REFERENCE are always kept."""
-    from agents.report_writer import COMPACT_LEVELS, check_report, compact_report, toc_entries, with_toc
+    from agents.report_writer import (COMPACT_LEVELS, check_report, compact_report, quality_note, run_overview,
+                                      toc_entries, with_toc)
     from report.docx_builder import CoverInfo, ReportBuilder, docx_to_pdf
 
     team = config()["team"]
@@ -232,8 +233,14 @@ def pdf_renderer(state: dict) -> dict:
         docx = rb.save(out / f"{stem}.docx")
         return docx_to_pdf(docx, out / f"{stem}.pdf")
 
+    full = state["report_markdown"]
+    extra = run_overview(state) + ([quality_note(state.get("report_quality"))] if state.get("report_quality") else [])
+    if extra and "# REFERENCE" in full:   # quality evaluator runs after report_writer: add run facts to chapter 6
+        n = len(re.findall(r"^## 6\.\d+ ", full, flags=re.M)) + 1
+        block = "\n".join(extra)
+        full = full.replace("\n# REFERENCE", f"\n## 6.{n} 실행 개요와 보고서 품질 평가\n{block}\n\n# REFERENCE", 1)
     for level in range(len(COMPACT_LEVELS)):
-        body, refs, dropped = compact_report(state["report_markdown"], state.get("references", []), level)
+        body, refs, dropped = compact_report(full, state.get("references", []), level)
         # pass 1 renders with an empty page column, pass 2 fills the pages found in the PDF (same layout)
         pdf = build(with_toc(body))
         pages = _heading_pages(pdf, [t for _, t in toc_entries(body)])

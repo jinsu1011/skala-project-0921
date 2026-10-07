@@ -118,6 +118,17 @@ def annotate(spec: PerspectiveSpec, tech: Technology, evs: list[Evidence], tag: 
     return out
 
 
+def extra_queries(tech: Technology) -> list[tuple[str, str]]:
+    """Same rule for every technology (review feedback: one-sided evidence): an explicit independent-criticism query,
+    and the full-name alias (e.g. 'Inference Tiered Memory Expansion') when the short name is ambiguous."""
+    out = [("con", f"{tech.name} KV cache drawbacks criticism independent evaluation")]
+    aliases = [a for a in config()["tech_meta"].get(tech.tech_id, {}).get("aliases", []) if a.lower() != tech.name.lower()]
+    full = max(aliases, key=len) if aliases else ""
+    if len(full.split()) >= 2:
+        out += [("con", f"\"{full}\" limitations overhead"), ("neutral", f"\"{full}\" evaluation analysis")]
+    return out
+
+
 def feedback_queries(spec: PerspectiveSpec, tech: Technology, feedback: str, tag: str) -> list[tuple[str, str]]:
     sys = ("너는 검색 질의 작성기이다. Judge의 보완 지시를 반영해 영어 웹 검색 질의 2개를 만든다. 하나는 장점 근거(pro), "
            "하나는 한계 근거(con)를 찾는 질의이다. 기술명을 반드시 넣는다. JSON: {\"queries\": [{\"stance\": \"pro\", \"q\": \"...\"}]}")
@@ -143,6 +154,8 @@ def collect(spec: PerspectiveSpec, tech: Technology, attempt: int, feedback: str
     sn = search_name(tech)
     for rnd in range(MAX_ROUNDS):
         plan = [(s, q.format(sn=sn, name=tech.name, dev=tech.developer)) for s, q in spec.rounds[rnd]]
+        if rnd == 0 and spec.key != "trl":
+            plan += extra_queries(tech)
         if rnd == 0 and feedback and spec.feedback_queries:
             plan += feedback_queries(spec, tech, feedback, tag)
         new: list[Evidence] = []

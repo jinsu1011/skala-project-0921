@@ -1,0 +1,65 @@
+{
+ "query": "independent market research on limitations and challenges of KIVI KV cache technology and InfiniGen market size and growth",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:01:17+09:00",
+ "results": [
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "%I PMLR %P 32332--32344 %U  %V 235 %X Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV [...] SRAM must load the entire KV cache from the main GPU memory for each token generated, causing the computational core to be idle during this process. A straightforward and effective solution to reduce KV cache size is quantization, which decreases the total bytes taken by KV cache. However, there is a lack of in-depth studies that explore the element distribution of KV cache to understand the hardness and limitation of KV cache quantization. To fill the gap, we conducted a comprehensive study on [...] bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU’s SRAM must load the entire KV cache from the main GPU memory for each token generated, causing the computational core to be idle during this process. A straightforward and effective solution to reduce KV cache size is quantization, which decreases the total bytes taken by KV cache. However, there",
+   "published_date": null,
+   "score": 0.30386654
+  },
+  {
+   "url": "https://www.cbinsights.com/company/kivi",
+   "title": "KiVi - Products, Competitors, Financials, Employees, Headquarters Locations",
+   "content": "## LatestKiVi News\n\nKiVi & Avio Smart Market Stack Advance Agri-Fintech Push to Drive Rural Transformation in Maharashtra\n\nApr 21, 2026 [...] Technology Vendors\n Recent Research\n Newsletter\n Media Support\n Login\n\nCB Insights\n\nKiVi company logo\n\n# KiVi\n\nagrosperity.com\n\n## Founded Year\n\n2021\n\n## Stage\n\nSeed - II | Alive\n\n## Total Raised\n\n$1.8M\n\n## Revenue\n\n$0000\n\n## Mosaic Score The Mosaic Score is an algorithm that measures the overall financial health and market potential of private companies.\n\n+79 points in the past 30 days\n\n## About KiVi [...] Apr 21, 2026\n\nKiVi & Avio Smart Market Stack Advance Agri-Fintech Push to Drive Rural Transformation in Maharashtra\n\nMar 16, 2026\n\nAvio Smart Market Stack (Bartronics India) collaborates with Agrosperity Tech Solutions\n\nMar 16, 2026\n\nAvio Smart Market Stack Signs MoU with Agrosperity to Expand Digital Agriculture Ecosystem under Project AVIO Agritech\n\nJan 28, 2025\n\nStudents unveil custom patrol car design for their beloved resource officer\n\n### KiViFrequently Asked Questions (FAQ)",
+   "published_date": null,
+   "score": 0.27941096
+  },
+  {
+   "url": "https://gradiant.org/en/blog/market-technology-trends-2026",
+   "title": "Market Technology trends that will shape 2026 - Gradiant",
+   "content": "The future of this technology will depend on overcoming key challenges such as interoperability, energy-harvesting efficiency and cybersecurity, to ensure invisible, trustworthy and truly intelligent ecosystems.\n\n## 5. AI-Driven Cybersecurity [...] is plausible, and the time to act is now. [...] and strategic environments.",
+   "published_date": null,
+   "score": 0.20596655
+  },
+  {
+   "url": "https://www.precedenceresearch.com/next-generation-computing-market",
+   "title": "Next Generation Computing Market SCompanies, Size & Trends 2026-2034",
+   "content": "### Key Market Challenges [...] ## \n\nAnswer : The global next generation computing market size was accounted at USD 281.20 billion in 2026 and it is expected to reach around USD 1,217.18 billion by 2034.\n\n## \n\nAnswer : The global next generation computing market is poised to grow at a CAGR of 20.10% from 2026 to 2034.\n\n## [...] The U.S. next-generation computing market size was evaluated at USD 86.61 billion in 2026 and is predicted to be worth around USD 374.89 billion by 2034, rising at a CAGR of 20.32% from 2026 to 2034.\n\nU.S. Next Generation Computing Market Size 2025 to 2034",
+   "published_date": null,
+   "score": 0.13085106
+  },
+  {
+   "url": "https://medium.com/@attitudespeaks619/tech-market-trends-whats-shaping-business-success-in-2026-and-beyond-73b95e03c987",
+   "title": "Tech Market Trends: What’s Shaping Business Success in 2026 and Beyond | by Pratik Mishra | Medium",
+   "content": "The technology landscape of 2026 will be defined by businesses that embrace these converging trends while solving the persistent challenges that continue to constrain growth and innovation. Success will depend not just on adopting new technologies, but on implementing them thoughtfully to create sustainable competitive advantages in an increasingly complex global marketplace.\n\nTechnology\n\nMarket Trends\n\nEdge Computing\n\nQuantum Computing\n\nPratik Mishra\n\nPratik Mishra [...] Companies that successfully integrate multiple emerging technologies while addressing fundamental challenges like skills gaps and cybersecurity will be best positioned for long-term success. This requires strategic thinking that goes beyond individual technology adoption to consider how different innovations work together to create comprehensive business solutions. [...] Environmental responsibility has evolved from a nice-to-have to a business imperative, and the numbers reflect this shift dramatically. The green technology and sustainability market reached $25.47 billion in 2025 and is projected to grow to $73.90 billion by 2030, representing a 23.7% CAGR.",
+   "published_date": null,
+   "score": 0.12906231
+  },
+  {
+   "url": "https://www.idtechex.com/en/research-report/quantum-computing-market/1110",
+   "title": "Quantum Computing Market 2026-2046: Technology, Trends, Players, Forecasts: IDTechEx",
+   "content": "Each report provides an independent, expert-led technical and market appraisal, giving you access to actionable information immediately, rather than you having to spend months or years on your own market research.\n\nCan I speak to analysts about the report content?",
+   "published_date": null,
+   "score": 0.101189256
+  },
+  {
+   "url": "https://www.persistencemarketresearch.com/market-research/emerging-pervasive-information-communication-technologies-market.asp",
+   "title": "Emerging Pervasive Information and Communication Technologies (PICT) Market",
+   "content": "August 2026### Satellite Launch Vehicle Market Size, Share, and Growth Forecast 2026 - 2033\n\nAugust 2026\n\nEmailsales@persistencemarketresearch.com\n\nUK\n\nCorporate Office\n\nPersistence Research & Consultancy Services Limited\n\nCompany Number : 15310893\n\nSecond Floor, 150 Fleet Street,London, EC4A 2DQ.\n\n+44 203-837-5656\n\nUSA\n\nRegional Office\n\nPersistence Market Research\n\n108 W 39th Street, Ste 1006,PMB2219, New York, NY 10018\n\n+1 646-878-6329\n\nIndia\n\nGlobal Research centre [...] Logo\n\nSearch ReportSearch\n\nEmerging Pervasive Information and Communication Technologies (PICT) Market Size, Share, and Growth Forecast, 2026 - 2033\n\n Telecommunications\n Emerging Pervasive Information and Communication Technologies (PICT) Market\n\n# Emerging Pervasive Information and Communication Technologies (PICT) Market Size, Share, and Growth Forecast, 2026 - 2033 [...] September 2026### India Public Safety LTE and Mobile Broadband Market Size, Share, and Growth Forecast 2026 - 2033\n\nSeptember 2026### Dense Wavelength Division Multiplexing (DWDM) System Market Size, Share, and Growth Forecast 2026 – 2033\n\nSeptember 2026### Quantum Cryptography Market Size, Share, and Growth Forecast 2026 - 2033\n\nAugust 2026### Industrial Security System Market Size, Share, and Growth Forecast 2026 - 2033",
+   "published_date": null,
+   "score": 0.09603416
+  },
+  {
+   "url": "https://www.mordorintelligence.com/industry-reports/next-generation-computing-market",
+   "title": "Next-generation Computing Market Size, Forecast, Share & Global Report 2031",
+   "content": "© 2026. All Rights Reserved to Mordor Intelligence.\n\nCompare market size and growth of Next-generation Computing Market with other markets in Technology, Media and Telecom Industry\n\nGlobal Next-generation Computing Market\n\nReport Illustration\n\nComplete your form and get your market insights delivered to your inbox\n\nTracking pixel [...] |  |  |\n --- |\n| Study Period | 2020 - 2031 |\n| Market Size (2026) | USD 272.28 Billion |\n| Market Size (2031) | USD 650.48 Billion |\n| Growth Rate (2026 - 2031) | 19.02% CAGR |\n| Fastest Growing Market | Asia Pacific |\n| Largest Market | North America |\n| Market Concentration | Medium |\n| Major PlayersMajor players in Next-generation Computing industry \\Disclaimer: Major Players sorted in no particular order  Image © Mordor Intelligence. Reuse requires attribution under CC BY 4.0. | | [...] logo\n\n# Next-generation Computing Market Size & Share Analysis - Growth Trends and Forecast (2026 - 2031)",
+   "published_date": null,
+   "score": 0.09077596
+  }
+ ]
+}

@@ -123,3 +123,52 @@ def test_first_sentences_keeps_paragraph_citation():
     txt = "첫 문장이다. 둘째 문장은 3.5배라고 한다. 셋째 문장이다 [P:a-1, P:a-2]."
     assert first_sentences(txt, 2) == "첫 문장이다. 둘째 문장은 3.5배라고 한다 [P:a-1, P:a-2]."
     assert first_sentences("하나다 [W:x]. 둘이다 [W:y].", 1) == "하나다 [W:x]."
+
+
+def test_review_feedback_rules():
+    """Review feedback: clean clipping, low-quality pages, developer paper origin, H4 without surviving rationale."""
+    from agents.report_writer import effective_hypotheses, quality_note
+    from graph.orchestration import clip
+    from graph.state import Hypothesis, ReportQuality, SynthesisResult
+    from tools.evidence import low_quality, own_paper_group
+
+    long = "가: 첫째 사유 / " + "나" * 300
+    assert clip(long, 100).endswith("…(이하 생략)") and "나나나" not in clip(long, 100)
+    assert clip("짧다", 100) == "짧다"
+    assert low_quality("https://www.instagram.com/popular/turboquant") and not low_quality("https://arxiv.org/abs/1")
+    assert own_paper_group("https://arxiv.org/html/2606.12556", "itme") == "skhynix"
+    assert own_paper_group("https://arxiv.org/abs/2402.02750", "itme") is None
+    syn = SynthesisResult(hypotheses={"H1": Hypothesis(verdict="부분 지지", rationale="r"),
+                                      "H4": Hypothesis(verdict="지지", rationale="보완 관계이다 [W:a].")},
+                          statements={})
+    from agents.synthesis import split_sentences
+    syn.statements = {f"S{i}": x for i, x in enumerate(split_sentences(syn.hypotheses["H4"].rationale), 1)}
+    assert effective_hypotheses(syn, set(syn.statements)) == {"H1": "부분 지지", "H4": "판단 보류"}
+    assert effective_hypotheses(syn, set())["H4"] == "지지"
+    note = quality_note(ReportQuality(passed=False, scores={"groundedness": 4}, action="finalize",
+                                      deterministic={"groundedness": True}, evidence_issues={"T03": "x"}))
+    assert "근거성 통과" in note and "T03" in note and "한도 소진" in note
+
+
+def test_stakeholder_counts_only_evidence_naming_the_technology(techs, mkweb):
+    from agents import stakeholder
+    from agents.perspective import Collected
+
+    evs = [mkweb("a", "x.com", tech="itme"), mkweb("b", "y.com", tech="itme")]
+    ann = {"W:a": {"relevant": True, "group": "a", "scope": "tech_specific",
+                   "signals": [{"criterion": "group_a", "stance": "pro"}]},
+           "W:b": {"relevant": True, "group": "a", "scope": "category",          # company news, no technology name
+                   "signals": [{"criterion": "group_a", "stance": "pro"}]}}
+    import agents.stakeholder as sh
+    sh.llm_json = lambda *a, **k: {}
+    ta = stakeholder.assess(techs[1], Collected(evidence=evs, ann=ann), "t")
+    crit = next(c for c in ta.criteria if c.name == "group_a")
+    assert crit.evidence_ids == ["W:a"]
+
+
+def test_citation_label_inside_brackets_is_recognised():
+    from agents.report_writer import ID_RE, first_sentences
+
+    assert ID_RE.search("실험했다[근거 ID: P:kivi-008, P:kivi-012].").group(1) == "P:kivi-008, P:kivi-012"
+    assert ID_RE.search("[P:a-1]").group(1) == "P:a-1"
+    assert "P:k-1" in first_sentences("첫 문장이다. 둘째다[근거 ID: P:k-1].", 1)

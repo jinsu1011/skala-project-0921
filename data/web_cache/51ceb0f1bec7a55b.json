@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache technology limitations TRL independent technical analysis media reports third-party evaluation experimental challenges",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:47:25+09:00",
+ "results": [
+  {
+   "url": "https://o-mega.ai/articles/google-turboquant-the-2026-llm-compression-guide",
+   "title": "Google TurboQuant Aug 2026: Deployment & Performance Guide | Articles | o-mega",
+   "content": "The technical work was real. PR #21089 implemented two CPU TurboQuant KV cache types: tbq3\\_0 at roughly 3.0625 bits per element with 5.22x compression versus f16, and tbq4\\_0 at 3.94x compression with quality comparable to the existing q4\\_0 cache type. The implementation used the Randomized Hadamard Transform, which suits CPUs well because Hadamard matrices contain only +1 and -1 values, avoiding floating-point multiplication in the rotation step. By the numbers, it worked. [...] analysis at 100K+ tokens), the cache can equal or exceed weight memory, and 2.6x cache compression translates almost directly into GPU count reduction. For high-concurrency serving, the cache scales with active session count, and the 512 GB scenario above is routine rather than extreme. The one-sentence heuristic: measure your KV-cache share of total GPU memory first, and if it is under 20%, TurboQuant is not your lever, no matter how good the paper is. [...] The one-paragraph technical recap for new readers: TurboQuant compresses the KV cache, the per-token memory that grows linearly with context length and concurrency, not the model weights. It composes a randomized-rotation quantizer (PolarQuant) with a 1-bit error correction stage (QJL) to get near-optimal compression with unbiased attention inner products, needs no calibration data, and is provably within about 2.7x of the information-theoretic limit - Tom's Hardware. The KV cache it targets is",
+   "published_date": null,
+   "score": 0.70871735
+  },
+  {
+   "url": "https://github.com/ggml-org/llama.cpp/discussions/20969",
+   "title": "TurboQuant - Extreme KV Cache Quantization · ggml-org/llama.cpp · Discussion #20969 · GitHub",
+   "content": "tbh :)   Known limitations:    No GPU kernels (CUDA/Metal/Vulkan) - CPU only  vec\\_dot does full dequant per block (not fused)  Block size 32 (paper uses 128); a 128-block variant would achieve 3.25 bpw  QJL error correction (Algorithm 2) not implemented - Algorithm 1 alone is sufficient per the paper | [...] routing (turbo3 excluded from mmvq/mmq, routed through dequant-then-cublas for MUL\\_MAT)  Build:  cmake -B build -DGGML\\_CUDA=ON -DCMAKE\\_CUDA\\_ARCHITECTURES=120 -DGGML\\_CUDA\\_FORCE\\_CUBLAS=OFF  Do not use CUDA 13.1 — MMQ kernel segfaults.  Known limitations:  turbo4 not yet ported to CUDA  FA required for turbo3 V (non-FA path materializes O(n²) attention matrix)  Only Tested on sm\\_120 | [...] | Update Mar 30th 2026: WHT + QJL + MSE is the solution!  In @AmesianX 's implementation, PPL decreased after introducing QJL. At first I thought this is due to @AmesianX comments, i.e., The fix was using independent sign patterns for MSE WHT and QJL SRHT.  However, my implementation have already used different param for MSE and QJL:  ``` # In class TurboQuantMSE self.rotation = RandomRotation(dim, seed) # Algorithm 1, matrix Π ∈ R d×d # In class TurboQuantProd torch.manual_seed(seed + 10000)",
+   "published_date": null,
+   "score": 0.6453216
+  },
+  {
+   "url": "https://boringbot.substack.com/p/turboquant-the-new-and-controversial",
+   "title": "TurboQuant: the new(?) and controversial ground breaking compression breakthrough from Google",
+   "content": "The key-value (KV) cache is the memory structure that allows transformer models to “remember” everything they’ve seen in a conversation or document during inference. Without it, the model would have to reprocess the entire context from scratch on every token generation step. The problem is architectural and unforgiving: KV cache memory grows linearly with both sequence length and batch size, which means serving real users at scale pushes it past comfortable limits fast. [...] TurboQuant’s core mechanism applies quantization to KV cache tensors during inference, compressing the floating-point representations from 16-bit (BF16 or FP16) down to as low as 3 bits per value. The “Turbo” in the name refers to a novel transform applied to the KV cache tensors before quantization, the authors argue this transform smooths the distribution of values, making them more amenable to aggressive compression without the rounding errors that normally cause quality degradation. [...] To make this concrete, consider a 70B parameter model serving 100 concurrent requests at a 32,000-token context window. At standard BF16 precision, the KV cache alone can consume well over 100GB of GPU memory, potentially more than the model weights themselves. That’s not a theoretical edge case; that’s a Tuesday afternoon for anyone running a serious inference cluster.",
+   "published_date": null,
+   "score": 0.57666177
+  },
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27. [...] Google's TurboQuant algorithm significantly compresses AI inference memory, reducing Key-Value Cache (KV Cache) occupancy by up to 6x and boosting computational efficiency up to 8x on H100 GPUs, with minimal precision loss. While targeting inference, it's unlikely to impact HBM or NAND Flash demand directly. The technology could lower AI operational costs, enabling new use cases and driving exponential growth in total AI demand, paradoxically increasing overall memory requirements. Challenges [...] Industry consensus indicates that the current bottleneck for large models is not the number of parameters but memory capacity. The longer the context, the larger the memory footprint of the KV Cache, which eventually hits hardware limits before the model parameters do. This is a shared pain point for tasks such as long-text generation and long-document understanding.\n\nTurboQuant's breakthrough directly addresses this pain point.",
+   "published_date": null,
+   "score": 0.5198388
+  },
+  {
+   "url": "https://turboquant.net",
+   "title": "TurboQuant.net - Independent TurboQuant Analysis",
+   "content": "Inner-product lower bound: D\\_prod ≥ (||y||² / d) · 1/4^b\n\nClassical approaches such as PQ remain noticeably above these bounds.\n\n### 2The KV cache bottleneck in LLMs\n\nIn decoder-only transformers, KV cache stores one key/value pair per token. With long context windows, that memory cost quickly dominates the system budget.\n\n#### Memory estimate\n\nmemory ≈ 2 × L × d × 2 bytes (FP16)\n\n128K context + 7B modeltens of GB\n\nKV cache share of total memory80%+\n\n#### What TurboQuant changes [...] ### KV cache compression benchmarks\n\n50.06\n\nLongBench score\n\n3.5-bit = full cache\n\n100\n\nNeedle In A Haystack\n\nperfect from 4K to 104K\n\n6x+\n\nmemory reduction\n\nlarge cost savings\n\n8x\n\nattention speed\n\nH100 at 4-bit [...] More importantly, the significance of the paper is not just how much more memory it saves. It gives us a boundary. KV-cache compression is approaching its limit, and the remaining room is narrow. The next major change is unlikely to come from compression alone. It will require finding a different path.\n\nCore Innovation\n\n## Why TurboQuant feels like a category-changing result",
+   "published_date": null,
+   "score": 0.47811517
+  },
+  {
+   "url": "https://medium.com/@tahirbalarabe2/turboquant-vs-traditional-quantization-eliminating-memory-overhead-in-llms-24524af4adb8",
+   "title": "TurboQuant vs Traditional Quantization Eliminating Memory Overhead in LLMs | by Tahir | Medium",
+   "content": "Sitemap\n\nOpen in app\n\nSign in\n\nSign in\n\nKv Cache Compression\n\nVector Quantization\n\nLlm Memory Optimization\n\nLossless Compression Ai\n\n# TurboQuant vs Traditional Quantization Eliminating Memory Overhead in LLMs\n\nTahir\n\nTahir\n\n8 min read\n\n·\n\nMar 27, 2026\n\nPress enter or click to view image in full size\n\nTLDR:TurboQuant enables lossless 3-bit KV cache compression with 8x faster attention. Zero memory overhead, no fine-tuning.\n\nFull Credit Google Research",
+   "published_date": null,
+   "score": 0.43295085
+  },
+  {
+   "url": "https://arxiv.org/html/2504.19874v1",
+   "title": "TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate",
+   "content": "We also provide a formal proof of the information-theoretic lower bounds on best achievable distortion rate by any vector quantizer, demonstrating that TurboQuant closely matches these bounds, differing only by a small constant (≈2.7\\approx 2.7) factor.\nExperimental results validate our theoretical findings, showing that for KV cache quantization, we achieve absolute quality neutrality with 3.5 bits per channel and marginal quality degradation with 2.5 bits per channel. [...] Existing VQ algorithms present a trade-off: either they lack accelerator (vectorization) compatibility and exhibit slow computation, making them unsuitable for real-time AI applications like KV cache quantization, or they suffer from suboptimal distortion bounds relative to bit-width.\nOur objective is to introduce an algorithm that addresses these limitations. [...] For comparison, we benchmark our approach against several state-of-the-art memory-efficient methods, including PolarQuant , SnapKV , PyramidKV , and KIVI . Each method is tested under a memory compression ratio of 0.25, meaning that only 25% of the full KV cache is utilized.",
+   "published_date": null,
+   "score": 0.4186262
+  },
+  {
+   "url": "https://blog.everpuredata.com/purely-technical/turboquant-compresses-kv-cache-by-5x-does-that-mean-you-need-less-memory",
+   "title": "TurboQuant Compresses KV Cache by 5X. Does That Mean You Need Less Memory? | Everpure Blog",
+   "content": "### Summary\n\nTurboQuant is a new compression algorithm from Google Research that delivers 5X KV cache compression with near-zero accuracy loss, freeing scarce GPU memory so LLMs can support longer contexts, more users, and bigger models on existing infrastructure.\n\nimage_pdfimage_print [...] of directional fidelity for 6–7X compression. That’s the sweet spot for most deployments. [...] generation heavy (decode). This is where you want to be on the prefill/decode curve.",
+   "published_date": null,
+   "score": 0.35333946
+  }
+ ]
+}

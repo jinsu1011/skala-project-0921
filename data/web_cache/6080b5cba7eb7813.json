@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache cost structure independent analysis report",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:48:12+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "To isolate the impact of weight prefetching from prefix KV cache prefetching, we evaluate the performance of ITME by prefetching model weights only. We employ the Mooncake workload with a batch size of 16 and a 4K input sequence length. The primary objective of this evaluation is to demonstrate how closely ITME matches the host memory baseline, where all weights reside in host DRAM. Since the baseline represents the theoretical performance upper bound, this analysis focuses on the efficiency of [...] The performance of ITME is evaluated using the ShareGPT dataset with a configuration of 128 concurrent conversations, each spanning up to 5 turns with a minimum of 2000 tokens per conversation. As memory pressure intensifies in later stages, we focus on Turns 3–5, where the total KV cache footprint reaches 40 GB. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.4678915
+  },
+  {
+   "url": "https://www.remio.ai/post/sk-hynix-ai-infrastructure-analysis-says-architecture-now-sets-the-performance-c",
+   "title": "SK hynix AI Infrastructure Analysis Says Architecture Now Sets the Performance Ceiling",
+   "content": "Model evolution creates another uncertainty. Techniques that reduce KV cache size can weaken memory pressure. Quantization, which represents values with fewer bits, can reduce model and cache footprints. Improved attention methods can change access patterns. [...] The key-value cache, or KV cache, stores attention data from previous tokens so the model does not recompute the entire context. It saves computation but occupies memory, and its size grows with longer contexts and more concurrent sessions.\n\nThis creates a different capacity problem from model training. A training cluster can often process large, planned batches. An inference service must handle unpredictable requests, varying context lengths, and user-facing latency targets. [...] The KV cache avoids repeating earlier attention calculations, but the tradeoff moves pressure into memory. Capacity determines how many sessions can remain active. Bandwidth determines how quickly the system can retrieve their state.\n\nHigh Bandwidth Memory, or HBM, addresses part of this problem. HBM vertically stacks memory dies and places high-bandwidth memory close to an accelerator. This arrangement supplies data much faster than conventional memory located farther from the processor.",
+   "published_date": null,
+   "score": 0.38421932
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "Metric DRAM (DDR4) TLC SSD (Gen4) HiFC (Gen4) Capacity (GiB) 128 1920 1024 Price per GiB ($) 5.06 0.20 0.10 CapEx ($) 647 384 102 Power Draw (W) 24 8.2 5 PUE 1.3 1.3 1.3 Energy Cost ($/kWh) 0.1 0.1 0.1 3-year Cost ($) 729 465 120 Previous Comparison ×4.5 ×3.9 1.0 Updated Comparison ×6.1 ×3.9 1.0 The updated analysis reveals that the 3-year memory expansion cost gap has widened, with the DRAM-based solution now being 6.1× more expensive than HiFC (previously 4.5×). This increase is mainly due to [...] Metric DRAM Enterprise SSD HiFC (ours) Saving Capacity 128 GiB 1.92 TiB 1 TiB – CapEx $433 $270 $118 3.6× Power 64 W 8.2 W 5 W 12.8× 3-year Cost $614 $303.6 $136 4.5× Table 1 summarizes the 3-year memory expansion cost for three KV cache storage configurations: DRAM (DDR4), enterprise-grade TLC-based SSD, and HiFC (pSLC SSD). The HiFC configuration achieves a 3.6× reduction in capital expenditure and a 12.8× lower power consumption compared to DRAM. This results in a total memory expansion cost [...] Component 2025 (Current) 2027 (Proj.) Price Trend GPU (GB200) $30K–$35K $20K–$25K Remains high due to demand DDR5 DRAM (128 GiB) $1,050–$1,200 $800–$950 Decrease as adoption grows Data Center SSD $350–$420 $250–$300 Steady decline with oversupply pSLC SSD (1 TB) $95–$120 $75–$100 Remains cost-effective High-Perf. SSD $3,000+ $1,500–$2,000 Decrease as GDS adoption grows The market analysis indicates that HiFC’s cost advantage is likely to become even more significant over the coming years. While",
+   "published_date": null,
+   "score": 0.34567988
+  },
+  {
+   "url": "https://q.futunn.com/en/feed/116329824846228",
+   "title": "Alpha Call | The Truth About AI Storage Demand Behind KV Cac... - Futubull Community",
+   "content": "SK Hynix recently placed an order for EUV lithography machines worth approximately 6.9 billion euros. Estimating the cost of a single Low-NA EUV unit at around 230 to 250 million euros, this corresponds to about 25 to 30 units. The order was finalized in March this year and is expected to be delivered by the end of 2027. Both the scale and timing significantly exceed market expectations.\n\nTim believes there are two key signals behind this order. [...] He further noted that this paper illustrates two key points:KV Cache CompressionThis path still has some way to go, but the remaining potential is not as substantial as in the early stages—further gains will be increasingly limited and achieved at higher complexity, with significantly rising adaptation difficulties, validation costs, and scenario-related loss risks.This area resembles a mature optimization aspect rather than a track maintaining an ultra-high growth trajectory over the long [...] China's daily token usage has exceeded 140 trillion, growing over a thousand times in two years. However, a research paper on KV Cache compression triggered a sharp decline in the storage sector, followed by SK Hynix$CSOP SK Hynix Daily Max (2x) Leveraged Product (07709.HK)$ securing a nearly 6.9 billion euro EUV equipment order.$ASML Holding (ASML.US)$ Between emotional panic and industrial reality, which one should we believe?",
+   "published_date": null,
+   "score": 0.3057289
+  },
+  {
+   "url": "https://www.williamblair.com/News/SK-hynix-Inc-Research-Initiation",
+   "title": "SK hynix Inc.: Research Initiation | William Blair",
+   "content": "securities, financial instruments, or strategies to particular clients. The recipient of this report must make its own independent decisions regarding any securities or financial instruments mentioned herein. [...] This report does not contain all the material information necessary for an investment decision. Always refer to the most recent report on a company or issuer. Our asset management and trading desks may make investment decisions that are inconsistent with recommendations or views expressed in this report. We will from time to time have long or short positions in, act as principal in, and buy or sell the securities referred to in this report. Our research is disseminated primarily electronically, [...] William Blair or an affiliate does and seeks to do business with companies covered in its research reports. As a result, investors should be aware that the firm may have a conflict of interest that could affect the objectivity of this report. This report is not intended to provide personal investment advice. The opinions and recommendations herein do not take into account individual client circumstances, objectives, or needs and are not intended as recommendations of particular securities,",
+   "published_date": null,
+   "score": 0.2709223
+  },
+  {
+   "url": "https://clausaasholm.substack.com/p/lam-what-is-the-kv-cache-hiding",
+   "title": "LAM: What is the KV Cache Hiding? - by Claus Aasholm",
+   "content": "I prioritise closing the quarter, as there is much insight to be gained from analysing the totals across the entire Semiconductor network, but I have to balance it against the insights from the overlapping investor calls. While it is tempting, the way I do analysis is not by jumping from news to news like a happy bunny rabbit (it might look that way), I need to close and conclude on the broader semiconductor network for my analytics tools to work. [...] The LAM result from a revenue perspective was as expected, a couple of per cent above the Q1-26 guidance. However, profitability is increasing at a faster rate, supporting LAM’s operating-leverage narrative.\n\nThe manufacturing expansion from prior years is now operational and generates higher volumes without similar cost growth, tool-maturity impacts, warranty costs, or installation costs. [...] # LAM: What is the KV Cache Hiding?\n\n### An analysis of LAM's Q1-2026 result and long term growth prospects\n\nClaus Aasholm\n\n∙ Paid\n\nThis period of the year is always quite challenging from a business intelligence perspective, as Q1 reporting rolls in quickly. As most Semiconductor companies have their fiscal year aligned with the calendar year, Q4 reporting is later and more spread out than in other quarters. This overlaps with the quick reporting of the Q1 numbers.",
+   "published_date": null,
+   "score": 0.25443068
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep3",
+   "title": "[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance – SK hynix Newsroom",
+   "content": "Data that requires substantial memory capacity, such as the KV cache, and memory-intensive operations, such as the attention layer\\, are representative use cases for this type of architecture. With high-speed, flexible interconnects and flexible, compute-capable memory configurations, these workloads can be assigned to separate memory resources or near-memory acceleration domains. This reduces the burden on GPUs/NPUs/TPUs to retrieve and process all data directly, while allowing devices to [...] The compute-memory disparity becomes even more pronounced with large language models(LLMs). Each time an LLM generates a token, it refers to the previous context and handles vast amounts of intermediate data through the KV cache\\ and attention operations. As models reason for longer periods and maintain longer contexts, their requirements for memory capacity and bandwidth\\ drastically increase. The memory bottleneck becomes larger and larger as these memory demands increase. No matter how fast [...] NVLink and NVSwitch provide high-bandwidth connectivity within GPU clusters. When large-scale AI models run across multiple GPUs and nodes, intermediate data such as model parameters, activations, and the KV cache must move between GPUs. If GPU-to-GPU connectivity is slow or inflexible, overall processing performance can suffer regardless of how fast each individual GPU is.",
+   "published_date": null,
+   "score": 0.22512728
+  },
+  {
+   "url": "https://www.investing.com/equities/sk-hynix-inc-earnings",
+   "title": "SK Hynix (000660) Earnings Date & Report - Investing.com",
+   "content": "| Name | Last | Upside | Fair Value |\n ---  --- |\n| Aaaaaaa | 108.76 | +74.89% | 190.14 |\n| Aaaaaaa A Aa | 108.09 | +73.14% | 186.70 |\n| Aaaaa Aaa | 93.88 | +72.62% | 162.43 |\n| Aaaaaaa A Aa Aaaaaa | 33.53 | +69.38% | 57.05 |\n| Aaaaaaaaaaa | 45.64 | +67.23% | 76.32 |\n| Aa Aaaaaaaa Aa | 237.08 | +65.07% | 391.64 |\n| Aaaa Aaaaaaa | 288.37 | +64.64% | 475.80 | [...] | Name | Last | Chg. % | Vol. |  |\n ---  --- \n| CTVA | 13.93 | +12.39% | 30.94M |  |\n| CEG | 298.27 | +11.45% | 10.68M |  |\n| VST | 158.97 | +9.72% | 15.30M |  |\n| NBIS | 251.62 | +8.19% | 17.70M |  |\n| LW | 47.98 | +7.64% | 5.88M |  |\n| NRG | 103.61 | +7.04% | 3.38M |  |\n| ALAB | 388.48 | +7.21% | 5.26M |  | [...] |  | 06/2024 | 5,980.00 | /5,559.94 | 16.42T | /16.06T | +7.56% | +2.29% | Free Sign Up |",
+   "published_date": null,
+   "score": 0.19101094
+  }
+ ]
+}

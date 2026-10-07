@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache market adoption third party analysis report",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:48:10+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2607.07207v1",
+   "title": "Memory Scarcity, Open Models, and the Restructuring of the AI Industry, 2026–2030A quantitative scenario analysis of inference economics, training-cost divergence, and infrastructure solvency",
+   "content": "The 30%/yr efficiency assumption is the report’s most consequential parameter, and there is a concrete physical argument that it decelerates: KV-cache quantization has reached within sight of the information-theoretic bound — TurboQuant’s error is close to the Shannon limit, meaning the largest single lever is nearly exhausted — and MoE sparsification faces quality floors. Re-solving the corridor: at 15%/yr efficiency the solvency threshold falls to about 1.6 annual token growth; at the [...] at once: KV-cache compression approaching the information-theoretic bound , MoE sparsity decoupling capability from per-token compute, and routing systems that direct the majority of tokens to the cheapest adequate model. [...] This report examines how four simultaneous forces restructure the AI industry over 2026–2030: the historic DRAM/HBM price surge; the arrival of frontier-capable open-weight models exemplified by GLM-5.2; rapid inference-efficiency gains exemplified by near-Shannon-limit KV-cache compression (TurboQuant) and lightweight local runtimes (DwarfStar 4, DGX Spark-class hardware); and the entry of “former AI labs” — Meta and xAI — into the compute-resale market on the strength of fleets acquired",
+   "published_date": null,
+   "score": 0.50183165
+  },
+  {
+   "url": "https://www.sec.gov/Archives/edgar/data/2120882/000119312526299963/d32785d424b4.htm",
+   "title": "424(B)(4)",
+   "content": "|  | • |  | With the evolution of AI server architecture, notably KV cache offloading from system memory to SSD, eSSDs are playing an increasingly active and important role in large scale build-out of AI inference infrastructure, where eSSD is no longer a storage peripheral but an active participant in the memory subsystem. We believe that demand for eSSD will further increase to address the workloads related to generative and agentic AI and foundation model inferencing, making the eSSD segment [...] With the evolution of AI server architecture, notably KV cache offloading from system memory to SSD, eSSDs are playing an\nincreasingly active and important role in large scale build-out of AI inference infrastructure, where eSSD is no longer a storage peripheral but an active participant in the memory subsystem. We believe that [...] | SK hynix Asia Pte. Ltd. |  | SK hynix Inc. |  | Singapore |  | Semiconductor sales |  |  | 100 |  |  |  | 100 |  |\n| SK hynix Semiconductor Hong Kong Ltd. |  | SK hynix Inc. |  | Hong Kong |  | Semiconductor sales |  |  | 100 |  |  |  | 100 |  |\n| SK hynix U.K. Ltd. |  | SK hynix Inc. |  | U.K. |  | Semiconductor sales |  |  | 100 |  |  |  | 100 |  |\n| SK hynix Semiconductor Taiwan Inc. |  | SK hynix Inc. |  | Taiwan |  | Semiconductor sales |  |  | 100 |  |  |  | 100 |  |",
+   "published_date": null,
+   "score": 0.4646835
+  },
+  {
+   "url": "https://www.marketsentiment.co/p/deep-dive-sk-hynix",
+   "title": "Deep Dive: SK Hynix - Market Sentiment",
+   "content": "SK Group had massive trust in its newly acquired child. They readily opened their purse for a massive R&D expansion. The banks had previously starved Hynix of cash, and the company could only spend what it earned. SK Group immediately invested $3.5B in the first year, despite the chip market remaining depressed. This gave the company a head start on the next generation of technologies, while its competitors cut costs in a weak market. [...] total revenue, and SK Hynix has a ~35% market share in the DRAM market. [...] Then AI changed everything — models required enormous amounts of memory to operate, and AI-generated images and videos required significant storage. With companies spending hundreds of billions in capex, the demand for DRAM and NAND skyrocketed, far outstripping the available supply. As a result, SKY Hynix’s revenue tripled from $22.8B in 2023 to $66.3B in 2025.\n\nThe company operates in two major segments:\n\n#### DRAM (Dynamic Random Access Memory)",
+   "published_date": null,
+   "score": 0.34468657
+  },
+  {
+   "url": "https://www.investing.com/equities/sk-hynix-inc-opinion",
+   "title": "SK Hynix Inc Analysis & Opinion (000660) - Investing.com",
+   "content": "| Name | Last | Chg. % | Vol. |  |\n ---  --- \n| TER | 449.04 | +8.00% | 3.40M |  |\n| HPE | 69.33 | +7.36% | 29.09M |  |\n| SPCX | 158.96 | +7.35% | 119.86M |  |\n| ON | 84.89 | +6.01% | 22.91M |  |\n| LW | 43.60 | +5.88% | 4.09M |  |\n| MPWR | 1,439.73 | +5.79% | 705.81K |  |\n| NTAP | 226.27 | +5.22% | 5.06M |  | [...] Join our investing challenges and compete for rewards while you learn!\n\nMarket Movers\n\n| Name | Last | Chg. % | Vol. |  |\n ---  --- \n| NVDA | 233.95 | +1.34% | 135.17M |  |\n| MU | 1,074.89 | -2.05% | 27.34M |  |\n| TSLA | 370.59 | +4.65% | 55.33M |  |\n| SPCX | 158.96 | +7.35% | 119.86M |  |\n| SNDK | 1,719.99 | -3.79% | 8.19M |  |\n| AMD | 633.91 | +2.95% | 19.87M |  |\n| STX | 848.99 | -10.21% | 13.58M |  | [...] aaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\nUnlock Strategy\n\nItalian Market Elite\n\nStocks in this Strategy\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\nUnlock Strategy\n\nAlpha Germany Select\n\nStocks in this Strategy\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\nUnlock Strategy\n\n000660 Comments\n\nCiprian GalSep 28, 2026, 17:20\n\nlooks like a bear flag and it is one\n\nTristen ShepherdAug 27, 2026, 23:58",
+   "published_date": null,
+   "score": 0.27779904
+  },
+  {
+   "url": "https://flash.stocksentinel.ai/research/SKHY",
+   "title": "SK hynix Inc. (SKHY) Stock Research Report | Flash",
+   "content": "| Segment | SK hynix Market Share | Samsung Market Share | Micron Market Share |\n ---  --- |\n| High-Bandwidth Memory (HBM) | 56.4% [cite: 5, 8] | 21.0% [cite: 8] | 21.0% [cite: 8] |\n| Dynamic RAM (DRAM - Total) | 29.1% [cite: 5, 8] | 39.0% [cite: 8] | 22.0% [cite: 8] |\n| NAND Flash Memory | 17.6% [cite: 8] | 31.6% [cite: 8] | 13.9% [cite: 8] | [...] ## Full Research Report\n\n# SK hynix Inc. (SKHY) Investment Analysis\n\n## 1. Executive Summary [...] VOLATILITY AHEAD\n\nThis technical analysis is provided for educational purposes only and does not constitute trading advice or a specific stock recommendation.",
+   "published_date": null,
+   "score": 0.27704293
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] แม้ว่าทั้งสองบริษัทจะได้รับประโยชน์จากอุปสงค์การจัดเก็บข้อมูล AI แต่สิ่งที่นักลงทุนต้องตัดสินใจในท้ายที่สุดคือ ตัวเลือกการจัดสรรเงินลงทุนที่ดีกว่าคือแพลตฟอร์มที่มีความหลากหลาย หรือหุ้นวัฏจักร NAND แบบเพียวเพลย์ (pure-play) ที่มีความยืดหยุ่นสูงกว่า",
+   "published_date": null,
+   "score": 0.25841063
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.25841063
+  },
+  {
+   "url": "https://eu.36kr.com/en/p/3894847545556229",
+   "title": "Why Did SK Hynix's Share Price Plunge After US Stock Market Listing? Key Reasons & Analysis",
+   "content": "figures hit a new all-time high, the 60.4 trillion won operating profit fell short of the market consensus of 65 trillion won. KIS explained that the sequential margin decline was due to the high proportion of HBM shipments, as HBM products mostly adopt pre-negotiated pricing and long-term supply arrangements, leading to an average selling price growth rate lower than the overall market level. [...] The Bank of Korea released a report on July 13, attempting to calm market sentiment. It stated that the global semiconductor market is still in a state of supply shortage, and the new industry supercycle driven by AI is expected to continue for some time. It dismissed market concerns that \"the chip cycle has peaked\", emphasizing that the biggest difference between this semiconductor cycle and previous ones is that its driving force comes from competitive investments by enterprises to embrace [...] At the same time, market sentiment was also affected by brokerages lowering their performance forecasts. On July 13, local South Korean brokerage KIS Securities released a report on SK Hynix titled \\Q2 Performance Preview: Sequential Margin Decline\\. The report estimated SK Hynix's Q2 revenue at 80.9 trillion won (up 54% quarter-on-quarter and 264% year-on-year), and operating profit at 60.4 trillion won (up 61% quarter-on-quarter and 556% year-on-year). Although the absolute figures hit a new",
+   "published_date": null,
+   "score": 0.20443754
+  }
+ ]
+}

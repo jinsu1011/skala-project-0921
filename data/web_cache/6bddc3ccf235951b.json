@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache limitations accuracy degradation throughput reduction integration difficulty independent evaluations benchmarks",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:48:18+09:00",
+ "results": [
+  {
+   "url": "https://o-mega.ai/articles/google-turboquant-the-2026-llm-compression-guide",
+   "title": "Google TurboQuant Aug 2026: Deployment & Performance Guide | Articles | o-mega",
+   "content": "A practitioner study published May 3, 2026 measured what happens when KV cache quantization errors compound across agentic steps, where each step's slightly-degraded output becomes the next step's input context - dasroot.net. On visual planning tasks, accuracy fell from 94.2% at full precision to 87.3% at 4-bit to 76.1% at 2-bit. On robotic manipulation, the fall was steeper: 91.5% to 83.8% to 69.4%. Single-turn benchmarks never see this failure mode, because it only emerges when errors have [...] The headline numbers bear repeating because they are unusual. TurboQuant compresses KV cache entries to an effective 3.5 bits per value (3 bits for the primary quantization plus 1 bit for error correction), achieving at least 6x memory reduction compared to standard 16-bit or 32-bit representations. On NVIDIA H100 GPUs, the compressed representation enables up to 8x speedup specifically for attention logit computation - Tom's Hardware. The paper reported zero measurable accuracy loss at 3.5-bit [...] In the KV cache category, TurboQuant's original competitive set (KIVI at 2.6x, NVIDIA's calibration-hungry KVTC at 20x, codebook-based CommVQ, reasoning-focused PM-KVQ, and mixture-based MoQAE) has been joined by a post-TurboQuant successor wave that benchmarks against TurboQuant itself, covered in Section 12. The category also matured in self-knowledge: the key-value asymmetry Deep Infra documented is now standard design input rather than tribal knowledge, visible directly in the preset names",
+   "published_date": null,
+   "score": 0.3738078
+  },
+  {
+   "url": "https://news.skhynix.com/en/q2-2026-business-results",
+   "title": "SK hynix Announces 2Q26 Financial Results – SK hynix Newsroom",
+   "content": "# SK Hynix Newsroom\n\nSK Hynix Newsroom\n\n## SK hynix Announces 2Q26 Financial Results\n\nSeoul, July 29, 2026 – SK hynix Inc. (or “the company”, www.skhynix.com) announced today that it has recorded 79.3187 trillion won in revenues, 60.5426 trillion won in operating profit (with an operating margin of 76%), and 93.9226 trillion won in net profit (with a net margin of 118%), marking an all-time high quarterly performance. [...] Review of the FY2026 Q2 financial results has not been finalized. Figures in this earnings release are subject to changes during the independent auditing process.  \nAll financial information contained in this document is based on consolidated K-IFRS. [...] ※ Financial information of the earnings is based on K-IFRS  \n※ Please note that the financial results discussed herein are preliminary and speak only as of July 29, 2026. Readers should not assume that this information remains operative at a later time.",
+   "published_date": null,
+   "score": 0.2035812
+  },
+  {
+   "url": "https://news.skhynix.com/en/future-forum-2026",
+   "title": "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward” – SK hynix Newsroom",
+   "content": "it focused on examining ‘what we should do’ and on defining ‘the direction in which memory should advance.’ [...] ▲ Professor Sungroh Yoon of Seoul National University, delivering the second keynote presentation\n\n▲ Jooyoung Kim, CEO of HyperAccel, delivering the second keynote presentation\n\n▲ Jooyoung Kim, CEO of HyperAccel, delivering the second keynote presentation\n\n▲ SK hynix Vice President Euicheol Lim, head of the Solution AT department, delivering the second keynote presentation\n\n▲ SK hynix Vice President Euicheol Lim, head of the Solution AT department, delivering the second keynote presentation [...] They explained that implementing this technology will require solving not only design and heat-dissipation issues but also technical challenges in the packaging domain, such as fine interconnects, bonding, and process integration.",
+   "published_date": null,
+   "score": 0.18484141
+  },
+  {
+   "url": "https://in.investing.com/equities/sk-hynix-inc",
+   "title": "SK Hynix Share Price Today | KS: 000660 - Investing.com IN",
+   "content": "© 2007-2026 -Fusion Media Limited. All Rights Reserved.\n\n   Terms And Conditions\n   Privacy Policy\n   Risk Warning [...] The average 12-month share price target for SK Hynix is 31,41,025, with a high estimate of 5300000 and a low estimate of 1535000. 38 analysts recommend buying, while 0 suggest selling, with an overall rating of Strong Buy and +71.36% Upside potential.\n\n### What Is SK Hynix's Earnings Per Share (TTM)?\n\nThe SK Hynix EPS (TTM) is 2,27,588.\n\n### When Is the Next SK Hynix Earnings Date?\n\nSK Hynix will release its next earnings report on 27-10-2026. [...] Revenue\n\n189.17 T\n\nNet Income\n\n161.97 M\n\nEPS\n\n227,588.301\n\nEPS Growth Forecast\n\nImage 8: unlockUnlock\n\nNext Earnings Date\n\n26 Oct 2026\n\nDividend (Yield)3,000.00 (0.17%)\n\nDividends Payment Streak \n\nImage 9: unlockUnlock\n\nRSI(14)55.11\n\nP/E Ratio\n\n7.67\n\nReturn on Assets\n\n67.8%\n\nReturn on Equity\n\n92.7%\n\nGross Profit Margin\n\n76.3%\n\nPrice/Book\n\n4.93\n\nEBITDA\n\n143.6 T\n\nEV/EBITDA\n\n8.12\n\nBeta\n\n2.39\n\nBook Value / Share\n\n370,438.68\n\nISIN KR7000660001\n\nMore metrics for 000660\n\nShow More",
+   "published_date": null,
+   "score": 0.18098833
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-begins-mass-production-233000494.html",
+   "title": "SK hynix Begins Mass Production of 321-Layer QLC NAND Flash",
+   "content": "To maximize the cost competitiveness of its new product, SK hynix developed a 2Tb device with double the capacity of existing solutions. To address potential performance degradation in large-capacity NAND, the company increased the number of planes, independent operation units within a chip, from 4 to 6. This enables greater parallel processing and significantly enhances simultaneous read performance. [...] 5. Insurance \n      1. Find car insurance\n      2. Types of car insurance\n      3. Find life insurance\n   6. Taxes \n      1. How to file\n      2. Tax brackets and rates\n      3. Child tax credit\n      4. Tax extension\n      5. Tax refund status\n   7. Student loans \n      1. Federal vs. private\n      2. How to apply\n      3. FAFSA 2026-27\n      4. Student loan assistance\n   8. Personal loans \n      1. Best personal loans\n      2. Improve credit score\n      3. How to get approved [...] SK hynix Inc., headquartered in Korea, is the world's top tier semiconductor supplier offering Dynamic Random Access Memory chips (\"DRAM\") and flash memory chips (\"NAND flash\") for a wide range of distinguished customers globally. The Company's shares are traded on the Korea Exchange, and the Global Depository shares are listed on the Luxembourg Stock Exchange. Further information about SK hynix is available at www.skhynix.com, news.skhynix.com.\n\n|  |",
+   "published_date": null,
+   "score": 0.1465877
+  },
+  {
+   "url": "https://www.fitchratings.com/research/corporate-finance/fitch-upgrades-sk-hynix-to-bbb-outlook-stable-30-04-2026",
+   "title": "Fitch Upgrades SK hynix to 'BBB+'; Outlook Stable",
+   "content": "#### Region\n\n   EuropeNorth AmericaAfricaAsiaLatin AmericaMiddle East\n\n#### Fitch Group\n\n   Fitch GroupFitch RatingsFitch SolutionsFitch BohuaFitch LearningOwned by Hearst\n\nCopyright © 2026 Fitch Ratings, Inc., Fitch Solutions, Inc. and their subsidiaries.PoliciesBuild v 4.8.106\n\n   [](\n   []( [...] a stronger market position in memory and much lower leverage. We forecast NXP's leverage at about 2.0x in 2026, but its higher rating reflects its more stable business model and cash flow profile. [...] All Fitch Ratings (Fitch) credit ratings are subject to certain limitations and disclaimers. Please read these limitations and disclaimers by following this link:  In addition, the following  details Fitch's rating definitions for each rating s\n\nRead More\n\n### Solicitation Status\n\nThe ratings above were solicited and assigned or maintained by Fitch at the request of the rated entity/issuer or a related third party. Any exceptions follow below.",
+   "published_date": null,
+   "score": 0.13898711
+  },
+  {
+   "url": "https://markets.ft.com/data/announce/detail?dockey=600-202608031934BIZWIRE_USPRX____20260803_BW297696-1",
+   "title": "Sandisk and SK hynix Advance Global Standardization of High Bandwidth Flash with Release of First OCP Technical Specification – Company Announcement - FT.com",
+   "content": "© 2026 Sandisk Corporation or its affiliates. All rights reserved.\n\nSANDISK, the SANDISK logo and HBF are registered trademarks or trademarks of Sandisk Corporation or its affiliates in the U.S. and/or other countries. All other marks are the property of their respective owners.\n\nView source version on businesswire.com: \n\nInvestors: [email protected]   \nMedia: [email protected]\n\nSource: Sandisk Corporation",
+   "published_date": null,
+   "score": 0.1387769
+  },
+  {
+   "url": "https://news.skhynix.com/en/sk-hynix-announces-2q-2026-financial-results",
+   "title": "SK hynix Announces 2Q 2026 Financial Results – SK hynix Newsroom",
+   "content": "Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\n## YOUTUBE\n\nSK hynix Announces 2Q 2026 Financial Results\n\nJuly 29, 2026\n\n### Related content\n\nFrom identifying promising technologies to creating new business opportunities: How SK hynix Ventures finds the path forward\n\nOctober 2, 2026\n\nSTORY\n\n CVC\n Semiconductor Ecosystem\n SK hynix Ventures\n\n[\n\n[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance\n\nOctober 2, 2026](\n\nTECH&AI [...] TECH&AI\n\n Agentic AI\n CXL\n GPU\n HBM\n\nClarification Regarding Recent Media Reports on Solidigm\n\nOctober 1, 2026\n\nFACT\n\n semiconductor industry\n\n[\n\n[AI infrastructure insight] Why power and cooling have become the next challenge for AI data centers\n\nSeptember 30, 2026](\n\nTECH&AI\n\n AI\n AI data center\n AI Infrastructure\n\n \n\n  From identifying promising technologies to creating new business opportunities: How SK hynix Ventures finds the path forward\n\n  October 2, 2026\n\n  STORY [...] STORY\n\n  + CVC\n  + Semiconductor Ecosystem\n  + SK hynix Ventures\n [\n\n  [AI Ecosystem] Redesigning infrastructure: Why architecture determines performance\n\n  October 2, 2026](\n\n  TECH&AI\n\n  + Agentic AI\n  + CXL\n  + GPU\n  + HBM\n \n\n  Clarification Regarding Recent Media Reports on Solidigm\n\n  October 1, 2026\n\n  FACT\n\n  + semiconductor industry\n [\n\n  [AI infrastructure insight] Why power and cooling have become the next challenge for AI data centers\n\n  September 30, 2026](\n\n  TECH&AI",
+   "published_date": null,
+   "score": 0.13821758
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "independent third-party analysis on limitations, ecosystem scalability, and cost reduction challenges of KIVI authors KIVI KV cache and InfiniGen technologies in market and technical reports",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:55:07+09:00",
+ "results": [
+  {
+   "url": "https://www.digitalapplied.com/blog/kv-cache-optimization-techniques-2026-engineering-guide",
+   "title": "KV Cache Optimization for LLMs 2026: Engineering Guide",
+   "content": "By April 2026 the technique landscape is settled: paged attention is the substrate, prefix caching is the high-leverage application optimization, GQA or MLA picks the architectural floor, and FP8 KV is the free 50% memory savings every team should already have on. Used together, these compound to 4-40× cost reduction on long-context inference — the difference between \"1M context is a marketing claim\" and \"1M context is in production.\" [...] KV cache is the unwritten cost line on every long-context deployment. Above 32K tokens, KV memory consumption starts outpacing parameter memory; above 128K it dominates; at 1M tokens, KV cache eats 70-90% of available GPU VRAM and 60-85% of wall-clock per token. [...] 8 GB\n\n−94%\n\nTwo reads matter. First: at 1M context with naive MHA + FP16, KV cache exceeds parameter memory — the model literally cannot hold its own context on the same GPU as its weights without help. Second: stacking optimizations compounds. MLA + FP8 together drop KV from 135 GB to 8 GB — a 17× reduction. That is the difference between not being able to serve 1M context at all and serving it economically.",
+   "published_date": null,
+   "score": 0.54942364
+  },
+  {
+   "url": "https://tracxn.com/d/legal-entities/india/kivi-technologies-private-limited/__kQS_8lAWNjigvrQvcw-QoxQLL5xn47ttWyPaz9lMCdA",
+   "title": "Kivi Technologies Private Limited - 2026 Company Profile & Financials - Tracxn",
+   "content": "| Net Debt/EBITDA | 2171 | 4627 | 4774 | 3839 | 3623 |\n| Growth Ratios |  |  |  |  |  |\n| Revenue Growth Rate (CAGR) | 9519 | 7927 | 4222 | 4387 | 3332 |\n| Earnings Growth Rate (CAGR) | 7286 | 9637 | 5810 | 6069 | 2905 | [...] | Return on Invested Capital | 2564 | 3750 | 6007 | 9848 | 8200 |\n| Efficiency Ratios |  |  |  |  |  |\n| Asset Turnover | 5648 | 7327 | 4029 | 2761 | 4382 |\n| Receivables Turnover | 5253 | 6915 | 5095 | 7973 | 1043 |\n| Days Sales Outstanding | 3430 | 1987 | 2638 | 2863 | 8736 |\n| Inventory Turnover | 7535 | 6306 | 8427 | 7980 | 4268 |\n| Days Inventory Outstanding | 8146 | 3780 | 7681 | 5643 | 2781 |\n| Payables Turnover | 2048 | 4349 | 2237 | 8672 | 4337 | [...] | Days Payables Outstanding | 8374 | 1598 | 8751 | 1272 | 6760 |\n| Liquidity Ratios |  |  |  |  |  |\n| Current Ratio | 8321 | 1693 | 4372 | 9098 | 8298 |\n| Quick Ratio | 6696 | 2926 | 1146 | 8166 | 7638 |\n| Debt Ratios |  |  |  |  |  |\n| Debt-to-Equity Ratio | 3334 | 6081 | 3615 | 8203 | 4491 |\n| Debt Ratio | 3899 | 6161 | 9971 | 8519 | 4326 |\n| Interest Coverage Ratio | 3267 | 1638 | 4427 | 9577 | 8303 |\n| Debt Service Coverage Ratio | 7500 | 3456 | 7674 | 8743 | 8850 |",
+   "published_date": null,
+   "score": 0.4126491
+  },
+  {
+   "url": "https://arxiv.org/abs/2402.02750",
+   "title": "[2402.02750] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "> Abstract:Efficiently serving large language models (LLMs) requires batching of many requests to reduce the cost per request. Yet, with larger batch sizes and longer context lengths, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. Additionally, the loading of the KV cache causes the computational core to be idle, which limits the inference speed. A [...] per-channel, i.e., group elements along the channel dimension and quantize them together. In contrast, the value cache should be quantized per-token. From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm named KIVI. With hardware-friendly implementation, KIVI can enable Llama, Falcon, and Mistral models to maintain almost the same quality while using $\\mathbf{2.6\\times}$ less peak memory (including model weight). This reduction in memory usage enables up to [...] archive \n\nPress Enter to search · Advanced search\n\n# Computer Science > Computation and Language\n\narXiv:2402.02750 (cs)\n\nSubmitted on 5 Feb 2024 ([v1), last revised 25 Jul 2024 (this version, v2)]\n\n# Title:KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nAuthors:Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu",
+   "published_date": null,
+   "score": 0.37744942
+  },
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix}, volume = {235}, series = {Proceedings of Machine Learning Research}, month = {21--27 Jul}, publisher = {PMLR}, pdf = { url = { abstract = {Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed [...] %I PMLR %P 32332--32344 %U  %V 235 %X Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV [...] Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU’s SRAM must load the",
+   "published_date": null,
+   "score": 0.32312426
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nWonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim, Seoul National University [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the",
+   "published_date": null,
+   "score": 0.27874783
+  },
+  {
+   "url": "https://rocketreach.co/kivi-profile_b78caf9cc2546a5c",
+   "title": "KiVi Information",
+   "content": "38\n\n$8.4m\n\nBijlipay\n\nBijlipay\n\n209\n\n$16m\n\nDatamark Prodapt India BPO Pvt Ltd\n\nDatamark Prodapt India BPO Pvt Ltd\n\n87\n\n$1.5b\n\nDivo\n\nDivo\n\n275\n\n$5.6m\n\nDetect Technologies\n\nDetect Technologies\n\n572\n\n$93.9m\n\nG2 Leader Summer 2026\nG2 Best Est ROI Mid-Market Summer 2026\nG2 Easiest Admin Mid-Market Summer 2026\nG2 Most Implementable Summer 2026\nG2 Best Results Mid-Market Summer 2026\nG2 Lead Capture Mid-Market Summer 2026\nInc Fastest Growing Private Companies 2026\nInc Best Workplace 2026\n\ng2crowd [...] |  |  |\n --- |\n| Website |  |\n| Employees | 70 (38 on RocketReach) |\n| Founded | 2021 |\n| Address | Kanagam Village, Taramani, E Block- 4th Floor, IIT Madras Research Park, Chennai, Tamil Nadu 600113, IN |\n| Industry | Internet Publishing |",
+   "published_date": null,
+   "score": 0.270643
+  },
+  {
+   "url": "https://rocketreach.co/kivi-technologies-inc-profile_b40c020effc327f4",
+   "title": "KIVI Technologies Inc. Information",
+   "content": "$5.7m \n\nImage 26: G2 Leader Summer 2026Image 27: G2 Best Est ROI Mid-Market Summer 2026Image 28: G2 Easiest Admin Mid-Market Summer 2026Image 29: G2 Most Implementable Summer 2026Image 30: G2 Best Results Mid-Market Summer 2026Image 31: G2 Lead Capture Mid-Market Summer 2026Image 32: Inc Fastest Growing Private Companies 2026Image 33: Inc Best Workplace 2026\n\nImage 34: g2crowd\n\n G2Crowd Trusted\n\nImage 35: chromestore\n\n300K+ Plugin Users \n\nImage 36: RocketReach Footer Logo [...] More information [...] Website\nRevenue$3 million\nEmployees3  (3 on RocketReach)\nFounded2020\nAddress3, Rue Salem Ben Hmida, Menzah 5, Tunis, Tunis, TN\nIndustryTechnology, Information and Internet, Restaurants, Hospitality",
+   "published_date": null,
+   "score": 0.26718
+  },
+  {
+   "url": "https://tracxn.com/d/companies/kivi/__pkV-usSQMD5aEHfoTucN5U-NutqmPLF9V8iGTjsnb5k",
+   "title": "KIVI - 2026 Company Profile & Competitors - Tracxn",
+   "content": "An image depicting Food Tech - Sector Report\n\nFood Tech - Sector Report\n\n## FAQs about KIVI\n\nAccel Partners\nPartech\nIN-Q-TEL - US\nFujitsu\nTenity\nStanford [...] ## KIVI's founders and board of directors\n\n### KIVI's employee count trend\n\nEmployee count trend for KIVI\nlock\nchrome_extension_cta_illustration\n\n## KIVI's Competitors and alternates [...] | Rank | Company Details | Short Description | Total Funding | Investors | Tracxn Score |\n ---  ---  --- |\n| 1st | Logo for Vynd  Vynd 2015, Tunis  (Tunisia), Seed | Online discovery platform for restaurants  Flat6Labs | 23/100 |\n| 2nd | Logo for KIVI  KIVI 2020, Tunis  (Tunisia), Unfunded | Online platform to discover food establishments  - | 17/100 |\n\nLogo for Vynd\nLogo for KIVI\nlock\n\n## KIVI's Investments and acquisitions\n\n## Reports related to KIVI",
+   "published_date": null,
+   "score": 0.23139746
+  }
+ ]
+}

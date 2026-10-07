@@ -1,0 +1,65 @@
+{
+ "query": "limitations and concerns about InfiniGen KV cache technology from developers, industry experts, and user communities",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:55:15+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "C3: Adjusting the number of KV entries across queries.\nH2O sets the number of key/value tokens to retain as a fixed percentage of\nthe input sequence length. The KV cache budget remains constant regardless of\nhow many tokens have been generated.\nBy analyzing the data from Figure 5 on Layer 18, we observe\nthat this fixed KV cache budget has some limitations.\nFor instance, with an input sequence length of 200 and a 20% KV cache budget, [...] We manage the KV cache as a pool, offloading to the CPU memory and prefetching\nonly the essential amount to the GPU. While CPU memory is more affordable and\nlarger than GPU memory, it still has limited capacity. Hence, for certain\ndeployment scenarios, it might be crucial to confine the size of the KV cache\npool and remove less important KV entries that are infrequently selected by\nquery tokens.\nWe extend the design to incorporate a user-defined memory size limit. During [...] relative KV cache size is less than 10%, whereas the others exhibit a\nnoticeable accuracy drop due to insufficient bit widths (Quantization) or\npermanent KV cache elimination (H2O). This implies that our proposed solution\ncan effectively reduce the KV cache transfer overhead while preserving model\naccuracy.\nFor relative KV cache sizes larger than 10%, the accuracy with InfiniGen closely\nmatches that of the full-cache baseline. In some cases, InfiniGen even shows",
+   "published_date": null,
+   "score": 0.61112726
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00× compared to prior KV cache management methods while offering substantially better model accuracy. [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works",
+   "published_date": null,
+   "score": 0.35367426
+  },
+  {
+   "url": "https://medium.com/@adityaj5400/the-kv-cache-is-killing-your-llm-at-scale-heres-the-low-level-physics-nobody-talks-about-b577c4c7549e",
+   "title": "The KV Cache Is Killing Your LLM at Scale — Here’s the Low-Level Physics Nobody Talks About",
+   "content": "A 2026 paper on structural protection confirmed the failure mode in granular detail: when eviction removes prompt-boundary tokens — instruction delimiters, question markers, attention sinks — the model enters degenerate repetition loops, producing token-maximal outputs (mean generation length: 127/128 tokens) of repeated fragments completely unrelated to the question. No OOM error. No exception. Just quietly wrong responses at maximum length. [...] arXiv:2511.00321 — _Scalable Processing-Near-Memory for 1M-Token LLM Inference: CXL-Enabled KV-Cache Management Beyond GPU Limits_\n   arXiv:2603.20397 — _KV Cache Optimization Strategies for Scalable and Efficient LLM Inference_\n   arXiv:2502.02617 — _PolarQuant: Quantizing KV Caches with Polar Transformation_. AISTATS 2026\n   arXiv:2510.00231 — _The Pitfalls of KV Cache Compression_ [...] Format Bytes/element KV Cache Size vs BF16 FP16 / BF16 2 ~42 GB baseline FP8 E4M3 1 ~21 GB 2× smaller INT4 0.5 ~10.5 GB 4× smaller 3-bit (TurboQuant) 0.375 ~8 GB 5.3× smaller\n\nFP8 is now production-ready. The vLLM team’s April 2026 benchmarks show FP8 KV cache reduces the inter-token latency (ITL) slope — the latency growth rate per additional input token — to 54% of the BF16 baseline on H100. Break-even starts at ~7k tokens. Accuracy cost: sub-0.3% on standard benchmarks.",
+   "published_date": null,
+   "score": 0.34561363
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "12. LongLive: Real-time Interactive Long Video Generation. Yang S., Huang W., Chu R., Xiao Y., Zhao Y., et al., Han S., Chen Y. ICLR, 2026. arXiv:2509.22622\n13. LongLive 2.0: An NVFP4 Parallel Infrastructure for Long Video Generation. Chen Y., Wang L., Huang W., Yang S., Zhang B., Xiao Y., Chu R., Mao W., Hu Q., Liu S., Zhao Y., Mao H., Chen Y.-C., Xie E., Qi X., Han S. arXiv preprint, 2026. arXiv:2605.18739 [...] # KV Cache Compression and Its Infra Problems\n\n📝 Weian Mao, Yukang Chen, Wei Huang, Shuai Yang, Luozhou Wang, Song Han  \n📅 June 12, 2026 ⏳ ~10 min read\n\nConsider serving OpenClaw on a local GPU with a capable reasoning model. The agent picks up a simple task — read a handful of documents, write a weekly report — and crashes halfway through. Not because the task is hard, but because the GPU ran out of memory. [...] 1. TriAttention: Efficient Long Reasoning with Trigonometric KV Compression. Mao W., Lin X., Huang W., Xie Y., Fu T., Zhuang B., Han S., Chen Y. ICML, 2026. github.com/WeianMao/triattention\n2. Efficient Streaming Language Models with Attention Sinks. Xiao G., Tian Y., Chen B., Han S., Lewis M. ICLR, 2024. arXiv:2309.17453",
+   "published_date": null,
+   "score": 0.34230816
+  },
+  {
+   "url": "https://blog.lmcache.ai/en/2026/04/28/stop-calling-it-kv-cache-its-something-much-bigger",
+   "title": "Stop Calling It KV Cache: It’s Something Much Bigger – LMCache Blog",
+   "content": "## 2026: A First-Class Data Object\n\nFast forward to today. KV cache is no longer an optimization at the margins of inference. It is the core infrastructure.\n\nNVIDIA introduced ICMS (now renamed CMX) to formalize inference context storage. KV cache now represents the majority of the inference storage footprint. DRAM and SSD costs are becoming a significant line item in AI system budgets.\n\nWe are witnessing the emergence of a new category: inference-time data as a persistent, valuable asset. [...] For a long time, that description held. Even though KV cache was theoretically reusable across requests, in practice GPU memory was too limited and too expensive to justify persistence. Cross-request reuse was rare, and the system treated KV cache as disposable.\n\n## 2025: The Turning Point\n\nEverything changed when KV cache began leaving GPU memory. [...] At NVIDIA GTC last month, I joined NVIDIA and Tencent in the first-ever industry tutorial dedicated to KV cache technology(slides). What was striking was the framing: KV cache was not discussed as a feature of an inference engine. It was discussed as a standalone data object, one that is beginning to form its own ecosystem and generate value in its own right.\n\n## The Deeper Shift: KV Cache Has Semantics\n\nHere is the part that changes everything.",
+   "published_date": null,
+   "score": 0.3094101
+  },
+  {
+   "url": "https://phisonblog.com/why-ai-suffers-when-memory-fills-up-kv-cache-context-and-hidden-failures",
+   "title": "Why AI Suffers When Memory Fills Up: KV Cache, Context, and Hidden Failures - Phison Blog",
+   "content": "Phison Corporate\n Neural Translations\n Contact\n f\n l\n\nPhison Blog\n\nSelect Page\n\n# Why AI Suffers When Memory Fills Up: KV Cache, Context, and Hidden Failures\n\nBy Rick Allen | Jul 23, 2026 | AI, All, Featured\n\nLearn how KV cache growth silently degrades AI inference performance and why memory-aware infrastructure is becoming essential for scaling modern AI workloads. [...] The KV cache stores the attention state a language model needs to generate each new token, and its memory requirements grow with active context and concurrent requests. As that demand approaches available GPU memory, systems may reduce concurrency, delay or reject requests, or discard reusable cache data that must later be rebuilt. Applications may also shorten conversation history to remain within memory limits. Because these changes can occur without an obvious hardware failure, memory [...] Modern AI infrastructure is delivering larger models, longer context windows, and more concurrent users than ever before. Yet many organizations discover that inference performance begins to deteriorate long before GPUs reach their theoretical compute limits. Response times become inconsistent, throughput falls unexpectedly, and users experience slower or less reliable interactions despite expensive hardware investments. \n\nThe culprit is often a KV cache memory bottleneck.",
+   "published_date": null,
+   "score": 0.24570933
+  },
+  {
+   "url": "https://www.microsoft.com/en-us/research/blog/llm-profiling-guides-kv-cache-optimization",
+   "title": "LLM profiling guides KV cache optimization - Microsoft Research",
+   "content": "Developer Center Documentation Events Licensing Microsoft Learn Microsoft Research   View Sitemap [...] to enhance the model’s speed and efficiency. Consequently, the KV cache can become prohibitively large as the complexity of the tasks increases, sometimes requiring up to 320 GB for a single operation. To address this, we developed FastGen, a novel method aimed at reducing the memory demands for LLMs. [...] Microsoft AI Microsoft Security Dynamics 365 Microsoft 365 Microsoft Power Platform Microsoft Teams Microsoft 365 Copilot Small Business   Azure Microsoft Developer Microsoft Learn Support for AI marketplace apps Microsoft Tech Community Microsoft Marketplace Software companies Visual Studio   Careers About Microsoft Company news Privacy at Microsoft Investors Diversity and inclusion Accessibility Sustainability\n\nYour Privacy Choices",
+   "published_date": null,
+   "score": 0.18790671
+  },
+  {
+   "url": "https://www.ddn.com/blog/how-ddn-eliminates-the-gpu-waste-spiral-for-ai-reasoning-with-kv-cache",
+   "title": "How DDN Eliminates the GPU Waste Spiral for AI Reasoning with KV Cache",
+   "content": "DDN Infinia, utilizing KV Cache, eliminates this waste by delivering industry-leading Time-To-First-Token (TTFT), maximizing GPU utilization, and scaling with today’s AI demands, providing a real customer benefits and outcomes, such as:\n\n Over 27X faster model runtime\n Nearly 100% GPU utilization compared to 60-70% with legacy storage\n Sub-millisecond latency at enterprise scale\n 75% reduction in input token processing costs, unlockingup to $30M in annual savings on a $100M investment [...] Without KV Cache, the system reprocesses the entire history each time, leading to delays of 10 seconds or more just to restore context. Without caching, that’s 15,000+ tokens reprocessed per interaction, adding 10+ seconds in latency and burning GPU time.\n\nWith KV Cache and DDN Infinia, that context is instantly accessible. Responses remain immediate and relevant – no matter when the customer returns. [...] Agentic AI systems use100x more computation than traditional models (c/o NVIDIA CEO Jensen Huang)\n User satisfaction drops 16% for every additional second of latency\n To make matter worse, context windows are expanding from 128K to over 1M+, driving a proportional increase in KV cache requirements\n One poor AI response can drive 30% of customers to abandon a purchase.",
+   "published_date": null,
+   "score": 0.18515061
+  }
+ ]
+}

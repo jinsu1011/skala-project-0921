@@ -1,0 +1,65 @@
+{
+ "query": "advantages of integrating InfiniGen KV cache with Kivi technology for domain adaptation in academic papers and official documentation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:02:06+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "language models. InfiniGen exploits the attention input of the previous layer to\nspeculatively prefetch the KV cache of important tokens. We manipulate the\nquery and key weights to make the speculation more efficient. InfiniGen shows\nsubstantially shortened inference latency while preserving language model\nperformance. It also shows much better scalability regarding the batch size,\nsequence length, and model size compared to prior solutions. [...] By reducing the amount of KV cache to load and compute, InfiniGen effectively\nreduces the loading latency (i.e., data transfer from CPU to GPU) while\nmaintaining an output quality similar to that of the original model with a full\nKV cache.\nMoreover, as InfiniGen does not require a fixed number of tokens to load from CPU\nmemory, it utilizes only the necessary PCI interconnect bandwidth.\nInfiniGen initiates speculation and prefetching from Layer 1 because the [...] We implement InfiniGen on a modern offloading-based inference\nsystem  and evaluate it on two representative LLMs with varying\nmodel sizes, batch sizes, and sequence lengths.\nOur evaluation shows that InfiniGen achieves up to a 3.00×\\times speedup over\nthe existing KV cache management methods while offering up to a 32.6 percentage\npoint increase in accuracy.\nIn addition, InfiniGen consistently provides performance improvements with larger",
+   "published_date": null,
+   "score": 0.36330852
+  },
+  {
+   "url": "https://huggingface.co/papers/2406.19707",
+   "title": "Paper page - InfiniGen: Efficient Generative Inference of Large Language Models with\n  Dynamic KV Cache Management",
+   "content": "Hugging Face's logo\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n## Abstract\n\nInfiniGen is a KV cache management framework that improves performance and accuracy in long-text generation by pre-fetching essential KV cache entries in offloading-based LLM serving systems. [...] generation, which synergistically works with modern offloading-based inference\nsystems. InfiniGen leverages the key insight that a few important tokens that\nare essential for computing the subsequent attention layer in the Transformer\ncan be speculated by performing a minimal rehearsal with the inputs of the\ncurrent layer and part of the query weight and key cache of the subsequent\nlayer. This allows us to prefetch only the essential KV cache entries (without [...] fetching them all), thereby mitigating the fetch overhead from the host memory\nin offloading-based LLM serving systems. Our evaluation on several\nrepresentative LLMs shows that InfiniGen improves the overall performance of a\nmodern offloading-based system by up to 3.00x compared to prior KV cache\nmanagement methods while offering substantially better model accuracy.",
+   "published_date": null,
+   "score": 0.36141315
+  },
+  {
+   "url": "https://labs.baseten.co/articles/towards-infinite-context-windows-neural-kv-cache-compaction",
+   "title": "Towards infinite context windows: neural KV cache compaction",
+   "content": "#### For attribution in academic contexts, please cite this work as:\n\n_O'Neill, Charles. \"Towards infinite context windows: neural KV cache compaction.\" Baseten Research, April 1, 2026._\n\nBibTeX citation\n\n```\n@misc{o'neill2026still,\n  author       = {O'Neill, Charles},\n  title        = {Towards Infinite Context Windows: Neural {KV} Cache Compaction},\n  year         = {2026},\n  month        = April,\n  day          = {1},\n  howpublished = {Baseten Research},\n  url          = {\n}\n``` [...] Copy\n\n```\n@misc{o'neill2026still,\n  author       = {O'Neill, Charles},\n  title        = {Towards Infinite Context Windows: Neural {KV} Cache Compaction},\n  year         = {2026},\n  month        = April,\n  day          = {1},\n  howpublished = {Baseten Research},\n  url          = {\n}\n```\n\nRelated from the lab [...] Image 10: table domain\n\nFigure 7\n\nFinancial and code documents compress most effectively (86-90% MCQ accuracy), likely because they contain structured, locally-concentrated information that maps well to individual latents. Legal and Gutenberg text are harder; they have more distributed, context-dependent information that is inherently harder to compress into discrete positions.\n\nImage 11: line 3\n\nFigure 8",
+   "published_date": null,
+   "score": 0.34640914
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | alphaXiv",
+   "content": "View Paper\nsnu-comparch/InfiniGen\n\n## AI Overview\n\nWhen an LLM generates long text, it stores keys and values from earlier tokens so it need not recompute them. This store is the KV cache, and it grows with sequence length and batch size. Offloading the cache from GPU to larger CPU memory helps fit the workload. However, fetching it back over the CPU–GPU connection can become a major inference cost. [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00x compared to prior KV cache management methods while offering substantially better model accuracy.",
+   "published_date": null,
+   "score": 0.3337208
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=J4yZoU18NXc&vl=en",
+   "title": "NDSS 2026 - Shadow in the Cache: Unveiling and Mitigating Privacy Risks of KV-cache in LLM Inference",
+   "content": "[8:43] A second uh blockwise shuffering to further enhance the security of our observation scene. We employ a one-time\n[8:51] pad random permutation matrix to shuffle the order of the row vector with each block. A key advantage here is that we do not need to store this one time pad.\n[9:05] We observed that the physical memory ordering of the Q cache is redundant for inference because the central uh [...] [3:18] direct inversion mathematically impossible. Furthermore, it is prim primarily effective only on the first\n[3:26] layer where embandings map directly to tokens.\n[3:31] To overcome this limitation, we developed the kiwi cache collusion attack. We frame the problem from\n[3:39] reverse engineering to iterative forwarding matching.\n[3:44] This is a sequential process. We re construct the input token by token for each step. We generate candidate K cache [...] [1:21] amplified in the emerging confidential model as a service scenario such as a private cloud computing and in NVIDIA\n[1:30] confidential compute. Well, providers use TE to protect inf inference. Higher proof architectures require uh the\n[1:38] massive kiwi cache outside TE's protection boundary into nonsecure memory. This architecturally reality uh\n[1:47] direct expose the kiwi cache to the cloud server providers.",
+   "published_date": null,
+   "score": 0.3235409
+  },
+  {
+   "url": "https://blog.lmcache.ai/en/2026/04/28/stop-calling-it-kv-cache-its-something-much-bigger",
+   "title": "Stop Calling It KV Cache: It’s Something Much Bigger – LMCache Blog",
+   "content": "## 2026: A First-Class Data Object\n\nFast forward to today. KV cache is no longer an optimization at the margins of inference. It is the core infrastructure.\n\nNVIDIA introduced ICMS (now renamed CMX) to formalize inference context storage. KV cache now represents the majority of the inference storage footprint. DRAM and SSD costs are becoming a significant line item in AI system budgets.\n\nWe are witnessing the emergence of a new category: inference-time data as a persistent, valuable asset. [...] ### New features\n\n### 2026-09-07\n\n## From Research Paper to Real Workload: KV-Cache Editing with the LMCache SDK\n\nRead Article\n\nAll Articles\n\nNo results found.  \nTry a different search term.\n\nStart typing to search…\n\n`Ctrl``K` to open  ·  `Esc` to close\n\n`Enter` Enter to open  ·  `↑↓` to navigate\n\n## Discover more from LMCache Blog\n\nSubscribe now to keep reading and get access to the full archive.\n\nContinue reading\n\nGitHub Repo\n\nJoin us via:\n\nLoading Comments... [...] KV cache already departs from traditional caching in three fundamental ways.\n\nFirst, it is persistent and multi-tier. It is stored across GPU, CPU, SSD, and cloud, survives beyond a single request, and is managed more like a data pipeline than a local buffer.\n\nSecond, it is not a black box. It can be compressed, quantized, and transformed. Its internal structure is exposed and exploitable by the systems that manage it.",
+   "published_date": null,
+   "score": 0.29378474
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00× compared to prior KV cache management methods while offering substantially better model accuracy. [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works",
+   "published_date": null,
+   "score": 0.29370874
+  },
+  {
+   "url": "https://www.naddod.com/blog/kv-cache-offload-accelerates-llm-inference",
+   "title": "KV Cache Offload Accelerates LLM Inference",
+   "content": "KV Cache is an acceleration technology.It significantly improves the speed and efficiency of text generation by preserving important information from previous steps and reusing previously calculated results, avoiding recalculation each time. If the Large Language Model (LLM) is like a novelist, then the Transformer is his or her \"thinking method.\" When a writer writes a story, he or she considers the previous content and decides what to write next. Similarly, when generating text, the [...] Reduced computational overhead:Avoiding repeated attention calculations on historical sequences reduces inference complexity from quadratic to approximately linear.\n   Improved inference speed:Significantly reduces latency when generating long texts, improving the user experience.\n   Enhanced resource utilization:Reduces unnecessary GPU memory and computing power consumption, providing space for memory optimization. [...] In this way, each time a new token is generated, only the new token's K and V need to be calculated, added to the previously cached results, and the new token can be generated again using the cached value. This reduces the computational complexity of inference from quadratic to linear, significantly accelerating the process.\n\n## 2. Why is KV Cache important for TransformerArchitecture?",
+   "published_date": null,
+   "score": 0.2719688
+  }
+ ]
+}

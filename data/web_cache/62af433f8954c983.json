@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache 비용 분석 자료",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:44:36+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "The performance of ITME is evaluated using the ShareGPT dataset with a configuration of 128 concurrent conversations, each spanning up to 5 turns with a minimum of 2000 tokens per conversation. As memory pressure intensifies in later stages, we focus on Turns 3–5, where the total KV cache footprint reaches 40 GB. [...] To isolate the impact of weight prefetching from prefix KV cache prefetching, we evaluate the performance of ITME by prefetching model weights only. We employ the Mooncake workload with a batch size of 16 and a 4K input sequence length. The primary objective of this evaluation is to demonstrate how closely ITME matches the host memory baseline, where all weights reside in host DRAM. Since the baseline represents the theoretical performance upper bound, this analysis focuses on the efficiency of [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.44492707
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM Serving with CXL-Hybrid Memory",
+   "content": "To understand these workload characteristics, we analyze KV-cache accesses in an idealized remote-DRAM setting. Our setup consists of a single aggregator with one NVIDIA A100 GPU worker connected to a 256 GB remote-DRAM tier over a 100 Gbps RDMA path. To expose remote KV-cache behavior, we intentionally constrain the GPU-side KV-cache capacity, forcing accumulated prefix KV blocks to be served from remote DRAM rather than remaining resident in GPU memory. [...] reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] hynix, 2026) and Samsung (Samsung Electronics, 2026b) to build remote flash tiers (Sun et al., 2025; Guo et al., 2023; Min et al., 2021; Zhan et al., 2024). On the memory side, memory vendors, cloud providers, and startups, including SK hynix (SK hynix, 2025; SK hynix, 2024),",
+   "published_date": null,
+   "score": 0.29234317
+  },
+  {
+   "url": "https://x.com/babybluecream/status/2037795525089481042",
+   "title": "펭귄 on X: \"9. 향후 KV캐시 기술의 발전 방향은 세 갈래로 수렴되는 중임. 첫째는 계층형 메모리 아키텍처 표준화로, HBM → DRAM → SSD → 분산 스토리지로 이어지는 캐시 티어를 지능적으로 관리하는 인프라 플랫폼이 새로운 산업 표준으로 자리 잡는 것임. 둘째는 MLA(Multi-head Latent Attention)처럼 KV캐시 자체의 크기를 구조적으로 줄이는 모델 아키텍처 혁신으로, DeepSeek이 이를 적용해 KV캐시 사용량을 93.3%까지 줄인 사례가 주목받았음. 셋째는 영구적 KV캐시(Persisten… / X",
+   "content": "핵심은 메모리 용량과 대역폭임. 이 구조는 앞으로 AI 모델이 더 길고 복잡한 컨텍스트를 처리하는 방향으로 진화할수록 더 심화될 수밖에 없고, 하드웨어 관점에서는 HBM을 만드는 $MU 와 SK하이닉스, 고속 SSD를 만드는 $SNDK 와 삼성, 광학 인터커넥트를 공급하는 $LITE 까지 메모리 생태계 전반이 장기 수혜를 받는 구조임. KV캐시는 눈에 잘 안 보이지만 AI 인프라 투자의 다음 10년을 조용히 재편하는 핵심 변수임.\" [...] 대역폭임. 이 구조는 앞으로 AI 모델이 더 길고 복잡한 컨텍스트를 처리하는 방향으로 진화할수록 더 심화될 수밖에 없고, 하드웨어 관점에서는 HBM을 만드는 $MU 와 SK하이닉스, 고속 SSD를 만드는 $SNDK 와 삼성, 광학 인터커넥트를 공급하는 $LITE 까지 메모리 생태계 전반이 장기 수혜를 받는 구조임. KV캐시는 눈에 잘 안 보이지만 AI 인프라 투자의 다음 10년을 조용히 재편하는 핵심 변수임. [...] 이 구조는 앞으로 AI 모델이 더 길고 복잡한 컨텍스트를 처리하는 방향으로 진화할수록 더 심화될 수밖에 없고, 하드웨어 관점에서는 HBM을 만드는 $MU 와 SK하이닉스, 고속 SSD를 만드는 $SNDK 와 삼성, 광학 인터커넥트를 공급하는 $LITE 까지 메모리 생태계 전반이 장기 수혜를 받는 구조임. KV캐시는 눈에 잘 안 보이지만 AI 인프라 투자의 다음 10년을 조용히 재편하는 핵심 변수임.",
+   "published_date": null,
+   "score": 0.28540727
+  },
+  {
+   "url": "https://semiconductor.samsung.com/kr/news-events/tech-blog/scaling-ai-inference-with-kv-cache-offloading-why-storage-is-becoming-a-key-enabler-for-next-generation-ai-systems",
+   "title": "AI 추론 확장을 위한 KV 캐시 오프로딩: 차세대 AI 시스템 아키텍처와 스토리지의 역할 | 삼성반도체",
+   "content": "삼성전자의 이번 평가 결과는 스토리지가 시스템 규모가 커질수록 병목이 아닌 확장의 기반으로 작용할 수 있음을 시사한다. 향후 AI 인프라 설계에서는 KV 캐시 오프로딩이 주요 고려 요소 중 하나로 자리 잡을 가능성이 높으며, 스토리지와 시스템 아키텍처 간 균형 설계가 실제 서비스 환경에서의 확장성과 효율을 좌우하게 될 것이다.\n\n자세히 알아보기\n\n평가에 활용된 실제 하드웨어 구성, 측정 데이터 및 워크로드 분석 결과는 아래 백서를 통해 확인할 수 있다.\n\nDownload\n\n##### References\n\n White Paper: Scaling AI Inference with KV Cache Offloading\n\n해당 백서는 본 아티클에서 소개한 아키텍처 관점을 보완하는 정량적 분석과 실험 데이터를 담고 있다.   \n 이를 통해 KV 캐시 오프로딩이 향후 AI 인프라 발전에 어떤 영향을 미칠 수 있는지 보다 심층적으로 살펴볼 수 있다. [...] 메일\n\n대규모 언어 모델(LLM)의 규모가 빠르게 커지면서 AI 시스템 최적화의 초점도 점차 변화하고 있다. 학습(Training)이 여전히 높은 자원을 요구하는 영역이지만, 실제 서비스 환경에서 반복적으로 수행되는 추론(Inference) 워크로드의 중요성이 빠르게 증가하고 있다. 특히 여러 에이전트가 상호작용하며 맥락을 유지하고 단계적으로 결과를 생성하는 에이전틱 AI 환경에서는 이러한 변화가 더욱 두드러진다.\n\n이러한 환경에서 추론은 단순한 연산 단계를 넘어선다. 모델이 생성한 정보를 저장하고 재사용하는 KV 캐시 관리가 시스템 전반의 성능과 효율에 직접적인 영향을 미치기 때문이다. 모델 규모가 커지고 멀티 노드 기반 분산 환경으로 확장될수록 KV 캐시는 단일 요청이나 단일 GPU를 넘어 지속적으로 유지·관리되는 시스템 자원으로 변화하고 있다. 그 결과 메모리 용량과 데이터 관리 부담이 증가하며, 이는 시스템 확장성을 제한하는 요소로 작용한다. [...] KV 캐시 오프로딩이 가져오는 시스템 변화\n\n삼성전자의 내부 평가 결과는 KV 캐시 오프로딩이 고성능 스토리지와 결합될 때 AI 추론 확장성 측면에서 실질적인 효과를 제공할 수 있음을 보여준다. 이는 단일 성능 지표 개선을 넘어, 성능·전력 효율·운영 비용 등 시스템 전반의 동작 방식에 영향을 미친다.\n\nKV 캐시 오프로딩을 통해 워크로드 일부를 스토리지로 분산함으로써 메모리 부담을 완화하고 반복 연산을 줄일 수 있다. 또한 트래픽이 급증하는 상황에서도 안정적인 지연시간을 유지하며 GPU 자원 활용 효율을 높이고, 높은 부하 환경에서도 일관된 데이터 처리 성능을 지원할 수 있다.\n\nAI 인프라 확장을 위한 시사점\n\nKV 캐시 오프로딩에 대한 관심 증가는 AI 시스템 아키텍처 전반의 변화를 보여준다. 에이전트 기반 추론과 멀티 노드 환경이 확대되면서, 스토리지는 단순 저장 장치를 넘어 시스템 확장을 가능하게 하는 핵심 인프라 요소로 진화하고 있다.",
+   "published_date": null,
+   "score": 0.27902034
+  },
+  {
+   "url": "https://kr.investing.com/equities/sk-hynix-inc-income-statement",
+   "title": "SK Hynix Inc (000660) 손익계산서 - Investing.com",
+   "content": "|  | 순이자 비용 | aa.aa | aa.aa | aa.aa | aa.aa | aa.aa | -227,378 | -441,128 | -1,238,452 | -971,112 | 511,363 |\n|  | |  | | | | | | | | | |\n|  | 순이자 비용 성장률 | aa.aa | aa.aa | aa.aa | aa.aa | aa.aa | -1.39% | -94.01% | -180.75% | +21.59% | +152.66% |\n|  | |  | | | | | | | | | |\n|  | 이자비용 총액 | aa.aa | aa.aa | aa.aa | aa.aa | aa.aa | -259,960 | -533,114 | -1,468,273 | -1,345,239 | -923,703 |\n|  | |  | | | | | | | | | | [...] |  | 이자 및 투자 소득 | aa.aa | aa.aa | aa.aa | aa.aa | aa.aa | 32,582 | 91,986 | 229,821 | 374,127 | 1,435,066 |\n|  | |  | | | | | | | | | |\n|  | 기타영업외비용, 총액 | aa.aa | aa.aa | aa.aa | aa.aa | aa.aa | 1,220,862 | -294,533 | -2,855,465 | 310,256 | 2,813,307 |\n|  | |  | | | | | | | | | |\n|  | 비정상 항목 제외 세전이익 | aa.aa | aa.aa | aa.aa | aa.aa | aa.aa | 13,403,824 | 6,073,756 | -11,824,230 | 22,806,463 | 50,530,989 |\n|  | |  | | | | | | | | | | [...] |  | 총이익 % | aa.aa | aa.aa | aa.aa | aa.aa | aa.aa | 44.08% | 35.02% | -1.63% | 48.08% | 60.41% |\n|  | |  | | | | | | | | | |\n|  | 기타 영업 비용 총액 | aa.aa | aa.aa | aa.aa | aa.aa | aa.aa | 6,541,852 | 8,818,438 | 7,196,865 | 8,360,827 | 11,484,471 |",
+   "published_date": null,
+   "score": 0.2715249
+  },
+  {
+   "url": "https://blog.everpuredata.com/purely-technical/cut-llm-inference-costs-with-kv-caching",
+   "title": "How to Cut LLM Inference Costs with KV Caching | Everpure Blog",
+   "content": "To solve the capacity wall, AI inference is rapidly deploying a disaggregated cache architecture. This involves three distinct tiers:\n\n1. L1: Local HBM: Active tokens for the current generation\n2. L2: Local Host DRAM/NVMe: Recently used caches stored in the node’s system RAM or local NVMe storage\n3. L3: Distributed Storage: The “Global KV Store” where caches are stored and shared across the entire GPU cluster [...] Each block of tokens is hashed (typically using BLAKE3 or SHA-256 for collision resistance). When a new request arrives, the orchestrator breaks the prompt into blocks and checks the Global KV Store for a hash match. If a match exists, the cached KV tensors are injected directly into GPU memory. If no match is found, the system computes the KV cache for those tokens and saves it to the Global KV Store for future reuse.\n\n#### The Collision and Security Boundary [...] A significant technical hurdle in KV reuse is how to make the Tensor Layout consistent across different GPU configurations. In a distributed inference setup, the KV cache is partitioned across GPUs based on the Tensor Parallelism (TP) degree.",
+   "published_date": null,
+   "score": 0.20764856
+  },
+  {
+   "url": "https://kr.linkedin.com/posts/dongsoo-lee-45028017_agentic-ai-%EC%B5%9C%EC%A0%81%ED%99%94-%EC%9D%B4%EC%8A%88%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%86%8C%EA%B0%9C-kv-cache-activity-7368596764829937665-c4J3",
+   "title": "[Agentic AI 최적화 이슈에 대한 간단한 소개 – KV cache - 2부] Agentic AI 시대에는 기존 성능 기준도 달라집니다. 과거에는 모델이 얼마나 정확히 답하는지가 중요했지만, 앞으로는 여러 에이전트가 얼마나 잘 협력해 하나의 작업을 완수하는지가 더 중요합니다. 따라서 새로운 규칙이 필요합니다. 첫째, 토큰 수가 아니라 작업 단위가… | Dongsoo Lee",
+   "content": "[Agentic AI 최적화 이슈에 대한 간단한 소개 – KV cache - 2부] Agentic AI 시대에는 기존 성능 기준도 달라집니다. 과거에는 모델이 얼마나 정확히 답하는지가 중요했지만, 앞으로는 여러 에이전트가 얼마나 잘 협력해 하나의 작업을 완수하는지가 더 중요합니다. 따라서 새로운 규칙이 필요합니다. 첫째, 토큰 수가 아니라 작업 단위가 기준이 됩니다. 앞으로는 작업당 전력, 작업당 토큰, 작업 완료까지 걸린 latency가 핵심 지표가 됩니다. 둘째, 상태 관리가 필수입니다. KV cache는 단기 기억, vector DB는 장기 기억, log와 추적 기록은 감사(audit)와 재현성을 책임집니다. 셋째, 통신 비용과 깊이의 균형이 필요합니다. 에이전트가 지나치게 많이 대화하면 품질은 오르지만 latency와 비용이 급격히 증가합니다. 그래서 대화 횟수, 단계별 토큰 수, 근거 첨부 의무 같은 운영 규칙이 필요합니다. 넷째, 신뢰와 권한 관리가 중요합니다. 각",
+   "published_date": null,
+   "score": 0.20263281
+  },
+  {
+   "url": "https://kr.investing.com/equities/sk-hynix-inc-opinion/12",
+   "title": "SK Hynix Inc (000660) 주식 분석 & 의견",
+   "content": "광고\n\n## 000660 분석\n\n이 페이지에서 귀하는 SK하이닉스 주식에 대한 가장 최근의 분석과 보고서를 찾아 보실수 있을것입니다.\n\n  찾기\n\n코스피지수\n\n6,913.90\n\n-27.49\n\n-0.40%\n\n코스피200 선물 (F) (F)\")\n\n1,116.75\n\n+3.55\n\n+0.32%\n\nUS 500\")\n\n7,828.70\n\n+9.7\n\n+0.12%\n\nUS Tech 100\")\n\n31,246.00\n\n+21.5\n\n+0.07%\n\nDAX\")\n\n25,449.19\n\n+194.98\n\n+0.77%\n\n닛케이\")\n\n70,516.00\n\n-167.98\n\n-0.24%\n\n미국 달러 지수\")\n\n101.73\n\n+0.120\n\n+0.12%\n\n금 (F)\")\n\n4,179.00\n\n-8.10\n\n-0.19%\n\n은 (F)\")\n\n61.525\n\n-0.065\n\n-0.11%\n\n브렌트유 (F)\")\n\n101.75\n\n+1.17\n\n+1.16%\n\nWTI유 (F)\")\n\n90.54\n\n+1.10\n\n+1.23%\n\n천연가스 (F)\")\n\n3.136 [...] | 종목명 | 종가 | 변동 % | 거래량 |  |\n ---  --- \n| 동양고속 | 29,250 | +30.00% | 85.15K |  |\n| 천일고속 | 180,300 | +29.99% | 22.88K |  |\n| 예선테크 | 893 | +29.99% | 158.37K |  |\n| 국제약품 | 4,430 | +29.91% | 4.84M |  |\n| 대양금속 | 752 | +29.88% | 3.46M |  |\n| 휴마시스 | 3,270 | +25.53% | 1.29M |  |\n| 에이엔피 | 204 | +24.39% | 3.83M |  | [...] 리스크 고지: 금융 상품 및/또는 가상화폐 거래는 투자액의 일부 또는 전체를 상실할 수 있는 높은 리스크를 동반하며, 모든 투자자에게 적합하지 않을 수 있습니다. 가상화폐 가격은 변동성이 극단적으로 높고 금융, 규제 또는 정치적 이벤트 등 외부 요인의 영향을 받을 수 있습니다. 특히 마진 거래로 인해 금융 리스크가 높아질 수 있습니다.  \n금융 상품 또는 가상화폐 거래를 시작하기에 앞서 금융시장 거래와 관련된 리스크 및 비용에 대해 완전히 숙지하고, 자신의 투자 목표, 경험 수준, 위험성향을 신중하게 고려하며, 필요한 경우 전문가의 조언을 구해야 합니다.",
+   "published_date": null,
+   "score": 0.17142186
+  }
+ ]
+}

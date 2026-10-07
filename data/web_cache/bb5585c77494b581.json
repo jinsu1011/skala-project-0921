@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache technology maturity level TRL experimental results site:arxiv.org OR site:iclr.cc OR site:skhynix.com OR site:medium.com",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:09:52+09:00",
+ "results": [
+  {
+   "url": "https://ar5iv.labs.arxiv.org/html/2606.12556",
+   "title": "[2606.12556] ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "The experimental results characterize the performance positioning of ITME between high-cost local GPU memory and high-overhead recomputation. While the Ideal GPU memory configuration achieves a maximum speedup of due to its inherent bandwidth advantage, ITME reaches a speedup by turn 5. Although ITME is constrained by the latency of remote CXL-hybrid memory compared to local GPU memory, it offers a substantial performance gain over recomputation-based baselines. This improvement is realized [...] ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly",
+   "published_date": null,
+   "score": 0.44869256
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "The experimental results characterize the performance positioning of ITME between high-cost local GPU memory and high-overhead recomputation. While the Ideal GPU memory configuration achieves a maximum speedup of due to its inherent bandwidth advantage, ITME reaches a speedup by turn 5. Although ITME is constrained by the latency of remote CXL-hybrid memory compared to local GPU memory, it offers a substantial performance gain over recomputation-based baselines. This improvement is realized [...] ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly",
+   "published_date": null,
+   "score": 0.444059
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v1",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "The experimental results characterize the performance positioning of ITME between high-cost local GPU memory and high-overhead recomputation. While the Ideal GPU memory configuration achieves a maximum speedup of due to its inherent bandwidth advantage, ITME reaches a speedup by turn 5. Although ITME is constrained by the latency of remote CXL-hybrid memory compared to local GPU memory, it offers a substantial performance gain over recomputation-based baselines. This improvement is realized [...] ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly",
+   "published_date": null,
+   "score": 0.444059
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "The experimental results characterize the performance positioning of ITME between high-cost local GPU memory and high-overhead recomputation. While the Ideal GPU memory configuration achieves a maximum speedup of 3.02×3.02\\times due to its inherent bandwidth advantage, ITME reaches a 1.81×1.81\\times speedup by turn 5. Although ITME is constrained by the latency of remote CXL-hybrid memory compared to local GPU memory, it offers a substantial performance gain over recomputation-based baselines. [...] ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] of the SSD, the system eliminates write amplification for the largest data structures. Prefix KV cache for sequential append addresses the challenges of dynamic data by exploiting the incremental nature of token generation. Instead of fragmented updates, the system stores new KV tokens using sequential-append writes, which aligns with the internal flash management of the NVMe controller. This approach transforms KV cache management into large, block-aligned sequential streams, significantly",
+   "published_date": null,
+   "score": 0.43180037
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-infra-summit-2026?cb=20260926180112",
+   "title": "SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’ – SK hynix Newsroom",
+   "content": "\\ KV Cache (Key Value Cache): Temporary memory in which a large language model-based AI agent stores previously computed results when generating text. The longer the conversation with a user and the more tasks there are to process, the more exponentially it grows — so the memory capability to store and process it efficiently has a major impact on an AI agent’s performance. [...] Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\nTECH&AI\n\n## SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’\n\n AI\n AI Infra Summit\n AI Memory\n eSSD\n HBF\n PIM\n SALT-KV\n\n September 17, 2026\n SK hynix\n\nSK hynix showcased next-generation AI memory at AI Infra Summit 2026, highlighting HBF, PIM/AiMX, and SALT-KV solutions to boost bandwidth, efficiency, and KV cache management. The company emphasized leading future AI infrastructure.",
+   "published_date": null,
+   "score": 0.31681347
+  },
+  {
+   "url": "https://news.skhynix.com/en/sk-hynix-inc-reports-fiscal-year-2019-and-fourth-quarter-results",
+   "title": "SK hynix Inc. Reports Fiscal Year 2019 and Fourth Quarter Results – SK hynix Newsroom",
+   "content": "While SK hynix sees the recent improvement in demand flows positively, the Company will carry out more prudent production and investment strategies, as complexities and uncertainties still remain much higher than in the past. As such, the Company aims to improve technology maturity rapidly in the process of technology migration and prepare for next-generation products, accelerating cost reduction. [...] Seoul, January 31, 2020  \nSK hynix Inc. (or ‘the Company’, www.skhynix.com) today announced financial results for its fiscal year 2019 and fourth quarter ended on December 31, 2019. The consolidated revenue of fiscal year 2019 was KRW 26.99 trillion won while the operating profit amounted to 2.71 trillion won, and the net income 2.02 trillion won. Operating margin for the year was 10% and net margin was 7%. [...] # SK Hynix Newsroom\n\nSK Hynix Newsroom\n\n## SK hynix Inc. Reports Fiscal Year 2019 and Fourth Quarter Results",
+   "published_date": null,
+   "score": 0.23364556
+  },
+  {
+   "url": "https://news.skhynix.com/sk-hynix-inc-reports-fiscal-year-2019-and-fourth-quarter-results",
+   "title": "SK hynix Inc. Reports Fiscal Year 2019 and Fourth Quarter Results – SK hynix Newsroom",
+   "content": "While SK hynix sees the recent improvement in demand flows positively, the Company will carry out more prudent production and investment strategies, as complexities and uncertainties still remain much higher than in the past. As such, the Company aims to improve technology maturity rapidly in the process of technology migration and prepare for next-generation products, accelerating cost reduction. [...] Seoul, January 31, 2020  \n SK hynix Inc. (or ‘the Company’, www.skhynix.com) today announced financial results for its fiscal year 2019 and fourth quarter ended on December 31, 2019. The consolidated revenue of fiscal year 2019 was KRW 26.99 trillion won while the operating profit amounted to 2.71 trillion won, and the net income 2.02 trillion won. Operating margin for the year was 10% and net margin was 7%.",
+   "published_date": null,
+   "score": 0.23364556
+  },
+  {
+   "url": "https://news.skhynix.com/tag/sk-hynix",
+   "title": "SK hynix – SK hynix Newsroom",
+   "content": "STORY\n\n  + indexing\n  + Key Value Computational Storage Device\n  + KV-CSD\n  + R&D100 Awards\n  + secondary indexing\n  + SK hynix\n \n\n  Our ESG Progress, Visualized: How SK hynix’s Sustainability Efforts Are Building a Better World\n\n  November 1, 2023\n\n  STORY\n\n  + ESG\n  + PRISM\n  + SK hynix\n  + Social\n  + Sustainability Efforts\n  + Sustainability Report\n [\n\n  [Brand Video] Who Are the Rulebreakers?\n\n  October 30, 2023](\n\n  TECH&AI",
+   "published_date": null,
+   "score": 0.200793
+  }
+ ]
+}

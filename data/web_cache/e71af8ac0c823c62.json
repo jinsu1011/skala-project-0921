@@ -1,0 +1,65 @@
+{
+ "query": "independent industry and user feedback on limitations and drawbacks of SK hynix ITME KV cache technology",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:48:04+09:00",
+ "results": [
+  {
+   "url": "https://news.skhynix.com/en/ai-infra-summit-2026",
+   "title": "SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’ – SK hynix Newsroom",
+   "content": "\\ KV Cache (Key Value Cache): Temporary memory in which a large language model-based AI agent stores previously computed results when generating text. The longer the conversation with a user and the more tasks there are to process, the more exponentially it grows — so the memory capability to store and process it efficiently has a major impact on an AI agent’s performance. [...] He also emphasized, “HBF, which combines high bandwidth and large capacity to improve the efficiency of long-context workloads, and PIM technology, which improves performance and efficiency in the fast-decoding workloads of premium services, are excellent alternatives that can move beyond existing limits. SALT-KV, too, which raises processing efficiency by taking into account the characteristics and reusability of the KV cache, holds ample potential to drive the evolution of AI systems.” [...] Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\nTECH&AI\n\n## SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’\n\n AI\n AI Infra Summit\n AI Memory\n eSSD\n HBF\n PIM\n SALT-KV\n\n September 17, 2026\n SK hynix\n\nSK hynix showcased next-generation AI memory at AI Infra Summit 2026, highlighting HBF, PIM/AiMX, and SALT-KV solutions to boost bandwidth, efficiency, and KV cache management. The company emphasized leading future AI infrastructure.",
+   "published_date": null,
+   "score": 0.46993434
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM Serving with CXL-Hybrid Memory",
+   "content": "reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] arXiv is now an independent nonprofit! Learn more\n\narXiv logo Back to arXiv\n\nLicense: arXiv.org perpetual non-exclusive license \n\narXiv:2607.18141v2 [cs.DC] 24 Jul 2026\n\n# HyMCache: A KV Cache Framework for Multi-Turn LLM Serving with CXL-Hybrid Memory\n\nHakbeom Jang1, Inho Song1,2,†, Hoshik Kim1, Sam H. Noh2, Jongryool Kim1  Affiliation: 1SK hynix America  2Virginia Tech\n\n###### Abstract. [...] hynix, 2026) and Samsung (Samsung Electronics, 2026b) to build remote flash tiers (Sun et al., 2025; Guo et al., 2023; Min et al., 2021; Zhan et al., 2024). On the memory side, memory vendors, cloud providers, and startups, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026) are developing CXL-based memory expansion,",
+   "published_date": null,
+   "score": 0.3793789
+  },
+  {
+   "url": "https://news.skhynix.com/en/future-forum-2026",
+   "title": "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward” – SK hynix Newsroom",
+   "content": "They explained that implementing this technology will require solving not only design and heat-dissipation issues but also technical challenges in the packaging domain, such as fine interconnects, bonding, and process integration. [...] ▲ April Li, Director of AI & HPC Business Development at TSMC, taking part in the panel discussion.\n\n▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left)\n\n▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left) [...] ▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left)\n\n▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left)\n\n▲ Jungsoo Kang, Head of the Research Center at Bluedot AI, taking part in the panel discussion.",
+   "published_date": null,
+   "score": 0.3399377
+  },
+  {
+   "url": "https://x.com/jukan05/status/2047117081230057881",
+   "title": "Jukan ✈️OCP 2026 on X: \"SK hynix conference call – NAND-related comments Q. How are you responding to NAND demand such as for eSSD? \"NAND is no longer just a simple storage device. We expect it to see long-term growth as a critical component. As AI models become more advanced, the amount of KV ca… / X",
+   "content": "Apr 23\n\n  One honest observation: the pattern across the call is now four Q&A responses where management preemptively addresses a bear case before being asked to (pricing not transient, Jevons on efficiency, spot moderation not peaking, NAND not just storage). That's an unusually [...] where investment expansion remains limited, we plan to respond proactively by strengthening our technological capabilities and increasing output. First, in April, we became the first in the world to develop 321-layer QLC and completed customer qualification. This has allowed us to secure a clear technology lead. We have now built out a product lineup that covers both high performance and high capacity. We are also positioned to respond flexibly to the increasingly tiered AI storage market. We [...] where investment expansion remains limited, we plan to respond proactively by strengthening our technological capabilities and increasing output. First, in April, we became the first in the world to develop 321-layer QLC and completed customer qualification. This has allowed us to secure a clear technology lead. We have now built out a product lineup that covers both high performance and high capacity. We are also positioned to respond flexibly to the increasingly tiered AI storage market. We",
+   "published_date": null,
+   "score": 0.32219586
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=EHWSK7QAN7w",
+   "title": "SK Hynix US Listing Demand Soars | Bloomberg Tech 7/09/2026",
+   "content": "[6:56] DIFFERENT POINTS IT BRINGS OUT. IT'S SO PROLIFIC IN TERMS OF THE BAYER CASE AND INEFFICIENCY IN THE SUPPLY CHAIN WITH TOO\n[7:05] MUCH CAPEX IN THE MARKET. I CAN MAKE A BIG HIKE CASE AND MAKE IT SOUND ROBUST, BUT KEEP IT IN THE CONTEXT WINDOW AND\n[7:13] FLIP OVER TO THE BOWL CASE.\n[7:20] IT'S THE BULL CASE THAT SHOULD BE WINNING HERE. [...] [24:33] WITH THESE SUBSECTORS ON DIFFERENT SIDES OF THE TECHNOLOGY. BASICALLY, IF AI CONTINUES TO\n[24:41] PROLIFERATE AND IMPROVE, THAT'S SEEN AS GOOD FOR CHIPMAKERS IN TERMS OF DEMAND AND GROWTH AND BAD FOR SOFTWARE, TO THE EXTENT\n[24:49] THAT AI DISRUPTS THE SECTOR. WE HAVE SEEN A DIVERSIONS BETWEEN THEM THIS YEAR. THERE HAS BEEN SOME BACK AND\n[24:56] FORTH RECENTLY WHERE IT SEEMED LIKE SOFTWARE WAS DOING A BIT BETTER HIM CHIPS SEEMED LIKE THEY WERE COMING BACK OF IT. [...] [35:34] TAKE STAKES IN THEIR BUSINESSES, HAVE SOME SKIN AND FEEL RESPONSIBILITY FOR THE PROGRESS FOR DEVELOPING THIS\n[35:42] CUTTING EDGE TECHNOLOGY BUT ALSO FIND A WAY TO REDISTRIBUTE THOSE RETURNS. THE COMMON GROUND REALLY ENDS THERE. PRESIDENT TRUMP HAS -- TAKING\n[35:54] UP TO 50% STAKES IN THESE COMPANIES AND HANDING BACK A 5% DIVIDEND TO THE PUBLIC ON AN ANNUAL BASIS.\n[36:00] THE PRESIDENT SAID I HAD THE IDEA FIRST. HE DOES NOT THINK IT WOULD WORK. ED:",
+   "published_date": null,
+   "score": 0.24694668
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] TradingKey - เมื่อวันที่ 25 มิถุนายน 2026 บุคคลธรรมดา 14 ราย และบริษัท 3 แห่ง ได้ยื่นฟ้องคดีต่อต้านการผูกขาดต่อศาลแขวงสหรัฐฯ เขตเหนือแห่งรัฐแคลิฟอร์เนีย โดยตามมาตรา 1 แห่งกฎหมายเชอร์แมน (Sherman Act) ฝ่ายโจทก์กล่าวหาว่า ซัมซุง อิเล็กทรอนิกส์, เอสเคไฮนิกซ์ และไมครอน ได้ร่วมมือกันจำกัดอุปทานของชิป DRAM รุ่นเก่า (legacy DRAM) มาตั้งแต่ปี 2022 พร้อมทั้งเรียกร้องขอการรับรองสถานะการฟ้องร้องดำเนินคดีแบบกลุ่ม คำสั่งห้ามกระทำการ และค่าเสียหายเป็นจำนวนสามเท่า\n\nTradingKey4 ชั่วโมงที่แล้ว [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.2445844
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.2445844
+  },
+  {
+   "url": "https://www.fitchratings.com/research/corporate-finance/fitch-upgrades-sk-hynix-to-bbb-outlook-stable-30-04-2026",
+   "title": "Fitch Upgrades SK hynix to 'BBB+'; Outlook Stable",
+   "content": "### ISSUER CONTENT\n\n   SK hynix Inc.\n   惠誉：伊朗冲突持续推升半导体行业氦气供应尾部情景风险\n   惠譽信評：伊朗衝突延宕推升半導體產業氦氣供應尾端風險\n   Prolonged Iran Conflict Raises Helium Tail Risk for Semiconductors\n   Fitch Affirms Nine APAC Technology Hardware & Semiconductor Companies on Criteria Update\n   事業会社の格付基準を改訂後、キオクシア、ルネサスの格付を据え置き\n   AI Spending Wave to Support Korean Memory Chip Makers’ Prospects\n   APAC Tech to Face Softer Consumer Demand, AI Tailwinds in 2026\n   APAC Technology Outlook 2026\n\n### RECOMMENDED CONTENT [...] a stronger market position in memory and much lower leverage. We forecast NXP's leverage at about 2.0x in 2026, but its higher rating reflects its more stable business model and cash flow profile. [...] ### Fitch’s Key Rating-Case Assumptions\n\n-Revenue to more than double from 2025 to over KRW230 trillion in 2026, driven by robust AI-driven demand and double-digit bit growth. We expect DRAM and NAND average selling prices to rise by over 100% yoy and the operating margin to reach 70% in 2026.\n\n-Capex/revenue ratio at 25% over the medium term for equipment purchases and fab expansion in Yongin and Cheongju, Korea.\n\n- Annual dividends of about KRW3,000/share and 5% of FCF.",
+   "published_date": null,
+   "score": 0.20769678
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache limitations drawbacks independent analysis third-party evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:09:31+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "Without a way to effectively manage or delay these writes, the system cannot retrieve data while busy with incoming traffic. Furthermore, the absence of a dedicated prefetching mechanism prevents the system from hiding this delay by moving data in advance. As a result, the required KV blocks fail to reach the CPU in time, forcing the system to perform slow recomputation. While NVMe-oF could be further enhanced through specialized optimizations, our evaluation focuses on the intrinsic I/O [...] To isolate the impact of weight prefetching from prefix KV cache prefetching, we evaluate the performance of ITME by prefetching model weights only. We employ the Mooncake workload with a batch size of 16 and a 4K input sequence length. The primary objective of this evaluation is to demonstrate how closely ITME matches the host memory baseline, where all weights reside in host DRAM. Since the baseline represents the theoretical performance upper bound, this analysis focuses on the efficiency of [...] Figure 10 vs. ITME ‣ 6. Evaluation ‣ ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories\") compares the multi-turn inference performance of ITME against the CPU-offload and recompute-only baselines. The figure evaluates inference efficiency using 256 concurrent conversations from the ShareGPT dataset. To stress-test KV cache capacity, we designed a 35-turn benchmark that generates a massive total footprint. In this setup, the CPU-offload baseline allocates a large 128",
+   "published_date": null,
+   "score": 0.41094592
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] The hard part of KV cache compression is not choosing which tokens to keep — it is two collisions with production infrastructure. Existing methods need historical attention scores, but the FlashAttention kernel never writes those scores into GPU memory. And paged attention reclaims memory only when a block holds no KV at all — yet after token eviction the survivors leave almost every block partially occupied, so the \"freed\" memory never actually comes back.\n\nContents [...] Figure 1. Schematic, not to scale: every token the model generates appends its keys and values to the running history — the KV cache — so cache memory grows with output length while the weights stay fixed. Let generation run long enough, and the cache alone drives the GPU out of memory.",
+   "published_date": null,
+   "score": 0.3052938
+  },
+  {
+   "url": "https://www.vastdata.com/blog/stop-wasting-gpu-cycles-a-practical-guide-to-right-sizing-kv-cache",
+   "title": "Stop Wasting GPU Cycles: A Practical Guide to Right-Sizing KV Cache - VAST Data",
+   "content": "bandwidth memory), which is expensive and limited to holding the large, dynamic KV cache required for long context agentic processing. Every new turn, tool-call, and prompt requires the model to re-process the entire conversation history, wasting critical GPU cycles on \"prefill\" for data it has already seen. This recomputation slows Time-to-First-Token (TTFT), degrading user experience and impacting revenue streams. [...] ##### Sizing Your Inference Pipeline\n\nDetermining the appropriate KV cache size for inference deployment requires a careful evaluation of several key variables: [...] One point worth keeping in mind: KV reuse only ever helps the prefill stage (and therefore TTFT). Prefill processes the input tokens, which can recur across requests, so their KV can be computed once, stored, and retrieved later. Decode is fundamentally different: it generates new tokens one at a time, and each token’s K/V has never existed before this request. It is new data, so there is nothing in any cache to retrieve - and decode is bound by memory bandwidth, not compute.",
+   "published_date": null,
+   "score": 0.25654128
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "honesty concerning limitations. [...] These limitations motivate the design of a DRAM-free offloading architecture that bypasses interme-diate memory staging and enables direct, high-bandwidth data transfer between GPUs and SSDs. This architecture avoids cumulative latency and bandwidth bottlenecks inherent in existing approaches, while simplifying the overall system design and reducing operational cost. [...] while the evaluation demonstrates HiFC’s effectiveness across several models (including DS-Qwen-32B, DS-Llama-8B, DS-Qwen-14B, and Mistral-7B), further validation on more diverse and significantly larger-scale architectures (e.g., 100B+ parameters) would strengthen its generalizability.es and larger model scales would strengthen generalizability.",
+   "published_date": null,
+   "score": 0.24588585
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale | Aerospike",
+   "content": "KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per [...] KV cache retrieval typically involves loading entire tensor blocks before inference can continue. Storage systems optimized for small random reads provide limited value when workloads require moving hundreds of megabytes at a time.\n\n### Asynchronous writes\n\nCache persistence should not add latency to user requests. Most tiering systems write cache entries asynchronously after inference completes, allowing response generation to remain focused on minimizing user-facing latency. [...] In contrast, KV caches are structured collections of tensor states that can scale into hundreds of megabytes or more per request, far beyond the kilobyte-sized objects conventional caches expect. These cached key-value tensors capture the results of prior attention-layer computations, allowing an LLM to reuse previously processed context rather than recomputing it at each generation step.  The size of these cache objects quickly changes the storage equation.",
+   "published_date": null,
+   "score": 0.17711271
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] TradingKey21 ชั่วโมงที่แล้ว\n\nไฮไลท์\n\nการตรวจสอบความสมเหตุสมผลสำหรับการซื้อขายหุ้นกลุ่มชิป AIอุปสรรคทางเทคนิคของ TurboQuant เผชิญกับความแข็งแกร่งของ HBM\n\nเครื่องมือที่แนะนำ\n\ntk_center_stock_scoreคะเเนนหุ้นcalendar_economicCalendarปฏิทินทางเศรษฐกิจsearch.intelligent.strategyตัวเลือกหุ้นอัจฉริยะarticle_asider_weekly_reportรายงานประจำสัปดาห์\n\nข่าวสารที่สูงสุด\n\nlink\n\nMicron vs. SanDisk: ในขณะที่กระแสบูมของศูนย์ข้อมูล AI ยังคงร้อนแรงขึ้นอย่างต่อเนื่อง หุ้นหน่วยความจำตัวใดน่าซื้อมากกว่ากัน? [...] ขอแนะนำให้ปรึกษาทางการเงินอิสระเพื่อทำความเข้าใจความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้",
+   "published_date": null,
+   "score": 0.1752418
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] ขอแนะนำให้ปรึกษาทางการเงินอิสระเพื่อทำความเข้าใจความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้ [...] หุ้นของบลูม เอเนอร์จี (BE) แตะระดับสูงสุดล่าสุดที่ 292.72 ดอลลาร์ เมื่อวันที่ 25 กันยายน โดยเพียงสองเดือนก่อนหน้านั้น เมื่อวันที่ 29 กรกฎาคม หุ้นของผู้ผลิตเซลล์เชื้อเพลิงรายนี้มีการซื้อขายอยู่ที่เพียง 157 ดอลลาร์ ซึ่งคิดเป็นการปรับตัวขึ้นอย่างก้าวกระโดดถึง 86% ในช่วงเวลาดังกล่าว\n\nTradingKey18 ชั่วโมงที่แล้ว\n\nไฮไลท์\n\nการตรวจสอบความสมเหตุสมผลสำหรับการซื้อขายหุ้นกลุ่มชิป AIอุปสรรคทางเทคนิคของ TurboQuant เผชิญกับความแข็งแกร่งของ HBM\n\nเครื่องมือที่แนะนำ",
+   "published_date": null,
+   "score": 0.1752418
+  },
+  {
+   "url": "https://www.investing.com/equities/sk-hynix-inc-opinion",
+   "title": "SK Hynix Inc Analysis & Opinion (000660) - Investing.com",
+   "content": "will not accept liability for any loss or damage as a result of your trading, or your reliance on the information contained within this website. [...] It is prohibited to use, store, reproduce, display, modify, transmit or distribute the data contained in this website without the explicit prior written permission of Fusion Media and/or the data provider. All intellectual property rights are reserved by the providers and/or the exchange providing the data contained in this website.  \nFusion Media may be compensated by the advertisers that appear on the website, based on your interaction with the advertisements or advertisers. [...] Risk Disclosure: Trading in financial instruments and/or cryptocurrencies involves high risks including the risk of losing some, or all, of your investment amount, and may not be suitable for all investors. Prices of cryptocurrencies are extremely volatile and may be affected by external factors such as financial, regulatory or political events. Trading on margin increases the financial risks.",
+   "published_date": null,
+   "score": 0.1576941
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen authors InfiniGen KV cache regulation and compliance risks limitations",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:53:05+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "C3: Adjusting the number of KV entries across queries.\nH2O sets the number of key/value tokens to retain as a fixed percentage of\nthe input sequence length. The KV cache budget remains constant regardless of\nhow many tokens have been generated.\nBy analyzing the data from Figure 5 on Layer 18, we observe\nthat this fixed KV cache budget has some limitations.\nFor instance, with an input sequence length of 200 and a 20% KV cache budget, [...] In summary, this paper makes the following contributions:\n\nWe present InfiniGen, a dynamic KV cache management framework that\nsynergistically works with modern offloading-based LLM serving systems by\nintelligently managing the KV cache in the CPU memory. [...] InfiniGen is orthogonal to FlexGen and can work in conjunction with it to\nefficiently offload and prefetch the KV cache.",
+   "published_date": null,
+   "score": 0.45885846
+  },
+  {
+   "url": "https://leewonbeom.github.io/files/osdi24-infinigen-poster.pdf",
+   "title": "InfiniGen: Efficient Generative Inference of Large ...",
+   "content": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management Wonbeom Lee, Jungi Lee, Junghwan Seo, Jaewoong Sim Seoul National University LLM Inference & KV Cache InfiniGen Results Challenges KV Cache Size & Transfer Overhead Motivation InfiniGen Design Efficient KV Cache Prefetching 1. (Offline) Modify model weights in Skewing Controller 2. Speculate and prefetch KV tokens in PWIGen/KVSel Controller 3. Manage KV cache pool on CPU memory in Pool Manager [...] CPU Offloading Attention FFN KV Cache Transfer (CPU → GPU) time Attention FFN 0 400 800 1K 4K 16K 64K Size (GB) Sequence Length Weight KV Cache >> GPU Memory (80GB) KV Cache Sending ineffective KV tokens Waste of PCIe bandwidth Retained Essential Missing essential KV tokens Accuracy drop Fixed Budget: 3 Case #1 Case #2 0.0 0.4 0 8K 16K Iteration Unimportant Permanently evicted Missing essential KV tokens Accuracy drop Attention Weight of Sampled Key GPU Memory CPU Memory Modified QK Weights [...] Offloading can enable longer sequences exploiting large CPU memory, but lead to a significant slowdown due to the limited PCIe bandwidth.\nPrior approaches permanently evict unimportant tokens.\nPrior approaches use a fixed KV cache size budget.",
+   "published_date": null,
+   "score": 0.43180037
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nWonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim, Seoul National University [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the",
+   "published_date": null,
+   "score": 0.40344992
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=k6jnjFCdXoo",
+   "title": "[LLM] InfiniGen: Efficient Generative Inference of LLMs with Dynamic KV Cache Management (OSDI 2024)",
+   "content": "# [LLM] InfiniGen: Efficient Generative Inference of LLMs with Dynamic KV Cache Management (OSDI 2024)\n## Channel: SNU DBX Lab\n109 subscribers\n5 likes\n\n### Description\n286 views\nPosted: 2024-11-14\n서울대학교 데이터사이언스대학원 \n2024.10.05 논문세미나\n\nInfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management (OSDI 2024)\n\n무단 전재, 재배포 및 이용 (AI 학습 포함) 금지.\nProhibition of unauthorized reproduction, redistribution, and use of AI learning.\n\nVrew를 사용하여 제작된 영상입니다 [...] [20:51] 어떤게 필요할지 알고 있기 때문에 미리 로드를 하는 방법도 있지만 그 또한 시간이 걸리는 것은 마찬가지입니다\n[20:59] 또 한 가지는 뭐냐면이 KV 캐시를 어떤 기존의 솔루션들은 KV 캐시가 너무 커지니까 에딕션 시키는\n[21:07] 방식으로 관리를 해 왔습니다 그 얘기는 뭐하면 어 에딕션 한 번시 켜서 뭐 다시 넣다 뺐다 한다는 구조라 이보다는 아예 중요하지 않은\n[21:16] 토큰으로 판정이 나면 그것을 비캐시 빼버리고 CPU 있도 아예 날려버려서 CPU 메모리에서 날려버려서 다시는\n[21:24] 사용하지 않는다는 것입니다 근데 당연히 문제가 되는 것은 우리가 처음에는 중요하지 않다고 판단했던 토큰이 이후에는 사실 중요할 수도\n[21:32] 있기 때문에 이걸 지어 버리게 되면 나중에 가서 러시에 큰 문제가 생깁니다 이럴 테면 어 이거는 지금 [...] [18:57] 단계에서이 이미 기존에 주어진 알고 있는 인풋에 대해서 KV 캐시를 저장하고 한 단씩 만들어 갈\n[19:05] 때마다이 KV 새로 만들어진 단어에 새로 들어온 단어에 KV 값을 저장을 계속 해주면\n[19:14] 됩니다이 여기서 이제 사실 이미 몇 가지 문제를 상상하실 수 있을 거라 생각을 합니다 첫 번째 캐시는 당연히 큽니다\n[19:22] 크고 어 시퀀스 스와 베스타스 클수록 당연히 더 커집니다이 진 그래프에서 검은색\n[19:30] 점선은 아 이게 기본적으로 지금 모델 패러미터 사이즈를 말하고 있는데요 어이 검은색 점선이 말하는 거는 어\n[19:39] 그냥 모델 패러미터 위 저장하기 위해서 필요한 용량이고 점점 이제 그걸 넘어서 증가하는 내용은 뭐하면\n[19:47] 키밸류 캐시가 저장되면서 용량이 이렇게 크게 증가하게 됩니다 보시면 뭐 그 밑에",
+   "published_date": null,
+   "score": 0.40302688
+  },
+  {
+   "url": "https://huggingface.co/papers/2406.19707",
+   "title": "Paper page - InfiniGen: Efficient Generative Inference of Large Language Models with\n  Dynamic KV Cache Management",
+   "content": "Hugging Face's logo\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n## Abstract\n\nInfiniGen is a KV cache management framework that improves performance and accuracy in long-text generation by pre-fetching essential KV cache entries in offloading-based LLM serving systems. [...] Transformer-based large language models (LLMs) demonstrate impressive\nperformance across various natural language processing tasks. Serving LLM\ninference for generating long contents, however, poses a challenge due to the\nenormous memory footprint of the transient state, known as the key-value (KV)\ncache, which scales with the sequence length and batch size. In this paper, we\npresent InfiniGen, a novel KV cache management framework tailored for long-text [...] generation, which synergistically works with modern offloading-based inference\nsystems. InfiniGen leverages the key insight that a few important tokens that\nare essential for computing the subsequent attention layer in the Transformer\ncan be speculated by performing a minimal rehearsal with the inputs of the\ncurrent layer and part of the query weight and key cache of the subsequent\nlayer. This allows us to prefetch only the essential KV cache entries (without",
+   "published_date": null,
+   "score": 0.37724295
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | alphaXiv",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] InfiniGen predicts from the immediately preceding layer. For OPT-13B, measured on a random 2,000-token PG-19 sentence, the authors report an average cosine similarity of 0.96 between adjacent Transformer-block inputs across layers. The paper notes that inputs to distant layers differ. [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the",
+   "published_date": null,
+   "score": 0.3554845
+  },
+  {
+   "url": "https://infinigen.org",
+   "title": "Home | Infinigen",
+   "content": "@inproceedings{infinigen2023infinite, title={Infinite Photorealistic Worlds Using Procedural Generation}, author={Raistrick, Alexander and Lipson, Lahav and Ma, Zeyu and Mei, Lingjie and Wang, Mingzhe and Zuo, Yiming and Kayan, Karhan and Wen, Hongyu and Han, Beining and Wang, Yihan and Newell, Alejandro and Law, Hei and Goyal, Ankit and Yang, Kaiyu and Deng, Jia}, booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, pages={12630--12641}, year={2023} } [...] @inproceedings{infinigen2024indoors, author={Raistrick, Alexander and Mei, Lingjie and Kayan, Karhan and Yan, David and Zuo, Yiming and Han, Beining and Wen, Hongyu and Parakh, Meenal and Alexandropoulos, Stamatis and Lipson, Lahav and Ma, Zeyu and Deng, Jia}, title={Infinigen Indoors: Photorealistic Indoor Scenes using Procedural Generation}, booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month={June}, year={2024}, pages={21783-21794} } [...] Read the paper\n\n```\n@misc{joshi2025infinigenarticulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ }\n```",
+   "published_date": null,
+   "score": 0.34395897
+  },
+  {
+   "url": "https://github.com/princeton-vl/infinigen",
+   "title": "GitHub - princeton-vl/infinigen: Infinite Photorealistic Worlds using Procedural Generation · GitHub",
+   "content": "@inproceedings{infinigen2023infinite, title={Infinite Photorealistic Worlds Using Procedural Generation}, author={Raistrick, Alexander and Lipson, Lahav and Ma, Zeyu and Mei, Lingjie and Wang, Mingzhe and Zuo, Yiming and Kayan, Karhan and Wen, Hongyu and Han, Beining and Wang, Yihan and Newell, Alejandro and Law, Hei and Goyal, Ankit and Yang, Kaiyu and Deng, Jia}, booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, pages={12630--12641}, year={2023} } [...] ```\n@misc{joshi2025articulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ } \n``` [...] @inproceedings{infinigen2024indoors, author = {Raistrick, Alexander and Mei, Lingjie and Kayan, Karhan and Yan, David and Zuo, Yiming and Han, Beining and Wen, Hongyu and Parakh, Meenal and Alexandropoulos, Stamatis and Lipson, Lahav and Ma, Zeyu and Deng, Jia}, title = {Infinigen Indoors: Photorealistic Indoor Scenes using Procedural Generation}, booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {June}, year = {2024}, pages =",
+   "published_date": null,
+   "score": 0.32995334
+  }
+ ]
+}

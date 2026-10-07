@@ -6,7 +6,7 @@
 - Objective : 하나의 기술을 복수 관점에서 비교 평가 (우열·추천 판정 없이 관점별 평가와 그 근거를 추적)
 - Pattern : **Orchestrator-Workers** — 필요한 조사 범위가 기술·근거 상태에 따라 달라지므로 실행 전에 계획을 세우고(Orchestrator), 계획된 작업만 병렬 실행한 뒤(Workers) Synthesizer가 병합한다. 보고서 생성은 재현성이 중요해, 매 단계 라우팅하는 Supervisor보다 "사전 계획 + 상한이 있는 피드백 루프"가 맞다
 - 동적 처리 : RAG 과제의 고정 4관점 Fan-out(`FAN = [...]`)을 없앴다. Orchestrator가 State(선정 기술·기술 개요·근거·검색 공백)를 보고 SubTask 목록을 런타임에 만들고, `Send`로 `state["subtasks"]` 개수만큼 Worker를 띄운다. 4개 관점은 프롬프트의 최소 커버리지 요건일 뿐이며, 규제·경쟁 등 관점 추가와 관점 분할을 LLM이 정한다. Judge가 실패시킨 작업만 같은 Agent가 1회 다시 실행한다
-- 동적 처리 근거 : 입력이 다르면 계획이 달라진다. 계획 단계만 4가지 입력으로 돌리면 SubTask가 7·8·6·8개로 바뀌고(관점의 기술별 분할, 추가 관점, 미사용 Agent가 달라짐), 전체 실행 2회도 TurboQuant+ITME는 6개·재시도 4건·검토자 1명, KIVI+InfiniGen은 5개·재시도 3건·검토자 2명으로 달랐다([`docs/PLAN_VARIATIONS.md`](docs/PLAN_VARIATIONS.md), `tracing-5.png`). 같은 입력이면 같은 계획이 나오는 것은 temperature 0과 응답 캐시로 재현성을 보장했기 때문이다
+- 동적 처리 근거 : 입력이 다르면 계획이 달라진다. 계획 단계만 4가지 입력으로 돌리면 SubTask가 7·8·6·8개로 바뀌고(관점의 기술별 분할, 추가 관점, 미사용 Agent가 달라짐), 전체 실행 2회도 TurboQuant+ITME는 5개·검토 8건, KIVI+InfiniGen은 6개·검토 4건으로 달랐다([`docs/PLAN_VARIATIONS.md`](docs/PLAN_VARIATIONS.md), `tracing-5.png`). 같은 입력이면 같은 계획이 나오는 것은 temperature 0과 응답 캐시로 재현성을 보장했기 때문이다
 
 ## Selected Technologies
 - SW : **Google TurboQuant** — 재학습 없이 서빙 단계에서 KV cache를 온라인 양자화(무작위 회전 + 좌표별 스칼라 양자화 + 1-bit QJL 잔차 보정)
@@ -20,7 +20,7 @@
 - **Worker 실패 Fall-back** : 예외는 `status="error"` 결과가 된다 → attempt 0이면 같은 Agent로 1회 재시도, 다시 실패하면 이전 결과를 `PARTIAL`로 유지하거나 제외(`excluded`)하고 계속 진행, 보고서 한계점에 기록
 - **Synthesizer** : `result_aggregator`(defer)가 task별 최신 attempt를 관점 결과로 모으고, `synthesizer`가 관점 간 일치·상충과 가설 H1~H4를 판정(점수·판정은 코드, LLM은 해설)
 - **Perspective Judge → 같은 Agent 1회 재시도** : Judge가 실패한 **task_id**를 지목 → `retry_router`(조사하지 않음)가 재시도 가능 여부(attempt == 0)를 코드로 판정 → 초기 계획에서 **쓰이지 않은 Agent**가 REVIEW MODE로 독립 검토(최대 2명, 없으면 생략) → **Agent 0**(`feedback_retry_coordinator`)이 Judge·검토 의견을 재시도 지시문으로 합침 → **원래 담당 Agent**가 attempt 1로 재실행(담당 Agent는 State에서 코드로 고정). attempt 1 후에도 미달이면 `FAILED_AFTER_RETRY`로 기록
-- **확증 편향 방지 전략** : 두 기술에 같은 찬반 질의 템플릿·검색 한도, 기술명을 명시한 근거만 찬반으로 계산, 같은 보도자료를 옮긴 기사는 한 출처 계열로 묶어 한 계열 ≤ 50%, 개발사 발언은 이해관계자 점수 제외, 실패 작업은 다른 Agent가 출처 편향을 독립 점검
+- **확증 편향 방지 전략** : 두 기술에 같은 찬반 질의 템플릿·검색 한도를 쓰고, 관점마다 독립 비판 질의(정식 명칭이 있으면 그 이름으로도)를 더한다. 기술명을 명시한 근거만 찬반·집단 점수로 센다(회사 실적·주가·신용등급 기사, SNS 모음 페이지는 기술 평가로 세지 않음). 같은 보도자료를 옮긴 기사는 한 출처 계열로 묶어 한 계열 ≤ 50%로 자르고, 개발사 발언·보도자료·원 논문은 이해관계자 점수에서 뺀다. 실패 작업은 다른 Agent가 출처 편향을 독립 점검한다. 기준에 못 미친 관점의 점수는 보고서에 † 잠정 점수로 표시하고, 반대 근거 0계열·판단 보류·50% 초과 비중은 6장에 수치로 공개한다
 - **보고서 품질 평가 (Hybrid)** : `report_quality_evaluator` = 결정적 검사 + LLM Judge(gpt-4.1)
   - Groundedness : 근거 없는 문장 0건, 본문 인용 ↔ REFERENCE 일치 / 중립성 : 우열·추천 어휘 0건 / 편향 통제 : REFERENCE 웹 출처 한 계열 ≤ 50% / 관점 커버리지 : 4개 관점 × 두 기술 결과 존재, SUMMARY·REFERENCE 존재
   - 미달 시 Loop : 서술 문제 → `report_writer` 재작성 1회 / task에 매핑되는 근거 문제이고 attempt 0 → Retry Router 경로 / 이미 재시도한 작업 → 한계 기록 후 결정적 후처리로 종료
@@ -57,17 +57,31 @@
 ![Orchestrator-Workers 그래프](docs/graph_overview.png)
 
 - 코드에서 컴파일한 실제 그래프: [`docs/graph.png`](docs/graph.png) (`uv run python scripts/render_graph.py`)
-- LangSmith Trace (최종 실행 `run_id=37d8bdd72d30`, 제출 PNG와 동일)
+## LangSmith Trace
+최종 실행 `run_id=cdc64c3abebe`(TurboQuant + ITME, 보고서와 같은 실행)와 비교 실행 `run_id=c3a0ce5a880f`(KIVI + InfiniGen). 같은 PNG를 `submission/`에 제출한다.
 
-| 파일 | 확인할 점 |
-|---|---|
-| [`tracing-1.png`](docs/tracing/tracing-1.png) | `orchestrator` → `dispatch_workers` → `worker:T01:trl_specialist:a0` … `worker:T06:ecosystem_specialist:a0` — 계획한 SubTask 6개만큼 Worker 생성 |
-| [`tracing-2.png`](docs/tracing/tracing-2.png) | 전체 경로: worker ×6 → aggregator → synthesizer → judge → retry_router → cross_reviewer ×4 → Agent 0 → worker ×4(재시도) → … → pdf_renderer. 오른쪽은 검토 span 메타데이터(`reviewer_agent=research_generalist`, `assigned_agent=market_specialist`, `mode=review`) |
-| [`tracing-3.png`](docs/tracing/tracing-3.png) | 재시도 run `worker:T02:market_specialist:a1`의 메타데이터 `assigned_agent=market_specialist`, `attempt=1` — 초기 실행과 같은 Agent |
-| [`tracing-4.png`](docs/tracing/tracing-4.png) | 재시도 후 aggregator → synthesizer → judge → report_writer → report_quality_evaluator → pdf_renderer → 종료 |
-| [`tracing-5.png`](docs/tracing/tracing-5.png) | 비교 실행(KIVI + InfiniGen, `run_id=802f65b077b3`): 같은 코드인데 SubTask 5개, 재시도 3개, 작업당 검토자 2명(미사용 Agent 2명) — 입력에 따라 Fan-out 수와 경로가 달라짐 |
+**tracing-1** — Orchestrator가 실행 전에 SubTask 5개를 계획하고 `dispatch_workers`(Send)가 `worker:T01:trl_specialist:a0` … `worker:T05:research_generalist:a0`를 생성한다(고정 4개 Fan-out이 아님)
+![tracing-1](docs/tracing/tracing-1.png)
 
-- 최종 실행 결과 : SubTask 6개(4개 최소 관점 + 규제·컴플라이언스 + 경쟁·생태계). Judge가 T01~T04 실패를 지목했고, `research_generalist`가 독립 검토한 뒤 같은 Agent가 재시도했다. T01은 통과, T02~T04는 ITME 독립 근거 부족으로 `FAILED_AFTER_RETRY`(보고서 한계점에 기록). 보고서 품질 LLM 점수는 근거성 4, 중립성 5, 편향 통제 4, 커버리지 4이고 결정적 검사는 모두 통과했다. 평가 보고서 [`deliverables/Agent-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf`](deliverables/Agent-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf)는 10쪽이다
+**tracing-2** — 전체 경로(접은 트리): worker ×5 → aggregator → synthesizer → judge → retry_router → cross_reviewer ×8(실패 작업마다 미사용 Agent 2명) → feedback_retry_coordinator(Agent 0) → worker ×4(재시도) → judge → report_writer → report_quality_evaluator → pdf_renderer. 오른쪽은 검토 span 메타데이터 `reviewer_agent=ecosystem_specialist`, `assigned_agent=market_specialist`, `mode=review`
+![tracing-2](docs/tracing/tracing-2.png)
+
+**tracing-3** — 재시도 run `worker:T02:market_specialist:a1`의 메타데이터 `assigned_agent=market_specialist`, `attempt=1`, `mode=execute`. 왼쪽 트리의 초기 실행 `worker:T02:market_specialist:a0`와 같은 Agent
+![tracing-3](docs/tracing/tracing-3.png)
+
+**tracing-4** — Agent 0의 작업별 재시도 지시(`agent0:T01~T04`) → `dispatch_retry` → 같은 Agent의 `…:a1` 실행 → 재판정 → 보고서 품질 평가(LLM Judge `report_quality` 호출) → 미해결 근거 문제를 한계로 기록하고 종료
+![tracing-4](docs/tracing/tracing-4.png)
+
+**tracing-5** — 비교 실행: 같은 코드인데 SubTask 6개(추가 관점 비용·구현 위험, 규제), 미사용 Agent 1명이라 검토 4건, 품질 평가 바로 통과 — 입력에 따라 Fan-out 수와 경로가 달라진다
+![tracing-5](docs/tracing/tracing-5.png)
+
+| | 최종 실행 (TurboQuant + ITME) | 비교 실행 (KIVI + InfiniGen) |
+|---|---|---|
+| SubTask | 5개 (4개 최소 관점 + 비용·구현 위험) | 6개 (4개 최소 관점 + 비용·구현 위험 + 규제) |
+| 미사용 Agent → 검토 | 2명 → 8건 | 1명 → 4건 |
+| 재시도 | T01~T04 → 재시도 후 미달(† 잠정 점수) | T01~T04 → 재시도 후 미달 |
+| 보고서 품질 평가 | 근거 5·중립 5·편향 4·커버리지 4, 결정적 검사 통과, 남은 근거 문제는 한계로 기록 | 통과 |
+| 보고서 | [`deliverables/Agent-Output_…pdf`](deliverables/Agent-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf) 10쪽 | (비교용, 제출 안 함) |
 
 ## Directory Structure
 ```
@@ -93,7 +107,7 @@
 ```bash
 uv sync
 python app.py                 # = uv run python app.py
-uv run pytest -q              # 테스트 57개, API 호출 없음
+uv run pytest -q              # 테스트 61개, API 호출 없음
 ```
 - API 키 없이 실행하면 offline 재생으로 자동 전환된다. 두 실행(`python app.py`, `python app.py --tech sw=kivi,hw=infinigen`)의 LLM·웹 검색 응답(Orchestrator·Cross Reviewer·Agent 0·품질 Judge 포함)이 `data/`에 커밋돼 있어, 키 없이도 **LLM이 만든 같은 동적 계획**과 같은 보고서가 다시 만들어진다(검증: API 호출 0회, 보고서 동일)
 - 캐시에 없는 새 입력을 키 없이 돌릴 때만 규칙 기반 fallback 계획을 쓴다. fallback도 State를 읽어 근거가 불균형하면 관점을 기술별로 나누고 검색 공백·선정 약점이 있으면 조사 작업을 더하며, 실행 요약에 `plan_source=fallback`으로 남는다

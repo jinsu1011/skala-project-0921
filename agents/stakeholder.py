@@ -32,7 +32,9 @@ SPEC = PerspectiveSpec(
                   "group_c(개발자 커뮤니티), group_d(투자·분석·언론). 근거를 낸 주체가 속한 집단을 group에 적고, "
                   "그 집단의 입장을 signals에 {\"criterion\": \"group_x\", \"stance\": pro(지지)|con(우려)|neutral(중립·혼재)}로 적는다. "
                   "개발사(평가 기술을 만든 회사) 본인의 발언·보도자료면 group을 \"developer\"로 적는다. "
-                  "mention: 근거가 기술 자체(성능·방식)를 말하면 \"tech\", 생태계·사업 전략(파트너십, 표준, 투자, 시장 지위)을 말하면 \"ecosystem\"."),
+                  "mention: 근거가 기술 자체(성능·방식)를 말하면 \"tech\", 생태계·사업 전략(파트너십, 표준, 투자, 시장 지위)을 말하면 \"ecosystem\". "
+                  "회사 실적·주가·신용등급·자금 조달·업종 시황처럼 평가 대상 기술을 직접 평가하지 않는 자료는 그 집단의 기술 평가가 아니므로 "
+                  "relevant=false로 둔다(회사 전망이 좋다는 것은 기술 지지 근거가 아니다)."),
     extra_fields=', "group": "a", "mention": "tech"',
 )
 
@@ -59,7 +61,8 @@ def assess(t, col: Collected, tag: str) -> TechAssessment:
         ids = {s: [] for s in st}
         for e in col.evidence:
             a = col.ann.get(e.evidence_id, {})
-            if e.origin_group in exclude or a.get("group") == "developer" or a.get("group") != g:
+            if e.origin_group in exclude or a.get("group") == "developer" or a.get("group") != g \
+                    or a.get("scope") != "tech_specific":   # must name the technology (company news does not count)
                 continue
             for s in a.get("signals", []):
                 if s.get("criterion") == key and s.get("stance") in st:

@@ -1,0 +1,65 @@
+{
+ "query": "TurboQuant KV cache drawbacks criticism independent evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:44:26+09:00",
+ "results": [
+  {
+   "url": "https://yage.ai/share/turboquant-kv-cache-3-bit-en-20260325.html",
+   "title": "TurboQuant: Google Wants to Compress KV Cache Down to 3 Bits",
+   "content": "Safety and alignment impact. The effect of quantization on model safety (e.g., preservation of safety alignment) is not specifically addressed in TurboQuant’s work. Safety-critical deployment scenarios require independent evaluation. [...] KV cache compression is therefore a real engineering need, but most prior approaches come with painful practical frictions: some require offline calibration data, meaning you have to redo the process every time you switch models; some carry metadata overhead (scaling factors, zero points) that erodes the nominal compression ratio at low bit-widths; some look good on paper benchmarks but drift during real inference. These frictions never appear in paper abstracts, but anyone who has run a [...] The blog states that TurboQuant can quantize KV cache to 3 bits without sacrificing model quality, reducing KV memory by at least 6x. The paper abstract is more precise: quality neutrality at 3.5 bits per channel, marginal degradation at 2.5 bits per channel. The compression ratio described in the paper introduction is more than 5x.",
+   "published_date": null,
+   "score": 0.7950386
+  },
+  {
+   "url": "https://medium.com/online-inference/implementing-googles-turboquant-kv-cache-compression-and-llm-evaluation-with-w-b-1403d460846b",
+   "title": "Implementing Google’s TurboQuant: KV Cache Compression and LLM Evaluation with W&B | by David Davies | Online Inference | Medium",
+   "content": "> The KV cache is a critical technical optimization that allows a model to reuse computed weights efficiently, enabling the generation of long outputs without the prohibitive computational cost of reprocessing the entire prompt at every single step. [...] With the compression implementation defined and mathematically understood, the tutorial must undergo a critical transition toward Machine Learning Operations (MLOps).\n\n> The core thesis of the tutorial’s evaluation module must assert that superficially “coherent text” is a dangerously insufficient metric for validating highly compressed, generative LLMs. [...] limited bit budget across an artificially inflated dynamic range, which ultimately devastates the precision of the vast majority of normal, inlier values.",
+   "published_date": null,
+   "score": 0.65676886
+  },
+  {
+   "url": "https://kaitchup.substack.com/p/turboquant-3-bit-kv-cache-with-near",
+   "title": "TurboQuant: ~3-bit KV Cache with Near 0 Accuracy Loss?",
+   "content": "∙ Paid\n\nAs context windows keep growing, the KV cache is becoming one of the main bottlenecks in LLM inference. It does not just consume a lot of memory, it also puts increasing pressure on memory bandwidth during decoding. For large models and long sequences, the KV cache can quickly become the limiting factor, sometimes more than the model weights themselves. [...] Because the KV cache grows linearly with sequence length, decoding eventually becomes constrained by both memory capacity and memory bandwidth. A practical KV-cache quantizer needs to operate online, without calibration or costly per-vector optimization.\n\nFor this setting, the most relevant TurboQuant variant is TurboQuant\\_mse. [...] HumanEval is relatively easy and typically does not reveal much quantization damage. By contrast, GPQA Diamond is much more challenging. It forces the model to produce long reasoning traces, where quantization errors can accumulate much more quickly.\n\n## vLLM + TurboQuant Accuracy: No Clear Degradation",
+   "published_date": null,
+   "score": 0.60805947
+  },
+  {
+   "url": "https://open.substack.com/pub/kaitchup/p/turboquant-3-bit-kv-cache-with-near?amp%3Bcomments=true&amp%3Bshow_app_upsell=comment",
+   "title": "TurboQuant: ~3-bit KV Cache with Near 0 Accuracy Loss?",
+   "content": "∙ Paid\n\nAs context windows keep growing, the KV cache is becoming one of the main bottlenecks in LLM inference. It does not just consume a lot of memory, it also puts increasing pressure on memory bandwidth during decoding. For large models and long sequences, the KV cache can quickly become the limiting factor, sometimes more than the model weights themselves. [...] Because the KV cache grows linearly with sequence length, decoding eventually becomes constrained by both memory capacity and memory bandwidth. A practical KV-cache quantizer needs to operate online, without calibration or costly per-vector optimization.\n\nFor this setting, the most relevant TurboQuant variant is TurboQuant\\_mse. [...] HumanEval is relatively easy and typically does not reveal much quantization damage. By contrast, GPQA Diamond is much more challenging. It forces the model to produce long reasoning traces, where quantization errors can accumulate much more quickly.\n\n## vLLM + TurboQuant Accuracy: No Clear Degradation",
+   "published_date": null,
+   "score": 0.60805947
+  },
+  {
+   "url": "https://renovateqr.com/blog/google-turboquant-kv-cache-compression-2026",
+   "title": "Google TurboQuant: KV Cache Cut 6x, No Accuracy Loss | Renovate QR",
+   "content": "TurboQuant is a compression algorithm that shrinks the memory footprint of large language models by at least 6x and speeds up inference by up to 8x, with provably zero accuracy loss. No retraining. No calibration. No model-specific tuning.\n\nIs it actually good? The honest answer is: it depends heavily on what you are using it for. Here is a complete breakdown based on the model card, community benchmarks, and independent tester feedback.\n\n## The Problem TurboQuant Solves [...] The result:\n\nTurboQuant proved it can quantize the key-value cache to just 3 bits without requiring training or fine-tuning and causing any compromise in model accuracy, all while achieving a faster runtime than the original LLMs.\n\n## The Benchmark Results\n\nGoogle evaluated TurboQuant across five standard long-context benchmarks: LongBench, Needle In A Haystack, ZeroSCROLLS, RULER, and L-Eval, using Gemma, Mistral, and Llama-3.1-8B-Instruct. [...] Independent developers have already built working implementations in Triton, MLX, and llama.cpp despite no official code release from Google. A PyTorch implementation has also been published independently.\n\nThe Apple Silicon MLX version is particularly notable. It makes TurboQuant-style KV compression accessible on Mac hardware, which is already a popular platform for running local LLMs. The math is clean enough that developers could reproduce the core algorithm from the paper alone.",
+   "published_date": null,
+   "score": 0.5993685
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "ความคิดเห็นส่วนใหญ่ในอุตสาหกรรมชี้ให้เห็นว่า อุปสรรคของโมเดลขนาดใหญ่ในปัจจุบันไม่ใช่จำนวนพารามิเตอร์ แต่คือความจุของหน่วยความจำ ยิ่งบริบทมีความยาวมากเท่าใด ปริมาณการใช้หน่วยความจำของ KV Cache ก็จะยิ่งมากขึ้นเท่านั้น จนในที่สุดก็ถึงขีดจำกัดของฮาร์ดแวร์ก่อนที่พารามิเตอร์ของโมเดลจะถึงเสียอีก ซึ่งถือเป็นปัญหาหลักที่พบร่วมกันในงานต่างๆ เช่น การสร้างข้อความขนาดยาว และการทำความเข้าใจเอกสารที่มีความยาวมาก\n\nความสำเร็จที่ก้าวล้ำของ TurboQuant เข้ามาช่วยแก้ไขปัญหาดังกล่าวได้โดยตรง [...] ฮาร์ดดิสก์ไดรฟ์เป็นสื่อจัดเก็บข้อมูลแบบถาวรเช่นกัน และไม่มีส่วนเกี่ยวข้องกับตรรกะการทำงานของ KV caching เลย เทคโนโลยีการเพิ่มประสิทธิภาพการประมวลผลของ TurboQuant จึงส่งผลกระทบต่อความต้องการฮาร์ดดิสก์เป็นศูนย์\n\nความต้องการ HDD ในปัจจุบันส่วนใหญ่มาจากสถานการณ์ต่าง ๆ เช่น การจัดเก็บข้อมูลที่เข้าถึงไม่บ่อย (cold data storage) และการเก็บถาวร (archiving) ความต้องการเหล่านี้ไม่เกี่ยวข้องกับการปรับปรุงประสิทธิภาพในการประมวลผล AI และตรรกะความต้องการในระยะยาวยังคงมีความเสถียร [...] ในสถานการณ์การประมวลผล (Inference) HBM กลับมีโอกาสที่จะได้รับประโยชน์เพิ่มเติมจาก TurboQuant ด้วยอัตราการบีบอัด 6 เท่า เทคโนโลยีนี้ช่วยลดการครอบครอง KV cache ต่อ GPU ลงอย่างมาก ซึ่งช่วยเพิ่มจำนวนคำขอที่ GPU สามารถประมวลผลพร้อมกันได้อย่างมีประสิทธิภาพ ข้อได้เปรียบด้านแบนด์วิดท์ของ HBM ซึ่งก่อนหน้านี้ถูกจำกัดโดยความจุของ KV cache จะสามารถถูกปลดปล่อยออกมาได้อย่างเต็มที่มากขึ้น การปรับปรุงประสิทธิภาพการประมวลผลจริงที่ตามมาจะยิ่งช่วยเสริมมูลค่าการติดตั้ง HBM ในเซิร์ฟเวอร์ AI ระดับไฮเอนด์",
+   "published_date": null,
+   "score": 0.5968332
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "ความคิดเห็นส่วนใหญ่ในอุตสาหกรรมชี้ให้เห็นว่า อุปสรรคของโมเดลขนาดใหญ่ในปัจจุบันไม่ใช่จำนวนพารามิเตอร์ แต่คือความจุของหน่วยความจำ ยิ่งบริบทมีความยาวมากเท่าใด ปริมาณการใช้หน่วยความจำของ KV Cache ก็จะยิ่งมากขึ้นเท่านั้น จนในที่สุดก็ถึงขีดจำกัดของฮาร์ดแวร์ก่อนที่พารามิเตอร์ของโมเดลจะถึงเสียอีก ซึ่งถือเป็นปัญหาหลักที่พบร่วมกันในงานต่างๆ เช่น การสร้างข้อความขนาดยาว และการทำความเข้าใจเอกสารที่มีความยาวมาก\n\nความสำเร็จที่ก้าวล้ำของ TurboQuant เข้ามาช่วยแก้ไขปัญหาดังกล่าวได้โดยตรง [...] ฮาร์ดดิสก์ไดรฟ์เป็นสื่อจัดเก็บข้อมูลแบบถาวรเช่นกัน และไม่มีส่วนเกี่ยวข้องกับตรรกะการทำงานของ KV caching เลย เทคโนโลยีการเพิ่มประสิทธิภาพการประมวลผลของ TurboQuant จึงส่งผลกระทบต่อความต้องการฮาร์ดดิสก์เป็นศูนย์\n\nความต้องการ HDD ในปัจจุบันส่วนใหญ่มาจากสถานการณ์ต่าง ๆ เช่น การจัดเก็บข้อมูลที่เข้าถึงไม่บ่อย (cold data storage) และการเก็บถาวร (archiving) ความต้องการเหล่านี้ไม่เกี่ยวข้องกับการปรับปรุงประสิทธิภาพในการประมวลผล AI และตรรกะความต้องการในระยะยาวยังคงมีความเสถียร [...] ในสถานการณ์การประมวลผล (Inference) HBM กลับมีโอกาสที่จะได้รับประโยชน์เพิ่มเติมจาก TurboQuant ด้วยอัตราการบีบอัด 6 เท่า เทคโนโลยีนี้ช่วยลดการครอบครอง KV cache ต่อ GPU ลงอย่างมาก ซึ่งช่วยเพิ่มจำนวนคำขอที่ GPU สามารถประมวลผลพร้อมกันได้อย่างมีประสิทธิภาพ ข้อได้เปรียบด้านแบนด์วิดท์ของ HBM ซึ่งก่อนหน้านี้ถูกจำกัดโดยความจุของ KV cache จะสามารถถูกปลดปล่อยออกมาได้อย่างเต็มที่มากขึ้น การปรับปรุงประสิทธิภาพการประมวลผลจริงที่ตามมาจะยิ่งช่วยเสริมมูลค่าการติดตั้ง HBM ในเซิร์ฟเวอร์ AI ระดับไฮเอนด์",
+   "published_date": null,
+   "score": 0.5968332
+  },
+  {
+   "url": "https://www.instagram.com/popular/turboquant-kv-cache-quantization-2026",
+   "title": "Turboquant Kv Cache Quantization 2026",
+   "content": "AI systems are not running out of speed. \n\nThey are running out of memory.\n\nTurboQuant is a new compression framework that reduces KV cache memory by 6x and accelerates attention computation by 8x on H100 GPUs with zero accuracy loss and zero training required.\n\nBuilt on two algorithms PolarQuant and QJL, it operates near the theoretical limits of what compression science says is possible.\n\nThis is what efficient AI infrastructure looks like. [...] Google just announced TurboQuant at ICLR 2026: a new way to compress the KV cache in transformer LLMs. It combines PolarQuant vector rotation (4–8 bit) with a Quantized Johnson–Lindenstrauss projection to preserve meaning while slashing memory. Benchmarks show up to 10x smaller KV caches, under 1% perplexity change on LongBench and Needle-in-Haystack, and 40–60% lower latency in agent workflows. In demos, a 405B-parameter model handled 500k-token chats on a single H100. This matters because KV [...] Google just announced TurboQuant at ICLR 2026: a new way to compress the KV cache in transformer LLMs. It combines PolarQuant vector rotation (4–8 bit) with a Quantized Johnson–Lindenstrauss projection to preserve meaning while slashing memory. Benchmarks show up to 10x smaller KV caches, under 1% perplexity change on LongBench and Needle-in-Haystack, and 40–60% lower latency in agent workflows. In demos, a 405B-parameter model handled 500k-token chats on a single H100. This matters because KV",
+   "published_date": null,
+   "score": 0.52773094
+  }
+ ]
+}

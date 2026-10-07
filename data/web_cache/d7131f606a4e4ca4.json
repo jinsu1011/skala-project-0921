@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache regulation and compliance risks limitations",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:52:55+09:00",
+ "results": [
+  {
+   "url": "https://pitfalls-of-kv-cache-compression.github.io",
+   "title": "The Pitfalls of KV Cache Compression",
+   "content": "## BibTeX [...] ``` [...] ```",
+   "published_date": null,
+   "score": 0.23228444
+  },
+  {
+   "url": "https://www.linkedin.com/pulse/data-use-law-limbo-how-kv-cache-breaks-every-we-have-prity-khastgir-kygoc",
+   "title": "Data in Use, Law in Limbo: How KV Cache Breaks Every ...",
+   "content": "The architects must design systems for verifiable cache eviction, incorporating APIs for immediate deletion of individual entries when consent",
+   "published_date": null,
+   "score": 0.1508904
+  },
+  {
+   "url": "https://huggingface.co/papers/2510.00231",
+   "title": "Paper page - The Pitfalls of KV Cache Compression",
+   "content": "Hugging Face's logo\n\n# The Pitfalls of KV Cache Compression\n\n## Abstract\n\nCompression of KV caches in LLMs can lead to performance degradation in multi-instruction tasks, particularly affecting system prompt leakage, but improved eviction policies can mitigate these issues. [...] `@librarian-bot recommend`\n\n· Sign up or log in to comment\n\nGet this paper in your agent:\n\n`hf papers read 2510.00231`\n`curl -LsSf  | bash`\n\n## Models citing this paper 0\n\nNo model linking this paper\n\n## Datasets citing this paper 0\n\nNo dataset linking this paper\n\n### Spaces citing this paper 0\n\nNo Space linking this paper\n\n## Collections including this paper 1\n\n#### AI-paper [...] ### Community\n\nThe Pitfalls of KV Cache Compression\n\nThis is an automated message from the Librarian Bot. I found the following papers similar to this paper.\n\nThe following papers were recommended by the Semantic Scholar API\n\nPlease give a thumbs up to this comment if you found it helpful!\n\nIf you want recommendations for any Paper on Hugging Face checkout this Space\n\nYou can directly ask Librarian Bot for paper recommendations by tagging it in a comment: `@librarian-bot recommend`",
+   "published_date": null,
+   "score": 0.14520046
+  },
+  {
+   "url": "https://www.researchgate.net/publication/415031379_KV-Kaizen_Learning_Context-Adaptive_Cache_Compression_Choices/download",
+   "title": "(PDF) KV-Kaizen: Learning Context-Adaptive Cache ...",
+   "content": "We observe that these interventions taken independently and uniformly over all layers limit achievable compression because they degrade accuracy",
+   "published_date": null,
+   "score": 0.120677195
+  },
+  {
+   "url": "https://www.researchgate.net/publication/396291887_KVLinC_KV_Cache_Quantization_with_Hadamard_Rotation_and_Linear_Correction",
+   "title": "KVLinC : KV Cache Quantization with Hadamard Rotation ...",
+   "content": "Quantizing the key-value (KV) cache is a promising strategy for improving the inference efficiency of large language models (LLMs).",
+   "published_date": null,
+   "score": 0.10296147
+  },
+  {
+   "url": "https://www.researchgate.net/publication/381910894_KV_Cache_Compression_But_What_Must_We_Give_in_Return_A_Comprehensive_Benchmark_of_Long_Context_Capable_Approaches",
+   "title": "KV Cache Compression, But What Must We Give in Return ...",
+   "content": "KV Cache Compression, But What Must We Give in Return? A Comprehensive Benchmark of Long Context Capable Approaches. July 2024. DOI:10.48550/",
+   "published_date": null,
+   "score": 0.06894398
+  },
+  {
+   "url": "https://ui.adsabs.harvard.edu/abs/arXiv:2412.09036",
+   "title": "ZigZagkv: Dynamic KV Cache Compression for Long- ...",
+   "content": "Building on this observation, this paper proposes a simple yet effective KV cache compression method that leverages layer uncertainty to allocate budget size",
+   "published_date": null,
+   "score": 0.05576667
+  },
+  {
+   "url": "https://www.semanticscholar.org/paper/Compactor%3A-Calibrated-Query-Agnostic-KV-Cache-with-Chari-Durme/ce49cd2c3ddc66368068bda5b397832cc4f06b7f",
+   "title": "[PDF] Compactor: Calibrated Query-Agnostic KV Cache Compression with Approximate Leverage Scores | Semantic Scholar",
+   "content": "### Product\n\nProduct OverviewSemantic ReaderScholar's HubBeta ProgramRelease Notes\n\n### API\n\nAPI OverviewAPI TutorialsAPI Documentation (opens in a new tab)API Gallery\n\n### Research\n\nPublications (opens in a new tab)Research Careers (opens in a new tab)Resources (opens in a new tab)\n\n### Help\n\nFAQLibrariansTutorialsContact\n\nProudly built by Ai2 (opens in a new tab)\n\nCollaborators & Attributions •Terms of Service (opens in a new tab)•Privacy Policy (opens in a new tab)•API License Agreement [...] 3\n, a training-free recipe that protects large-magnitude value states and promotes diverse eviction decisions, bridges the gap between efficiency and accuracy, supporting FlashAttention2 and enabling a static memory footprint for reasoning models.Expand [...] Skip to search formSkip to main contentSkip to account menu, a framework of lightweight per-head RL agents trained on pre-computed generation traces using only key and value vectors, is introduced, demonstrating that learning to predict future token utility is a powerful and scalable paradigm for adaptive KV cache management.Expand\n\n   11\n upper bound on the total variation between exact and compressed attention.Expand",
+   "published_date": null,
+   "score": 0.05503079
+  }
+ ]
+}

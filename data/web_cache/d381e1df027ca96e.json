@@ -1,0 +1,65 @@
+{
+ "query": "\"Inference Tiered Memory Expansion\" limitations overhead",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:44:52+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "than an active memory tier. The high latency overhead of retrieving remote states from remote storage (T4) makes it impractical to support the frequent, real-time context retrieval required by long-context inference workloads. To bridge this gap, recent industry efforts have introduced NVIDIA CMX context memory storage (NVIDIA, 2026b), a technology designed to accelerate remote access and establish a specialized shared context tier (T3.5). By providing a disaggregated, shared context layer, CMX [...] Control Logic and Operational Overhead. Prefetch commands are inserted into an internal hardware FIFO queue, where the controller uses miss status holding registers (MSHRs) to overlap multiple outstanding SSD reads. This hardware-level parallelism masks backend storage latency by staging data into the DRAM cache before it is requested. Our measurements indicate that the operational overhead of chm\\_prefetch() is approximately 3 s, primarily due to VA-to-PA translation through pagemap. For [...] pagemap. For deterministic workloads in which weights are directly mapped via mmap(), this overhead drops to about 1 s. Given that a single command triggers the movement of a 1 MB chunk, this 1–3 s latency accounts for less than 0.1% of the total transfer time, making the software-side intervention negligible. Furthermore, because the prefetch engine operates independently, the system can overlap current-layer computation with next-layer weight staging, sustaining high throughput even when",
+   "published_date": null,
+   "score": 0.7493996
+  },
+  {
+   "url": "https://www.asteralabs.com/resources/blog/inference-tokenomics-how-cxl-memory-expansion-improves-ai-economics",
+   "title": "Inference Tokenomics: How CXL Memory Expansion Improves AI Economics",
+   "content": "KV cache offloading addresses this challenge by expanding GPU memory to nearby higher-capacity resources. Traditional distributed inference applications offload KV cache to CPU DRAM or SSDs, but these memory tiers are limited, and may introduce latency, which can degrade user experience and limit the number of inference requests each GPU can handle. [...] As generative models have grown larger, inference architectures have evolved to distribute workloads across multiple GPUs—separating LLM context processing and generation phases across distinct GPUs to improve performance and minimize costly re-computation. But this scale exposes a fundamental constraint: during inference, LLMs build context encoded into KV caches that grow rapidly as the number of tokens generated increases. This context quickly exhausts precious GPU memory, i.e., the Memory [...] Without nearby memories to maintain inference context efficiently, the consequences are clear: recompute that wastes hardware and power, inflated operational costs, and compromised end-user experiences.\n\n## Why KV Cache Offloading Drives Inference ROI",
+   "published_date": null,
+   "score": 0.5414337
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2606.12556",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories | alphaXiv",
+   "content": "ITME provides specific APIs that allow the application to tell the hardware which data to prepare. For instance, the `chm_prefetch_object(ptr, size)` function allows the system to identify a specific tensor or KV cache block and trigger its migration from the SSD to the DRAM cache. This process is highly efficient, with a software overhead of only 1-3μs, which is negligible compared to the time required to move large chunks of data.\n\n### Multi-Tier DMA Pipeline [...] FlexGen is a pioneering work that established the multi-tier memory hierarchy (GPU, CPU, NVMe) for LLM inference to overcome memory capacity limits. ITME directly builds upon this concept by introducing a more advanced CXL-hybrid memory tier and using proactive prefetching to optimize data movement, thus addressing the same fundamental bottleneck. [...] architectures accelerates NVMe-over-fabrics (NVMe-oF) target processing, the need for sophisticated software-level optimization and cost-efficiency burdens remain significant. Consequently, the ideal architecture for scaling this shared context infrastructure is still an active area of exploration. In this paper, we propose ITME (Inference Tiered Memory Expansion), which leverages a CXL-hybrid memory to present a massive, TB-scale byte-addressable remote memory expansion. This approach enables",
+   "published_date": null,
+   "score": 0.5315261
+  },
+  {
+   "url": "https://www.semanticscholar.org/paper/ITME%3A-Inference-Tiered-Memory-Expansion-with-Jang-Min/935228feb1a5d966c6ece0532bf6e0136d614f7f",
+   "title": "[PDF] ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories | Semantic Scholar",
+   "content": "Skip to search formSkip to main contentSkip to account menu, which leverages a CXL-hybrid memory to present a massive, TB-scale byte-addressable remote memory expansion, and enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits.Expand [...] for multi-turn LLM serving that uses request-level prefix prefetching and opportunistic write buffering to stage latency-critical reads in device DRAM, enabling DRAM-scale KV-cache efficiency at SSD-level cost.Expand\n\n   2\n\n   3 Excerpts\n\nSave\n\n## 41 References\n\nCitation Type\n\nHas PDF\n\nAuthor\n\nMore Filters\n\nMore Filters\n\nFilters\n\n### TPP: Transparent Page Placement for CXL-Enabled Tiered-Memory\nH. MarufHao Wang+7 authorsPrakash Chauhan\n\nComputer Science, Engineering\n\nASPLOS\n\n   2023\n\nTLDR [...] 2023\n\nTLDR\n\nThis paper characterize memory usage patterns of a wide range of datacenter applications across the server fleet of Meta, and proposes a novel OS-level application-transparent page placement mechanism (TPP) for CXL-enabled memory that makes a tiered memory system performant as an ideal baseline that has all the memory in the local tier.Expand\n\n   383\nAi2 Careers (opens in a new tab)\n\n### Product\n\nProduct OverviewSemantic ReaderScholar's HubBeta ProgramRelease Notes\n\n### API",
+   "published_date": null,
+   "score": 0.42062396
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale | Aerospike",
+   "content": "Inference performance in production environments is no longer constrained solely by compute capacity; it is increasingly limited by the finite amount of high-bandwidth memory (HBM) available on GPUs. As context windows expand from thousands to hundreds of thousands of tokens, applications shift toward longer multi-turn interactions, and workloads such as retrieval-augmented generation (RAG) and autonomous AI agent workflows become commonplace, KV cache growth will increasingly consume a larger [...] You can estimate your own exposure using the following formula as a rough approximation:\n\nRequired KV cache ≈ Per-token cache × Context length × Concurrent sessions\n\nExact numbers vary depending on the model architecture, context length, and precision format, but the broader implication remains the same: as context windows expand, memory quickly shifts from a supporting resource to the primary bottleneck limiting large-scale inference performance and scalability. [...] If the answer to each question is that cached data is simply discarded, then GPU memory has become the limiting factor, not just for performance, but for the scalability and efficiency of the entire inference architecture.\n\n## Tiering as the answer beneath the GPU\n\nRather than treating GPU memory as the only location where cached tensors can reside, modern inference systems increasingly introduce additional storage tiers beneath HBM to avoid recomputing expensive KV tensors whenever possible.",
+   "published_date": null,
+   "score": 0.3605346
+  },
+  {
+   "url": "https://www.vastdata.com/blog/a-new-memory-tier-for-ai-at-scale",
+   "title": "A New Memory Tier for AI at Scale - VAST Data",
+   "content": "This is where the GPU memory wall becomes a real problem, according to Heilper. GPU memory is fast but limited and once context no longer fits, it has to move into other layers of the system, with each step away from the GPU adding both latency and cost. At that point, she says, the limiting factor is if the system can keep enough context available to make that token useful without slowing everything down.\n\n#### Inference Carries Memory [...] Even with orchestration and fast storage, KV cache keeps growing, and pushing more of it into traditional storage adds latency and cost. This is where NVIDIA introduces CMX, a new memory tier built specifically for inference.\n\nCMX sits between GPU memory and storage and is shared across GPUs in a pod. Instead of duplicating context, it allows reuse, keeping more working memory close enough to the GPU to maintain performance while scaling capacity beyond what GPU memory can handle. [...] Production inference, unlike training, has to run continuously, serve many users at once, and carry forward the history of each interaction. That history builds up as context, and context drives memory demand. The system focus is far less about how many operations it can execute, but how efficiently it can store and retrieve the information generated during those interactions.",
+   "published_date": null,
+   "score": 0.335482
+  },
+  {
+   "url": "https://www.gmicloud.ai/en/blog/gpu-memory-bandwidth-llm-inference",
+   "title": "GPU Memory & Bandwidth for LLM Inference",
+   "content": "## Where the Memory Tiers Are Available for Inference\n\nOnce your calculation points to an 80GB or 141GB card, the next question is where to run it without paying for memory you sized away. [...] the worst-case KV cache, then check whether bandwidth can feed that total fast enough. This article walks the calculation from the cache up and shows where the 80GB and 141GB tiers actually land. [...] your KV cache feed depends on, rather than losing part of it to virtualization overhead.",
+   "published_date": null,
+   "score": 0.2916164
+  },
+  {
+   "url": "https://www.weka.io/video/inference-is-eating-memory-and-tokens-now-run-ai-economics",
+   "title": "Inference Is Eating Memory, and Tokens Now Run AI Economics",
+   "content": "### NAND flash tiering for inference: SLC endurance vs. QLC capacity tradeoffs [...] endurance issue — there’s a power issue, a persistence issue, but no endurance issue with DRAM or HBM. That’s not true of NAND flash, so it struggles to act more like true memory from a performance and consumption perspective, as opposed to just a capacity perspective. This is something WEKA anticipated a long time ago, and you’re seeing it largely because of inference alone. [...] ### Inside the four-tier memory hierarchy and why real AI workloads break it",
+   "published_date": null,
+   "score": 0.23144956
+  }
+ ]
+}

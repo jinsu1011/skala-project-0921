@@ -1,0 +1,65 @@
+{
+ "query": "integration challenges and limitations of KIVI authors KIVI KV cache with Infinigen technology in domain adaptation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:01:18+09:00",
+ "results": [
+  {
+   "url": "https://www.usenix.org/system/files/osdi24-lee.pdf",
+   "title": "InfiniGen: Efficient Generative Inference of Large ...",
+   "content": "3.2 Challenges in KV Cache Management The fundamental approach to mitigating the transfer overhead of the KV cache from the CPU to GPU is to reduce the vol-ume of the KV cache to load by identifying the critical keys and values for computing attention scores, as shown in Fig-ure 3(d). It is widely recognized that the keys and values of certain tokens are more important than others in attention computation [9,10,14,33,63]. As explained in Section 2.1, after computing the attention score, the [...] Summary. Prior works aiming to reduce the KV cache size through token eviction inherently have some challenges.\nGiven the dynamic attention pattern across iterations, perma-nently excluding evicted tokens from future token generation can result in a non-negligible drop in accuracy. Instead, we need to dynamically select critical tokens from the KV cache while avoiding the outright eviction of less important ones. [...] address the challenges in KV cache management below and thus have subpar performance with offloading-based inference systems.",
+   "published_date": null,
+   "score": 0.44174582
+  },
+  {
+   "url": "https://www.spheron.network/blog/kv-cache-quantization-with-kivi-int2-setup-guide-2026",
+   "title": "KV Cache Quantization vLLM Setup: KIVI's INT2 Method (2026) | Spheron Blog",
+   "content": "KIVI's own throughput and memory experiments were run on a single NVIDIA A100 80GB GPU, per the paper. That's the same GPU class you'd provision to reproduce these numbers directly, since matching the paper's hardware means matching its memory bandwidth and capacity ceiling rather than approximating it on a different card. Whatever headroom KIVI frees up in the KV cache translates directly into either a longer context window per sequence or more concurrent sequences in the same batch: the two [...] Once the kernel is built, KIVI works by swapping in its patched model class, for example `LlamaForCausalLM_KIVI` in place of the standard `LlamaForCausalLM`, and running inference through Transformers exactly as you would with any other `from_pretrained` load, with the quantization config (group size, residual length) passed alongside it. This is the point where you're fully outside vLLM: no `--kv-cache-dtype` flag, no PagedAttention, no continuous batching scheduler. It's a Transformers-native [...] KV cache size grows linearly with sequence length and batch size, and at long context it becomes the thing that runs out before compute does. vLLM's PagedAttention already fixed the fragmentation problem; the remaining lever is shrinking each cached value, and that's what KV cache quantization is for. KIVI is the 2-bit method with a published, peer-reviewed asymmetric scheme worth understanding here, and it comes with a catch worth stating up front: it is not a vLLM feature, it's a Transformers",
+   "published_date": null,
+   "score": 0.41122967
+  },
+  {
+   "url": "https://labs.baseten.co/articles/towards-infinite-context-windows-neural-kv-cache-compaction",
+   "title": "Towards infinite context windows: neural KV cache compaction",
+   "content": "78-89% across all eval domains. The Financial checkpoint transfers worst, but no cross-domain pair drops below 70% MCQ accuracy. [...] KV cache compaction.[Attention Matching (Zweiger et al., 2026) provides per-head analytical compaction via key selection, NNLS beta fitting, and least-squares value reconstruction. Cartridges (Eyuboglu et al., 2025) optimizes compact caches end-to-end via gradient descent. Both operate per-context at inference time. Token eviction methods (H2O, ScissorHands, StreamingLLM) drop tokens based on attention scores but cannot synthesize new representations. [...] Copy\n\n```\n@misc{o'neill2026still,\n  author       = {O'Neill, Charles},\n  title        = {Towards Infinite Context Windows: Neural {KV} Cache Compaction},\n  year         = {2026},\n  month        = April,\n  day          = {1},\n  howpublished = {Baseten Research},\n  url          = {\n}\n```\n\nRelated from the lab",
+   "published_date": null,
+   "score": 0.26062742
+  },
+  {
+   "url": "https://arxiv.org/html/2402.02750v2",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "The views and conclusions contained in this paper are those of the authors and should not be interpreted as representing any funding agencies. [...] The authors thank the anonymous reviewers for their helpful comments.\nDr. Beidi Chen is supported by a research gift from Moffett.AI.\nDr. Vladimir Braverman is partially supported by the Ministry of Trade, Industry and Energy (MOTIE) and Korea Institute for Advancement of Technology (KIAT) through the International Cooperative R&D program, the Naval Research (ONR) grant N00014-23-1-2737, and NSF CNS 2333887 award.\nDr. Xia Hu is supported by NSF grants NSF IIS-2224843. [...] ## 6 Conclusion and Future Work",
+   "published_date": null,
+   "score": 0.23249348
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "real LLM inference workloads, effectively addressing the bottleneck issues in speed and memory usage. [...] ## Overview [...] | long\\_context\\_example.py | long\\_context\\_example.py |  |  |\n| mem\\_spd\\_test.py | mem\\_spd\\_test.py |  |  |\n| metrics.py | metrics.py |  |  |\n| passkey\\_examples.jsonl | passkey\\_examples.jsonl |  |  |\n| pred\\_long\\_bench.py | pred\\_long\\_bench.py |  |  |\n| pyproject.toml | pyproject.toml |  |  |\n| requirements.txt | requirements.txt |  |  |\n|  |",
+   "published_date": null,
+   "score": 0.20553568
+  },
+  {
+   "url": "https://aclanthology.org/2025.acl-long.1211.pdf",
+   "title": "RefreshKV: Updating Small KV Cache During Long-form ...",
+   "content": "domain. Future work can explore applying RefreshKV to other modalities, for example, vision transformers. [...] Limitations Proposed method While we focus on accelerat-ing inference speed, our method does not reduce memory requirement for using long-context LLMs, which can be a bottleneck for certain use cases. [...] Having observed the limitations of existing approaches, we propose a novel approach, Re-freshKV, which periodically refreshes the smaller KV cache during the generation process.",
+   "published_date": null,
+   "score": 0.171755
+  },
+  {
+   "url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/liu24bz/liu24bz.pdf",
+   "title": "[PDF] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "a\\_dc< xS J^mXiCШyW+˓Kؿyr52v{=/S[\"GENP$S>eۻ\\Q5 &nKG)|NM;f g9.lLHq6-02Licj-x:w(8ZB7I|'io>5^$J} Q!x6|dӶjfD:ڇtAGꋬ9C:B5#~\\s q|,-zHNOaiI[)ڗ{1D k[&P~c,> !$Ca{8ߝrJI /.UQӨ{❝n0\\Fww=ZHMWժfy'MTT:FKF֣ZDےQO/3[(5>dͯ/y3~PC+y0#k0mxEG<AA8]!Lc [...] to7l;v!qxb(B?S^0Ӛ[SϔGsׅ@hnM+G;o551׺BH?5c(%3/^OI&;v ،iN/ 5C{--գ\"ͭ1mb؅RHBnSZXMO#t^f9JgaBR^~ҷBVw0VBDv2Cb\\_J\\_QQ\\_16Ѫ/VK ڛeP6S1~\\_u\\_~݌<~Ͻ5g6C>sP\\_A~Tpf##Żܼ.]\\s: AMk&\\_rR1\"1&nnҖ$ [...] @jlke21w6>LVK`pv03fnb`dgrX8ٻ|7u5/@N/ /ݗ3E +qXK YM\\I\\_/7\\_Z#+{g?VF\\_98Y \"8Y9ښ9;Ou3Oǿne0X8ٚ31|4qmaeOHٛL:ӿ DOP02zL.\\_!Tw,3@ -\\_9߆ukqW[[y#|-#{מY4v+FvVٿ mMN$B\\_010[h,nnfhbb 07׿jfNVf\\_zf&S2M+/QARUII\\e.\\_g\\r@uǍ0E",
+   "published_date": null,
+   "score": 0.15568112
+  },
+  {
+   "url": "https://rocketreach.co/kivi-technologies-inc-profile_b40c020effc327f4",
+   "title": "KIVI Technologies Inc. Information",
+   "content": "More information [...] 47.6177115,-122.2034444\n\n   \n\n### Products\n\n   Advanced Search\n   Chrome Extension\n   Edge Extension\n   Bulk Lookups\n   API\n   Integrations\n\n### Information\n\n   Pricing\n   Help\n   Reviews\n   User Agreement\n   Privacy Policy\n   Cookie Policy\n   Do Not Sell My Info\n\n### Teams\n\n   Features\n   Start Team Plan\n   Custom Plan\n   Speak to Sales\n\n### Company\n\n   About Us\n   Careers\n   Blog\n   Contact Us\n\n© 2026 RocketReach.co \n\n\n\nImage 37: Company Logo\n\n## Privacy Preference Center [...] When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences, or your device, and is mostly used to make the site work as you expect. The information does not usually identify you directly, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to learn more",
+   "published_date": null,
+   "score": 0.12561163
+  }
+ ]
+}

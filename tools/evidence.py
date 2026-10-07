@@ -33,6 +33,22 @@ ACADEMIC = ["arxiv.org", "openreview.net", "acm.org", "usenix.org", "ieee.org", 
 _SECOND_LEVEL = {"co", "com", "ac", "or", "go", "ne", "re", "org", "net", "gov", "edu"}
 
 
+# social-media aggregation pages are not a stakeholder's own assessment of a technology (review feedback)
+LOW_QUALITY = ["instagram.com", "tiktok.com", "facebook.com", "pinterest.com", "threads.net"]
+
+
+def low_quality(url: str) -> bool:
+    dom = registered_domain(url)
+    return any(dom == d or dom.endswith("." + d) for d in LOW_QUALITY)
+
+
+def own_paper_group(url: str, tech: str) -> str | None:
+    """A web copy of the technology's own paper (arXiv id in the URL) belongs to the developer's origin family."""
+    meta = config().get("tech_meta", {}).get(tech, {})
+    groups = meta.get("developer_groups", [])
+    return groups[0] if groups and meta.get("arxiv") and meta["arxiv"] in url else None
+
+
 def registered_domain(url: str) -> str:
     host = (urlparse(url).hostname or "").lower().removeprefix("www.")
     parts = host.split(".")

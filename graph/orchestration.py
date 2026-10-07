@@ -27,6 +27,15 @@ PAGE_LIMIT = 10
 FINAL = ("passed", "FAILED_AFTER_RETRY", "PARTIAL", "excluded")
 
 
+def clip(text: str, limit: int = 300) -> str:
+    """Shorten at a clause/sentence boundary (" / ", ". ", "; ") so stored reasons never end mid-word."""
+    t = " ".join((text or "").split())
+    if len(t) <= limit:
+        return t
+    cut = max(t.rfind(sep, 0, limit) for sep in (" / ", ". ", "; ", "다. "))
+    return (t[:cut].rstrip(" /;") if cut > limit // 3 else t[:limit].rsplit(" ", 1)[0]) + " …(이하 생략)"
+
+
 def _payload(state: dict, task, retry=None, previous=None) -> dict:
     return {"subtask": task, "retry_task": retry, "previous": previous, "selected_techs": state["selected_techs"],
             "evidence": state.get("evidence", []), "run_id": state.get("run_id"), "trace_id": state.get("trace_id")}
@@ -165,15 +174,15 @@ def perspective_judge(state: dict) -> dict:
             reason = out["judge_feedback"].get(wt, "") if not ok else "통과"
             fb = (f"[{tid}] " + "; ".join(missing)) if missing else reason
         retry = (not ok) and attempt < MAX_FEEDBACK_RETRY
-        items.append(JudgeFeedbackItem(task_id=tid, passed=ok, reason=reason[:400], missing_evidence=missing,
-                                       feedback=fb[:500], retry_required=retry))
+        items.append(JudgeFeedbackItem(task_id=tid, passed=ok, reason=clip(reason, 400), missing_evidence=missing,
+                                       feedback=clip(fb, 500), retry_required=retry))
         if ok:
             status[tid] = "passed"
         elif not retry:   # attempt 1 already used: no more retries (deterministic)
             status[tid] = "PARTIAL" if r is not None and r.status == "partial" else (
                 "excluded" if r is None or r.output is None else "FAILED_AFTER_RETRY")
             warns.append(f"판정 불확실: 작업 {tid}({task.perspective}, {task.assigned_agent})이 재시도 1회 후에도 "
-                         f"기준 미달 → {status[tid]}. 사유: {reason[:120]}")
+                         f"기준 미달 → {status[tid]}. 사유: {clip(reason, 240)}")
     jr = JudgeResult(passed=all(i.passed for i in items), feedback_items=items)
     decision(state, "perspective_judge", "PASS" if jr.passed else "FAIL",
              reason="; ".join(f"{i.task_id}:{i.reason[:60]}" for i in items if not i.passed),
@@ -301,9 +310,9 @@ def report_quality_evaluator(state: dict) -> dict:
                     for task in state["subtasks"]:
                         if worker_type(task.assigned_agent) == it["perspective"] and \
                                 (not it.get("tech_id") or it["tech_id"] in task.tech_ids):
-                            evidence.setdefault(task.task_id, f"LLM Judge: {str(it.get('text', ''))[:120]}")
+                            evidence.setdefault(task.task_id, f"LLM Judge: {clip(str(it.get('text', '')), 160)}")
                 elif scores.get("groundedness", 5) < 4 or scores.get("neutrality", 5) < 4:
-                    writing.append(f"LLM Judge: {str(it.get('text', ''))[:120]}")
+                    writing.append(f"LLM Judge: {clip(str(it.get('text', '')), 160)}")
         except (OfflineCacheMiss, ValueError):
             mode = "deterministic_only"
     llm_ok = all(v >= 4 for v in scores.values()) if scores else True

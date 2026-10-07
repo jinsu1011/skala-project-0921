@@ -1,0 +1,65 @@
+{
+ "query": "limitations and deployment challenges of InfiniGen KV cache including integration difficulty and environment constraints from independent sources",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:55:58+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "C3: Adjusting the number of KV entries across queries.\nH2O sets the number of key/value tokens to retain as a fixed percentage of\nthe input sequence length. The KV cache budget remains constant regardless of\nhow many tokens have been generated.\nBy analyzing the data from Figure 5 on Layer 18, we observe\nthat this fixed KV cache budget has some limitations.\nFor instance, with an input sequence length of 200 and a 20% KV cache budget, [...] We manage the KV cache as a pool, offloading to the CPU memory and prefetching\nonly the essential amount to the GPU. While CPU memory is more affordable and\nlarger than GPU memory, it still has limited capacity. Hence, for certain\ndeployment scenarios, it might be crucial to confine the size of the KV cache\npool and remove less important KV entries that are infrequently selected by\nquery tokens.\nWe extend the design to incorporate a user-defined memory size limit. During [...] address the challenges in KV cache management below and thus have subpar\nperformance with offloading-based inference systems.",
+   "published_date": null,
+   "score": 0.52290934
+  },
+  {
+   "url": "https://www.integrate.io/blog/boomi-limitations",
+   "title": "Boomi Limitations 2026",
+   "content": "These limitations are most material for teams practicing continuous delivery, managing frequent changes across many integrations, or operating in environments where production incidents require rapid diagnosis and rollback.\n\n## High-Volume Performance Constraints [...] For teams with strong integration engineering capabilities, this learning curve is manageable. For mid-market teams expecting data analysts to build and maintain pipelines, the curve represents a significant barrier to adoption and self-sufficiency.\n\n## Version Control and Deployment Challenges [...] When an integration breaks in production, identifying the problematic version, finding the previous stable version, and redeploying it is a manual process that can take minutes to hours depending on integration complexity and environment configuration. This delay matters significantly during production incidents where every minute of downtime affects business operations.\n\n### Transaction tracking and debugging",
+   "published_date": null,
+   "score": 0.42190963
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00× compared to prior KV cache management methods while offering substantially better model accuracy.",
+   "published_date": null,
+   "score": 0.37147912
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] # KV Cache Compression and Its Infra Problems\n\n📝 Weian Mao, Yukang Chen, Wei Huang, Shuai Yang, Luozhou Wang, Song Han  \n📅 June 12, 2026 ⏳ ~10 min read\n\nConsider serving OpenClaw on a local GPU with a capable reasoning model. The agent picks up a simple task — read a handful of documents, write a weekly report — and crashes halfway through. Not because the task is hard, but because the GPU ran out of memory. [...] 12. LongLive: Real-time Interactive Long Video Generation. Yang S., Huang W., Chu R., Xiao Y., Zhao Y., et al., Han S., Chen Y. ICLR, 2026. arXiv:2509.22622\n13. LongLive 2.0: An NVFP4 Parallel Infrastructure for Long Video Generation. Chen Y., Wang L., Huang W., Yang S., Zhang B., Xiao Y., Chu R., Mao W., Hu Q., Liu S., Zhao Y., Mao H., Chen Y.-C., Xie E., Qi X., Han S. arXiv preprint, 2026. arXiv:2605.18739",
+   "published_date": null,
+   "score": 0.36908817
+  },
+  {
+   "url": "https://www.ddn.com/blog/ddn-becomes-the-first-storage-vendor-natively-integrated-into-nvidia-kv-cache-management",
+   "title": "DDN Becomes the First Storage Vendor Natively Integrated into NVIDIA KV Cache Management",
+   "content": "Inference compounds the problem. Training runs hold a stable configuration for days or weeks; inference environments change constantly as models update, context windows grow, KV cache demand fluctuates, and data moves between storage, memory, and GPU. Each integration layer adds a failure point, latency, and a maintenance burden that scales with the fleet. [...] BeforeAfter\n1. Install NIXL 1. Install NIXL (or pull the NVIDIA Dynamo prebuilt container)\n2. Source and obtain the storage plugin separately 2. Install the DDN client packages\n3. Validate plugin compatibility against the installed NIXL version 3. Done\n4. Deploy and maintain the plugin independently across every environment [...] Image 3\nIn July, customers deploying NIXL, the NVIDIA Inference Transfer Library receive DDN Infinia support out of the box as part of the prebuilt NVIDIA Dynamo inferencing container.\n\n## Integration Overhead Is the Main Drag on Inference Deployments",
+   "published_date": null,
+   "score": 0.36310524
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | alphaXiv",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the [...] InfiniGen's normal decoding step therefore performs temporary selection for the current attention computation. Entries that are not selected remain in the CPU cache rather than being permanently removed. The CPU pool can still be memory-limited. When a user-set limit is reached, InfiniGen evicts entries using a counter-based policy.\n\n## Rehearsing the next layer",
+   "published_date": null,
+   "score": 0.34693998
+  },
+  {
+   "url": "https://rocm.blogs.amd.com/software-tools-optimization/amd-infinity-context/README.html",
+   "title": "Introducing ROCm™ AMD Infinity Context: A Purpose-Built KV Cache Tier for Distributed Inference — ROCm Blogs",
+   "content": "Storage vendors and NIC vendors can integrate with ROCm AIC using standard interfaces. No proprietary co-design certification is required.\n\n## What’s Coming Next#\n\nROCm AIC is being demonstrated at AMD Advancing AI Day, July 2026. The roadmap beyond the initial demo includes: [...] ROCm hipFile is AMD’s file I/O library. It enables data transfers directly between GPU HBM and storage, bypassing the host CPU memory bus. hipFile reached GA with ROCm 7.14 (July 2026) and is the critical AMD asset that makes the remote KV tier practical in production. AIS is the umbrella for hipFile and future libraries, including hipObject for object store support, to provide optimized, GPU-aware I/O management across local and networked storage backends. [...] Local NVMe is node-bound. The common workaround of offloading KV cache to local NVMe via host CPU and RAM works on a single node, but KV blocks cannot be efficiently shared across GPU nodes. This limits the value of local NVMe storage as a caching tier for frameworks like LMCache when used for multi-node, shared-context workloads such as RAG (Retrieval-Augmented Generation) pipelines, agentic loops, and multi-tenant chat services.",
+   "published_date": null,
+   "score": 0.34151715
+  },
+  {
+   "url": "https://infinigen.org",
+   "title": "Home | Infinigen",
+   "content": "``` [...] ``` [...] ```",
+   "published_date": null,
+   "score": 0.2440435
+  }
+ ]
+}

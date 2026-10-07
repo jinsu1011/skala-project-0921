@@ -1,0 +1,65 @@
+{
+ "query": "limitations technology readiness level of InfiniGen authors InfiniGen KV cache technology critical evaluations from diverse sources github arxiv medium huggingface deepwiki excluding usenix.org bias reduction",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:02:55+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "We implement InfiniGen on a modern offloading-based inference\nsystem  and evaluate it on two representative LLMs with varying\nmodel sizes, batch sizes, and sequence lengths.\nOur evaluation shows that InfiniGen achieves up to a 3.00×\\times speedup over\nthe existing KV cache management methods while offering up to a 32.6 percentage\npoint increase in accuracy.\nIn addition, InfiniGen consistently provides performance improvements with larger [...] C3: Adjusting the number of KV entries across queries.\nH2O sets the number of key/value tokens to retain as a fixed percentage of\nthe input sequence length. The KV cache budget remains constant regardless of\nhow many tokens have been generated.\nBy analyzing the data from Figure 5 on Layer 18, we observe\nthat this fixed KV cache budget has some limitations.\nFor instance, with an input sequence length of 200 and a 20% KV cache budget, [...] | Scheme | OPT-6.7B | | OPT-13B | | OPT-30B | | Llama-2-7B | | Llama-2-13B | |\n ---  ---  ---  ---  --- \n| Wiki | PTB | Wiki | PTB | Wiki | PTB | Wiki | PTB | Wiki | PTB |\n| 100% | 11.68 | 13.86 | 10.55 | 12.78 | 10.14 | 12.31 | 5.69 | 22.53 | 5.25 | 31.94 |\n| 80-FIFO% | 19.64 | 16.82 | 30.99 | 33.84 | 30.66 | 35.45 | 22.26 | 61.88 | 21.41 | 32.34 |\n| 80-LRU% | 11.68 | 13.85 | 10.55 | 12.78 | 10.14 | 12.31 | 5.69 | 22.53 | 5.25 | 31.94 |",
+   "published_date": null,
+   "score": 0.51091194
+  },
+  {
+   "url": "https://huggingface.co/papers/2406.19707",
+   "title": "Paper page - InfiniGen: Efficient Generative Inference of Large Language Models with\n  Dynamic KV Cache Management",
+   "content": "fetching them all), thereby mitigating the fetch overhead from the host memory\nin offloading-based LLM serving systems. Our evaluation on several\nrepresentative LLMs shows that InfiniGen improves the overall performance of a\nmodern offloading-based system by up to 3.00x compared to prior KV cache\nmanagement methods while offering substantially better model accuracy. [...] Hugging Face's logo\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n## Abstract\n\nInfiniGen is a KV cache management framework that improves performance and accuracy in long-text generation by pre-fetching essential KV cache entries in offloading-based LLM serving systems. [...] Transformer-based large language models (LLMs) demonstrate impressive\nperformance across various natural language processing tasks. Serving LLM\ninference for generating long contents, however, poses a challenge due to the\nenormous memory footprint of the transient state, known as the key-value (KV)\ncache, which scales with the sequence length and batch size. In this paper, we\npresent InfiniGen, a novel KV cache management framework tailored for long-text",
+   "published_date": null,
+   "score": 0.4851368
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00× compared to prior KV cache management methods while offering substantially better model accuracy. [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the",
+   "published_date": null,
+   "score": 0.48074743
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | alphaXiv",
+   "content": "overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00x compared to prior KV cache management methods while offering substantially better model accuracy. [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] InfiniGen predicts from the immediately preceding layer. For OPT-13B, measured on a random 2,000-token PG-19 sentence, the authors report an average cosine similarity of 0.96 between adjacent Transformer-block inputs across layers. The paper notes that inputs to distant layers differ.",
+   "published_date": null,
+   "score": 0.4434805
+  },
+  {
+   "url": "https://medium.com/byte-sized-ai/llm-inference-optimization-accelerating-long-context-generation-with-kv-cache-offloading-to-cpu-12d3bea407d8",
+   "title": "Medium",
+   "content": "Generating long content with LLMs presents a challenge due to the substantial memory requirements of the transient state, known as the key-value (KV) cache, which scales with sequence length and batch size. This blog reviews InfiniGen, a novel KV cache management framework designed specifically for long-text generation, which integrates seamlessly with modern offloading-based inference systems, which leverage larger CPU memory. InfiniGen leverages a key insight: only a few essential tokens are [...] tokens are necessary to compute the attention layers of Transformers in subsequent steps. By speculating on these critical tokens using the inputs of the current layer and part of the query weight and key cache of the next layer, InfiniGen enables prefetching of only the essential KV cache entries, thus reducing fetch overhead from host CPU memory in offloading-based LLM systems. [...] ## Transformer Block Execution Styles\n\nModern LLM serving systems like DeepSpeed and FlexGen support offloading model weights or the KV cache to CPU memory. However, offloading-based inference systems face a critical bottleneck due to limited PCIe bandwidth between CPU and GPU, making the size of the KV cache a significant challenge.",
+   "published_date": null,
+   "score": 0.42190963
+  },
+  {
+   "url": "https://cs.stanford.edu/~keithw/sigcomm2024/sigcomm24-final1571-acmpaginated.pdf",
+   "title": "CacheGen: KV Cache Compression and Streaming for Fast ...",
+   "content": "Other limitations: Task-wise, we did not extensively evaluate CacheGen’s performance on “free-text generation” tasks such as story generation because the quality metrics are less well-defined than the tasks in our evaluation. Network-wise, our network model does not include conditions with extremely high bandwidths. Addi-tionally, not all LLM applications can cache KV features. Search-based apps, like Google and Bing, use real-time search results as context, and their volatile contexts will [...] 9 Discussion and Limitations Compatibility with other KV-cache compression work: Emerg-ing techniques like smart quantization [62, 78, 97] are complemen-tary with CacheGen. After quantization, CacheGen can still apply delta encoding and arithmetic coding, as shown in Figure 10. [...] Cheng-Ping Hsieh, Simeng Sun, Samuel Kriman, Shantanu Acharya, Dima Rekesh, Fei Jia, and Boris Ginsburg. 2024. RULER: What’s the Real Context Size of Your Long-Context Language Models? arXiv preprint arXiv:2404.06654 (2024).\n Huggingface. [n. d.]. Huggingface Transformers.  transformers/index. ([n. d.]).\n Huggingface. [n. d.]. Perplexity in fixed length models.  /docs/transformers/perplexity. ([n. d.]).\n Amazon Inc. [n. d.]. Amazon Mechanical Turk.  ([n.\nd.]).",
+   "published_date": null,
+   "score": 0.3626311
+  },
+  {
+   "url": "https://shashikantilager.com/assets/pdf/publications/ARKV_CCGRID_2026.pdf",
+   "title": "[PDF] ARKV: Adaptive and Resource-Efficient KV Cache Management ...",
+   "content": "that allocates non-uniform cache budgets across transformer layers based on attention consolidation patterns, achieving strong compres-sion without accuracy loss. However, these methods share common limitations: they often discard potentially useful tokens that fall below selection thresholds, lack quantization or compression mechanisms, and are generally unable to adjust dynamically during inference. [...] diverse long- and short-context tasks demonstrate that ARKV preserves ∼97% of baseline accuracy on long-context benchmarks while reducing KV memory usage by 4×, with minimal throughput loss. On short-context tasks, ARKV matches full-precision baselines; on GSM8K math reasoning, it significantly outperforms uniform quantization. These results highlight the practical viability of ARKV for scalable LLM deployment, offering fine-grained, data-driven memory control without retraining or [...] HuggingFace, “Hugging face accelerate.”  Y. Bai, X. Lv, J. Zhang et al., “LongBench: A bilingual, multitask benchmark for long context understanding,” in Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers).\nBangkok, Thailand: Association for Computational Linguis-tics, Aug. 2024, pp. 3119–3137.\n L. Gao, J. Tow, B. Abbasi et al., “The language model evaluation harness,” 07 2024.",
+   "published_date": null,
+   "score": 0.2793741
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Na8ZKa6r5n4",
+   "title": "#279 FastGen: Adaptive KV Cache Compression for LLMs",
+   "content": "[16:11] retraining. It is totally totally inference time only. Okay. Uh however one negative part of this is that it does not work for GQA as of now. It sort\n[16:20] of needs special kernel design uh which works with deep speed. So you know if you're working with let's say hugging face accelerate and implementing this on [...] [16:28] top of hugging face accelerate will be some more work. That's it for this video. Thank you for watching. Connect with me on my LinkedIn or look at my research on my homepage. Thank you. [...] [4:10] profiling is to pick an optimal policy for every head in every layer such that you know that policy can help recover uh\n[4:19] the entire attention map which is basically this soft max of Qk transpose with a recover ratio of t you know where\n[4:26] this ratio ratio should be very high something like 90 95% something like that with minimum memory cost okay for example if If you basically just keep",
+   "published_date": null,
+   "score": 0.14360783
+  }
+ ]
+}

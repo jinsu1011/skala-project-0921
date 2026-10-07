@@ -1,0 +1,65 @@
+{
+ "query": "limitations of Google TurboQuant KV cache technology maturity level experimental analysis site:arxiv.org OR site:iclr.cc OR site:skhynix.com OR site:medium.com",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:08:53+09:00",
+ "results": [
+  {
+   "url": "https://note.com/samehadaonsen/n/n31fa19c75898?hl=en",
+   "title": "6x LLM KV Cache Compression with TurboQuant — New OpenAI Inference Acceleration Technology, Model Comparisons, and Local Deployment Discussions｜東リ屋",
+   "content": "The post from the official Google Research account recorded the highest spread in this list with 62,981 engagements. One of the biggest bottlenecks limiting LLM inference speed is the memory usage of the KV cache, and its reduction is a constant concern for researchers and developers. The fact that TurboQuant presented figures such as \"6x reduction,\" \"zero accuracy loss,\" and \"up to 8x faster inference speed\" strongly attracted the community's attention because it is accompanied by actual [...] Unresolved points include (1) the scope of free tier limitations and cost estimation when transitioning to production, (2) scale-up paths for Supabase/ChromaDB, and (3) the stability of self-hosted observability tools (Langfuse/Phoenix) in actual operation. At this point, the appropriate positioning is \"it is confirmed to work on the free tier, but whether it is production-quality depends on each team's verification.\"\n\n### Impact on Us [...] Skepticism/Criticism: \"$0\" is only at the PoC to prototyping stage, and production operations may face limitations from free tiers (Vercel's monthly bandwidth, Cloudflare Workers' execution time limits, ChromaDB's storage capacity). Furthermore, \"free\" is not \"zero cost\" and must be replaced with \"self-hosting and learning costs.\" Engineering skills are essential for building Docker environments, implementing Ollama, and designing LangGraph.",
+   "published_date": null,
+   "score": 0.47826138
+  },
+  {
+   "url": "https://github.com/manjunathshiva/turboquant-mlx",
+   "title": "GitHub - manjunathshiva/turboquant-mlx: Extreme weight + KV cache compression for LLMs on Apple Silicon (MLX implementation of Google's TurboQuant) · GitHub",
+   "content": "### Fused decode+attend kernel (experimental)\n\nThe \"speed flip\" penalty above is almost entirely the dequantize step: at each decode token the compressed cache is expanded to fp16 before `scaled_dot_product_attention` runs, and at long context that materialization — not the attention math — is the wall. The fused kernel removes it. [...] | Flag | Meaning |\n --- |\n| `--kv-k-bits N` / `--kv-v-bits M` | Mixed-precision KV; K8/V3 is the recommended default |\n| `--kv-bits N` | Symmetric K=V=N (legacy; not recommended below 3) |\n| `--kv-min-tokens N` | Keep first N cached tokens in fp16 (sink protection) |\n| `--kv-group-size G` | Hadamard rotation group size (default 64) |\n| `--kv-fused` | Use the fused decode+attend Metal kernel (experimental; needs `--kv-min-tokens 0`; see Fused decode+attend) | [...] | `--pin-file pin.json` | none | Keep a calibrated hot-expert set permanently resident. Experimental — measured net-negative vs pure LRU on a 122B (static pinning costs LRU's adaptivity). For experimentation only. |",
+   "published_date": null,
+   "score": 0.46657884
+  },
+  {
+   "url": "https://medium.com/@ion.stefanache0/googles-turboquant-in-llama-cpp-3ac3d6dcce21",
+   "title": "Medium",
+   "content": "> Google’s _TurboQuant_ in _llama.cpp__(_aslocal _Inference-_ engine _/__LLM__-_ server_like_/_instead-of_Ollama/Studio/vLLM _)_with Metal kernels for Apple-Silicon(Note: We use the _CUDA-engine_ instead-of running directly on Metal/_BM as HW_!).\n> \n> \n> KeyValue(KV) cache-compression(Cache-Type): turbo-4(_x_ 3.8) turbo-3(_x_ 4.9)\n> \n> \n> Working _end_-to-_end_ on with LLM#1: _Qwen3.6–35B-A3B-GGUF_:UD-Q4_K_M and LLM#2: Meta-Llama-3–8B-Instruct-GGUF:Q4_K_M.\n> \n> [...] The _main/essential role_ of TurboQuant is to _massive_ ly reduce video-memory(VRAM) consumption_through_automatic context-compression(KV-Cachesqueezing/pressing/compaction/contraction/ compression=crams a _huge_-Context), allowing-you to start huge-discussions of over 32,000(-c 32768) text-units(tokens) on a video-card(GPU: NVIDIA RTX-4060, 8 GB VRAM) with only8GB VRAM,without the system crashing. [...] _Where the model sits:_ 100% in the8GB VRAM of the video-card (-ngl 99).\n   _Speed​​(Tokens/s):_ Very-high (usually between 40 and 60+ tokens/s).\n   _Response quality:_Very-good for general tasks, but has a lower analysis capacity for extremely complex texts.\n   _TurboQuant role: Crams a huge_ 32k _Context_ into the 2–3 GB of VRAM_left_ _free_-on the board(GPU).\n\n🧠 _Qwen-3.6–35B MoE (Hybrid-Running)_",
+   "published_date": null,
+   "score": 0.42048118
+  },
+  {
+   "url": "https://medium.com/@michael.hannecke/turboquant-on-apple-macos-five-integration-paths-for-local-kv-cache-compression-42e83959d414",
+   "title": "TurboQuant on Apple MacOS: Five Integration Paths  | Medium",
+   "content": "The counterposition: weights are the real bottleneck, not the KV cache. True for initial loading. But during running inference with long contexts (RAG, multi-turn, agents), the KV cache becomes the dominant memory consumer. On 24–48 GB systems, TurboQuant shifts this boundary measurably.\n\n## Conclusion [...] ## Conclusion\n\nTurboQuant is the missing piece for long-context local inference on Apple Silicon. The algorithm delivers. PPL 6.20 vs. 6.19 on Qwen3.5–35B-A3B. Over 70% KV cache savings on the full-attention layers. The integration landscape remains fragmented across five paths with different maturity levels. [...] oMLX includes TurboQuant KV cache as an experimental feature. Enable it in the Admin UI under Model Settings > Experimental Features. oMLX combines continuous batching and SSD caching on Apple Silicon. Paired with TurboQuant, it may be the shortest path to a near-production local inference server on macOS.\n\nAs of late March 2026, the TurboQuant toggle may be disabled pending a fix for the cache-merge prefill path. Verify current status before relying on this path.",
+   "published_date": null,
+   "score": 0.31513548
+  },
+  {
+   "url": "https://arxiv.org/html/2606.20295v2",
+   "title": "Token-Operations-Oriented Inference Optimization Techniques for Large Models",
+   "content": "reduce the KV cache cost during inference . MiniMax-M2 uses full-context self-attention in all layers with a GQA configuration for its Q/K/V heads. Its paper explicitly states that although linear and sparse attention offer efficiency advantages, quality loss assessment and infrastructure maturity remain critical constraints for production tasks such as complex reasoning, coding, and agent applications . This indicates that KV-compressed full attention remains an important low-complexity [...] Academic research has also proposed various KV cache compression methods based on importance and low-bit representations. Scissorhands, H\\_2O, and SnapKV each retain more critical historical states from the perspectives of importance persistence, Heavy Hitter Tokens, and pre-generated attention patterns, compressing the KV cache under a fixed budget [110, 111, 112]. KIVI, KVZip, and TurboQuant further reduce the cost of cache representation via KV cache quantization or context reconstruction [...] Cluster-level KV cache scheduling refers to elevating the KV cache, in multi-GPU, multi-node, multi-inference-instance, or PD-disaggregated clusters, from an intermediate GPU-memory state of a single request into a system-level resource that is manageable, indexable, migratable, and reusable. It performs block-based allocation, index matching, hit evaluation, cache-aware routing, cross-instance transfer, tiered storage, priority-based eviction, tenant isolation, and security control, in order",
+   "published_date": null,
+   "score": 0.21187343
+  },
+  {
+   "url": "https://medium.com/@adnanmasood/turboquant-gemma-4-and-the-new-economics-of-ai-inference-362b08605d57",
+   "title": "TurboQuant, Gemma 4, and the New Economics of AI Inference | by Adnan Masood, PhD. | Medium",
+   "content": "·\n\nApr 13, 2026\n\n> tl;dr — TurboQuant matters because it attacks the real bottleneck in modern long-context AI inference: moving data, not just doing math. Its core value is KV-cache compression that preserves the inner products attention depends on, which can materially improve memory efficiency, serving density, and long-context economics.\n\nPress enter or click to view image in full size\n\nTurboQuant: Redefining AI efficiency with extreme compression [...] ## How KV-cache compression and long-context model design could reshape GPU utilization, serving density, and the next generation of AI infrastructure strategy.\n\nAdnan Masood, PhD.\n\nAdnan Masood, PhD.\n\n34 min read\n\n·\n\nApr 13, 2026 [...] Sitemap\n\nOpen in app\n\nSign in\n\nSign in\n\nAdnan Masood, PhD.\n\n## Adnan Masood, PhD.⁠\n\nDr. Adnan Masood is an Engineer, Thought Leader, Author, AI/ML PhD, Stanford Scholar, Harvard Alum, Microsoft Regional Director, and STEM Robotics Coach.\n\nMember-only story\n\nTurboquant Kv Cache\n\nGemma 4 Inference\n\nKv Cache Compression\n\nGpu Memory Bottleneck\n\nLlm Decode Bandwidth\n\n# TurboQuant, Gemma 4, and the New Economics of AI Inference",
+   "published_date": null,
+   "score": 0.21118934
+  },
+  {
+   "url": "https://medium.com/towards-deep-learning/googles-turboquant-the-ai-breakthrough-that-crashed-memory-stocks-by-25-billion-explained-simply-e772d32c9135",
+   "title": "Google's TurboQuant: The AI Breakthrough That Crashed ...",
+   "content": "Google's TurboQuant paper claims to reduce AI memory usage by 6x. Within 48 hours, memory chip stocks lost $25 billion.",
+   "published_date": null,
+   "score": 0.15074033
+  },
+  {
+   "url": "https://www.linkedin.com/in/tarun-gogineni-488551b4",
+   "title": "Tarun Gogineni - Technical Staff at OpenAI",
+   "content": "## Education\n- University of Michigan, Master's degree, Computer Science\n- University of Michigan College of Engineering, B.S.E., Computer Science, Physics, Summa Cum Laude\n- International Academy, High School [...] ## Experience\n- Member of Technical Staff at OpenAI (Nov 2022 to present)\n- Founding Scientist at Atomic AI (Nov 2021 to Nov 2022)\n- Machine Learning Engineer at Facebook (May 2020 to Nov 2021)\n- Researcher at University of Michigan (May 2019 to Jan 2021)\n- Instructional Aide, Graduate Student Instructor at University of Michigan (Jan 2019 to Jan 2020)\n- Software Engineer Internship at Instagram (May 2018 to Aug 2018) [...] - Liked: The most dangerous thing you can build as a startup is something people think is cool. I learned this twice. First with Waterview, a...\n- Liked: “Friday meeting” is our version of all hands and it’s literally all hands. everyone talks in these meetings and it’s one of the things we...\n- Liked: The Gemini Pro models do not seem to be iterating anywhere near as quickly as Claude or GPT (last release was 3.1 Pro in February). Its...",
+   "published_date": null,
+   "score": 0.012901829
+  }
+ ]
+}

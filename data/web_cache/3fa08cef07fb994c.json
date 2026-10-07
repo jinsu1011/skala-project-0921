@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache third party assessment market adoption barriers cost structure analysis independent evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:09:44+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "arXiv is now an independent nonprofit! Learn more\n\narXiv logo Back to arXiv\n\nLicense: arXiv.org perpetual non-exclusive license \n\narXiv:2606.12556v2 [cs.DC] 16 Jun 2026\n\n# ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories\n\nHakbeom Jang, Younghoon Min, Sunwoong Kim, Taeyoung Ahn, Hanyee Kim,   \nYoungpyo Joo, Hoshik Kim, and Jongryool Kim  Affiliation: Memory Systems Research, SK hynix\n\n© none\n\n###### Abstract. [...] The performance of ITME is evaluated using the ShareGPT dataset with a configuration of 128 concurrent conversations, each spanning up to 5 turns with a minimum of 2000 tokens per conversation. As memory pressure intensifies in later stages, we focus on Turns 3–5, where the total KV cache footprint reaches 40 GB. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.38117403
+  },
+  {
+   "url": "https://finance.yahoo.com/sectors/technology/articles/global-dram-market-research-report-094700134.html",
+   "title": "Global DRAM Market Research Report 2026-2036: Samsung/SK Hynix/Micron Deep Dive and a Thorough Assessment of China's DRAM Industry Including CXMT, JHICC",
+   "content": "The Global DRAM Market 2026-2036 is the most comprehensive independent analysis of the global DRAM industry available today. Spanning approximately 496 pages, this definitive market intelligence report combines granular market forecasting, in-depth technology assessment, competitive analysis, and supply chain mapping to provide decision-makers with the complete picture of where the DRAM market has been, where it stands today, and where it is heading over the next decade. [...] Dublin, April 16, 2026 (GLOBE NEWSWIRE) -- The \"The Global DRAM Market 2026-2036\" report has been added to ResearchAndMarkets.com's offering. [...] suppliers, material producers, IP licensors, and end-market customers.",
+   "published_date": null,
+   "score": 0.3775871
+  },
+  {
+   "url": "https://news.skhynix.com/en/2026-market-outlook-focus-on-the-hbm-led-memory-supercycle",
+   "title": "2026 Market Outlook – “Focus on the HBM-Led Memory Supercycle” – SK hynix Newsroom",
+   "content": "In 2026, the global semiconductor industry is entering a transitional period as market structures and value chains realign to accommodate AI infrastructure expansion. The total market is projected to approach the $1 trillion mark, with memory semiconductors emerging as a key driver in terms of both demand and profitability. In particular, industry experts expect SK hynix to be the primary anchor of this shift, as a chipmaker capable of delivering both HBM3E and next-gen HBM4 reliably. [...] # SK Hynix Newsroom\n\nSK Hynix Newsroom\n\n## 2026 Market Outlook – “Focus on the HBM-Led Memory Supercycle” [...] of this supercycle.",
+   "published_date": null,
+   "score": 0.2973837
+  },
+  {
+   "url": "https://www.investing.com/news/company-news/sk-hynix-achieves-first-ocp-safe-recognition-for-ssd-solution-93CH-4299618",
+   "title": "SK hynix achieves first OCP S.A.F.E. recognition for SSD solution By Investing.com",
+   "content": "© 2007-2026 - Fusion Media Limited. All Rights Reserved.\n\nCreate a FREE account or log in to continue reading.\n\nYou'll also get real-time alerts, personalized charts, portfolio management tools and more — all for free.\n\nContinue with GoogleContinue with Google. Opens in new tab\n\nContinue with Facebook\n\nContinue with Apple\n\nContinue with Email\n\nAlready have an account? Sign InBy signing up you agree to our Terms and Conditions and Privacy Policy. [...] Oct 02, 2026\n\n[](\n\nThe Silver Market Has a Seat Shortage\n\nBy Matt Oliver\n\nOct 02, 2026\n\n[](\n\nMicron Earnings Preview: All Eyes on Its Outlook for the Next AI Chip Cycle\n\nBy Ali Merchant\n\nSep 30, 2026\n\n[](\n\nNFP Preview: Can the Jobs Report Overcome the Bond Market Meltdown?\n\nBy Matthew Well...\n\nOct 02, 2026\n\n[](\n\nWhat Anthropic’s ‘Existential Risk’ Disclosure Means for IPO Investors\n\nBy Chinmay Pand...\n\nSep 30, 2026\n\nMore News\n\nMarket Movers [...] The evaluation process examined code quality and structure, cryptographic protections, firmware update mechanisms, and supply chain integrity to help vendors demonstrate compliance with modern security best practices.",
+   "published_date": null,
+   "score": 0.26220417
+  },
+  {
+   "url": "https://flash.stocksentinel.ai/research/SKHY",
+   "title": "SK hynix Inc. (SKHY) Stock Research Report | Flash",
+   "content": "In the competitive landscape, SK hynix has established a leading market position in the premium AI memory segment [cite: 5, 8]. As of Q1 2026, the global market shares across key segments are structured as follows: [...] ## 5. 5-Year Scenario Analysis\n\nThis scenario analysis projects the valuation and total return profile of SK hynix ADRs (NASDAQ: SKHY) over a five-year horizon to Year 5 (2031). The analysis anchors its projections on the NASDAQ ADR share price of $130.17 USD as of July 28, 2026 [cite: 23, 47]. Because ten ADRs represent one domestic common share traded on the Korea Exchange (000660), this corresponds to an implied common stock price of $1,301.70 USD per common share [cite: 42, 44]. [...] ### Market Position: 9/10\n\nSK hynix holds a strong competitive position in the global memory market, particularly in HBM where it possesses a 56.4% revenue share as of Q1 2026 [cite: 5]. The company is the primary qualified supplier for NVIDIA's high-margin GPU architectures [cite: 12, 13]. While Samsung and Micron are expanding capacity, SK hynix’s established yields and packaging technology allow it to hold its dominant position in premium segments [cite: 11, 12].\n\n### Growth Outlook: 7/10",
+   "published_date": null,
+   "score": 0.25699556
+  },
+  {
+   "url": "https://www.investing.com/equities/sk-hynix-inc-opinion",
+   "title": "SK Hynix Inc Analysis & Opinion (000660) - Investing.com",
+   "content": "© 2007-2026 - Fusion Media Limited. All Rights Reserved.\n\nAll markets. One FREE account.\n\nTrack 180K+ assets across stocks, crypto, forex & commodities,  \nwith world news and in-depth market analysis.\n\nAlready have an account? Sign In\n\nBy signing up you agree to our Terms and Conditions and Privacy Policy. [...] how is this falling when Nvidia confirmed ai demand is still huge and that the price of memory is going up\n\nWalterWhites MoneyAug 28, 2026, 00:25\n\nShake n bake\n\npro badge\n\nElangAug 09, 2026, 19:11\n\nTop 20 conpany in the world, hbm is an AI infrastructure bottleneck, visibility for 3-10 years. Cheapest / best value stock ive seen in 20+ years. Stack up\n\nAdvertisement\n\nB TCAug 05, 2026, 22:01\n\nBig boy manipulate the semiconductor index by using SK hinix in korea where the luquitation is low [...] Faisal TurkAug 04, 2026, 00:34\n\nWhat is your problem?\n\nJeffBJul 29, 2026, 07:11\n\nSK Hynix 1,401,000 -9.61% at Close. (Revenues shy of estimates, earnings above)\n\nWilliam LamJul 29, 2026, 00:44\n\nreturning to earth.\n\nBehar NurediniJul 31, 2026, 00:07\n\nGoing back to moon.\n\nJeffBJul 28, 2026, 22:46\n\nSK Hynix 1,400,000 nears MONTHLY S2\n\npro badge\n\nMuhammad AtamnaJul 28, 2026, 03:53\n\nhealthy correction upward trend didnt chage\n\nJeffBJul 28, 2026, 16:37",
+   "published_date": null,
+   "score": 0.24771023
+  },
+  {
+   "url": "https://finance.yahoo.com/news/keysight-enables-sk-hynix-achieve-150000012.html",
+   "title": "Keysight Enables SK hynix to Achieve Top-Tier OCP S.A.F.E. Evaluation for Solid-State Drive Solution",
+   "content": "For the SK hynix evaluation, Keysight applied its proprietary code security evaluation framework, combining industry standards such as the Common Vulnerability Scoring System (CVSS) with Keysight-developed criteria, to conduct an in-depth Scope 1 assessment of firmware security and hardware interactions. SK hynix achieved a high rating, reflecting the effectiveness of Keysight's structured methodology and the client's robust engineering practices. [...] At Keysight (NYSE: KEYS), we inspire and empower innovators to bring world-changing technologies to life. As an S&P 500 company, we're delivering market-leading design, emulation, and test solutions to help engineers develop and deploy faster, with less risk, throughout the entire product life cycle. We're a global innovation partner enabling customers in communications, industrial automation, aerospace and defense, automotive, semiconductor, and general electronics markets to accelerate [...] to accelerate innovation to connect and secure the world. Learn more at Keysight Newsroom and www.keysight.com.",
+   "published_date": null,
+   "score": 0.20987462
+  },
+  {
+   "url": "https://www.stocktitan.net/news/KEYS/keysight-enables-sk-hynix-to-achieve-top-tier-ocp-s-a-f-e-evaluation-2wf614geqpuh.html",
+   "title": "Keysight Enables SK hynix to Earn First OCP S.A.F.E. Recognition | KEYS Stock News",
+   "content": "Marc Witteman, Technical Director at Keysight, said: “OCP S.A.F.E. creates a shared foundation of trust across the hyperscale ecosystem. Keysight’s role is to make the evaluation process as thorough, efficient, and insightful as possible, enabling customers to strengthen product security while accelerating adoption in high-trust environments. With this in mind, SK hynix’s PEB110 E1.S device aligns rigorously with the design principles set forth by OCP S.A.F.E., and according to Keysight’s [...] For the SK hynix evaluation, Keysight applied its proprietary code security evaluation framework, combining industry standards such as the Common Vulnerability Scoring System (CVSS) with Keysight-developed criteria, to conduct an in-depth Scope 1 assessment of firmware security and hardware interactions. SK hynix achieved a high rating, reflecting the effectiveness of Keysight’s structured methodology and the client’s robust engineering practices.",
+   "published_date": null,
+   "score": 0.16852859
+  }
+ ]
+}

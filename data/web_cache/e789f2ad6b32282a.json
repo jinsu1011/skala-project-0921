@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache domain suitability advantages independent reviews benchmarks",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:48:15+09:00",
+ "results": [
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] The results showed a 2.69x improvement in performance per watt compared to tests with a Blackwell GPU and 8 x HBM stacks but no HBF.\n\nWith testing of a KV cache with 10 million tokens, this showed that an HBM+HBF setup could process 18.8x more simultaneous queries, its batch size, than an HBM-only configuration. By using HBF,  such workloads, which could include 32 GPUs and their HBM, can be processed with only two GPUs, substantially reducing electricity consumption. [...] BANDF AD\n\nHowever, providing a KV cache even closer to the GPU, getting rid of the SSD PCIe bus link time, and delivering lower latency and higher bandwidth access than the local SSD is what HBF provides. The paper states: \"The expected advantages of HBF are 1) up to 16x larger capacity than HBM, and 2) similar bandwidth to HBM, and the expected disadvantages are 1) slower access (ns vs. μs), 2) lower write endurance, and 3) up to 4x higher power consumption than HBM.\"",
+   "published_date": null,
+   "score": 0.38193452
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM Serving with CXL-Hybrid Memory",
+   "content": "reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] prototypes such as SK hynix Niagara further show that shared CXL memory can remain sub-microsecond, reporting 600 ns access latency (SK hynix, 2024). [...] A CXL memory expander is a DRAM-based CXL memory module that targets latency- and bandwidth-sensitive workloads by expanding memory capacity beyond local DIMM channels while preserving memory-semantic access (SK hynix, 2025; Samsung Electronics, 2026a). For KV-cache reuse, such devices can provide a low-latency capacity tier for KV blocks that no longer fit in GPU memory but still require fast access. A CXL switch-based memory pool extends this model to rack-scale environments by aggregating",
+   "published_date": null,
+   "score": 0.2991159
+  },
+  {
+   "url": "https://www.indeed.com/cmp/Sk-Hynix-Memory-Solutions/reviews?ftext=employee",
+   "title": "Working at SK hynix memory solutions: Employee Reviews | Indeed.com",
+   "content": "4.0  \n\n7 reviews\n\nSK hynix is ushering in a new future by leading the technology-based IT ecosystem.With tenacious commitment and technological innovation, SK\nCompare [...] SK hynix memory solutions logo\n\nSK hynix memory solutions\n\n2.7 out of 5 stars.\n2.7\n\nWrite a review\n\nWant to work here?\n\nView jobs\n\n# Working at SK hynix memory solutions: 3 Reviews\n\n## Overall rating\n\n2.7\n\nBased on 21 reviews\n\n1. 5\n2. 4\n3. 3\n4. 2\n5. 1\n\n## Detailed ratings\n\n1. Work-life balance\n\n   2.7\n\n   2.7 out of 5 stars for Work-life balance\n2. Pay and benefits\n\n   3.1\n\n   3.1 out of 5 stars for Pay and benefits\n3. Job security and advancement\n\n   2.2 [...] San Jose, CA\n\n  Great place work. Great Co- Workers. Have great benefits being a full time employee. Job culture could use improvement, along with work life balance. A great place to get experience and learn....Show more\n ## Rate your recent company\n\n  Share your experience to help others\n\nSee more \nSK hynix memory solutions\n reviews\n\nYou may want to try:\n\n all SK hynix memory solutions reviews worldwide (21 reviews)\n\nSkip carousel\n\npage \n\nslide1 of 1\n\n## SK Hynix America\n\n4.0  \n\n7 reviews",
+   "published_date": null,
+   "score": 0.27717498
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=ajxwRsRtFrU",
+   "title": "Benchmark of the  SK Hynix Gold P31 for potential use as NVME cache in ‪@UnraidOS‬ #homelab",
+   "content": "[3:45] are the benchmarks so i'm not going to read these off to you guys you can see here that obviously this drive is going to perform pretty well we used crystal\n[3:52] disk for this and i was going to do others but i think there's plenty of data online to really show you that you know this thing is is pretty [...] # Benchmark of the  SK Hynix Gold P31 for potential use as NVME cache in ‪@UnraidOS‬ #homelab\n## Channel: SPX Labs\n23.1K subscribers\n55 likes [...] [5:40] and to my surprise we did see a little bit of slowness but not really enough to complain about i don't remember\n[5:47] seeing peaks of 900 megabytes per second like i did previously but we still were with between 600 and the high 800\n[5:57] megabyte per seconds range at any given point usually higher than lower so this drive i think you know i think it did pretty\n[6:05] well it is definitely a great candidate for a i actually have two that's how good they are it's a great candidate for",
+   "published_date": null,
+   "score": 0.22528063
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.19342181
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.19342181
+  },
+  {
+   "url": "https://www.fitchratings.com/research/corporate-finance/fitch-revises-sk-hynix-outlook-to-positive-affirms-rating-at-bbb-25-08-2025",
+   "title": "Fitch Revises SK hynix's Outlook to Positive; Affirms Rating at 'BBB'",
+   "content": "Revenue Visibility Improving: Growing demand for advanced applications — including AI, 5G and high-performance computing — is lifting revenue visibility in the memory chip market. The rising adoption of HBM, which is often contracted under one-year agreements with fixed volumes and prices, reduces cash-flow volatility and enhances predictability. SK hynix is well positioned to benefit from this trend thanks to its technological leadership and first-mover advantage in HBM. [...] remain relevant to the rating. [...] has solid access to capital markets and local banks.",
+   "published_date": null,
+   "score": 0.1809449
+  },
+  {
+   "url": "https://futurumgroup.com/insights/sk-hynixs-hbf-technology-a-major-shift-for-ai-infrastructure",
+   "title": "Memory Infrastructure: SK Hynix HBF Standard",
+   "content": "new content becomes available. The content does not consider any other information or perform any independent analysis. [...] author/analyst. The Futurum Group makes no guarantees regarding the completeness, accuracy, or reliability of any information contained herein. Readers are encouraged to verify facts independently and consult relevant sources for further clarification. [...] Whether you are defining business, channel, or go-to-market strategy; evaluating vendors or justifying ROI; or commissioning research to fill an emerging market need, we have your back, with a program that answers your questions with the objectivity and credibility to drive real decisions.",
+   "published_date": null,
+   "score": 0.15376535
+  }
+ ]
+}

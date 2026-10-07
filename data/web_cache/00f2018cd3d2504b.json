@@ -1,0 +1,65 @@
+{
+ "query": "limitations and challenges of SK hynix ITME KV cache technology TRL evaluation site:arxiv.org OR site:iclr.cc OR site:skhynix.com OR site:medium.com",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:09:55+09:00",
+ "results": [
+  {
+   "url": "https://www.rambus.com/wp-content/uploads/2025/07/ScalingDRAMTechnology-ISCA2025_Tutorial.pdf?_gl=1%2A19an8z%2A_up%2AMQ..%2A_ga%2AODExNTE3MDA3LjE3NTQ5NDE0MDg.%2A_ga_ZTVV17HN07%2AczE3NTQ5NDE0MDckbzEkZzAkdDE3NTQ5NDE0MDckajYwJGwwJGgw",
+   "title": "Scaling DRAM Technology to Meet Future Demands",
+   "content": "to Meet Future Demands – Challenges & Opportunities • Higher data rates reduce tBURST • More banks required to maintain throughput • Multiple commands in flight before initial R/W can be cleared from the queue • For tRL=16ns, tCCD_S=2ns 8 Reads in flight • Purely random traffic requires more banks • Birthday paradox probability of multiple commands to the same bank in the queue Random access throughput & effective bandwidth versus complexity Queue Depth • Host controller complexity is growing [...] to Meet Future Demands – Challenges & Opportunities 106 SoC <DIMM> SoC <CAMM> Double-side Single-side Compress on Both Sides ~1/6 shorter  Example: LLM KV cache size  Weight Fixed, but KV cache is proportional to batch-size and context length and needed to be stored  The size of KV-cache with large batch can surpass the memory capacity of GPU devices Memory Bottlenecks for AI Applications ISCA ’25 Tutorial: Scaling DRAM Technology to Meet Future Demands – Challenges & Opportunities 107 0 500 [...] 107 0 500 1000 1500 2000 1 2 4 8 16 32 64 128 Memory Requirement (GB) Batch Size Weight Activation KV Cache In case of 640GB total GPU DRAM KV Cache Size evicted to Host Weight Activation KV Cache Weight is fixed regardless of the inference scaling # of batch size Memory Requirement 𝒎𝒂𝒄𝒕∝𝜶𝒃𝒅𝒔+ 𝜷𝒃𝒏𝒉𝒔𝟐 𝒎𝒌𝒗∝𝟐𝒍𝒅𝒉𝒏𝒉𝒃𝒔 Scaling Memory Capacity and Bandwidth with CXL ISCA ’25 Tutorial: Scaling DRAM Technology to Meet Future Demands – Challenges & Opportunities 108  Memory capacity & BW expansion",
+   "published_date": null,
+   "score": 0.38055226
+  },
+  {
+   "url": "https://www.solidigm.com/content/dam/solidigm/en/site/products/technology/2026/anatomy-of-a-prompt/documents/Why-Prompt-Anatomy-Becomes-Storage-Anatomy-in-Long-Context-Inference-and-RAG.pdf",
+   "title": "The Anatomy of a Prompt",
+   "content": "iteratively by repeatedly reading prior KV and appending new KV. KV caching is a standard optimization for autoregressive decoding.3 As long as the KV working set remains resident in GPU high-bandwidth memory (HBM) and/or staged in DRAM for paging designs, storage should not be on the steady-state decode critical path. When KV state must be restored from a lower storage tier, on-demand faults during decode can introduce ITL jitter. Operators should pre-stage the required KV blocks back into [...] overhead. This is implementation-dependent. • Co-locate index and chunk-store shards when it reduces fabric tails, or explicitly budget network p99/p99.9 if disaggregated. This is implementation-dependent. • If disaggregating storage, account for fabric effects and protocol overhead, for example NVMe-oF.23 • Isolate artifact/log write planes from retrieval read planes so background maintenance cannot poison retrieval p99. 6. KV cache scale and the concurrency cliff KV cache footprint grows [...] determines which state objects are instantiated (KV cache blocks, retrieval payloads, tool artifacts) and how they scale. Those state objects impose measurable I/O shapes and QoS requirements. Context windows are expanding (some models expose 1M-token windows), increasing prefill work and state footprint.1 Long context and agentic loops increase state; concurrency multiplies it. KV cache becomes the dominant in-flight working set and a first-order limiter for TTFT, ITL stability, and cost.2,3,4",
+   "published_date": null,
+   "score": 0.3637152
+  },
+  {
+   "url": "https://techarena.ai/solidigm",
+   "title": "Solidigm Media Platform",
+   "content": "Guest Garrett McKibben Headshot\n\nData Center\n\nPodcast Microphone Icon\n\nAllyson Klein\n\n@\n\nTechArena\n\nSep 8, 2026\n\nPodcast\n\nData Insights\n### Graid Technology on Breaking the KV Cache Inference Wall\n\nGarrett McKibben of Graid Technology joins TechArena's \"Data Insights\" podcast to unpack KV cache overflow.\n\nA sculptural orb sitting on gold circuit pathways.\n\nAI\n\nArticle Icon.webp)\n\nAllyson Klein\n\n@\n\nTechArena\n\nAug 26, 2026\n\nArticle [...] Allyson Klein\n\nSep 8, 2026\n\n### Graid Technology on Breaking the KV Cache Inference Wall\n\nIlkhom Sidikov on purple graphic background\n\nPodcast Microphone Icon\n\nAllyson Klein\n\n@\n\nTechArena\n\nAug 14, 2026\n\n### Why io.net Never Lets a GPU Sit Idle: AI Inference at Scale\n\nNicklas Frahm on Data Insights background\n\nPodcast Microphone Icon\n\nAllyson Klein\n\n@\n\nTechArena\n\nAug 13, 2026\n\n### How Corti Builds Sovereign, Compliant AI for Healthcare Systems\n\nASAPP Data Insights Tile\n\nPodcast Microphone Icon [...] TechArena logo\n\n# Empowering Innovation with Solidigm\n\nExplore the cutting edge of computing from data center to edge including solutions unlocking the AI pipeline, all backed by Solidigm's leading SSD portfolio.\n\nGuest Garrett McKibben Headshot\n\n## Graid Technology on Breaking the KV Cache Inference Wall\n\nA sculptural orb sitting on gold circuit pathways.\n\n## ASAPP’s Priya Sawant on the New Rules of Platform Engineering\n\nGuest Garrett McKibben Headshot\n\nPodcast Microphone Icon\n\nAllyson Klein",
+   "published_date": null,
+   "score": 0.068046756
+  },
+  {
+   "url": "https://arxiv.org/html/2605.09996v1",
+   "title": "Omni-Persona: Systematic Benchmarking and Improving Omnimodal Personalization",
+   "content": "We further use Gemma4 E-series models (E2B and E4B)  as our main analysis models. Gemma4 is not a native omnimodal model, but an MLLM designed for constrained DRAM and flash-memory environments through Per-Layer Embeddings and Grouped-Query Attention, which reduce KV-cache pressure. This makes it a useful on-device-oriented counterpart to larger server-class omnimodal systems, as the strongest zero-shot open-source baseline on Cal (see Tables 1, 2), enabling focused analysis of post-training [...] University in 2026. This paper was also the result of the research project supported by SK hynix Inc. [...] Limitations. Our benchmark uses synthetic audio and text with rigorous model-based filtering, leaving further human verification as future refinement. Free-form LLM-as-a-judge evaluation may introduce residual bias; see Appendix E for further discussion.\n\n## 8 Acknowledgements",
+   "published_date": null,
+   "score": 0.04554332
+  },
+  {
+   "url": "https://www.scribd.com/document/1005762766/Scaling-DRAM-Technology-to-Meet-Future-Demands",
+   "title": "Scaling DRAM Technology To Meet Future Demands | PDF | Dynamic Random Access Memory | Computer Memory",
+   "content": "The tutorial discusses the challenges and opportunities in scaling DRAM technology to meet future demands, focusing on advancements in memory architecture, power efficiency, and system performance. Presenters from Rambus and Samsung Electronics share insights on various DRAM types, their applications in different markets, and the evolving memory hierarchy. Key topics include trade-offs in DRAM design, future memory solutions, and the impact of power and cost on memory systems. [...] # Scaling DRAM Technology To Meet Future Demands\n\nScaling DRAM Technology To Meet Future Demands\n\n## Uploaded by\n\nAI-enhanced title and description\n\n## Share this document\n\n## Footer menu\n\n## About\n\n## Support\n\n## Legal\n\n## Social\n\n## Get our free apps\n\nScribd - Download on the App Store\nScribd - Get it on Google Play\n\n## About\n\n## Legal\n\n## Support\n\n## Social\n\n## Get our free apps\n\nScribd - Download on the App Store\nScribd - Get it on Google Play [...] Scribd\n\n# Scaling DRAM Technology To Meet Future Demands\n\nScaling DRAM Technology To Meet Future Demands\n\n## Uploaded by\n\nAI-enhanced title and description\n\n# Scaling DRAM Technology To Meet Future Demands",
+   "published_date": null,
+   "score": 0.03674534
+  },
+  {
+   "url": "https://www.linkedin.com/in/selvi-kadirvel",
+   "title": "Selvi Kadirvel - Principal Engineer, Elotl",
+   "content": "- Commented On A Post: Woohoo! You were aiming for the hat trick and you did it, [...] ## Education\n- University of Florida, Doctor of Philosophy (PhD) Computer Engineering\n- University of Florida, Master of Science Computer Engineering\n- University of Madras, Bachelor of Engineering Computer Science and Engineering\n- Adarsh Vidyalaya [...] ## Skills\nalgorithms, testing framework, evaluating, quotas, end-to-end, kubernetes cluster, cloudnative, management, secrets management, hyperflex, planning, engineering, assessments, systems management, web development",
+   "published_date": null,
+   "score": 0.021322012
+  },
+  {
+   "url": "https://www.linkedin.com/in/douglasarens",
+   "title": "Douglas Arens - Product Development Professional",
+   "content": "## Experience\n- Applications Engineer (Flashtec SSD Controllers) at Microchip Technology Inc. (Dec 2022 to present)\n- System Integration Engineer at KIOXIA America, Inc. (Dec 2020 to Nov 2022)\n- Principal Firmware Engineer at Broadcom Inc. (Aug 2015 to Aug 2020)\n- Technical Lead / Firmware Engineer at Intel Corporation (Apr 2008 to May 2015)\n- Sr. Software Engineer / Project Engineer at Rockwell Collins (Nov 2007 to Mar 2008)\n- Firmware Engineer at Sapphire Technology (Sep 2005 to Sep 2007) [...] Headline: Product Development Professional\nCurrent role: Applications Engineer (Flashtec SSD Controllers)\nSeniority: Specialist, Engineering and Technical\nLocation: Greater Sacramento United States\nExperience: 39 years 9 months\nLinkedIn:  · 319 followers [...] ## Education\n- Iowa State University, BSCS, Computer Science, Math, Physics",
+   "published_date": null,
+   "score": 0.021224413
+  },
+  {
+   "url": "https://www.linkedin.com/in/ryan-afranji-402584104",
+   "title": "Ryan Afranji - Software Engineer at Google",
+   "content": "## Experience\n- Software Engineer at Google (Jan 2022 to present)\n- Software Engineer at Siemens Digital Industries Software (May 2020 to Jun 2021)\n- Engineering Intern at Intel Corporation (May 2019 to Aug 2019)\n- Engineering Intern at Intel Corporation (Jun 2017 to Sep 2017)\n\n## Education\n- Oregon State University, Electrical and Computer Engineering, 3.8\n- University of Southern California, Master of Science - MS, Computer Engineering, 4.0 [...] # Ryan Afranji\n\nHeadline: Software Engineer at Google\nCurrent role: Software Engineer\nSeniority: Specialist, Engineering and Technical\nLocation: Seattle, Washington, United States\nExperience: 6 years 2 months\nLinkedIn:  · 180 followers\nDescription: New college grad (MS) with background and experience in: - C, C++, Python, Assembly - Low Level/Systems Software - Computer Architecture/Hardware - Operating Systems - Networks [...] - Commented On A Post: Excited to use this!",
+   "published_date": null,
+   "score": 0.017218005
+  }
+ ]
+}

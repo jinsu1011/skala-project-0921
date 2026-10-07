@@ -1,0 +1,65 @@
+{
+ "query": "KIVI KV cache drawbacks criticism independent evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:52:54+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2402.02750v2",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "In our efficiency evaluation, we observe that with a residual length of 32, KIVI achieves a significantly higher memory compression rate, which in turn leads to increased throughput. Additionally, our ablation study reveals that changing the residual length from 128 to 32 does not result in a substantial performance gap. We demonstrate KIVI with a residual length of 32 across all benchmark datasets. As shown in Tables 6 and 7, KIVI with a residual length of 32 also delivers performance [...] We benchmark KIVI in CoQA, TruthfulQA and GSM8K tasks using the LM-Eval framework. All dataset parameters were set to default. We compare the standard 16bit configuration with our KIVI compression techniques in Llama-2-7B, Llama-2-13B, Falcon-7B and Mistral-7B. As shown in Table  3, we observe that for the Llama and Mistral model, KIVI only has up to 2% accuracy drop despite the KV cache being stored in 2bit. [...] A new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning, KIVI, with hardware-friendly implementation.\nWe conduct an extensive evaluation for KIVI with Llama, Mistral, and Falcon on popular generation tasks.\nKIVI can efficiently compress KV cache to 2bit and bring 2.6×\\mathbf{2.6\\times} peak memory usage reduction for Llama-2-7B, with little to no accuracy drop.",
+   "published_date": null,
+   "score": 0.44434834
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] real LLM inference workloads, effectively addressing the bottleneck issues in speed and memory usage. [...] | long\\_context\\_example.py | long\\_context\\_example.py |  |  |\n| mem\\_spd\\_test.py | mem\\_spd\\_test.py |  |  |\n| metrics.py | metrics.py |  |  |\n| passkey\\_examples.jsonl | passkey\\_examples.jsonl |  |  |\n| pred\\_long\\_bench.py | pred\\_long\\_bench.py |  |  |\n| pyproject.toml | pyproject.toml |  |  |\n| requirements.txt | requirements.txt |  |  |\n|  |",
+   "published_date": null,
+   "score": 0.35059974
+  },
+  {
+   "url": "https://turbo-quant.com/turboquant-vs-kivi",
+   "title": "TurboQuant vs KIVI: KV Cache Quantization Compared | TurboQuant Tools",
+   "content": "KIVI\n\nThe KIVI paper highlights around 2.6x lower peak memory including weights, up to 4x larger batch size, and 2.35x–3.47x throughput gains on real inference workloads.\n\n## What changes between the two methods\n\nTurboQuant and KIVI both target KV cache memory, but they optimize for different points on the accuracy, complexity, and compression tradeoff curve. TurboQuant adds more math to reduce distortion; KIVI keeps the method simpler and more directly tied to 2-bit cache compression. [...] ## How to choose in practice\n\n01\n\n### Check your real bottleneck\n\nIf weights dominate memory, KV cache quantization may not move deployment economics much. If long contexts dominate, both methods become more relevant.\n\n02\n\n### Check implementation availability\n\nA theoretically better paper result is not enough if your runtime stack does not ship kernels or maintenance support for that method.\n\n03\n\n### Benchmark on your own workloads [...] TurboQuant.\n\nEN中文한국어日本語\n\n⚠Independent reference site · Not affiliated with Google or Alphabet Inc.\n\n# TurboQuant vs KIVI\n\nTwo methods that solve the same broad problem from different angles. KIVI is a known KV cache quantization baseline. TurboQuant is Google's newer approach extending to vector quantization overhead and vector search.\n\nBased on each paper's stated method and benchmark focus. Not a substitute for reproducing the result on your own model and kernel stack.\n\n## Paper positioning",
+   "published_date": null,
+   "score": 0.34594497
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2502.02617",
+   "title": "PolarQuant: Quantizing KV Caches with Polar Transformation | alphaXiv",
+   "content": "KIVI is a state-of-the-art KV cache quantization method that serves as a key performance baseline in the paper's experiments. PolarQuant's superiority over KIVI in the Needle-In-A-Haystack and LongBench evaluations is a primary piece of evidence for its effectiveness and advancement in the field.\n\nLiu, Z., Yuan, J., Jin, H., Zhong, S., Xu, Z., Braverman, V., Chen, B., and Hu, X. Kivi: A tuning-free asymmetric 2bit quantization for kv cache. arXiv preprint arXiv:2402.02750, 2024. [...] However, as models grow in scale and the context lengths they handle expand, the KV cache becomes a massive memory consumer. The size of this cache scales linearly with the number of layers, the number of attention heads, and the total length of the input sequence. For a single user session, the KV cache can quickly grow to several gigabytes. In environments serving many users simultaneously, the collective memory demand of these caches often exceeds the capacity of available GPU memory, [...] GPU memory, leading to slow inference speeds or the inability to handle long-form documents.",
+   "published_date": null,
+   "score": 0.334177
+  },
+  {
+   "url": "https://www.preprints.org/manuscript/202607.0703",
+   "title": "DepthSketch-KV: Query-Conditioned Cross-Layer Residual Sketches for Long-Context KV Cache Compression",
+   "content": "transformer layers contain exploitable redundancy . Subsequent work has further emphasized redundancy-aware compression , low-rank attention-space representations , workload-dependent behavior , and the risk that cache compression can introduce brittle failures not captured by aggregate metrics [5,6]. However, most existing approaches either decide what to keep independently at each layer or apply a fixed compression rule throughout decoding, leaving cross-layer structure and query-dependent [...] at 32k and 64k contexts while preserving retrieval, QA, summarization, and code completion accuracy. Compared with MiniCache, H2O, StreamingLLM, SnapKV, PyramidKV, KIVI, and FlexGen, it improves the accuracy-memory tradeoff, increases decoding throughput, and reduces time to first token with only small changes in perplexity. [...] on attention-logit drift, enabling per-sequence cache budgets without task-specific tuning or held-out calibration. Fourth, we evaluate DepthSketch-KV on long-context retrieval, QA, summarization, and code completion benchmarks, including LongBench, Needle-in-a-Haystack, NarrativeQA, Qasper, HotpotQA, GovReport, MultiNews, HumanEval, and MBPP, and compare against MiniCache, H2O, StreamingLLM, SnapKV, PyramidKV, KIVI, and FlexGen. Across these settings, DepthSketch-KV delivers substantial memory",
+   "published_date": null,
+   "score": 0.31824192
+  },
+  {
+   "url": "https://boringbot.substack.com/p/turboquant-the-new-and-controversial",
+   "title": "TurboQuant: the new(?) and controversial ground breaking compression breakthrough from Google",
+   "content": "The key-value (KV) cache is the memory structure that allows transformer models to “remember” everything they’ve seen in a conversation or document during inference. Without it, the model would have to reprocess the entire context from scratch on every token generation step. The problem is architectural and unforgiving: KV cache memory grows linearly with both sequence length and batch size, which means serving real users at scale pushes it past comfortable limits fast. [...] To make this concrete, consider a 70B parameter model serving 100 concurrent requests at a 32,000-token context window. At standard BF16 precision, the KV cache alone can consume well over 100GB of GPU memory, potentially more than the model weights themselves. That’s not a theoretical edge case; that’s a Tuesday afternoon for anyone running a serious inference cluster. [...] TurboQuant is Google’s proposed approach to one of the most consequential unsolved problems in production large language model efficiency: what do you do when the memory your model needs during inference grows faster than your hardware budget? KV cache compression is where that question gets answered or doesn’t, and TurboQuant claims to have cracked it. We’ll look at the benchmarks, surface an active academic controversy that most mainstream coverage has ignored entirely, and pull in what real",
+   "published_date": null,
+   "score": 0.2876082
+  },
+  {
+   "url": "https://neurips.cc/virtual/2024/poster/93558",
+   "title": "NeurIPS Poster KV Cache is 1 Bit Per Channel: Efficient Large Language Model Inference with Coupled Quantization",
+   "content": "quantization is performed per-channel or per-token independently. Our analysis shows that distinct channels of a key/value activation embedding are highly interdependent, and the joint entropy of multiple channels grows at a slower rate than the sum of their marginal entropy, which implies that per-channel independent quantization is sub-optimal. To mitigate this sub-optimality, we propose Coupled Quantization (CQ), which couples multiple key/value channels together for quantization to exploit [...] Efficient deployment of Large Language Models (LLMs) requires batching multiple requests together to improve throughput. As batch size, context length, or model size increases, the size of key and value (KV) cache quickly becomes the main contributor to GPU memory usage and the bottleneck of inference latency and throughput. Quantization has emerged as an effective technique for KV cache compression, but existing methods still fail at very low bit widths. Currently, KV cache quantization is [...] to exploit their interdependence and encode the activations in a more information-efficient manner. Extensive experiments reveal that CQ compares favorably with existing baselines in preserving model quality, and improves inference throughput by 1.4–3.5$\\times$ relative to the uncompressed baseline. Furthermore, we demonstrate that CQ can preserve model quality reasonably with KV cache quantized down to 1 bit.",
+   "published_date": null,
+   "score": 0.22448908
+  },
+  {
+   "url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/liu24bz/liu24bz.pdf",
+   "title": "[PDF] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "a\\_dc< xS J^mXiCШyW+˓Kؿyr52v{=/S[\"GENP$S>eۻ\\Q5 &nKG)|NM;f g9.lLHq6-02Licj-x:w(8ZB7I|'io>5^$J} Q!x6|dӶjfD:ڇtAGꋬ9C:B5#~\\s q|,-zHNOaiI[)ڗ{1D k[&P~c,> !$Ca{8ߝrJI /.UQӨ{❝n0\\Fww=ZHMWժfy'MTT:FKF֣ZDےQO/3[(5>dͯ/y3~PC+y0#k0mxEG<AA8]!Lc [...] to7l;v!qxb(B?S^0Ӛ[SϔGsׅ@hnM+G;o551׺BH?5c(%3/^OI&;v ،iN/ 5C{--գ\"ͭ1mb؅RHBnSZXMO#t^f9JgaBR^~ҷBVw0VBDv2Cb\\_J\\_QQ\\_16Ѫ/VK ڛeP6S1~\\_u\\_~݌<~Ͻ5g6C>sP\\_A~Tpf##Żܼ.]\\s: AMk&\\_rR1\"1&nnҖ$ [...] #wWN0ҙfG0cvC8듂9Apm#K6,^#0PylE8ʬHu@̭h#(=x{\"}Po% ^C=S X̑3b`nC=?O ;عkutTXj  ` n~Q?|,~{?kvLm3࿃ 0t# ?\\h;[k;?L{\\_}\\_e28.UZ^V \\_q{J9@a207 in'mk^8;T  }{@2sk + cRwp 89Aq<kju y` w}мo Acٲ5;{0yN|",
+   "published_date": null,
+   "score": 0.21606153
+  }
+ ]
+}

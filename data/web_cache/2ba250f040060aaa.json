@@ -1,0 +1,65 @@
+{
+ "query": "ITME KV cache drawbacks criticism independent evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:44:50+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2604.13226v1",
+   "title": "KV Packet: Recomputation-Free Context-Independent KV Caching for LLMs",
+   "content": "Despite their effectiveness, we distinguish these fine-tuning and model-modification approaches from our work due to several practical drawbacks. Fine-tuning the base models or auxiliary supervisors requires massive computational resources. Furthermore, methods like CacheClip (Yang et al., 2025b) increase deployment complexity by requiring the simultaneous serving of multiple models, which significantly raises memory pressure. Most importantly, modifying the base model’s weights can lead to [...] and SAM-KV (Cao et al., 2025) applies hierarchical compression for multi-context scenarios. Despite their efficiency gains over full prefill, these methods share the following drawbacks: [...] Because each document’s KV cache was generated independently, its internal representations were computed using an incomplete attention map that lacks the semantic influence of the global prefix.",
+   "published_date": null,
+   "score": 0.6139086
+  },
+  {
+   "url": "https://magazine.sebastianraschka.com/p/coding-the-kv-cache-in-llms",
+   "title": "Understanding and Coding the KV Cache in LLMs from Scratch",
+   "content": "In short, a KV cache stores intermediate key (K) and value (V) computations for reuse during inference (after training), which results in a substantial speed-up when generating text. The downside of a KV cache is that it adds more complexity to the code, increases memory requirements (the main reason I initially didn't include it in the book), and can't be used during training. However, the inference speed-ups are often well worth the trade-offs in code complexity and memory when using LLMs in [...] [Bad] Memory usage increases linearly: Each new token appends to the KV cache. For long sequences and larger LLMs, the cumulative KV cache grows larger, which can consume a significant or even prohibitive amount of (GPU) memory. As a workaround, we can truncate the KV cache, but this adds even more complexity (but again, it may well be worth it when deploying LLMs.) [...] As we can see, on CPUs, the KV cache results in the most substantial speed-up. And compilation boosts that performance even further. However, on a GPU, the best performance can be achieved with the regular compiled model, which is likely because we don’t pre-allocate the tensors on the GPU, and the models are relatively small.",
+   "published_date": null,
+   "score": 0.5602773
+  },
+  {
+   "url": "https://handbook.modular.com/inference-optimization/kv-cache-offloading",
+   "title": "KV cache offloading | LLM Inference Handbook",
+   "content": "While KV cache offloading can significantly improve memory efficiency and\nthroughput, the speed of the offloading target is critical. If the storage tier\n(e.g., CPU RAM or disk) is too slow, the overhead of transferring KV data back\nto the GPU may negate the benefits, especially in latency-sensitive\napplications. [...] As context windows increase,\nthe KV cache size grows linearly with sequence length. This can quickly\nexhaust available GPU memory, especially in long-context scenarios. Since GPU\nmemory is limited, the KV cache often becomes a bottleneck for running\napplications that require extended context. [...] There is also a quality trade-off when the system uses selective KV offloading.\nDuring decoding, the runtime may need to decide which keys and values should\nreturn to the GPU. If it misses important context tokens, the model can produce\nworse answers. This risk is high in context-intensive workloads such as\nmulti-document QA, legal review, and codebase reasoning, where many details from\nthe prompt may matter.",
+   "published_date": null,
+   "score": 0.46847504
+  },
+  {
+   "url": "https://fin.ai/research/low-rank-key-value-attention-reducing-kv-cache-memory-and-maintaining-head-diversity",
+   "title": "Low-Rank Key Value Attention: Reducing KV Cache Memory and Maintaining Head Diversity - /research",
+   "content": "The full projection matrix is formed by concatenating H independent weight blocks side by side, i.e. there is no parameter sharing whatsoever between heads. This gives each head complete freedom to learn specialised key/value representations, making MHA the most expressive configuration available. However, this expressiveness comes at a steep cost: the KV cache scales linearly with the number of heads (\\(2Hd\\_h\\) values stored per token), making it the most memory-intensive option during [...] Empirically and theoretically, we know that heads specialize: different heads represent complementary syntactic and semantic patterns, and so fully sharing K/V across attention heads can degrade capabilities such as code generation and structured reasoning.\n\nAt the same time, we know that head specialization is not fully independent: recent analyses show high correlation and overlapping subspaces across head projections, so the redundancy is structured rather than random. [...] The key idea is that attention heads are not independent. There’s structured redundancy across heads – yet fully sharing keys/values (like in MQA/GQA) can constrain expressivity. LRKV instead exploits redundancy using a shared full-rank KV basis plus head-specific low-rank residuals, yielding a continuous knob between complete sharing and full per-head independence",
+   "published_date": null,
+   "score": 0.39068562
+  },
+  {
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1mhlj69/whats_the_verdict_on_using_quantized_kv_cache",
+   "title": "The heart of the internet",
+   "content": "•1y ago\n\ni have recently turned it off after using kv cache quantization for a very long time and with qwen3 thinking it seems to improve the results a bit, i found that the model gets less coherent and lazier when responding with time at kv q8 but it stays pretty verbose at fp16, in some cases it also seems to follow the system prompt better at fp16, it's a shame because i'm very short on vram even with a 3090, running whisper large v3 + qwen3 30b + embedding model\n\n Reply  Share [...] Reply  Share \n\n.\n\nUsing a Q8/Q8 KV cache is so firmly within margin of error compared to not quantizing...that it scores better than unquantized cache for some network quants (of course it's not really better - that's the point of being in margin of error).\n\nIf you're multiplying a model value quantized to, say, 4-bits or 5-bits, with a KV cache value quantized to 8-bits, where do you think the dominant error comes from? The 8-bit value? [...] Skip to main content\n\nOpen menu Open navigation for a long time, but I still can't tell if it's a good idea:\n\n   On one hand, the original PR mentions that perplexity is more sensitive to model weight quants than to KV cache. Or in other words, quantizing kv cache is worth it if it frees memory for a slightly less quantized model (eg q4kL vs q4kM).\n\n   On the other hand, many commenters in this community seem to strongly suggest against it.",
+   "published_date": null,
+   "score": 0.38304168
+  },
+  {
+   "url": "https://blog.lmcache.ai/en/2026/04/28/stop-calling-it-kv-cache-its-something-much-bigger",
+   "title": "Stop Calling It KV Cache: It’s Something Much Bigger – LMCache Blog",
+   "content": "Third, it is semantically mutable. It can be edited to improve model outcomes. It encodes meaning, not just computation.\n\nGiven all of this, the term “KV cache” is actively misleading. It implies ephemerality, simplicity, and a lack of intrinsic value. None of those things are true anymore. [...] For a long time, that description held. Even though KV cache was theoretically reusable across requests, in practice GPU memory was too limited and too expensive to justify persistence. Cross-request reuse was rare, and the system treated KV cache as disposable.\n\n## 2025: The Turning Point\n\nEverything changed when KV cache began leaving GPU memory. [...] KV cache is not just reusable. It is semantically meaningful. It represents the model’s internal understanding of context: a compressed encoding of everything the model has processed, directly usable by the model, and opaque to humans.\n\nPut another way, KV cache is the native memory format of a Transformer. And once you see it that way, the old framing falls apart entirely.\n\n## From Immutable Cache to Mutable Memory",
+   "published_date": null,
+   "score": 0.36670366
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "The hard part of KV cache compression is not choosing which tokens to keep — it is two collisions with production infrastructure. Existing methods need historical attention scores, but the FlashAttention kernel never writes those scores into GPU memory. And paged attention reclaims memory only when a block holds no KV at all — yet after token eviction the survivors leave almost every block partially occupied, so the \"freed\" memory never actually comes back.\n\nContents [...] Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] Figure 1. Schematic, not to scale: every token the model generates appends its keys and values to the running history — the KV cache — so cache memory grows with output length while the weights stay fixed. Let generation run long enough, and the cache alone drives the GPU out of memory.",
+   "published_date": null,
+   "score": 0.35662642
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale | Aerospike",
+   "content": "Cross-worker cache misses, restart penalties, and hard evictions are the default behavior of GPU-only caching. And as concurrency increases, they become more commonplace. Architects evaluating production inference stacks must ask a critical question: What happens to cached information when the underlying infrastructure changes? Can cache entries survive worker restarts, can cached prefixes be shared across multiple workers, and how does the system behave when GPU memory reaches capacity? [...] KV cache retrieval typically involves loading entire tensor blocks before inference can continue. Storage systems optimized for small random reads provide limited value when workloads require moving hundreds of megabytes at a time.\n\n### Asynchronous writes\n\nCache persistence should not add latency to user requests. Most tiering systems write cache entries asynchronously after inference completes, allowing response generation to remain focused on minimizing user-facing latency. [...] KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per",
+   "published_date": null,
+   "score": 0.18884735
+  }
+ ]
+}

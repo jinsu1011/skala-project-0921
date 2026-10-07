@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache cost structure and implementation risk risks limitations",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:52:55+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/abs/2402.02750",
+   "title": "[2402.02750] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "archive \n\nPress Enter to search · Advanced search\n\n# Computer Science > Computation and Language\n\narXiv:2402.02750 (cs)\n\nSubmitted on 5 Feb 2024 ([v1), last revised 25 Jul 2024 (this version, v2)]\n\n# Title:KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nAuthors:Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu [...] View a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors [...] > Abstract:Efficiently serving large language models (LLMs) requires batching of many requests to reduce the cost per request. Yet, with larger batch sizes and longer context lengths, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. Additionally, the loading of the KV cache causes the computational core to be idle, which limits the inference speed. A",
+   "published_date": null,
+   "score": 0.5843666
+  },
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "`@InProceedings{pmlr-v235-liu24bz, title = {{KIVI}: A Tuning-Free Asymmetric 2bit Quantization for {KV} Cache}, author = {Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}, booktitle = {Proceedings of the 41st International Conference on Machine Learning}, pages = {32332--32344}, year = {2024}, editor = {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and [...] Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix}, volume = {235}, series = {Proceedings of Machine Learning Research}, month = {21--27 Jul}, publisher = {PMLR}, pdf = { url = { abstract = {Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed [...] %I PMLR %P 32332--32344 %U  %V 235 %X Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV",
+   "published_date": null,
+   "score": 0.575517
+  },
+  {
+   "url": "https://www.ndss-symposium.org/wp-content/uploads/2026-f258-paper.pdf",
+   "title": "Unveiling and Mitigating Privacy Risks of KV-cache in LLM ...",
+   "content": "2) Limitations of Side-Channel Attacks: Existing threats to the KV-cache are primarily side-channel attacks, such as PromptPeek , which infers prompts by measuring latency variations caused by cache sharing. However, the practicality of such timing attacks is severely mitigated by modern memory management. [...] Current privacy-preserving techniques fundamentally struggle to balance security, efficiency, and utility when applied to the massive, latency-sensitive KV-cache. We analyze their specific limitations below: • Cryptographic Methods (Overhead Bottleneck): Standard cryptographic techniques , , such as symmetric AES encryption, provide confidentiality by ensuring data remains in ciphertext during storage and transmission, requiring de-cryption only for legitimate use. A more advanced approach, [...] Model Prefill Type Block Size 16 32 64 LLaMA-3.1-8B 3438.5 No Fuse 52.73 45.45 28.60 +1.53% +1.32% +0.83% Fused 15.41 10.17 12.33 +0.45% +0.30% +0.36% implementation remains consistently low, adding only < 0.45% latency relative to the prefill computation across all block sizes.",
+   "published_date": null,
+   "score": 0.4325193
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "This paper is cited as a key related work that also tackles the KV cache bottleneck. KIVI's authors reference FlexGen's use of 4-bit group-wise quantization for both key and value caches, positioning their own asymmetric quantization strategy as a more nuanced and effective approach for lower bit-rates. [...] Large Language Models (LLMs) face significant memory challenges during inference, particularly from the Key-Value (KV) cache that stores intermediate attention states. This cache prevents redundant computation during auto-regressive text generation but can consume terabytes of memory for large batch sizes and long contexts, often exceeding the model parameters themselves. The KV cache creates a bottleneck that limits inference throughput and increases serving costs. [...] This paper's findings are fundamental to the core hypothesis of KIVI. The authors of KIVI explicitly state that their observation of persistent, large-magnitude outliers in fixed channels of the key cache aligns with previous findings in the AWQ paper, providing a critical justification for their decision to quantize the key cache per-channel.",
+   "published_date": null,
+   "score": 0.41534993
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] ## Repository files navigation\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nImplementation of [ICML24] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\n## Updates",
+   "published_date": null,
+   "score": 0.4011956
+  },
+  {
+   "url": "https://liner.com/review/kivi-tuningfree-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache [Quick Review]",
+   "content": "KIVI quantizes key cache per-channel and value cache per-token based on extensive analysis of outlier patterns and quantization error in KV cache.\n KIVI is a plug-and-play 2-bit KV cache quantization algorithm with hardware-friendly implementation that does not require fine-tuning.\n KIVI incorporates a grouped key cache and a residual key cache, maintaining the residual portion in full precision to handle streaming data and ensure accuracy. [...] KIVI provides a hardware-friendly implementation by fusing dequantization with matrix multiplication using CUDA and implementing group-wise quantization in Triton. [...] Efficiently serving large language models necessitates batching many requests, yet increased batch sizes and context lengths make KV cache a significant memory and speed bottleneck.\n Quantization can reduce KV cache size, but a lack of in-depth studies exists on its element distribution, hindering effective quantization strategies.\n This research aims to analyze KV cache element distribution in LLMs to identify optimal quantization approaches and overcome current limitations.",
+   "published_date": null,
+   "score": 0.35113358
+  },
+  {
+   "url": "https://magazine.sebastianraschka.com/p/coding-the-kv-cache-in-llms",
+   "title": "Understanding and Coding the KV Cache in LLMs from Scratch",
+   "content": "## Optimizing the KV Cache Implementation\n\nWhile my conceptual implementation of a KV cache above helps with clarity and is mainly geared towards code readability and educational purposes, deploying it in real-world scenarios (especially with larger models and longer sequence lengths) requires more careful optimization.\n\n### Common Pitfalls When Scaling the Cache [...] And that's basically it: the core store & retrieve mechanism of a KV cache. The following sections, 3 and 4, just take care of minor implementation details.\n\n### 3. Clearing the Cache [...] What's more important, though, is that both the `gpt_ch04.py` and `gpt_with_kv_cache.py` implementations produce exactly the same text. This tells us that the KV cache is implemented correctly -- it is easy to make indexing mistakes that can lead to divergent results.\n\nThanks for reading Ahead of AI! Subscribe for free to receive new posts and support my work.\n\n## KV cache Advantages and Disadvantages",
+   "published_date": null,
+   "score": 0.31668666
+  },
+  {
+   "url": "https://kenhuangus.substack.com/p/the-kv-cache-wars",
+   "title": "The KV Cache Wars? - by Ken Huang - Agentic AI",
+   "content": "The KV cache solves this by storing those key and value projections in memory so they never need to be recomputed. This is the right trade — swapping compute cost for memory cost. But the trade has limits. The KV cache grows linearly with context length, linearly with the number of transformer layers, linearly with batch size, and linearly with the number of key-value heads. At a 128K context window on a 70B-parameter model, that linear growth adds up to roughly 42 gigabytes of KV cache memory [...] is prohibitively expensive at scale.",
+   "published_date": null,
+   "score": 0.2891714
+  }
+ ]
+}

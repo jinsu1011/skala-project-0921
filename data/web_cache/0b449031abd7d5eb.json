@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache technology maturity level TRL independent academic review third-party benchmark hardware validation report experimental results",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:48:17+09:00",
+ "results": [
+  {
+   "url": "https://theneuralfeed.com/article/itme-inference-tiered-memory-expansion-with-disaggregated-cxl-hybrid-memories/HxcbGQ4G",
+   "title": "SK Hynix's ITME uses CXL memory to boost LLM inference by... | The Neural Feed",
+   "content": "THE NEURAL FEED AI INTELLIGENCE • DAILY INSIGHTS\n\nBack to Feed\n\nResearch & Papers\n\n# SK Hynix's ITME uses CXL memory to boost LLM inference by 35.7%\n\narXiv cs.DC June 12, 2026\n\n⚡New tiered memory system handles TB-scale KV caches for agentic LLMs, up to 35.7% faster.\n\nDeep Dive [...] ITME was validated using production-grade SK Hynix CMM (CXL Memory Module) and PCIe Gen5 NVMe SSDs, with functional feasibility confirmed via an FPGA-based hardware prototype. The system accommodates large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement over conventional CPU-offloading methods. This work, published on arXiv (2606.12556), represents a significant step toward practical disaggregated shared context layers for distributed LLM inference [...] Key Points\n\n ITME uses CXL-hybrid memory to provide TB-scale byte-addressable remote memory for LLM inference, simplifying the software stack.\n Deterministic access patterns of model weights and prefix caches enable proactive data movement across memory-storage tiers.\n Validated with SK Hynix CMM and PCIe Gen5 NVMe SSDs; achieves up to 35.7% throughput improvement over CPU-offloading.\n\n### Why It Matters",
+   "published_date": null,
+   "score": 0.5101799
+  },
+  {
+   "url": "https://chippong.com/insights/sk-hynix-hbf-pim-salt-kv-ai-memory-tiering",
+   "title": "SK hynix HBF, PIM and SALT-KV Tier AI Memory — CHIPPONG",
+   "content": "SK hynix presented HBF, PIM/AiMX and SALT-KV at AI Infra Summit 2026. The portfolio maps long-context capacity, fast decoding and KV-cache placement to different hardware and software layers. Public specifications, platform support and production benchmarks remain the commercial gates.\n\nmemoryai-demandprocurementsupply-chain\n\nAlso available in:日本語·中文\n\n## Inference broadens the AI memory hierarchy [...] Semantic-Aware Lifecycle Tiering for KV Cache divides cache data into context-based segments, evaluates reuse value and storage cost, and places each segment in HBM, DRAM or SSD. The method turns memory tiering from a static capacity choice into a workload-aware policy. High-value and frequently reused objects remain close to compute; colder data can move to lower-cost tiers. [...] Training systems have made HBM bandwidth a primary design variable. Inference adds a different set of constraints: long contexts, persistent sessions, expanding KV cache and strict cost per request. Keeping every cache object in HBM is expensive, while moving too much data to conventional storage can add latency. SK hynix separates the problem into a high-bandwidth flash tier, processing close to memory, and software-directed movement across HBM, DRAM and SSD.",
+   "published_date": null,
+   "score": 0.33777177
+  },
+  {
+   "url": "https://www.cnbc.com/video/2025/10/29/sk-hynix-results-give-hints-to-2026-ai-demand.html",
+   "title": "SK Hynix results give hints to 2026 AI demand",
+   "content": "AI\nEnterprise\nInternet\nMedia\nMobile\nSocial Media\nCNBC Disruptor 50\nTech Guide\nPolitics & Policy\nWhite House\nPolicy\nDefense\nCongress\nExpanding Opportunity\nEurope Politics\nChina Politics\nAsia Politics\nWorld Politics\nVideo\nLatest Video\nFull Episodes\nLivestream\nTop Video\nLive Audio\nEurope TV\nAsia TV\nCNBC Podcasts\nCEO Interviews\nDigital Originals\nWatchlist\nInvesting Club\nTrust Portfolio\nAnalysis\nTrade Alerts\nMeeting Videos\nHomestretch\nJim's Columns\nEducation\nSubscribe\nPRO\nPro News\nJosh Brown [...] Pro News\nJosh Brown\nMike Santoli\nCalls of the Day\nMy Portfolio\nLivestream\nFull Episodes\nStock Screener\nMarket Forecast\nOptions Investing\nChart Investing\nSubscribe\nLivestream\nMenu\nMake It\nselect\nUSA\nINTL\nLivestream\nSearch quotes, news & videos\nLivestream\nWatchlist\nSIGN IN\nCreate free account\nMarkets\nBusiness\nInvesting\nTech\nPolitics & Policy\nVideo\nWatchlist\nInvesting Club\nPRO\nLivestream\nMenu\nwatch now\nShare\nShare Article via Facebook\nShare Article via Twitter\nShare Article via LinkedIn [...] 3 hours ago\nwatch now\nwatch now\nVIDEO\n03:21\nJan van Eck: The AI 2.0 trade has been suffering\n4 hours ago\nwatch now\nwatch now\nVIDEO\n04:51\nNYC council speaker: Need for regulation was big takeaway from NYC AI hearing\nwatch now\nwatch now\nVIDEO\n02:32\nHousing costs hit young voters in Pennsylvania: Here’s what to know\nLoad More",
+   "published_date": null,
+   "score": 0.2776301
+  },
+  {
+   "url": "https://kalkine.com.au/news/announcements/silex-systems-annual-report-2026-confirms-trl-6-validation-and-us5-million-milestone-payment-from-gle",
+   "title": "Silex Systems  Annual Report 2026 Confirms TRL-6 Validation and US$5 Million Milestone Payment from GLE",
+   "content": "## US$5 Million Milestone Payment Received from GLE [...] According to the filing, Silex and GLE announced in October 2025 the conclusion of an independent, third-party validation of the SILEX enrichment technology. The validation was conducted by a leading Fortune 1000 technology provider and confirmed that the technology had achieved the TRL-6 maturity level, as defined by the Department of Energy Technology Readiness Assessment Guide (G 413.3-4A). The demonstration program was carried out at GLE's Wilmington, North Carolina, Test Loop facility and [...] ## Three Commercial Applications of the SILEX Technology",
+   "published_date": null,
+   "score": 0.23171026
+  },
+  {
+   "url": "https://www.it-boltwise.de/deepseek-v4-1-flash-kv-cache-schrumpft-deutlich-warum-samsung-sk-hynix-dennoch-reagieren.html",
+   "title": "DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren",
+   "content": "Roboter\n Hacker\n OpenAI\n Anthropic\n xAI\n ChatGPT\n Kryptographie\n Weltraum\n\nÜber eine Million Leser im Jahr\n\nIT BOLTWISE x Artificial Intelligence\n\n###### #1 Fachmagazin in Deutschland mit Fokus auf Künstliche Intelligenz und Robotik\n\nMini Drohne\n\nKI Key\n\nKI Hund\n\nChatGPT Business Bibel\n\nKI Freund\n\n№1 AI Magazine in Germany\n\nNavigation\n\nDigital Economy\n\n# DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren\n\n13. September 2026  Keine Kommentare [...] MIT-Lizenz, was die Schwelle für Entwickler senkt, um Latenz, Speichernutzung und Kosten in eigenen Workloads gegenzutesten – allerdings nur dort, wo die passende Hardware vorhanden ist. [...] bereits auf einen Höhepunkt zu.",
+   "published_date": null,
+   "score": 0.20788968
+  },
+  {
+   "url": "https://uk.investing.com/equities/sk-hynix-inc-earnings",
+   "title": "SK Hynix Earnings Dates & Report (000660) - Investing.com UK",
+   "content": "© 2007-2026 - Fusion Media Limited. All Rights Reserved. [...] All numbers in KRW\n\n## Earnings News\n\n ?\n\nThe SK Hynix EPS for trailing twelve months (TTM) is 227,588.\n\n### When Is The Next SK Hynix (000660) Earnings Date?\n\nSK Hynix will release its next earnings report on 27/10/2026, according to their financial calendar.\n\n### What Is SK Hynix’s Revenue Forecasts For Upcoming Quarters?\n\nSK Hynix’s revenue forecast is 98.64534T.\n\n### How Did SK Hynix Share Price React to the Company's Latest Earnings Report Results? [...] | Release Date | Period End | EPS | /Forecast | Revenue | /Forecast | EPS Surprise % | Revenue Surprise % | Reaction |\n ---  ---  ---  --- \n|  | 09/2026  /86,976.09  /98.65T  -- | Free Sign Up |\n|  | 06/2026 | 131,478.00 | /68,565.39 | 79.32T | /83.50T | +91.76% | -5.01% | Free Sign Up |\n|  | 03/2026 | 56,670.00 | /37,853.93 | 52.58T | /49.57T | +49.71% | +6.06% | Free Sign Up |\n|  | 12/2025 | 21,413.00 | /17,472.01 | 32.83T | /30.71T | +22.56% | +6.89% | Free Sign Up |",
+   "published_date": null,
+   "score": 0.20544
+  },
+  {
+   "url": "https://www.stocktitan.net/news/HXSCL/sk-hynix-completes-customer-validation-of-cxl-2-0-based-t5z9my4bu1sl.html",
+   "title": "SK hynix DDR5 Memory Achieves 50% Capacity Boost in Latest Validation | SKHY Stock News",
+   "content": "### IPG Defense to Display CROSSBOW™ High-Energy Laser Systems at Land Forces 2026 in Perth\n\n### Skyworks Announces Expiration and Final Results of Exchange Offers for Qorvo’s Senior Notes due 2029 and 2031\n\n### NBA Africa and Quest Water Global to build 55 basketball courts in the Democratic Republic of the Congo in honor of Dikembe Mutombo\n\n### District Commences Drilling at the Viken Property in Sweden\n\n### Production update and FTSE 250 Index inclusion [...] stocktitan logo\n\n##### Trending News\n\nStock BZAI logo\n\nBlaize Provides Preliminary Third Quarter 2026 Revenue Update and...\n\nStock HSCS logo\n\nFortitude Secures Priority Supply Allocation for BITMAIN’s Next-G...\n\nStock KKR logo\n\nKKR to Acquire Gen II Fund Services for More Than $5 Billion from...\n\nStock CLF logo\n\nCleveland-Cliffs to Host U.S. Secretary of Energy Chris Wright an...\n\nStock ZETA logo\n\nZeta Global to Acquire Senso, Adding AI Engineering and Frontier-...\n\nStock AMC logo [...] ### Equinor ASA: Share buy-back – third tranche for 2026\n\n© 2020-2026 StockTitan.net - Your Edge is Information\n\nInformation only. Not investment advice.",
+   "published_date": null,
+   "score": 0.19715096
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-presents-future-dram-234400794.html",
+   "title": "SK hynix Presents Future DRAM Technology Roadmap at IEEE VLSI 2025",
+   "content": "5. Insurance \n      1. Find car insurance\n      2. Types of car insurance\n      3. Find life insurance\n   6. Taxes \n      1. How to file\n      2. Tax brackets and rates\n      3. Child tax credit\n      4. Tax extension\n      5. Tax refund status\n   7. Student loans \n      1. Federal vs. private\n      2. How to apply\n      3. FAFSA 2026-27\n      4. Student loan assistance\n   8. Personal loans \n      1. Best personal loans\n      2. Improve credit score\n      3. How to get approved [...] SK hynix Inc., headquartered in Korea, is the world's top tier semiconductor supplier offering Dynamic Random Access Memory chips (\"DRAM\") and flash memory chips (\"NAND flash\") for a wide range of distinguished customers globally. The Company's shares are traded on the Korea Exchange, and the Global Depository shares are listed on the Luxembourg Stock Exchange. Further information about SK hynix is available at www.skhynix.com, news.skhynix.com.\n\nCision\n\nCision\n\n \n\nView original content: [...] \\ IEEE VLSI (Institute of Electrical and Electronics Engineers Very Large Scale Integration) symposium: One of the most prestigious academic events in the field of semiconductor circuit and process technology, presenting academic achievement in next-generation semiconductor, AI, memory chip and packaging. The symposium is held in turn in United States and Japan annually.",
+   "published_date": null,
+   "score": 0.14600226
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache research risks limitations",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:44:34+09:00",
+ "results": [
+  {
+   "url": "https://www.ndss-symposium.org/wp-content/uploads/2026-f258-paper.pdf",
+   "title": "Unveiling and Mitigating Privacy Risks of KV-cache in LLM ...",
+   "content": "2) Limitations of Side-Channel Attacks: Existing threats to the KV-cache are primarily side-channel attacks, such as PromptPeek , which infers prompts by measuring latency variations caused by cache sharing. However, the practicality of such timing attacks is severely mitigated by modern memory management. [...] Current privacy-preserving techniques fundamentally struggle to balance security, efficiency, and utility when applied to the massive, latency-sensitive KV-cache. We analyze their specific limitations below: • Cryptographic Methods (Overhead Bottleneck): Standard cryptographic techniques , , such as symmetric AES encryption, provide confidentiality by ensuring data remains in ciphertext during storage and transmission, requiring de-cryption only for legitimate use. A more advanced approach, [...] the model’s inference accuracy to an unacceptable degree. Even specialized solutions like KV-Shield , while lightweight, suffer from critical security flaws. Their fixed shuffling mechanism, as we analyzed in Section V-A, is vulnerable to statistical analysis and is incom-patible with modern LLM architectures that use features like Rotary Positional Embedding (RoPE) . These limitations highlight the urgent need for a novel defense mechanism.",
+   "published_date": null,
+   "score": 0.6180666
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "These limitations motivate the design of a DRAM-free offloading architecture that bypasses interme-diate memory staging and enables direct, high-bandwidth data transfer between GPUs and SSDs. This architecture avoids cumulative latency and bandwidth bottlenecks inherent in existing approaches, while simplifying the overall system design and reducing operational cost. [...] Guidelines: • The answer NA means that the paper does not release new assets.\n• Researchers should communicate the details of the dataset/code/model as part of their submissions via structured templates. This includes details about training, license, limitations, etc.\n• The paper should discuss whether and how consent was obtained from people whose asset is used. [...] Answer: [Yes] Justification: The paper discusses several limitations of the proposed HiFC system. In par-ticular, the effectiveness of the Flash cache depends on the SSD’s endurance characteristics, including susceptibility to internal operations such as garbage collection and TLC-to-pSLC migration. The experiments were conducted under controlled SSD configurations with pSLC mode, and real-world deployments may encounter variance in I/O throughput and durability. Additionally, while the",
+   "published_date": null,
+   "score": 0.34468657
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v2",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM Serving with CXL-Hybrid Memory",
+   "content": "reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] such as SK hynix Niagara further show that shared CXL memory can remain sub-microsecond, reporting 600 ns access latency (SK hynix, 2024). [...] of commercial CXL hardware, many early studies relied on simulation, emulation, or software-based modeling to evaluate CXL memory behavior (Esmaili-Dokht et al., 2024; Fridman et al., 2023; Arif et al., 2022). More recent commercial and prototype systems demonstrate several CXL design points, including DRAM-based CXL memory expanders (SK hynix, 2025; Samsung Electronics, 2026a), switch-based CXL memory pools and appliances (Samsung Electronics, 2024; SK hynix, 2024; Yang et al., 2025), and",
+   "published_date": null,
+   "score": 0.32027945
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "Infrastructure Problem 2: Repeated token eviction cannot actually free GPU memory in production systems. Production serving systems like vLLM manage the KV cache with paged attention: GPU memory is divided into fixed-size physical blocks, each holding KV data for about 16 tokens, and a block can be freed only when it is completely empty. Repeated decode-time eviction scatters survivors across blocks (Figure 5). Evicting 14,400 of 16,000 tokens leaves 1,600 survivors spread over the roughly [...] The hard part of KV cache compression is not choosing which tokens to keep — it is two collisions with production infrastructure. Existing methods need historical attention scores, but the FlashAttention kernel never writes those scores into GPU memory. And paged attention reclaims memory only when a block holds no KV at all — yet after token eviction the survivors leave almost every block partially occupied, so the \"freed\" memory never actually comes back.\n\nContents [...] Figure 1. Schematic, not to scale: every token the model generates appends its keys and values to the running history — the KV cache — so cache memory grows with output length while the weights stay fixed. Let generation run long enough, and the cache alone drives the GPU out of memory.",
+   "published_date": null,
+   "score": 0.28774327
+  },
+  {
+   "url": "https://www.williamblair.com/News/SK-hynix-Inc-Research-Initiation",
+   "title": "SK hynix Inc.: Research Initiation | William Blair",
+   "content": "Our salespeople, traders, and other professionals may provide oral or written market commentary, short-term trade ideas, or trading strategies—to our clients, prospective clients, and our trading desks—that are contrary to opinions expressed in this research report. Certain outstanding research reports may contain discussions or investment opinions relating to securities, financial instruments and/or issuers that are no longer current. Investing in securities involves risks. This report does [...] otherwise agreed specifically in writing). If such recipient uses these research services in connection with the sale or purchase of a security referred to herein, William Blair may act as principal for our own account or as riskless principal or agent for another party. William Blair is and continues to act solely as a broker-dealer in connection with the execution of any transactions, including transactions in any securities referred to herein. [...] This report does not contain all the material information necessary for an investment decision. Always refer to the most recent report on a company or issuer. Our asset management and trading desks may make investment decisions that are inconsistent with recommendations or views expressed in this report. We will from time to time have long or short positions in, act as principal in, and buy or sell the securities referred to in this report. Our research is disseminated primarily electronically,",
+   "published_date": null,
+   "score": 0.27949944
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] ขอแนะนำให้ปรึกษาทางการเงินอิสระเพื่อทำความเข้าใจความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้",
+   "published_date": null,
+   "score": 0.17878409
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] ขอแนะนำให้ปรึกษาทางการเงินอิสระเพื่อทำความเข้าใจความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้ [...] และบริหารความเสี่ยงผ่านการปรับสมดุลพอร์ตเป็นระยะ ตลอดจนการจัดเก็บรักษาสินทรัพย์แบบแบ่งระดับชั้นระหว่าง Cold Wallet และ Hot Wallet",
+   "published_date": null,
+   "score": 0.17878409
+  },
+  {
+   "url": "https://seekingalpha.com/article/4947820-sk-hynix-memory-supercycle-isnt-peaking-yet",
+   "title": "SK hynix: Memory Supercycle Isn't Peaking Yet",
+   "content": "Risks include hyperscaler CapEx normalization, potential industry shift to lower-capacity HBM stacks, and SKHY's higher revenue exposure to HBM versus more diversified peers.  \n   ### How is SK Hynix positioning itself for future HBM demand?\n\nSKHY is expanding advanced DRAM and HBM capacity through 2029, building US and potential Japan facilities, and exploring deeper US partnerships, notably with Intel.  \n\n### Recommended For You\n\nImage 11\n\n### Micron: The Market Is In Disbelief. Ignore Them [...] ### More on SKHY\n\n### World Bank lifts 2026 East Asia growth forecast to 4.5% amid AI boom but warns of capex risks\n\n### Catalyst Watch: Microsoft event, FOMC talk, and the finish line for Paramount-Warner Bros.\n\nImage 21\n\n### SK hynix: The $1 Trillion Inflection Is Closer Than It Looks\n\nSummit Research\n\n### SK hynix reiterates no decision made on Solidigm financing despite dual-listing reports\n\n### Related Stocks [...] Despite HBM cost pressures and hyperscaler CapEx normalization risks, SKHY's price action shows a solid recovery after the June/July flash crash.\n   Investors waiting for a timely opportunity to get into the memory supercycle again shouldn't miss this one.\n   Looking for a helping hand in the market? Members of Ultimate Growth Investing get exclusive ideas and guidance to navigate any climate. Learn More »",
+   "published_date": null,
+   "score": 0.14680773
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache technology limitations TRL challenges site:github.com OR site:huggingface.co OR site:mlr.press OR site:turbo-quant.com lack of deployment or integration issues",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:55:06+09:00",
+ "results": [
+  {
+   "url": "https://github.com/vllm-project/vllm/pull/44059",
+   "title": "Int4 kivi kv cache by a1exxd0 · Pull Request #44059 · vllm-project/vllm · GitHub",
+   "content": "@mergify mergify Bot added  nvidia   v1  labels May 30, 2026\n\n@github-project-automation github-project-automation Bot added this to NVIDIA May 30, 2026\n\n@mergify\n\n### mergify Bot commented Jun 24, 2026\n\nCopy link \n   Copy Markdown\n\nContributor\n\n|  |\n\n| This pull request has merge conflicts that must be resolved before it can be  merged. Please rebase the PR, @a1exxd0.   |\n\n@mergify mergify Bot added the  needs-rebase  label Jun 24, 2026\n\n### This branch has not been deployed\n\n No deployments [...] No deployments\n\nThis file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters. Learn more about bidirectional Unicode characters \n\nShow hidden characters\n\nSign up for free to join this conversation on GitHub. Already have an account? Sign in to comment\n\n### Labels\n\nneeds-rebase   nvidia   v1\n\n### 1 participant\n\n@a1exxd0 [...] stored from bf16 so the bf16 cast adds no real quant error (matches the dense reference, which also rounds to bf16). Validated == dense, max|d|~2e-3 (bf16 floor). - SM-aware split-K + no-combine fast path: pick split from the GPU SM count with NO seq_lens.max().item() host sync; SPLIT==1 writes the final output directly from the decode kernel and skips the combine launch. - Sync-free store: replace the nonzero/.any()/.all() full-block detection with dense on-device masks; per-channel-K store is",
+   "published_date": null,
+   "score": 0.49802306
+  },
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "%I PMLR %P 32332--32344 %U  %V 235 %X Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV [...] `@InProceedings{pmlr-v235-liu24bz, title = {{KIVI}: A Tuning-Free Asymmetric 2bit Quantization for {KV} Cache}, author = {Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}, booktitle = {Proceedings of the 41st International Conference on Machine Learning}, pages = {32332--32344}, year = {2024}, editor = {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and [...] Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix}, volume = {235}, series = {Proceedings of Machine Learning Research}, month = {21--27 Jul}, publisher = {PMLR}, pdf = { url = { abstract = {Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed",
+   "published_date": null,
+   "score": 0.43323857
+  },
+  {
+   "url": "https://huggingface.co/papers/2402.02750",
+   "title": "Paper page - KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "size of KV cache, as the GPU's SRAM must load the entire KV cache from the main\nGPU memory for each token generated, causing the computational core to be idle\nduring this process. A straightforward and effective solution to reduce KV\ncache size is quantization, which decreases the total bytes taken by KV cache.\nHowever, there is a lack of in-depth studies that explore the element\ndistribution of KV cache to understand the hardness and limitation of KV cache [...] Efficiently serving large language models (LLMs) requires batching many\nrequests together to reduce the cost per request. Yet, the key-value (KV)\ncache, which stores attention keys and values to avoid re-computations,\nsignificantly increases memory demands and becomes the new bottleneck in speed\nand memory usage. This memory demand increases with larger batch sizes and\nlonger context lengths. Additionally, the inference speed is limited by the [...] quantization. To fill the gap, we conducted a comprehensive study on the\nelement distribution in KV cache of popular LLMs. Our findings indicate that\nthe key cache should be quantized per-channel, i.e., group elements along the\nchannel dimension and quantize them together. In contrast, the value cache\nshould be quantized per-token. From this analysis, we developed a tuning-free\n2bit KV cache quantization algorithm, named KIVI. With the hardware-friendly",
+   "published_date": null,
+   "score": 0.42033842
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI/tree/develop",
+   "title": "GitHub - jy-yuan/KIVI at develop · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] ```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n``` [...] ## Repository files navigation\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nImplementation of KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\n## Updates",
+   "published_date": null,
+   "score": 0.39305934
+  },
+  {
+   "url": "https://github.com/Mog9/KV-Compression",
+   "title": "GitHub - Mog9/KV-Compression: Implemented and benchmarked KV cache compression methods for LLM inference in Triton. Optimized kernels for KIVI and TurboQuant with Flash Attention integration - up to 7.11× compression on GPT-2 and 7.31× on Qwen3.5 9B. · GitHub",
+   "content": "Based on: \"TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate\" (Google Research, ICLR 2026)\n\nKey Insight: Random rotation makes KV cache distribution more uniform, enabling better compression.\n\nImplementation: `turboquant/turboquant_triton.py`\n\nFeatures:\n\n 2-bit scalar quantization with random rotation\n Flash Attention integration (`turboquant/flash_attention_turboquant.py`)\n Single scale factor per vector (reduced overhead)\n Up to 7.11x compression at 4096 tokens [...] ## Overview\n\nKV cache compression addresses a critical bottleneck in LLM inference: as sequence lengths grow, the key-value cache can consume more GPU memory than the model weights themselves. This repository implements state-of-the-art compression methods using Triton for maximum performance.\n\n## Methods\n\n### 1. KIVI (2-bit Asymmetric Quantization)\n\nBased on: \"KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\" (ICML 2024)\n\nKey Insight: Keys and values behave differently:",
+   "published_date": null,
+   "score": 0.3908251
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI/blob/main/README.md",
+   "title": "KIVI/README.md at main · jy-yuan/KIVI · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] ```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n``` [...] # LLaMA model with KIVI import torch import os from models llama_kivi import LlamaForCausalLM_KIVI from transformers import LlamaConfig AutoTokenizer config = LlamaConfig from_pretrained\"meta-llama/Llama-2-7b-hf\" config k_bits = K_BITS# current support 2/4 bit for KV Cache config v_bits = V_BITS# current support 2/4 bit for KV Cache config group_size = GROUP_SIZE config residual_length = RESIDUAL_LENGTH # the number of recent fp16 tokens CACHE_DIR = PATH_TO_YOUR_SAVE_DIR model =",
+   "published_date": null,
+   "score": 0.3650723
+  },
+  {
+   "url": "https://github.com/max410011/KIVI-kernel",
+   "title": "GitHub - max410011/KIVI-kernel: KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] model = LlamaForCausalLM_KIVI from_pretrained pretrained_model_name_or_path ='meta-llama/Llama-2-7b-hf' config = config cache_dir = CACHE_DIR torch_dtype = dtype low_cpu_mem_usage = True device_map = \"auto\" tokenizer = AutoTokenizer from_pretrained'meta-llama/Llama-2-7b-hf' use_fast = False trust_remote_code = True tokenizer_type = 'llama' # Inference# e.g., model.generate(...) [...] real LLM inference workloads, effectively addressing the bottleneck issues in speed and memory usage.",
+   "published_date": null,
+   "score": 0.3295001
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "real LLM inference workloads, effectively addressing the bottleneck issues in speed and memory usage. [...] model = LlamaForCausalLM_KIVI from_pretrained pretrained_model_name_or_path ='meta-llama/Llama-2-7b-hf' config = config cache_dir = CACHE_DIR torch_dtype = torch float16 low_cpu_mem_usage = True device_map = \"auto\" tokenizer = AutoTokenizer from_pretrained'meta-llama/Llama-2-7b-hf' use_fast = False trust_remote_code = True tokenizer_type = 'llama' # Inference# e.g., model.generate(...) [...] KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference",
+   "published_date": null,
+   "score": 0.31497744
+  }
+ ]
+}

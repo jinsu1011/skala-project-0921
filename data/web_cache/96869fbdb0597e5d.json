@@ -1,0 +1,65 @@
+{
+ "query": "advantages of KIVI authors KIVI KV cache from developers users and industry perspectives independent sources",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:01:15+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/abs/2402.02750",
+   "title": "[2402.02750] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "> Abstract:Efficiently serving large language models (LLMs) requires batching of many requests to reduce the cost per request. Yet, with larger batch sizes and longer context lengths, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. Additionally, the loading of the KV cache causes the computational core to be idle, which limits the inference speed. A [...] per-channel, i.e., group elements along the channel dimension and quantize them together. In contrast, the value cache should be quantized per-token. From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm named KIVI. With hardware-friendly implementation, KIVI can enable Llama, Falcon, and Mistral models to maintain almost the same quality while using $\\mathbf{2.6\\times}$ less peak memory (including model weight). This reduction in memory usage enables up to [...] archive \n\nPress Enter to search · Advanced search\n\n# Computer Science > Computation and Language\n\narXiv:2402.02750 (cs)\n\nSubmitted on 5 Feb 2024 ([v1), last revised 25 Jul 2024 (this version, v2)]\n\n# Title:KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nAuthors:Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu",
+   "published_date": null,
+   "score": 0.54681134
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] real LLM inference workloads, effectively addressing the bottleneck issues in speed and memory usage. [...] [2024.06.07]: 🎉 KIVI largely inspires the HuggingFace Transformers KV Cache quantization\n [2024.06.06]: (Beta) We extensively optimize the codebase in branch develop to reduce the latency of KIVI. Note that you need to reinstall our CUDA implementation under the `quant` folder.\n [2024.05.01]: 🎉 KIVI has been accepted by ICML 2024! See you in Vienna!",
+   "published_date": null,
+   "score": 0.47913864
+  },
+  {
+   "url": "https://www.marktechpost.com/2024/04/16/kivi-a-plug-and-play-2-bit-kv-cache-quantization-algorithm-without-the-need-for-any-tuning",
+   "title": "KIVI: A Plug-and-Play 2-bit KV Cache Quantization Algorithm without the Need for Any Tuning - MarkTechPost",
+   "content": "Meet KIVI: a plug-and-play quantization algorithm specifically designed for key-value (KV) caches in LLMs. It works by compressing the information stored in the cache so that it takes up less space without needing any fine-tuning. This means that researchers and developers can use KIVI without having to spend a lot of time tweaking it to work with their specific LLM. [...] One way to reduce the amount of memory that LLMs need is to use quantization. Quantization is like compressing the information so that it takes up less space. Some existing solutions use quantization but often require a lot of fine-tuning to work well. This fine-tuning process can be time-consuming and complicated, making it difficult for researchers and developers to use these solutions effectively. [...] Large language models (LLMs) are incredibly useful for tasks like generating text or answering questions. However, they face a big problem: they need a lot of memory to work efficiently. This memory stores information about words and phrases that the model has seen before. When the model needs to generate new text, it looks up this stored information to help it make decisions. But the more memory the model needs, the slower it runs, and sometimes, it can even run out of memory altogether.",
+   "published_date": null,
+   "score": 0.40260404
+  },
+  {
+   "url": "https://turbo-quant.com/turboquant-vs-kivi",
+   "title": "TurboQuant vs KIVI: KV Cache Quantization Compared | TurboQuant Tools",
+   "content": "KIVI\n\nThe KIVI paper highlights around 2.6x lower peak memory including weights, up to 4x larger batch size, and 2.35x–3.47x throughput gains on real inference workloads.\n\n## What changes between the two methods\n\nTurboQuant and KIVI both target KV cache memory, but they optimize for different points on the accuracy, complexity, and compression tradeoff curve. TurboQuant adds more math to reduce distortion; KIVI keeps the method simpler and more directly tied to 2-bit cache compression. [...] ## Which one looks stronger on paper\n\nTurboQuant\n\n### TurboQuant looks stronger if quality retention is the priority\n\nGoogle's paper emphasizes low-distortion inner-product estimation, long-context quality, and benchmark parity near the 3 to 4-bit operating range.\n\nKIVI\n\n### KIVI looks stronger if simplicity and 2-bit cache reduction are the priority\n\nKIVI is easier to reason about as a KV-only quantization baseline and is commonly referenced when teams want a direct 2-bit comparison point. [...] KIVI\n\nDistribution-aware KV quantization: per-channel quantization for keys and per-token quantization for values.\n\n## What the papers emphasize\n\nTurboQuant\n\nGoogle highlights zero-accuracy-loss-style benchmark claims, at least 6x KV footprint reduction on long-context tasks, and up to 8x faster attention-logit computation on H100.\n\nKIVI",
+   "published_date": null,
+   "score": 0.34475276
+  },
+  {
+   "url": "https://kivismart.com/en/about",
+   "title": "KIVI is an international developer and manufacturer of smart TVs",
+   "content": "Established nearly a decade ago, we quickly rose to prominence as a standout European brand, pushing the boundaries of innovation and craftsmanship in the smart TV industry. With our products proudly presented in over 20 countries, our expansive global footprint spans various markets across Europe and Asia. This wide-reaching presence underscores our unwavering commitment to delivering unparalleled entertainment experiences to households worldwide. As a certified partner of both Google and [...] of both Google and Netflix, we ensure our users access the very pinnacle of content and technology. Dive into the world of KIVI, where quality meets global recognition. [...] Fueled by avant-garde American software, our TVs are in a constant state of evolution, unveiling new features that enhance user experiences and harmoniously align with our customers' wishes.\n\nKIVI Media",
+   "published_date": null,
+   "score": 0.33228928
+  },
+  {
+   "url": "https://rocketreach.co/kivi-profile_b78caf9cc2546a5c",
+   "title": "KiVi Information",
+   "content": "38\n\n$8.4m\n\nBijlipay\n\nBijlipay\n\n209\n\n$16m\n\nDatamark Prodapt India BPO Pvt Ltd\n\nDatamark Prodapt India BPO Pvt Ltd\n\n87\n\n$1.5b\n\nDivo\n\nDivo\n\n275\n\n$5.6m\n\nDetect Technologies\n\nDetect Technologies\n\n572\n\n$93.9m\n\nG2 Leader Summer 2026\nG2 Best Est ROI Mid-Market Summer 2026\nG2 Easiest Admin Mid-Market Summer 2026\nG2 Most Implementable Summer 2026\nG2 Best Results Mid-Market Summer 2026\nG2 Lead Capture Mid-Market Summer 2026\nInc Fastest Growing Private Companies 2026\nInc Best Workplace 2026\n\ng2crowd [...] |  |  |\n --- |\n| Website |  |\n| Employees | 70 (38 on RocketReach) |\n| Founded | 2021 |\n| Address | Kanagam Village, Taramani, E Block- 4th Floor, IIT Madras Research Park, Chennai, Tamil Nadu 600113, IN |\n| Industry | Internet Publishing |",
+   "published_date": null,
+   "score": 0.2583054
+  },
+  {
+   "url": "https://rocketreach.co/kivi-technologies-inc-profile_b40c020effc327f4",
+   "title": "KIVI Technologies Inc. Information",
+   "content": "$5.7m \n\nImage 26: G2 Leader Summer 2026Image 27: G2 Best Est ROI Mid-Market Summer 2026Image 28: G2 Easiest Admin Mid-Market Summer 2026Image 29: G2 Most Implementable Summer 2026Image 30: G2 Best Results Mid-Market Summer 2026Image 31: G2 Lead Capture Mid-Market Summer 2026Image 32: Inc Fastest Growing Private Companies 2026Image 33: Inc Best Workplace 2026\n\nImage 34: g2crowd\n\n G2Crowd Trusted\n\nImage 35: chromestore\n\n300K+ Plugin Users \n\nImage 36: RocketReach Footer Logo [...] KeywordsUser Reviews, Review Platform, Consumer Reviews, Online Reviews, User Feedback, Community App, Local Business Reviews, Place Reviews, Social Networking App, Location Based Services, Community Platform, Mobile Technology, Social Media, App Development, Tunisia, Travel App, Mobile Development, Mobile Software [...] Website\nRevenue$3 million\nEmployees3  (3 on RocketReach)\nFounded2020\nAddress3, Rue Salem Ben Hmida, Menzah 5, Tunis, Tunis, TN\nIndustryTechnology, Information and Internet, Restaurants, Hospitality",
+   "published_date": null,
+   "score": 0.22766717
+  },
+  {
+   "url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/liu24bz/liu24bz.pdf",
+   "title": "[PDF] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "to7l;v!qxb(B?S^0Ӛ[SϔGsׅ@hnM+G;o551׺BH?5c(%3/^OI&;v ،iN/ 5C{--գ\"ͭ1mb؅RHBnSZXMO#t^f9JgaBR^~ҷBVw0VBDv2Cb\\_J\\_QQ\\_16Ѫ/VK ڛeP6S1~\\_u\\_~݌<~Ͻ5g6C>sP\\_A~Tpf##Żܼ.]\\s: AMk&\\_rR1\"1&nnҖ$ [...] a\\_dc< xS J^mXiCШyW+˓Kؿyr52v{=/S[\"GENP$S>eۻ\\Q5 &nKG)|NM;f g9.lLHq6-02Licj-x:w(8ZB7I|'io>5^$J} Q!x6|dӶjfD:ڇtAGꋬ9C:B5#~\\s q|,-zHNOaiI[)ڗ{1D k[&P~c,> !$Ca{8ߝrJI /.UQӨ{❝n0\\Fww=ZHMWժfy'MTT:FKF֣ZDےQO/3[(5>dͯ/y3~PC+y0#k0mxEG<AA8]!Lc [...] a9ER \\vk\\8(jWND`ڔ%2m`mfpLPƕ<sv7FuN?ž\\RHyS\\_08΅K6D{l k + E%M2v}?ސ3\\m/떿k.fa4g]GҺS{d;G)e\\(T'; V%;v1M2Mʩ4.A{-ɴF:K6F0dQJ+ 2ZSC!,Ĕԙ\\[6woR16\\=J q nww^Dz(:%39g`km<a+ 0535ߕ/oߍp??}km;ݿk!\";!wt. ,a+hgޜAqmErsPp>X yaf@ƔzZ݅(",
+   "published_date": null,
+   "score": 0.21840292
+  }
+ ]
+}

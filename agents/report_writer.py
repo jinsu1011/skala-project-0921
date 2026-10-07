@@ -23,7 +23,8 @@ PAPER_REFS = {
 PUBLISHER = {"google": "Google", "skhynix": "SK hynix", "nvidia": "NVIDIA", "samsung": "Samsung", "micron": "Micron",
              "intel": "Intel", "amd": "AMD", "microsoft": "Microsoft", "amazon": "Amazon", "meta": "Meta"}
 ACCESS_DATE = "2026-09-22"
-ID_RE = re.compile(r"\[((?:[PW]:[^\]\s,]+)(?:\s*,\s*[PW]:[^\]\s,]+)*)\]")
+# evidence citations; tolerate a "근거 ID:" label the LLM sometimes puts inside the brackets
+ID_RE = re.compile(r"\[(?:근거\s*ID\s*[:：]\s*)?((?:[PW]:[^\]\s,]+)(?:\s*,\s*[PW]:[^\]\s,]+)*)\]")
 CITE_RE = re.compile(r"\[\d+(?:, p\.[\d·]+)?(?:; \d+(?:, p\.[\d·]+)?)*\]")
 KO = {"trl": "TRL", "market": "시장성", "stakeholder": "이해관계자", "domain": "도메인 적합성"}
 SUMMARY_MAX_CHARS = 760   # about half an A4 page of the SKALA template at 10 pt (checked on the rendered PDF)
@@ -156,7 +157,7 @@ def _narrative(state: dict, revision: str) -> dict:
         "evidence": [{"id": i, "tech": ev[i].tech, "origin": ev[i].origin_group,
                       "claim": claims.get(i) or ev[i].claim} for i in sorted(used) if i in ev],
     }
-    sys = prompt("report_writer.md").format(revision=revision)
+    sys = prompt("report_writer.md").format(revision=revision, today=config()["team"]["submit_date"])
     return llm_json("generator", sys, json.dumps(payload, ensure_ascii=False), tag=f"report_writer:{bool(revision)}")
 
 
@@ -191,6 +192,44 @@ def guard_numbers(text: str, ranges: list[tuple[int, int]]) -> str:
     return " ".join(kept)
 
 
+PROVISIONAL_NOTE = ("† 잠정 점수: 이 관점은 재시도 1회 후에도 Judge 근거 기준(출처 계열 비중·찬반 근거 계열 수)에 미달해 "
+                    "해석이 제한된다(6장 참고).")
+
+
+def coverage_text(ta, unit: str) -> str:
+    """How much of the criteria the weighted mean actually covers (판단 보류 criteria are left out of the mean)."""
+    if ta is None or ta.score is None or not ta.criteria:
+        return ""
+    have = [c for c in ta.criteria if c.score_1to5 is not None]
+    if unit == "weight":
+        tot = sum(c.weight for c in ta.criteria)
+        return f" (평가 가중치 {sum(c.weight for c in have):g}/{tot:g})" if len(have) < len(ta.criteria) else ""
+    return f" ({len(have)}/{len(ta.criteria)} {unit})" if len(have) < len(ta.criteria) else ""
+
+
+def provisional_perspectives(state: dict) -> set[str]:
+    """Perspectives whose task ended below the Judge threshold after its single retry."""
+    from agents.registry import REGISTRY
+
+    st = state.get("task_status", {})
+    return {REGISTRY[t.assigned_agent].worker_type for t in state.get("subtasks", [])
+            if st.get(t.task_id) in ("FAILED_AFTER_RETRY", "PARTIAL", "excluded") and t.assigned_agent in REGISTRY}
+
+
+def effective_hypotheses(syn, drop: set) -> dict:
+    """H4 is an LLM verdict: when none of its rationale sentences survives the Judge it is shown as 판단 보류."""
+    from agents.synthesis import split_sentences
+
+    stmt_by_text = {v: k for k, v in syn.statements.items()}
+    out = {}
+    for h, v in syn.hypotheses.items():
+        if h == "H4" and not [s for s in split_sentences(v.rationale) if stmt_by_text.get(s) not in drop]:
+            out[h] = "판단 보류"
+        else:
+            out[h] = v.verdict
+    return out
+
+
 def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     techs = state["selected_techs"]
     names = {t.tech_id: t.name for t in techs}
@@ -218,16 +257,22 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add("# SUMMARY")
     add("")
     conf_ko = {"high": "높음", "mid": "보통", "low": "낮음"}
+    prov = provisional_perspectives(state)
+    hv = effective_hypotheses(syn, drop)
+
+    def sc(p: str, value) -> str:   # score text with the provisional mark
+        txt = _fmt(value)
+        return txt + "†" if p in prov and value is not None else txt
     for t in techs:
         tr = trl_r.get(t.tech_id)
         m = syn.matrix.get(t.tech_id, {})
         ids = (tr.low_ids[:1] + tr.high_ids[:1]) if tr else []
         add(f"- {t.name}: TRL {tr.trl_low}–{tr.trl_high}(추정, 신뢰도 {conf_ko[tr.confidence]}), " if tr and tr.trl_low is not None
             else f"- {t.name}: TRL 판단 보류, ")
-        L[-1] += (f"시장성 {_fmt(m['market'].score)}, 이해관계자 {_fmt(m['stakeholder'].score)}, "
-                  f"도메인 적합성 {_fmt(m['domain'].score)} {ct.cite(ids)}")
+        L[-1] += (f"시장성 {sc('market', m['market'].score)}, 이해관계자 {sc('stakeholder', m['stakeholder'].score)}, "
+                  f"도메인 적합성 {sc('domain', m['domain'].score)} {ct.cite(ids)}")
     hy = syn.hypotheses
-    add("- 가설 판정: " + ", ".join(f"{h} {hy[h].verdict}" for h in ("H1", "H2", "H3", "H4") if h in hy) + " "
+    add("- 가설 판정: " + ", ".join(f"{h} {hv[h]}" for h in ("H1", "H2", "H3", "H4") if h in hy) + " "
         + ct.cite(sorted({i for h in hy.values() for i in h.evidence_ids})[:3]))
     extra = [x for x in nar.get("summary", []) if "우열이나 추천이 아니라" not in x]
     for x in extra[:2]:
@@ -235,6 +280,8 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         if g and ID_RE.search(g):
             add(f"- {ct.sub(neutralize(g))}")
     add("- 우열이나 추천이 아니라 관점별 평가 차이와 그 근거를 정리한 결과이다(판단 보류는 근거 부족을 뜻함).")
+    if prov:
+        add(PROVISIONAL_NOTE)
     add("")
     # ---------------- 1
     tq, it = (techs[0].tech_id, techs[1].tech_id) if len(techs) > 1 else (techs[0].tech_id, techs[0].tech_id)
@@ -328,7 +375,7 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
             continue
         rng = f"{ta.trl_low}–{ta.trl_high}" if ta.trl_low is not None else "판단 보류"
         rows.append([t.name, rng, {"high": "높음", "mid": "보통", "low": "낮음"}[ta.confidence],
-                     ct.cite(ta.low_ids) or "없음", ct.cite(ta.high_ids) or "없음"])
+                     ct.cite(ta.low_ids[:3]) or "없음", ct.cite(ta.high_ids[:3]) or "없음"])
     add(_table(["기술", "TRL 범위(추정)", "신뢰도", "하한 근거", "상한 근거"], rows, "2.6,2.6,1.8,4.5,4.5"))
     add("")
     add("TRL은 공개 정보로 추정한 범위이다. 하한은 공개 근거로 확인된 가장 높은 단계, 상한은 발표·계획 같은 부분 신호로 보이는 단계이며, "
@@ -345,10 +392,11 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         row = [ko]
         for t in techs:
             c = next((c for c in mk.by_tech[t.tech_id].criteria if c.name == key), None) if t.tech_id in mk.by_tech else None
-            row.append(f"{_fmt(c.score_1to5)} {ct.cite(c.pro_ids[:2] + c.con_ids[:2])}" if c else "판단 보류")
+            row.append(f"{_fmt(c.score_1to5)} {ct.cite(c.pro_ids[:1] + c.con_ids[:1])}" if c else "판단 보류")
         rows.append(row)
-    rows.append(["**가중 평균**"] + [f"**{_fmt(mk.by_tech[t.tech_id].score)}**" if t.tech_id in mk.by_tech else "판단 보류"
-                                   for t in techs])
+    rows.append(["**가중 평균**"] + [f"**{sc('market', mk.by_tech[t.tech_id].score)}**"
+                                   + coverage_text(mk.by_tech[t.tech_id], "weight") if t.tech_id in mk.by_tech
+                                   else "판단 보류" for t in techs])
     add(_table(["기준 (가중치)"] + [t.name for t in techs], rows, "4.0,6.0,6.0"))
     add("")
     if nar.get("market"):
@@ -364,13 +412,15 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         row = [ko]
         for t in techs:
             c = next((c for c in sh.by_tech[t.tech_id].criteria if c.name == key), None) if t.tech_id in sh.by_tech else None
-            row.append(f"{stance.get(c.score_1to5, _fmt(c.score_1to5))} {ct.cite(c.evidence_ids[:3])}" if c else "판단 보류")
+            row.append(f"{stance.get(c.score_1to5, _fmt(c.score_1to5))} {ct.cite(c.evidence_ids[:2])}" if c else "판단 보류")
         rows.append(row)
-    rows.append(["**가중 평균**"] + [f"**{_fmt(sh.by_tech[t.tech_id].score)}**" if t.tech_id in sh.by_tech else "판단 보류"
-                                   for t in techs])
+    rows.append(["**가중 평균**"] + [f"**{sc('stakeholder', sh.by_tech[t.tech_id].score)}**"
+                                   + coverage_text(sh.by_tech[t.tech_id], "집단") if t.tech_id in sh.by_tech
+                                   else "판단 보류" for t in techs])
     add(_table(["집단 (각 25)"] + [t.name for t in techs], rows, "4.0,6.0,6.0"))
     add("")
-    add("개발사(TurboQuant는 Google, ITME는 SK hynix)의 발언과 보도자료는 점수에서 제외하고 참고로만 인용했다.")
+    add("가중 평균은 판단 보류 기준을 뺀 평균이며, 괄호 안은 평균에 실제로 들어간 범위이다(예: 3/4 집단은 한 집단이 판단 보류). "
+        "개발사(TurboQuant는 Google, ITME는 SK hynix)의 발언·보도자료·원 논문은 점수에서 제외했고, 기술명을 언급하지 않는 회사 실적·주가 자료는 집단의 기술 평가로 세지 않았다.")
     if nar.get("stakeholder"):
         add(ct.sub(neutralize(first_sentences(nar["stakeholder"], NARRATIVE_SENTENCES))))
     # 4.4 domain
@@ -389,7 +439,8 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         rows.append(row)
     total = ["**가중 평균**"]
     for t in techs:
-        total += [f"**{_fmt(dm.by_tech[t.tech_id].score)}**" if t.tech_id in dm.by_tech else "판단 보류", ""]
+        total += [f"**{sc('domain', dm.by_tech[t.tech_id].score)}**" + coverage_text(dm.by_tech[t.tech_id], "항목")
+                  if t.tech_id in dm.by_tech else "판단 보류", ""]
     rows.append(total)
     hdr = ["항목 (각 20)"] + [f"{t.name} {w}" for t in techs for w in ("W1", "W2")]
     add(_table(hdr, rows, "3.2,3.2,3.2,3.2,3.2"))
@@ -418,9 +469,11 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         m = syn.matrix.get(t.tech_id, {})
         trl_ta = trl.by_tech.get(t.tech_id)
         rows.append([t.name, f"{trl_ta.trl_low}–{trl_ta.trl_high}" if trl_ta and trl_ta.trl_low is not None else "판단 보류"]
-                    + [_fmt(m[p].score) if p in m else "판단 보류" for p in ("market", "stakeholder", "domain")])
+                    + [sc(p, m[p].score) if p in m else "판단 보류" for p in ("market", "stakeholder", "domain")])
     add(_table(["기술", "TRL(범위)", "시장성", "이해관계자", "도메인"], rows, "3.2,3.2,3.2,3.2,3.2"))
     add("")
+    if prov:
+        add(PROVISIONAL_NOTE)
     rows = [[names[c.tech_id], f"{KO[c.pair[0]]} – {KO[c.pair[1]]}", f"{c.gap:.2f}", c.label] for c in syn.conflicts]
     add(_table(["기술", "관점 쌍", "점수 차", "판정"], rows or [["-", "비교 가능한 관점 쌍 없음(판단 보류)", "-", "-"]],
                "3.0,6.0,2.5,4.5"))
@@ -455,7 +508,9 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
             reason = ct.sub(neutralize(" ".join(kept))) or "근거 문장이 Judge 검사를 통과하지 못함"
             if not CITE_RE.search(reason) and v.evidence_ids:
                 reason += " " + ct.cite(v.evidence_ids[:3])
-        rows.append([h, v.verdict, reason])
+        if hv.get(h) != v.verdict:
+            reason = f"근거 문장이 Judge 근거 검사를 통과하지 못해 판단 보류(LLM 제안 판정: {v.verdict})"
+        rows.append([h, hv.get(h, v.verdict), reason])
     add(_table(["가설", "판정", "근거"], rows, "1.4,2.2,12.4"))
     add("")
     add("H1은 TRL 범위의 가운데 값과 시장성 점수로 설계서 C.5의 3×3 격자에서 코드로 판정했다: " +
@@ -499,8 +554,26 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     for e in state.get("evidence", []):
         if e.evidence_id in used_ids:
             cls[e.source_class] += 1
+    over = [f"{KO[p]} {js[p].checks.max_origin_share:.0%}" for p in ("trl", "market", "stakeholder", "domain")
+            if js.get(p) and js[p].checks.max_origin_share > 0.5]
     add(f"- 본문 인용 근거의 출처 구분: 벤더 {cls['vendor']}건, 제3자 {cls['third_party']}건, 학술 {cls['academic']}건. "
-        "관점마다 지지·반대 질의를 짝지어 검색했고, 한 원 출처 계열이 웹 근거의 50%를 넘지 않게 했으며, 개발사 발언은 이해관계자 점수에서 뺐다.")
+        "관점마다 지지·반대 질의를 짝지어 검색했고, 수집 단계에서 한 원 출처 계열이 웹 근거의 50%를 넘으면 잘라냈으며, 개발사 발언은 이해관계자 점수에서 뺐다. "
+        + (f"다만 웹 근거가 1~2건뿐인 경우에는 잘라도 비중이 내려가지 않아 최대 비중이 50%를 넘었고({', '.join(over)}), "
+           "Judge는 이를 기준 미달로 판정했다." if over else "모든 관점에서 최대 계열 비중이 50% 이하였다."))
+    zero_con = []
+    for p in ("market", "stakeholder", "domain"):
+        s = js.get(p)
+        if s:
+            zero_con += [f"{KO[p]} {names.get(t, t)}" for t, n in s.checks.con_origins.items() if n == 0]
+    if zero_con:
+        add(f"- 반대(한계·우려) 근거 0계열: {', '.join(zero_con)}. 관점마다 한계·비판 질의를 지지 질의와 같은 수 이상 검색했으나 기술명을 명시한 "
+            "독립 반대 근거를 찾지 못했다. 반대 근거가 없다는 것은 반대 의견이 없다는 뜻이 아니라 공개 자료에서 확인되지 않았다는 뜻이며, "
+            "이 관점의 점수는 긍정 쪽으로 기울어 있을 수 있다.")
+    held = [f"{KO[p]} {names.get(t, t)}" for p in ("market", "stakeholder", "domain")
+            for t, ta in (state.get(f"{p}_result").by_tech.items() if state.get(f"{p}_result") else []) if ta.score is None]
+    if held:
+        add(f"- 4개 관점은 두 기술 모두 평가했으나 {', '.join(held)}은(는) 기술명을 명시한 독립 근거가 2계열 미만이라 판단 보류로 남겼다. "
+            "점수를 억지로 채우지 않은 것은 근거 부족을 낮은 점수로 바꾸지 않는다는 채점 규칙(C.6)에 따른 것이다.")
     plan = state.get("plan")
     st = state.get("task_status", {})
     if plan is not None:
@@ -509,11 +582,12 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add("- Judge 판정식은 설계서 D.5를 그대로 썼다. 기준에 못 미친 작업만 같은 담당 Agent가 1회 다시 실행했고, "
         "미사용 Agent의 교차 검토와 Agent 0의 재시도 지시를 거쳤다. 재시도 후에도 미달이면 판정 불확실로 남겼다.")
     bad = [f"{k}({v})" for k, v in sorted(st.items()) if v in ("FAILED_AFTER_RETRY", "PARTIAL", "excluded")]
-    if bad:
-        add("- 재시도 후 미달·부분 결과 작업: " + ", ".join(bad))
-    unc = [w for w in state.get("warnings", []) if w.startswith("판정 불확실")]
-    for w in unc:
-        add(f"- {w}")
+    if bad:   # per-task detail is in the run table (6.x); here one line with the first reason of each task
+        from graph.orchestration import clip
+
+        reasons = {f.task_id: clip(f.reason.split(" / ")[0], 60) for f in
+                   (state["judge_result"].feedback_items if state.get("judge_result") else []) if not f.passed}
+        add("- 재시도 1회 후에도 미달(판정 불확실): " + "; ".join(f"{b} {reasons.get(b.split('(')[0], '')}".strip() for b in bad))
     add("## 6.3 분석 방법의 한계")
     add(f"- 검색 구성(bge-m3, 3중 RRF + reranker)은 한국어→영어 42문항 개발 지표(구현 조건 Hit@1 0.786, Hit@5 0.976, MRR@10 0.863)로 골랐다. "
         "설정 선택과 성능 보고를 같은 42문항으로 해 개발셋과 테스트셋이 분리되지 않았고 과적합 가능성이 있다.")
@@ -552,7 +626,7 @@ COMPACT_LEVELS: list[list[str]] = [
     ["선정 검증 결과", "분석 방법의 한계"],
     ["비교표", "두 진영의 접근", "분석 도메인과 문제 정의", "공개 정보 기반 추정의 한계"],
     ["조건별 시사점"],
-    ["분석 질문과 가설", "선정 결과와 사유", "주요 상충 지점"],
+    ["선정 결과와 사유", "주요 상충 지점"],
 ]
 
 
@@ -613,6 +687,53 @@ def report_writer(state: dict) -> dict:
             "audit_log": audit("report_writer", revision=bool(revision), refs=len(refs), chars=len(md))}
 
 
+def run_overview(state: dict) -> list[str]:
+    """Orchestrator-Workers execution facts for chapter 6, so the PDF alone shows the plan, the dynamic fan-out, the
+    feedback loop, the reducer and the correlation keys (review feedback: these were only visible in code/README)."""
+    subtasks = state.get("subtasks", [])
+    if not subtasks:
+        return []
+    st, wr = state.get("task_status", {}), state.get("worker_results", {})
+    reviewers: dict[str, list[str]] = {}
+    for r in state.get("review_results", []):
+        reviewers.setdefault(r.target_task_id, []).append(r.reviewer_agent)
+    status_ko = {"passed": "통과", "FAILED_AFTER_RETRY": "재시도 후 미달", "PARTIAL": "부분 결과", "excluded": "제외"}
+    rows = []
+    for t in subtasks:
+        r = wr.get(t.task_id)
+        rows.append([t.task_id, t.perspective, t.assigned_agent, str((r.attempt if r else t.attempt) + 1),
+                     status_ko.get(st.get(t.task_id, ""), st.get(t.task_id, "-")),
+                     ", ".join(sorted(set(reviewers.get(t.task_id, [])))) or "-"])
+    plan = state.get("plan")
+    q = state.get("report_quality")
+    used, unused = state.get("used_agents", []), state.get("unused_agents", [])
+    return [
+        f"- run_id `{state.get('run_id', '')}`(LangSmith trace·결정 로그와 같은 키). Orchestrator가 실행 전에 SubTask "
+        f"{len(subtasks)}개를 계획(계획 출처 {plan.plan_source if plan else '-'})하고 `Send`로 그 수만큼 Worker를 생성했다. "
+        f"미사용 Agent {len(unused)}개({', '.join(unused) or '없음'})가 실패 작업의 교차 검토자이다.",
+        "",
+        _table(["작업", "관점", "담당 Agent", "시도", "결과", "교차 검토자"], rows, "1.3,4.2,3.6,1.1,2.4,3.4"),
+        "",
+        "- `worker_results` reducer가 task_id별로 최신 시도만 남겨 병합하고, 재시도는 같은 담당 Agent가 1회만 한다.",
+        "- 품질 평가 Loop: 미달 시 서술 문제는 보고서 재작성(1회), 근거 문제는 해당 작업 재시도로 되돌아가며, 재시도를 마친 작업은 한계로 기록한다"
+        f"(이번 재작성 {state.get('report_retry_count', 0)}회).",
+    ]
+
+
+def quality_note(q) -> str:
+    """Report Quality Evaluator result written into chapter 6 (it runs after report_writer)."""
+    if q is None:
+        return ""
+    names = {"groundedness": "근거성", "neutrality": "중립성", "bias_control": "편향 통제", "coverage": "관점 커버리지"}
+    det = ", ".join(f"{names.get(k, k)} {'통과' if v else '미통과'}" for k, v in q.deterministic.items() if k in names)
+    llm = ", ".join(f"{names[k]} {v}" for k, v in q.scores.items() if k in names) or "LLM 응답 없음(결정적 검사만)"
+    action = {"pass": "통과", "rewrite": "재작성", "evidence_retry": "근거 재시도",
+              "finalize": "한도 소진 후 한계 기록·후처리로 종료"}[q.action]
+    left = f" 미해결 근거 문제(작업 {', '.join(sorted(q.evidence_issues))})는 재시도를 마친 작업이라 한계로 기록했다." \
+        if q.evidence_issues else ""
+    return f"- 품질 평가 결과: 결정적 검사 {det} / LLM(1~5) {llm} / {action}.{left}"
+
+
 # ---------------------------------------------------------------- table of contents (E.1)
 def toc_entries(md: str) -> list[tuple[int, str]]:
     out = []
@@ -652,7 +773,7 @@ def sections(md: str) -> list[tuple[str, list[str]]]:
 
 def _prose(ln: str) -> bool:
     s = ln.strip()
-    return bool(s) and not s.startswith(("|", "#", "<!--", "---", "**논문", "**웹", "![", "출처:", "판정 기준", "H1은",
+    return bool(s) and not s.startswith(("|", "#", "<!--", "---", "**논문", "**웹", "![", "출처:", "판정 기준", "H1은", "† ", "가중 평균은",
                                           "워크로드별", "개발사(", "TRL은 공개", "기준마다", "2.0·1.0",
                                           "- 상충 또는 부분 상충으로"))
 

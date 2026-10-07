@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache domain suitability application cases independent sources",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:09:29+09:00",
+ "results": [
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] Nvidia's ICMSP software extends the KV cache to local NVMe SSDs so that they enable the processing to complete much faster than if the tokens and vectors had to be recomputed when HBM capacity runs out.\n\nBANDF AD [...] Because HBF has limited endurance – only supporting approximately 100,000 write cycles – it is best suited to read-intensive workloads. The H³ paper abstract says: \"H³-equipped systems can process more requests at once with the same number of GPUs than HBM-only systems, making H³ suitable for gigantic read-only use cases in LLM inference, particularly those employing a shared pre-computed key-value cache.\"",
+   "published_date": null,
+   "score": 0.3899187
+  },
+  {
+   "url": "https://www.vastdata.com/blog/accelerating-inference",
+   "title": "Accelerating Inference - VAST Data",
+   "content": "For validation purposes, we would like to test two layers independently:\n\n1. I/O layer - using NVIDIA Magnum IOTM GPUDirect® Storage (GDS) to read/write to remote storage while bypassing CPU memory to reduce CPU and bandwidth utilization of the host RAM.\n\n2. Application layer - LMCache that would read/write KV caches from/to VAST.\n\n1. I/O and NVIDIA GPUDirect Storage (GDS) [...] Reusing a cached state is crucial, especially with long context models and use cases. An example of this can be seen in the pricing of the OpenAI O3-Pro model, where costs range from $20 per million tokens for input to $80 per million tokens for output. For applications like RAG or multi-turn chat, which require large contexts (documents, system prompts, chat history) to be repeatedly sent as input, a persistent KV cache prevents re-processing and eliminates the need to pay for computing these [...] A significant amount of innovation occurred in how inference is scheduled and executed, with techniques like Continuous Batching, Chunked Prefill, and Disaggregated Prefill and Decode emerging to maximize hardware utilization. One key opportunity for optimization is avoiding redundant computation altogether; this is where Key-Value (KV) Caching plays a crucial role.\n\n#### What is KV Cache?\n\nUnderstanding KV cache requires an understanding of how the two phases function:\n\nPrefill phase:",
+   "published_date": null,
+   "score": 0.37387636
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.32992095
+  },
+  {
+   "url": "https://www.redbooks.ibm.com/docs/MD260021/MD260021.html",
+   "title": "A High-Performance KV Cache Platform for Large-Scale AI ...",
+   "content": "KV Cache-Aware Routing: mapping KV cache states across potentially thousands of GPUs and routes new requests to the GPU with the best knowledge match, avoiding costly re-computations\n Disaggregated Serving: separating the compute-intensive prefill phase from the memory-bandwidth-bound decode phase for independent scaling [...] Network management technique that prioritizes certain types of traffic to ensure consistent performance for critical workloads.\n\n## R2H - Remote-to-Host\n\nData transfer operation moving KV cache from remote storage (G4) to system memory (G2).\n\n## RAG - Retrieval-Augmented Generation\n\nAI technique that enhances LLM responses by retrieving relevant information from external knowledge bases before generating output.\n\n## RAID - Redundant Array of Independent Disks [...] As large language models transition from single-turn question-and-answer interactions to complex, multi-step agentic workflows, the computational demands of AI inference have fundamentally shifted. Modern deployments now routinely handle context windows spanning hundreds of thousands to millions of tokens, driven by use cases such as multi-turn conversational agents, retrieval-augmented generation pipelines, and long-document reasoning tasks. At this scale, the key-value (KV) cache, the data",
+   "published_date": null,
+   "score": 0.28828397
+  },
+  {
+   "url": "https://papers.neurips.cc/paper_files/paper/2025/file/4431224d3762aa655f0aee4eaf04ff16-Paper-Conference.pdf",
+   "title": "HiFC: High-efficiency Flash-based KV Cache Swapping for ...",
+   "content": "10 Acknowledgments and Disclosure of Funding This work was supported in part by the Institute of Information and Communications Technology Planning and Evaluation under Grant RS-2021-II211343, Grant IITP-2025-RS-2023-00256081, and Grant RS-2024-00347394, and in part by the National Research Foundation of Korea under Grant RS-2024-00408040 and Grant RS-2022-00144419. The authors would like to thank SK hynix for financial support during Inho Jeong’s graduate studies and NAVER Cloud for valuable [...] HiFC: High-efficiency Flash-based KV Cache Swapping for Scaling LLM Inference Inho Jeong1,2∗ Sunghyeon Woo1,3∗ Sol Namkung1 Dongsuk Jeon1† 1Seoul National University 2SK hynix 3NAVER Cloud Abstract Large-language-model inference with long contexts often produces key–value (KV) caches whose footprint exceeds the capacity of high-bandwidth memory on a GPU. Prior LLM inference frameworks such as vLLM mitigate this pressure by swapping KV cache pages to host DRAM. However, the high cost of large [...] Third, maintaining consistent SSD performance often requires domain-specific expertise in system configuration and filesystem tuning, which may hinder practical deployment. As future work, we plan to explore hybrid Flash–DRAM caching schemes that maintain stable performance across diverse workloads, and to share resources and know-how for SSD optimization.",
+   "published_date": null,
+   "score": 0.18448852
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.15384161
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้",
+   "published_date": null,
+   "score": 0.15384161
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2510.09665",
+   "title": "LMCache: An Efficient KV Cache Layer for Enterprise-Scale LLM Inference",
+   "content": "This paper focuses on prefill-decode (PD) disaggregation, which is one of the two primary use cases that motivate the development of LMCache. This citation is highly relevant as LMCache provides the high-performance, cross-engine KV cache transfer mechanism required to make disaggregated architectures like DistServe practical and efficient. [...] Research Foundation: The standardized interfaces and open-source availability provide a foundation for future research in LLM inference optimization, cache compression techniques, and distributed AI system design.\n\nIndustry Adoption: The rapid evolution from a research prototype to a production-ready system with multiple inference engine integrations demonstrates the practical value and industry demand for sophisticated KV cache management. [...] Image 22ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference 25 Apr 2025Image 23KV Cache Transform Coding for Compact Storage in LLM Inference 11 Mar 2026Image 24Strata: Hierarchical Context Caching for Long Context Language Model Serving 26 Aug 2025Image 25MiniCache: KV Cache Compression in Depth Dimension for Large Language Models 07 Sept 2024Image 26LaCache: Ladder-Shaped KV Caching for Efficient Long-Context Modeling of Large Language Models 14 Jul 2025",
+   "published_date": null,
+   "score": 0.13415107
+  }
+ ]
+}
