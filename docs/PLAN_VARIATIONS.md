@@ -13,5 +13,5 @@
 
 | 실행 | 기술 | SubTask | 미사용 Agent | Judge 실패 → 재시도 | 검토 | 품질 평가 |
 |---|---|---|---|---|---|---|
-| 최종 제출 `37d8bdd72d30` | TurboQuant, ITME | 6개 (4개 최소 관점 + 규제 + 경쟁·생태계, 계획 7개 중 검토자 확보로 1개 제외) | research_generalist | T01~T04 → T01 통과, T02~T04 FAILED_AFTER_RETRY | 4건 (작업당 1명) | 한계 기록 후 종료 |
-| 비교 `802f65b077b3` | KIVI, InfiniGen | 5개 (4개 최소 관점 + 경쟁·생태계) | regulation_specialist, research_generalist | T02~T04 → 모두 FAILED_AFTER_RETRY, T01·T05는 1회 통과 | 6건 (작업당 2명) | 통과 |
+| 최종 제출 `cdc64c3abebe` | TurboQuant, ITME | 5개 (4개 최소 관점 + 비용·구현 위험) | ecosystem, regulation | T01~T04 → 재시도 후 미달 | 8건 (작업당 2명) | 한계 기록 후 종료 |
+| 비교 `c3a0ce5a880f` | KIVI, InfiniGen | 6개 (4개 최소 관점 + 비용·구현 위험 + 규제) | ecosystem | T01~T04 → 재시도 후 미달 | 4건 (작업당 1명) | 통과 |

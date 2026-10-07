@@ -107,7 +107,7 @@
 ```bash
 uv sync
 python app.py                 # = uv run python app.py
-uv run pytest -q              # 테스트 61개, API 호출 없음
+uv run pytest -q              # 테스트 60개, API 호출 없음
 ```
 - API 키 없이 실행하면 offline 재생으로 자동 전환된다. 두 실행(`python app.py`, `python app.py --tech sw=kivi,hw=infinigen`)의 LLM·웹 검색 응답(Orchestrator·Cross Reviewer·Agent 0·품질 Judge 포함)이 `data/`에 커밋돼 있어, 키 없이도 **LLM이 만든 같은 동적 계획**과 같은 보고서가 다시 만들어진다(검증: API 호출 0회, 보고서 동일)
 - 캐시에 없는 새 입력을 키 없이 돌릴 때만 규칙 기반 fallback 계획을 쓴다. fallback도 State를 읽어 근거가 불균형하면 관점을 기술별로 나누고 검색 공백·선정 약점이 있으면 조사 작업을 더하며, 실행 요약에 `plan_source=fallback`으로 남는다
