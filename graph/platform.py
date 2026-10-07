@@ -1,5 +1,6 @@
 """Auxiliary (non-agent) nodes: initialize, index_builder, query_planner, hybrid_retriever, retrieval_grader,
-query_rewriter, retry_router, final_check, pdf_renderer, plus the conditional-edge routers (D.1, D.4)."""
+query_rewriter, pdf_renderer and the retrieval router (D.1). Feedback routing and report quality evaluation live in
+graph/orchestration.py."""
 from __future__ import annotations
 
 import re
@@ -7,15 +8,11 @@ import shutil
 import uuid
 from typing import Literal
 
-from langgraph.types import Command
-
 from graph.runtime import ROOT, audit, config, rt
-from graph.state import (PERSPECTIVE_NODE, PERSPECTIVES, DocumentMeta, IndexStatus, Query, RetrievalGrade,
+from graph.state import (PERSPECTIVES, DocumentMeta, IndexStatus, Query, RetrievalGrade,
                          Technology)
 
 MAX_RETRIEVAL = config()["retrieval"]["max_retrieval_retries"]      # 2
-MAX_PERSPECTIVE = config()["graph"]["max_perspective_retries"]      # 2
-MAX_REPORT = config()["graph"]["max_report_retries"]                # 1
 PERSPECTIVE_KO = {"trl": "TRL", "market": "시장성", "stakeholder": "이해관계자", "domain": "도메인 적합성"}
 
 SELECTION_REASON = {  # team's selection (A.3/A.4), recorded as-is; the validator never changes it
@@ -33,7 +30,9 @@ def initialize(state: dict) -> dict:
         techs.append(Technology(tech_id=tid, name=m["name"], camp=m["camp"], developer=m["developer"],
                                 developer_groups=m.get("developer_groups", []), reason=SELECTION_REASON.get(tid, ""),
                                 paper_arxiv=m.get("arxiv", "")))
-    return {"run_id": uuid.uuid4().hex[:12], "selected_techs": techs, "retrieval_retry_count": 0,
+    run_id = uuid.uuid4().hex[:12]
+    return {"run_id": run_id, "trace_id": f"kvcache-{run_id}", "step_count": 0, "max_steps": 40, "status": "planning",
+            "last_error": None, "selected_techs": techs, "retrieval_retry_count": 0,
             "perspective_retry_count": {p: 0 for p in PERSPECTIVES}, "report_retry_count": 0, "judge_scores": {},
             "judge_feedback": {}, "failed_perspectives": [], "rewritten_queries": {},
             "audit_log": audit("initialize", techs=[t.tech_id for t in techs], offline=rt().offline)}
@@ -157,49 +156,7 @@ def query_rewriter(state: dict) -> dict:
     return {"rewritten_queries": out, "retrieval_retry_count": n, "audit_log": audit("query_rewriter", attempt=n)}
 
 
-# ---------------------------------------------------------------- 3. selective re-run
-PerspectiveNode = Literal["trl_assessor", "market_evaluator", "stakeholder_evaluator", "domain_evaluator", "report_writer"]
-
-
-def retry_router(state: dict) -> Command[PerspectiveNode]:
-    """Increments the re-run counter of failed perspectives (< 2 re-runs) and re-runs only those nodes with
-    Command(goto=[...]). Perspectives at the limit are recorded as 판정 불확실. Nothing to re-run -> report_writer."""
-    counts = dict(state.get("perspective_retry_count", {}))
-    goto, warns = [], []
-    for p in state.get("failed_perspectives", []):
-        if counts.get(p, 0) < MAX_PERSPECTIVE:
-            counts[p] = counts.get(p, 0) + 1
-            goto.append(PERSPECTIVE_NODE[p])
-        else:
-            warns.append(f"판정 불확실: {PERSPECTIVE_KO[p]} 관점이 재실행 한도({MAX_PERSPECTIVE}회) 후에도 Judge 기준 미달")
-    if not goto:
-        return Command(update={"warnings": warns, "audit_log": audit("retry_router", goto=["report_writer"])},
-                       goto="report_writer")
-    return Command(update={"perspective_retry_count": counts, "warnings": warns,
-                           "audit_log": audit("retry_router", goto=goto, counts=counts)}, goto=goto)
-
-
-# ---------------------------------------------------------------- 4. report check and PDF
-def final_check(state: dict) -> dict:
-    from agents.report_writer import check_report, postprocess
-
-    issues = check_report(state["report_markdown"], state["references"])
-    n = state.get("report_retry_count", 0)
-    if not issues:
-        return {"audit_log": audit("final_check", passed=True, attempt=n)}
-    if n < MAX_REPORT:
-        return {"report_retry_count": n + 1, "audit_log": audit("final_check", passed=False, attempt=n, issues=issues)}
-    md, refs, left = postprocess(state["report_markdown"], state["references"])
-    return {"report_markdown": md, "references": refs,
-            "warnings": [f"보고서 검수: 수정 한도 소진 후 결정적 후처리, 남은 문제 {x}" for x in left],
-            "audit_log": audit("final_check", passed=False, attempt=n, issues=issues, postprocessed=True, left=left)}
-
-
-def route_after_check(state: dict) -> Literal["report_writer", "pdf_renderer"]:
-    last = next((e for e in reversed(state.get("audit_log", [])) if e.node == "final_check"), None)
-    if last and not last.detail.get("passed") and not last.detail.get("postprocessed"):
-        return "report_writer"
-    return "pdf_renderer"
+# 3./4. feedback routing and report quality: see graph/orchestration.py (Orchestrator-Workers)
 
 
 def output_stem() -> str:
@@ -271,5 +228,11 @@ def pdf_renderer(state: dict) -> dict:
     dst = ROOT / "deliverables" / pdf.name
     shutil.copy(pdf, dst)
     warns = [f"PDF 빈 페이지: {blank}"] if blank else []
-    return {"report_pdf_path": str(pdf), "warnings": warns, "audit_log": audit("pdf_renderer", blank_pages=blank, pdf=str(pdf.relative_to(ROOT)),
+    import pymupdf
+
+    with pymupdf.open(pdf) as doc:
+        n_pages = doc.page_count
+    if n_pages > 10:
+        warns.append(f"PDF {n_pages}쪽: 제출 한도 10장 초과")
+    return {"report_pdf_path": str(pdf), "warnings": warns, "audit_log": audit("pdf_renderer", blank_pages=blank, pages=n_pages, pdf=str(pdf.relative_to(ROOT)),
                                                             copy=str(dst.relative_to(ROOT)))}

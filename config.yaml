@@ -48,7 +48,7 @@ retrieval:
   max_retrieval_retries: 2
 
 graph:
-  max_perspective_retries: 2
+  max_feedback_retries: 1   # per task: attempt 0 + exactly one feedback retry (enforced in graph/orchestration.py)
   max_report_retries: 1
 
 team:

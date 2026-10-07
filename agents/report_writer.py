@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 import re
 
-from graph.runtime import ROOT, audit, config, lexicon_hits, llm_json, neutralize
+from graph.runtime import OfflineCacheMiss, ROOT, audit, config, lexicon_hits, llm_json, neutralize
 from graph.state import Reference
 
 PAPER_REFS = {
@@ -440,6 +440,16 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add("")
     add("2.0·1.0과 격자 경계는 절대 기준이 아니라 분류를 일관되게 하려고 미리 정한 값이므로, 각 값을 0.5씩 바꿨을 때 판정이 달라지는 칸 수를 함께 보고한다.")
     add("")
+    # ---------------- 4.x extra perspectives added by the Orchestrator plan (research agents)
+    extra = state.get("extra_findings", {})
+    if extra:
+        add("## 4.5 추가 관점(Orchestrator 동적 계획)")
+        for tid, f in sorted(extra.items()):
+            for t in techs:
+                text = ct.sub(neutralize(f.by_tech.get(t.tech_id, "")))
+                if text and CITE_RE.search(text):
+                    add(f"- {tid} {f.perspective} · {names[t.tech_id]}: {text}")
+        add("")
     # ---------------- 6
     add("# 6. 한계점")
     add("## 6.1 공개 정보 기반 추정의 한계")
@@ -468,7 +478,16 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
             cls[e.source_class] += 1
     add(f"- 본문 인용 근거의 출처 구분: 벤더 {cls['vendor']}건, 제3자 {cls['third_party']}건, 학술 {cls['academic']}건. "
         "관점마다 지지·반대 질의를 짝지어 검색했고, 한 원 출처 계열이 웹 근거의 50%를 넘지 않게 했으며, 개발사 발언은 이해관계자 점수에서 뺐다.")
-    add("- Judge 판정식은 설계서 D.5를 그대로 썼다. 기준에 못 미친 관점만 최대 2회 다시 실행했고, 한도 후에도 미달이면 판정 불확실로 남겼다.")
+    plan = state.get("plan")
+    st = state.get("task_status", {})
+    if plan is not None:
+        add(f"- Orchestrator가 SubTask {len(state.get('subtasks', []))}개를 동적으로 계획했다(계획 출처 {plan.plan_source}, "
+            f"사용 Agent {len(state.get('used_agents', []))}개, 미사용 Agent {len(state.get('unused_agents', []))}개).")
+    add("- Judge 판정식은 설계서 D.5를 그대로 썼다. 기준에 못 미친 작업만 같은 담당 Agent가 1회 다시 실행했고, "
+        "미사용 Agent의 교차 검토와 Agent 0의 재시도 지시를 거쳤다. 재시도 후에도 미달이면 판정 불확실로 남겼다.")
+    bad = [f"{k}({v})" for k, v in sorted(st.items()) if v in ("FAILED_AFTER_RETRY", "PARTIAL", "excluded")]
+    if bad:
+        add("- 재시도 후 미달·부분 결과 작업: " + ", ".join(bad))
     unc = [w for w in state.get("warnings", []) if w.startswith("판정 불확실")]
     for w in unc:
         add(f"- {w}")
@@ -511,11 +530,14 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
 
 
 def report_writer(state: dict) -> dict:
-    last = next((e for e in reversed(state.get("audit_log", [])) if e.node == "final_check"), None)
+    q = state.get("report_quality")
     revision = ""
-    if last and not last.detail.get("passed"):
-        revision = "이전 원고의 검수 지적을 반영해 다시 쓴다: " + "; ".join(last.detail.get("issues", []))
-    nar = _narrative(state, revision)
+    if q is not None and q.action == "rewrite":
+        revision = "이전 원고의 검수 지적을 반영해 다시 쓴다: " + "; ".join(q.writing_issues)
+    try:
+        nar = _narrative(state, revision)
+    except OfflineCacheMiss:   # replay without a cached narrative: tables and code-computed text only
+        nar = {}
     md, refs = build_markdown(state, nar)
     return {"report_markdown": md, "references": refs,
             "audit_log": audit("report_writer", revision=bool(revision), refs=len(refs), chars=len(md))}
