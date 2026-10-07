@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache regulation and compliance",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:44:12+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] ### 4.2. ITME I/O Scheduling and Prefetching\n\nThe primary role of ITME is to efficiently orchestrate KV cache movement across the multi-tier hierarchy, leveraging specific access patterns and device characteristics. It manages this entire lifecycle, from migrating blocks immediately upon GPU eviction to proactively prefetching them based on upcoming execution demands. [...] The ITME remote manager operates as the central orchestration layer on the CXL-hybrid memory server, specifically tasked with managing the CXL-hybrid memory device and coordinating the prefetching of KV cache chunks, model weights, and prefix caches to decouple SSD access latency from the inference critical path. When the host GPU server offloads data in coarse-grained chunks, the manager treats these transfers as structured memory objects and assigns sequential identifiers to each,",
+   "published_date": null,
+   "score": 0.49465415
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-infra-summit-2026",
+   "title": "SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’ – SK hynix Newsroom",
+   "content": "\\ KV Cache (Key Value Cache): Temporary memory in which a large language model-based AI agent stores previously computed results when generating text. The longer the conversation with a user and the more tasks there are to process, the more exponentially it grows — so the memory capability to store and process it efficiently has a major impact on an AI agent’s performance. [...] In the SALT-KV session, a server equipped with SK hynix’s eSSD was displayed, and a monitor set up beside it allowed visitors to see for themselves — through actual data — how the SALT-KV solution works and how data storage shifts within a real AI system. SALT-KV (Semantic-Aware Lifecycle Tiering for KV Cache) divides an LLM’s KV cache\\ into context-based segments and comprehensively assesses their reuse value and storage cost. Based on this, it places data in the most suitable storage tier [...] Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\nTECH&AI\n\n## SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’\n\n AI\n AI Infra Summit\n AI Memory\n eSSD\n HBF\n PIM\n SALT-KV\n\n September 17, 2026\n SK hynix\n\nSK hynix showcased next-generation AI memory at AI Infra Summit 2026, highlighting HBF, PIM/AiMX, and SALT-KV solutions to boost bandwidth, efficiency, and KV cache management. The company emphasized leading future AI infrastructure.",
+   "published_date": null,
+   "score": 0.44811285
+  },
+  {
+   "url": "https://news.skhynix.com/en/fms-2026",
+   "title": "The Next-Generation Memory Architecture in the AI Era? SK hynix Charts the Direction at ‘FMS 2026’ – SK hynix Newsroom",
+   "content": "\\ KV Cache (Key Value Cache): Temporary memory that stores previously computed results as a large language model-based AI agent generates text. It grows exponentially as conversations lengthen and workloads increase, so the memory capability to store and process it efficiently has a significant impact on an AI agent’s performance. [...] the entire KV cache on SSD can deliver fast read performance and large-capacity storage at the same time. [...] SK hynix also demonstrated the same ReAct AI Agent Serving system using CMM-Hybrid\\, confirming that the implemented system can efficiently store and rapidly reuse the large volumes of KV cache generated on an ongoing basis. In particular, the demonstration showcased both the ability to quickly predict the KV cache needed based on prior conversation and task history, and the performance to prefetch the required KV cache into DRAM for rapid processing. It also proved that storing the entire KV",
+   "published_date": null,
+   "score": 0.4135014
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-named-worlds-most-024100518.html",
+   "title": "SK hynix Named as a World's Most Ethical Companies® Honoree",
+   "content": "SK hynix and its employees have combined efforts to advance business ethics further with members participating in the signing of compliance commitment letter and compliance surveys every year with passion.\n\nIn 2023, SK hynix also started a program to share its operation and know-how of the business ethics system with business partners to further grow it into a system for the broader supply chain. [...] The assessment is based on Ethisphere's proprietary Ethics Quotient®, which requires companies to provide 240+ different proof points on practices that support robust ethics and compliance; governance; a culture of ethics; environmental and social impact; and initiatives that support a strong value chain.\n\nIn 2025, 136 honorees were recognized spanning 19 countries and 44 industries. SK hynix is one of only four honorees in the semiconductor industry. [...] SK hynix Inc., headquartered in Korea, is the world's top tier semiconductor supplier offering Dynamic Random Access Memory chips (\"DRAM\") and flash memory chips (\"NAND flash\") for a wide range of distinguished customers globally. The Company's shares are traded on the Korea Exchange, and the Global Depository shares are listed on the Luxembourg Stock Exchange. Further information about SK hynix is available at www.skhynix.com, news.skhynix.com.\n\nCision\n\nCision\n\n \n\nView original content:",
+   "published_date": null,
+   "score": 0.3161797
+  },
+  {
+   "url": "https://www.indeed.com/q-sk-hynix-america-jobs.html",
+   "title": "Now Hiring: 50 Sk Hynix America Jobs | Indeed",
+   "content": "In compliance with federal law, SK hynix America also participates in the federal E-Verify program. Upon accepting an offer of employment, all newly hired individuals will be required to complete Form I-9, which includes verifying identity and legal authorization to work in the United States. Please review the official government posters detailing your rights and protections prior to applying: [...] Organize and participate in project meetings, documenting outcomes and next steps.\n Support the resolution of project-related issues or potential delays.\n Ensure compliance with local laws, building codes, and industry regulations.\n Contribute to continuous improvement initiatives within the construction team",
+   "published_date": null,
+   "score": 0.2893521
+  },
+  {
+   "url": "https://www.weka.io/learn/ai-ml/what-is-kv-cache",
+   "title": "What Is KV Cache? How It Works, Why It Bottlenecks & How to Fix It - WEKA",
+   "content": "KV cache is the working memory of AI inference. It makes it possible for the model to remember what it has processed before, eliminating the need to recalculate everything again from scratch. This allows it to build on past conversations to deliver faster answers and a more natural user experience. [...] KV cache size scales linearly with sequence length, model depth, and batch size — and it competes directly with model weights for limited GPU HBM capacity. That’s a problem because AI models are getting smarter and prompts are getting longer, but GPU memory isn’t growing nearly as fast. The KV cache eventually fills up all the available space on the chip. When that happens, the AI hits a memory wall — it either slows to a crawl or simply forgets the beginning of your conversation. [...] This problem compounds further when multiple tenants take up one inference session, which puts further stress on the GPU memory. Each request adds to the KV cache, quickly using up any available HBM before compute has run out. When this happens, inference slows down as the AI model is forced to use slower bandwidth memory and run recalculations. This is the “memory wall.” Even though there is more than enough GPU infrastructure, the lack of available memory for the model’s KV cache means that",
+   "published_date": null,
+   "score": 0.19250934
+  },
+  {
+   "url": "https://x.com/jukan05/status/2047117081230057881",
+   "title": "Jukan ✈️OCP 2026 on X: \"SK hynix conference call – NAND-related comments Q. How are you responding to NAND demand such as for eSSD? \"NAND is no longer just a simple storage device. We expect it to see long-term growth as a critical component. As AI models become more advanced, the amount of KV ca… / X",
+   "content": "# Jukan ✈️OCP 2026 on X: \"SK hynix conference call – NAND-related comments Q. How are you responding to NAND demand such as for eSSD? \"NAND is no longer just a simple storage device. We expect it to see long-term growth as a critical component. As AI models become more advanced, the amount of KV cache and intermediate data processing is rising sharply. To accommodate this, high-capacity and high-performance NAND is expected to be adopted on a large scale. In response, under a supply environment [...] SK hynix conference call – NAND-related comments Q. How are you responding to NAND demand such as for eSSD? \"NAND is no longer just a simple storage device. We expect it to see long-term growth as a critical component. As AI models become more advanced, the amount of KV cache and intermediate data processing is rising sharply. To accommodate this, high-capacity and high-performance NAND is expected to be adopted on a large scale. In response, under a supply environment where investment [...] SK hynix conference call – NAND-related comments Q. How are you responding to NAND demand such as for eSSD? \"NAND is no longer just a simple storage device. We expect it to see long-term growth as a critical component. As AI models become more advanced, the amount of KV cache and intermediate data processing is rising sharply. To accommodate this, high-capacity and high-performance NAND is expected to be adopted on a large scale. In response, under a supply environment where investment",
+   "published_date": null,
+   "score": 0.19110149
+  },
+  {
+   "url": "https://rocketreach.co/sk-hynix-it-department_b5c65362f42e0cb2",
+   "title": "SK hynix IT Department | SK hynix Engineering Department",
+   "content": "More information [...] When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences, or your device, and is mostly used to make the site work as you expect. The information does not usually identify you directly, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to learn more [...] These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites. They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.\n\n### Cookie List\n\nClear\n   - [x] checkbox label label \n\nApply Cancel\n\nConsent Leg.Interest",
+   "published_date": null,
+   "score": 0.18772796
+  }
+ ]
+}

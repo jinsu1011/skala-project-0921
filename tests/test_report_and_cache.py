@@ -49,7 +49,7 @@ def test_citer_groups_papers_and_numbers_in_order():
     assert c.sub("문장 [W:abc]. 다음 [P:tq-001, P:tq-002].") == "문장 [1]. 다음 [2, p.3·5]."
     refs = c.references()
     assert [r.num for r in refs] == [1, 2]
-    assert refs[0].text.startswith("a.com(2026-03-24). T. a.com, https://a.com/x")
+    assert refs[0].text.startswith("a.com(2026-03-24). T. https://a.com/x")
     assert refs[1].text.startswith("Zandieh")
 
 

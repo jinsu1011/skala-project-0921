@@ -25,7 +25,7 @@
 - **같은 원래 Agent가 정확히 1회 재시도** : `dispatch_retry`가 실패한 task만 원 Agent에게 attempt 1로 보낸다(관련 없는 Worker는 재실행하지 않음). attempt 1 후에도 미달이면 `FAILED_AFTER_RETRY`/`PARTIAL`로 기록하고 보고서 한계점에 싣는다(코드 규칙 `MAX_FEEDBACK_RETRY = 1`)
 - **Worker 실패 Fall-back** : Worker 예외는 그래프를 멈추지 않고 `status="error"` WorkerResult가 된다 → attempt 0이면 같은 Agent로 1회 재시도, attempt 1도 실패하면 이전 결과를 `PARTIAL`로 유지하거나 없으면 `excluded`(판단 보류 표시) 후 **계속 진행**
 - **확증 편향 방지 전략** : 두 기술에 같은 찬반 질의 템플릿·검색 한도, 기술명이 명시된 근거만 찬반으로 계산, 재보도 기사는 원 출처 계열로 묶어 한 계열 ≤ 50%, 개발사 발언은 이해관계자 점수 제외, Cross Reviewer가 출처 편향·단일 계열 지배를 독립 점검
-- **보고서 10장 이내 자동 맞춤** : `pdf_renderer`가 렌더링한 PDF 쪽수를 세어 10쪽을 넘으면 부가 절(후보 평가표 → 민감도 → 선정 검증 상세 → 분석 방법 한계 → …)을 정해진 순서로 빼고 절 번호·인용 번호·REFERENCE를 다시 매긴다. SUMMARY, 4개 관점 평가, 일치·상충 표, 가설 판정, 확증편향 방지 결과, REFERENCE는 빼지 않는다. 목차는 장 단위로 SUMMARY와 같은 쪽에 두고, REFERENCE는 8.5pt로 조판한다
+- **보고서 10장 이내 자동 맞춤** : `pdf_renderer`가 렌더링한 PDF 쪽수를 세어 10쪽을 넘으면 부가 절(후보 평가표 → 민감도 → 선정 검증 상세 → 분석 방법 한계 → …)을 정해진 순서로 빼고 절 번호·인용 번호·REFERENCE를 다시 매긴다. SUMMARY, 4개 관점 평가, 일치·상충 표, 가설 판정, 확증편향 방지 결과, REFERENCE는 빼지 않는다. 목차는 장 단위로 SUMMARY와 같은 쪽에 두고, REFERENCE는 8pt로 조판한다
 - **보고서 품질 평가 (Hybrid)** : `report_quality_evaluator` = 결정적 검사 + LLM Judge
   - Groundedness : 근거 없는 문장 0건, 본문 인용 ↔ REFERENCE 일치 (코드) + LLM 1~5점
   - 중립성 : 우열·추천 어휘 사전 0건 (코드) + LLM 1~5점
@@ -83,10 +83,34 @@
   - **Agent 0** = Judge + Reviewer 피드백을 재시도 지시문으로 합치는 feedback retry coordinator
   - **Original Worker** = 재시도를 실행할 수 있는 유일한 Agent
 
-### LangSmith Trace에서 확인할 점
-- 정상: `orchestrator_planner` → `worker:T01:trl_specialist:a0` … `worker:Tn:…:a0` (계획 수만큼) → `result_aggregator` → `synthesizer` → `perspective_judge`
-- 실패: `perspective_judge` → `retry_router` → `cross_review:T03:ecosystem_specialist` (메타데이터 `mode=review`, `reviewer_agent ≠ assigned_agent`) → `agent0:T03` → `worker:T03:market_specialist:a1` (같은 Agent, 실패 task만) → `result_aggregator` → `synthesizer` → `perspective_judge`
-- 제출 캡처: `tracing-1.png`, `tracing-2.png` … (긴 경로는 여러 장으로 나눔)
+### LangSmith Trace (최종 실행 `run_id=37d8bdd72d30`)
+| 순서 | 캡처 | 확인할 점 |
+|---|---|---|
+| 1 | [`tracing-1.png`](docs/tracing/tracing-1.png) | `orchestrator` → `orchestrator_planner` → `dispatch_workers` → `worker:T01:trl_specialist:a0` … `worker:T06:ecosystem_specialist:a0` — 계획한 SubTask 6개만큼 Worker가 동적으로 생성됨 |
+| 2 | [`tracing-2.png`](docs/tracing/tracing-2.png) | `perspective_judge` → `retry_router` → `dispatch_reviews` → `cross_reviewer` ×4 (`cross_review:T0n:research_generalist`) → `feedback_retry_coordinator`(`agent0:T0n`). 검토자 `research_generalist`는 초기 계획에서 쓰이지 않은 Agent이며 REVIEW MODE 프롬프트만 받음 |
+| 3 | [`tracing-3.png`](docs/tracing/tracing-3.png) | 재시도 run `worker:T02:market_specialist:a1`의 메타데이터: `assigned_agent=market_specialist`, `attempt=1`, `mode=execute` — 초기 실행(`…:a0`)과 같은 Agent |
+| 4 | [`tracing-4.png`](docs/tracing/tracing-4.png) | 재시도 후 `result_aggregator` → `synthesizer` → `perspective_judge`(실패 관점만 재채점) → `report_writer` → `report_quality_evaluator` → `pdf_renderer` → 종료 |
+
+![tracing-1](docs/tracing/tracing-1.png)
+![tracing-2](docs/tracing/tracing-2.png)
+![tracing-3](docs/tracing/tracing-3.png)
+![tracing-4](docs/tracing/tracing-4.png)
+
+## 실행 결과 (최종 실행)
+- 실행: online, 282초, LLM 호출 103회(캐시 재사용 532회), 웹 검색 19회, 무한 루프 없이 종료(EXIT 0)
+- 동적 계획: LLM이 SubTask 7개를 계획 → 모든 Agent가 배정돼 검토자 풀 확보 규칙이 우선순위가 가장 낮은 추가 관점 1개(비용·구현 위험)를 제외 → **SubTask 6개** (4개 최소 관점 + 규제·컴플라이언스 + 경쟁·생태계), `unused_agents = [research_generalist]`
+- 피드백 루프: Judge가 T01~T04 실패 지목 → `research_generalist`가 4건 독립 검토 → Agent 0 재시도 지시 → 같은 원 Agent가 attempt 1 실행 → T01 통과, T02~T04는 재시도 1회 후에도 ITME 독립 근거 부족으로 `FAILED_AFTER_RETRY`(보고서 한계점에 기록). 추가 관점 T05·T06은 1회에 통과
+- 보고서 품질 평가: LLM Judge 근거성 4 · 중립성 5 · 편향 통제 4 · 커버리지 4, 결정적 검사 전부 통과. 남은 근거 문제는 이미 재시도한 작업이라 한계로 기록 후 종료
+- 평가 보고서: [`deliverables/RAG-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf`](deliverables/RAG-Output_판교_9반_김정인+김지수+김진수+전진만+정원준.pdf) — **10쪽**, 필수 목차 SUMMARY·REFERENCE 포함
+
+| | TurboQuant | ITME |
+|---|---|---|
+| TRL (공개 정보 기반 추정) | 4–5, 신뢰도 높음 | 4–5, 신뢰도 낮음 |
+| 시장성 | 4.35 | 판단 보류 |
+| 이해관계자 | 5.00 | 5.00 |
+| 도메인 적합성 | 4.78 | 판단 보류 |
+
+점수는 공개 자료에 나타난 평가 방향을 나타내는 인식 점수이며 기술의 우열이 아니다. 두 기술 점수를 서로 비교하지 않는다.
 
 ## Directory Structure
 ```
@@ -122,7 +146,7 @@
 ```bash
 uv sync
 cp .env.example .env          # OPENAI_API_KEY, TAVILY_API_KEY, LANGSMITH_API_KEY 입력 (LANGSMITH_TRACING=true)
-uv run python app.py          # 전체 그래프 실행 → outputs/, deliverables/ 에 보고서 PDF
+uv run python app.py          # = python app.py, 전체 그래프 실행 → outputs/, deliverables/ 에 보고서 PDF
 uv run pytest -q              # 테스트 (mock, API 호출 없음)
 ```
 - `--offline`(또는 키 없음)은 커밋된 캐시만 재생한다. 새로 추가된 Orchestrator·Cross Reviewer·Agent 0·품질 LLM Judge 응답은 캐시에 없으므로 offline에서는 각 노드의 결정적 fallback(규칙 계획, 규칙 검토, 규칙 지시문, 결정적 검사만)으로 동작하며 실행 로그와 보고서에 그 사실이 기록된다. **동적 계획과 LangSmith Trace 제출용 실행은 API 키를 넣은 online 실행으로 한다**

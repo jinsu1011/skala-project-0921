@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache competition/ecosystem risks limitations",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:29:32+09:00",
+ "results": [
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache Demands - Seoul Economic Daily",
+   "content": "KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said. [...] Shark Draws Crowds to Busan Waterway as Risky Stunts Mount\n3. 3\n\n   Trump's Yen Concern Fuels Bets on October BOJ Rate Hike\n\n   Trump's Yen Concern Fuels Bets on October BOJ Rate Hike\n4. 4\n\n   China's TCL Passes Samsung in LCD TVs, Leads by 0.1 Point\n\n   China's TCL Passes Samsung in LCD TVs, Leads by 0.1 Point\n5. 5\n\n   Peng Liyuan's English Draws Buzz on Chinese Social Media\n\n   Peng Liyuan's English Draws Buzz on Chinese Social Media\n\n← Back to Home\n\n## AI KEY\n\nPreview↗",
+   "published_date": null,
+   "score": 0.44478238
+  },
+  {
+   "url": "https://arxiv.org/pdf/2606.12556",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated ...",
+   "content": "Baseline (vLLM with CPU Offloading). By default, vLLM han-dles host memory pressure by evicting and recomputing KV caches, which incurs significant overhead. To create a competitive and re-alistic baseline, we developed vLLM, an extended version of vLLM with the following custom implementations: • NVMe-oF Integration: We integrated an NVMe-oF (NVMe over Fabrics) stack to enable storage access. This allows the baseline to offload and retrieve KV cache blocks from a storage node, rather than [...] working KV cache are strictly prioritized for GPU mem-ory or host memory. Any access delay during the decod-ing phase causes severe pipeline stalls. Because their total memory footprint remains relatively small, GPU and host memory can comfortably satisfy their capacity demands without requiring offloading to ITME. [...] Our evaluation confirms that ITME effectively mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.4395795
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] ขอแนะนำให้ปรึกษาทางการเงินอิสระเพื่อทำความเข้าใจความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.20343871
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] และบริหารความเสี่ยงผ่านการปรับสมดุลพอร์ตเป็นระยะ ตลอดจนการจัดเก็บรักษาสินทรัพย์แบบแบ่งระดับชั้นระหว่าง Cold Wallet และ Hot Wallet [...] ขอแนะนำให้ปรึกษาทางการเงินอิสระเพื่อทำความเข้าใจความเสี่ยงที่เกี่ยวข้องอย่างถ่องแท้",
+   "published_date": null,
+   "score": 0.20343871
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-sandisk-begin-global-233600187.html",
+   "title": "SK hynix and Sandisk Begin Global Standardization of Next-Generation Memory 'HBF'",
+   "content": "\"The key to AI infrastructure is to go beyond the performance competition of individual technologies and to optimize the entire ecosystem,\" said Ahn Hyun, President and Chief Development Officer. \"Through HBF technology standardization the company will establish a cooperative system and present an AI-era optimized memory architecture to create new value for customers and partners.\" [...] Recently, the AI industry is shifting from training which focuses on creating Large Language Models (LLMs) to inference, which accelerates actual AI services to users.\n\nFast and efficient memory is essential as the number of users using AI services increases rapidly. However, the existing memory structure cannot meet the high capacity data processing and power efficiency at the same time in the inference stage and HBF technology is designed to address these limitations. [...] About SK hynix Inc.  \nSK hynix Inc., headquartered in Korea, is the world's top-tier semiconductor supplier offering Dynamic Random Access Memory chips (\"DRAM\") and flash memory chips (\"NAND flash\") for a wide range of distinguished customers globally. The Company's shares are traded on the Korea Exchange, and the Global Depository shares are listed on the Luxembourg Stock Exchange. Further information about SK hynix is available at www.skhynix.com, news.skhynix.com.\n\nCision\n\nCision",
+   "published_date": null,
+   "score": 0.19314773
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-ships-worlds-first-014600311.html",
+   "title": "SK hynix Ships World's First 12-Layer HBM4 Samples to Customers",
+   "content": "- Mass production of products with best-in-class bandwidth and capacity to start in 2H 2025 following certification process\n\n- Enhancement of position as front-runner in AI ecosystem follows years of efforts to overcome technological limitations [...] \\Bandwidth1: In HBM products, bandwidth refers to the total data capacity that one HBM package can process per second.\n\nSK hynix also adopted the Advanced MR-MUF process to achieve the capacity of 36GB, which is the highest among 12-layer HBM products. The process, of which competitiveness has been proved through a successful production of the previous generation, helps prevent chip warpage, while maximizing product stability by improving heat dissipation. [...] \"We have enhanced our position as a front-runner in the AI ecosystem following years of consistent efforts to overcome technological challenges in accordance with customer demands,\" said Justin Kim, President & Head of AI Infra at SK hynix. \"We are now ready to smoothly proceed with the performance certification and preparatory works for mass production, taking advantage of the experience we have built as the industry's largest HBM provider.\"\n\nAbout SK hynix Inc.",
+   "published_date": null,
+   "score": 0.15823969
+  },
+  {
+   "url": "https://finance.yahoo.com/news/samsung-sk-hynix-double-down-155542331.html",
+   "title": "Samsung and SK hynix double down on HBM4 and CXL technologies to counter Chinese competition",
+   "content": "To counter these competitive pressures, Samsung and SK hynix are doubling down on advanced memory technologies like HBM4 and CXL. These innovations offer substantial performance enhancements and are well-suited to AI-driven applications' high-demand, high-performance requirements. [...] This expansion is backed by China's significant investment in memory technology development, a trend further accelerated by U.S. export controls on semiconductors to China. These measures have pushed Chinese firms to ramp up their production efforts and refine their pricing strategies, creating stiff competition for established players like Samsung and SK hynix. [...] memory producer.",
+   "published_date": null,
+   "score": 0.15239799
+  },
+  {
+   "url": "https://arxiv.org/abs/2606.12556",
+   "title": "[2606.12556] ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "archive\n\n# Computer Science > Distributed, Parallel, and Cluster Computing\n\n# Title:ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories\n\n|  |  |\n --- |\n| Subjects: | Distributed, Parallel, and Cluster Computing (cs.DC) |\n| Cite as: | arXiv:2606.12556 [cs.DC] |\n|  | (or  arXiv:2606.12556v2 [cs.DC] for this version) |\n|  |  Focus to learn more  arXiv-issued DOI via DataCite |\n\n## Submission history\n\n## Access Paper:\n\n### Current browse context: [...] ### References & Citations\n\n## BibTeX formatted citation\n\n### Bookmark\n\nBibSonomy\nReddit\n\n# Bibliographic and Citation Tools\n\n# Code, Data and Media Associated with this Article\n\n# Demos\n\n# Recommenders and Search Tools\n\n# arXivLabs: experimental projects with community collaborators\n\narXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. [...] Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.\n\nHave an idea for a project that will add value for arXiv's community? Learn more about arXivLabs.\n\nSimons Foundation\nSimons Foundation International\nSchmidt Sciences",
+   "published_date": null,
+   "score": 0.082704924
+  }
+ ]
+}

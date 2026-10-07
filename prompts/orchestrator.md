@@ -20,7 +20,8 @@
 - assigned_agent는 아래 Agent Registry의 agent_id 중 하나여야 한다. capabilities가 작업과 맞는 Agent를 고른다.
 - worker_type이 trl/market/stakeholder/domain인 Agent는 해당 관점 전용이다. 같은 관점에서 한 기술은 한 작업에만 넣는다.
 - worker_type이 research인 Agent는 추가 관점(규제, 경쟁·생태계, 비용, 배포 제약 등)을 맡는다.
-- 모든 Agent를 쓸 필요는 없다. 필요한 Agent만 배정한다.
+- 모든 Agent를 쓸 필요는 없다. 필요한 Agent만 배정한다. 초기 계획에 배정되지 않은 Agent는 품질 검사에서 실패한 작업을
+  독립적으로 교차 검토하는 검토자 풀이 된다. 따라서 추가 관점 작업은 평가 결론에 실질적으로 영향을 주는 것만(보통 0~2개) 만든다.
 - 우열 판정이나 추천을 목표로 하는 작업은 만들지 않는다(중립 평가).
 
 Agent Registry:

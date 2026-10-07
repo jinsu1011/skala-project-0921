@@ -1,0 +1,65 @@
+{
+ "query": "TurboQuant throughput advantages domain-specific case studies independent research vendor documentation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:31:13+09:00",
+ "results": [
+  {
+   "url": "https://o-mega.ai/articles/google-turboquant-the-2026-llm-compression-guide",
+   "title": "Google TurboQuant Aug 2026: Deployment & Performance Guide | Articles | o-mega",
+   "content": "There is also a throughput asterisk that the March hype skipped. The vLLM study measured TurboQuant variants running 20-34% below FP8 and BF16 baseline throughput on their test matrix, with up to 60-68% latency overhead in the worst configurations, in exchange for 2.4x-3.7x KV capacity gains versus FP8's 2x. The compensating result: under burst load, BF16 time-to-first-token exploded to roughly 17 seconds while TurboQuant configurations prevented the blowup entirely, because compressed caches [...] GSM8K held at 87.95 against 88.17 for BF16 on MiniMax-M2.5 and 95.15 against 95.45 on Qwen3-32B, both inside 0.4 points. And on a 32K-input, 1K-output benchmark at concurrency 64 with TP=2, throughput came in at +7% over BF16 and roughly 4.1x the default TurboQuant Triton decode at the same 4-bit KV. AMD's own writeup puts the kernel at 95% of BF16 throughput and 88% of FP8 KV on a 32-client agentic benchmark, where the open-source baseline managed 32% - AMD ROCm. Read against the vLLM study's [...] | Deployment Scenario | TurboQuant Status (verified September 9, 2026) | Recommended Setup | Honest Expected Impact |\n ---  --- |\n| vLLM cloud serving | Merged upstream (PR #38479); presets live in v0.28.0 | `--kv-cache-dtype turboquant_k8v4` | 2.6x KV capacity, +1.17% PPL, 79-100% throughput; burst TTFT protection |",
+   "published_date": null,
+   "score": 0.6688159
+  },
+  {
+   "url": "https://turboquant.net",
+   "title": "TurboQuant.net - Independent TurboQuant Analysis",
+   "content": "### TurboQuant\n\n Random rotation plus polar transform (PolarQuant)\n 1-bit residual correction (QJL) removes normalization overhead\n Near-zero indexing time\n Matches the 32-bit baseline on reported benchmarks\n\nAISTATS 2026\n\n#### PolarQuant\n\nPolar-transform core that eliminates normalization overhead\n\narXiv: 2502.02617 →\n\nAAAI 2025\n\n#### QJL\n\n1-bit unbiased inner-product estimator\n\nACM DL →\n\nICLR 2026\n\n#### TurboQuant\n\nTwo-stage design with near-optimal distortion\n\narXiv: 2504.19874 → [...] The reason is straightforward. Early compression removes redundancy. Later compression starts to hit effective information, so every additional step has a much higher chance of hurting model capability. Error no longer degrades smoothly; beyond a certain point, it can worsen quickly. Engineering difficulty also does not grow linearly. It rises sharply. [...] ✓ No training and no finetuning\n ✓ 3.5 bits per channel reaches quality neutrality\n ✓ LongBench matches FP32\n ✓ Makes long-context inference viable on edge devices\n\n### 3Vector search applications\n\nFor ANN systems such as FAISS, TurboQuant improves recall while keeping indexing overhead close to zero.\n\nHigher recall\n\nOutperforms PQ and RabbiQ on GloVe\n\nIndexing time ≈ 0\n\nPractical for billion-scale vector stores\n\nCore Principle\n\n## TurboQuant as a two-stage algorithm",
+   "published_date": null,
+   "score": 0.4395795
+  },
+  {
+   "url": "https://vllm.ai/blog/2026-05-11-turboquant",
+   "title": "A First Comprehensive Study of TurboQuant: Accuracy and Performance | vLLM Blog",
+   "content": "Takeaway: TurboQuant consistently underperforms both BF16 and FP8 by reducing throughput and increasing per-token latency. However, in memory-constrained serving scenarios, the KV-cache compression prevents memory saturation and dramatically reduces TTFT under burst load relative to BF16. This is the core of TurboQuant's value proposition: it trades per-token speed for the ability to serve requests that would otherwise be queued. FP8, on the other hand, provides the best of both worlds: it [...] TurboQuant 4bit-nc offers a compelling memory-for-throughput tradeoff. This variant provides up to 3.4x KV-cache capacity with modest accuracy degradation of 1-4 points on most benchmarks. It is particularly valuable for memory-constrained deployments where the TTFT improvement at burst load outweighs the negative impact on all other metrics. Thoroughly validate accuracy on the target workload before deploying. [...] The throughput results reinforce the latency findings. FP8 matches BF16 throughput on both models. All TurboQuant variants are strictly below BF16: on Qwen3-30B (Figure 9), ranging from 80% (k8v4) to 73% (3bit-nc); on Llama-70B (Figure 10), from 75% (k8v4 and 4bit-nc) to 66% (3bit-nc). More aggressive quantization consistently yields lower throughput — the dequantization overhead grows with the complexity of the packing format.\n\n### Serving Speed",
+   "published_date": null,
+   "score": 0.40021065
+  },
+  {
+   "url": "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression",
+   "title": "TurboQuant: Redefining AI efficiency with extreme compression",
+   "content": "Today, we introduce TurboQuant (to be presented at ICLR 2026), a compression algorithm that optimally addresses the challenge of memory overhead in vector quantization. We also present Quantized Johnson-Lindenstrauss (QJL), and PolarQuant (to be presented at AISTATS 2026), which TurboQuant uses to achieve its results. In testing, all three techniques showed great promise for reducing key-value bottlenecks without sacrificing AI model performance. This has potentially profound implications for [...] Image 59: MAPL-EMIT-overview-hero September 1, 2026 Mapping global methane emissions from space with deep learning  Climate & Sustainability ·  Earth AI ·  Machine Intelligence\n   Image 60: TimesFM-3 architecture diagram illustrating time series patching, transformer layers, and multivariate forecast output. August 31, 2026 TimesFM-3: A zero-shot foundation model for multivariate forecasting  Data Management ·  Machine Intelligence ·  Product [...] TurboQuant proved it can quantize the key-value cache to just 3 bits without requiring training or fine-tuning and causing any compromise in model accuracy, all while achieving a faster runtime than the original LLMs (Gemma and Mistral). It is exceptionally efficient to implement and incurs negligible runtime overhead. The following plot illustrates the speedup in computing attention logits using TurboQuant: specifically, 4-bit TurboQuant achieves up to 8x performance increase over 32-bit",
+   "published_date": null,
+   "score": 0.37579864
+  },
+  {
+   "url": "https://pub.towardsai.net/googles-turboquant-the-compression-breakthrough-that-could-reshape-llm-infrastructure-c09d68017567",
+   "title": "Google’s TurboQuant: The Compression Breakthrough That Could Reshape LLM Infrastructure | by Akshay Kalane | Towards AI",
+   "content": "TurboQuant is not the only KV cache compression method arriving at ICLR 2026. NVIDIA’s KVTC (Key-Value Transform Coding) uses a PCA-based decorrelation approach inspired by JPEG compression and claims up to 20x compression with less than 1 percentage point accuracy penalty. [...] On March 24, 2026, Google Research published a paper called TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate, set to be presented at ICLR 2026 in Rio de Janeiro. Within 48 hours, memory chip stocks fell, developers had ported the algorithm to llama.cpp and Apple’s MLX framework, and Cloudflare’s CEO was calling it “Google’s DeepSeek moment.”\n\nSo what exactly is TurboQuant, how does it work under the hood, and why does it matter for anyone building AI systems today? [...] As of this writing, Google has not released official open-source code. Community implementations are independent reproductions based on the paper and pseudocode. Official code is widely expected around Q2 2026.\n\n## The Competitive Landscape",
+   "published_date": null,
+   "score": 0.34900057
+  },
+  {
+   "url": "https://boringbot.substack.com/p/turboquant-the-new-and-controversial",
+   "title": "TurboQuant: the new(?) and controversial ground breaking compression breakthrough from Google",
+   "content": "> ## 🔑 Key Takeaways\n>\n>  📉 TurboQuant compresses KV caches to 3-bit precision — targeting one of LLM inference’s most painful bottlenecks: GPU memory consumed by the key-value cache growing faster than hardware budgets.\n>  ⚡ The headline numbers are striking but contested — 8x throughput and 6x memory reduction on H100s, but measured under specific conditions that may not generalize to typical production workloads. [...] The headline numbers from the paper are striking: an 8x throughput improvement, a 6x memory reduction on H100 GPUs, and the flagship claim of zero accuracy degradation at 3-bit compression (Source: ). These are extraordinary claims by any standard in quantization research. The benchmark conditions that produced these numbers matter enormously, and we’ll examine them closely in the next section, the Google TurboQuant benchmark methodology is where the real scrutiny belongs. [...] selected because they put the technique in the best possible light. TurboQuant accuracy loss tradeoffs also interact with throughput measurements in ways that need to be disentangled before the 8x number can be taken at face value.",
+   "published_date": null,
+   "score": 0.32820687
+  },
+  {
+   "url": "https://deepinfra.com/blog/google-turboquant",
+   "title": "What Is Google TurboQuant and What Does It Mean for Open Source Inference? - Deep Infra",
+   "content": "Reducing KV cache memory by 4 to 6x through TurboQuant-style compression has two direct effects on inference economics. First, it allows more concurrent requests on the same GPU, which improves throughput and reduces cost per completion. Second, it makes genuinely long context workloads more practical without requiring providers to throw additional hardware at the problem. [...] It is worth being clear about the current state. TurboQuant was presented at ICLR 2026 in April and Google’s official implementation has not yet been publicly released as of this writing, with a release expected around Q2 2026. [...] The closed source labs will use TurboQuant internally. But the open source community is already implementing it, and inference providers running open source models will be able to apply it across their entire model catalog rather than one proprietary system. That is the structural advantage of open inference infrastructure. Every efficiency breakthrough in the research community shows up across every model, not just the ones a single lab decides to optimize.",
+   "published_date": null,
+   "score": 0.31526196
+  },
+  {
+   "url": "https://blog.lmcache.ai/en/2026/04/15/what-is-turboquant-and-why-it-matters-for-llm-inference-in-laymens-term",
+   "title": "What is TurboQuant and why it matters for LLM inference, in laymen’s term – LMCache Blog",
+   "content": "So, what does TurboQuant actually achieve? The researchers tested TurboQuant on a “Needle-In-A-Haystack” test — basically asking LLM to find one specific hidden sentence in a massive, up to 104k-words long document.\n\nTurboQuant was able to shrink the LLM’s KV caches by more than 5x — while still finding the same amount of needles compared to without quantization! This means with TurboQuant, you can run your LLM vastly faster with much longer context! All enabled by math!\n\nMath really is fun. [...] ### Encryption\n\n### 2026-08-19\n\n## Encrypting KV cache at rest using LMCache\n\nRead Article\n\n### New features\n\n### 2026-08-04\n\n## Device-DAX in LMCache: Bringing Byte-Addressable Memory Into the KV Cache Path\n\nRead Article\n\n### lmcache\n\n### 2026-06-23\n\n## vLLM + LMCache: A Starter Guide, No GPU Required\n\nRead Article\n\nAll Articles\n\nNo results found.  \nTry a different search term.\n\nStart typing to search…\n\n`Ctrl``K` to open  ·  `Esc` to close\n\n`Enter` Enter to open  ·  `↑↓` to navigate [...] , make sure that every element in the data roughly are of the same scale, which helps the strategy of spending same amount of bits to encode each element achieves near-optimal quantization performance.",
+   "published_date": null,
+   "score": 0.21246108
+  }
+ ]
+}

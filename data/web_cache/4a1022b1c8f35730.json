@@ -1,0 +1,65 @@
+{
+ "query": "third-party sources academic studies government or public institution reports identifying limitations and cost challenges of SK hynix ITME KV cache technology",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:31:01+09:00",
+ "results": [
+  {
+   "url": "https://theneuralfeed.com/article/itme-inference-tiered-memory-expansion-with-disaggregated-cxl-hybrid-memories/HxcbGQ4G",
+   "title": "SK Hynix's ITME uses CXL memory to boost LLM inference by... | The Neural Feed",
+   "content": "THE NEURAL FEED AI INTELLIGENCE • DAILY INSIGHTS\n\nBack to Feed\n\nResearch & Papers\n\n# SK Hynix's ITME uses CXL memory to boost LLM inference by 35.7%\n\narXiv cs.DC June 12, 2026\n\n⚡New tiered memory system handles TB-scale KV caches for agentic LLMs, up to 35.7% faster.\n\nDeep Dive [...] ITME was validated using production-grade SK Hynix CMM (CXL Memory Module) and PCIe Gen5 NVMe SSDs, with functional feasibility confirmed via an FPGA-based hardware prototype. The system accommodates large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement over conventional CPU-offloading methods. This work, published on arXiv (2606.12556), represents a significant step toward practical disaggregated shared context layers for distributed LLM inference [...] require complex software optimization, ITME leverages CXL's direct byte-addressability to simplify the stack and enable cost-efficient scaling. The key insight: model weights and prefix caches have deterministic access patterns, allowing the system to proactively manage data movement across the memory-storage hierarchy.",
+   "published_date": null,
+   "score": 0.3193872
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache Demands - Seoul Economic Daily",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.2922674
+  },
+  {
+   "url": "https://chippong.com/insights/sk-hynix-hbf-pim-salt-kv-ai-memory-tiering",
+   "title": "SK hynix HBF, PIM and SALT-KV Tier AI Memory — CHIPPONG",
+   "content": "SK hynix presented HBF, PIM/AiMX and SALT-KV at AI Infra Summit 2026. The portfolio maps long-context capacity, fast decoding and KV-cache placement to different hardware and software layers. Public specifications, platform support and production benchmarks remain the commercial gates.\n\nmemoryai-demandprocurementsupply-chain\n\nAlso available in:日本語·中文\n\n## Inference broadens the AI memory hierarchy [...] Training systems have made HBM bandwidth a primary design variable. Inference adds a different set of constraints: long contexts, persistent sessions, expanding KV cache and strict cost per request. Keeping every cache object in HBM is expensive, while moving too much data to conventional storage can add latency. SK hynix separates the problem into a high-bandwidth flash tier, processing close to memory, and software-directed movement across HBM, DRAM and SSD. [...] Semantic-Aware Lifecycle Tiering for KV Cache divides cache data into context-based segments, evaluates reuse value and storage cost, and places each segment in HBM, DRAM or SSD. The method turns memory tiering from a static capacity choice into a workload-aware policy. High-value and frequently reused objects remain close to compute; colder data can move to lower-cost tiers.",
+   "published_date": null,
+   "score": 0.29078496
+  },
+  {
+   "url": "https://www.it-boltwise.de/deepseek-v4-1-flash-kv-cache-schrumpft-deutlich-warum-samsung-sk-hynix-dennoch-reagieren.html",
+   "title": "DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren",
+   "content": "Genau hier liegt das Spannungsfeld für Samsung und SK Hynix. Beide adressieren nicht nur den „Cache“ eines einzelnen Modells, sondern beliefern einen Markt, in dem KI-Server, Enterprise-SSDs, Consumer-Geräte und langfristige Liefervereinbarungen zusammenkommen. Die im Text genannten Erwartungen aus der Branche zeigen, wie stark sich Speicherpreise und Knappheiten über Quartale bewegen können: Für DRAM werden für das erste Quartal 2026 Anstiege von 90 % bis 95 % im Quartalsvergleich genannt, [...] über Kosten pro Anfrage. [...] Roboter\n Hacker\n OpenAI\n Anthropic\n xAI\n ChatGPT\n Kryptographie\n Weltraum\n\nÜber eine Million Leser im Jahr\n\nIT BOLTWISE x Artificial Intelligence\n\n###### #1 Fachmagazin in Deutschland mit Fokus auf Künstliche Intelligenz und Robotik\n\nMini Drohne\n\nKI Key\n\nKI Hund\n\nChatGPT Business Bibel\n\nKI Freund\n\n№1 AI Magazine in Germany\n\nNavigation\n\nDigital Economy\n\n# DeepSeek V4.1-Flash: KV-Cache schrumpft deutlich – warum Samsung & SK Hynix dennoch reagieren\n\n13. September 2026  Keine Kommentare",
+   "published_date": null,
+   "score": 0.25563434
+  },
+  {
+   "url": "https://cryptoaimeta.com/deepseek-v4-1-flash-cuts-ai-memory-use-should-micron-and-sk-hynix-investors-worry",
+   "title": "DeepSeek V4.1-Flash: Should Micron, SK Hynix Worry?",
+   "content": "AI Overview: DeepSeek released V4.1-Flash on September 10, 2026, claiming roughly one-eighth the persistent KV-cache footprint of its prior model, which cuts the high-bandwidth memory needed per inference session. SK Hynix and Samsung shares fell in Korea on the news; Micron and Nvidia’s specific moves are harder to separate from a broader semiconductor selloff that same day. The bigger question isn’t whether the model is efficient — it’s whether cheaper inference shrinks total memory demand or [...] DeepSeek released V4.1-Flash on September 10, 2026, claiming roughly one-eighth the persistent KV-cache footprint of its prior V4-Flash model.\n SK Hynix fell as much as 5.8% in Korea trading on the news; Micron and Nvidia’s specific moves are harder to isolate from a broader semiconductor and macro selloff that same day. [...] ## Why KV-Cache Compression Matters to HBM Demand\n\nHBM places stacked memory close to an AI accelerator so data can move quickly. Nvidia, AMD, and custom accelerator makers need it because modern models constantly move weights, activations, and cache data. SK Hynix has been a major HBM supplier, while Micron has expanded its HBM business and described AI memory as a strategic growth engine — part of the broader AI memory shortage that has been pushing HBM and DRAM prices higher through 2026.",
+   "published_date": null,
+   "score": 0.19622517
+  },
+  {
+   "url": "https://news.skhynix.com/en/sk-hynix-reports-third-quarter-2022-results",
+   "title": "SK hynix Inc. Reports Third Quarter 2022 Results – SK hynix Newsroom",
+   "content": "PRESSIR\n\n Earnings\n First Quarter 2026\n Quarterly Earnings\n\nSK hynix Announces FY25 Financial Results\n\nJanuary 28, 2026\n\nPRESSIR\n\n Annual Earnings\n Earnings\n Fourth Quarter 2025\n Quarterly Earnings\n\nSK hynix Announces 3Q25 Financial Results\n\nOctober 29, 2025\n\nPRESSIR\n\n Earnings\n Quarterly Earnings\n Third Quarter 2025\n\n \n\n  SK hynix Announces 2Q26 Financial Results\n\n  July 29, 2026\n\n  PRESSIR [...] PRESSIR\n\n  + 2026 Business Performance\n  + Business performance\n  + Earnings\n  + financial results\n  + Quarterly Earnings\n \n\n  SK hynix Announces 1Q26 Financial Results\n\n  April 22, 2026\n\n  PRESSIR\n\n  + Earnings\n  + First Quarter 2026\n  + Quarterly Earnings\n \n\n  SK hynix Announces FY25 Financial Results\n\n  January 28, 2026\n\n  PRESSIR\n\n  + Annual Earnings\n  + Earnings\n  + Fourth Quarter 2025\n  + Quarterly Earnings\n \n\n  SK hynix Announces 3Q25 Financial Results\n\n  October 29, 2025\n\n  PRESSIR [...] Media Contact\n\nSK hynix Inc.  \n Global Public Relations\n\nTechnical Leader  \n Jaehwan Kevin Kim  \n E-Mail: global\\_newsroom@skhynix.com\n\nTechnical Leader  \n Kanga Kong  \n E-Mail: global\\_newsroom@skhynix.com\n\n### Related content\n\nSK hynix Announces 2Q26 Financial Results\n\nJuly 29, 2026\n\nPRESSIR\n\n 2026 Business Performance\n Business performance\n Earnings\n financial results\n Quarterly Earnings\n\nSK hynix Announces 1Q26 Financial Results\n\nApril 22, 2026\n\nPRESSIR",
+   "published_date": null,
+   "score": 0.15614378
+  },
+  {
+   "url": "https://news.skhynix.com/sk-hynix-reports-third-quarter-2022-results",
+   "title": "SK hynix Inc. Reports Third Quarter 2022 Results – SK hynix Newsroom",
+   "content": "In addition, SK hynix stressed that it will expand mass production of industry’s first 238-layer 4D NAND next year, which was developed in the third quarter of this year, and by doing so secure cost competitiveness and increase profitability continuously. [...] ​SK hynix diagnosed that the semiconductor memory industry is facing an unprecedented deterioration in market conditions as uncertainties in the business environment continued. The deterioration occurred as the shipments of PCs and smartphone manufacturers, which are major buyers of memory chips, have decreased. [...] \\ SK hynix reported 13.81 trillion won in revenues, 4.19 trillion won in operating profit, and net income 2.88 trillion won in the second quarter of 2022",
+   "published_date": null,
+   "score": 0.08190829
+  },
+  {
+   "url": "https://www.prnewswire.com/news-releases/sk-hynix-inc-reports-third-quarter-2022-results-301659255.html",
+   "title": "SK hynix Inc. Reports Third Quarter 2022 Results",
+   "content": "Title: SK hynix Inc. Reports Third Quarter 2022 Results\n## News Releases Overview. ## Business Technology. ## View All Business Technology. ## Financial Services & Investing. ## View All Financial Services & Investing. ## Consumer Technology. ## View All Consumer Technology. ## Environ­ment. ## Telecomm­unications. ## Consumer Products & Retail. ## View All Consumer Products & Retail. ## Health. ## Sports. ## Travel. (or \"the company\", www.skhynix.com) reported today revenues of 10.98 trillion won, operating profit of 1.66 trillion won (with OP margin of 15%), and net income of 1.1 trillion (with net income margin 10%) in the third quarter of 2022. *\\* SK hynix reported 13.81 trillion won in revenues, 4.19 trillion won in operating profit, and net income 2.88 trillion won in the second quarter of 2022*. SK hynix analyzed that revenues fell QoQ as both sales volume and price decreased due to sluggish demand for DRAM and NAND products amid worsening macroeconomic environment worldwide. In addition, SK hynix explained that despite the company improved cost competitiveness by increasing the sales proportion and yield of the latest 1anm DRAM and 176-layer 4D NAND, operating profit also decreased due to greater price drop than cost reduction. SK hynix diagnosed that the semiconductor memory industry is facing an unprecedented deterioration in market conditions as uncertainties in the business environment continued. However, SK hynix anticipated that the demand for memory chips in datacenter servers, while decreasing in the short term, will continue to grow in the mid- to long-term perspective, as hyperscale data centers are continuing their investment to meet the increasing scale of industries such as artificial intelligence (AI), big data and metaverse. SK hynix emphasized that as it is leading the latest DRAM technologies such as high bandwidth products including high bandwidth memory 3 (HBM3) and DDR5/LPDDR5, the company will solidify its position in terms of long-term growth. In addition, SK hynix stressed that it will expand mass production of industry's first 238-layer 4D NAND next year, which was developed in the third quarter of this year, and by doing so secure cost competitiveness and increase profitability continuously. Further information about SK hynix is available at www.skhynix.com, news.skhynix.com. ### SK hynix and Sandisk Begin Global Standardization of Next-Generation Memory 'HBF'.",
+   "published_date": null,
+   "score": 0.036209904
+  }
+ ]
+}

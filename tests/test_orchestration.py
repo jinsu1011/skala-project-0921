@@ -319,9 +319,18 @@ def test_retry_exactly_once_then_failed_after_retry(monkeypatch):
     assert h.calls["report_writer"] == 1 and h.calls["pdf_renderer"] == 1     # terminates and reports
 
 
+def test_validate_plan_keeps_one_reviewer_in_reserve():
+    raw = PLAN_6["subtasks"] + [raw_task("ecosystem_specialist", "competition", prio=2),
+                                raw_task("research_generalist", "cost", prio=3)]
+    tasks, repairs = orch.validate_plan(raw, TECHS)
+    used, unused = used_unused(tasks)
+    assert unused == ["research_generalist"] and any("검토자 풀" in r for r in repairs)
+
+
 def test_no_unused_agent_skips_review(monkeypatch):
     plan = {"rationale": "all agents", "subtasks": PLAN_6["subtasks"] + [
         raw_task("ecosystem_specialist", "competition", prio=2), raw_task("research_generalist", "cost", prio=2)]}
+    monkeypatch.setattr(orch, "REVIEWER_RESERVE", 0)   # fallback path: the plan really uses every agent
     h = Harness(monkeypatch, plan=plan, fail={"trl": 1})
     out = h.run()
     assert out["unused_agents"] == [] and not h.reviewer_calls and not out.get("review_results")

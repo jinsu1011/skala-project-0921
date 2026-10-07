@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache 경쟁사 기술 분석",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:46:11+09:00",
+ "results": [
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache Demands - Seoul Economic Daily",
+   "content": "\"As the AI market expands from training to inference-centric operations, the role of NAND is rapidly changing into a key element in configuring the AI memory hierarchy,\" SK hynix said. \"We will expand our NAND product families to secure new growth drivers.\"\n\n#SKhynix#NAND#KVCache#AIMemory#HBM#GPU#AIChips\n\n## Companies in this story\n\nSK hynix\n\n000660.KS · Semiconductor\n\nAI KEY Company Analysis →\n\nOriginal reporting by Kim Yoon-soofor Seoul Economic Daily. [...] KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.5027105
+  },
+  {
+   "url": "https://arxiv.org/html/2412.10319v1",
+   "title": "SCBench: A KV Cache-Centric Analysis of Long-Context Methods",
+   "content": "KV Cache Generation: This stage optimizes the efficient generation of KV cache during inference. Techniques include sparse attention (e.g., A-shape, Tri-shape, MInference (Jiang et al., 2024)), SSM or hybrid approaches (e.g., Mamba (Gu & Dao, 2024; Dao & Gu, 2024; Lieber et al., 2024)), and prompt compression (e.g., LLMLingua-2 (Pan et al., 2024)). [...] KV Cache Loading: This stage dynamically loads the KV cache and computes sparse attention, from KV cache storage (e.g., VRAM, DRAM, SSD, or RDMA) to GPU on-chip SRAM, including Quest (Tang et al., 2024), RetrievalAttention (Liu et al., 2024b), and MagicPIG (Chen et al., 2024). [...] We evaluated eight categories of long-context methods, including gated linear RNNs, hybrid models, sparse attention, KV cache dropping, quantation, retrieval, loading, and prompt compression, on eight state-of-the-art LLMs, including Llama-3.1-8B/70B, Qwen2.5-72B/32B, Llama-3-8B-262K, GLM-4-9B, Codestal Mamba, and Jamba-1.5. Our results show a clear disparity in KV cache management: methods maintaining KV cache at O⁡(n)O(n) excel in multi-request scenarios, while sub-O⁡(n)O(n) methods perform",
+   "published_date": null,
+   "score": 0.4169159
+  },
+  {
+   "url": "https://www.asiae.co.kr/en/article/2026032610254866777",
+   "title": "Samsung and SK hynix Shares Rattle on Google's \"TurboQuant\" as Semiconductor Industry Reacts - The Asia Business Daily",
+   "content": "Google announced that TurboQuant can compress the KV cache down to a 3-bit level without accuracy loss. Foreign media outlets that reviewed the paper reported that this technology could reduce the ‘KV cache’ memory required by large language models (LLMs) by at least sixfold and provide up to an eightfold increase in speed. The KV cache is a type of ‘temporary memory storage’ that allows LLMs to retain past information in order to continue conversations. [...] The expansion of the KV cache has led to the \"memory wall\" bottleneck phenomenon, which significantly increases the burden on AI hardware. This is because the volume of interaction with AI has surged as AI models have become larger and demand for inference has grown. For large LLMs, the KV cache alone now requires a tremendous amount of memory. Agentic AI has also come to demand even more memory. This is one of the main reasons why the stock prices of Samsung Electronics and SK hynix have",
+   "published_date": null,
+   "score": 0.40782914
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้ [...] ในห่วงโซ่อุปทานศูนย์ข้อมูล AI หน่วยความจำและระบบจัดเก็บข้อมูลถือเป็นสิ่งที่ไม่สามารถทดแทนได้ โดยตัวเร่งความเร็ว AI จำเป็นต้องใช้หน่วยความจำแบนด์วิดท์สูงเพื่อรับส่งข้อมูล ขณะที่ระบบการฝึกอบรมและการประมวลผลเชิงอนุมานต้องพึ่งพา DRAM ความจุสูงและ SSD ระดับองค์กรเพื่อจัดเก็บโมเดล ข้อมูล และผลลัพธ์ระหว่างการประมวลผล ในกลุ่มผู้เล่นรายหลัก ไมครอน (MU) มีบทบาทครอบคลุมทั้ง DRAM, HBM และ NAND ในขณะที่แซนดิสก์ (SNDK) มุ่งเน้นหลักไปที่หน่วยความจำแฟลช NAND และระบบจัดเก็บข้อมูลศูนย์ข้อมูลระดับองค์กร",
+   "published_date": null,
+   "score": 0.39740095
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.39740095
+  },
+  {
+   "url": "https://www.gnict.org/blog/130/%EA%B8%80/%EA%B5%AC%EA%B8%80-turboquant%EC%99%80-nvidia-kvtc-kv-cache-%EC%95%95%EC%B6%95-%EA%B8%B0%EC%88%A0%EC%9D%B4-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%B0%98%EB%8F%84%EC%B2%B4-%EC%A3%BC%EA%B0%80%EB%A5%BC-%ED%9D%94%EB%93%A0-%EC%9D%B4%EC%9C%A0",
+   "title": "구글 TurboQuant와 NVIDIA KVTC, KV Cache 압축 기술이 메모리 반도체 주가를 흔든 이유 - (사)경남인공지능ICT협회",
+   "content": "### 1. KV Cache란 무엇인가?\n\nKV Cache는 Transformer 기반 대형 언어 모델(LLM)이 긴 대화를 빠르게 생성하기 위해 사용하는 필수 단기 메모리 기법입니다. 이름 그대로 Key(K)와 Value(V)를 캐싱해 놓는다는 의미죠.\n\n#### 왜 필요한가?\n\nTransformer의 Attention 메커니즘은 새 토큰을 생성할 때마다 지금까지 나온 모든 이전 토큰과 다시 계산해야 합니다. 예를 들어 1000번째 토큰을 만들 때, 앞의 999개 토큰 모두와 Attention을 다시 계산하면 속도가 매우 느려집니다. 특히 긴 대화나 문서 요약에서 문제가 심각해집니다.\n\n#### KV Cache는 어떻게 해결하나?\n\n한 번 계산한 이전 토큰들의 Key와 Value를 GPU 메모리에 저장해 두고, 다음 토큰 생성 시에는 저장된 KV만 재사용합니다. 새로운 토큰의 K와 V만 추가하면 되므로 계산량이 크게 줄어듭니다.\n\n간단한 예시:\n\ntext [...] 한 줄 요약: KV Cache는 LLM의 “단기 작업 기억(Working Memory)”이지만, 길어질수록 메모리 폭탄이 됩니다.\n\n### 2. NVIDIA KVTC (KV Cache Transform Coding)\n\nNVIDIA Research가 2025년 말 공개하고 2026년에 주목받은 기술입니다.\n\n핵심 아이디어: JPEG·비디오 코덱에서 쓰는 Transform Coding 기법을 KV Cache에 적용.\n\n주요 과정:\n\n PCA(주성분 분석)로 KV 데이터의 상관관계를 제거하고 중요한 특징만 정렬 (모델당 한 번 calibration)\n 동적 프로그래밍으로 각 차원에 최적 메모리 예산 자동 할당\n 엔트로피 코딩으로 중복 완전 제거\n\n주요 성과:\n\n 평균 20배 압축 (특정 경우 40배 이상)\n 정확도 손실 1% 미만\n Time-to-First-Token (TTFT) 최대 8배 향상\n on-GPU뿐 아니라 off-GPU(CPU/디스크) 저장도 지원 [...] arrow\\_back목록으로\n\n# 구글 TurboQuant와 NVIDIA KVTC, KV Cache 압축 기술이 메모리 반도체 주가를 흔든 이유\n\n박종영\n\n어제와 오늘 언론에서 다음과 같은 기사가 쏟아졌습니다.\n\n “구글 신기술 ‘터보퀀트’ 뭐길래…삼성전자·SK하이닉스 주가 털썩”\n “엔비디아 연구진, KVTC 신기술로 LLM 메모리 20~40배 절약”\n\n도대체 어떤 기술이기에 AI 인프라를 뒤흔들고, 메모리 반도체 주가까지 영향을 미쳤을까요?\n\n2026년 3월, AI 인프라 분야에서 가장 핫한 키워드는 KV Cache 압축입니다. Google의 TurboQuant와 NVIDIA의 KVTC가 연이어 주목받으면서, “AI 메모리 수요가 줄어들 수 있다”는 우려가 시장에 퍼졌죠.\n\n오늘은 LLM의 핵심 병목인 KV Cache가 무엇인지부터 시작해, 두 신기술의 원리·차이점, 그리고 이 기술들이 AI 산업과 우리 일상에 미칠 영향을 정리해드리겠습니다.",
+   "published_date": null,
+   "score": 0.38998842
+  },
+  {
+   "url": "https://www.businesskorea.co.kr/news/articleView.html?idxno=266839",
+   "title": "TurboQuant Sparks Memory Efficiency Improvement to Increase the Demand - Businesskorea",
+   "content": "(HBM) where KV cache is stored, would decrease with the commercialization of TurboQuant technology. [...] The research results recently disclosed by Google via its blog re-highlighted a paper published by the same research team in April of last year. Lee Hyung-soo, CEO of HSL Partners and a semiconductor investment expert, said in a phone interview, “Since TurboQuant technology was already published as a paper a year ago, it can be interpreted that the market created a basis for profit-taking,” adding, “Even if 1/6 compression is possible in situations where KV cache will surge in the future, such",
+   "published_date": null,
+   "score": 0.25487554
+  },
+  {
+   "url": "https://kr.investing.com/equities/sk-hynix-inc-opinion",
+   "title": "SK Hynix Inc (000660) 주식 분석 & 의견",
+   "content": "| 종목명 | 종가 | 변동 % | 거래량 |  |\n ---  --- \n| 동양고속 | 29,250 | +30.00% | 98.96K |  |\n| 천일고속 | 180,300 | +29.99% | 24.96K |  |\n| 예선테크 | 893 | +29.99% | 161.47K |  |\n| 국제약품 | 4,430 | +29.91% | 6.09M |  |\n| 알파칩스 | 13,360 | +29.58% | 578.94K |  |\n| HLB바이오스텝 | 4,820 | +29.05% | 5.48M |  |\n| SAMG엔터 | 22,700 | +26.60% | 720.85K |  | [...] aaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\nS&P 500 지수 이기기\n\n이 전략을 사용할 수 있는 주식\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\n테크 타이탄\n\n이 전략을 사용할 수 있는 주식\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\n반등을 꿈꾸는 한국 제약주\n\n이 전략을 사용할 수 있는 주식\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\n다우존스 지수 이기기\n\n이 전략을 사용할 수 있는 주식\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\n상위 가치주\n\n이 전략을 사용할 수 있는 주식\n\naaaa aaaaa aaaa a [...] aaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\n시장 움직일 중형주\n\n이 전략을 사용할 수 있는 주식\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\n워런 버핏이 선택한 최고의 주식\n\n이 전략을 사용할 수 있는 주식\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\n멕시코 증시 리더\n\n이 전략을 사용할 수 있는 주식\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\n최고의 브라질 주식\n\n이 전략을 사용할 수 있는 주식\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\naaaa aaaaa aaaa a\n\n전략 잠금 해제\n\n이탈리아 시장의 엘리트 주식",
+   "published_date": null,
+   "score": 0.22471868
+  }
+ ]
+}

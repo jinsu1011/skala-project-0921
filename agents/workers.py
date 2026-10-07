@@ -46,7 +46,8 @@ def _research(sub_state: dict, task: SubTask, instruction: str) -> tuple[object,
             for e in search_web(q, stance=stance, tech=t.tech_id, perspective=task.perspective, attempt=task.attempt):
                 seen.setdefault(e.evidence_id, e)
         evs = cap_origin_share(assign_origin_groups(list(seen.values())))
-        focus = f"{t.name}: {task.objective}" + (f" / 재시도 지시: {instruction}" if instruction else "")
+        focus = (f"{t.name}: {task.objective} (한국어로 2문장 이내, 기술 소개 말고 이 관점의 사실만)"
+                 + (f" / 재시도 지시: {instruction}" if instruction else ""))
         sents = summarize(evs[:20], focus, tag=f"{task.task_id}:{t.tech_id}:a{task.attempt}:summary")
         used = sorted({i for s in sents for i in s["evidence_ids"]})
         finding.by_tech[t.tech_id] = " ".join(f"{s['text'].rstrip('.')} [{', '.join(s['evidence_ids'])}]."

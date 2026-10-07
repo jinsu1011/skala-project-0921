@@ -97,7 +97,7 @@ class Citer:
                 title, org = split_site(e.title or site, PUBLISHER.get(e.source_group, e.source_group))
                 date = e.published_at or url_date(e.source_url) or f"{ACCESS_DATE} 접속"
                 title = title.replace("|", "·")
-                out.append(Reference(num=n, kind="web", text=f"{org}({date}). {title}. {site}, {e.source_url}",
+                out.append(Reference(num=n, kind="web", text=f"{org}({date}). {short_title(title)}. {e.source_url}",
                                      evidence_ids=sorted(set(ids))))
         return out
 
@@ -110,6 +110,12 @@ def _table(header: list[str], rows: list[list[str]], widths: str) -> str:
 
 def _ids(ids, n=4) -> str:
     return "[" + ", ".join(ids[:n]) + "]" if ids else ""
+
+
+def short_title(title: str, limit: int = 80) -> str:
+    """Page budget: long web titles are cut at a word boundary (the URL still identifies the source)."""
+    t = re.sub(r"\s+", " ", title).strip().rstrip(".")
+    return t if len(t) <= limit else t[:limit].rsplit(" ", 1)[0].rstrip(" -:·,") + "…"
 
 
 def _narrative(state: dict, revision: str) -> dict:
@@ -154,7 +160,13 @@ def _narrative(state: dict, revision: str) -> dict:
     return llm_json("generator", sys, json.dumps(payload, ensure_ascii=False), tag=f"report_writer:{bool(revision)}")
 
 
-NARRATIVE_SENTENCES = 4
+NARRATIVE_SENTENCES = 3
+EXTRA_SENTENCES = 1
+
+
+def cap_ids(text: str, n: int) -> str:
+    """Keep at most n evidence ids inside each [..] citation group."""
+    return ID_RE.sub(lambda m: "[" + ", ".join(x.strip() for x in m.group(1).split(",")[:n]) + "]", text or "")
 _SENT_END = re.compile(r"(?<=[^\d]\.)\s+(?=\S)")   # split after a sentence-final period (citations stay attached)
 
 
@@ -224,8 +236,6 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
             add(f"- {ct.sub(neutralize(g))}")
     add("- 우열이나 추천이 아니라 관점별 평가 차이와 그 근거를 정리한 결과이다(판단 보류는 근거 부족을 뜻함).")
     add("")
-    add("---pagebreak---")
-    add("")
     # ---------------- 1
     tq, it = (techs[0].tech_id, techs[1].tech_id) if len(techs) > 1 else (techs[0].tech_id, techs[0].tech_id)
     add("# 1. 분석 배경")
@@ -293,9 +303,9 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         if not b:
             add("근거 부족으로 개요를 만들지 못했다.")
             continue
-        for lab, val in (("작동 원리", b.principle), ("실험 조건", b.conditions),
-                         ("보고된 성능", b.reported_results), ("한계", b.limitations)):
-            add(f"- **{lab}**: {ct.sub(neutralize(first_sentences(val, 2)))}")
+        for lab, val, n in (("작동 원리", b.principle, 2), ("실험 조건", b.conditions, 1),
+                            ("보고된 성능", b.reported_results, 1), ("한계", b.limitations, 2)):
+            add(f"- **{lab}**: {ct.sub(neutralize(first_sentences(val, n)))}")
     add(f"## 3.{len(techs) + 1} 비교표")
     add(_table(["항목"] + [t.name for t in techs], [
         ["바꾸는 것", "데이터 표현(비트 수)", "저장 위치(메모리 계층)"][:1 + len(techs)],
@@ -306,9 +316,8 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     # ---------------- 4
     add("# 4. 관점별 평가")
     add("## 4.0 평가 기준")
-    add("기준마다 1점(부정적 평가가 많음)~5점(긍정적 평가가 많음)의 인식 점수를 설계서 C.6 Rubric의 근거 조건으로 매긴다. 점수는 기술의 품질이 아니라 "
-        "공개 자료에 나타난 평가의 방향이다. 해당 기술 고유 근거만 세고 같은 원 출처 계열은 하나로 센다. 근거가 1계열 이하인 기준은 판단 보류로 두고 계산에서 빼며, "
-        "빠진 가중치가 50%를 넘으면 관점 전체를 판단 보류로 한다. 가중치는 시장성 25/30/30/15, 이해관계자 집단별 25, 도메인 W1·W2 각 50(항목별 20)이다.")
+    add("기준마다 1~5점 인식 점수(공개 자료에 나타난 평가의 방향, 기술 품질 아님)를 C.6 Rubric 근거 조건으로 매긴다. 기술 고유 근거만 세고 같은 원 출처 계열은 하나로 센다. "
+        "근거 1계열 이하 기준은 판단 보류, 빠진 가중치가 50%를 넘으면 관점 전체를 판단 보류로 한다.")
     # 4.1 TRL
     add("## 4.1 기술 성숙도(TRL)")
     trl = state["trl_result"]
@@ -391,6 +400,16 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     if nar.get("domain"):
         add(ct.sub(neutralize(first_sentences(nar["domain"], NARRATIVE_SENTENCES))))
     add("")
+    # ---------------- 4.5 extra perspectives added by the Orchestrator plan (research agents)
+    extra = state.get("extra_findings", {})
+    if extra:
+        add("## 4.5 추가 관점(Orchestrator 동적 계획, 점수 없음)")
+        for tid, f in sorted(extra.items()):
+            for t in techs:
+                text = ct.sub(neutralize(cap_ids(first_sentences(f.by_tech.get(t.tech_id, ""), EXTRA_SENTENCES), 2)))
+                if text and CITE_RE.search(text):
+                    add(f"- {tid} {f.perspective} · {names[t.tech_id]}: {text}")
+        add("")
     # ---------------- 5
     add("# 5. 시사점")
     add("## 5.1 관점 간 일치·상충 표")
@@ -454,16 +473,6 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add("")
     add("2.0·1.0과 격자 경계는 절대 기준이 아니라 분류를 일관되게 하려고 미리 정한 값이므로, 각 값을 0.5씩 바꿨을 때 판정이 달라지는 칸 수를 함께 보고한다.")
     add("")
-    # ---------------- 4.x extra perspectives added by the Orchestrator plan (research agents)
-    extra = state.get("extra_findings", {})
-    if extra:
-        add("## 4.5 추가 관점(Orchestrator 동적 계획)")
-        for tid, f in sorted(extra.items()):
-            for t in techs:
-                text = ct.sub(neutralize(f.by_tech.get(t.tech_id, "")))
-                if text and CITE_RE.search(text):
-                    add(f"- {tid} {f.perspective} · {names[t.tech_id]}: {text}")
-        add("")
     # ---------------- 6
     add("# 6. 한계점")
     add("## 6.1 공개 정보 기반 추정의 한계")
@@ -534,15 +543,16 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     return "\n".join(L) + "\n", refs
 
 
-REF_FONT = 8.5
+REF_FONT = 8
 # Page budget (Notion: max 10 pages). Optional sub-sections dropped cumulatively, least important first. The four
 # perspective sections (4.x), SUMMARY, 5.1/5.3, 6.2 (bias-control results) and REFERENCE are never dropped.
 COMPACT_LEVELS: list[list[str]] = [
     [],
     ["후보 평가표", "기준값 민감도"],
     ["선정 검증 결과", "분석 방법의 한계"],
-    ["비교표", "두 진영의 접근", "분석 도메인과 문제 정의"],
-    ["조건별 시사점", "공개 정보 기반 추정의 한계"],
+    ["비교표", "두 진영의 접근", "분석 도메인과 문제 정의", "공개 정보 기반 추정의 한계"],
+    ["조건별 시사점"],
+    ["분석 질문과 가설", "선정 결과와 사유", "주요 상충 지점"],
 ]
 
 
@@ -618,8 +628,10 @@ def with_toc(md: str, pages: dict[str, int] | None = None) -> str:
     page (second render pass)."""
     body = re.sub(r"^# 목차\n.*?<!--toc-end-->\n\n", "", md, flags=re.S)
     body = re.sub(r"^# 목차\n.*?---pagebreak---\n\n", "", body, flags=re.S)   # older layout
-    rows = [[text, str(pages.get(text, "")) if pages else ""] for lvl, text in toc_entries(body) if lvl == 1]
-    toc = "# 목차\n\n" + _table(["장", "쪽"], rows, "13.0,3.0") + "\n<!--toc-end-->\n\n"
+    items = [[text, str(pages.get(text, "")) if pages else ""] for lvl, text in toc_entries(body) if lvl == 1]
+    half = (len(items) + 1) // 2   # two entries per row (column-wise order, REFERENCE stays the last cell)
+    rows = [items[i] + (items[i + half] if i + half < len(items) else ["", ""]) for i in range(half)]
+    toc = "# 목차\n\n" + _table(["장", "쪽", "장", "쪽"], rows, "6.5,1.5,6.5,1.5") + "\n<!--toc-end-->\n\n"
     return toc + body
 
 

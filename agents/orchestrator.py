@@ -19,6 +19,7 @@ from graph.runtime import OfflineCacheMiss, audit, llm_json
 from graph.state import Plan, SubTask
 
 MAX_TASKS = 8
+REVIEWER_RESERVE = 1   # keep >= 1 registry agent unassigned so a failed task can get an independent cross-review
 SPECIALIST = {wt: a.agent_id for a in REGISTRY.values() if (wt := a.worker_type) != "research"}
 OBJECTIVE = {"trl": "공개 근거로 TRL 하한·상한을 추정하고 각 경계를 독립 출처로 뒷받침한다",
              "market": "시장 규모·채택·생태계·비용 구조 기준으로 시장성을 근거 기반으로 평가한다",
@@ -96,6 +97,13 @@ def validate_plan(raw_tasks: list, tech_ids: list[str]) -> tuple[list[SubTask], 
     if len(minimum) + len(extra) > MAX_TASKS:
         repairs.append(f"작업 수 상한 {MAX_TASKS}개 초과 → 추가 관점 {len(minimum) + len(extra) - MAX_TASKS}개 제외")
         extra = extra[:max(0, MAX_TASKS - len(minimum))]
+    used = {t[2].assigned_agent for t in minimum + extra}
+    while extra and len(REGISTRY) - len(used) < REVIEWER_RESERVE:
+        drop = max(extra, key=lambda x: (x[0], x[1]))     # lowest priority, latest research task
+        extra.remove(drop)
+        used = {t[2].assigned_agent for t in minimum + extra}
+        repairs.append(f"검토자 풀 확보: 모든 Agent가 배정돼 우선순위가 가장 낮은 추가 관점 '{drop[2].perspective}'"
+                       f"({drop[2].assigned_agent}) 제외")
     ordered = sorted(minimum + extra, key=lambda x: (x[0], x[1]))
     out = [t.model_copy(update={"task_id": f"T{n:02d}"}) for n, (_, _, t) in enumerate(ordered, 1)]
     return out, repairs

@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache 비용 데이터",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:29:23+09:00",
+ "results": [
+  {
+   "url": "https://www.mindstudio.ai/blog/what-is-google-turboquant-kv-cache-compression",
+   "title": "What Is Google TurboQuant? The KV Cache Compression That Crashed Memory Chip Stocks | MindStudio",
+   "content": "TurboQuant is a KV cache quantization algorithm from Google DeepMind that compresses cache storage from 16 bits to 3 bits with minimal accuracy loss.\n The resulting improvements — 8x faster inference and 6x memory reduction on H100 GPUs — are significant enough to materially change AI infrastructure economics.\n The technique uses per-head calibration and outlier-aware compression to maintain quality, and is designed for hardware efficiency on real GPU architectures. [...] TurboQuant is a post-training quantization algorithm developed by researchers at Google DeepMind specifically targeting the KV cache. Its goal is to compress the 16-bit floating point values stored in the KV cache down to just 3 bits — roughly a 5x reduction in raw storage — while maintaining model accuracy that’s statistically indistinguishable from full precision. [...] The KV cache grows linearly with context length. A 1M-token context isn’t just 10x more expensive than 100K tokens — it’s 10x more expensive for KV cache alone, on top of the attention computation overhead. For Google to offer 1M+ context windows at scale, without costs that make the service economically untenable, they need exactly the kind of compression TurboQuant provides.",
+   "published_date": null,
+   "score": 0.74229145
+  },
+  {
+   "url": "https://www.analyticsvidhya.com/blog/2026/04/turboquant-google",
+   "title": "TurboQuant: Google’s KV Cache Optimization Explained",
+   "content": "The “Invisible” Infrastructure: Unlike previous research that required complex retraining, TurboQuant was designed to be data-oblivious. It could be dropped into any existing transformer model (like Google Gemini) to immediately slash costs and energy consumption. [...] This process has a hidden cost: full-precision quantization constants (a scale and a zero point) must be stored for every block. This storage is essential so the AI can later “unshave” or de-quantize the data. This adds 1 or 2 extra bits per number, which can eat up to 50% of your intended savings. Because every block needs its own scale and offset, you’re not just storing data but also storing the instructions for decoding it. [...] From Cloud to Consumer: By shrinking the “digital cheat sheet” of AI (the KV cache) down to just 3 bits per value, TurboQuant effectively “unclogged” the hardware bottleneck. This moved sophisticated AI from massive server farms to 16GB consumer devices like the Mac Mini, enabling high-performance LLMs to run locally and privately.",
+   "published_date": null,
+   "score": 0.60133666
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "## TurboQuant เป็นผู้นำในด้านตัวชี้วัดผลการดำเนินงาน\n\nTurboQuant ของ Google ประสบความสำเร็จในด้านประสิทธิภาพและการบีบอัดที่ก้าวล้ำ โดยสามารถบีบอัดข้อมูลเวกเตอร์ขนาด 32 บิต หรือ 16 บิต ให้เหลือเพียงประมาณ 3 บิต ด้วยอัตราการบีบอัดที่สูงถึง 6 เท่า ซึ่งช่วยลดการใช้พื้นที่หน่วยความจำของ KV Cache ในโมเดลขนาดใหญ่ลงเหลือเพียงหนึ่งในหกของระดับเดิมได้โดยตรง [...] Google Research เปิดตัว TurboQuant อัลกอริทึมบีบอัดเวกเตอร์ ลดการใช้หน่วยความจำ KV Cache ใน AI inference ได้ถึง 6 เท่า โดยไม่กระทบความแม่นยำ ประสิทธิภาพการประมวลผลเพิ่มขึ้นสูงสุด 8 เท่า  \n  \nTurboQuant ใช้ PolarQuant และ QJL จัดการ KV Cache ลดภาระหน่วยความจำ ช่วยให้รันโมเดลใหญ่ขึ้นบนอุปกรณ์ที่มีข้อจำกัด ส่งผลดีต่อ HBM แต่กระทบ Server DRAM และ NAND Flash เล็กน้อย [...] ด้วยการผสานพลังของเทคโนโลยีพื้นฐานสองประการ TurboQuant จึงสามารถบีบอัด KV Cache ได้อย่างมีประสิทธิภาพสูงสุด โดยไม่มีภาระหน่วยความจำเพิ่มเติม (zero additional memory overhead) และแทบจะไม่ส่งผลกระทบต่อความแม่นยำในการประมวลผล",
+   "published_date": null,
+   "score": 0.58777803
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261728273-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "อัลกอริทึมการบีบอัด TurboQuant ของ Google คืออะไร? และจะส่งผลกระทบต่ออุตสาหกรรมชิปจัดเก็บข้อมูลสำหรับ AI อย่างไร?",
+   "content": "## TurboQuant เป็นผู้นำในด้านตัวชี้วัดผลการดำเนินงาน\n\nTurboQuant ของ Google ประสบความสำเร็จในด้านประสิทธิภาพและการบีบอัดที่ก้าวล้ำ โดยสามารถบีบอัดข้อมูลเวกเตอร์ขนาด 32 บิต หรือ 16 บิต ให้เหลือเพียงประมาณ 3 บิต ด้วยอัตราการบีบอัดที่สูงถึง 6 เท่า ซึ่งช่วยลดการใช้พื้นที่หน่วยความจำของ KV Cache ในโมเดลขนาดใหญ่ลงเหลือเพียงหนึ่งในหกของระดับเดิมได้โดยตรง [...] Google Research เปิดตัว TurboQuant อัลกอริทึมบีบอัดเวกเตอร์ ลดการใช้หน่วยความจำ KV Cache ใน AI inference ได้ถึง 6 เท่า โดยไม่กระทบความแม่นยำ ประสิทธิภาพการประมวลผลเพิ่มขึ้นสูงสุด 8 เท่า  \n  \nTurboQuant ใช้ PolarQuant และ QJL จัดการ KV Cache ลดภาระหน่วยความจำ ช่วยให้รันโมเดลใหญ่ขึ้นบนอุปกรณ์ที่มีข้อจำกัด ส่งผลดีต่อ HBM แต่กระทบ Server DRAM และ NAND Flash เล็กน้อย [...] ด้วยการผสานพลังของเทคโนโลยีพื้นฐานสองประการ TurboQuant จึงสามารถบีบอัด KV Cache ได้อย่างมีประสิทธิภาพสูงสุด โดยไม่มีภาระหน่วยความจำเพิ่มเติม (zero additional memory overhead) และแทบจะไม่ส่งผลกระทบต่อความแม่นยำในการประมวลผล",
+   "published_date": null,
+   "score": 0.58777803
+  },
+  {
+   "url": "https://www.zdnet.com/article/what-googles-turboquant-can-and-cant-do-for-ais-spiraling-cost",
+   "title": "What Google's TurboQuant can and can't do for AI's spiraling cost - ZDNET",
+   "content": "They tested TurboQuant by applying it to Meta Platforms’s open-source Llama 3.1-8B AI model, and found that “TurboQuant achieves perfect downstream results across all benchmarks while reducing the key value memory size by a factor of at least 6x” — a six-fold reduction in the amount of KV cache needed.\n\nThe approach also differs from other methods for compressing the KV cache, such as the approach taken last year by DeepSeek, which constrained key and value searches to speed up inference. [...] Also: How AI has suddenly become much more useful to open-source developers\n\nQuantization is a form of data compression that uses fewer bits to represent the same value. In the case of TurboQuant, the focus is on what’s called the “key-value cache,” or, for shorthand, “KV cache,” one of the biggest memory hogs of AI.\n\nWhen you type into a chatbot such as Google’s Gemini, the AI has to compare what you’ve typed to a repository of measures that serve as a kind of database. [...] That’s not good enough, observed Zandieh. The KV cache is a living digest of what’s learned at “inference time,” when people are typing to an AI bot, and the keys and values are changing. So, quantization has to happen fast enough and accurately enough to keep the cache small while also staying up to date. The “turbo” in TurboQuant implies this is a lot faster than traditional compile-time quantization.\n\n## Two-stage approach",
+   "published_date": null,
+   "score": 0.57780564
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261723403-micron-stock-price-declining-google-turboquant-striking-tradingkey",
+   "title": "หุ้น Micron ปรับตัวร่วงลง การโจมตีอย่างแม่นยำโดย Google TurboQuant? อาณาจักรหน่วยความจำ AI ของ Micron กำลังเผชิญกับบททดสอบ",
+   "content": "นวัตกรรมหลักของ TurboQuant คือการจัดการกับปัญหาคอขวดของ Key-Value cache (KV cache) ในช่วงขั้นตอนการประมวลผล (inference phase) ของโมเดล AI เนื่องจากการขยายตัวของหน้าต่างบริบท (context windows) ในโมเดล AI ขนาดใหญ่ทำให้ข้อมูลย้อนหลังที่จัดเก็บใน KV cache เพิ่มขึ้นแบบทวีคูณ กลายเป็นอุปสรรคสำคัญที่จำกัดทั้งประสิทธิภาพและต้นทุน [...] ด้วยสถาปัตยกรรมสองขั้นตอนที่ประกอบด้วย Polar Quantization (PolarQuant) และ Error Correction (QJL) อัลกอริทึมใหม่ของ Google นี้สามารถบีบอัดการใช้หน่วยความจำของ KV cache ให้เหลือเพียง 1 ใน 6 ของขนาดเดิม โดยไม่สูญเสียความแม่นยำของโมเดล และช่วยเพิ่มประสิทธิภาพได้สูงสุดถึง 8 เท่า [...] Bank of America ( BAC) นักวิเคราะห์ Vivek Arya ระบุในรายงานฉบับล่าสุดว่า แม้อุปสงค์ที่เกิดขึ้นใหม่จาก eSSD สำหรับศูนย์ข้อมูลและการถ่ายโอนภาระงาน KV cache ของ Nvidia จะช่วยสนับสนุนตลาด NAND flash จริง แต่ข้อมูลจาก Applied Materials แสดงให้เห็นว่าอุปสงค์ที่เกี่ยวข้องกับ KV cache คิดเป็นสัดส่วนเพียงเลขหลักเดียวของตลาด NAND ทั้งหมด ซึ่งทำให้ Micron ยากที่จะรักษาอัตรากำไรขั้นต้นที่สูงกว่า 80% ได้ในระยะยาว",
+   "published_date": null,
+   "score": 0.57006866
+  },
+  {
+   "url": "https://tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27. [...] ## TurboQuant Leads in Performance Metrics\n\nGoogle's TurboQuant has achieved breakthrough compression and efficiency performance, compressing 32-bit or 16-bit vector data into approximately 3 bits. With a compression ratio as high as 6x, it can directly reduce the memory footprint of large model KV Cache to one-sixth of its original level. [...] Google's TurboQuant algorithm significantly compresses AI inference memory, reducing Key-Value Cache (KV Cache) occupancy by up to 6x and boosting computational efficiency up to 8x on H100 GPUs, with minimal precision loss. While targeting inference, it's unlikely to impact HBM or NAND Flash demand directly. The technology could lower AI operational costs, enabling new use cases and driving exponential growth in total AI demand, paradoxically increasing overall memory requirements. Challenges",
+   "published_date": null,
+   "score": 0.5501488
+  },
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/261728257-what-is-google-turboquant-compression-algorithm-how-impact-ai-memory-chip-industry-tradingkey",
+   "title": "What Is Google TurboQuant Compression Algorithm? How Does It Affect the AI Memory Chip Industry?",
+   "content": "TurboQuant is a new vector compression algorithm officially released by Google Research in March 2026, targeting the core pain point in the inference phase of large language models (LLMs) and vector search engines—the excessive memory consumption of the Key-Value Cache (KV Cache). Technical details will be formally released and peer-reviewed as an academic paper at ICLR 2026 (International Conference on Learning Representations) from April 23 to 27. [...] ## TurboQuant Leads in Performance Metrics\n\nGoogle's TurboQuant has achieved breakthrough compression and efficiency performance, compressing 32-bit or 16-bit vector data into approximately 3 bits. With a compression ratio as high as 6x, it can directly reduce the memory footprint of large model KV Cache to one-sixth of its original level. [...] Google's TurboQuant algorithm significantly compresses AI inference memory, reducing Key-Value Cache (KV Cache) occupancy by up to 6x and boosting computational efficiency up to 8x on H100 GPUs, with minimal precision loss. While targeting inference, it's unlikely to impact HBM or NAND Flash demand directly. The technology could lower AI operational costs, enabling new use cases and driving exponential growth in total AI demand, paradoxically increasing overall memory requirements. Challenges",
+   "published_date": null,
+   "score": 0.5501488
+  }
+ ]
+}

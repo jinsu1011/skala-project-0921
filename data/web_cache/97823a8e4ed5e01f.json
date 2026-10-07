@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache competition/ecosystem",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:29:28+09:00",
+ "results": [
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep2",
+   "title": "[AI Ecosystem] The real bottleneck: Data, not compute – SK hynix Newsroom",
+   "content": "One of the biggest challenges in this process is the KV cache\\. Each time a Transformer\\-based model generates a token, it retains key information from all preceding tokens in memory as key and value vectors. As the sequence grows, so does the cache. In some long-context inference environments, the memory required of the KV cache can even exceed the roughly 140 GB required to hold the weight of a 70-billion-parameter model. [...] \\ KV cache: A technique that stores and reuses previously generated key and value vectors, avoiding the inefficiency of repeatedly performing the same computations  \n \\ Transformer: A neural network architecture introduced by Google in 2017. It uses self-attention to understand context and forms the foundation of nearly all modern LLMs. [...] TurboQuant takes a different approach. It first applies a mathematical operation known as a rotation to transform different inputs into similar distributions, then applies a set of predefined rules. The idea is similar to standardizing customers’ body shapes before fitting them with the same size of clothing, rather than tailoring a new outfit for every customer. According to the research, TurboQuant reduces a KV cache stored at 16 bits to around 3-4 bits, lowering memory usage to roughly",
+   "published_date": null,
+   "score": 0.6030211
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] The ITME remote manager operates as the central orchestration layer on the CXL-hybrid memory server, specifically tasked with managing the CXL-hybrid memory device and coordinating the prefetching of KV cache chunks, model weights, and prefix caches to decouple SSD access latency from the inference critical path. When the host GPU server offloads data in coarse-grained chunks, the manager treats these transfers as structured memory objects and assigns sequential identifiers to each, [...] Once chunks are staged in the CPU staging buffer, the system balances a fundamental trade-off between block-wise and layer-wise transfer granularities. While a block-wise approach enables rapid slot reclamation through a single DMA operation, it serializes execution and leaves the GPU idle until the entire block transfer completes. To align with model weight streaming and maximize pipeline efficiency, ITME adopts a layer-wise prefetching strategy for the KV cache. This strategy enables a",
+   "published_date": null,
+   "score": 0.52393246
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep3",
+   "title": "[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance – SK hynix Newsroom",
+   "content": "Data that requires substantial memory capacity, such as the KV cache, and memory-intensive operations, such as the attention layer\\, are representative use cases for this type of architecture. With high-speed, flexible interconnects and flexible, compute-capable memory configurations, these workloads can be assigned to separate memory resources or near-memory acceleration domains. This reduces the burden on GPUs/NPUs/TPUs to retrieve and process all data directly, while allowing devices to [...] The compute-memory disparity becomes even more pronounced with large language models(LLMs). Each time an LLM generates a token, it refers to the previous context and handles vast amounts of intermediate data through the KV cache\\ and attention operations. As models reason for longer periods and maintain longer contexts, their requirements for memory capacity and bandwidth\\ drastically increase. The memory bottleneck becomes larger and larger as these memory demands increase. No matter how fast [...] NVLink and NVSwitch provide high-bandwidth connectivity within GPU clusters. When large-scale AI models run across multiple GPUs and nodes, intermediate data such as model parameters, activations, and the KV cache must move between GPUs. If GPU-to-GPU connectivity is slow or inflexible, overall processing performance can suffer regardless of how fast each individual GPU is.",
+   "published_date": null,
+   "score": 0.51032627
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "### Results\n\nThe table below shows accuracy on competition math, where KV cache compression matters most. For AIME 2024 and AIME 2025 the KV budget is 2,048 tokens — one-sixteenth of what a full 32K-token trace would otherwise cache; for MATH500 it is 512. All methods run at the same budget. [...] The hard part of KV cache compression is not choosing which tokens to keep — it is two collisions with production infrastructure. Existing methods need historical attention scores, but the FlashAttention kernel never writes those scores into GPU memory. And paged attention reclaims memory only when a block holds no KV at all — yet after token eviction the survivors leave almost every block partially occupied, so the \"freed\" memory never actually comes back.\n\nContents [...] When a Transformer generates a token, it computes a query, a key, and a value vector; the new query attends over all previous keys and values to read the model's own history. The KV cache is what makes this affordable: each token's K and V are computed once and saved, and every later step reuses them instead of recomputing — O(n) work per step instead of O(n²). But nothing ever shrinks it: every generated token appends new K and V rows across all layers and heads.",
+   "published_date": null,
+   "score": 0.39501804
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-sandisk-begin-global-233600187.html",
+   "title": "SK hynix and Sandisk Begin Global Standardization of Next-Generation Memory 'HBF'",
+   "content": "\"The key to AI infrastructure is to go beyond the performance competition of individual technologies and to optimize the entire ecosystem,\" said Ahn Hyun, President and Chief Development Officer. \"Through HBF technology standardization the company will establish a cooperative system and present an AI-era optimized memory architecture to create new value for customers and partners.\" [...] In the AI inference market, the role of a total memory solution company that can provide both HBM and HBF is becoming more important as system level optimization of CPU, GPU, and memory determines the overall competitiveness rather than the performance of a single chip.\n\nIn line with this, SK hynix and Sandisk are proactively pursuing HBF solution's standardization and commercialization based on their design, packaging and mass production experience in HBM and NAND. [...] About SK hynix Inc.  \nSK hynix Inc., headquartered in Korea, is the world's top-tier semiconductor supplier offering Dynamic Random Access Memory chips (\"DRAM\") and flash memory chips (\"NAND flash\") for a wide range of distinguished customers globally. The Company's shares are traded on the Korea Exchange, and the Global Depository shares are listed on the Luxembourg Stock Exchange. Further information about SK hynix is available at www.skhynix.com, news.skhynix.com.\n\nCision\n\nCision",
+   "published_date": null,
+   "score": 0.3399377
+  },
+  {
+   "url": "https://finance.yahoo.com/news/samsung-sk-hynix-double-down-155542331.html",
+   "title": "Samsung and SK hynix double down on HBM4 and CXL technologies to counter Chinese competition",
+   "content": "To counter these competitive pressures, Samsung and SK hynix are doubling down on advanced memory technologies like HBM4 and CXL. These innovations offer substantial performance enhancements and are well-suited to AI-driven applications' high-demand, high-performance requirements. [...] This expansion is backed by China's significant investment in memory technology development, a trend further accelerated by U.S. export controls on semiconductors to China. These measures have pushed Chinese firms to ramp up their production efforts and refine their pricing strategies, creating stiff competition for established players like Samsung and SK hynix. [...] Leading memory chip manufacturers Samsung Electronics and SK hynix are reportedly shifting their strategies to focus on high-value technologies like High Bandwidth Memory 4 (HBM4) and Compute Express Link (CXL). This move is driven by an increasingly competitive memory market, where Chinese companies are expanding their production capabilities and employing aggressive pricing strategies to capture market share.",
+   "published_date": null,
+   "score": 0.26928434
+  },
+  {
+   "url": "https://www.tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] ในห่วงโซ่อุปทานศูนย์ข้อมูล AI หน่วยความจำและระบบจัดเก็บข้อมูลถือเป็นสิ่งที่ไม่สามารถทดแทนได้ โดยตัวเร่งความเร็ว AI จำเป็นต้องใช้หน่วยความจำแบนด์วิดท์สูงเพื่อรับส่งข้อมูล ขณะที่ระบบการฝึกอบรมและการประมวลผลเชิงอนุมานต้องพึ่งพา DRAM ความจุสูงและ SSD ระดับองค์กรเพื่อจัดเก็บโมเดล ข้อมูล และผลลัพธ์ระหว่างการประมวลผล ในกลุ่มผู้เล่นรายหลัก ไมครอน (MU) มีบทบาทครอบคลุมทั้ง DRAM, HBM และ NAND ในขณะที่แซนดิสก์ (SNDK) มุ่งเน้นหลักไปที่หน่วยความจำแฟลช NAND และระบบจัดเก็บข้อมูลศูนย์ข้อมูลระดับองค์กร [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.26168382
+  },
+  {
+   "url": "https://tradingkey.com/th/analysis/stocks/us-stocks/261722434-samsung-hk-hynix-memory-hbm-dram-google-turboquant-semi-conductor-tradingkey",
+   "title": "Samsung และ SK Hynix ทรุดตัวลงอย่างหนัก หลัง Google ‘TurboQuant’ สร้างความปั่นป่วนในกลุ่มเซมิคอนดักเตอร์: หรือจะเป็นเพียง ‘สัญญาณหลอก’?",
+   "content": "ในมุมมองทางเทคนิค เทคโนโลยีนี้สามารถใช้ได้กับการใช้ VRAM แบบไดนามิกระหว่างกระบวนการประมวลผล (Inference) เท่านั้น (โดยหลักคือ KV Cache) และไม่เกี่ยวข้องกับน้ำหนักของโมเดล (Model Weights) แต่อย่างใด กล่าวอีกนัยหนึ่งคือ ความสำเร็จที่ยิ่งใหญ่ที่สุดของเทคโนโลยีนี้คือการปรับปรุงประสิทธิภาพการดำเนินงาน แต่ไม่สามารถลดพื้นที่จัดเก็บข้อมูลที่โมเดลขนาดใหญ่ต้องการได้ [...] การเปิดตัวเทคโนโลยีนี้มีแนวโน้มสูงที่จะช่วยลดความร้อนแรงของตลาดเซมิคอนดักเตอร์ในปัจจุบัน และช่วยลดฟองสบู่การประเมินมูลค่าของหุ้นกลุ่มหน่วยความจำ ซึ่งพิสูจน์ให้เห็นว่าความต้องการหน่วยความจำอาจไม่ได้ไร้ขีดจำกัดเสมอไป ทั้งนี้ ด้วยการเปิดตัวเทคโนโลยีที่คล้ายคลึงกันและความก้าวหน้าของอัลกอริทึม การเติบโตของความต้องการพื้นที่จัดเก็บข้อมูลอาจเผชิญกับภาวะคอขวดได้",
+   "published_date": null,
+   "score": 0.26168382
+  }
+ ]
+}
