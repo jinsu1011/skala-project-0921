@@ -25,6 +25,7 @@
 - **같은 원래 Agent가 정확히 1회 재시도** : `dispatch_retry`가 실패한 task만 원 Agent에게 attempt 1로 보낸다(관련 없는 Worker는 재실행하지 않음). attempt 1 후에도 미달이면 `FAILED_AFTER_RETRY`/`PARTIAL`로 기록하고 보고서 한계점에 싣는다(코드 규칙 `MAX_FEEDBACK_RETRY = 1`)
 - **Worker 실패 Fall-back** : Worker 예외는 그래프를 멈추지 않고 `status="error"` WorkerResult가 된다 → attempt 0이면 같은 Agent로 1회 재시도, attempt 1도 실패하면 이전 결과를 `PARTIAL`로 유지하거나 없으면 `excluded`(판단 보류 표시) 후 **계속 진행**
 - **확증 편향 방지 전략** : 두 기술에 같은 찬반 질의 템플릿·검색 한도, 기술명이 명시된 근거만 찬반으로 계산, 재보도 기사는 원 출처 계열로 묶어 한 계열 ≤ 50%, 개발사 발언은 이해관계자 점수 제외, Cross Reviewer가 출처 편향·단일 계열 지배를 독립 점검
+- **보고서 10장 이내 자동 맞춤** : `pdf_renderer`가 렌더링한 PDF 쪽수를 세어 10쪽을 넘으면 부가 절(후보 평가표 → 민감도 → 선정 검증 상세 → 분석 방법 한계 → …)을 정해진 순서로 빼고 절 번호·인용 번호·REFERENCE를 다시 매긴다. SUMMARY, 4개 관점 평가, 일치·상충 표, 가설 판정, 확증편향 방지 결과, REFERENCE는 빼지 않는다. 목차는 장 단위로 SUMMARY와 같은 쪽에 두고, REFERENCE는 8.5pt로 조판한다
 - **보고서 품질 평가 (Hybrid)** : `report_quality_evaluator` = 결정적 검사 + LLM Judge
   - Groundedness : 근거 없는 문장 0건, 본문 인용 ↔ REFERENCE 일치 (코드) + LLM 1~5점
   - 중립성 : 우열·추천 어휘 사전 0건 (코드) + LLM 1~5점
@@ -71,29 +72,10 @@
 | 종료 보장 | 피드백 재시도 task당 정확히 1회, Cross-Review 1단계·최대 2명, 보고서 재작성 1회, 검색 재시도 2회, `max_steps` 40(제어 노드 예산), `recursion_limit` 80 |
 
 ## Architecture
-```mermaid
-flowchart TD
-    H([Human 기술 선정]) --> RAG[RAG 준비<br/>index · selection_validator · hybrid retrieval ⇄ rewrite · tech_research]
-    RAG --> O{{Orchestrator<br/>동적 계획}}
-    O --> ST[/Dynamic SubTasks<br/>T01..Tn, assigned_agent/]
-    ST -- "Send × n" --> W1[Worker T01] & W2[Worker T02] & Wn[Worker Tn]
-    W1 & W2 & Wn --> R[[Reducer · result_aggregator<br/>최신 attempt]]
-    R --> S[Synthesizer]
-    S --> J{Perspective Judge}
-    J -- PASS --> RW[Report Writer]
-    J -- "FAIL (task_id)" --> RR{Retry Router<br/>attempt==0? 원 Agent 확인}
-    RR --> UA[/Unused Agents<br/>Registry − used/]
-    UA -- "Send ≤ 2" --> CR[Cross Reviewer<br/>REVIEW MODE]
-    RR -. "unused 없음" .-> A0
-    CR --> A0[Agent 0<br/>feedback_retry_coordinator]
-    A0 -- "RetryTask attempt 1" --> SW[Same Original Worker]
-    SW --> R
-    J -- "attempt 1도 FAIL" --> FR[FAILED_AFTER_RETRY<br/>한계 기록] --> RW
-    RW --> Q{Report Quality Evaluator<br/>Groundedness · 중립성 · 편향 · 커버리지}
-    Q -- "서술 문제 (1회)" --> RW
-    Q -- "근거 문제 · attempt 0" --> RR
-    Q -- PASS / 한도 도달 --> PDF[PDF Renderer] --> E([END])
-```
+![Orchestrator-Workers 전체 그래프. 실선은 항상 지나는 경로, 점선은 조건에 따라 갈리는 경로, 마름모·육각형은 다음 경로를 정하는 노드](docs/graph_overview.png)
+
+- 흐름 : RAG 준비 → Orchestrator(동적 SubTask) → Dynamic Workers(`Send`) → Reducer → Synthesizer → Judge → (PASS) Report Writer → Report Quality Evaluator → PDF → END / (FAIL) Retry Router → Unused Agents → Cross Reviewer → Agent 0 → Same Original Worker → Reducer → Synthesizer → Judge
+- 구현 확인 : 실제 코드에서 컴파일한 그래프를 `draw_mermaid()`로 그린 [`docs/graph.png`](docs/graph.png)가 위 설계 그림과 같은 구조임을 확인했다(`uv run python scripts/render_graph.py`, 설계 그림은 `bash docs/render_graphs.sh`)
 - 노드 19개: RAG 준비 8개 + `orchestrator, worker, result_aggregator, synthesizer, perspective_judge, retry_router, cross_reviewer, feedback_retry_coordinator, report_writer, report_quality_evaluator, pdf_renderer`
 - 용어 정의
   - **Orchestrator** = 초기 동적 작업 계획자

@@ -1,3 +1,5 @@
+> **안내 (2026-10-07)** : 이 문서는 RAG 과제(정적 4관점 병렬 Fan-out, 노드 18개) 당시 설계 기록이다. 현재 구현은 Orchestrator-Workers 구조이며 최신 설명은 저장소 루트 `README.md`를 따른다.
+
 # 채점 Rubric 표본 점검 (C.6)
 
 설계서 C.6에 따라 관점마다 기술별 기준 2개를 골라, 점수·근거 계열 수·입장 표시가 Rubric대로인지 확인했다. 표본은 결과를 보기 전에 정한 규칙으로 골랐다(시장성·이해관계자: 가중치가 큰 기준 2개, 도메인: W1 정확도·W2 지연, TRL: 하한·상한). 원천은 `outputs/state_snapshot.json`이고 `uv run python scripts/rubric_check.py`로 다시 만든다.

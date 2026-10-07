@@ -172,7 +172,10 @@ def _heading_pages(pdf, headings: list[str]) -> dict[str, int]:
         # extracted text drops/splits spaces, so compare with all whitespace removed
         texts = [re.sub(r"\s+", "", p.get_text()) for p in doc]
     toc_page = next((i for i, t in enumerate(texts) if "목차" in t), 0)
-    start = toc_page + 1
+    # the compact 목차 shares its page with SUMMARY: search that page only after the TOC's last row (REFERENCE)
+    head, sep, tail = texts[toc_page].partition("REFERENCE")
+    texts[toc_page] = tail if sep else ""
+    start = toc_page
     for h in headings:
         key = re.sub(r"\s+", "", h)
         for i in range(start, len(texts)):
@@ -197,14 +200,26 @@ def _blank_pages(pdf) -> list[int]:
     return out
 
 
+PAGE_LIMIT = 10   # Notion: 보고서 최대 10장
+
+
+def _page_count(pdf) -> int:
+    import pymupdf
+
+    with pymupdf.open(pdf) as doc:
+        return doc.page_count
+
+
 def pdf_renderer(state: dict) -> dict:
+    """Render the SKALA-template PDF within PAGE_LIMIT pages. If the full report is longer, optional sub-sections are
+    dropped in a fixed order (agents.report_writer.COMPACT_LEVELS) and citations / REFERENCE are renumbered, so the
+    four perspective sections, SUMMARY and REFERENCE are always kept."""
+    from agents.report_writer import COMPACT_LEVELS, check_report, compact_report, toc_entries, with_toc
     from report.docx_builder import CoverInfo, ReportBuilder, docx_to_pdf
 
     team = config()["team"]
     out = ROOT / "outputs"
     stem = output_stem()
-    from agents.report_writer import toc_entries, with_toc
-
     md_path = out / f"{stem}.md"
     md_path.parent.mkdir(parents=True, exist_ok=True)
     cover = CoverInfo(title="KV cache 최적화 기술 다관점 평가 보고서",
@@ -217,22 +232,25 @@ def pdf_renderer(state: dict) -> dict:
         docx = rb.save(out / f"{stem}.docx")
         return docx_to_pdf(docx, out / f"{stem}.pdf")
 
-    # pass 1 renders with an empty page column, pass 2 fills the pages found in the PDF (same layout)
-    md = with_toc(state["report_markdown"])
-    pdf = build(md)
-    pages = _heading_pages(pdf, [t for _, t in toc_entries(state["report_markdown"])])
-    md = with_toc(state["report_markdown"], pages)
-    pdf = build(md)
+    for level in range(len(COMPACT_LEVELS)):
+        body, refs, dropped = compact_report(state["report_markdown"], state.get("references", []), level)
+        # pass 1 renders with an empty page column, pass 2 fills the pages found in the PDF (same layout)
+        pdf = build(with_toc(body))
+        pages = _heading_pages(pdf, [t for _, t in toc_entries(body)])
+        md = with_toc(body, pages)
+        pdf = build(md)
+        n_pages = _page_count(pdf)
+        if n_pages <= PAGE_LIMIT:
+            break
     blank = _blank_pages(pdf)
     md_path.write_text(md.rstrip() + "\n")
     dst = ROOT / "deliverables" / pdf.name
     shutil.copy(pdf, dst)
     warns = [f"PDF 빈 페이지: {blank}"] if blank else []
-    import pymupdf
-
-    with pymupdf.open(pdf) as doc:
-        n_pages = doc.page_count
-    if n_pages > 10:
-        warns.append(f"PDF {n_pages}쪽: 제출 한도 10장 초과")
-    return {"report_pdf_path": str(pdf), "warnings": warns, "audit_log": audit("pdf_renderer", blank_pages=blank, pages=n_pages, pdf=str(pdf.relative_to(ROOT)),
-                                                            copy=str(dst.relative_to(ROOT)))}
+    if n_pages > PAGE_LIMIT:
+        warns.append(f"PDF {n_pages}쪽: 압축 후에도 제출 한도 {PAGE_LIMIT}장 초과")
+    left = check_report(body, refs)
+    warns += [f"분량 압축 후 보고서 검사: {x}" for x in left]
+    return {"report_markdown": body, "references": refs, "report_pdf_path": str(pdf), "warnings": warns,
+            "audit_log": audit("pdf_renderer", blank_pages=blank, pages=n_pages, compact_level=level, dropped=dropped,
+                               pdf=str(pdf.relative_to(ROOT)), copy=str(dst.relative_to(ROOT)))}

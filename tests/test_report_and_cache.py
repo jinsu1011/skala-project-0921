@@ -90,7 +90,8 @@ def test_markdown_and_pdf_generation(tmp_path, monkeypatch):
     assert pdf.exists() and pdf.stat().st_size > 10_000
     written = (tmp_path / "outputs" / f"{plat.output_stem()}.md").read_text()
     assert written.startswith("# 목차") and written.endswith(md)          # TOC page + report body
-    assert "| **SUMMARY** |  | 3 |" in written and "| **4. 관점별 평가** |  | 3 |" in written   # cover 1, TOC 2
+    assert "| SUMMARY | 2 |" in written and "| 4. 관점별 평가 | 2 |" in written   # cover 1, TOC + SUMMARY 2
+    assert out["audit_log"][0].detail["pages"] <= 10
     assert (tmp_path / "deliverables" / pdf.name).exists()
     assert out["report_pdf_path"] == str(pdf)
 
@@ -99,3 +100,26 @@ def test_trl_number_guard():
     from agents.report_writer import guard_numbers
     txt = "TurboQuant은 TRL 5–7로 추정됐다 [W:a]. TurboQuant은 TRL 3에서 7까지 추정됐다 [W:b]."
     assert guard_numbers(txt, [(5, 7), (5, 6)]) == "TurboQuant은 TRL 5–7로 추정됐다 [W:a]."
+
+
+def test_compact_report_drops_optional_sections_and_renumbers():
+    from agents.report_writer import compact_report
+    from graph.state import Reference
+
+    md = ("# SUMMARY\n- 요약 [2].\n# 2. 기술 선정\n## 2.1 선정 방식\n방식 [1].\n## 2.2 후보 평가표\n표 [3].\n"
+          "## 2.3 선정 결과\n결과 [4].\n# REFERENCE\n- [1] a\n")
+    refs = [Reference(num=i, kind="web", text=f"r{i}") for i in range(1, 5)]
+    body, refs2, dropped = compact_report(md, refs, 0)
+    assert dropped == [] and len(refs2) == 4
+    body, refs2, dropped = compact_report(md, refs, 1)
+    assert dropped == ["2.2 후보 평가표"] and "## 2.2 선정 결과" in body      # sub-sections renumbered
+    assert [r.num for r in refs2] == [1, 2, 3] and [r.text for r in refs2] == ["r1", "r2", "r4"]
+    assert "결과 [3]." in body and "요약 [2]." in body and "- [3] r4" in body  # citations follow the new numbers
+
+
+def test_first_sentences_keeps_paragraph_citation():
+    from agents.report_writer import first_sentences
+
+    txt = "첫 문장이다. 둘째 문장은 3.5배라고 한다. 셋째 문장이다 [P:a-1, P:a-2]."
+    assert first_sentences(txt, 2) == "첫 문장이다. 둘째 문장은 3.5배라고 한다 [P:a-1, P:a-2]."
+    assert first_sentences("하나다 [W:x]. 둘이다 [W:y].", 1) == "하나다 [W:x]."

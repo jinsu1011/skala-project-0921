@@ -104,6 +104,8 @@ def main(argv: list[str] | None = None) -> int:
             for k, v in final.items() if k in ("trl_result", "market_result", "stakeholder_result", "domain_result",
                                                "synthesis", "judge_scores", "perspective_retry_count", "warnings")}
     snap["evidence"] = [e.model_dump() for e in final.get("evidence", [])]
+    import pickle   # full final State for re-rendering the report without re-running the graph (outputs/logs is ignored)
+    (log_dir / "final_state.pkl").write_bytes(pickle.dumps(final))
     (ROOT / "outputs" / "state_snapshot.json").write_text(json.dumps(snap, ensure_ascii=False, indent=1, default=str))
     log.info("done: %s", json.dumps(summary, ensure_ascii=False))
     return 0
