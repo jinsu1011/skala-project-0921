@@ -1,0 +1,65 @@
+{
+ "query": "technical limitations and market challenges of KIVI authors KIVI KV cache technology independent critical reports",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:21:11+09:00",
+ "results": [
+  {
+   "url": "https://www.emergentmind.com/topics/kivi-a-tuning-free-asymmetric-2bit-quantization",
+   "title": "KIVI: Tuning-Free 2-Bit KV Cache Quantization",
+   "content": "KIVI is compatible with orthogonal system-level optimizations: weight quantization schemes (GPTQv2, GPTAQ (Li et al., 3 Apr 2025)), token-eviction policies (ScissorHands, H2O), and offloading strategies (vLLM, FlexGen).\n\n## 7. Limitations and Future Directions [...] The KV cache holds the intermediate attention states (keys and values) for every token in the active sequence, allowing LLMs to avoid re-computation during incremental autoregressive decoding. With increased batch size and context length, the KV cache becomes the principal memory and bandwidth bottleneck, often surpassing model parameter storage by a factor of 2–4×. For example, PaLM-540B with batch 512 and context 2048 requires up to 3 TB for the KV cache alone, far exceeding the typical [...] 1. How does KIVI compare with traditional symmetric quantization techniques in terms of accuracy and performance?\n2. What are the key benefits of using per-channel versus per-token quantization in the KV cache?\n3. Can the mixed-precision streaming cache organization be integrated into existing LLM inference engines without major modifications?\n4. What are the limitations of KIVI, especially regarding the trade-off between memory efficiency and local reasoning quality?",
+   "published_date": null,
+   "score": 0.4703723
+  },
+  {
+   "url": "https://lacuna.tiptreesystems.com/work/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache/wrk_c46472a8c8f694337668097eb3804425",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache — Lacuna",
+   "content": "## Limitations and Future Work\n\nWhile KIVI is highly effective, the authors note a few areas for improvement: [...] 1. Memory Capacity: Servers run out of VRAM, limiting how many users can be served concurrently.\n2. Memory Bandwidth: The GPU spends more time moving this massive cache from main memory to its internal processors than it does actually performing calculations.\n\nWhile quantizing model weights is common, quantizing the KV cache to ultra-low precision (like 2-bit) usually destroys model accuracy.\n\n## The KIVI Method [...] When serving LLMs, the \"KV cache\" is a major headache. To avoid re-calculating attention for every new word, models store the \"Keys\" and \"Values\" of previous tokens in memory. As batch sizes grow and context windows lengthen (e.g., a chatbot remembering a whole book), this cache balloons in size.",
+   "published_date": null,
+   "score": 0.44637465
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "Large Language Models (LLMs) face significant memory challenges during inference, particularly from the Key-Value (KV) cache that stores intermediate attention states. This cache prevents redundant computation during auto-regressive text generation but can consume terabytes of memory for large batch sizes and long contexts, often exceeding the model parameters themselves. The KV cache creates a bottleneck that limits inference throughput and increases serving costs. [...] This paper is cited as a key related work that also tackles the KV cache bottleneck. KIVI's authors reference FlexGen's use of 4-bit group-wise quantization for both key and value caches, positioning their own asymmetric quantization strategy as a more nuanced and effective approach for lower bit-rates. [...] KIVI (Key-Value Cache Quantization with Streaming Support) addresses this challenge through a systematic approach that first analyzes the distribution characteristics of KV cache elements, then designs a specialized 2-bit quantization algorithm based on these insights. Unlike previous approaches that apply uniform quantization strategies, KIVI recognizes that keys and values have fundamentally different distribution patterns that require asymmetric treatment.",
+   "published_date": null,
+   "score": 0.3829032
+  },
+  {
+   "url": "https://liner.com/review/kivi-tuningfree-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache [Quick Review]",
+   "content": "0\n\n0\n\ncitation\n\ncitationDeLeaker: Dynamic Inference-Time Reweighting For Semantic Leakage Mitigation in Text-to-Image Models\n\nVentura et al.\n\nVentura et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDirectional Textual Inversion for Personalized Text-to-Image Generation\n\nKim et al.\n\nKim et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDoVer: Intervention-Driven Auto Debugging for LLM Multi-Agent Systems\n\nMa et al.\n\nMa et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026 [...] + For challenging tasks like GSM8K, KIVI's ability to maintain a small, full-precision sliding window for the most recent key and value tokens is crucial. While a naive 2-bit (K per-channel, V per-token) fake quantization shows significant accuracy drops on GSM8K (e.g., 13.50 to 5.76 for Llama-2-7B), KIVI-2, by incorporating this full-precision window, largely mitigates this degradation (e.g., 13.50 to 12.74 for Llama-2-7B), highlighting the importance of preserving local context in [...] Efficiently serving large language models necessitates batching many requests, yet increased batch sizes and context lengths make KV cache a significant memory and speed bottleneck.\n Quantization can reduce KV cache size, but a lack of in-depth studies exists on its element distribution, hindering effective quantization strategies.\n This research aims to analyze KV cache element distribution in LLMs to identify optimal quantization approaches and overcome current limitations.",
+   "published_date": null,
+   "score": 0.379241
+  },
+  {
+   "url": "https://cris.bgu.ac.il/en/publications/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache-3",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache - Ben-Gurion University Research Portal",
+   "content": "abstract = \"Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM [...] N2 - Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM must load [...] AB - Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM must load",
+   "published_date": null,
+   "score": 0.3344378
+  },
+  {
+   "url": "https://rocketreach.co/kivi-profile_b78caf9cc2546a5c",
+   "title": "KiVi Information",
+   "content": "38\n\n$8.4m\n\nBijlipay\n\nBijlipay\n\n209\n\n$16m\n\nDatamark Prodapt India BPO Pvt Ltd\n\nDatamark Prodapt India BPO Pvt Ltd\n\n87\n\n$1.5b\n\nDivo\n\nDivo\n\n275\n\n$5.6m\n\nDetect Technologies\n\nDetect Technologies\n\n572\n\n$93.9m\n\nG2 Leader Summer 2026\nG2 Best Est ROI Mid-Market Summer 2026\nG2 Easiest Admin Mid-Market Summer 2026\nG2 Most Implementable Summer 2026\nG2 Best Results Mid-Market Summer 2026\nG2 Lead Capture Mid-Market Summer 2026\nInc Fastest Growing Private Companies 2026\nInc Best Workplace 2026\n\ng2crowd [...] |  |  |\n --- |\n| Website |  |\n| Employees | 70 (38 on RocketReach) |\n| Founded | 2021 |\n| Address | Kanagam Village, Taramani, E Block- 4th Floor, IIT Madras Research Park, Chennai, Tamil Nadu 600113, IN |\n| Industry | Internet Publishing |",
+   "published_date": null,
+   "score": 0.23524933
+  },
+  {
+   "url": "https://github.com/max410011/KIVI-kernel",
+   "title": "GitHub - max410011/KIVI-kernel: KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] real LLM inference workloads, effectively addressing the bottleneck issues in speed and memory usage. [...] ```",
+   "published_date": null,
+   "score": 0.21270628
+  },
+  {
+   "url": "https://tracxn.com/d/companies/kivi/__pkV-usSQMD5aEHfoTucN5U-NutqmPLF9V8iGTjsnb5k",
+   "title": "KIVI - 2026 Company Profile & Competitors - Tracxn",
+   "content": "An image depicting Food Tech - Sector Report\n\nFood Tech - Sector Report\n\n## FAQs about KIVI\n\nAccel Partners\nPartech\nIN-Q-TEL - US\nFujitsu\nTenity\nStanford [...] JavaScript is disabled in your browser. enable it to enjoy the full features of Tracxn.\n\nTracxn.com\nAndroid\nApple\nChrome Web Store\nFirefox Extension\nTracxn AI Suite\n\nAI-powered market intelligence across companies, investors, and sectors.\n\nLogo for KIVI\n\n# KIVI - Company Profile\n\nlock\nlock\nlock\nlock\n\n## KIVI - About the company\n\n### Company Details\n\nFacebook\nPDF Illustration Image\n\n## KIVI's funding and investors\n\nKIVI has not raised any funding rounds yet.",
+   "published_date": null,
+   "score": 0.19821969
+  }
+ ]
+}

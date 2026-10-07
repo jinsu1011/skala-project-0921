@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache long context inference throughput latency results",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:35+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2402.02750v2",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "As shown in Figure 5, with similar maximum memory usage, KIVI enables up to 𝟒×\\mathbf{4\\times} larger batch size and gives 2.35×∼3.47×\\mathbf{2.35\\times\\sim 3.47\\times} larger throughput.\nThis throughput number can grow larger with longer context length and output length.\nWe also note that  this speed-up can be greatly increased if we further fuse the KV cache quantization process with previous operations.\nWe leave it as one of future work.\n\n## 5 Related Work [...] ##### LongBench Results.\n\nThe performance of KIVI over various models in the LongBench dataset is summarised in Table  4. We apply KIVI to Llama2-7B, Llama2-13B, Llama2-7B-Chat, Llama2-13B-Chat, Falcon-7B and Mistral-7B.\nTable 4 suggests that KIVI is an effective method for KV cache compression with minimal impact on accuracy across various hard long context generation tasks.\nWe present additional results using Llama3-8b, Mistral-7B-v0.2, and LongChat-7B-v1.5, which can be found in Appendix D. [...] However, in this batch inference scenario, the key-value cache (KV cache), which holds the attention keys and values during generation to prevent re-computations, is becoming the new memory and speed bottleneck.\nThis bottleneck becomes more pronounced with larger batch sizes and longer context lengths. For instance, in 540B PaLM, with a batch size of 512 and a context length of 2048, KV cache alone can take 3TB. This is 3 times the size of the model’s parameters (Pope et al., 2023).",
+   "published_date": null,
+   "score": 0.6690754
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] [2024.04.12]: We add support for the Mistral model family. The performance of LongChat-7b-v1.5-32K and Mistral-7B-Instruct-v0.2 on 15 tasks from LongBench can be found in long\\_bench.md.\n [2024.04.05]: We release the code for reproducing our CoQA/TruthfulQA/GSM8K results using LM-Eval. Please check the README of branch lmeval.\n [2024.04.04]: 🔥🔥We add a new 5-digit passkey example with 12k context length to show the performance of 2bit KIVI under the long context senario. [...] | long\\_context\\_example.py | long\\_context\\_example.py |  |  |\n| mem\\_spd\\_test.py | mem\\_spd\\_test.py |  |  |\n| metrics.py | metrics.py |  |  |\n| passkey\\_examples.jsonl | passkey\\_examples.jsonl |  |  |\n| pred\\_long\\_bench.py | pred\\_long\\_bench.py |  |  |\n| pyproject.toml | pyproject.toml |  |  |\n| requirements.txt | requirements.txt |  |  |\n|  |",
+   "published_date": null,
+   "score": 0.60861784
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "Large Language Models (LLMs) face significant memory challenges during inference, particularly from the Key-Value (KV) cache that stores intermediate attention states. This cache prevents redundant computation during auto-regressive text generation but can consume terabytes of memory for large batch sizes and long contexts, often exceeding the model parameters themselves. The KV cache creates a bottleneck that limits inference throughput and increases serving costs. [...] size, bringing $\\mathbf{2.35\\times \\sim 3.47\\times}$ throughput on real LLM inference workload. The source code is available at [...] KIVI represents a significant advancement in efficient LLM inference by successfully implementing tuning-free 2-bit KV cache quantization with minimal accuracy loss. The work's data-driven methodology—first analyzing distribution patterns, then designing quantization strategies based on these insights—provides a robust foundation for future research in cache compression.",
+   "published_date": null,
+   "score": 0.5923135
+  },
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "`@InProceedings{pmlr-v235-liu24bz, title = {{KIVI}: A Tuning-Free Asymmetric 2bit Quantization for {KV} Cache}, author = {Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}, booktitle = {Proceedings of the 41st International Conference on Machine Learning}, pages = {32332--32344}, year = {2024}, editor = {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and [...] maintain almost the same quality while using 2.6$\\times$ less peak memory usage (including the model weight). This reduction in memory usage enables up to 4x larger batch size, bringing $2.35 \\times \\sim 3.47 \\times$ throughput on real LLM inference workload. [...] %I PMLR %P 32332--32344 %U  %V 235 %X Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV",
+   "published_date": null,
+   "score": 0.588062
+  },
+  {
+   "url": "https://www.naddod.com/blog/kv-cache-offload-accelerates-llm-inference",
+   "title": "KV Cache Offload Accelerates LLM Inference",
+   "content": "In LLM, KV Cache has become a key mechanism for the efficient operation of the Transformer architecture. It not only solves the computational redundancy problem caused by long contexts but also directly contributes to latency control and throughput improvement. Its importance is primarily reflected in the following aspects: [...] Reduced computational overhead:Avoiding repeated attention calculations on historical sequences reduces inference complexity from quadratic to approximately linear.\n   Improved inference speed:Significantly reduces latency when generating long texts, improving the user experience.\n   Enhanced resource utilization:Reduces unnecessary GPU memory and computing power consumption, providing space for memory optimization. [...] KV Cache is an acceleration technology.It significantly improves the speed and efficiency of text generation by preserving important information from previous steps and reusing previously calculated results, avoiding recalculation each time. If the Large Language Model (LLM) is like a novelist, then the Transformer is his or her \"thinking method.\" When a writer writes a story, he or she considers the previous content and decides what to write next. Similarly, when generating text, the",
+   "published_date": null,
+   "score": 0.5815176
+  },
+  {
+   "url": "https://developer.nvidia.com/blog/optimizing-inference-for-long-context-and-large-batch-sizes-with-nvfp4-kv-cache",
+   "title": "Optimizing Inference for Long Context and Large Batch Sizes with NVFP4 KV Cache | NVIDIA Technical Blog",
+   "content": "stalls and higher sustained ingestion throughput, resulting in up to 3x better time-to-first-token (TTFT) latency. [...] AI-generated content may summarize information incompletely. Verify important information. Learn more\n\nQuantization is one of the strongest levers for large-scale inference. By reducing the precision of weights, activations, and KV cache, we can reduce the memory footprint and compute cost—directly improving throughput, latency, and achievable context length. [...] Figure 4. NVFP4 KV cache delivers up to 3x lower latency and 20% higher cache hit rate compared to FP8 KV cache, showcasing significant performance advantages as cache memory per GPU increases. Analysis performed using Qwen3-Coder-480B-A35B.",
+   "published_date": null,
+   "score": 0.5530473
+  },
+  {
+   "url": "https://www.gomomento.com/blog/kv-caching-pays-off-under-load",
+   "title": "KV Caching Pays Off Under Load - Momento",
+   "content": "As context grows, so does prefill’s share of the total request latency. At 16K input / 512 output, TTFT was about 769 ms of 3,200 ms total, which puts it near 24 percent. That is a real step up from the 1K case. The input/output ratio affects prefill more than the context length does. KV cache earns the most when a request carries a large input and returns a small output, because prefill is then a bigger share of the bill. In scenarios where you have short input and long output, decode takes [...] ## Inference is becoming a distributed systems problem\n\nPrefill and decode are not the same kind of work. Prefill is compute-heavy. Decode is sensitive to memory bandwidth and to latency. Put both on the same accelerator and you force a compromise on one to serve the other. Split them, and you create a clean boundary between two workloads that want different things. The KV cache, however, has to cross that boundary. [...] Throughput rises as the shared prefix grows and is sharpest at high concurrency, where skipping repeated prefill lets the system sustain more requests per second.\n\nMean request latency falls as reuse increases, with the high-concurrency settings improving most.",
+   "published_date": null,
+   "score": 0.46147847
+  },
+  {
+   "url": "https://icml.cc/virtual/2025/poster/44053",
+   "title": "ICML Poster ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference",
+   "content": "needs information, ShadowKV quickly finds and retrieves only what's essential, avoiding delays and ensuring the model remains accurate. This allows us to handle many more requests and much longer texts simultaneously, making powerful long-context AI more efficient and accessible for broader use. [...] ## Main Navigation\n\nconference_logo\n\n# ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference\n\n### Abstract\n\n### Lay Summary [...] Large language models that can understand very long texts require significant computer memory, which makes them slow and expensive to use, especially when many people are using them at once. Our research introduces ShadowKV, a new system designed to significantly speed up these models. ShadowKV works by smartly managing the model's memory: it keeps a small, compressed version of the most important data on the GPU and moves the less critical data to CPU. When the model needs information,",
+   "published_date": null,
+   "score": 0.3531387
+  }
+ ]
+}

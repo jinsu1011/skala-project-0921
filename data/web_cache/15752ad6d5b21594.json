@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen integration difficulty quality degradation case study technical report domain suitability limitations site:arxiv.org OR site:aclweb.org OR site:github.com OR site:medium.com",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:21:14+09:00",
+ "results": [
+  {
+   "url": "https://github.com/princeton-vl/infinigen?search=1",
+   "title": "infinigen/ at main · princeton-vl/infinigen · GitHub",
+   "content": "```\n@misc{raistrick2026procfunc, title={ProcFunc: Function-Oriented Abstractions for Procedural 3D Generation in Python}, author={Alexander Raistrick and Karhan Kayan and Jack Nugent and David Yan and Lingjie Mei and Meenal Parakh and Hongyu Wen and Dylan Li and Yiming Zuo and Erich Liang and Jia Deng}, year={2026}, eprint={2604.26943}, archivePrefix={arXiv}, primaryClass={cs.CV}, url={ } \n``` [...] ```\n@misc{joshi2025articulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ } \n``` [...] ```",
+   "published_date": null,
+   "score": 0.24805163
+  },
+  {
+   "url": "https://github.com/princeton-vl/infinigen/tree/main?search=1",
+   "title": "infinigen/ at main · princeton-vl/infinigen · GitHub",
+   "content": "```\n@misc{raistrick2026procfunc, title={ProcFunc: Function-Oriented Abstractions for Procedural 3D Generation in Python}, author={Alexander Raistrick and Karhan Kayan and Jack Nugent and David Yan and Lingjie Mei and Meenal Parakh and Hongyu Wen and Dylan Li and Yiming Zuo and Erich Liang and Jia Deng}, year={2026}, eprint={2604.26943}, archivePrefix={arXiv}, primaryClass={cs.CV}, url={ } \n``` [...] ```\n@misc{joshi2025articulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ } \n``` [...] ```",
+   "published_date": null,
+   "score": 0.24805163
+  },
+  {
+   "url": "https://github.com/princeton-vl/infinigen/blob/main/docs/source/HelloWorld.md",
+   "title": "infinigen/docs/source/HelloWorld.md at main · princeton-vl/infinigen · GitHub",
+   "content": "❗ If you encounter any missing .so files, missing dependencies (such as `gin`), or similar crashes, please check again that all steps of installation ran successfully. If you cannot resolve any issues with installation, please see our README and 'Bug Report' Git Issue template for advice on posting Git Issues to get help quickly - you must include the full installation logs in your issue so that we can help debug. [...] This command will repeatedly print summaries of the status of each stage of the pipeline. Please look in `outputs/hello_world/1/logs` for full output logs of the underlying tasks.\n\n## Next steps\n\nRead Configuring Infinigen for more advanced usage instructions / example commands.\n\nSee Extended ground-truth for a guide on using our custom ground-truth extraction system.\n\nSee ExportingToExternalFileFormats for advice on exporting to OBJ/USD and more.\n\nYou can’t perform that action at this time. [...] Infinigen generates scenes by running multiple tasks (usually executed automatically, like in Generate image(s) in one command). Here we will run them one by one to demonstrate. These commands take approximately 10 minutes and 16GB of memory to execute on an M1 Mac or Linux Desktop.",
+   "published_date": null,
+   "score": 0.12496949
+  },
+  {
+   "url": "https://github.com/princeton-vl/infinigen/issues/483",
+   "title": "Typo in infinigen/assets/composition/material_assignments.py line 338 · Issue #483 · princeton-vl/infinigen · GitHub",
+   "content": "Copy link\n\nOpen\n\nOpen\n\nTypo in infinigen/assets/composition/material\\_assignments.py line 338#483\n\nCopy link\n\nLabels\n\nbugSomething isn't workingSomething isn't working\n\n## Description\n\n@sanjeev-jspr\n\nsanjeev-jspr\n\nopened on Mar 10, 2026\n\nIssue body actions\n\n# Describe the bug\n\nI believe\n\n```\nceramic tile1.0\n```\n\nshould be\n\n```\nceramic TIle1.0\n```\n\n## Steps to Reproduce\n\nI got this error:\n\n```\nfloor_material_gens.append(gen_class()) ^^^^^^^^^^^ \n```\n\nTypeError: 'module' object is not callable [...] File \"/data/sanjeev/clipdrop-infinigen/infinigen\\_examples/generate\\_indoors.py\", line 399, in compose\\_indoors  \n p.run\\_stage(  \n File \"/data/sanjeev/clipdrop-infinigen/infinigen/core/util/pipeline.py\", line 89, in run\\_stage  \n ret = fn(\\args, \\\\kwargs)  \n ^^^^^^^^^^^^^^^^^^^  \n File \"/data/sanjeev/clipdrop-infinigen/infinigen/core/constraints/example\\_solver/room/decorate.py\", line 325, in room\\_floors  \n floor\\_material\\_gens.append(gen\\_class())  \n ^^^^^^^^^^^ [...] ^^^^^^^^^^^  \n TypeError: 'module' object is not callable",
+   "published_date": null,
+   "score": 0.1213628
+  },
+  {
+   "url": "https://arxiv.org/html/2509.15107v2",
+   "title": "Limitations of Public Chest Radiography Datasets for Artificial Intelligence: Label Quality, Domain Shift, Bias and Evaluation Challenges",
+   "content": "how dataset shift manifests as systematic performance degradation under realistic deployment conditions. [...] healthcare domains, contributing to key applications like automated image interpretation, disease detection, clinical triage, workflow optimisation, and patient risk stratification [1, 2]. In diagnostic radiology, deep learning models have demonstrated high accuracy in identifying conditions such as pneumonia, pneumothorax, and pulmonary nodules on chest radiographs—approaching or even exceeding the performance of experienced radiologists [3, 4]. The integration of AI tools into healthcare [...] These class-specific patterns are clinically plausible. The weak performance of Pneumonia and Pneumothorax is consistent with the difficulty of detecting subtle opacities and the limited visibility of pneumothorax on frontal chest radiographs. The poor Lung Cancer performance likely reflects limitations of automatic text mining pipelines (e.g., confusion of primary vs metastatic disease, treated lesions, or non-neoplastic masses). In our subset, many Lung Cancer disagreements were re-labelled",
+   "published_date": null,
+   "score": 0.07335715
+  },
+  {
+   "url": "https://github.com/monolith/context-governor/blob/main/research/2026-07-17-context-rot-research.md",
+   "title": "context-governor/research/2026-07-17-context-rot-research.md at main · monolith/context-governor · GitHub",
+   "content": "Evidence: July 2025 technical report with open code and data; quotes verified verbatim under two independent adversarial fetches. Independently corroborated into 2026 (arXiv:2601.15300; 200K-token benchmark roundups showing 30-60-point advertised-vs-effective gaps on frontier models). Vendor caveat: Chroma sells retrieval/RAG infrastructure and the report is not peer-reviewed — but the pattern replicates in peer-reviewed academic work, and no tested condition showed degradation-free scaling. [...] Context rot is real and well-evidenced. Across four peer-reviewed benchmarks (Lost in the Middle / TACL 2024, NoLiMa / ICML 2025, RULER / COLM 2024, Du et al. / EMNLP 2025), a large multi-turn study (Laban et al., ICLR 2026 best paper), a Databricks RAG study, and Chroma's 18-model report covering the Claude 4 family, LLM output quality degrades gradually and non-uniformly as context fills: effective context is typically half or less of the advertised window (sometimes 2-8K of a claimed [...] Plugin implication: the article is a sound design basis — except do not build self-diagnosis features that depend on claim (e) without separate evidence.\n\nSources: arXiv:2307.03172 · arXiv:2502.05167 · arXiv:2505.06120 · Chroma context-rot · NoLiMa repo\n\n### F2 — Degradation begins far below the advertised limit; effective context is typically ≤ half of claimed · CONFIRMED · high · 3-0 (6 merged claims)",
+   "published_date": null,
+   "score": 0.06954821
+  },
+  {
+   "url": "https://arxiv.org/html/2509.15107v1",
+   "title": "Limitations of Public Chest Radiography Datasets for Artificial Intelligence: Label Quality, Domain Shift, Bias and Evaluation Challenges",
+   "content": "healthcare domains, contributing to key applications like automated image interpretation, disease detection, clinical triage, workflow optimisation, and patient risk stratification [1, 2]. In diagnostic radiology, deep learning models have demonstrated high accuracy in identifying conditions such as pneumonia, pneumothorax, and pulmonary nodules on chest radiographs—approaching or even exceeding the performance of experienced radiologists [3, 4]. The integration of AI tools into healthcare [...] These class-specific patterns are clinically plausible. The weak performance of Pneumonia and Pneumothorax is consistent with the difficulty of detecting subtle opacities and the limited visibility of pneumothorax on frontal chest radiographs. The poor Lung Cancer performance likely reflects limitations of automatic text mining pipelines (e.g., confusion of primary vs metastatic disease, treated lesions, or non-neoplastic masses). In our subset, many Lung Cancer disagreements were re-labelled [...] Cross-dataset (external) evaluations show systematic degradation, most notably in AUPRC scores. For example, models trained on the CheXpert dataset see AUPRC degradations of up to 0.411 when evaluated on external datasets. The most notable degradations occur on models trained on PadChest, which are then applied to CheXpert or MIMIC-CXR – AUPRC scores decrease by more than 0.5 for all model architectures. AUROC degradation in these cases is also significant, in the order of 0.2 – 0.3.",
+   "published_date": null,
+   "score": 0.06513363
+  },
+  {
+   "url": "https://github.com/princeton-vl/infinigen/issues/405",
+   "title": "How to launch the Blender and what's the meaning of install infinigen in blender's python? no gin? · Issue #405 · princeton-vl/infinigen · GitHub",
+   "content": "logs.txt\n\n### If this is your first time running Infinigen, what are the full install logs?\\\\\n\nRun `pip install -v -e . > logs.txt 2>&1` and send logs.txt as an attachment.\n\n### Platform\n\n OS & OS Version: Mac OS\n GPU (?) :M4\n GPU Driver Version (?) :\n RAM (GB):\n\n# Additional context\n\nAdd any other context about the problem here.\n\nReactions are currently unavailable\n\n## Activity\n\nSign up for free to join this conversation on GitHub. Already have an account? Sign in to comment\n\n## Metadata [...] So my question is that why when I launch the blender to render the natural scene, it seems to not be able to get gin package?\n\nBlender 4.2.0 (hash a51f293548ad built 2024-07-16 06:26:54)  \n Traceback (most recent call last):  \n File \"/Users/jiahaozhan/projects/neural\\_wind\\_tunnel/infinigen/infinigen\\_examples/generate\\_nature.py\", line 10, in   \n import gin  \n ModuleNotFoundError: No module named 'gin' [...] If this relates to running the codebase, please provide steps to reproduce:\n\n### What version of the code were you using?\n\nTell us the commit & commit hash from `git log`  \n 59a2574\n\n### What command did you run?\n\npython -m infinigen.launch\\_blender -m infinigen\\_examples.generate\\_nature -- --seed 0 --task coarse -g desert.gin simple.gin --output\\_folder outputs/hello\\_world/coarse\n\n### What are your FULL output logs?\n\nProvide the FULL output logs from your command as a txt file.",
+   "published_date": null,
+   "score": 0.062887095
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache infrastructure cost overhead drawbacks",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:18:34+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/abs/2402.02750",
+   "title": "[2402.02750] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "archive \n\nPress Enter to search · Advanced search\n\n# Computer Science > Computation and Language\n\narXiv:2402.02750 (cs)\n\nSubmitted on 5 Feb 2024 ([v1), last revised 25 Jul 2024 (this version, v2)]\n\n# Title:KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nAuthors:Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu [...] > Abstract:Efficiently serving large language models (LLMs) requires batching of many requests to reduce the cost per request. Yet, with larger batch sizes and longer context lengths, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. Additionally, the loading of the KV cache causes the computational core to be idle, which limits the inference speed. A [...] View a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors",
+   "published_date": null,
+   "score": 0.50476116
+  },
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix}, volume = {235}, series = {Proceedings of Machine Learning Research}, month = {21--27 Jul}, publisher = {PMLR}, pdf = { url = { abstract = {Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed [...] `@InProceedings{pmlr-v235-liu24bz, title = {{KIVI}: A Tuning-Free Asymmetric 2bit Quantization for {KV} Cache}, author = {Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}, booktitle = {Proceedings of the 41st International Conference on Machine Learning}, pages = {32332--32344}, year = {2024}, editor = {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and [...] Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU’s SRAM must load the",
+   "published_date": null,
+   "score": 0.474023
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "Large Language Models (LLMs) face significant memory challenges during inference, particularly from the Key-Value (KV) cache that stores intermediate attention states. This cache prevents redundant computation during auto-regressive text generation but can consume terabytes of memory for large batch sizes and long contexts, often exceeding the model parameters themselves. The KV cache creates a bottleneck that limits inference throughput and increases serving costs. [...] This paper is cited as a key related work that also tackles the KV cache bottleneck. KIVI's authors reference FlexGen's use of 4-bit group-wise quantization for both key and value caches, positioning their own asymmetric quantization strategy as a more nuanced and effective approach for lower bit-rates. [...] Efficiently serving large language models (LLMs) requires batching of many requests to reduce the cost per request. Yet, with larger batch sizes and longer context lengths, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. Additionally, the loading of the KV cache causes the computational core to be idle, which limits the inference speed. A straightforward",
+   "published_date": null,
+   "score": 0.42448413
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] real LLM inference workloads, effectively addressing the bottleneck issues in speed and memory usage. [...] KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference",
+   "published_date": null,
+   "score": 0.34099028
+  },
+  {
+   "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems",
+   "title": "KV Cache Compression and Its Infra Problems | Efficient AI",
+   "content": "overhead below 2%. [...] When a Transformer generates a token, it computes a query, a key, and a value vector; the new query attends over all previous keys and values to read the model's own history. The KV cache is what makes this affordable: each token's K and V are computed once and saved, and every later step reuses them instead of recomputing — O(n) work per step instead of O(n²). But nothing ever shrinks it: every generated token appends new K and V rows across all layers and heads. [...] — no retraining, and less than 4% latency overhead. LongLive 2.0 (#ref-13) takes the same track to production scale, quantizing both weights and KV cache to NVFP4 (4-bit) on a 5B-parameter generator for 1.84× throughput at negligible quality cost — and its detail worth dwelling on is the fused parallel dequantization kernel (Figure 10). Storing the cache in 4 bits means every block must be dequantized before each attention step, and the naive approach launches one GPU kernel per block.",
+   "published_date": null,
+   "score": 0.31811485
+  },
+  {
+   "url": "https://drivenets.com/blog/the-hidden-cost-of-moving-your-kv-cache",
+   "title": "The Hidden Cost of Moving Your KV Cache",
+   "content": "To run efficiently, inference clusters use disaggregated nodes to separate the two main phases of text generation. “Prefill” processes incoming prompts using heavy parallel compute, while “Decode” generates the text using high memory bandwidth. Running both on the same GPU is highly inefficient, so disaggregation cleanly splits these tasks into dedicated nodes. [...] |  |  |  |  |  |  |  |  |\n ---  ---  ---  --- |\n| Concurrency | TTFT (ms) ↓ | Inter-Token Latency (ms) ↓ | TPOT (ms) ↓ | E2E Latency (ms) ↓ | Output Throughput (tok/s) ↑ | Total Throughput (tok/s) ↑ | Actual mean concurrency |\n| Conc.8 | -15.0% | +1.3% | +1.2% | -4.1% | +5.0% | +5.0% | +0.7% |\n| Conc.16 | -24.9% | +5.6% | +5.6% | -12.6% | +15.6% | +15.6% | +1.0% |\n| Conc.32 | -5.6% | +11.1% | +11.1% | -1.4% | +5.2% | +5.2% | +3.7% | [...] Overall latency is reduced because the upfront time savings absorb the sequential token-pacing delay over a 1K token generation loop. Ultimately, the entire request finishes faster, delivering a 5.6 percent reduction in End-to-End Latency alongside an 8% boost in overall cluster throughput.",
+   "published_date": null,
+   "score": 0.26188904
+  },
+  {
+   "url": "https://liner.com/review/kivi-tuningfree-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache [Quick Review]",
+   "content": "on Llama-2-7B, KIVI-2 shows only a minor accuracy drop (e.g., 13.50 to 12.74 on GSM8K) compared to the severe degradation seen with other 2-bit configurations (e.g., 0.83 for K-T, V-T on GSM8K). [...] Quick review\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu,\n\nJiayi Yuan\n\n6 others\n\nFeb 05, 2024\n\nReferences\n\n33\n\nCited by\n\n229\n\n## Motivation & Objective\n\n## Motivation & Objective [...] KIVI quantizes key cache per-channel and value cache per-token based on extensive analysis of outlier patterns and quantization error in KV cache.\n KIVI is a plug-and-play 2-bit KV cache quantization algorithm with hardware-friendly implementation that does not require fine-tuning.\n KIVI incorporates a grouped key cache and a residual key cache, maintaining the residual portion in full precision to handle streaming data and ensure accuracy.",
+   "published_date": null,
+   "score": 0.21265723
+  },
+  {
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1akkssu/kivi_a_tuningfree_asymmetric_2bit_quantization",
+   "title": "A Tuning-Free Asymmetric 2bit Quantization for KV Cache : r/LocalLLaMA",
+   "content": "Skip to main contentKIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache : r/LocalLLaMA\n\nOpen menu Open navigation or have large batch size such as 128, the kv cache should occupy a large portion of GPU memory. With kivi, this part can be significantly reduced!\n\n Reply  Share \n\nMore replies\n\nMore replies\n\nImage 6: u/Illustrious_Sand6784 avatar\n\nIllustrious_Sand6784\n\n•3y ago\n\nu/ReturningTarzan\n\nImage 7: u/silenceimpaired avatar\n\nsilenceimpaired\n\n•3y ago",
+   "published_date": null,
+   "score": 0.20065199
+  }
+ ]
+}

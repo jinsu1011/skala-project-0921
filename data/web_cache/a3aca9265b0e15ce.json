@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen authors InfiniGen KV cache competition/ecosystem risks limitations",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:49+09:00",
+ "results": [
+  {
+   "url": "https://deepwiki.com/snu-comparch/InfiniGen/2.1-kv-cache-management",
+   "title": "KV Cache Management",
+   "content": "1.   Memory Footprint: The KV cache grows linearly with sequence length, consuming substantial GPU memory.\n2.   Host-Device Transfers: In offloading-based systems, transferring the entire KV cache between host and GPU memory creates bottlenecks.\n3.   Inefficient Memory Usage: Not all cached tokens contribute equally to generating the next token.\n\nSources: README.md\n\n## InfiniGen's Dynamic KV Cache Management Approach [...] 3.   Maintained Accuracy: Despite using a selective cache, InfiniGen maintains comparable model accuracy to full-cache approaches.\n\n4.   Enhanced Scalability: The approach scales well for long-text generation, where traditional methods would be constrained by memory limitations. [...] InfiniGen's KV cache management provides advantages over alternative approaches:\n\n1.   Full KV Cache (Baseline): Stores all KV pairs in GPU memory, limited by available memory.\n\n2.   H2O: Offloads KV cache to host memory, but still requires transferring the full cache.\n\n3.   Quantization: Reduces precision of KV cache entries, trading accuracy for memory efficiency.\n\nSources: README.md\n\n## Integration with Overall System",
+   "published_date": null,
+   "score": 0.58237284
+  },
+  {
+   "url": "https://github.com/snu-comparch/InfiniGen/blob/main/README.md",
+   "title": "InfiniGen/README.md at main · snu-comparch/InfiniGen · GitHub",
+   "content": "```\n@inproceedingslee-osdi24 title{{I}nfini{G}en: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management}{} author{Lee, Wonbeom and Lee, Jungi and Seo, Junghwan and Sim, Jaewoong}{} booktitle{18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24)}{} year{2024}{}\n```\n\nYou can’t perform that action at this time. [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00x compared to prior KV cache management methods while offering substantially better model accuracy.",
+   "published_date": null,
+   "score": 0.5393963
+  },
+  {
+   "url": "https://github.com/snu-comparch/InfiniGen",
+   "title": "GitHub - snu-comparch/InfiniGen: InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management (OSDI'24) · GitHub",
+   "content": "## Citation\n\n```\n@inproceedingslee-osdi24 title{{I}nfini{G}en: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management}{} author{Lee, Wonbeom and Lee, Jungi and Seo, Junghwan and Sim, Jaewoong}{} booktitle{18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24)}{} year{2024}{}\n```\n\n## About\n\nInfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management (OSDI'24)\n\n### Resources\n\nReadme [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00x compared to prior KV cache management methods while offering substantially better model accuracy.",
+   "published_date": null,
+   "score": 0.5265625
+  },
+  {
+   "url": "https://scite.ai/reports/infinigen-efficient-generative-inference-of-PQ9x2bDR",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "confidence: 99%\n\n“…However, these systems still keep the full KV cache in GPU memory, so the HBM-capacity bottleneck remains. Hierarchical KV systems address this limitation by offloading the full KV cache to CPU memory or storage and retrieving only the selected blocks into GPU HBM [14,17,20,44,45]. However, on-demand retrieval places selection and KV transfer on the decode critical path, so transfer latency directly delays attention.…”\n\nSection: Sparse Attention and Kv Prefetching [...] confidence: 99%\n\n“…However, these systems still keep the full KV cache in GPU memory, so the HBM-capacity bottleneck remains. Hierarchical KV systems address this limitation by offloading the full KV cache to CPU memory or storage and retrieving only the selected blocks into GPU HBM [14,17,20,44,45]. However, on-demand retrieval places selection and KV transfer on the decode critical path, so transfer latency directly delays attention.…”\n\nSection: Sparse Attention and Kv Prefetching [...] confidence: 99%\n\n“…However, these systems still keep the full KV cache in GPU memory, so the HBM-capacity bottleneck remains. Hierarchical KV systems address this limitation by offloading the full KV cache to CPU memory or storage and retrieving only the selected blocks into GPU HBM [14,17,20,44,45]. However, on-demand retrieval places selection and KV transfer on the decode critical path, so transfer latency directly delays attention.…”\n\nSection: Sparse Attention and Kv Prefetching",
+   "published_date": null,
+   "score": 0.47387698
+  },
+  {
+   "url": "https://www.scribd.com/document/881339631/OSDI24-InfiniGen-Efficient-Generative-Inference-of-Large-Language-Models-With-Dynamic-KV-Cache-Management",
+   "title": "InfiniGen: Optimizing KV Cache for LLMs | PDF | Matrix (Mathematics) | Cache (Computing)",
+   "content": "The paper presents InfiniGen, a dynamic key-value (KV) cache management framework designed to enhance the efficiency of large language model (LLM) inference, particularly for long-text generation. InfiniGen improves performance by intelligently prefetching essential KV cache entries from CPU memory, achieving up to 3.00× speedup and significant accuracy improvements compared to existing methods. The framework addresses the challenges posed by the growing memory footprint of KV caches in modern [...] KV caches in modern offloading-based inference systems. [...] # InfiniGen: Optimizing KV Cache for LLMs\n\nInfiniGen: Optimizing KV Cache for LLMs\n\n## Uploaded by\n\nAI-enhanced title and description\n\n## Share this document\n\n## Footer menu\n\n## About\n\n## Support\n\n## Legal\n\n## Social\n\n## Get our free apps\n\nScribd - Download on the App Store\nScribd - Get it on Google Play\n\n## About\n\n## Legal\n\n## Support\n\n## Social\n\n## Get our free apps\n\nScribd - Download on the App Store\nScribd - Get it on Google Play",
+   "published_date": null,
+   "score": 0.44087905
+  },
+  {
+   "url": "https://deepwiki.com/snu-comparch/InfiniGen/2-system-architecture",
+   "title": "System Architecture | snu-comparch/InfiniGen | DeepWiki",
+   "content": "Traditional approaches fetch the entire KV cache for each attention layer, resulting in high memory consumption. InfiniGen reduces memory requirements by:\n\nThis architecture enables InfiniGen to achieve up to 3.00x performance improvement compared to prior KV cache management methods while maintaining model accuracy.\n\nSources: README.md\n\n## Integration with LLM Architectures [...] The architecture's design reflects a deep understanding of the challenges in LLM inference, particularly for long-text generation. By speculating on important tokens and prefetching only essential KV cache entries, InfiniGen mitigates the memory bottleneck that typically limits inference performance.\n\nFor detailed information about specific components, refer to KV Cache Management, Token Speculation Mechanism, and Prefetching System.\n\nSources: README.md\n\nRefresh this wiki\n\n### On this page [...] The system's architecture carefully balances these considerations to provide an efficient solution for LLM inference, particularly for generating long content where KV cache size becomes a significant challenge.\n\nSources: README.md\n\n## Error Handling and Resilience\n\nInfiniGen's architecture incorporates mechanisms to handle potential failures and maintain system resilience:\n\nThe system's error handling architecture ensures that:",
+   "published_date": null,
+   "score": 0.41449648
+  },
+  {
+   "url": "https://www.semanticscholar.org/paper/InfiniGen:-Efficient-Generative-Inference-of-Large-Lee-Lee/964440957c030504f6bcab11f514635ece1bf6b2",
+   "title": "[PDF] InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | Semantic Scholar",
+   "content": "2023\n\nTLDR\n\nThis work hypothesizes the persistence of importance: only pivotal tokens, which had a substantial influence at one step, will significantly influence future generations, and proposes Scissorhands, a system that maintains the memory usage of the KV cache at a fixed budget without finetuning the model.Expand\n\n   557\n(\n\n   3 Excerpts\n\nSave\n\n### Efficient Memory Management for Large Language Model Serving with PagedAttention\nWoosuk KwonZhuo-Han Li+6 authorsIon Stoica [...] Save\n\n### IceCache: Memory-efficient KV-cache Management for Long-Sequence LLMs\nYu-Zhen MaoQitong WangM. EsterKe Li\n\nComputer Science\n\nArXiv\n\n   2026\n\nTLDR\n\nThis paper proposes a novel KV cache management strategy, IceCache, which integrates semantic token clustering with PagedAttention, and attains competitive or even superior latency and accuracy while using only 25% of the KV cache token budget, demonstrating its effectiveness in long-sequence scenarios.Expand\n\n   6\n(\n\n   1 Excerpt\n\nSave [...] Computer Science\n\nSOSP\n\n   2023\n\nTLDR\n\nThis work proposes PagedAttention, an attention algorithm inspired by the classical virtual memory and paging techniques in operating systems, and builds vLLM, an LLM serving system that achieves near-zero waste in KV cache memory and flexible sharing of KV Cache within and across requests to further reduce memory usage.Expand\n\n   8,884\n(\n\n   2 Excerpts\n\nSave\n\n### Efficiently Scaling Transformer Inference\nReiner PopeSholto Douglas+7 authorsJ. Dean",
+   "published_date": null,
+   "score": 0.4122231
+  },
+  {
+   "url": "https://ai.updf.cn/paper-detail/infinigen-efficient-generative-inference-of-large-language-models-with-dynamic-lee-lee-964440957c030504f6bcab11f514635ece1bf6b2",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] ### TLDR\n\nInfiniGen is presented, a novel KV cache management framework tailored for long-text generation, which synergistically works with modern offloading-based inference systems and improves the overall performance of a modern offloading-based system by up to 3.00x compared to prior KV cache management methods while offering substantially better model accuracy. [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00x compared to prior KV cache management methods while offering substantially better model accuracy.",
+   "published_date": null,
+   "score": 0.38186535
+  }
+ ]
+}

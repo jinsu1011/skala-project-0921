@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache multi-turn serving concurrency memory capacity",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:39+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/abs/2402.02750",
+   "title": "[2402.02750] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "archive \n\nPress Enter to search · Advanced search\n\n# Computer Science > Computation and Language\n\narXiv:2402.02750 (cs)\n\nSubmitted on 5 Feb 2024 ([v1), last revised 25 Jul 2024 (this version, v2)]\n\n# Title:KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nAuthors:Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu [...] View a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors [...] Full-text links:\n\n## Access Paper:\n\nView a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors\n\n View PDF\n HTML (experimental)\n TeX Source\n\nlicense icon view license\n\n### Current browse context:\n\ncs.CL\n\n< prev\")    |    next >\")\n\nnew  |  recent  | 2024-02\n\nChange to browse by:\n\ncs  \n cs.LG  \n cs.PF\n\n### References & Citations\n\n NASA ADS\n Google Scholar\n Semantic Scholar\n\nLoading...\n\n## BibTeX formatted citation",
+   "published_date": null,
+   "score": 0.61972505
+  },
+  {
+   "url": "https://arxiv.org/pdf/2402.02750v1",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache Zirui Liu  1 Jiayi Yuan  1 Hongye Jin 2 Shaochen Zhong 1 Zhaozhuo Xu 3 Vladimir Braverman 1 Beidi Chen 4 Xia Hu 1 Abstract Efficiently serving large language models (LLMs) requires batching many requests together to re-duce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottle-neck in speed and memory [...] Sehoon Kim, Coleman Hooper, Amir Gholami, Zhen Dong, Xiuyu Li, Sheng Shen, Michael W Mahoney, and Kurt Keutzer. Squeezellm: Dense-and-sparse quantization.\narXiv preprint arXiv:2306.07629, 2023.\nWoosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu, Joseph Gonzalez, Hao Zhang, and Ion Stoica. Efficient memory management for large language model serving with pagedattention. In Proceedings of the 29th Symposium on Operating Systems Principles, pages 611–626, 2023a. [...] Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu, Joseph E. Gonzalez, Hao Zhang, and Ion Stoica. Efficient memory management for large language model serving with pagedattention. In Proceedings of the ACM SIGOPS 29th Symposium on Operating Systems Principles, 2023b.\nJi Lin, Jiaming Tang, Haotian Tang, Shang Yang, Xingyu Dang, and Song Han. Awq: Activation-aware weight quantization for llm compression and acceleration. arXiv preprint arXiv:2306.00978, 2023.",
+   "published_date": null,
+   "score": 0.5135471
+  },
+  {
+   "url": "https://zirui-ray-liu.github.io/projects/mlsys-numerics/kivi",
+   "title": "KIVI | Zirui's Homepage",
+   "content": "## Citation\n\n```\n@inproceedings{liu2024kivi, title = {{KIVI}: A Tuning-Free Asymmetric 2-bit Quantization for {KV} Cache}, author = {Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}, booktitle = {International Conference on Machine Learning (ICML)}, year = {2024} }\n``` [...] The KV cache is the memory bottleneck of long-context LLM serving, and the obvious fix — quantize it — is harder than it looks at 2 bits. We study the element distribution of KV tensors in Llama, Falcon, and Mistral and find a clean, model-independent asymmetry: keys have a few fixed outlier channels and should be quantized along the channel axis, while values show no such structure and should be quantized per token. KIVI applies this rule with a hardware-friendly kernel and needs no [...] (group along the channel dimension) while the value cache should be quantized per-token. From this we design KIVI, a tuning-free 2-bit KV cache quantization algorithm with a hardware-friendly implementation. KIVI lets Llama, Falcon, and Mistral keep essentially the same quality while using 2.6× less peak memory (weights included), enabling up to 4× larger batch sizes and 2.35–3.47× higher throughput on real inference workloads.",
+   "published_date": null,
+   "score": 0.4718322
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] ```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] real LLM inference workloads, effectively addressing the bottleneck issues in speed and memory usage.",
+   "published_date": null,
+   "score": 0.40896168
+  },
+  {
+   "url": "https://icml.cc/virtual/2024/poster/34318",
+   "title": "ICML Poster KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "Skip to yearly menu bar\n\n## Main Navigation\n\nconference_logo\n\n ICML \n  + Help/FAQ  \n\n  + Contact ICML  \n\n  + Create Profile  \n\n  + Code of Conduct  \n\n  + Privacy Policy  \n\n  + Press  \n\n  + Journal To Conference Track  \n\n  + Careers  \n\n  + Downloads  \n\n  + Inclusion  \n\n  + Future Meetings\n My Stuff\n\n Login\n\nPoster\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu ⋅ Jiayi Yuan ⋅ Hongye Jin ⋅ Shaochen (Henry) Zhong ⋅ Zhaozhuo Xu ⋅ Vladimir Braverman ⋅ Beidi Chen ⋅ Xia Hu [...] Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM must load the [...] maintain almost the same quality while using 2.6$\\times$ less peak memory usage (including the model weight). This reduction in memory usage enables up to 4x larger batch size, bringing $2.35 \\times \\sim 3.47 \\times$ throughput on real LLM inference workload.",
+   "published_date": null,
+   "score": 0.3844966
+  },
+  {
+   "url": "https://huggingface.co/papers/2402.02750",
+   "title": "Paper page - KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "Efficiently serving large language models (LLMs) requires batching many\nrequests together to reduce the cost per request. Yet, the key-value (KV)\ncache, which stores attention keys and values to avoid re-computations,\nsignificantly increases memory demands and becomes the new bottleneck in speed\nand memory usage. This memory demand increases with larger batch sizes and\nlonger context lengths. Additionally, the inference speed is limited by the [...] implementation, KIVI can enable Llama (Llama-2), Falcon, and Mistral models to\nmaintain almost the same quality while using 2.6times less peak\nmemory usage (including the model weight). This reduction in memory usage\nenables up to 4times larger batch size, bringing\n2.35times sim 3.47times throughput on real LLM inference\nworkload. The source code is available at [...] size of KV cache, as the GPU's SRAM must load the entire KV cache from the main\nGPU memory for each token generated, causing the computational core to be idle\nduring this process. A straightforward and effective solution to reduce KV\ncache size is quantization, which decreases the total bytes taken by KV cache.\nHowever, there is a lack of in-depth studies that explore the element\ndistribution of KV cache to understand the hardness and limitation of KV cache",
+   "published_date": null,
+   "score": 0.37882724
+  },
+  {
+   "url": "https://rocketreach.co/kivi-technologies-inc-profile_b40c020effc327f4",
+   "title": "KIVI Technologies Inc. Information",
+   "content": "More information [...] 7 \n\n $7m \n\nImage 23: Tunisian Travel ServicesTunisian Travel Services\n\n 2 \n\n $3m \n\nImage 24: Global Enviro ScienceGlobal Enviro Science\n\n $5.2m \n\nImage 25: DrillstoneDrillstone\n\n $5.7m [...] When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences, or your device, and is mostly used to make the site work as you expect. The information does not usually identify you directly, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to learn more",
+   "published_date": null,
+   "score": 0.20625417
+  },
+  {
+   "url": "https://rocketreach.co/kivi-profile_b78caf9cc2546a5c",
+   "title": "KiVi Information",
+   "content": "|  |  |\n --- |\n| Website |  |\n| Employees | 70 (38 on RocketReach) |\n| Founded | 2021 |\n| Address | Kanagam Village, Taramani, E Block- 4th Floor, IIT Madras Research Park, Chennai, Tamil Nadu 600113, IN |\n| Industry | Internet Publishing | [...] g2crowd\n\nG2Crowd Trusted\n\nchromestore\n\n300K+ Plugin Users [...] stars 1\nstars 2\nstars 3\n\n ## Company Information\n ## Email Format\n ## Management\n ## Competitors\n\nKiVi (operating through Agrosperity Tech Solutions Pvt Ltd) aims to make farming a livelihood of choice for millions of Indians by enabling credit, commerce and distribution to farmers and agri entrepreneurs.\nOur core offering is a unique phygital platform, named KiVi which stands for Kisan Vikas (farmer development) and a franchisee network that delivers last mile transaction capability.",
+   "published_date": null,
+   "score": 0.12807758
+  }
+ ]
+}

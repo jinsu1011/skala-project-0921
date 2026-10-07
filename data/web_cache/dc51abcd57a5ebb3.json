@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen KV cache domain suitability advantages evidence site:arxiv.org OR site:aclweb.org OR site:github.com OR site:medium.com",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:22:46+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2412.19442v3",
+   "title": "A Survey on Large Language Model Acceleration based on KV Cache Management",
+   "content": "Advanced caching and prefetching mechanisms are exemplified by InfiniGen , which employs speculative prefetching for KV cache entries, and Pensieve , which implements multi-tier caching for conversation states. For InfiniGen , its key innovation lies in its prediction mechanism that operates across the heterogeneous architecture, using partial computation of attention inputs and modified query-key weights to identify and prefetch only the most relevant KV cache entries from CPU memory to GPU. [...] To accelerate top- token identification, SparQ  identifies the most significant elements in the incoming query vector and selectively retrieves the corresponding components along the hidden dimension of the cached key matrix for approximate attention computation. To overlap prefetching latency, InfiniGen  employs asynchronous prefetching, utilizing indices of salient KV entries selected by queries from the previous layer to retrieve KV cache entries in the current layer. To ensure maximum model [...] |  |  |  |  |  |\n ---  --- \n| Method | Single/Multi-GPU | I/O-aware | Heterogeneous | SSD-based |\n| APEX  | ✓ |\n| Bifurcated Attention  | ✓ |\n| Cake  | ✓ |\n| DeFT  | ✓ |\n| DistServe  | ✓ |\n| FairKV  | ✓ |\n| FastDecode  | ✓ |\n| FastSwitch  | ✓ |\n| FlexGen  | ✓ |\n| FlexInfer  | ✓ |\n| FlashAttention    | ✓ | ✓ |\n| gLLM  | ✓ | ✓ |\n| HCache  | ✓ |\n| HydraGen  | ✓ |\n| InfiniGen  | ✓ |\n| InstInfer  | ✓ |\n| MELL  | ✓ |\n| Multi-Bin Batching  | ✓ |\n| NEO  | ✓ |\n| ORCA  | ✓ |\n| PartKVRec  | ✓ |",
+   "published_date": null,
+   "score": 0.43395805
+  },
+  {
+   "url": "https://arxiv.org/pdf/2605.23640",
+   "title": "CachePrune: Privacy-Aware and Fine-Grained KV Cache ...",
+   "content": "Advantages. Position-independent sharing greatly increases the opportunities for KV reuse compared to prefix sharing. [...] Advantages. Prefix sharing does not affect model accuracy, as reused KV entries are identical to recomputed ones.\nLimitations. Reuse is limited to exact prefix matches; any dif-ference in early tokens prevents sharing, leaving overlapping se-quences unused (e.g., token 8-17 in Fig. 1-a). [...] Wonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim. 2024. {InfiniGen}: Efficient generative inference of large language models with dynamic {KV} cache management. In 18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24). 155–172.\n Haoyang Li, Yiming Li, Anxin Tian, Tianhao Tang, Zhanchao Xu, Xuejia Chen, Nicole Hu, Wei Dong, Qing Li, and Lei Chen. 2024. A survey on large lan-guage model acceleration based on kv cache management.",
+   "published_date": null,
+   "score": 0.37428793
+  },
+  {
+   "url": "https://arxiv.org/html/2604.08426v2",
+   "title": "KV Cache Offloading for Context-Intensive Tasks",
+   "content": "However, unlike ShadowKV, InfiniGen stores original 16-bit precision keys in system memory (ShadowKV uses key SVD and only loads values). For this reason, InfiniGen loads half as many KVs to match the PCIe data transfer of ShadowKV. [...] | InfiniGen | 5.47 | 0.02 | 84.73 | 0.11 | 0.01 | 0.03  0.07  0.06 |\n| ArkVale | 0.45 | 0.02 | 78.82 | 0.11 | 0.01 | 0.03  0.07  0.06 |\n| LRQK | 2.05 | 0.02 | 84.64 | 0.11 | 0.01 | 0.03 | 18.31 | 0.07 | 26.25 | 0.06 |\n| YAKV (ours) | 25.70 | 0.02 | 80.82 | 0.11 | 0.24 | 0.03 | 19.84 | 0.07 | 31.65 | 0.06 | [...] To avoid costly transfers between the CPU and GPU, different offloading methods propose various techniques for reducing the PCIe burden. For instance, ShadowKV   retrieves only values from the CPU, while reconstructing keys from a compressed representation. InfiniGen   proposes overlapping the costly PCIe transfer of the keys and values for the next layer with the computation of the current layer. In contrast, we show that compressing both keys and values to as low as 4 bits reduces the number",
+   "published_date": null,
+   "score": 0.35676086
+  },
+  {
+   "url": "https://arxiv.org/html/2502.04077v3",
+   "title": "AttentionPredictor: Temporal Patterns Matter for KV Cache Compression",
+   "content": "KV cache cross-layer prefetching. These methods hide part of the cache transfer time based on offloading the cache to the CPU.\nHowever, as the sequence length increases, the transfer time is too long to be hidden.\nInfiniGen  combines cache retrieval and prefetching by approximating the attention score for the next layer to load the critical cache.\nHowever, the estimation time increases significantly as the sequence grows, and the inference time for a single layer is insufficient to cover this. [...] Therefore, these comparative results affirm that while attention similarities exist, simplistic heuristic estimations are insufficient. The empirical evidence highlights the necessity and distinct advantage of our proposed learnable AttentionPredictor for achieving more accurate anticipation of attention distributions.\n\n### C.10 Comparison between MInference and AttentionPredictor [...] 3) Experiments demonstrate that our approach achieves 13× KV cache compression with comparable LLM performance and 5.6×\\times speedup to full cache offloading.",
+   "published_date": null,
+   "score": 0.3433643
+  },
+  {
+   "url": "https://arxiv.org/html/2511.06029v1",
+   "title": "Lethe: Layer- and Time-Adaptive KV Cache Pruning for Reasoning-Intensive LLM Serving",
+   "content": "System-level solutions like FlashAttention (Dao et al. 2022; Dao 2023; Shah et al. 2024), PagedAttention (Kwon et al. 2023), and InfiniGen (Lee et al. 2024) improve efficiency via fused kernels, memory paging, or KV prefetching. However, most of these methods retain all cached tokens, limiting scalability under long-context generation.\n\nIn contrast, Lethe dynamically prunes KV entries based on attention sparsity and temporal utility, enabling finer-grained memory control during decoding. [...] Lee et al. (2024) W. Lee, J. Lee, J. Seo, and J. Sim  InfiniGen: efficient generative inference of large language models with dynamic KV cache management.  In 18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24),  Santa Clara, CA, pp. 155–172.  External Links: ISBN 978-1-939133-40-3, Link  Cited by: Efficient Attention and System Optimizations.",
+   "published_date": null,
+   "score": 0.3351555
+  },
+  {
+   "url": "https://arxiv.org/html/2511.00321v1",
+   "title": "Scalable Processing-Near-Memory for 1M-Token LLM Inference: CXL-Enabled KV-Cache Management Beyond GPU Limits",
+   "content": "KV-Cache Management System. Recent system-level research focuses on enhancing memory efficiency through sparsity exploitation, offloading, and quantization. ALISA (Zhao et al., 2024) accelerates inference by caching only salient tokens via sparsity-aware attention and dynamic scheduling. InfiniGen (Lee et al., 2024) reduces offloading overhead through speculative prefetching, while NEO (Jiang et al., 2024) employs an asymmetric GPU–CPU pipeline to support memory-bound workloads. Oaken (Kim et [...] Lee et al. (2024)  Wonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim. 2024.  InfiniGen: Efficient generative inference of large language models with dynamic KV cache management. In 18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24). 155–172. [...] The Steady Token Selection mechanism provides two key advantages. First, it minimizes memory transfer overhead, since recalling only a small subset significantly reduces the volume of data movement compared to full KV-cache recall. Second, it maintains the large batch size needed for efficient GPU execution, avoiding the micro-batching penalties of traditional GPU-based KV-cache systems. As shown in Figure 8(a), by leveraging the Steady Token Selection process described in Algorithm 1,",
+   "published_date": null,
+   "score": 0.3183691
+  },
+  {
+   "url": "https://arxiv.org/html/2601.10729v2",
+   "title": "OrbitFlow: SLO-Aware Long-Context LLM Serving with Fine-Grained KV Cache Reconfiguration",
+   "content": "InfiniGen (Lee et al., 2024) speculatively prefetches critical KV entries to minimize CPU-to-GPU transfer overhead. Neo (Jiang et al., 2025) and FlexInfer (Na et al., 2025) extend memory capacity by offloading KV caches to host memory or SSD. These methods primarily optimize the spatial placement and movement of KV data to reduce transfer latency. OrbitFlow follows a similar motivation but performs placement decisions online, adapting KV allocations at runtime according to batch composition and [...] W. Lee, J. Lee, J. Seo, and J. Sim (2024)  InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management.  In 18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24),  pp. 155–172.  Cited by: §1, §1, §6.",
+   "published_date": null,
+   "score": 0.31481943
+  },
+  {
+   "url": "https://arxiv.org/html/2506.02634v3",
+   "title": "KVCache Cache in the Wild: Characterizing and Optimizing KVCache Cache at a Large Cloud Provider",
+   "content": "Other KV$-related optimizations.   Emerging works[59, 68, 33, 13] propose runtime KV$ compression and deletion methods to reduce KV$ size. StreamingLLM  keeps only a finite attention window for recent tokens combined with a few initial tokens. H2O  only involves tokens that contribute most to the attention score for inference. InfiniGen  speculatively selects tokens critical for attention scores and drops others. KVQuant  enables 3-bit KV cache quantization with minimal perplexity degradation [...] Lee, W., Lee, J., Seo, J., and Sim, J.   Infinigen: Efficient generative inference of large language models with dynamic KV cache management.   In 18th USENIX Symposium on Operating Systems Design and Implementation, OSDI 2024, Santa Clara, CA, USA, July 10-12, 2024 (2024), A. Gavrilovska and D. B. Terry, Eds., USENIX Association, pp. 155–172. [...] suitable because a short-lived KV$ may have high frequency in the past. Meanwhile, a small (on-GPU) cache is sufficient for API-dominated to-B workloads, eliminating the cost and complexity of deploying and managing a CPU-RDMA-SSD storage hierarchy for KV$ cache. Besides the main takeaways described above, we also discovered several interesting findings, such as the KV$ hits across users being extremely low (§3.2), despite the possibility of shared prompts via prompt libraries .",
+   "published_date": null,
+   "score": 0.30120835
+  }
+ ]
+}

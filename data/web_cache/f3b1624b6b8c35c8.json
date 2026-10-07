@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen authors InfiniGen KV cache analyst investor stock reaction",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:18:40+09:00",
+ "results": [
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nWonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim, Seoul National University [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the",
+   "published_date": null,
+   "score": 0.49582586
+  },
+  {
+   "url": "https://github.com/princeton-vl/infinigen",
+   "title": "GitHub - princeton-vl/infinigen: Infinite Photorealistic Worlds using Procedural Generation · GitHub",
+   "content": "```\n@misc{joshi2025articulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ } \n``` [...] @inproceedings{infinigen2023infinite, title={Infinite Photorealistic Worlds Using Procedural Generation}, author={Raistrick, Alexander and Lipson, Lahav and Ma, Zeyu and Mei, Lingjie and Wang, Mingzhe and Zuo, Yiming and Kayan, Karhan and Wen, Hongyu and Han, Beining and Wang, Yihan and Newell, Alejandro and Law, Hei and Goyal, Ankit and Yang, Kaiyu and Deng, Jia}, booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, pages={12630--12641}, year={2023} } [...] ```\n@misc{raistrick2026procfunc, title={ProcFunc: Function-Oriented Abstractions for Procedural 3D Generation in Python}, author={Alexander Raistrick and Karhan Kayan and Jack Nugent and David Yan and Lingjie Mei and Meenal Parakh and Hongyu Wen and Dylan Li and Yiming Zuo and Erich Liang and Jia Deng}, year={2026}, eprint={2604.26943}, archivePrefix={arXiv}, primaryClass={cs.CV}, url={ } \n```\n\n## Documentation",
+   "published_date": null,
+   "score": 0.3795859
+  },
+  {
+   "url": "https://infinigen.org",
+   "title": "Home | Infinigen",
+   "content": "Read the paper\n\n```\n@misc{joshi2025infinigenarticulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ }\n``` [...] @inproceedings{infinigen2023infinite, title={Infinite Photorealistic Worlds Using Procedural Generation}, author={Raistrick, Alexander and Lipson, Lahav and Ma, Zeyu and Mei, Lingjie and Wang, Mingzhe and Zuo, Yiming and Kayan, Karhan and Wen, Hongyu and Han, Beining and Wang, Yihan and Newell, Alejandro and Law, Hei and Goyal, Ankit and Yang, Kaiyu and Deng, Jia}, booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, pages={12630--12641}, year={2023} } [...] @inproceedings{infinigen2024indoors, author={Raistrick, Alexander and Mei, Lingjie and Kayan, Karhan and Yan, David and Zuo, Yiming and Han, Beining and Wen, Hongyu and Parakh, Meenal and Alexandropoulos, Stamatis and Lipson, Lahav and Ma, Zeyu and Deng, Jia}, title={Infinigen Indoors: Photorealistic Indoor Scenes using Procedural Generation}, booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month={June}, year={2024}, pages={21783-21794} }",
+   "published_date": null,
+   "score": 0.37634858
+  },
+  {
+   "url": "https://huggingface.co/papers/2406.19707",
+   "title": "Paper page - InfiniGen: Efficient Generative Inference of Large Language Models with\n  Dynamic KV Cache Management",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive\nperformance across various natural language processing tasks. Serving LLM\ninference for generating long contents, however, poses a challenge due to the\nenormous memory footprint of the transient state, known as the key-value (KV)\ncache, which scales with the sequence length and batch size. In this paper, we\npresent InfiniGen, a novel KV cache management framework tailored for long-text [...] Hugging Face's logo\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n## Abstract\n\nInfiniGen is a KV cache management framework that improves performance and accuracy in long-text generation by pre-fetching essential KV cache entries in offloading-based LLM serving systems. [...] generation, which synergistically works with modern offloading-based inference\nsystems. InfiniGen leverages the key insight that a few important tokens that\nare essential for computing the subsequent attention layer in the Transformer\ncan be speculated by performing a minimal rehearsal with the inputs of the\ncurrent layer and part of the query weight and key cache of the subsequent\nlayer. This allows us to prefetch only the essential KV cache entries (without",
+   "published_date": null,
+   "score": 0.35871297
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | alphaXiv",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] InfiniGen predicts from the immediately preceding layer. For OPT-13B, measured on a random 2,000-token PG-19 sentence, the authors report an average cosine similarity of 0.96 between adjacent Transformer-block inputs across layers. The paper notes that inputs to distant layers differ. [...] AbstractPaper\n\nSubmitted 28 Jun 2024\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nSeoul National University\nJaewoong SimJaewoong Sim\n\n## Abstract",
+   "published_date": null,
+   "score": 0.35555163
+  },
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "In summary, this paper makes the following contributions:\n\nWe present InfiniGen, a dynamic KV cache management framework that\nsynergistically works with modern offloading-based LLM serving systems by\nintelligently managing the KV cache in the CPU memory. [...] In this work, we propose InfiniGen, a KV cache management framework designed to\nsynergistically work with modern offloading-based inference systems.\nInfiniGen builds on two key design principles.\nFirst, it speculates and chooses the KV cache entries that are critical to\nproduce the next output token, dropping the non-critical ones, by conducting a\nminimal rehearsal of attention computation for Layer ii at Layer i−1i-1. [...] InfiniGen is orthogonal to FlexGen and can work in conjunction with it to\nefficiently offload and prefetch the KV cache.",
+   "published_date": null,
+   "score": 0.35528317
+  },
+  {
+   "url": "https://stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions unveils first CXL KV cache server | PENG Stock News",
+   "content": "A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] Retrieval-augmented generation (RAG) is a method that combines a fast search of relevant documents with an AI that writes answers, so the output is grounded in real source material rather than only the AI's memory. Think of it as a writer who looks things up in a library while drafting a report; for investors, this can mean more accurate, up-to-date analysis, faster research, and lower risk of misleading claims when companies use AI to summarize filings, earnings calls, or market data. [...] cxl technical \n\nAn abbreviation for “cancel” or “canceled,” used in brief notices to indicate that an event, order, meeting, dividend, or other planned action will no longer take place. Investors care because cancellations can change expected cash flows, timing of corporate actions, trading volume or regulatory filings—similar to someone calling off a planned event, which can alter plans and prompt reassessment of value or risk.\n\n   kv cache technical",
+   "published_date": null,
+   "score": 0.29030183
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions unveils first CXL KV cache server | PENG Stock News",
+   "content": "A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] Retrieval-augmented generation (RAG) is a method that combines a fast search of relevant documents with an AI that writes answers, so the output is grounded in real source material rather than only the AI's memory. Think of it as a writer who looks things up in a library while drafting a report; for investors, this can mean more accurate, up-to-date analysis, faster research, and lower risk of misleading claims when companies use AI to summarize filings, earnings calls, or market data. [...] cxl technical \n\nAn abbreviation for “cancel” or “canceled,” used in brief notices to indicate that an event, order, meeting, dividend, or other planned action will no longer take place. Investors care because cancellations can change expected cash flows, timing of corporate actions, trading volume or regulatory filings—similar to someone calling off a planned event, which can alter plans and prompt reassessment of value or risk.\n\n   kv cache technical",
+   "published_date": null,
+   "score": 0.29030183
+  }
+ ]
+}

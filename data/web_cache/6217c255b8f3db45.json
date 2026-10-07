@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache limitations adoption barriers cost concerns",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:42+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/abs/2402.02750",
+   "title": "[2402.02750] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "archive \n\nPress Enter to search · Advanced search\n\n# Computer Science > Computation and Language\n\narXiv:2402.02750 (cs)\n\nSubmitted on 5 Feb 2024 ([v1), last revised 25 Jul 2024 (this version, v2)]\n\n# Title:KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nAuthors:Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu [...] View a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors [...] > Abstract:Efficiently serving large language models (LLMs) requires batching of many requests to reduce the cost per request. Yet, with larger batch sizes and longer context lengths, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. Additionally, the loading of the KV cache causes the computational core to be idle, which limits the inference speed. A",
+   "published_date": null,
+   "score": 0.52100873
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "This paper is cited as a key related work that also tackles the KV cache bottleneck. KIVI's authors reference FlexGen's use of 4-bit group-wise quantization for both key and value caches, positioning their own asymmetric quantization strategy as a more nuanced and effective approach for lower bit-rates. [...] Large Language Models (LLMs) face significant memory challenges during inference, particularly from the Key-Value (KV) cache that stores intermediate attention states. This cache prevents redundant computation during auto-regressive text generation but can consume terabytes of memory for large batch sizes and long contexts, often exceeding the model parameters themselves. The KV cache creates a bottleneck that limits inference throughput and increases serving costs. [...] This paper's findings are fundamental to the core hypothesis of KIVI. The authors of KIVI explicitly state that their observation of persistent, large-magnitude outliers in fixed channels of the key cache aligns with previous findings in the AWQ paper, providing a critical justification for their decision to quantize the key cache per-channel.",
+   "published_date": null,
+   "score": 0.46453777
+  },
+  {
+   "url": "https://lacuna.tiptreesystems.com/work/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache/wrk_c46472a8c8f694337668097eb3804425",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache — Lacuna",
+   "content": "## Limitations and Future Work\n\nWhile KIVI is highly effective, the authors note a few areas for improvement: [...] Integration: Integrating this research prototype into mainstream serving frameworks like vLLM or Hugging Face Text Generation Inference (TGI) is the next logical step for widespread adoption. [...] ## The KIVI Method\n\nThe authors introduce KIVI (KV-cache 2-bit quantization), which uses three clever techniques to make 2-bit quantization viable:\n\nExtracted figure from page 5 of KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nSource, p. 5",
+   "published_date": null,
+   "score": 0.39592856
+  },
+  {
+   "url": "https://experts.umn.edu/en/publications/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache - Experts@Minnesota",
+   "content": "abstract = \"Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM [...] author = \"Zirui Liu and Jiayi Yuan and Hongye Jin and Shaochen Zhong and Zhaozhuo Xu and Vladimir Braverman and Beidi Chen and Xia Hu\",\n\nnote = \"Publisher Copyright: Copyright 2024 by the author(s); 41st International Conference on Machine Learning, ICML 2024 ; Conference date: 21-07-2024 Through 27-07-2024\",\n\nyear = \"2024\",\n\nlanguage = \"English (US)\",\n\nvolume = \"235\",\n\npages = \"32332--32344\",\n\njournal = \"Proceedings of Machine Learning Research\",\n\nissn = \"2640-3498\", [...] AB - Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM must load",
+   "published_date": null,
+   "score": 0.37031704
+  },
+  {
+   "url": "https://cris.bgu.ac.il/en/publications/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache-3",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache - Ben-Gurion University Research Portal",
+   "content": "author = \"Zirui Liu and Jiayi Yuan and Hongye Jin and Shaochen Zhong and Zhaozhuo Xu and Vladimir Braverman and Beidi Chen and Xia Hu\",\n\nnote = \"Publisher Copyright: Copyright 2024 by the author(s); 41st International Conference on Machine Learning, ICML 2024 ; Conference date: 21-07-2024 Through 27-07-2024\",\n\nyear = \"2024\",\n\nmonth = jan,\n\nday = \"1\",\n\nlanguage = \"English\",\n\nvolume = \"235\",\n\npages = \"32332--32344\",\n\njournal = \"Proceedings of Machine Learning Research\",\n\nissn = \"2640-3498\", [...] abstract = \"Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM [...] Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM must load the",
+   "published_date": null,
+   "score": 0.3656158
+  },
+  {
+   "url": "https://mlanthology.org/icml/2024/liu2024icml-kivi",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | ML Anthology",
+   "content": "Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU’s SRAM must load the [...] ### BibTeX\n\n```\n@inproceedings{liu2024icml-kivi, title = {{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}}, author = {Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}, booktitle = {International Conference on Machine Learning}, year = {2024}, pages = {32332-32344}, volume = {235}, url = { }\n``` [...] ML Anthology\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu\n\nICML 2024 pp. 32332-32344\n\n/icml/2024/liu2024icml-kivi/\n\n## Abstract",
+   "published_date": null,
+   "score": 0.3244071
+  },
+  {
+   "url": "https://liner.com/review/kivi-tuningfree-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache [Quick Review]",
+   "content": "Efficiently serving large language models necessitates batching many requests, yet increased batch sizes and context lengths make KV cache a significant memory and speed bottleneck.\n Quantization can reduce KV cache size, but a lack of in-depth studies exists on its element distribution, hindering effective quantization strategies.\n This research aims to analyze KV cache element distribution in LLMs to identify optimal quantization approaches and overcome current limitations. [...] KIVI quantizes key cache per-channel and value cache per-token based on extensive analysis of outlier patterns and quantization error in KV cache.\n KIVI is a plug-and-play 2-bit KV cache quantization algorithm with hardware-friendly implementation that does not require fine-tuning.\n KIVI incorporates a grouped key cache and a residual key cache, maintaining the residual portion in full precision to handle streaming data and ensure accuracy. [...] 0\n\n0\n\ncitation\n\ncitationDeLeaker: Dynamic Inference-Time Reweighting For Semantic Leakage Mitigation in Text-to-Image Models\n\nVentura et al.\n\nVentura et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDirectional Textual Inversion for Personalized Text-to-Image Generation\n\nKim et al.\n\nKim et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDoVer: Intervention-Driven Auto Debugging for LLM Multi-Agent Systems\n\nMa et al.\n\nMa et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026",
+   "published_date": null,
+   "score": 0.2561573
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI/issues/37",
+   "title": "how to store/retrieve KIVI KV cache? · Issue #37 · jy-yuan/KIVI · GitHub",
+   "content": "No projects\n\nNo milestone\n\nNone yet\n\nNo branches or pull requests\n\n## Issue actions\n\nYou can’t perform that action at this time. [...] Skip to content   \n \n \n\n## Navigation Menu\n\nSign in\n\nAppearance settings\n\nSign in\n\nSign up\n\nAppearance settings\n\nYou signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert\n\n{{ message }}\n\n## Repository navigation\n\n \n\n# how to store/retrieve KIVI KV cache? #37\n\nCopy link\n\nCopy link\n\nOpen\n\nOpen [...] Open\n\nOpen\n\nhow to store/retrieve KIVI KV cache?#37\n\nCopy link\n\n## Description\n\n@liza-babaoglu\n\nliza-babaoglu\n\nopened on Feb 25, 2025\n\nIssue body actions\n\nHello, how can we store/retrieve the KIVI KV Cache and potentially load it again?\n\nReactions are currently unavailable\n\n## Activity\n\nSign up for free to join this conversation on GitHub. Already have an account? Sign in to comment\n\n## Metadata\n\n## Metadata\n\n### Assignees\n\nNo one assigned\n\n### Labels\n\nNo labels\n\nNo labels\n\nNo projects",
+   "published_date": null,
+   "score": 0.18203293
+  }
+ ]
+}

@@ -110,16 +110,34 @@ def validate_plan(raw_tasks: list, tech_ids: list[str]) -> tuple[list[SubTask], 
 
 
 def fallback_plan(state: dict) -> tuple[list[dict], str]:
-    """Rule planner from State signals (used only when the LLM plan is unavailable)."""
+    """Rule planner used only when no LLM plan is available (new input without API key / cache, or invalid JSON).
+    It still reads the State: a perspective is split per technology when the evidence for the technologies is
+    unbalanced, research tasks are added for retrieval gaps and recorded selection weaknesses."""
     tech_ids = [t.tech_id for t in state["selected_techs"]]
-    raw = [{"perspective": MINIMUM_KO[p], "assigned_agent": SPECIALIST[p], "tech_ids": tech_ids,
-            "objective": OBJECTIVE[p], "priority": 1} for p in MINIMUM_PERSPECTIVES]
+    counts = {t: sum(1 for e in state.get("evidence", []) if e.tech == t) for t in tech_ids}
+    unbalanced = len(tech_ids) > 1 and min(counts.values()) * 2 < max(counts.values())
+    raw, notes = [], []
+    for p in MINIMUM_PERSPECTIVES:
+        if unbalanced and p in ("market", "domain"):   # thin-evidence technology gets its own task (separate budget)
+            raw += [{"perspective": f"{MINIMUM_KO[p]} ({t})", "assigned_agent": SPECIALIST[p], "tech_ids": [t],
+                     "objective": OBJECTIVE[p], "priority": 1} for t in tech_ids]
+        else:
+            raw.append({"perspective": MINIMUM_KO[p], "assigned_agent": SPECIALIST[p], "tech_ids": tech_ids,
+                        "objective": OBJECTIVE[p], "priority": 1})
+    if unbalanced:
+        notes.append(f"기술별 근거 수 불균형 {counts} → 시장성·도메인 기술별 분할")
     grade = state.get("retrieval_grade")
-    if grade and grade.missing:   # research gap left after the bounded retrieval loop -> one extra research task
+    if grade and grade.missing:
         raw.append({"perspective": "evidence gap research", "assigned_agent": "research_generalist",
                     "tech_ids": sorted(grade.missing), "objective": f"공통 검색에서 빠진 요소 보완: {grade.missing}",
                     "priority": 2})
-    return raw, "LLM 계획을 사용할 수 없어 State 신호(선정 기술, 검색 공백)로 규칙 기반 계획을 만들었다."
+        notes.append(f"검색 공백 {grade.missing} → 보완 조사 추가")
+    sv = state.get("selection_validation")
+    if sv and any(sv.weaknesses.values()):
+        raw.append({"perspective": "competition/ecosystem", "assigned_agent": "ecosystem_specialist",
+                    "tech_ids": tech_ids, "objective": "선정 검증에서 기록된 약점을 경쟁·생태계 관점에서 확인", "priority": 3})
+        notes.append("선정 약점 기록 → 경쟁·생태계 조사 추가")
+    return raw, "LLM 계획을 쓸 수 없어 State 신호로 규칙 기반 계획을 만들었다" + (f": {'; '.join(notes)}" if notes else ".")
 
 
 def orchestrator(state: dict) -> dict:

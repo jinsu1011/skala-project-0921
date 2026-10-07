@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen authors InfiniGen KV cache criticism skeptical hype",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:19:37+09:00",
+ "results": [
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nWonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim, Seoul National University [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the",
+   "published_date": null,
+   "score": 0.5114976
+  },
+  {
+   "url": "https://engineering.princeton.edu/news/2023/07/06/engineers-look-old-source-empower-future-computer-vision",
+   "title": "Engineers look to an old source to empower the future of computer vision - Princeton Engineering",
+   "content": "A study describing Infinigen was presented at the 2023 Conference on Computer Vision and Pattern Recognition (CVPR) held from June 18 to June 22 in Vancouver, Canada. The study’s three lead authors, Alex Raistrick, Lahav Lipson and Zeyu Ma, are Ph.D. students in Deng’s lab and contributed equally to the research. The rest of team includes Lingjie Mei, Mingzhe Wang, Yiming Zuo, Karhan Kayan, Hongyu Wen, Beining Han, Yihan Wang, Alejandro Newell, Hei Law, Ankit Goyal, Kaiyu Yang and David Yan. [...] Infinigen is “a dynamic program for building unlimited, diverse, and realistic natural scenes,” said Jia Deng, an associate professor of computer science at Princeton and senior author of a new study that details the software system. [...] “Synthetic datasets of 3D images have shown great initial promise,” said Deng, “and we developed Infinigen to further deliver on this promise.”\n\nFor Infinigen, the Princeton researchers designed subprograms, dubbed generators, that specialize in producing single distinct types of digital objects — for instance, “fish” or “mountains.” Users can work with the subprograms to tailor a range of parameters including size, texture, color and reflectivity.",
+   "published_date": null,
+   "score": 0.50856906
+  },
+  {
+   "url": "https://infinigen.org",
+   "title": "Home | Infinigen",
+   "content": "@inproceedings{infinigen2023infinite, title={Infinite Photorealistic Worlds Using Procedural Generation}, author={Raistrick, Alexander and Lipson, Lahav and Ma, Zeyu and Mei, Lingjie and Wang, Mingzhe and Zuo, Yiming and Kayan, Karhan and Wen, Hongyu and Han, Beining and Wang, Yihan and Newell, Alejandro and Law, Hei and Goyal, Ankit and Yang, Kaiyu and Deng, Jia}, booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, pages={12630--12641}, year={2023} } [...] Read the paper\n\n```\n@misc{joshi2025infinigenarticulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ }\n``` [...] @inproceedings{infinigen2024indoors, author={Raistrick, Alexander and Mei, Lingjie and Kayan, Karhan and Yan, David and Zuo, Yiming and Han, Beining and Wen, Hongyu and Parakh, Meenal and Alexandropoulos, Stamatis and Lipson, Lahav and Ma, Zeyu and Deng, Jia}, title={Infinigen Indoors: Photorealistic Indoor Scenes using Procedural Generation}, booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, month={June}, year={2024}, pages={21783-21794} }",
+   "published_date": null,
+   "score": 0.39494804
+  },
+  {
+   "url": "https://github.com/princeton-vl/infinigen",
+   "title": "GitHub - princeton-vl/infinigen: Infinite Photorealistic Worlds using Procedural Generation · GitHub",
+   "content": "@inproceedings{infinigen2023infinite, title={Infinite Photorealistic Worlds Using Procedural Generation}, author={Raistrick, Alexander and Lipson, Lahav and Ma, Zeyu and Mei, Lingjie and Wang, Mingzhe and Zuo, Yiming and Kayan, Karhan and Wen, Hongyu and Han, Beining and Wang, Yihan and Newell, Alejandro and Law, Hei and Goyal, Ankit and Yang, Kaiyu and Deng, Jia}, booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, pages={12630--12641}, year={2023} } [...] ```\n@misc{raistrick2026procfunc, title={ProcFunc: Function-Oriented Abstractions for Procedural 3D Generation in Python}, author={Alexander Raistrick and Karhan Kayan and Jack Nugent and David Yan and Lingjie Mei and Meenal Parakh and Hongyu Wen and Dylan Li and Yiming Zuo and Erich Liang and Jia Deng}, year={2026}, eprint={2604.26943}, archivePrefix={arXiv}, primaryClass={cs.CV}, url={ } \n```\n\n## Documentation [...] ```\n@misc{joshi2025articulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ } \n```",
+   "published_date": null,
+   "score": 0.39403826
+  },
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "In summary, this paper makes the following contributions:\n\nWe present InfiniGen, a dynamic KV cache management framework that\nsynergistically works with modern offloading-based LLM serving systems by\nintelligently managing the KV cache in the CPU memory. [...] slightly better accuracy than the full-cache baseline.\nThis is likely because reducing the amount of the KV cache participating in the\nattention computation can help the model focus more on critical tokens. [...] InfiniGen is orthogonal to FlexGen and can work in conjunction with it to\nefficiently offload and prefetch the KV cache.",
+   "published_date": null,
+   "score": 0.3563576
+  },
+  {
+   "url": "https://news.ycombinator.com/item?id=42485423",
+   "title": "Infinigen: Infinite Photorealistic Worlds Using Procedural Generation | Hacker News",
+   "content": "prominent Chinese universities in the authors list. Doesnt this prima facie imply a breach of the chip sanctions/export rules? | | | |  |  |  |  ---  |  |  | nxobject on Dec 23, 2024  | parent | next (javascript:void(0))   The papers mention that the co-authors did research while affiliated with Princeton. | | | |  |  |  |  ---  |  |  | tanepiper on Dec 23, 2024  | prev (javascript:void(0))   Not even subtle with that Matrix-like intro | | | |  |  |  |  ---  |  |  | taneq on Dec 23, 2024  | [...] | |  |  |  |  ---  |  |  | phyalow on Dec 23, 2024  | prev | next (javascript:void(0))   I noticed several prominent Chinese universities in the authors list. Doesnt this prima facie imply a breach of the chip sanctions/export rules? | |\n| |  |  |  |  ---  |  |  | nxobject on Dec 23, 2024  | parent | next (javascript:void(0))   The papers mention that the co-authors did research while affiliated with Princeton. | | [...] |  |  |  |\n --- \n|  |  | nxobject on Dec 23, 2024  | parent | next (javascript:void(0))   The papers mention that the co-authors did research while affiliated with Princeton. |\n\n|  |  |  |\n --- \n|  |  | tanepiper on Dec 23, 2024  | prev (javascript:void(0))   Not even subtle with that Matrix-like intro |\n\n|  |  |  |\n --- \n|  |  | taneq on Dec 23, 2024  | parent (javascript:void(0))   That is what they were going for, yes. |\n\n|  |\n\n|  |",
+   "published_date": null,
+   "score": 0.2555995
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2306.09310",
+   "title": "Infinite Photorealistic Worlds using Procedural Generation | alphaXiv",
+   "content": "This paper presents a state-of-the-art procedural generation system for indoor scenes. It serves as a key point of comparison, allowing the authors to highlight Infinigen's unique focus on the natural world and its method of generating all assets from scratch, unlike ProcTHOR which uses a library of existing assets. [...] Infinigen represents a substantial step forward in bridging the gap between synthetic and real-world data for computer vision applications focused on natural environments. Its combination of procedural generation, geometric accuracy, and open accessibility creates new possibilities for training more capable and generalizable vision systems while advancing our understanding of how to computationally model the complexity of the natural world. [...] Infinigen addresses a critical data scarcity problem in computer vision, particularly for tasks requiring natural environment understanding. The system's ability to generate unlimited, perfectly labeled data for 3D vision tasks like depth estimation, surface normal prediction, and optical flow estimation has immediate applications for training more robust vision models.\n\nScientific and Practical Applications\n\nBeyond computer vision, Infinigen serves multiple domains:",
+   "published_date": null,
+   "score": 0.24473327
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=6tgspeI-GHY&xstg=CAMSBhUDzO3xHw%3D%3D",
+   "title": "Introducing Infinigen",
+   "content": "### Transcript\n[0:04] foreign\n[0:12] [Music]\n[0:37] foreign\n[0:50] [Music]\n[1:32] thank you\n[1:40] [Music]\n[1:47] [Music]\n[1:54] thank you\n[1:56] [Music]\n[2:02] [Music]\n[2:10] [Music]\n[2:11] foreign\n[2:15] [Music]\n[2:27] foreign\n[2:28] [Music]\n[2:46] foreign [...] # Introducing Infinigen\n## Channel: Princeton Vision & Learning Lab\n860 subscribers\n1K likes\n\n### Description\n105,076 views\nPosted: 2023-06-17\nInfinigen is a procedural generator of 3D scenes, developed by the Princeton Vision & Learning Lab. Infinigen is optimized for computer vision research and generates diverse high-quality 3D training data. Infinigen is based on Blender and is free and open-source (BSD 3-Clause License)",
+   "published_date": null,
+   "score": 0.14578325
+  }
+ ]
+}

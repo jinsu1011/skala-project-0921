@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache adoption deployment industry demand",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:36+09:00",
+ "results": [
+  {
+   "url": "https://growthmarketreports.com/report/kv-cache-offloading-infrastructure-market",
+   "title": "KV-Cache Offloading Infrastructure Market Research Report 2033",
+   "content": "and accelerate time-to-insight. The growing adoption of HPC in industries such as pharmaceuticals, automotive, and energy is driving demand for specialized KV-cache offloading solutions tailored to the unique requirements of these sectors. [...] The End-User segment in the KV-Cache Offloading Infrastructure market includes IT & telecommunications, BFSI, healthcare, retail, government, and other industries, each with distinct requirements and adoption drivers. The IT & telecommunications sector is the largest end-user, leveraging KV-cache offloading solutions to support the rapid growth of AI-powered services, real-time analytics, and high-performance networking. Telecom operators are deploying advanced cache management infrastructure [...] Another major opportunity is the growing demand for managed services and consulting offerings that help organizations navigate the complexities of KV-cache offloading infrastructure deployment and management. As enterprises increasingly seek to accelerate time-to-market and reduce operational risks, service providers that can deliver end-to-end solutions, from initial assessment to ongoing optimization, will be in high demand. The expansion of regulatory compliance requirements and the growing",
+   "published_date": null,
+   "score": 0.5843666
+  },
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "`@InProceedings{pmlr-v235-liu24bz, title = {{KIVI}: A Tuning-Free Asymmetric 2bit Quantization for {KV} Cache}, author = {Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}, booktitle = {Proceedings of the 41st International Conference on Machine Learning}, pages = {32332--32344}, year = {2024}, editor = {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and [...] Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix}, volume = {235}, series = {Proceedings of Machine Learning Research}, month = {21--27 Jul}, publisher = {PMLR}, pdf = { url = { abstract = {Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed [...] [!(/v235/assets/images/logo-pmlr.svg)](/) Proceedings of Machine Learning Research\n\n[edit]\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu\n\nProceedings of the 41st International Conference on Machine Learning, PMLR 235:32332-32344, 2024.\n\n#### Abstract",
+   "published_date": null,
+   "score": 0.5602773
+  },
+  {
+   "url": "https://arxiv.org/html/2402.02750v2",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "The authors thank the anonymous reviewers for their helpful comments.\nDr. Beidi Chen is supported by a research gift from Moffett.AI.\nDr. Vladimir Braverman is partially supported by the Ministry of Trade, Industry and Energy (MOTIE) and Korea Institute for Advancement of Technology (KIAT) through the International Cooperative R&D program, the Naval Research (ONR) grant N00014-23-1-2737, and NSF CNS 2333887 award.\nDr. Xia Hu is supported by NSF grants NSF IIS-2224843. [...] Large Language Models (LLMs) have demonstrated strong performance across a wide range of tasks (Brown et al., 2020; Taylor et al., 2022; Yuan et al., 2023; Chuang et al., 2024).\nHowever, their deployment is very costly, requiring a large number of hardware accelerators such as GPUs.\nGiven these substantial costs, one natural way to reduce the cost per request is to combine a sufficient number of requests together for batch processing. [...] The views and conclusions contained in this paper are those of the authors and should not be interpreted as representing any funding agencies.",
+   "published_date": null,
+   "score": 0.47606868
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "This paper is cited as a key related work that also tackles the KV cache bottleneck. KIVI's authors reference FlexGen's use of 4-bit group-wise quantization for both key and value caches, positioning their own asymmetric quantization strategy as a more nuanced and effective approach for lower bit-rates. [...] The algorithm's compatibility with existing infrastructure and quantization techniques facilitates rapid adoption in current serving stacks, while its tuning-free nature eliminates the need for expensive retraining procedures. This positions KIVI as a practical solution for immediate deployment while establishing a foundation for more sophisticated compression techniques in future work.\n\nFlexgen: High-throughput generative inference of large language models with a single gpu [...] This paper's findings are fundamental to the core hypothesis of KIVI. The authors of KIVI explicitly state that their observation of persistent, large-magnitude outliers in fixed channels of the key cache aligns with previous findings in the AWQ paper, providing a critical justification for their decision to quantize the key cache per-channel.",
+   "published_date": null,
+   "score": 0.43122545
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] ```",
+   "published_date": null,
+   "score": 0.4172008
+  },
+  {
+   "url": "https://datatracker.ietf.org/doc/draft-li-cats-kv-cache-distribution",
+   "title": "draft-li-cats-kv-cache-distribution-00 - KV Cache Distribution for Distributed LLM Inference: Use Case and Requirements",
+   "content": "|  |  |  |\n --- \n| Document | Type | Active Internet-Draft (individual) |\n| Authors |  | Zhiqiang Li , Zongpeng Du , Junjie Wang , Wei Cheng , Guoying Zhang , Xun Sun , Chunhao Zhao |\n| Last updated | 2026-07-04 |\n| RFC stream |  | (None) |\n| Intended RFC status |  | (None) |\n| Formats |  | txt   html   xml   htmlized   bibtex   bibxml |\n| Stream | Stream state |  | (No stream defined) |\n| Consensus boilerplate |  | Unknown |\n| RFC Editor Note |  | (None) | [...] Abstract Status of This MemoLi, et al. Expires 5 January 2027 [Page 1]Internet-Draft KV Cache Distribution July 2026 Copyright Notice Table of ContentsLi, et al. Expires 5 January 2027 [Page 2]Internet-Draft KV Cache Distribution July 2026Li, et al. Expires 5 January 2027 [Page 3]Internet-Draft KV Cache Distribution July 2026Li, et al. Expires 5 January 2027 [Page 4]Internet-Draft KV Cache Distribution July 2026 Authors' AddressesLi, et al. Expires 5 January 2027 [Page 5]Internet-Draft KV Cache [...] Email authors   IPR   References   Referenced by   Nits   Nits v3   Search email archive\n\ndraft-li-cats-kv-cache-distribution-00",
+   "published_date": null,
+   "score": 0.32066223
+  },
+  {
+   "url": "https://www.semanticscholar.org/paper/KVCache-Cache-in-the-Wild%3A-Characterizing-and-Cache-Wang-Han/09338cf9b56a3801b86ad398f1c8f095bef413c8",
+   "title": "[PDF] KVCache Cache in the Wild: Characterizing and Optimizing KVCache Cache at a Large Cloud Provider | Semantic Scholar",
+   "content": "Save\n\n### CacheGen: KV Cache Compression and Streaming for Fast Large Language Model Serving\nYuhan LiuHanchen Li+11 authorsJunchen Jiang\n\nComputer Science\n\nSIGCOMM\n\n   2024\n\nTLDR\n\nCacheGen is a fast context-loading module for LLM systems that reduces the KV cache size by 3.5--4.3x and the total delay in fetching and processing contexts by 3.2--3.7x with negligible impact on the LLM response quality.Expand\n\n   339\nAi2 Careers (opens in a new tab)\n\n### Product [...] The Allen Institute for AI (opens in a new tab) [...] Skip to search formSkip to main contentSkip to account menu caching is a powerful technique for accelerating large language model inference and generation. Inference workloads are large and diverse, which makes them difficult to cache… Expand\n\n TinyLFU cache admission policy to handle variable-sized items and shows that the algorithms yield competitive or better hit-ratios and byte hit-Ratios compared to the state-of-the-art size-aware algorithms such as AdaptSize, LHD, LRB, and GDSF.Expand",
+   "published_date": null,
+   "score": 0.21623525
+  },
+  {
+   "url": "https://rocketreach.co/kivi-technologies-inc-profile_b40c020effc327f4",
+   "title": "KIVI Technologies Inc. Information",
+   "content": "More information",
+   "published_date": null,
+   "score": 0.16836442
+  }
+ ]
+}

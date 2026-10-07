@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen authors InfiniGen KV cache vLLM serving evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:20:14+09:00",
+ "results": [
+  {
+   "url": "https://huggingface.co/papers/2406.19707",
+   "title": "Paper page - InfiniGen: Efficient Generative Inference of Large Language Models with\n  Dynamic KV Cache Management",
+   "content": "fetching them all), thereby mitigating the fetch overhead from the host memory\nin offloading-based LLM serving systems. Our evaluation on several\nrepresentative LLMs shows that InfiniGen improves the overall performance of a\nmodern offloading-based system by up to 3.00x compared to prior KV cache\nmanagement methods while offering substantially better model accuracy. [...] Hugging Face's logo\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n## Abstract\n\nInfiniGen is a KV cache management framework that improves performance and accuracy in long-text generation by pre-fetching essential KV cache entries in offloading-based LLM serving systems. [...] Transformer-based large language models (LLMs) demonstrate impressive\nperformance across various natural language processing tasks. Serving LLM\ninference for generating long contents, however, poses a challenge due to the\nenormous memory footprint of the transient state, known as the key-value (KV)\ncache, which scales with the sequence length and batch size. In this paper, we\npresent InfiniGen, a novel KV cache management framework tailored for long-text",
+   "published_date": null,
+   "score": 0.767847
+  },
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "fetching them all), thereby mitigating the fetch overhead from the host\nmemory in offloading-based LLM serving systems.\nOur evaluation on several representative LLMs shows that InfiniGen improves the\noverall performance of a modern offloading-based system by up to 3.00×\\times\ncompared to prior KV cache management methods while offering substantially\nbetter model accuracy. [...] Evaluation (IITP).\nThe Institute of Engineering Research at Seoul National University provided\nresearch facilities for this work.\nJaewoong Sim is the corresponding author. [...] We implement InfiniGen on a modern offloading-based inference\nsystem  and evaluate it on two representative LLMs with varying\nmodel sizes, batch sizes, and sequence lengths.\nOur evaluation shows that InfiniGen achieves up to a 3.00×\\times speedup over\nthe existing KV cache management methods while offering up to a 32.6 percentage\npoint increase in accuracy.\nIn addition, InfiniGen consistently provides performance improvements with larger",
+   "published_date": null,
+   "score": 0.752468
+  },
+  {
+   "url": "https://dl.acm.org/doi/10.5555/3691938.3691947",
+   "title": "InfiniGen | Proceedings of the 18th USENIX Conference on Operating Systems Design and Implementation",
+   "content": "Share on\n\n# InfiniGen: efficient generative inference of large language models with dynamic KV cache management\n\nAUTHORs: Wonbeom Lee\n\nWonbeom Lee\n\nSeoul National University\n\nView Profile\n\n, Jungi Lee\n\nJungi Lee\n\nSeoul National University\n\nView Profile\n\n, Junghwan Seo\n\nJunghwan Seo\n\nSeoul National University\n\nView Profile\n\n, Jaewoong Sim\n\nJaewoong Sim\n\nSeoul National University\n\nView Profile\n\nAuthors Info & Claims [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00× compared to prior KV cache management methods while offering substantially better model accuracy. [...] Google Scholar\n\nZhenyu Zhang, Ying Sheng, Tianyi Zhou, Tianlong Chen, Lianmin Zheng, Ruisi Cai, Zhao Song, Yuandong Tian, Christopher Ré, Clark Barrett, et al. H2O: Heavy-hitter oracle for efficient generative inference of large language models. In Advances in Neural Information Processing Systems (NeurIPS), 2023.\n\nGoogle Scholar\n\n## Index Terms\n\nIndex Terms (Premium feature)\n\n1. InfiniGen: efficient generative inference of large language models with dynamic KV cache management",
+   "published_date": null,
+   "score": 0.75027883
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00× compared to prior KV cache management methods while offering substantially better model accuracy. [...] # InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nWonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim, Seoul National University [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works",
+   "published_date": null,
+   "score": 0.72605723
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | alphaXiv",
+   "content": "overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00x compared to prior KV cache management methods while offering substantially better model accuracy. [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] InfiniGen predicts from the immediately preceding layer. For OPT-13B, measured on a random 2,000-token PG-19 sentence, the authors report an average cosine similarity of 0.96 between adjacent Transformer-block inputs across layers. The paper notes that inputs to distant layers differ.",
+   "published_date": null,
+   "score": 0.7187726
+  },
+  {
+   "url": "https://medium.com/byte-sized-ai/tagged/kv-cache",
+   "title": "Byte-Sized AI",
+   "content": "Don Moon\n\nDon Moon\n\n·Added Nov 7, 2024·6 min read\n\nLLM Inference  - KV-cache Streaming for Fast, Fault-tolerant Generative LLM Serving, Dejavu\n\nLLM Inference  - KV-cache Streaming for Fast, Fault-tolerant Generative LLM Serving, Dejavu\n\nDon Moon\n\nDon Moon\n\n·Added Nov 7, 2024·6 min read\n\n## Accelerating Long Context Generation with KV Cache Offloading to CPU Memory, Using InfiniGen\n\n### InfiniGen: An Efficient KV Cache Offloading and Sparse Attention Technique\n\nDon Moon\n\nDon Moon [...] Don Moon\n\nDon Moon\n\n·Added Nov 6, 2024·7 min read\n\nAccelerating Long Context Generation with KV Cache Offloading to CPU Memory, Using InfiniGen\n\nAccelerating Long Context Generation with KV Cache Offloading to CPU Memory, Using InfiniGen\n\nDon Moon\n\nDon Moon\n\n·Added Nov 6, 2024·7 min read\n\nText to speech",
+   "published_date": null,
+   "score": 0.5852203
+  },
+  {
+   "url": "https://github.com/vllm-project/vllm/discussions/17054",
+   "title": "KV cache in VLLM serve · vllm-project/vllm · Discussion #17054 · GitHub",
+   "content": "| Late, but for anyone landing here from search, the numbers in your error work out exactly.  Qwen2.5-14B-Instruct-1M has 48 layers, 8 KV heads and head\\_dim 128, so the KV cache is 2 × 48 × 8 × 128 × 2 bytes = 192 KiB per token in BF16.    Your log's 73,792 tokens × 192 KiB = 13.5 GiB. That's what was left for cache: 0.9 × 47.5 GiB usable on the A6000 = 42.8 GiB, minus ~27.5 GiB of BF16 weights (14.7B params × 2 bytes), minus ~1.7 GiB for the profiling pass, CUDA graphs and non-torch memory. [...] non-torch memory.  The full 1,010,000 tokens would need about 185 GiB of cache for a single request (~92 GiB with `--kv-cache-dtype fp8`). That's multi-GPU no matter what.   On one A6000, `--max-model-len 65536` (12 GiB of cache) works as is, or add `--kv-cache-dtype fp8` to get ~147K tokens out of the same 13.5 GiB.  I built a free vLLM calculator that does this for a given model, GPU and flags (you can load this model by its HF id). It's checked against posted vLLM startup logs:  | [...] you are running in `auto` mode which defaults to FP16, each of those 14 billion parameters takes up 2 bytes of memory. That means the model weights alone are occupying about 28 or 29 GB of your VRAM. Since vLLM reserves a specific percentage of the GPU for overhead and execution, you are likely left with only about 14 GB of free space for the KV cache. This lines up perfectly with the error message as it is telling you that you have just enough room for about 73,000 tokens rather than the full",
+   "published_date": null,
+   "score": 0.54361504
+  },
+  {
+   "url": "https://community.intel.com/t5/Blogs/Tech-Innovation/Data-Center/Enhancing-long-context-high-concurrency-LLM-serving-on-a-32-GB/post/1751209",
+   "title": "Enhancing long-context, high-concurrency LLM serving on a 32 GB workstation GPU: TurboQuant KV Cache",
+   "content": "--num-prompts $N --max-concurrency $CONC --ignore-eos \\\n--save-result --result-dir /workspace/bench_results \\\n--result-filename \"llama31_${CONFIG}__${SCENARIO}__${TS}.json\" \\\n--percentile-metrics ttft,tpot,itl,e2el --metric-percentiles 50,90,99 \\\n--metadata model=$MODEL config=$CONFIG scenario=$SCENARIO\nStop server\npkill -f 'vllm serve.--port 8192'; sleep 3\n``` [...] ```bash\n# Set CONFIG to one of: bf16 · turboquant_k8v4 · turboquant_4bit_nc · turboquant_k3v4_nc · turbo quant_3bit_nc\nCONFIG=<config>\nMODEL=meta-llama/Llama-3.1-8B-Instruct\nTS=$(date +%Y%m%d_%H%M%S)\nStart server\nZE_AFFINITY_MASK=0 VLLM_NO_USAGE_STATS=1 VLLM_DO_NOT_TRACK=1 \\\nvllm serve $MODEL \\\n--port 8192 \\\n--dtype bfloat16 \\\n--max-model-len 8192 \\\n--gpu-memory-utilization 0.92 \\\n--enforce-eager \\\n--max-num-batched-tokens 8192 \\\n--max-num-seq 64 \\\n--block-size 64 \\\n--no-enable-log-requests \\ [...] ```bash\nvllm bench serve --model $MODEL --backend openai --endpoint /v1/completions --port 8192 \\\n--dataset-name random --random-input-len 64 --random-output-len 32 \\\n--num-prompts 3 --max-concurrency 4 --ignore-eos --disable-tqdm > /dev/null 2>&1 || true\nRun scenarios (repeat for each, substituting SCENARIO, ISL, OSL, N, CONC)\nvllm bench serve --model $MODEL --backend openai --endpoint /v1/completions --port 8192 \\\n--dataset-name random --random-input-len $ISL --random-output-len $OSL \\",
+   "published_date": null,
+   "score": 0.44695392
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache market analysis outlook",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:18:32+09:00",
+ "results": [
+  {
+   "url": "https://growthmarketreports.com/report/kv-cache-offloading-infrastructure-market",
+   "title": "KV-Cache Offloading Infrastructure Market Research Report 2033",
+   "content": "Across all regions, the KV-Cache Offloading Infrastructure market size reached USD 1.87 billion in 2024, driven by exponential growth in AI and high-performance computing workloads. The market is expected to expand at a robust CAGR of 23.6% from 2025 to 2033, reaching a projected value of USD 14.99 billion by 2033. This rapid market expansion is primarily attributed to the surging adoption of generative AI models, the proliferation of data centers, and the critical need for efficient memory [...] The Asia Pacific region is experiencing the fastest growth in the KV-Cache Offloading Infrastructure market, with a projected CAGR of 27.2% from 2025 to 2033. The market size in Asia Pacific reached USD 0.42 billion in 2024, and is expected to surpass USD 4.03 billion by 2033. This rapid expansion is fueled by the proliferation of hyperscale data centers, robust investments in AI infrastructure, and the digital transformation of enterprises across China, India, Japan, and Southeast Asia. [...] Regionally, North America continues to dominate the KV-Cache Offloading Infrastructure market, owing to its advanced technological ecosystem, early adoption of AI/ML technologies, and the presence of major cloud service providers. However, the Asia Pacific region is witnessing the fastest growth, fueled by robust investments in AI infrastructure, the expansion of hyperscale data centers, and the rapid digital transformation of enterprises. Europe is also emerging as a key market, driven by",
+   "published_date": null,
+   "score": 0.6342494
+  },
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "`@InProceedings{pmlr-v235-liu24bz, title = {{KIVI}: A Tuning-Free Asymmetric 2bit Quantization for {KV} Cache}, author = {Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}, booktitle = {Proceedings of the 41st International Conference on Machine Learning}, pages = {32332--32344}, year = {2024}, editor = {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and [...] Oliver, Nuria and Scarlett, Jonathan and Berkenkamp, Felix}, volume = {235}, series = {Proceedings of Machine Learning Research}, month = {21--27 Jul}, publisher = {PMLR}, pdf = { url = { abstract = {Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed [...] [!(/v235/assets/images/logo-pmlr.svg)](/) Proceedings of Machine Learning Research\n\n[edit]\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu\n\nProceedings of the 41st International Conference on Machine Learning, PMLR 235:32332-32344, 2024.\n\n#### Abstract",
+   "published_date": null,
+   "score": 0.6208291
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] [2024.04.04]: (Beta) We add the flash-attention support for KIVI during the prefill phase.\n [2024.04.03]: We add a new 5-shot GSM8K example.py to show the performance of 2/4 bit KIVI with 32 full precision tokens.\n [2024.02.05]: KIVI ver. 2 is released on arXiv.\n [2024.02.03]: KIVI code is released.\n [2023.12.29]: KIVI ver. 1 is released on researchgate. [...] [2024.04.12]: We add support for the Mistral model family. The performance of LongChat-7b-v1.5-32K and Mistral-7B-Instruct-v0.2 on 15 tasks from LongBench can be found in long\\_bench.md.\n [2024.04.05]: We release the code for reproducing our CoQA/TruthfulQA/GSM8K results using LM-Eval. Please check the README of branch lmeval.\n [2024.04.04]: 🔥🔥We add a new 5-digit passkey example with 12k context length to show the performance of 2bit KIVI under the long context senario.",
+   "published_date": null,
+   "score": 0.54840803
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "This paper is cited as a key related work that also tackles the KV cache bottleneck. KIVI's authors reference FlexGen's use of 4-bit group-wise quantization for both key and value caches, positioning their own asymmetric quantization strategy as a more nuanced and effective approach for lower bit-rates. [...] This paper's findings are fundamental to the core hypothesis of KIVI. The authors of KIVI explicitly state that their observation of persistent, large-magnitude outliers in fixed channels of the key cache aligns with previous findings in the AWQ paper, providing a critical justification for their decision to quantize the key cache per-channel. [...] AbstractPaper\n\nSubmitted 25 Jul 2024\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nRice UniversityStevens Institute of TechnologyCarnegie Mellon University\n\nTexas A&M University\n\nZirui LiuZirui LiuJiayi YuanJiayi YuanHongye JinHongye JinShaochen ZhongZhaozhuo XuZhaozhuo XuVladimir BravermanVladimir BravermanBeidi ChenBeidi ChenXia HuXia Hu\n+1 moreShow less\n\n## Abstract",
+   "published_date": null,
+   "score": 0.514718
+  },
+  {
+   "url": "https://liner.com/review/kivi-tuningfree-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache [Quick Review]",
+   "content": "0\n\n0\n\ncitation\n\ncitationDeLeaker: Dynamic Inference-Time Reweighting For Semantic Leakage Mitigation in Text-to-Image Models\n\nVentura et al.\n\nVentura et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDirectional Textual Inversion for Personalized Text-to-Image Generation\n\nKim et al.\n\nKim et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDoVer: Intervention-Driven Auto Debugging for LLM Multi-Agent Systems\n\nMa et al.\n\nMa et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026 [...] Apr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationOBS-Diff: Accurate Pruning For Diffusion Models in One-Shot\n\nZhu et al.\n\nZhu et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitation\n\nExplore an all-in-one research platform\n\nExplore an all-in-one research platform\n\nThis review was created with AI, and reviewed by a human editor. Complete your research faster and smarter with Liner.\n\n©2026 Liner. All Rights Reserved. [...] KIVI quantizes key cache per-channel and value cache per-token based on extensive analysis of outlier patterns and quantization error in KV cache.\n KIVI is a plug-and-play 2-bit KV cache quantization algorithm with hardware-friendly implementation that does not require fine-tuning.\n KIVI incorporates a grouped key cache and a residual key cache, maintaining the residual portion in full precision to handle streaming data and ensure accuracy.",
+   "published_date": null,
+   "score": 0.51457167
+  },
+  {
+   "url": "https://arxiv.org/html/2402.02750v2",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "|  |  |  |\n --- \n| Llama-2-13B | K Per-Token | K Per-Channel |\n| Avg. ‖𝑿K−𝑿K′𝑿K‖F\\|\\frac{{\\bm{X}}\\_{K}-{\\bm{X}}\\_{K}^{\\prime}}{{\\bm{X}}\\_{K}}\\|\\_{F} | 13.67 | 4.55 |\n| Avg. ‖𝑨−𝑨′𝑨‖F\\|\\frac{{\\bm{A}}-{\\bm{A}}^{\\prime}}{{\\bm{A}}}\\|\\_{F} | 47.00 | 9.60 |\n| Attention sparsity | 84.3% | |\n|  | V Per-Token | V Per-Channel |\n| Avg. ‖𝑿V−𝑿V′𝑿V‖F\\|\\frac{{\\bm{X}}\\_{V}-{\\bm{X}}\\_{V}^{\\prime}}{{\\bm{X}}\\_{V}}\\|\\_{F} | 4.57 | 3.73 |\n| Avg. Δ\\Delta | 3.55 | 49.89 |\n\n##### Analysis of Value Cache. [...] One essential recipe of KIVI is the per-channel quantization scheme designed based on the observation made in Section 3.2 and Figure 2.\nATOM (Zhao et al., 2024) also indicates that key cache exhibits more outliers compared to the value cache. KIVI provides further extensive analysis and leverages this observation to implement per-channel quantization. A similar observation and approach has been independently discovered and developed in the concurrent work KVQuant (Hooper et al., 2024). [...] The authors thank the anonymous reviewers for their helpful comments.\nDr. Beidi Chen is supported by a research gift from Moffett.AI.\nDr. Vladimir Braverman is partially supported by the Ministry of Trade, Industry and Energy (MOTIE) and Korea Institute for Advancement of Technology (KIAT) through the International Cooperative R&D program, the Naval Research (ONR) grant N00014-23-1-2737, and NSF CNS 2333887 award.\nDr. Xia Hu is supported by NSF grants NSF IIS-2224843.",
+   "published_date": null,
+   "score": 0.49978086
+  },
+  {
+   "url": "https://www.semanticscholar.org/paper/KIVI%3A-A-Tuning-Free-Asymmetric-2bit-Quantization-KV-Liu-Yuan/a3e000e0d7f64c1d094c2a8bf6f43992cbabe91b",
+   "title": "[PDF] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | Semantic Scholar",
+   "content": "Save\n\n### High-throughput Generative Inference of Large Language Models with a Single GPU\nYing ShengLian-Min Zheng+11 authorsCe Zhang\n\nComputer Science\n\nICML\n\n   2023\n\nTLDR\n\nFlexGen is presented, a high-throughput generation engine for running LLMs with limited GPU memory that compresses the weights and the attention cache to 4 bits with negligible accuracy loss, enabling FlexGen to have a larger space of batch size choices and thus significantly increase maximum throughput.Expand [...] 948\n   Highly Influential \n: 8-bit Matrix Multiplication for Transformers at Scale%3A-8-bit-Matrix-Multiplication-for-at-Dettmers-Lewis/4be7d1524edb0137599a5cc95f72844b85a52fe1)\nTim DettmersM. LewisYounes BelkadaLuke Zettlemoyer\n\nComputer Science\n\nAdvances in Neural Information Processing Systems…\n\n   2022\n\nTLDR [...] Skip to search formSkip to main contentSkip to account menu method to reduce the KV cache movement.Expand\n\n   8\n   Highly Influenced \n is proposed, a hardware-friendly approach for LLM low-bit weight-only quantization that can well preserve LLMs’ generalization ability on different domains and modalities, without overfitting to the calibration set.Expand\n\n   980\n   Highly Influential \n   PDF \n\n   5 Excerpts\n\nSave",
+   "published_date": null,
+   "score": 0.44044575
+  },
+  {
+   "url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/liu24bz/liu24bz.pdf",
+   "title": "[PDF] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "a9ER \\vk\\8(jWND`ڔ%2m`mfpLPƕ<sv7FuN?ž\\RHyS\\_08΅K6D{l k + E%M2v}?ސ3\\m/떿k.fa4g]GҺS{d;G)e\\(T'; V%;v1M2Mʩ4.A{-ɴF:K6F0dQJ+ 2ZSC!,Ĕԙ\\[6woR16\\=J q nww^Dz(:%39g`km<a+ 0535ߕ/oߍp??}km;ݿk!\";!wt. ,a+hgޜAqmErsPp>X yaf@ƔzZ݅( [...] a\\_dc< xS J^mXiCШyW+˓Kؿyr52v{=/S[\"GENP$S>eۻ\\Q5 &nKG)|NM;f g9.lLHq6-02Licj-x:w(8ZB7I|'io>5^$J} Q!x6|dӶjfD:ڇtAGꋬ9C:B5#~\\s q|,-zHNOaiI[)ڗ{1D k[&P~c,> !$Ca{8ߝrJI /.UQӨ{❝n0\\Fww=ZHMWժfy'MTT:FKF֣ZDےQO/3[(5>dͯ/y3~PC+y0#k0mxEG<AA8]!Lc [...] to7l;v!qxb(B?S^0Ӛ[SϔGsׅ@hnM+G;o551׺BH?5c(%3/^OI&;v ،iN/ 5C{--գ\"ͭ1mb؅RHBnSZXMO#t^f9JgaBR^~ҷBVw0VBDv2Cb\\_J\\_QQ\\_16Ѫ/VK ڛeP6S1~\\_u\\_~݌<~Ͻ5g6C>sP\\_A~Tpf##Żܼ.]\\s: AMk&\\_rR1\"1&nnҖ$",
+   "published_date": null,
+   "score": 0.29084536
+  }
+ ]
+}

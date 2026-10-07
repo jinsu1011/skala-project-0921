@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen authors InfiniGen KV cache long context inference throughput latency results",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:18:47+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "The latency of FlexGen almost linearly increases with the batch size because\nthe KV cache transfer occupies the majority of the inference latency. As we\nincrease the batch size from 4 to 20, the throughput (tokens per second) of\nInfiniGen increases from 27.36 to 41.99, while INT4 and H2O offer a small\nincrease in throughput (from 12.22 to 14.02 and from 21.31 to 25.70 each).\nBy dynamically adjusting the amount of the KV cache to load, InfiniGen achieves [...] Inference Latency.\nFigure 14 shows the inference latency including the prefill and\ndecoding stages.\nWe use the OPT-13B model with 1920 input tokens, 128 output tokens, and a batch\nsize of 20.\nInfiniGen achieves 1.63×\\times-32.93×\\times speedups over the baselines. The\nperformance benefit mainly comes from the significantly reduced amount of KV\ncache to load from the CPU memory due to our dynamic approach. [...] Batch Size.\nFigure 15 shows the inference latency across different batch sizes.\nThe results show that InfiniGen achieves lower latency than others across the\nbatch sizes (1.28×\\times-34.64×\\times). As the batch size increases, the\nperformance gap between InfiniGen and others becomes larger. UVM and UVM + H2O\nshow increasing latency mainly due to frequent page faults in the prefill\nstage.\nFor UVM, the latency also rapidly increases at a batch size of 16 because the",
+   "published_date": null,
+   "score": 0.7825466
+  },
+  {
+   "url": "https://dl.acm.org/doi/10.5555/3691938.3691947",
+   "title": "InfiniGen | Proceedings of the 18th USENIX Conference on Operating Systems Design and Implementation",
+   "content": "Share on\n\n# InfiniGen: efficient generative inference of large language models with dynamic KV cache management\n\nAUTHORs: Wonbeom Lee\n\nWonbeom Lee\n\nSeoul National University\n\nView Profile\n\n, Jungi Lee\n\nJungi Lee\n\nSeoul National University\n\nView Profile\n\n, Junghwan Seo\n\nJunghwan Seo\n\nSeoul National University\n\nView Profile\n\n, Jaewoong Sim\n\nJaewoong Sim\n\nSeoul National University\n\nView Profile\n\nAuthors Info & Claims [...] Google Scholar\n\nZhenyu Zhang, Ying Sheng, Tianyi Zhou, Tianlong Chen, Lianmin Zheng, Ruisi Cai, Zhao Song, Yuandong Tian, Christopher Ré, Clark Barrett, et al. H2O: Heavy-hitter oracle for efficient generative inference of large language models. In Advances in Neural Information Processing Systems (NeurIPS), 2023.\n\nGoogle Scholar\n\n## Index Terms\n\nIndex Terms (Premium feature)\n\n1. InfiniGen: efficient generative inference of large language models with dynamic KV cache management [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the keyvalue (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works",
+   "published_date": null,
+   "score": 0.75723875
+  },
+  {
+   "url": "https://leewonbeom.github.io/files/osdi24-infinigen-poster.pdf",
+   "title": "InfiniGen: Efficient Generative Inference of Large ...",
+   "content": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management Wonbeom Lee, Jungi Lee, Junghwan Seo, Jaewoong Sim Seoul National University LLM Inference & KV Cache InfiniGen Results Challenges KV Cache Size & Transfer Overhead Motivation InfiniGen Design Efficient KV Cache Prefetching 1. (Offline) Modify model weights in Skewing Controller 2. Speculate and prefetch KV tokens in PWIGen/KVSel Controller 3. Manage KV cache pool on CPU memory in Pool Manager [...] 32K Quantization H2O InfiniGen Full Cache → InfiniGen shows a shorter inference latency! [...] in Pool Manager Speedup over Modern Offloading-based Inference System Accuracy 0 2 4 6 512 1024 2048 Speedup 0 2 4 6 4 8 16 Speedup Sequence Length Batch Size FlexGen + INT4 FlexGen + H2O InfiniGen 5.28x 5.79x Prefill “Thank you for” FFN Attention Decoding Decoding ··· “saying” “that” KV Cache “to” for you Thank saying for you Thank that saying for you Thank ··· 20 30 40 50 0 15 30 45 60 Accuracy (%) Relative KV Cache Size (%) Sequence Length Perplexity 3 6 9 12 2K 4K 8K 16K 32K Quantization",
+   "published_date": null,
+   "score": 0.6708892
+  },
+  {
+   "url": "https://x.com/outerport/status/1851754292526616743",
+   "title": "Outerport on X: \"InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management OSDI 2024 By dynamically loading KV cache entries from a CPU memory pool, achieves around a 2x latency improvement compared to more naive dynamic loading schemes.\" / X",
+   "content": "Oct 30, 2024\n\n  One of the interesting graphs is the comparison against CUDA virtual memory- implicit memory management through the device driver always loses in comparison to explicit memory management systems like FlexGen, InfiniGen. [...] InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management OSDI 2024 By dynamically loading KV cache entries from a CPU memory pool, achieves around a 2x latency improvement compared to more naive dynamic loading schemes.\n\n  \n\n  10:33 PM · Oct 30, 2024·1,011\n\n  Views\n\n  1\n @outerport\n\n  Outerport@outerport\n\n  Oct 30, 2024\n\n  Paper available at: arxiv.org/abs/2406.19707\n\n  1\n\n  @outerport\n\n  Outerport@outerport\n\n  Oct 30, 2024 [...] InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management OSDI 2024 By dynamically loading KV cache entries from a CPU memory pool, achieves around a 2x latency improvement compared to more naive dynamic loading schemes.\n\n10:33 PM · Oct 30, 2024·1,011\n\nViews\n\n1\n\n @outerport\n\n  Outerport@outerport",
+   "published_date": null,
+   "score": 0.61112726
+  },
+  {
+   "url": "https://podcast.do-not-panic.com/episodes/infinigen-for-efficient-long-context-llm-inference",
+   "title": "InfiniGen for Efficient Long-Context LLM Inference — AI Post Transformers",
+   "content": "Sources:  \n1. InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management — Wonbeom Lee, Jungi Lee, Junghwan Seo, Jaewoong Sim, 2024  \n   \n2. FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU — Ying Sheng et al., 2023  \n   \n3. H2O: Heavy-Hitter Oracle for Efficient Generative Inference of Large Language Models — Zhenyu Zhang et al., 2023 [...] This episode explores InfiniGen, a systems approach to speeding up long-context language model inference by treating KV cache management, not raw compute, as the central bottleneck. It explains why decoding slows down when large caches have to shuttle between CPU and GPU memory, and contrasts InfiniGen with FlexGen, H2O, and PagedAttention to show how different serving setups create different memory problems. The discussion focuses on InfiniGen’s core idea: use a lightweight preview from the [...] 8. IndexMem: Learned KV-Cache Eviction with Latent Memory for Long-Context LLM Inference — Xintong Yang et al., 2026  \n   \n9. Model Tells You Where to Merge: Adaptive KV Cache Merging for LLMs on Long-Context Tasks — Zheng Wang et al., 2024  \n   \n10. KVQuant: Towards 10 Million Context Length LLM Inference with KV Cache Quantization — Coleman Hooper et al., 2024  \n   \n11. TailorKV: A Hybrid Framework for Long-Context Inference via Tailored KV Cache Optimization — Dingyu Yao et al., 2025",
+   "published_date": null,
+   "score": 0.6044228
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nWonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim, Seoul National University [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00× compared to prior KV cache management methods while offering substantially better model accuracy.",
+   "published_date": null,
+   "score": 0.5863576
+  },
+  {
+   "url": "https://huggingface.co/papers/2406.19707",
+   "title": "Paper page - InfiniGen: Efficient Generative Inference of Large Language Models with\n  Dynamic KV Cache Management",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive\nperformance across various natural language processing tasks. Serving LLM\ninference for generating long contents, however, poses a challenge due to the\nenormous memory footprint of the transient state, known as the key-value (KV)\ncache, which scales with the sequence length and batch size. In this paper, we\npresent InfiniGen, a novel KV cache management framework tailored for long-text [...] fetching them all), thereby mitigating the fetch overhead from the host memory\nin offloading-based LLM serving systems. Our evaluation on several\nrepresentative LLMs shows that InfiniGen improves the overall performance of a\nmodern offloading-based system by up to 3.00x compared to prior KV cache\nmanagement methods while offering substantially better model accuracy. [...] Hugging Face's logo\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n## Abstract\n\nInfiniGen is a KV cache management framework that improves performance and accuracy in long-text generation by pre-fetching essential KV cache entries in offloading-based LLM serving systems.",
+   "published_date": null,
+   "score": 0.5677694
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | alphaXiv",
+   "content": "Schematic timing for (a) Full GPU, (b) KV cache on CPU, (c) Prefetch KV cache, and (d) Prefetch critical KV. With the cache on CPU, loading is a large exposed interval. Prefetching hides only part of it. The critical-cache load is shorter and overlaps the preceding work. This is a conceptual diagram, not a measured latency result.\n\n## Selecting instead of evicting [...] InfiniGen predicts from the immediately preceding layer. For OPT-13B, measured on a random 2,000-token PG-19 sentence, the authors report an average cosine similarity of 0.96 between adjacent Transformer-block inputs across layers. The paper notes that inputs to distant layers differ. [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works",
+   "published_date": null,
+   "score": 0.5510187
+  }
+ ]
+}

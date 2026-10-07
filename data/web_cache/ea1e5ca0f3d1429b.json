@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen authors InfiniGen KV cache market analysis outlook",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:19:51+09:00",
+ "results": [
+  {
+   "url": "https://growthmarketreports.com/report/kv-cache-offloading-infrastructure-market",
+   "title": "KV-Cache Offloading Infrastructure Market Research Report 2033",
+   "content": "Across all regions, the KV-Cache Offloading Infrastructure market size reached USD 1.87 billion in 2024, driven by exponential growth in AI and high-performance computing workloads. The market is expected to expand at a robust CAGR of 23.6% from 2025 to 2033, reaching a projected value of USD 14.99 billion by 2033. This rapid market expansion is primarily attributed to the surging adoption of generative AI models, the proliferation of data centers, and the critical need for efficient memory [...] The Asia Pacific region is experiencing the fastest growth in the KV-Cache Offloading Infrastructure market, with a projected CAGR of 27.2% from 2025 to 2033. The market size in Asia Pacific reached USD 0.42 billion in 2024, and is expected to surpass USD 4.03 billion by 2033. This rapid expansion is fueled by the proliferation of hyperscale data centers, robust investments in AI infrastructure, and the digital transformation of enterprises across China, India, Japan, and Southeast Asia. [...] Regionally, North America continues to dominate the KV-Cache Offloading Infrastructure market, owing to its advanced technological ecosystem, early adoption of AI/ML technologies, and the presence of major cloud service providers. However, the Asia Pacific region is witnessing the fastest growth, fueled by robust investments in AI infrastructure, the expansion of hyperscale data centers, and the rapid digital transformation of enterprises. Europe is also emerging as a key market, driven by",
+   "published_date": null,
+   "score": 0.56258565
+  },
+  {
+   "url": "https://chatpaper.com/chatpaper/paper/33434",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "Sign in\n\n Interests\n arXiv\n Venues\n Collection\n\n1.InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\ncs.LG01 Jul 2024\n\nWonbeom Lee, Jungi Lee, Junghwan Seo, Jaewoong Sim\n\nSeoul National University [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00x compared to prior KV cache management methods while offering substantially better model accuracy.",
+   "published_date": null,
+   "score": 0.5568099
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nWonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim, Seoul National University [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00× compared to prior KV cache management methods while offering substantially better model accuracy.",
+   "published_date": null,
+   "score": 0.5446325
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=k6jnjFCdXoo",
+   "title": "[LLM] InfiniGen: Efficient Generative Inference of LLMs with Dynamic KV Cache Management (OSDI 2024)",
+   "content": "[3:27] 모르기 때문에 어텐션 웨이트 가 대체로 낮고 비슷하게 나오는 경향이 있습니다 하지만 이제 진행이 되 될수록 좀 더 확실한 패턴을 갖게\n[3:35] 되고요 이제 아까 밸류라인 것도 어 그냥 나오진 않죠 밸류도 아까 구해 놓은 건데 사실 이게 좀 이해가\n[3:43] 어렵다면 처음엔 그냥 qkv 개별 토큰에 대해서 그 동일한 값이라고 생각을 해도 상관없습니다\n[3:49] 어쨌든이 밸류를 어이 어텐션 웨이트를 이용한 웨이티드 버리로 구하게 되면 아웃풋이 나오게 됩니다 제가 색깔을\n[3:58] 아무나 구한 건 아니고요 저 아웃풋의 색깔을 보시면 컴퓨터가 큰 비중을 차지하고 사이언스에 저 보라색이 약간\n[4:06] 있고 하늘색이 조금 있는 것을 섞이게 됩니다 이와 마찬가지로 한 번에 어텐션 레이어를 거치게 되면 각\n[4:14] 토큰들은 자기 자신의 컨텍스트를 포함한 그런 임베딩으로 변화를 하게 됩니다 근데 또 중요한 거는이 [...] [18:57] 단계에서이 이미 기존에 주어진 알고 있는 인풋에 대해서 KV 캐시를 저장하고 한 단씩 만들어 갈\n[19:05] 때마다이 KV 새로 만들어진 단어에 새로 들어온 단어에 KV 값을 저장을 계속 해주면\n[19:14] 됩니다이 여기서 이제 사실 이미 몇 가지 문제를 상상하실 수 있을 거라 생각을 합니다 첫 번째 캐시는 당연히 큽니다\n[19:22] 크고 어 시퀀스 스와 베스타스 클수록 당연히 더 커집니다이 진 그래프에서 검은색\n[19:30] 점선은 아 이게 기본적으로 지금 모델 패러미터 사이즈를 말하고 있는데요 어이 검은색 점선이 말하는 거는 어\n[19:39] 그냥 모델 패러미터 위 저장하기 위해서 필요한 용량이고 점점 이제 그걸 넘어서 증가하는 내용은 뭐하면\n[19:47] 키밸류 캐시가 저장되면서 용량이 이렇게 크게 증가하게 됩니다 보시면 뭐 그 밑에 [...] [20:51] 어떤게 필요할지 알고 있기 때문에 미리 로드를 하는 방법도 있지만 그 또한 시간이 걸리는 것은 마찬가지입니다\n[20:59] 또 한 가지는 뭐냐면이 KV 캐시를 어떤 기존의 솔루션들은 KV 캐시가 너무 커지니까 에딕션 시키는\n[21:07] 방식으로 관리를 해 왔습니다 그 얘기는 뭐하면 어 에딕션 한 번시 켜서 뭐 다시 넣다 뺐다 한다는 구조라 이보다는 아예 중요하지 않은\n[21:16] 토큰으로 판정이 나면 그것을 비캐시 빼버리고 CPU 있도 아예 날려버려서 CPU 메모리에서 날려버려서 다시는\n[21:24] 사용하지 않는다는 것입니다 근데 당연히 문제가 되는 것은 우리가 처음에는 중요하지 않다고 판단했던 토큰이 이후에는 사실 중요할 수도\n[21:32] 있기 때문에 이걸 지어 버리게 되면 나중에 가서 러시에 큰 문제가 생깁니다 이럴 테면 어 이거는 지금",
+   "published_date": null,
+   "score": 0.51442534
+  },
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "We implement InfiniGen on a modern offloading-based inference\nsystem  and evaluate it on two representative LLMs with varying\nmodel sizes, batch sizes, and sequence lengths.\nOur evaluation shows that InfiniGen achieves up to a 3.00×\\times speedup over\nthe existing KV cache management methods while offering up to a 32.6 percentage\npoint increase in accuracy.\nIn addition, InfiniGen consistently provides performance improvements with larger [...] In summary, this paper makes the following contributions:\n\nWe present InfiniGen, a dynamic KV cache management framework that\nsynergistically works with modern offloading-based LLM serving systems by\nintelligently managing the KV cache in the CPU memory. [...] Even so, InfiniGen shows a 1.34×\\times speedup over FlexGen, while others\nachieve 1.18×\\times and 1.28×\\times each.",
+   "published_date": null,
+   "score": 0.49626526
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | alphaXiv",
+   "content": "AbstractPaper\n\nSubmitted 28 Jun 2024\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nSeoul National University\nJaewoong SimJaewoong Sim\n\n## Abstract [...] Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] InfiniGen predicts from the immediately preceding layer. For OPT-13B, measured on a random 2,000-token PG-19 sentence, the authors report an average cosine similarity of 0.96 between adjacent Transformer-block inputs across layers. The paper notes that inputs to distant layers differ.",
+   "published_date": null,
+   "score": 0.47446132
+  },
+  {
+   "url": "https://huggingface.co/papers/2406.19707",
+   "title": "Paper page - InfiniGen: Efficient Generative Inference of Large Language Models with\n  Dynamic KV Cache Management",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive\nperformance across various natural language processing tasks. Serving LLM\ninference for generating long contents, however, poses a challenge due to the\nenormous memory footprint of the transient state, known as the key-value (KV)\ncache, which scales with the sequence length and batch size. In this paper, we\npresent InfiniGen, a novel KV cache management framework tailored for long-text [...] fetching them all), thereby mitigating the fetch overhead from the host memory\nin offloading-based LLM serving systems. Our evaluation on several\nrepresentative LLMs shows that InfiniGen improves the overall performance of a\nmodern offloading-based system by up to 3.00x compared to prior KV cache\nmanagement methods while offering substantially better model accuracy. [...] Hugging Face's logo\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n## Abstract\n\nInfiniGen is a KV cache management framework that improves performance and accuracy in long-text generation by pre-fetching essential KV cache entries in offloading-based LLM serving systems.",
+   "published_date": null,
+   "score": 0.47329262
+  },
+  {
+   "url": "https://medium.com/byte-sized-ai/tagged/kv-cache",
+   "title": "Byte-Sized AI",
+   "content": "Don Moon\n\nDon Moon\n\n·Added Nov 7, 2024·6 min read\n\nLLM Inference  - KV-cache Streaming for Fast, Fault-tolerant Generative LLM Serving, Dejavu\n\nLLM Inference  - KV-cache Streaming for Fast, Fault-tolerant Generative LLM Serving, Dejavu\n\nDon Moon\n\nDon Moon\n\n·Added Nov 7, 2024·6 min read\n\n## Accelerating Long Context Generation with KV Cache Offloading to CPU Memory, Using InfiniGen\n\n### InfiniGen: An Efficient KV Cache Offloading and Sparse Attention Technique\n\nDon Moon\n\nDon Moon [...] Don Moon\n\nDon Moon\n\n·Added Nov 6, 2024·7 min read\n\nAccelerating Long Context Generation with KV Cache Offloading to CPU Memory, Using InfiniGen\n\nAccelerating Long Context Generation with KV Cache Offloading to CPU Memory, Using InfiniGen\n\nDon Moon\n\nDon Moon\n\n·Added Nov 6, 2024·7 min read\n\nText to speech [...] ![[vLLM — Prefix KV Caching] vLLM’s Automatic Prefix Caching vs ChunkAttention](\n\n![[vLLM — Prefix KV Caching] vLLM’s Automatic Prefix Caching vs ChunkAttention](\n\nDon Moon\n\nDon Moon\n\n·Added Dec 25, 2024·7 min read\n\n## Key-Value Cache Compression for Long-Context LLMs: A Survey and Key Insights\n\n### KV Cache Compression, But What Must We Give in Return? A Comprehensive Benchmark of Long Context Capable Approaches\n\nDon Moon\n\nDon Moon\n\n·Added Nov 23, 2024·3 min read",
+   "published_date": null,
+   "score": 0.39159262
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache integration ecosystem support framework",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:38+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/abs/2402.02750",
+   "title": "[2402.02750] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "archive \n\nPress Enter to search · Advanced search\n\n# Computer Science > Computation and Language\n\narXiv:2402.02750 (cs)\n\nSubmitted on 5 Feb 2024 ([v1), last revised 25 Jul 2024 (this version, v2)]\n\n# Title:KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nAuthors:Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu [...] View a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors [...] Full-text links:\n\n## Access Paper:\n\nView a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors\n\n View PDF\n HTML (experimental)\n TeX Source\n\nlicense icon view license\n\n### Current browse context:\n\ncs.CL\n\n< prev\")    |    next >\")\n\nnew  |  recent  | 2024-02\n\nChange to browse by:\n\ncs  \n cs.LG  \n cs.PF\n\n### References & Citations\n\n NASA ADS\n Google Scholar\n Semantic Scholar\n\nLoading...\n\n## BibTeX formatted citation",
+   "published_date": null,
+   "score": 0.64128816
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] # LLaMA model with KIVI import torch import os from models llama_kivi import LlamaForCausalLM_KIVI from transformers import LlamaConfig AutoTokenizer config = LlamaConfig from_pretrained\"meta-llama/Llama-2-7b-hf\" config k_bits = K_BITS# current support 2/4 bit for KV Cache config v_bits = V_BITS# current support 2/4 bit for KV Cache config group_size = GROUP_SIZE config residual_length = RESIDUAL_LENGTH # the number of recent fp16 tokens CACHE_DIR = PATH_TO_YOUR_SAVE_DIR model = [...] [2024.04.12]: We add support for the Mistral model family. The performance of LongChat-7b-v1.5-32K and Mistral-7B-Instruct-v0.2 on 15 tasks from LongBench can be found in long\\_bench.md.\n [2024.04.05]: We release the code for reproducing our CoQA/TruthfulQA/GSM8K results using LM-Eval. Please check the README of branch lmeval.\n [2024.04.04]: 🔥🔥We add a new 5-digit passkey example with 12k context length to show the performance of 2bit KIVI under the long context senario.",
+   "published_date": null,
+   "score": 0.5114976
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "This paper is cited as a key related work that also tackles the KV cache bottleneck. KIVI's authors reference FlexGen's use of 4-bit group-wise quantization for both key and value caches, positioning their own asymmetric quantization strategy as a more nuanced and effective approach for lower bit-rates. [...] This paper's findings are fundamental to the core hypothesis of KIVI. The authors of KIVI explicitly state that their observation of persistent, large-magnitude outliers in fixed channels of the key cache aligns with previous findings in the AWQ paper, providing a critical justification for their decision to quantize the key cache per-channel. [...] AbstractPaper\n\nSubmitted 25 Jul 2024\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nRice UniversityStevens Institute of TechnologyCarnegie Mellon University\n\nTexas A&M University\n\nZirui LiuZirui LiuJiayi YuanJiayi YuanHongye JinHongye JinShaochen ZhongZhaozhuo XuZhaozhuo XuVladimir BravermanVladimir BravermanBeidi ChenBeidi ChenXia HuXia Hu\n+1 moreShow less\n\n## Abstract",
+   "published_date": null,
+   "score": 0.42835352
+  },
+  {
+   "url": "https://www.semanticscholar.org/paper/KIVI%3A-A-Tuning-Free-Asymmetric-2bit-Quantization-KV-Liu-Yuan/a3e000e0d7f64c1d094c2a8bf6f43992cbabe91b",
+   "title": "[PDF] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | Semantic Scholar",
+   "content": "Save\n\n### High-throughput Generative Inference of Large Language Models with a Single GPU\nYing ShengLian-Min Zheng+11 authorsCe Zhang\n\nComputer Science\n\nICML\n\n   2023\n\nTLDR\n\nFlexGen is presented, a high-throughput generation engine for running LLMs with limited GPU memory that compresses the weights and the attention cache to 4 bits with negligible accuracy loss, enabling FlexGen to have a larger space of batch size choices and thus significantly increase maximum throughput.Expand [...] 948\n   Highly Influential \n: 8-bit Matrix Multiplication for Transformers at Scale%3A-8-bit-Matrix-Multiplication-for-at-Dettmers-Lewis/4be7d1524edb0137599a5cc95f72844b85a52fe1)\nTim DettmersM. LewisYounes BelkadaLuke Zettlemoyer\n\nComputer Science\n\nAdvances in Neural Information Processing Systems…\n\n   2022\n\nTLDR [...] ### Research\n\nPublications (opens in a new tab)Research Careers (opens in a new tab)Resources (opens in a new tab)\n\n### Help\n\nFAQLibrariansTutorialsContact\n\nProudly built by Ai2 (opens in a new tab)\n\nCollaborators & Attributions •Terms of Service (opens in a new tab)•Privacy Policy (opens in a new tab)•API License Agreement\n\nThe Allen Institute for AI (opens in a new tab)",
+   "published_date": null,
+   "score": 0.32021567
+  },
+  {
+   "url": "https://liner.com/review/kivi-tuningfree-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache [Quick Review]",
+   "content": "Quick review\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu,\n\nJiayi Yuan\n\n6 others\n\nFeb 05, 2024\n\nReferences\n\n33\n\nCited by\n\n229\n\n## Motivation & Objective\n\n## Motivation & Objective [...] KIVI quantizes key cache per-channel and value cache per-token based on extensive analysis of outlier patterns and quantization error in KV cache.\n KIVI is a plug-and-play 2-bit KV cache quantization algorithm with hardware-friendly implementation that does not require fine-tuning.\n KIVI incorporates a grouped key cache and a residual key cache, maintaining the residual portion in full precision to handle streaming data and ensure accuracy. [...] 0\n\n0\n\ncitation\n\ncitationDeLeaker: Dynamic Inference-Time Reweighting For Semantic Leakage Mitigation in Text-to-Image Models\n\nVentura et al.\n\nVentura et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDirectional Textual Inversion for Personalized Text-to-Image Generation\n\nKim et al.\n\nKim et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDoVer: Intervention-Driven Auto Debugging for LLM Multi-Agent Systems\n\nMa et al.\n\nMa et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026",
+   "published_date": null,
+   "score": 0.28451186
+  },
+  {
+   "url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/liu24bz/liu24bz.pdf",
+   "title": "[PDF] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "a\\_dc< xS J^mXiCШyW+˓Kؿyr52v{=/S[\"GENP$S>eۻ\\Q5 &nKG)|NM;f g9.lLHq6-02Licj-x:w(8ZB7I|'io>5^$J} Q!x6|dӶjfD:ڇtAGꋬ9C:B5#~\\s q|,-zHNOaiI[)ڗ{1D k[&P~c,> !$Ca{8ߝrJI /.UQӨ{❝n0\\Fww=ZHMWժfy'MTT:FKF֣ZDےQO/3[(5>dͯ/y3~PC+y0#k0mxEG<AA8]!Lc [...] ?i8E7\\_79u}9ًO?`N=ekvg!&Httß@- Ǩ  [PEbu-|od׾Vc;XN&oǑ>lPdZA$ؒZ{xpƢhw;+I[>n)g6A[,GUvjMOo;'{7.\\j\\\\W?w\"(8h0J'IqB#GEL\\Yx$~l!kI2#a> ROqz~rW[ATӌbC<n3\\mh\\{ZQ6aK\\{iͷѩf1 %~\\nZCIY36N¶8c|o;+%[,\\nD^?  }{u<s,qXpKїy\\/i\"q&#jSKu)tISz\\XKX9=JçSlp\\׶`u`aK?rfY)\\CrU [...] SA0dՌ@ij]f96yXVzqKQ`0t4)kMeTRD+XУSsmv鱧 Zf;x+;n8E~(9ru|2AP؎5;\\ޔlI8|T[$D-'RݚS^<?m~X\\>ll5۹I$&D/,n?rH0ih6iczڱ$;ȦS[bhԜ!qMRgv~JA9ΊQs2[gPv$8+)?L($)a5pss{,1Ksڏ\"~YpHݾFC+\\_5v)yn%E| ~.=A/wTwwNjJJg~\\ChV'r @ n[>YO/ORg4Ɲ^ X;> Ħ n rZނSWGQ ",
+   "published_date": null,
+   "score": 0.2514551
+  },
+  {
+   "url": "https://www.spheron.network/blog/kv-cache-quantization-with-kivi-int2-setup-guide-2026",
+   "title": "KV Cache Quantization vLLM Setup: KIVI's INT2 Method (2026) | Spheron Blog",
+   "content": "## KIVI: Per-Channel Key, Per-Token Value Quantization Explained\n\nKIVI, published as \"KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\", starts from an empirical observation: keys and values don't have the same error distribution once you try to compress them, so quantizing them the same way wastes accuracy on both.\n\nThe paper's authors put it directly: [...] Once the kernel is built, KIVI works by swapping in its patched model class, for example `LlamaForCausalLM_KIVI` in place of the standard `LlamaForCausalLM`, and running inference through Transformers exactly as you would with any other `from_pretrained` load, with the quantization config (group size, residual length) passed alongside it. This is the point where you're fully outside vLLM: no `--kv-cache-dtype` flag, no PagedAttention, no continuous batching scheduler. It's a Transformers-native [...] in on just the cache compression question.",
+   "published_date": null,
+   "score": 0.24073485
+  },
+  {
+   "url": "https://rocketreach.co/kivi-technologies-inc-profile_b40c020effc327f4",
+   "title": "KIVI Technologies Inc. Information",
+   "content": "More information [...] When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences, or your device, and is mostly used to make the site work as you expect. The information does not usually identify you directly, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to learn more [...] to learn more and change our default settings. Blocking some types of cookies may impact your experience of the site and the services we are able to offer.",
+   "published_date": null,
+   "score": 0.20707074
+  }
+ ]
+}

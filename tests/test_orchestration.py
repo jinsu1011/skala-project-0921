@@ -187,6 +187,13 @@ def test_fallback_plan_when_llm_unavailable(monkeypatch, techs):
     monkeypatch.setenv("ORCH_DECISION_LOG", "0")
     out = orch.orchestrator({"selected_techs": techs, "evidence": []})
     assert out["plan"].plan_source == "fallback" and len(out["subtasks"]) == 4
+    # the rule planner still reads the State: unbalanced evidence + a retrieval gap give a different plan
+    from graph.state import RetrievalGrade
+    evs = [ev(str(i), f"g{i}.com", tech="turboquant") for i in range(6)] + [ev("x", "h.com", tech="itme")]
+    out2 = orch.orchestrator({"selected_techs": techs, "evidence": evs,
+                              "retrieval_grade": RetrievalGrade(sufficient=False, missing={"itme": ["principle"]})})
+    assert out2["plan"].plan_source == "fallback" and len(out2["subtasks"]) == 7
+    assert [t.tech_ids for t in out2["subtasks"] if t.assigned_agent == "market_specialist"] == [["turboquant"], ["itme"]]
 
 
 # ------------------------------------------------------------------ registry / used vs unused

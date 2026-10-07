@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache developers community discussion",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:43+09:00",
+ "results": [
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] ## Contributing\n\nWe welcome contributions from the research community to improve KIVI. If you have any idea or would like to report a bug, please open an issue or submit a pull request.\n\n## License\n\nThe code is released under the MIT License.\n\n## About\n\n[ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\n### Topics\n\ninferencelarge-language-modelsllamallmnatural-language-processingquantizationtransformer\n\n### Resources\n\nMIT license\n\n### Stars\n\n433 stars\n\n### Watchers [...] KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference",
+   "published_date": null,
+   "score": 0.6186197
+  },
+  {
+   "url": "https://github.com/max410011/KIVI-kernel",
+   "title": "GitHub - max410011/KIVI-kernel: KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] ## Contributing\n\nWe welcome contributions from the research community to improve the effeicency of KIVI. If you have any idea or would like to report a bug, please open an issue or submit a pull request.\n\nThe code is released under the MIT License.\n\n## About\n\nKIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\n### Resources\n\nLicense\n\n### Stars\n\n0 stars\n\n### Watchers\n\n0 watching\n\n### Forks\n\n0 forks\n\nReport repository\n\nYou can’t perform that action at this time. [...] KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference",
+   "published_date": null,
+   "score": 0.60694176
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI/issues/37",
+   "title": "how to store/retrieve KIVI KV cache? · Issue #37 · jy-yuan/KIVI · GitHub",
+   "content": "Open\n\nOpen\n\nhow to store/retrieve KIVI KV cache?#37\n\nCopy link\n\n## Description\n\n@liza-babaoglu\n\nliza-babaoglu\n\nopened on Feb 25, 2025\n\nIssue body actions\n\nHello, how can we store/retrieve the KIVI KV Cache and potentially load it again?\n\nReactions are currently unavailable\n\n## Activity\n\nSign up for free to join this conversation on GitHub. Already have an account? Sign in to comment\n\n## Metadata\n\n## Metadata\n\n### Assignees\n\nNo one assigned\n\n### Labels\n\nNo labels\n\nNo labels\n\nNo projects [...] No projects\n\nNo milestone\n\nNone yet\n\nNo branches or pull requests\n\n## Issue actions\n\nYou can’t perform that action at this time. [...] Skip to content   \n \n \n\n## Navigation Menu\n\nSign in\n\nAppearance settings\n\nSign in\n\nSign up\n\nAppearance settings\n\nYou signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert\n\n{{ message }}\n\n## Repository navigation\n\n \n\n# how to store/retrieve KIVI KV cache? #37\n\nCopy link\n\nCopy link\n\nOpen\n\nOpen",
+   "published_date": null,
+   "score": 0.47227025
+  },
+  {
+   "url": "https://lacuna.tiptreesystems.com/work/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache/wrk_c46472a8c8f694337668097eb3804425",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache — Lacuna",
+   "content": "## The KIVI Method\n\nThe authors introduce KIVI (KV-cache 2-bit quantization), which uses three clever techniques to make 2-bit quantization viable:\n\nExtracted figure from page 5 of KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nSource, p. 5 [...] Lacuna\n\nTiptree Systems\nNew papersAbout LacunaMCP\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu\n\nICML 2024 · OpenReview\n\n## Versions\n\nKIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cacheicml · 2024PresentationKIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cachearxiv · 2024 · v1KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV CachearXiv · 2024\n\nLists [...] ## Limitations and Future Work\n\nWhile KIVI is highly effective, the authors note a few areas for improvement:",
+   "published_date": null,
+   "score": 0.44102347
+  },
+  {
+   "url": "https://liner.com/review/kivi-tuningfree-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache [Quick Review]",
+   "content": "Quick review\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu,\n\nJiayi Yuan\n\n6 others\n\nFeb 05, 2024\n\nReferences\n\n33\n\nCited by\n\n229\n\n## Motivation & Objective\n\n## Motivation & Objective [...] 0\n\n0\n\ncitation\n\ncitationDeLeaker: Dynamic Inference-Time Reweighting For Semantic Leakage Mitigation in Text-to-Image Models\n\nVentura et al.\n\nVentura et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDirectional Textual Inversion for Personalized Text-to-Image Generation\n\nKim et al.\n\nKim et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDoVer: Intervention-Driven Auto Debugging for LLM Multi-Agent Systems\n\nMa et al.\n\nMa et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026 [...] KIVI quantizes key cache per-channel and value cache per-token based on extensive analysis of outlier patterns and quantization error in KV cache.\n KIVI is a plug-and-play 2-bit KV cache quantization algorithm with hardware-friendly implementation that does not require fine-tuning.\n KIVI incorporates a grouped key cache and a residual key cache, maintaining the residual portion in full precision to handle streaming data and ensure accuracy.",
+   "published_date": null,
+   "score": 0.43611822
+  },
+  {
+   "url": "https://www.marktechpost.com/2024/04/16/kivi-a-plug-and-play-2-bit-kv-cache-quantization-algorithm-without-the-need-for-any-tuning",
+   "title": "KIVI: A Plug-and-Play 2-bit KV Cache Quantization Algorithm without the Need for Any Tuning - MarkTechPost",
+   "content": "Home Technology AI Shorts KIVI: A Plug-and-Play 2-bit KV Cache Quantization Algorithm without the Need for...\n\n Technology\n AI Shorts\n Artificial Intelligence\n Applications\n Editors Pick\n Staff\n Tech News\n\n# KIVI: A Plug-and-Play 2-bit KV Cache Quantization Algorithm without the Need for Any Tuning\n\nBy\n\nNiharika Singh\n\n-\n\nAdd as a preferredsource on Google [...] Meet KIVI: a plug-and-play quantization algorithm specifically designed for key-value (KV) caches in LLMs. It works by compressing the information stored in the cache so that it takes up less space without needing any fine-tuning. This means that researchers and developers can use KIVI without having to spend a lot of time tweaking it to work with their specific LLM. [...] , Kharagpur. She is a highly enthusiastic individual with a keen interest in Machine learning, Data science and AI and an avid reader of the latest developments in these fields.\n\n Niharika Singh\n\n  Agent Zero: A Dynamic Agentic Framework Leveraging the Operating System as a Tool for Task Completion\n Niharika Singh\n\n  Maestro: A New AI Tool Designed to Streamline and Accelerate the Fine-Tuning Process for Multimodal AI Models\n Niharika Singh",
+   "published_date": null,
+   "score": 0.40882006
+  },
+  {
+   "url": "https://rocketreach.co/kivi-technologies-inc-profile_b40c020effc327f4",
+   "title": "KIVI Technologies Inc. Information",
+   "content": "Plus qu’une application mobile, KIVI entend à instaurer un nouveau mode de vie aux Tunisiens. Il s’agit d’une application mobile communautaire qui permet aux utilisateurs d’exprimer leurs avis sur les lieux visités. Après avoir installé l’application et créer un compte, l’utilisateur a la possibilité de partager des photos, noter des lieux et exprimer son avis. Votre avis compte, suivez nous sur l'application KIVI ! [...] KeywordsUser Reviews, Review Platform, Consumer Reviews, Online Reviews, User Feedback, Community App, Local Business Reviews, Place Reviews, Social Networking App, Location Based Services, Community Platform, Mobile Technology, Social Media, App Development, Tunisia, Travel App, Mobile Development, Mobile Software [...] More information",
+   "published_date": null,
+   "score": 0.247301
+  },
+  {
+   "url": "https://turbo-quant.com/turboquant-vs-kivi",
+   "title": "TurboQuant vs KIVI: KV Cache Quantization Compared | TurboQuant Tools",
+   "content": "KIVI\n\nThe KIVI paper highlights around 2.6x lower peak memory including weights, up to 4x larger batch size, and 2.35x–3.47x throughput gains on real inference workloads.\n\n## What changes between the two methods\n\nTurboQuant and KIVI both target KV cache memory, but they optimize for different points on the accuracy, complexity, and compression tradeoff curve. TurboQuant adds more math to reduce distortion; KIVI keeps the method simpler and more directly tied to 2-bit cache compression. [...] TurboQuant\n\nGoogle frames TurboQuant as a broader vector quantization method for both KV cache and vector search, with low overhead and near-optimal distortion claims.\n\nKIVI\n\nKIVI is a tuning-free asymmetric 2-bit KV cache quantization method focused specifically on inference memory and throughput.\n\n## Core idea\n\nTurboQuant\n\nTwo-stage method: PolarQuant for the main compression step, then 1-bit QJL on the residual to remove inner-product bias.\n\nKIVI [...] TurboQuant.\n\nEN中文한국어日本語\n\n⚠Independent reference site · Not affiliated with Google or Alphabet Inc.\n\n# TurboQuant vs KIVI\n\nTwo methods that solve the same broad problem from different angles. KIVI is a known KV cache quantization baseline. TurboQuant is Google's newer approach extending to vector quantization overhead and vector search.\n\nBased on each paper's stated method and benchmark focus. Not a substitute for reproducing the result on your own model and kernel stack.\n\n## Paper positioning",
+   "published_date": null,
+   "score": 0.22875074
+  }
+ ]
+}

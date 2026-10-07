@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache vLLM serving evaluation",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:22:16+09:00",
+ "results": [
+  {
+   "url": "https://en.wikipedia.org/wiki/KIVI-TV",
+   "title": "KIVI-TV - Wikipedia",
+   "content": "| People |  Adam P. Symson  Rich Boehne  Edward W. Estlow  Jack R. Howard  Roy W. Howard  Ted Knap  Jim G. Lucas  Ernie Pyle  Al Schottelkotte  Charles Scripps  E. W. Scripps \"E. W. Scripps (businessman)\") |\n| Related |  National Journalism Awards  Newspaper Enterprise Association  National Spelling Bee  Scripps Howard Foundation  Scripps Networks Interactive  United Feature Syndicate  United Media  Zacchini v. Scripps-Howard Broadcasting Co. | [...] For other uses, see Kivi (disambiguation) \"Kivi (disambiguation)\"). Not to be confused with KVII-TV.\n\nKIVI-TV [...] KIVI-TV (channel 6) is a television station licensed to Nampa, Idaho, United States, serving the Boise area as an affiliate of ABC. Owned by the E. W. Scripps Company, the station maintains studios on East Chisholm Drive in Nampa (along I-84/US 30/SH-55), while its transmitter is located at the Bogus Basin ski area summit in unincorporated Boise County.",
+   "published_date": null,
+   "score": 0.1204908
+  },
+  {
+   "url": "https://heykivi.ai",
+   "title": "kivi: you talk. kivi types. voice dictation for mac",
+   "content": "productivity persona·custom style\n\n  \n\n  Cursor Agent\n\n424344\n\nKivi writes\n\nUpdate fetchWithAuth to retry once on 401. Keep sessionToken unchanged.\n\nPranaviMessage\n\nbro the gym is packed today lol, i'm switching to evenings 😅\n\n# shippingyou\n\nQuick update:\n\n Design is done\n Backend is waiting on auth\n Should be ready tomorrow\n\nCursor persona demonstration complete\n\n## point at anything. say the change [...] Quick update:\n\n Design is done\n Backend is waiting on auth\n Should be ready tomorrow\n\n  you said\n\nquick update Quick update:   three things first design is done second backend is waiting on auth third should be ready tomorrow \n\n Design is done\n Backend is waiting on auth\n Should be ready tomorrow\n\nyou said: quick update three things first design is done second backend is waiting on auth third should be ready tomorrow\n\n Mail · Draft to Maya \n\nToMaya Rao SubjectToday's review\n\nHi Maya, [...] Messages · Pranav \n\nbro are you coming to delhi or what i already booked the 8pm one\n\n  you said\n\nbro are you coming to delhi or what i already booked the  eight pm 8pm  one\n\nyou said: bro are you coming to delhi or what i already booked the eight pm one\n\n Terminal · kivi-service \n\n$git commit -m \"fixed the auth retry loop\"\n\n  you said\n\ngit commit  dash m -m   fixed the auth retry loop \"fixed the auth retry loop\"\n\nyou said: git commit dash m fixed the auth retry loop\n\n Notes · Sprint notes",
+   "published_date": null,
+   "score": 0.07115768
+  },
+  {
+   "url": "https://www.kivix.ai",
+   "title": "KiVi AI - AI Animation Generator for Kids | Story & Idea to Video",
+   "content": "No experience needed. KiVi is built for beginners — type a story idea, tap a mood tag, or use the Storyboard Editor, and the AI handles storyboarding, character design, voiceover, subtitles, and final assembly in about five minutes. [...] KiVi AI is a purpose-built AI animation generator for kids. It turns story ideas into long-form animated videos with consistent characters, age-appropriate visuals, and built-in safety guardrails — used by over 100,000 creators, educators, and parents.\n\nYes — KiVi AI offers a free trial so you can test core creation features. Full access, including commercial rights, HD export, all nine visual styles, and long-form episodes, requires a paid subscription. [...] Read ArticleKiVi AI Style Guide: Major Cartoon Flows & Advanced Director Controls\n\nEDUCATION\n\n### KiVi AI Style Guide: Major Cartoon Flows & Advanced Director Controls\n\nRead Article\n\n## KIVI's Latest Trending Content",
+   "published_date": null,
+   "score": 0.067233816
+  },
+  {
+   "url": "https://www.kivitv.com",
+   "title": "Boise, Idaho News, Weather, Sports and Traffic | KIVI-TV - Idaho News 6",
+   "content": "Caldwell\n\n  ### Idaho Senate seat candidates talk Caldwell issues at local forum\n\n  KIVI Staff\n\n  If You Give a Child a Book\n\n  News\n\n  ### Today is the last day to help put books in the hands of local children\n\n  KIVI News Staff\n Roger and Debbie Harding\n\n  Valley County\n\n  ### Couple faces long recovery after anniversary trip ends in Highway 55 crash\n\n  Keith Burrell\n\n  Screenshot 2026-09-30 at 1.49.09 PM.jpeg\n\n  Canyon County\n\n  ### Second sister arraigned in Nampa parking lot murder [...] Magic Valley\n\n  ### Twin Falls Oktoberfest brings vendors, food and live music to Main Avenue\n\n  Joey Martin\n\n  Allysen Armenta.jpg\n\n  Nampa\n\n  ### Nampa mother seeks to withdraw guilty plea in case involving infant son’s death\n\n  KIVI Staff\n\n  Faull Line Gravity Park\n\n  Idaho Backroads\n\n  ### A new shuttle service mountain bike park opens near Horseshoe Bend\n\n  Steve Dent\n TRAFFIC ALERT: Lane closures at the Garrity Interchange (Exit 38) on Interstate-84 in Nampa.\n\n  Nampa [...] KIVI Staff\n  + ### Harmful algal blooms prompt cyanobacteria health alert for Lake Lowell\n\n    KIVI Staff\n  + ### Idaho superintendent candidates set to face off in Idaho News 6 debate\n\n    KIVI Staff\n  + ### Open house tonight on Eckert Road Bridge & Intersection Project\n\n    KIVI Staff\n\n Vaccination Rates\n\n  ### Measles surge triggers state of emergency in New York\n\n  Justin Boggs\n\n  Donald Trump\n\n  National News",
+   "published_date": null,
+   "score": 0.054605763
+  },
+  {
+   "url": "https://www.kivitv.com/news",
+   "title": "News",
+   "content": "Scripps News Group\n Earns McDonalds\n\n  National News\n\n  ### McDonald's bringing back Monopoly game with cash, cars and vacations\n\n  Scripps News Group\n\n  MTN HOME POLICE.png\n\n  Elmore County\n\n  ### Woman arrested following alleged hit & run in Mountain Home\n\n  KIVI Staff\n\n  Algal Bloom.png\n\n  Canyon County\n\n  ### Harmful algal blooms prompt cyanobacteria health alert for Lake Lowell\n\n  KIVI Staff\n American,City,Downtown,Sunset,Sun,Over,Buildings,Silhouettes.,Epic,Large\n\n  National News [...] National News\n\n  ### Christa Pike is conscious and speaking after Tennessee failed execution\n\n  AP via Scripps News Group\n\n  Financial Markets\n\n  National News\n\n  ### US stocks rise to a record on expectations for companies to make fatter profits\n\n  AP via Scripps News Group\n\n  Black bear\n\n  News\n\n  ### Black bears that attacked Salmon residents captured, euthanized\n\n  KIVI Staff\n Timberline High School\n\n  Southeast Boise [...] Southeast Boise\n\n  ### Outrage over violent threats prompts Timberline to postpone homecoming events\n\n  KIVI Staff\n\n  Scam\n\n  Interactive\n\n  ### Interactive: 9 in 10 Americans have been hit by a scam. Have you?\n\n  LANSIN RIVER TRAIL\n\n  News\n\n  ### Police investigating possible serial killer in Michigan following 5 men's deaths\n\n  Scripps News Group\n Screen,With,Chatgpt,Chat,With,Ai,Or,Artificial,Intelligence.,Man\n\n  National News",
+   "published_date": null,
+   "score": 0.0501304
+  },
+  {
+   "url": "https://www.kivi-mobilityfreedom.com",
+   "title": "Kivi srl is a manufacturing Company of driving devices and transfer aid systems to facilitate both the transfer to the car for people with reduced mobility and the wheelchair loading. | Kivi manufactures and adapts cars, so that they can be driven directly from one’s own wheelchair.",
+   "content": "Kivi products are “tailor-made”: we create handmade solutions that perfectly adapt to the passenger compartment, which grants safe and secure driving while providing the car with exemplary aesthetics. We believe that independence is a fundamental principle contributing to raise the quality of life for all of us and nothing makes us more proud than giving our contribution to increase that level in the life of more people. [...] We export our products to Europe and around the World. Our company has a Quality Management System Certified ISO 9001 and all our products are approved by the Italian Ministry of Transport and by the local government authorities of many European countries such as the Spanish Ministry of Transport and Motability in the United Kingdom. Kivi is also an active partner of the mobility program Autonomy of Fiat Chrysler Automobiles. [...] Our constant commitment is addressed to research solutions to help disabled people to improve their mobility through designing, manufacturing and marketing of:\n\n - Driving aids\n\n - Vehicle access aids\n\n - Wheelchair loading systems\n\n - Wheelchair Accessible Vehicles (WAVs)\n\n - Driving from the wheelchair",
+   "published_date": null,
+   "score": 0.039717067
+  },
+  {
+   "url": "https://www.ontvtonight.com/guide/listings/channel/69048852/kivi.html",
+   "title": "KIVI Idaho News 6 TV Schedule Tonight - Listings Guide",
+   "content": "| 11:30 am | Flip Side  New Gut Check Game |\n| 12:00 pm | GMA3  New Morris Chestnut; McKinley Freeman; Jodie Sweetin; Kenzi Richardson; Leah Victoria; Tory Johnson - Season 5, Episode 172 |\n| 1:00 pm | General Hospital  New 10-06-2026 |\n| 2:00 pm | The Perfect Line  New New Pig On The Block |\n| 2:30 pm | The Perfect Line  New Start With A Smile |\n| 3:00 pm | America's Funniest Home Videos  New 10-06-2026 |\n| 3:30 pm | America's Funniest Home Videos  New 10-06-2026 |\n| 4:00 pm | Modern Family | [...] | 4:30 pm | Extra  New 10-06-2026 - Season 30, Episode 864 |\n| 5:00 pm | Idaho News 6 at 5pm  New |\n| 5:30 pm | ABC World News Tonight With David Muir  New 10-06-2026 - Season 2026, Episode 429 |\n| 6:00 pm | Idaho News 6 at 6pm  New |\n| 6:30 pm | Inside Edition  New Long Lost Sisters Reunite - Season 39, Episode 17 |\n| 7:00 pm | Dancing With the Stars  New Mariah Carey Night - Season 35, Episode 5 |\n| 9:00 pm | R.J. Decker  New The Angler - Season 2, Episode 4 | [...] | Time | TV Show |\n --- |\n| 10:35 pm2026-10-05 | Jimmy Kimmel Live!  New Anna Kendrick; Marcus Mumford; Mumford & Sons; Sophia James sits in with The Cletones |\n| 11:37 pm2026-10-05 | Nightline  New 10-06-2026 - Season 47, Episode 285 |\n| 12:07 am | Front Office Sports Tonight  New TV Sport 10-05-2026 |\n| 12:37 am | iCrime With Elizabeth Vargas  New 10-05-2026 |\n| 01:05 am | Flip Side  New Hallelujah! |\n| 01:35 am | ABC World News Now  New |\n| 04:30 am | GMA First Look  New |",
+   "published_date": null,
+   "score": 0.031288605
+  },
+  {
+   "url": "https://www.newson.us/stationDetails/440",
+   "title": "KIVI Idaho News 6 Boise - Stream live local news and weather",
+   "content": "clip\n\n30:00\n\nstation logo\n\nIdaho News 6 at 11am - Replay 10-06-2026 05:30PM\n\nclip\n\n30:00\n\nstation logo\n\nIdaho News 6 at 11:00 10-06-2026 05:00PM\n\nShow more\n\n### Stories\n\nclip\n\nstation logo\n\nIdaho governor candidates weigh in on immigration, Prop 1 and moreTwo candidates for Idaho governor answered voter questions on immigration, nuclear waste, reproductive health care and ballot measures at a forum that Gov. Brad Little did not attend. 10-07-2026 03:42AM\n\nclip\n\nstation logo [...] clip\n\nstation logo\n\n62-Year-Old Meridian Woman Wins World Weightlifting Title 10-06-2026 11:35PM\n\nShow more\n\n### Nearby news stations\n\nShow More [...] clip\n\nstation logo\n\nCanyon County, Caldwell negotiating agreement on proposed Highway 44 jail site 10-07-2026 01:32AM\n\nclip\n\nstation logo\n\nCanyon County, Caldwell negotiating agreement on proposed Highway 44 jail site 10-07-2026 01:30AM\n\nclip\n\nstation logo\n\nBlaine County pauses data center permits amid AI boom 10-07-2026 12:30AM\n\nclip\n\nstation logo\n\nEckert Road Bridge in Boise to close next week for two-year replacement project 10-06-2026 11:40PM\n\nclip\n\nstation logo",
+   "published_date": null,
+   "score": 0.028116787
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache accuracy degradation latency overhead integration",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:42+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2603.20397v1",
+   "title": "KV Cache Optimization Strategies for Scalableand Efficient LLM Inference",
+   "content": "| Ada-KV  | 4 cache reduction | Comparable decoding latency to SnapKV | Slight quality improvement (5%) | Allocation only within layers, not across model |\n| KIVI  | 2.6 peak memory reduction | 2.35–3.47 throughput | 2% accuracy drop for most models | Models with one KV head may require 4-bit quantization to maintain accuracy; quantization overhead due to initial cost for the quantization | [...] designated as critical. CLO keeps the KV cache of these heads permanently in GPU memory to prevent latency spikes and accuracy degradation. For all other heads, the system follows the similarity-guided workflow, either reusing previous KV data or fetching new KV entries with prefetching as needed. [...] One line of compression research focuses on asymmetric quantization. The method proposed in KIVI  applies per-channel and per-token quantization schemes to preserve precision while reducing memory. KIVI stands for Key-Value cache with Input-dependent quantization. The authors observe that for key cache, “there are a few fixed channels whose magnitudes are very large”; whereas for value cache, “there is no obvious outlier pattern”. Based on this insight, KIVI applies per-channel quantization for",
+   "published_date": null,
+   "score": 0.5037359
+  },
+  {
+   "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/7e57131fdeb815764434b65162c88895-Paper-Conference.pdf",
+   "title": "7e57131fdeb815764434b65162c88895-Paper-Conference.pdf",
+   "content": "We begin our evaluation on GSM8k dataset with chain-of-thoughts (CoT) prompting, and the results are presented in Table 3. This task requires LLM to solve mathematical problems and return the final answer without multiple options. This task poses considerable challenges and previous KV cache compression methods manifest notable declines in accuracy. For instance, KIVI [ 32 ] shows an accuracy drop of 7.89% on LLaMA3-8B model, indicating the suboptimality of preserving recent tokens in full [...] > Number of Lines\n> 0\n> 20\n> 40\n> 60\n> 80\n> 100\n> Accuracy (%)\n> LLaMA2-13B\n> Full Cache\n> ZipCache\n> KIVI-2\n> MiKV\n> H2O 100 200 300 400\n> Number of Lines\n> 0\n> 20\n> 40\n> 60\n> 80\n> 100\n> Accuracy (%)\n> LLaMA3-8B\n> Full Cache\n> ZipCache\n> KIVI-2\n> MiKV\n> H2O 50 100 150 200\n> Number of Lines\n> 0\n> 20\n> 40\n> 60\n> 80\n> 100\n> Accuracy (%)\n> Mistral-7B\n> Full Cache\n> ZipCache\n> KIVI-2\n> MiKV\n> H2O [...] retrieval task with a Nvidia A100 GPU. We use a batch size of 8 and an average input length of 3072 .To ensure a fair comparison, we implement GEAR and KIVI with FlashAttention integration. Notably, the latency of ZipCache is lower than that of GEAR, which can be attributed to our efficient quantization scheme, whereas GEAR has a high overhead due to outlier extraction. Compared to KIVI, ZipCache’s latency is slightly higher (2584.01 ms vs. 2482.26 ms), but ZipCache achieves a higher",
+   "published_date": null,
+   "score": 0.45856747
+  },
+  {
+   "url": "https://aclanthology.org/2026.findings-acl.201.pdf",
+   "title": "HqeKV: Towards Hybrid Quantization and Eviction for KV ...",
+   "content": "5.3 KV Cache Quantization-Eviction Several methods integrate quantization and eviction for KV cache compression. EVICPRESS (Feng et al., 2025) proposes a unified utility function that quantifies the effects of quality degradation and ac-cess latency associated with lossy compression or eviction. Based on this utility metric, the method determines which KV caches undergo quantiza-tion or eviction. MiniKV (Sharma et al., 2025) presents an engineering-level integration of exist-ing KV cache [...] 5.2 KV Cache Quantization KV Cache Quantization is an effective strategy to reduce memory use of KV Cache. Atom (Zhao et al., 2024) adopts uniform group quantization on KV Cache. KIVI (Liu et al., 2024) applies per-channel and per-token uniform group quanti-zation on Key Cache and Value Cache. KVQuant (Hooper et al., 2024) uses the K-means cluster-ing weighted by the fisher information matrix and quantizes Key Cache before RoPE, storing outliers separately in full precision. SKVQ (Duanmu et [...] The superior efficiency of HqeKV over OTT and ZipCache stems from that HqeKV introduces a specialized CUDA kernel that integrates the de-quantization and vector-matrix multiplication pro-cesses. Although HqeKV exhibits higher TPOT than KIVI and KVTuner, this overhead remains within an acceptable range.",
+   "published_date": null,
+   "score": 0.45595008
+  },
+  {
+   "url": "https://www.gomomento.com/blog/kv-caching-pays-off-under-load",
+   "title": "KV Caching Pays Off Under Load - Momento",
+   "content": "So the skepticism is fair, for the single request. If the only question is whether one cache hit meaningfully cuts one request’s latency, the answer is often no, and it depends on the input/output ratio and how much of the request prefill actually owns. At that level, KV caching is not an automatic win. [...] In one of our Qwen3-30B-A3B runs, a 1K input / 512 output request came in around 135 ms TTFT and about 2.5 seconds of total request latency. TTFT carries scheduling and queueing overhead on top of raw prefill compute, so call the prefill portion roughly 100 ms. Erase it completely, the most a perfect cache hit can do, and you save about 4 percent of the request. Treat that as the ceiling, not the everyday case. [...] At low concurrency, a higher hit ratio helps, but only a little. At high concurrency, the same increase results in a much larger system effect. Requests per second climb sharply as more of the prompt comes from cache, and mean latency decreases along with it, dropping fastest at the higher concurrency levels. That is the behavior one would expect if KV caching is a systems optimization rather than a single-request latency trick.",
+   "published_date": null,
+   "score": 0.2633961
+  },
+  {
+   "url": "https://rocketreach.co/kivi-technologies-inc-profile_b40c020effc327f4",
+   "title": "KIVI Technologies Inc. Information",
+   "content": "More information [...] When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences, or your device, and is mostly used to make the site work as you expect. The information does not usually identify you directly, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to learn more [...] - [x] checkbox label label\n\n- [x] checkbox label label\n\n- [x] checkbox label label\n\nConfirm My Choices\n\nImage 38: Powered by Onetrust\n\nImage 39",
+   "published_date": null,
+   "score": 0.23377672
+  },
+  {
+   "url": "https://rocketreach.co/kivi-profile_b78caf9cc2546a5c",
+   "title": "KiVi Information",
+   "content": "g2crowd\n\nG2Crowd Trusted\n\nchromestore\n\n300K+ Plugin Users [...] |  |  |\n --- |\n| Website |  |\n| Employees | 70 (38 on RocketReach) |\n| Founded | 2021 |\n| Address | Kanagam Village, Taramani, E Block- 4th Floor, IIT Madras Research Park, Chennai, Tamil Nadu 600113, IN |\n| Industry | Internet Publishing | [...] | Competitors | Ag Leader Technology, Trimble Inc., John Deere, FarmLogs, AgFunder, Sentera, Ceres Imaging, AGRIVI, Fieldview Inc  +28 more (view full list) |\n|  |  |",
+   "published_date": null,
+   "score": 0.13710469
+  },
+  {
+   "url": "https://rocketreach.co/kivi-bros-trucking-inc-profile_b44d2626fd22cfa7",
+   "title": "Kivi Bros Trucking Inc Information",
+   "content": "More information [...] When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences, or your device, and is mostly used to make the site work as you expect. The information does not usually identify you directly, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to learn more [...] 47.6177115,-122.2034444\n\n   \n\n### Products\n\n   Advanced Search\n   Chrome Extension\n   Edge Extension\n   Bulk Lookups\n   API\n   Integrations\n\n### Information\n\n   Pricing\n   Help\n   Reviews\n   User Agreement\n   Privacy Policy\n   Cookie Policy\n   Do Not Sell My Info\n\n### Teams\n\n   Features\n   Start Team Plan\n   Custom Plan\n   Speak to Sales\n\n### Company\n\n   About Us\n   Careers\n   Blog\n   Contact Us\n\n© 2026 RocketReach.co \n\n\n\nImage 31: Company Logo\n\n## Privacy Preference Center",
+   "published_date": null,
+   "score": 0.09674864
+  },
+  {
+   "url": "https://www.zoominfo.com/c/kivi/546791542",
+   "title": "Kivi",
+   "content": "# Kivi. KIVI is a European brand specializing in smart TVs and related accessories, including wall mounts and children's TV accessories. The company offers a range of smart TVs that provide access to various entertainment channels, fitness programs, and cloud gaming options, catering to families and individuals seeking affordable and functional multimedia... ## Leadership. - **Herman Nikitiuk** — Business Development Manager. - **Igor Gorenko** — Product Marketing Visual & Video Content Crea... - **Lesia Yashchenko** — Manager, Human Resources. ## Company Details. - **Industries:** Electronics; Retail; Manufacturing; Ecommerce Platforms. ## Social Media. ## Tech Stack.",
+   "published_date": null,
+   "score": 0.0926305
+  }
+ ]
+}

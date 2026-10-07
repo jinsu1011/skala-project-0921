@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache vLLM integration production deployment",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:42+09:00",
+ "results": [
+  {
+   "url": "https://www.spheron.network/blog/kv-cache-quantization-with-kivi-int2-setup-guide-2026",
+   "title": "KV Cache Quantization vLLM Setup: KIVI's INT2 Method (2026) | Spheron Blog",
+   "content": "This is also why the fix has multiple, non-competing layers. One approach moves KV cache off the GPU entirely once it's no longer hot, tiering it to CPU DRAM and NVMe; our NVIDIA ICMSP guide covers that path in detail. Quantization is a different lever: it shrinks what stays resident in HBM in the first place, so the two techniques stack rather than substitute for each other. The vLLM production deployment guide walks through the multi-GPU serving side of this; here we're narrowing in on just [...] For a 13B model, that means the same generate loop the paper benchmarks: load the KIVI-patched Llama-2-13B checkpoint, set group size 32 and residual length 128 (the defaults above), and run your prompts through Transformers' standard generation API rather than vLLM's OpenAI-compatible server. If your production stack is built around vLLM's serving interface, that gap is the real cost of adopting KIVI, separate from the accuracy tradeoff below. [...] The vLLM blog's own benchmarking reports FP8 KV cache reducing per-token cache cost to as low as 54% of the BF16 baseline in the best cases. That's roughly half the memory and it costs you nothing operationally: FP8 stays inside vLLM's PagedAttention scheduler, continuous batching, and everything else the engine already does well.",
+   "published_date": null,
+   "score": 0.69498676
+  },
+  {
+   "url": "https://crackai.dev/papers/kivi",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "Production-ready: vLLM, TensorRT-LLM, and other serving frameworks have adopted KV cache quantization inspired by this work\n Practical impact: Directly increases the max batch size and sequence length you can serve on a given GPU [...] Pairs with PagedAttention: KIVI reduces per-block memory, PagedAttention reduces fragmentation, both are needed for production LLM serving\n In system design: cite when asked about serving LLMs at scale, long-context support, or reducing per-request memory cost [...] ### Key Idea\n\nDuring LLM inference, the KV cache grows linearly with sequence length and batch size, often becoming the primary memory bottleneck. KIVI observes that keys and values have fundamentally different outlier distributions: keys have large-magnitude outlier channels (columns) that persist across all tokens, while values have large-magnitude outlier tokens (rows) that affect all channels. This asymmetry motivates different quantization strategies for K and V.\n\n### How It Works",
+   "published_date": null,
+   "score": 0.5530473
+  },
+  {
+   "url": "https://www.emergentmind.com/papers/2402.02750",
+   "title": "KIVI: Tuning-Free 2-Bit KV Cache Quantization",
+   "content": "Abstract   PDF   Upgrade to Chat\n\nAuthors (8)\n\n1. Zirui Liu\n2. Jiayi Yuan\n3. Hongye Jin\n4. Shaochen Zhong\n5. Zhaozhuo Xu\n6. Vladimir Braverman\n7. Beidi Chen\n8. Xia Hu\n\nRelated Papers [...] Citations (87)\n\nView on Semantic Scholar\n\n### Summary\n\n The paper demonstrates that KIVI reduces memory usage by up to 2.6x and improves throughput by up to 3.47x with minimal accuracy loss.\n It employs an asymmetric quantization strategy by quantizing key caches per-channel and value caches per-token based on detailed distribution analysis.\n The approach is hardware-friendly, integrating fused GPU operations to support up to 4x larger batch sizes and efficient LLM deployment. [...] The research paper titled \"KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\" addresses the core issue of efficient deployment of LLMs. The paper focuses on optimizing the key-value (KV) cache used during batch processing to significantly reduce memory and computational overhead while maintaining model accuracy. The innovative approach proposed in the paper revolves around the quantization of KV cache, allowing for reduced memory footprint and enhanced throughput without",
+   "published_date": null,
+   "score": 0.54956865
+  },
+  {
+   "url": "https://lacuna.tiptreesystems.com/work/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache/wrk_c46472a8c8f694337668097eb3804425",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache — Lacuna",
+   "content": "Integration: Integrating this research prototype into mainstream serving frameworks like vLLM or Hugging Face Text Generation Inference (TGI) is the next logical step for widespread adoption. [...] ## The KIVI Method\n\nThe authors introduce KIVI (KV-cache 2-bit quantization), which uses three clever techniques to make 2-bit quantization viable:\n\nExtracted figure from page 5 of KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nSource, p. 5 [...] Lacuna\n\nTiptree Systems\nNew papersAbout LacunaMCP\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu\n\nICML 2024 · OpenReview\n\n## Versions\n\nKIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cacheicml · 2024PresentationKIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cachearxiv · 2024 · v1KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV CachearXiv · 2024\n\nLists",
+   "published_date": null,
+   "score": 0.53881395
+  },
+  {
+   "url": "https://www.zingnex.cn/en/forum/thread/turboquant-vllm-kv",
+   "title": "TurboQuant-vLLM: A Practical KV Cache Quantization Solution for Large Model Inference · Zing Forum",
+   "content": "TurboQuant-vLLM is an open-source implementation of KV cache quantization that integrates three cutting-edge technologies: 1. TurboQuant 4-bit (a Google ICLR 2026 research result combining PolarQuant and Hadamard transform); 2. KIVI 2-bit asymmetric quantization (a per-channel/per-token asymmetric quantization scheme proposed at ICML 2024); 3. Bonsai 1-bit extreme compression (Q1\\_0\\_g128 technology proposed by PrismML). These three technologies cover different demand scenarios from [...] TurboQuant-vLLM is a KV cache compression solution that integrates Google TurboQuant, KIVI asymmetric quantization, and Bonsai 1-bit technology. It can compress the 32K context KV cache of Llama-3.1-8B from 4GB to 1GB, saving 74% of memory while maintaining 99.4% attention fidelity. This project provides a practical open-source tool for LLM inference optimization, helping to solve the memory bottleneck in long-context processing.\n\n2\n\nSection 02 [...] Zing Forum\n\nForum HomeLLM Answers & Content StrategyReading\n\n# TurboQuant-vLLM: A Practical KV Cache Quantization Solution for Large Model Inference\n\nThis article introduces the TurboQuant-vLLM project, a KV cache compression solution integrating Google TurboQuant, KIVI asymmetric quantization, and Bonsai 1-bit technology. It can compress the 32K context KV cache of Llama-3.1-8B from 4GB to 1GB, saving 74% of memory while maintaining 99.4% attention fidelity.",
+   "published_date": null,
+   "score": 0.5271467
+  },
+  {
+   "url": "https://liner.com/review/kivi-tuningfree-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache [Quick Review]",
+   "content": "0\n\n0\n\ncitation\n\ncitationDeLeaker: Dynamic Inference-Time Reweighting For Semantic Leakage Mitigation in Text-to-Image Models\n\nVentura et al.\n\nVentura et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDirectional Textual Inversion for Personalized Text-to-Image Generation\n\nKim et al.\n\nKim et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDoVer: Intervention-Driven Auto Debugging for LLM Multi-Agent Systems\n\nMa et al.\n\nMa et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026 [...] + The method's effectiveness extends to long-context scenarios, as evidenced by its performance on LongBench tasks and the Needle-in-a-Haystack (NIAH) test. KIVI-2 and KIVI-4 maintain average performance comparable to the 16-bit baseline across various LongBench tasks (e.g., Llama2-7B KIVI-2 average 44.27 vs 16bit 44.52), and the NIAH results confirm that KIVI preserves the LLM's long-context retrieval ability even with 2-bit KV cache, which is vital for real-world applications requiring [...] + KIVI, a tuning-free asymmetric 2-bit quantization method, consistently outperforms other 2-bit quantization configurations by quantizing key cache per-channel and value cache per-token. This approach maintains accuracy close to the 16-bit baseline across various LLMs (Llama-2, Mistral, Falcon) and generation tasks (CoQA, TruthfulQA, GSM8K, LongBench), demonstrating its effectiveness in preserving model quality while significantly reducing memory footprint. For instance, on Llama-2-7B,",
+   "published_date": null,
+   "score": 0.42405477
+  },
+  {
+   "url": "https://rocketreach.co/kivi-technologies-inc-profile_b40c020effc327f4",
+   "title": "KIVI Technologies Inc. Information",
+   "content": "More information",
+   "published_date": null,
+   "score": 0.22451457
+  },
+  {
+   "url": "https://turbo-quant.com/turboquant-vs-kivi",
+   "title": "TurboQuant vs KIVI: KV Cache Quantization Compared | TurboQuant Tools",
+   "content": "No. They target KV cache rather than model weights. In many deployments, cache quantization and weight quantization are complementary.\n\nWhat should I compare first for deployment?+\n\nCompare total memory, achieved throughput, and quality on your real prompts. Paper headline numbers alone are not enough for deployment decisions.\n\nSources\n\nGoogle Research →TurboQuant paper →KIVI paper → [...] ## How to choose in practice\n\n01\n\n### Check your real bottleneck\n\nIf weights dominate memory, KV cache quantization may not move deployment economics much. If long contexts dominate, both methods become more relevant.\n\n02\n\n### Check implementation availability\n\nA theoretically better paper result is not enough if your runtime stack does not ship kernels or maintenance support for that method.\n\n03\n\n### Benchmark on your own workloads [...] TurboQuant\n\nGoogle frames TurboQuant as a broader vector quantization method for both KV cache and vector search, with low overhead and near-optimal distortion claims.\n\nKIVI\n\nKIVI is a tuning-free asymmetric 2-bit KV cache quantization method focused specifically on inference memory and throughput.\n\n## Core idea\n\nTurboQuant\n\nTwo-stage method: PolarQuant for the main compression step, then 1-bit QJL on the residual to remove inner-product bias.\n\nKIVI",
+   "published_date": null,
+   "score": 0.2105069
+  }
+ ]
+}

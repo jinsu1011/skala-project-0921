@@ -1,0 +1,65 @@
+{
+ "query": "market potential of KIVI authors KIVI KV cache technology independent analysis",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:21:06+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/abs/2402.02750",
+   "title": "[2402.02750] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "archive \n\nPress Enter to search · Advanced search\n\n# Computer Science > Computation and Language\n\narXiv:2402.02750 (cs)\n\nSubmitted on 5 Feb 2024 ([v1), last revised 25 Jul 2024 (this version, v2)]\n\n# Title:KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nAuthors:Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu [...] View a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors [...] per-channel, i.e., group elements along the channel dimension and quantize them together. In contrast, the value cache should be quantized per-token. From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm named KIVI. With hardware-friendly implementation, KIVI can enable Llama, Falcon, and Mistral models to maintain almost the same quality while using $\\mathbf{2.6\\times}$ less peak memory (including model weight). This reduction in memory usage enables up to",
+   "published_date": null,
+   "score": 0.49919498
+  },
+  {
+   "url": "https://proceedings.mlr.press/v235/liu24bz.html",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "`@InProceedings{pmlr-v235-liu24bz, title = {{KIVI}: A Tuning-Free Asymmetric 2bit Quantization for {KV} Cache}, author = {Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}, booktitle = {Proceedings of the 41st International Conference on Machine Learning}, pages = {32332--32344}, year = {2024}, editor = {Salakhutdinov, Ruslan and Kolter, Zico and Heller, Katherine and Weller, Adrian and Oliver, Nuria and [...] study on the element distribution in KV cache of popular LLMs. Our findings indicate that the key cache should be quantized per-channel, i.e., group elements along the channel dimension and quantize them together. In contrast, the value cache should be quantized per-token. From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm, named KIVI. With the hardware-friendly implementation, KIVI can enable Llama (Llama-2), Falcon, and Mistral models to maintain almost the [...] From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm, named KIVI. With the hardware-friendly implementation, KIVI can enable Llama (Llama-2), Falcon, and Mistral models to maintain almost the same quality while using 2.6$\\times$ less peak memory usage (including the model weight). This reduction in memory usage enables up to 4x larger batch size, bringing $2.35 \\times \\sim 3.47 \\times$ throughput on real LLM inference workload.} }`",
+   "published_date": null,
+   "score": 0.45653152
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] ```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] | long\\_context\\_example.py | long\\_context\\_example.py |  |  |\n| mem\\_spd\\_test.py | mem\\_spd\\_test.py |  |  |\n| metrics.py | metrics.py |  |  |\n| passkey\\_examples.jsonl | passkey\\_examples.jsonl |  |  |\n| pred\\_long\\_bench.py | pred\\_long\\_bench.py |  |  |\n| pyproject.toml | pyproject.toml |  |  |\n| requirements.txt | requirements.txt |  |  |\n|  |",
+   "published_date": null,
+   "score": 0.39508808
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2402.02750",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache | alphaXiv",
+   "content": "This paper is cited as a key related work that also tackles the KV cache bottleneck. KIVI's authors reference FlexGen's use of 4-bit group-wise quantization for both key and value caches, positioning their own asymmetric quantization strategy as a more nuanced and effective approach for lower bit-rates. [...] KIVI represents a significant advancement in efficient LLM inference by successfully implementing tuning-free 2-bit KV cache quantization with minimal accuracy loss. The work's data-driven methodology—first analyzing distribution patterns, then designing quantization strategies based on these insights—provides a robust foundation for future research in cache compression. [...] group elements along the channel dimension and quantize them together. In contrast, the value cache should be quantized per-token. From this analysis, we developed a tuning-free 2bit KV cache quantization algorithm named KIVI. With hardware-friendly implementation, KIVI can enable Llama, Falcon, and Mistral models to maintain almost the same quality while using 2.6× less peak memory (including model weight). This reduction in memory usage enables up to 4× larger batch size, bringing",
+   "published_date": null,
+   "score": 0.39431813
+  },
+  {
+   "url": "https://www.cbinsights.com/company/kivi",
+   "title": "KiVi - Products, Competitors, Financials, Employees, Headquarters Locations",
+   "content": "Technology Vendors\n Recent Research\n Newsletter\n Media Support\n Login\n\nCB Insights\n\nKiVi company logo\n\n# KiVi\n\nagrosperity.com\n\n## Founded Year\n\n2021\n\n## Stage\n\nSeed - II | Alive\n\n## Total Raised\n\n$1.8M\n\n## Revenue\n\n$0000\n\n## Mosaic Score The Mosaic Score is an algorithm that measures the overall financial health and market potential of private companies.\n\n+79 points in the past 30 days\n\n## About KiVi [...] ## LatestKiVi News\n\nKiVi & Avio Smart Market Stack Advance Agri-Fintech Push to Drive Rural Transformation in Maharashtra\n\nApr 21, 2026 [...] Apr 21, 2026\n\nKiVi & Avio Smart Market Stack Advance Agri-Fintech Push to Drive Rural Transformation in Maharashtra\n\nMar 16, 2026\n\nAvio Smart Market Stack (Bartronics India) collaborates with Agrosperity Tech Solutions\n\nMar 16, 2026\n\nAvio Smart Market Stack Signs MoU with Agrosperity to Expand Digital Agriculture Ecosystem under Project AVIO Agritech\n\nJan 28, 2025\n\nStudents unveil custom patrol car design for their beloved resource officer\n\n### KiViFrequently Asked Questions (FAQ)",
+   "published_date": null,
+   "score": 0.36929289
+  },
+  {
+   "url": "https://liner.com/review/kivi-tuningfree-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache [Quick Review]",
+   "content": "KIVI quantizes key cache per-channel and value cache per-token based on extensive analysis of outlier patterns and quantization error in KV cache.\n KIVI is a plug-and-play 2-bit KV cache quantization algorithm with hardware-friendly implementation that does not require fine-tuning.\n KIVI incorporates a grouped key cache and a residual key cache, maintaining the residual portion in full precision to handle streaming data and ensure accuracy. [...] + KIVI, a tuning-free asymmetric 2-bit quantization method, consistently outperforms other 2-bit quantization configurations by quantizing key cache per-channel and value cache per-token. This approach maintains accuracy close to the 16-bit baseline across various LLMs (Llama-2, Mistral, Falcon) and generation tasks (CoQA, TruthfulQA, GSM8K, LongBench), demonstrating its effectiveness in preserving model quality while significantly reducing memory footprint. For instance, on Llama-2-7B, [...] 0\n\n0\n\ncitation\n\ncitationDeLeaker: Dynamic Inference-Time Reweighting For Semantic Leakage Mitigation in Text-to-Image Models\n\nVentura et al.\n\nVentura et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDirectional Textual Inversion for Personalized Text-to-Image Generation\n\nKim et al.\n\nKim et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026\n\n0\n\n0\n\ncitation\n\ncitationDoVer: Intervention-Driven Auto Debugging for LLM Multi-Agent Systems\n\nMa et al.\n\nMa et al.\n\nICLR\n\nApr 23, 2026\n\nApr 23, 2026",
+   "published_date": null,
+   "score": 0.32882085
+  },
+  {
+   "url": "https://www.spheron.network/blog/kv-cache-quantization-with-kivi-int2-setup-guide-2026",
+   "title": "KV Cache Quantization vLLM Setup: KIVI's INT2 Method (2026) | Spheron Blog",
+   "content": "KIVI's own throughput and memory experiments were run on a single NVIDIA A100 80GB GPU, per the paper. That's the same GPU class you'd provision to reproduce these numbers directly, since matching the paper's hardware means matching its memory bandwidth and capacity ceiling rather than approximating it on a different card. Whatever headroom KIVI frees up in the KV cache translates directly into either a longer context window per sequence or more concurrent sequences in the same batch: the two [...] ## KIVI: Per-Channel Key, Per-Token Value Quantization Explained\n\nKIVI, published as \"KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\", starts from an empirical observation: keys and values don't have the same error distribution once you try to compress them, so quantizing them the same way wastes accuracy on both.\n\nThe paper's authors put it directly: [...] Where this actually pays off is the workloads that are KV-cache-bound rather than weight-bound: long multi-turn conversations, RAG pipelines with long retrieved contexts, or high-concurrency serving where dozens of sequences are each holding their own cache simultaneously. If your bottleneck is model weights rather than cache (a 70B+ model that barely fits regardless of batch size), KIVI's savings compound with weight quantization methods like AWQ rather than replacing them; see the AWQ",
+   "published_date": null,
+   "score": 0.26250184
+  },
+  {
+   "url": "https://rocketreach.co/kivi-srl-profile_b5ef672ef42e70d5",
+   "title": "KIVI Srl Information",
+   "content": "Website\nRevenue$11 million\nEmployees19  (0 on RocketReach)\nFounded1995\nAddressStrada Carmagnola, 1, Vigliano d'Asti, Piedmont 14040, IT\nPhone+39 0141 951668\nTechnologiesPTC Creo , Creo Parametric(view technologies)\nIndustryAutomotive, Motor Vehicles, Manufacturing\nWeb Rank4 Million [...] More information",
+   "published_date": null,
+   "score": 0.25855803
+  }
+ ]
+}

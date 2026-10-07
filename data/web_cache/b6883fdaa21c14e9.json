@@ -1,0 +1,65 @@
+{
+ "query": "technical limitations and market challenges of InfiniGen authors InfiniGen KV cache from independent critical sources and unbiased technology reviews",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:22:11+09:00",
+ "results": [
+  {
+   "url": "https://huggingface.co/papers/2406.19707",
+   "title": "Paper page - InfiniGen: Efficient Generative Inference of Large Language Models with\n  Dynamic KV Cache Management",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive\nperformance across various natural language processing tasks. Serving LLM\ninference for generating long contents, however, poses a challenge due to the\nenormous memory footprint of the transient state, known as the key-value (KV)\ncache, which scales with the sequence length and batch size. In this paper, we\npresent InfiniGen, a novel KV cache management framework tailored for long-text [...] fetching them all), thereby mitigating the fetch overhead from the host memory\nin offloading-based LLM serving systems. Our evaluation on several\nrepresentative LLMs shows that InfiniGen improves the overall performance of a\nmodern offloading-based system by up to 3.00x compared to prior KV cache\nmanagement methods while offering substantially better model accuracy. [...] Hugging Face's logo\n\n# InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\n## Abstract\n\nInfiniGen is a KV cache management framework that improves performance and accuracy in long-text generation by pre-fetching essential KV cache entries in offloading-based LLM serving systems.",
+   "published_date": null,
+   "score": 0.4558047
+  },
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "C3: Adjusting the number of KV entries across queries.\nH2O sets the number of key/value tokens to retain as a fixed percentage of\nthe input sequence length. The KV cache budget remains constant regardless of\nhow many tokens have been generated.\nBy analyzing the data from Figure 5 on Layer 18, we observe\nthat this fixed KV cache budget has some limitations.\nFor instance, with an input sequence length of 200 and a 20% KV cache budget, [...] address the challenges in KV cache management below and thus have subpar\nperformance with offloading-based inference systems. [...] Summary.\nPrior works aiming to reduce the KV cache size through token eviction\ninherently have some challenges.\nGiven the dynamic attention pattern across iterations, permanently excluding\nevicted tokens from future token generation can result in a non-negligible drop\nin accuracy.\nInstead, we need to dynamically select critical tokens from the KV cache\nwhile avoiding the outright eviction of less important ones.\nFurthermore, the fixed size of the KV cache budget in prior works leads to",
+   "published_date": null,
+   "score": 0.45449692
+  },
+  {
+   "url": "https://www.usenix.org/conference/osdi24/presentation/lee",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | USENIX",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00× compared to prior KV cache management methods while offering substantially better model accuracy. [...] # InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management\n\nWonbeom Lee, Jungi Lee, Junghwan Seo, and Jaewoong Sim, Seoul National University",
+   "published_date": null,
+   "score": 0.45362547
+  },
+  {
+   "url": "https://www.alphaxiv.org/abs/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management | alphaXiv",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works [...] overhead from the host memory in offloading-based LLM serving systems. Our evaluation on several representative LLMs shows that InfiniGen improves the overall performance of a modern offloading-based system by up to 3.00x compared to prior KV cache management methods while offering substantially better model accuracy. [...] works with modern offloading-based inference systems. InfiniGen leverages the key insight that a few important tokens that are essential for computing the subsequent attention layer in the Transformer can be speculated by performing a minimal rehearsal with the inputs of the current layer and part of the query weight and key cache of the subsequent layer. This allows us to prefetch only the essential KV cache entries (without fetching them all), thereby mitigating the fetch overhead from the",
+   "published_date": null,
+   "score": 0.42548645
+  },
+  {
+   "url": "https://infinigen.org",
+   "title": "Home | Infinigen",
+   "content": "Read the paper\n\n```\n@misc{raistrick2026procfunc, title={ProcFunc: Function-Oriented Abstractions for Procedural 3D Generation in Python}, author={Alexander Raistrick and Karhan Kayan and Jack Nugent and David Yan and Lingjie Mei and Meenal Parakh and Hongyu Wen and Dylan Li and Yiming Zuo and Erich Liang and Jia Deng}, year={2026}, eprint={2604.26943}, archivePrefix={arXiv}, primaryClass={cs.CV}, url={ }\n```\n\n# Key Features & Capabilities\n\n# Procedural [...] Alexander Raistrick\\, Lahav Lipson\\, Zeyu Ma\\  Lingjie Mei, Mingzhe Wang, Yiming Zuo, Karhan Kayan, Hongyu Wen, Beining HanYihan Wang,Alejandro Newell, Hei Law, Ankit Goyal, Kaiyu Yang, Jia Deng  \n( \\equal contribution, alphabetical order )\n\nConference on Computer Vision and Pattern Recognition (CVPR) 2023\n\nRead the paper [...] Read the paper\n\n```\n@misc{joshi2025infinigenarticulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ }\n```",
+   "published_date": null,
+   "score": 0.31595805
+  },
+  {
+   "url": "https://github.com/princeton-vl/infinigen",
+   "title": "GitHub - princeton-vl/infinigen: Infinite Photorealistic Worlds using Procedural Generation · GitHub",
+   "content": "```\n@misc{raistrick2026procfunc, title={ProcFunc: Function-Oriented Abstractions for Procedural 3D Generation in Python}, author={Alexander Raistrick and Karhan Kayan and Jack Nugent and David Yan and Lingjie Mei and Meenal Parakh and Hongyu Wen and Dylan Li and Yiming Zuo and Erich Liang and Jia Deng}, year={2026}, eprint={2604.26943}, archivePrefix={arXiv}, primaryClass={cs.CV}, url={ } \n```\n\n## Documentation [...] ### ProcFunc: Function-Oriented Abstractions for Procedural 3D Generation in Python\n\nAlexander Raistrick, Karhan Kayan, Jack Nugent, David Yan, Lingjie Mei, Meenal Parakh,   \n Hongyu Wen, Dylan Li, Yiming Zuo, Erich Liang, Jia Deng  \n arXiv 2026 [...] ```\n@misc{joshi2025articulated, title={Procedural Generation of Articulated Simulation-Ready Assets}, author={Abhishek Joshi and Beining Han and Jack Nugent and Max Gonzalez Saez-Diez and Yiming Zuo and Jonathan Liu and Hongyu Wen and Stamatis Alexandropoulos and Karhan Kayan and Anna Calveri and Tao Sun and Gaowen Liu and Yi Shao and Alexander Raistrick and Jia Deng}, year={2025}, eprint={2505.10755}, archivePrefix={arXiv}, primaryClass={cs.RO}, url={ } \n```",
+   "published_date": null,
+   "score": 0.27207395
+  },
+  {
+   "url": "https://blog.lmcache.ai/en/2026/04/28/stop-calling-it-kv-cache-its-something-much-bigger",
+   "title": "Stop Calling It KV Cache: It’s Something Much Bigger – LMCache Blog",
+   "content": "## 2026: A First-Class Data Object\n\nFast forward to today. KV cache is no longer an optimization at the margins of inference. It is the core infrastructure.\n\nNVIDIA introduced ICMS (now renamed CMX) to formalize inference context storage. KV cache now represents the majority of the inference storage footprint. DRAM and SSD costs are becoming a significant line item in AI system budgets.\n\nWe are witnessing the emergence of a new category: inference-time data as a persistent, valuable asset. [...] For a long time, that description held. Even though KV cache was theoretically reusable across requests, in practice GPU memory was too limited and too expensive to justify persistence. Cross-request reuse was rare, and the system treated KV cache as disposable.\n\n## 2025: The Turning Point\n\nEverything changed when KV cache began leaving GPU memory. [...] KV cache already departs from traditional caching in three fundamental ways.\n\nFirst, it is persistent and multi-tier. It is stored across GPU, CPU, SSD, and cloud, survives beyond a single request, and is managed more like a data pipeline than a local buffer.\n\nSecond, it is not a black box. It can be compressed, quantized, and transformed. Its internal structure is exposed and exploitable by the systems that manage it.",
+   "published_date": null,
+   "score": 0.22944926
+  },
+  {
+   "url": "https://tracxn.com/d/companies/infinigen-renewables/__wqws4C8pIjYyWB9xKtbrJ6dHxbyplLPxLDdDG_obtAU",
+   "title": "Infinigen Renewables - 2026 Company Profile & Competitors - Tracxn",
+   "content": "| 6th | Logo for reSolient  reSolient 2019, San Juan  (Puerto Rico), Unfunded | Provider of solar panel installation services  - | 18/100 |\n| 7th | Logo for MFS  MFS 2011, Isabela  (Puerto Rico), Unfunded | Developer of solar energy projects  - | 18/100 |\n| 8th | Logo for Sunne Labs Corporation  Sunne Labs Corporation 2014, Mayaguez  (Puerto Rico), Deadpooled | Developer of solar and wind energy projects  - | 16/100 | [...] | 9th | Logo for SES  SES 2017, Punta Santiago  (Puerto Rico), Unfunded | Solar panel & products installation company  - | 16/100 |\n| 10th | Logo for Solar Wise Strategies  Solar Wise Strategies 2019, Las Piedras  (Puerto Rico), Unfunded | Provider of solar panel installation services  - | 16/100 | [...] | 3rd | Logo for Infinigen Renewables  Infinigen Renewables 2021, San Juan  (Puerto Rico), Unfunded | Provider of renewable energy projects  - | 23/100 |\n| 4th | Logo for Power Solar  Power Solar 2009, San Juan  (Puerto Rico), Unfunded | Developer of solar and wind energy projects  - | 22/100 |\n| 5th | Logo for Go Solar  Go Solar 2014, San Sebastian  (Puerto Rico), Deadpooled | Designs and solar integration  - | 19/100 |",
+   "published_date": null,
+   "score": 0.22753839
+  }
+ ]
+}

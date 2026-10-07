@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache used together with KV cache compression or memory offloading in serving systems",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:17:47+09:00",
+ "results": [
+  {
+   "url": "https://www.emergentmind.com/papers/2402.02750",
+   "title": "KIVI: Tuning-Free 2-Bit KV Cache Quantization",
+   "content": "Abstract   PDF   Upgrade to Chat\n\nAuthors (8)\n\n1. Zirui Liu\n2. Jiayi Yuan\n3. Hongye Jin\n4. Shaochen Zhong\n5. Zhaozhuo Xu\n6. Vladimir Braverman\n7. Beidi Chen\n8. Xia Hu\n\nRelated Papers [...] 6. ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference (2024)\n7. KVTuner: Sensitivity-Aware Layer-Wise Mixed-Precision KV Cache Quantization for Efficient and Nearly Lossless LLM Inference (2025)\n8. MixKVQ: Query-Aware Mixed-Precision KV Cache Quantization for Long-Context Reasoning (2025)\n9. GPU-Accelerated INT8 Quantization for KV Cache Compression in Large Language Models (2026) [...] Abstract: Efficiently serving LLMs requires batching of many requests to reduce the cost per request. Yet, with larger batch sizes and longer context lengths, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. Additionally, the loading of the KV cache causes the computational core to be idle, which limits the inference speed. A straightforward and effective",
+   "published_date": null,
+   "score": 0.46147847
+  },
+  {
+   "url": "https://emergentmind.com/papers/2402.02750",
+   "title": "KIVI: Tuning-Free 2-Bit KV Cache Quantization",
+   "content": "Abstract   PDF   Upgrade to Chat\n\nAuthors (8)\n\n1. Zirui Liu\n2. Jiayi Yuan\n3. Hongye Jin\n4. Shaochen Zhong\n5. Zhaozhuo Xu\n6. Vladimir Braverman\n7. Beidi Chen\n8. Xia Hu\n\nRelated Papers [...] 6. ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference (2024)\n7. KVTuner: Sensitivity-Aware Layer-Wise Mixed-Precision KV Cache Quantization for Efficient and Nearly Lossless LLM Inference (2025)\n8. MixKVQ: Query-Aware Mixed-Precision KV Cache Quantization for Long-Context Reasoning (2025)\n9. GPU-Accelerated INT8 Quantization for KV Cache Compression in Large Language Models (2026) [...] Abstract: Efficiently serving LLMs requires batching of many requests to reduce the cost per request. Yet, with larger batch sizes and longer context lengths, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. Additionally, the loading of the KV cache causes the computational core to be idle, which limits the inference speed. A straightforward and effective",
+   "published_date": null,
+   "score": 0.46147847
+  },
+  {
+   "url": "https://www.emergentmind.com/articles/2402.02750",
+   "title": "KIVI: Tuning-Free 2-Bit KV Cache Quantization",
+   "content": "Abstract   PDF   Upgrade to Chat\n\nAuthors (8)\n\n1. Zirui Liu\n2. Jiayi Yuan\n3. Hongye Jin\n4. Shaochen Zhong\n5. Zhaozhuo Xu\n6. Vladimir Braverman\n7. Beidi Chen\n8. Xia Hu\n\nRelated Papers [...] 6. ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference (2024)\n7. KVTuner: Sensitivity-Aware Layer-Wise Mixed-Precision KV Cache Quantization for Efficient and Nearly Lossless LLM Inference (2025)\n8. MixKVQ: Query-Aware Mixed-Precision KV Cache Quantization for Long-Context Reasoning (2025)\n9. GPU-Accelerated INT8 Quantization for KV Cache Compression in Large Language Models (2026) [...] Abstract: Efficiently serving LLMs requires batching of many requests to reduce the cost per request. Yet, with larger batch sizes and longer context lengths, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. Additionally, the loading of the KV cache causes the computational core to be idle, which limits the inference speed. A straightforward and effective",
+   "published_date": null,
+   "score": 0.46147847
+  },
+  {
+   "url": "https://cris.bgu.ac.il/en/publications/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache-3",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache - Ben-Gurion University Research Portal",
+   "content": "author = \"Zirui Liu and Jiayi Yuan and Hongye Jin and Shaochen Zhong and Zhaozhuo Xu and Vladimir Braverman and Beidi Chen and Xia Hu\",\n\nnote = \"Publisher Copyright: Copyright 2024 by the author(s); 41st International Conference on Machine Learning, ICML 2024 ; Conference date: 21-07-2024 Through 27-07-2024\",\n\nyear = \"2024\",\n\nmonth = jan,\n\nday = \"1\",\n\nlanguage = \"English\",\n\nvolume = \"235\",\n\npages = \"32332--32344\",\n\njournal = \"Proceedings of Machine Learning Research\",\n\nissn = \"2640-3498\", [...] abstract = \"Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM [...] Efficiently serving large language models (LLMs) requires batching many requests together to reduce the cost per request. Yet, the key-value (KV) cache, which stores attention keys and values to avoid re-computations, significantly increases memory demands and becomes the new bottleneck in speed and memory usage. This memory demand increases with larger batch sizes and longer context lengths. Additionally, the inference speed is limited by the size of KV cache, as the GPU's SRAM must load the",
+   "published_date": null,
+   "score": 0.35723165
+  },
+  {
+   "url": "https://experts.umn.edu/en/publications/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache - Experts@Minnesota",
+   "content": "author = \"Zirui Liu and Jiayi Yuan and Hongye Jin and Shaochen Zhong and Zhaozhuo Xu and Vladimir Braverman and Beidi Chen and Xia Hu\",\n\nnote = \"Publisher Copyright: Copyright 2024 by the author(s); 41st International Conference on Machine Learning, ICML 2024 ; Conference date: 21-07-2024 Through 27-07-2024\",\n\nyear = \"2024\",\n\nlanguage = \"English (US)\",\n\nvolume = \"235\",\n\npages = \"32332--32344\",\n\njournal = \"Proceedings of Machine Learning Research\",\n\nissn = \"2640-3498\", [...] publisher = \"ML Research Press\",\n\n}\n\nTY - JOUR\n\nT1 - KIVI\n\nT2 - 41st International Conference on Machine Learning, ICML 2024\n\nAU - Liu, Zirui\n\nAU - Yuan, Jiayi\n\nAU - Jin, Hongye\n\nAU - Zhong, Shaochen\n\nAU - Xu, Zhaozhuo\n\nAU - Braverman, Vladimir\n\nAU - Chen, Beidi\n\nAU - Hu, Xia\n\nN1 - Publisher Copyright: Copyright 2024 by the author(s)\n\nPY - 2024\n\nY1 - 2024 [...] Skip to main navigation Skip to search\n\nExperts@Minnesota Home Experts@Minnesota Logo\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\n Zirui Liu\n , Jiayi Yuan\n , Hongye Jin\n , Shaochen Zhong\n , Zhaozhuo Xu\n , Vladimir Braverman\n , Beidi Chen\n , Xia Hu\n\nResearch output: Contribution to journal › Conference article › peer-review\n\n43   Link opens in a new tab  Scopus citations\n\n## Abstract",
+   "published_date": null,
+   "score": 0.35655922
+  },
+  {
+   "url": "https://lacuna.tiptreesystems.com/work/kivi-a-tuning-free-asymmetric-2bit-quantization-for-kv-cache/wrk_c46472a8c8f694337668097eb3804425",
+   "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache — Lacuna",
+   "content": "When serving LLMs, the \"KV cache\" is a major headache. To avoid re-calculating attention for every new word, models store the \"Keys\" and \"Values\" of previous tokens in memory. As batch sizes grow and context windows lengthen (e.g., a chatbot remembering a whole book), this cache balloons in size. [...] ## The KIVI Method\n\nThe authors introduce KIVI (KV-cache 2-bit quantization), which uses three clever techniques to make 2-bit quantization viable:\n\nExtracted figure from page 5 of KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nSource, p. 5 [...] Lacuna\n\nTiptree Systems\nNew papersAbout LacunaMCP\n\n# KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nZirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu\n\nICML 2024 · OpenReview\n\n## Versions\n\nKIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cacheicml · 2024PresentationKIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cachearxiv · 2024 · v1KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV CachearXiv · 2024\n\nLists",
+   "published_date": null,
+   "score": 0.3081595
+  },
+  {
+   "url": "https://turbo-quant.com/en/turboquant-vs-kivi",
+   "title": "TurboQuant vs KIVI: KV Cache Quantization Compared | TurboQuant Tools",
+   "content": "TurboQuant\n\nGoogle frames TurboQuant as a broader vector quantization method for both KV cache and vector search, with low overhead and near-optimal distortion claims.\n\nKIVI\n\nKIVI is a tuning-free asymmetric 2-bit KV cache quantization method focused specifically on inference memory and throughput.\n\n## Core idea\n\nTurboQuant\n\nTwo-stage method: PolarQuant for the main compression step, then 1-bit QJL on the residual to remove inner-product bias.\n\nKIVI [...] KIVI\n\nThe KIVI paper highlights around 2.6x lower peak memory including weights, up to 4x larger batch size, and 2.35x–3.47x throughput gains on real inference workloads.\n\n## What changes between the two methods\n\nTurboQuant and KIVI both target KV cache memory, but they optimize for different points on the accuracy, complexity, and compression tradeoff curve. TurboQuant adds more math to reduce distortion; KIVI keeps the method simpler and more directly tied to 2-bit cache compression. [...] No. They target KV cache rather than model weights. In many deployments, cache quantization and weight quantization are complementary.\n\nWhat should I compare first for deployment?+\n\nCompare total memory, achieved throughput, and quality on your real prompts. Paper headline numbers alone are not enough for deployment decisions.\n\nSources\n\nGoogle Research →TurboQuant paper →KIVI paper →",
+   "published_date": null,
+   "score": 0.21578875
+  },
+  {
+   "url": "https://stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions unveils first CXL KV cache server | PENG Stock News",
+   "content": "Flexibility to tier cluster memory: CXL-based KV cache delivered by the server creates a new tier of cluster memory to supplement existing high bandwidth memory (HBM) and system DRAM, delivering speeds 10x faster than NVMe-based approaches. This provides new flexibility in offloading KV data for faster access.\n\n Compatibility with NVIDIA Dynamo: The solution is compatible with NVIDIA Dynamo, NVIDIA's software architecture for KV cache memory offloading. [...] A kv cache is a small, fast memory store that keeps recently used “keys” (identifiers) and their associated “values” (data) so a computer system can look them up instantly instead of re-calculating or re-fetching them. For investors, a kv cache matters because it can cut latency and computing costs and improve the responsiveness of services like algorithmic trading, market data feeds, or AI-driven analysis—similar to a clerk who remembers recent lookups so customers don’t wait. [...] earnings\n\n### Grid Dynamics to Announce Third Quarter 2026 Financial Results on October 29th\n\nearnings date\n\nACCV  Trending\n\n### Accelevation Announces Pricing of Initial Public Offering\n\nIPO\n\nVNDA  Trending\n\n### Vanda Pharmaceuticals Announces Positive Phase III Results for HETLIOZ®(tasimelteon) in Delayed Sleep-Wake Phase Disorder\n\nclinical trial\n\n### Bunker Hill Announces Election to Issue Shares in Satisfaction of Interest Payment Obligations",
+   "published_date": null,
+   "score": 0.14917187
+  }
+ ]
+}

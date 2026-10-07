@@ -1,0 +1,65 @@
+{
+ "query": "KIVI authors KIVI KV cache criticism skeptical hype",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:18:23+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/abs/2402.02750",
+   "title": "[2402.02750] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "archive \n\nPress Enter to search · Advanced search\n\n# Computer Science > Computation and Language\n\narXiv:2402.02750 (cs)\n\nSubmitted on 5 Feb 2024 ([v1), last revised 25 Jul 2024 (this version, v2)]\n\n# Title:KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache\n\nAuthors:Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu [...] View a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors [...] Full-text links:\n\n## Access Paper:\n\nView a PDF of the paper titled KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache, by Zirui Liu and 7 other authors\n\n View PDF\n HTML (experimental)\n TeX Source\n\nlicense icon view license\n\n### Current browse context:\n\ncs.CL\n\n< prev\")    |    next >\")\n\nnew  |  recent  | 2024-02\n\nChange to browse by:\n\ncs  \n cs.LG  \n cs.PF\n\n### References & Citations\n\n NASA ADS\n Google Scholar\n Semantic Scholar\n\nLoading...\n\n## BibTeX formatted citation",
+   "published_date": null,
+   "score": 0.629889
+  },
+  {
+   "url": "https://github.com/jy-yuan/KIVI",
+   "title": "GitHub - jy-yuan/KIVI: [ICML 2024] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache · GitHub",
+   "content": "```\n# MODEL is the dir name under pred/ Currently it support Llama family model and Mistral model. #\n```\n\n## Citation\n\nIf you find our method useful, please kindly cite our paper.\n\n```\n@article liu2024kivi title{KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache}{} author{Liu, Zirui and Yuan, Jiayi and Jin, Hongye and Zhong, Shaochen and Xu, Zhaozhuo and Braverman, Vladimir and Chen, Beidi and Hu, Xia}{} journal{arXiv preprint arXiv:2402.02750}{} year{2024}{}\n```\n\n## Contributing [...] KIVI is a new plug-and-play 2bit KV cache quantization algorithm without any fine-tuning. This algorithm optimizes memory usage by quantizing the key cache per-channel and the value cache per-token to 2bit. KIVI's hardware-friendly design allows LLMs like Llama-2, Falcon, and Mistral to maintain comparable quality levels while reducing peak memory usage by 2.6 times. This enables up to 4 times larger batch sizes and significantly increases throughput by 2.35 to 3.47 times in real LLM inference [...] ```",
+   "published_date": null,
+   "score": 0.4680374
+  },
+  {
+   "url": "https://www.marktechpost.com/2024/04/16/kivi-a-plug-and-play-2-bit-kv-cache-quantization-algorithm-without-the-need-for-any-tuning",
+   "title": "KIVI: A Plug-and-Play 2-bit KV Cache Quantization Algorithm without the Need for Any Tuning - MarkTechPost",
+   "content": "Home Technology AI Shorts KIVI: A Plug-and-Play 2-bit KV Cache Quantization Algorithm without the Need for...\n\n Technology\n AI Shorts\n Artificial Intelligence\n Applications\n Editors Pick\n Staff\n Tech News\n\n# KIVI: A Plug-and-Play 2-bit KV Cache Quantization Algorithm without the Need for Any Tuning\n\nBy\n\nNiharika Singh\n\n-\n\nAdd as a preferredsource on Google [...] Datalab Introduces OmniExtractBench to Fix Bias and Opacity in Extraction Benchmarks\n\nOpen Source\n\n Close Welcome Bar\n\n### Get AI Dev Signals\n\nThe newsletter 70,000+ AI builders read. Model releases, tools and research, without the hype. [...] Meet KIVI: a plug-and-play quantization algorithm specifically designed for key-value (KV) caches in LLMs. It works by compressing the information stored in the cache so that it takes up less space without needing any fine-tuning. This means that researchers and developers can use KIVI without having to spend a lot of time tweaking it to work with their specific LLM.",
+   "published_date": null,
+   "score": 0.37195808
+  },
+  {
+   "url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/liu24bz/liu24bz.pdf",
+   "title": "[PDF] KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+   "content": "a9ER \\vk\\8(jWND`ڔ%2m`mfpLPƕ<sv7FuN?ž\\RHyS\\_08΅K6D{l k + E%M2v}?ސ3\\m/떿k.fa4g]GҺS{d;G)e\\(T'; V%;v1M2Mʩ4.A{-ɴF:K6F0dQJ+ 2ZSC!,Ĕԙ\\[6woR16\\=J q nww^Dz(:%39g`km<a+ 0535ߕ/oߍp??}km;ݿk!\";!wt. ,a+hgޜAqmErsPp>X yaf@ƔzZ݅( [...] ?i8E7\\_79u}9ًO?`N=ekvg!&Httß@- Ǩ  [PEbu-|od׾Vc;XN&oǑ>lPdZA$ؒZ{xpƢhw;+I[>n)g6A[,GUvjMOo;'{7.\\j\\\\W?w\"(8h0J'IqB#GEL\\Yx$~l!kI2#a> ROqz~rW[ATӌbC<n3\\mh\\{ZQ6aK\\{iͷѩf1 %~\\nZCIY36N¶8c|o;+%[,\\nD^?  }{u<s,qXpKїy\\/i\"q&#jSKu)tISz\\XKX9=JçSlp\\׶`u`aK?rfY)\\CrU [...] a\\_dc< xS J^mXiCШyW+˓Kؿyr52v{=/S[\"GENP$S>eۻ\\Q5 &nKG)|NM;f g9.lLHq6-02Licj-x:w(8ZB7I|'io>5^$J} Q!x6|dӶjfD:ڇtAGꋬ9C:B5#~\\s q|,-zHNOaiI[)ڗ{1D k[&P~c,> !$Ca{8ߝrJI /.UQӨ{❝n0\\Fww=ZHMWժfy'MTT:FKF֣ZDےQO/3[(5>dͯ/y3~PC+y0#k0mxEG<AA8]!Lc",
+   "published_date": null,
+   "score": 0.24753281
+  },
+  {
+   "url": "https://turbo-quant.com/turboquant-vs-kivi",
+   "title": "TurboQuant vs KIVI: KV Cache Quantization Compared | TurboQuant Tools",
+   "content": "KIVI\n\nThe KIVI paper highlights around 2.6x lower peak memory including weights, up to 4x larger batch size, and 2.35x–3.47x throughput gains on real inference workloads.\n\n## What changes between the two methods\n\nTurboQuant and KIVI both target KV cache memory, but they optimize for different points on the accuracy, complexity, and compression tradeoff curve. TurboQuant adds more math to reduce distortion; KIVI keeps the method simpler and more directly tied to 2-bit cache compression. [...] TurboQuant\n\nGoogle frames TurboQuant as a broader vector quantization method for both KV cache and vector search, with low overhead and near-optimal distortion claims.\n\nKIVI\n\nKIVI is a tuning-free asymmetric 2-bit KV cache quantization method focused specifically on inference memory and throughput.\n\n## Core idea\n\nTurboQuant\n\nTwo-stage method: PolarQuant for the main compression step, then 1-bit QJL on the residual to remove inner-product bias.\n\nKIVI [...] No. They target KV cache rather than model weights. In many deployments, cache quantization and weight quantization are complementary.\n\nWhat should I compare first for deployment?+\n\nCompare total memory, achieved throughput, and quality on your real prompts. Paper headline numbers alone are not enough for deployment decisions.\n\nSources\n\nGoogle Research →TurboQuant paper →KIVI paper →",
+   "published_date": null,
+   "score": 0.23895884
+  },
+  {
+   "url": "https://openreview.net/forum?id=0LXotew9Du&noteId=NLvjuPTwjP",
+   "title": "Towards 10 Million Context Length LLM Inference with KV ...",
+   "content": "The paper looks into the problem of compressing KV cache for more memory-efficient LLM inference. To reduce the KV cache size while retaining",
+   "published_date": null,
+   "score": 0.1015629
+  },
+  {
+   "url": "https://iep.utm.edu/skepcont",
+   "title": "Contemporary Skepticism | Internet Encyclopedia of Philosophy",
+   "content": "First, that we are unable to know that any one of a number of skeptical hypotheses are false, where a skeptical hypothesis is understood as a scenario that is subjectively indistinguishable from what one takes normal circumstances to be but which, if true, would undermine most of the knowledge that one ascribes to oneself. A standard example of a skeptical hypothesis is the so-called ‘brain-in-a-vat’ (BIV) hypothesis that one is being ‘fed’ one’s experiences by computers. If this were true, [...] and (S2) since the skeptical hypothesis in question (whichever skeptical hypothesis it is) will clearly be an error possibility which must be known to be false if the agent is to have knowledge of the ordinary proposition at issue. Accordingly, an inability to know the denial of the skeptical hypothesis will suffice to ensure that the agent lacks knowledge of the ordinary proposition, just as (S2) says. In effect, infallibilism is the opposing thesis to the RA line because it counts every [...] is not a BIV (or, indeed, the victim of any skeptical hypothesis). The reason for this is that there will be no possible world within the realm of safety in which this proposition is false, and thus, in every world in the realm of safety in which she believes this proposition (which, I take it, is all of them), her belief is true. Accordingly, skepticism is evaded and closure, as least as it functions in skeptical and anti-skeptical reasoning, is retained.",
+   "published_date": null,
+   "score": 0.08252728
+  },
+  {
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31387399",
+   "title": "Kiwifruit and Cancer: An Overview of Biological Evidence.",
+   "content": "deliciosa\" OR \"Actinidia chinensis,\" in combination with \"cancer\" OR \"malignancy\" OR \"neoplasm.\" Overall, 58 items could be retrieved, fifty of which were excluded since they did not fulfilled all our search criteria. Eight studies (five in vitro studies, two human intervention trials, and one both in vivo and in human study) were finally included in this critical literature review. Taken together, the results of these published studies suggest that kiwifruit supplementation may be associated [...] Kiwifruit consumption is associated with many favorable health benefits. This article is hence aimed to provide an overview on potential effects of kiwifruit on cancer development or progression. An electronic search was performed in Medline and Web of Science, for identifying original studies exploring the relationship between kiwifruit and cancer development or progression, both in vivo and in vitro. The following keywords were used: \"Kiwifruit\" OR \"Kiwi\" OR \"Actinidia deliciosa\" OR [...] # Kiwifruit and Cancer: An Overview of Biological Evidence.\n\nGiuseppe Lippi, Camilla Mattiuzzi\n\nNutrition and cancer · 2019-08-07 · 72(4):547-553 · DOI: 10.1080/01635581.2019.1650190 · PMID: 31387399\n\nPublication type: Journal Article, Review\n\n## Abstract",
+   "published_date": null,
+   "score": 0.035521045
+  }
+ ]
+}

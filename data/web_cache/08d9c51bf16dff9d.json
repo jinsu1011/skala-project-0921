@@ -1,0 +1,65 @@
+{
+ "query": "InfiniGen KV cache integration difficulty and quality degradation case studies or technical reports site:arxiv.org OR site:aclweb.org OR site:github.com OR site:medium.com",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T16:22:51+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2604.05012",
+   "title": "Comparative Characterization of KV Cache Management Strategies for LLM Inference",
+   "content": "InfiniGen loses approximately 6 percentage points (pp) on average, but suffers substantially larger drops on several tasks. H2O also shows pronounced sensitivity, with HellaSwag dropping 23 pp and BoolQ dropping 16 pp. At extreme sparsity (2-4% budget), both methods approach random-guess performance on several semantic reasoning tasks. Overall, the results show that accuracy degradation under sparsification depends strongly on both the compression level and the downstream task; moderate [...] six log-likelihood ranking benchmarks: PIQA, HellaSwag, WinoGrande, COPA, OpenBookQA, and BoolQ. The budget parameter specifies the fraction of KV pairs each layer may retain; for example, a budget of 0.1 permits only one-tenth of the cache entries to reside in GPU memory. Figure 7 summarizes accuracy across all six tasks. At moderate sparsity (budget=0.5), both methods recover near-baseline accuracy. Reducing the budget to 0.1 reveals stronger and highly task-dependent degradation. InfiniGen [...] Figure 8 presents retention accuracy across context lengths and conversation turns. As shown in Figure 8(a), vLLM maintains consistently high retention (94-96%) across all context buckets, serving as our baseline. InfiniGen closely tracks vLLM, achieving 92-94% accuracy with only 1-4% degradation relative to the baseline. In contrast, H2O exhibits substantial accuracy loss, retaining only 70-78% of injected facts, a 17-27% reduction compared to vLLM. Notably, H2O’s degradation worsens with",
+   "published_date": null,
+   "score": 0.60917604
+  },
+  {
+   "url": "https://arxiv.org/html/2604.05012v2",
+   "title": "Comparative Characterization of KV Cache Management Strategies for LLM Inference",
+   "content": "At moderate sparsity (budget=0.5), both methods recover near-baseline accuracy. Reducing the budget to 0.1 reveals stronger and highly task-dependent degradation. InfiniGen loses approximately 6 percentage points (pp) on average, but suffers substantially larger drops on several tasks. H2O also shows pronounced sensitivity, with HellaSwag dropping 23 pp and BoolQ dropping 16 pp. At extreme sparsity (2-4% budget), both methods approach random-guess performance on several semantic reasoning [...] Figure 8 presents retention accuracy across context lengths and conversation turns. As shown in Figure 8(a), vLLM maintains consistently high retention (94-96%) across all context buckets, serving as our baseline. InfiniGen closely tracks vLLM, achieving 92-94% accuracy with only 1-4% degradation relative to the baseline. In contrast, H2O exhibits substantial accuracy loss, retaining only 70-78% of injected facts, a 17-27% reduction compared to vLLM. Notably, H2O’s degradation worsens with [...] When to choose InfiniGen. InfiniGen occupies a specialized niche: deployments requiring sparsification with minimal accuracy degradation, where latency constraints are relaxed. Its dynamic selection preserves early-context retention equally well as the full cache, a significant advantage for multi-turn conversations or applications requiring reliable fact recall. However, the throughput penalty of an order of magnitude from CPU-GPU transfers limits its practicality for high-throughput",
+   "published_date": null,
+   "score": 0.5820878
+  },
+  {
+   "url": "https://arxiv.org/html/2604.05012v1",
+   "title": "Comparative Characterization of KV Cache Management Strategies for LLM Inference",
+   "content": "Figure 8 presents retention accuracy across context lengths and conversation turns. As shown in Figure 8(a), vLLM maintains consistently high retention (94-96%) across all context buckets, serving as our baseline. InfiniGen closely tracks vLLM, achieving 92-94% accuracy with only 1-4% degradation relative to the baseline. In contrast, H2O exhibits substantial accuracy loss, retaining only 70-78% of injected facts, a 17-27% reduction compared to vLLM. Notably, H2O’s degradation worsens with [...] When to choose InfiniGen. InfiniGen occupies a specialized niche: deployments requiring sparsification with minimal accuracy degradation, where latency constraints are relaxed. Its dynamic selection preserves early-context retention equally well as the full cache, a significant advantage for multi-turn conversations or applications requiring reliable fact recall. However, the throughput penalty of an order of magnitude from CPU-GPU transfers limits its practicality for high-throughput [...] For vLLM, we use version 0.15.0 with FlashAttention-2 and continuous batching enabled. vLLM’s inference engine automatically applies chunked prefill for long prompts. For InfiniGen, we configure a KV budget of 0.3 and FlashAttention-2 integration is evaluated separately where noted. For H2O, we have implemented the algorithm on top of FlexGen following the original methodology, which enables sparsification across batched decoding. We configure a Heavy-Hitter ratio (HH) of 0.3. For InfiniGen and",
+   "published_date": null,
+   "score": 0.5157425
+  },
+  {
+   "url": "https://ar5iv.labs.arxiv.org/html/2406.19707",
+   "title": "[2406.19707] InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "By reducing the amount of KV cache to load and compute, InfiniGen effectively reduces the loading latency (i.e., data transfer from CPU to GPU) while maintaining an output quality similar to that of the original model with a full KV cache. Moreover, as InfiniGen does not require a fixed number of tokens to load from CPU memory, it utilizes only the necessary PCI interconnect bandwidth. InfiniGen initiates speculation and prefetching from Layer 1 because the outliers, which are essential for [...] 10%, whereas the others exhibit a noticeable accuracy drop due to insufficient bit widths (Quantization) or permanent KV cache elimination (H2O). This implies that our proposed solution can effectively reduce the KV cache transfer overhead while preserving model accuracy. For relative KV cache sizes larger than 10%, the accuracy with InfiniGen closely matches that of the full-cache baseline. In some cases, InfiniGen even shows slightly better accuracy than the full-cache baseline. This is [...] though the sequence length becomes longer (i.e., the decoding chunk ID increases), the perplexity of InfiniGen remains consistently comparable to the full-cache baseline, while H2O shows an increasing divergence from the baseline. H2O suffers from permanent KV cache elimination and may not retain a sufficient amount of KV cache in certain layers due to its fixed budget. In contrast, InfiniGen dynamically computes attention using only the essential amount of KV cache for each layer. The",
+   "published_date": null,
+   "score": 0.4766533
+  },
+  {
+   "url": "https://arxiv.org/html/2406.19707v1",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "By reducing the amount of KV cache to load and compute, InfiniGen effectively\nreduces the loading latency (i.e., data transfer from CPU to GPU) while\nmaintaining an output quality similar to that of the original model with a full\nKV cache.\nMoreover, as InfiniGen does not require a fixed number of tokens to load from CPU\nmemory, it utilizes only the necessary PCI interconnect bandwidth.\nInfiniGen initiates speculation and prefetching from Layer 1 because the [...] relative KV cache size is less than 10%, whereas the others exhibit a\nnoticeable accuracy drop due to insufficient bit widths (Quantization) or\npermanent KV cache elimination (H2O). This implies that our proposed solution\ncan effectively reduce the KV cache transfer overhead while preserving model\naccuracy.\nFor relative KV cache sizes larger than 10%, the accuracy with InfiniGen closely\nmatches that of the full-cache baseline. In some cases, InfiniGen even shows [...] struggle with the dynamic nature of the attention pattern, resulting in lower\ncosine similarity than the Optimal case.\nNote that while we only show the scenario of a KV cache budget of 200 out of a\ntotal sequence length of 2000 tokens for brevity, this issue would become more\npronounced as the sequence length surpasses it.",
+   "published_date": null,
+   "score": 0.44622982
+  },
+  {
+   "url": "https://arxiv.org/html/2406.19707",
+   "title": "InfiniGen: Efficient Generative Inference of Large Language Models with Dynamic KV Cache Management",
+   "content": "By reducing the amount of KV cache to load and compute, InfiniGen effectively\nreduces the loading latency (i.e., data transfer from CPU to GPU) while\nmaintaining an output quality similar to that of the original model with a full\nKV cache.\nMoreover, as InfiniGen does not require a fixed number of tokens to load from CPU\nmemory, it utilizes only the necessary PCI interconnect bandwidth.\nInfiniGen initiates speculation and prefetching from Layer 1 because the [...] relative KV cache size is less than 10%, whereas the others exhibit a\nnoticeable accuracy drop due to insufficient bit widths (Quantization) or\npermanent KV cache elimination (H2O). This implies that our proposed solution\ncan effectively reduce the KV cache transfer overhead while preserving model\naccuracy.\nFor relative KV cache sizes larger than 10%, the accuracy with InfiniGen closely\nmatches that of the full-cache baseline. In some cases, InfiniGen even shows [...] struggle with the dynamic nature of the attention pattern, resulting in lower\ncosine similarity than the Optimal case.\nNote that while we only show the scenario of a KV cache budget of 200 out of a\ntotal sequence length of 2000 tokens for brevity, this issue would become more\npronounced as the sequence length surpasses it.",
+   "published_date": null,
+   "score": 0.44622982
+  },
+  {
+   "url": "https://arxiv.org/pdf/2406.19707",
+   "title": "InfiniGen : Efficient Generative Inference of Large Language Models...",
+   "content": "By reducing the amount of KV cache to load and compute, InfiniGen effectively reduces the loading latency (i.e., data transfer from CPU to GPU) while maintaining an output qual-ity similar to that of the original model with a full KV cache. [...] 3.2 Challenges in KV Cache Management The fundamental approach to mitigating the transfer overhead of the KV cache from the CPU to GPU is to reduce the vol-ume of the KV cache to load by identifying the critical keys and values for computing attention scores, as shown in Fig-ure 3(d). It is widely recognized that the keys and values of certain tokens are more important than others in attention computation [9,10,14,33,63]. As explained in Section 2.1, after computing the attention score, the [...] cache size is less than 10%, whereas the others exhibit a noticeable accuracy drop due to insufficient bit widths (Quantization) or permanent KV cache elimination (H2O). This implies that our proposed so-lution can effectively reduce the KV cache transfer overhead while preserving model accuracy. For relative KV cache sizes larger than 10%, the accuracy with InfiniGen closely matches that of the full-cache baseline. In some cases, InfiniGen even shows slightly better accuracy than the",
+   "published_date": null,
+   "score": 0.42190963
+  },
+  {
+   "url": "https://github.com/snu-comparch/InfiniGen/blob/main/README.md",
+   "title": "InfiniGen/README.md at main · snu-comparch/InfiniGen · GitHub",
+   "content": "Transformer-based large language models (LLMs) demonstrate impressive performance across various natural language processing tasks. Serving LLM inference for generating long contents, however, poses a challenge due to the enormous memory footprint of the transient state, known as the key-value (KV) cache, which scales with the sequence length and batch size. In this paper, we present InfiniGen, a novel KV cache management framework tailored for long-text generation, which synergistically works",
+   "published_date": null,
+   "score": 0.32193998
+  }
+ ]
+}
