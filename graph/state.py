@@ -110,7 +110,7 @@ class Criterion(BaseModel):
     name: str
     weight: float = 0.0
     score_1to5: Optional[float] = None   # None = 판단 보류
-    llm_score: Optional[float] = None     # score the LLM proposed under the Rubric (kept for RUBRIC_CHECK)
+    llm_score: Optional[float] = None     # score the LLM proposed under the Rubric (kept next to the code score for auditing)
     rationale: str = ""
     evidence_ids: list[str] = Field(default_factory=list)
     pro_ids: list[str] = Field(default_factory=list)

@@ -161,7 +161,7 @@ def query_rewriter(state: dict) -> dict:
 
 def output_stem() -> str:
     team = config()["team"]
-    return f"RAG-Output_{team['campus']}_{team['class']}_" + "+".join(m["name"] for m in team["members"])
+    return f"Agent-Output_{team['campus']}_{team['class']}_" + "+".join(m["name"] for m in team["members"])
 
 
 def _heading_pages(pdf, headings: list[str]) -> dict[str, int]:
@@ -245,6 +245,7 @@ def pdf_renderer(state: dict) -> dict:
     blank = _blank_pages(pdf)
     md_path.write_text(md.rstrip() + "\n")
     dst = ROOT / "deliverables" / pdf.name
+    dst.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy(pdf, dst)
     warns = [f"PDF 빈 페이지: {blank}"] if blank else []
     if n_pages > PAGE_LIMIT:

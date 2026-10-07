@@ -55,7 +55,7 @@ team:
   campus: 판교
   class: 9반
   group: 1조
-  submit_date: "2026. 09. 22."   # DAY 3
+  submit_date: "2026. 10. 07."   # Agent 과제 DAY 2 (보고서 표지 날짜)
   members:
     - {id: P284, name: 김정인}
     - {id: P285, name: 김지수}

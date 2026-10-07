@@ -4,7 +4,7 @@ Per technology (same template, same search budget for both):
   round 0..2: symmetric pro/con queries -> search -> LLM annotation under the C.6 Rubric -> sufficiency check
   (tech-specific pro and con evidence from >= 2 independent origin families each; C.2). Missing evidence is left as
   '근거 부족' rather than forced into balance. Then scores are computed from the Rubric's evidence conditions (code) and
-  the LLM writes the rationale; the LLM's own rubric score is kept next to the code score for RUBRIC_CHECK.md.
+  the LLM writes the rationale; the LLM's own rubric score is kept next to the code score for auditing.
 """
 from __future__ import annotations
 
