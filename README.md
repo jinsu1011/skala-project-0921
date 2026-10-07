@@ -65,7 +65,7 @@
 |---|---|
 | 제어 vs 페이로드 분리 | 제어 메타: `run_id, trace_id, step_count, max_steps, status, last_error, plan, subtasks, used_agents, unused_agents, task_status, judge_result, review_assignments, retry_tasks, report_quality`. 페이로드: `worker_results, review_results, extra_findings, evidence, *_result, synthesis, report_markdown, references`. 라우터는 제어 메타만 읽는다 |
 | 관측성 위치 | 결정과 사유(계획 근거, 실패 task, 검토자 선정, 재시도 지시, 품질 판정)는 State가 아니라 `graph/observability.py`가 `outputs/logs/decisions-<run_id>.jsonl`과 LangSmith span 메타데이터로 내보낸다. State `audit_log`에는 요약 이벤트만 |
-| 지속성 비용 | `worker_results`는 task_id 키 dict라 재시도해도 task 수 이상 늘지 않는다(최신 attempt만 유지). `review_results`는 task당 최대 2건, `retry_tasks`는 task당 최대 1건. 원문·검색 결과는 디스크 캐시(`data/`)에 둔다 |
+| 지속성 비용 | 실측(최종 실행): State 전체 약 455KB — `evidence` 164건 255KB(56%), `worker_results` 64KB, `audit_log` 67건 28KB. **큰 원문은 State 밖**: 논문 PDF·청크 인덱스는 `data/index/`, 웹 원문은 `data/web_cache/`, LLM 응답은 `data/cache/`에 두고 State의 `Evidence`에는 요약(최대 1,200자)과 출처 메타만 둔다. **상한이 있는 이유**: `evidence`는 `merge_by_id`로 같은 ID를 합치고 관점별 검색 예산(라운드 ≤3·질의 수 고정·결과 ≤8)이 정해져 있어 기술·관점 수에 비례해서만 늘어난다. 보고서 인용 번호를 다시 매길 때 필요해 State에 둔다. `worker_results`는 task_id 키라 재시도해도 작업 수 이상 늘지 않고, `review_results`는 작업당 ≤2건, `retry_tasks`는 ≤1건이다. `audit_log`는 결정 요약 이벤트만 담고 모든 루프에 상한이 있어 노드 실행 수 이상 늘지 않으며, 결정 사유 전문은 `decisions-<run_id>.jsonl`·LangSmith로 보낸다 |
 | 상관 | `run_id`/`trace_id`가 State, 결정 로그, 실행 요약에 함께 기록. LangSmith span 메타데이터에 `run_id, task_id, perspective, assigned_agent, reviewer_agent, attempt` |
 | 재개/복구 | `subtasks`(attempt 포함) + `task_status`(planned/retrying/passed/FAILED_AFTER_RETRY/PARTIAL/excluded) + `worker_results`로 어디까지 끝났는지 복원 가능. `last_error`에 마지막 Worker 오류 기록. `build_graph(checkpointer=…)` 지원 |
 | 동시 처리 | 동적 Fan-out 동시 쓰기 키는 모두 reducer: `worker_results`(task_id 병합, 최신 attempt 우선, 같은 attempt는 먼저 쓴 값 유지), `evidence`(id 병합), `review_results`·`retry_tasks`·`audit_log`(누적), `warnings`(중복 제거) |
@@ -87,7 +87,7 @@
 | 순서 | 캡처 | 확인할 점 |
 |---|---|---|
 | 1 | [`tracing-1.png`](docs/tracing/tracing-1.png) | `orchestrator` → `orchestrator_planner` → `dispatch_workers` → `worker:T01:trl_specialist:a0` … `worker:T06:ecosystem_specialist:a0` — 계획한 SubTask 6개만큼 Worker가 동적으로 생성됨 |
-| 2 | [`tracing-2.png`](docs/tracing/tracing-2.png) | `perspective_judge` → `retry_router` → `dispatch_reviews` → `cross_reviewer` ×4 (`cross_review:T0n:research_generalist`) → `feedback_retry_coordinator`(`agent0:T0n`). 검토자 `research_generalist`는 초기 계획에서 쓰이지 않은 Agent이며 REVIEW MODE 프롬프트만 받음 |
+| 2 | [`tracing-2.png`](docs/tracing/tracing-2.png) | **전체 경로(접은 트리)**: worker ×6 → result_aggregator → synthesizer → perspective_judge → retry_router → cross_reviewer ×4 → feedback_retry_coordinator → worker ×4(재시도) → … → pdf_renderer. 오른쪽은 `cross_review:T02:research_generalist`의 메타데이터: `reviewer_agent=research_generalist`, `assigned_agent=market_specialist`, `mode=review` — 검토자는 초기 미사용 Agent이고 작업을 수행하지 않음 |
 | 3 | [`tracing-3.png`](docs/tracing/tracing-3.png) | 재시도 run `worker:T02:market_specialist:a1`의 메타데이터: `assigned_agent=market_specialist`, `attempt=1`, `mode=execute` — 초기 실행(`…:a0`)과 같은 Agent |
 | 4 | [`tracing-4.png`](docs/tracing/tracing-4.png) | 재시도 후 `result_aggregator` → `synthesizer` → `perspective_judge`(실패 관점만 재채점) → `report_writer` → `report_quality_evaluator` → `pdf_renderer` → 종료 |
 
