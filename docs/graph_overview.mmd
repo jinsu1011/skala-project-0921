@@ -12,17 +12,17 @@ flowchart TB
     subgraph S2["2. Orchestrator-Workers (동적 계획 · 병렬 실행 · 병합)"]
         OR{{"Orchestrator<br/>State 분석 → SubTask 생성<br/>4개 관점 = 최소 요건"}}
         ST[/"Dynamic SubTasks T01..Tn<br/>assigned_agent · tech_ids<br/>used / unused 코드 계산"/]
-        subgraph WK["Workers (Send × n, 계획된 Agent만 실행)"]
-            WN["worker Tn<br/>assigned_agent"]
-            W2["worker T02<br/>assigned_agent"]
-            W1["worker T01<br/>assigned_agent"]
+        subgraph WK["worker 노드 (Send × n: 계획된 SubTask마다 assigned_agent 실행)"]
+            W1["worker<br/>SubTask · assigned_agent"]
+            W2["worker<br/>SubTask · assigned_agent"]
+            WN["… SubTask 수만큼"]
         end
         AG[["result_aggregator (Reducer)<br/>task_id별 최신 attempt"]]
         SY["synthesizer<br/>일치·상충 · H1~H4"]
         JD{"perspective_judge<br/>실패 task_id 지목"}
         OR --> ST
-        ST --> WN & W2 & W1
-        WN & W2 & W1 --> AG
+        ST --> W1 & W2 & WN
+        W1 & W2 & WN --> AG
         AG --> SY --> JD
     end
     subgraph S3["3. 품질 피드백 (Judge 실패 시에만, task당 재시도 1회)"]
@@ -30,10 +30,8 @@ flowchart TB
         UA[/"unused Agents<br/>Registry − used"/]
         CR["cross_reviewer<br/>REVIEW MODE · 최대 2명<br/>수행하지 않고 검토만"]
         A0["Agent 0<br/>feedback_retry_coordinator<br/>재시도 지시문 작성"]
-        SW["Same Original Worker<br/>같은 assigned_agent · attempt 1<br/>실패 task만 재실행"]
         RR --> UA --> CR --> A0
         RR -.->|"unused 없음 → 검토 생략"| A0
-        A0 --> SW
     end
     subgraph S4["4. 보고서 생성·품질 평가"]
         RWR["report_writer<br/>본문·REFERENCE"] --> QE{"report_quality_evaluator<br/>근거성·중립성·편향·커버리지<br/>결정적 검사 + LLM Judge"}
@@ -45,7 +43,8 @@ flowchart TB
     QRW --> RET
     TR --> OR
     JD -.->|"FAIL · retry_required"| RR
-    SW --> AG
+    A0 ==>|"Send · Same Original Worker<br/>같은 assigned_agent · attempt 1 · 실패 task만"| WK
+    A0 -.->|"재시도 작업 없음"| AG
     JD -.->|"PASS · 재시도 후 미달은 FAILED_AFTER_RETRY 기록"| RWR
     QE -.->|"근거 문제 · attempt 0"| RR
     PDF --> END(["END"])
@@ -54,7 +53,7 @@ flowchart TB
     classDef human fill:#E8F4EC,stroke:#2E7D4F,color:#16381F;
     classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
     classDef review fill:#E7F1FB,stroke:#2F6DB5,color:#10284A;
-    class VAL,TR,W1,W2,WN,SY,RWR,SW agent;
+    class VAL,TR,W1,W2,WN,SY,RWR agent;
     class INIT,IDX,QP,RET,QRW,PDF,ST,UA,AG util;
     class H0,END human;
     class GR,OR,JD,RR,QE gate;
