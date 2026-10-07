@@ -4,7 +4,7 @@ config:
     curve: linear
 ---
 graph TD;
-	%% drawer-only edges to the deferred synthesizer removed (see scripts/render_graph.py)
+	%% drawer-only edges to the deferred result_aggregator removed (see scripts/render_graph.py)
 	__start__([<p>__start__</p>]):::first
 	initialize(initialize)
 	index_builder(index_builder)
@@ -14,44 +14,43 @@ graph TD;
 	retrieval_grader(retrieval_grader)
 	query_rewriter(query_rewriter)
 	tech_research(tech_research)
-	trl_assessor(trl_assessor)
-	market_evaluator(market_evaluator)
-	stakeholder_evaluator(stakeholder_evaluator)
-	domain_evaluator(domain_evaluator)
-	synthesizer(synthesizer<hr/><small><em>defer = True</em></small>)
-	judge(judge)
+	orchestrator(orchestrator)
+	worker(worker)
+	result_aggregator(result_aggregator<hr/><small><em>defer = True</em></small>)
+	synthesizer(synthesizer)
+	perspective_judge(perspective_judge)
 	retry_router(retry_router)
+	cross_reviewer(cross_reviewer)
+	feedback_retry_coordinator(feedback_retry_coordinator)
 	report_writer(report_writer)
-	final_check(final_check)
+	report_quality_evaluator(report_quality_evaluator)
 	pdf_renderer(pdf_renderer)
 	__end__([<p>__end__</p>]):::last
 	__start__ --> initialize;
-	domain_evaluator --> synthesizer;
-	final_check -.-> pdf_renderer;
-	final_check -.-> report_writer;
+	cross_reviewer --> feedback_retry_coordinator;
+	feedback_retry_coordinator -.-> result_aggregator;
+	feedback_retry_coordinator -.-> worker;
 	hybrid_retriever --> retrieval_grader;
 	index_builder --> selection_validator;
 	initialize --> index_builder;
-	judge --> retry_router;
-	market_evaluator --> synthesizer;
+	orchestrator -.-> worker;
+	perspective_judge -.-> report_writer;
+	perspective_judge -.-> retry_router;
 	query_planner --> hybrid_retriever;
 	query_rewriter --> hybrid_retriever;
-	report_writer --> final_check;
+	report_quality_evaluator -.-> pdf_renderer;
+	report_quality_evaluator -.-> report_writer;
+	report_quality_evaluator -.-> retry_router;
+	report_writer --> report_quality_evaluator;
+	result_aggregator --> synthesizer;
 	retrieval_grader -.-> query_rewriter;
 	retrieval_grader -.-> tech_research;
-	retry_router -.-> domain_evaluator;
-	retry_router -.-> market_evaluator;
-	retry_router -.-> report_writer;
-	retry_router -.-> stakeholder_evaluator;
-	retry_router -.-> trl_assessor;
+	retry_router -.-> cross_reviewer;
+	retry_router -.-> feedback_retry_coordinator;
 	selection_validator --> query_planner;
-	stakeholder_evaluator --> synthesizer;
-	synthesizer --> judge;
-	tech_research --> domain_evaluator;
-	tech_research --> market_evaluator;
-	tech_research --> stakeholder_evaluator;
-	tech_research --> trl_assessor;
-	trl_assessor --> synthesizer;
+	synthesizer --> perspective_judge;
+	tech_research --> orchestrator;
+	worker --> result_aggregator;
 	pdf_renderer --> __end__;
 	classDef default fill:#f2f0ff,line-height:1.2
 	classDef first fill-opacity:0

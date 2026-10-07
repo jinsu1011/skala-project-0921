@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache technology maturity level TRL prototype development commercialization case study performance validation data",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:30:59+09:00",
+ "results": [
+  {
+   "url": "https://news.skhynix.com/en/fms-2026",
+   "title": "The Next-Generation Memory Architecture in the AI Era? SK hynix Charts the Direction at ‘FMS 2026’ – SK hynix Newsroom",
+   "content": "\\ KV Cache (Key Value Cache): Temporary memory that stores previously computed results as a large language model-based AI agent generates text. It grows exponentially as conversations lengthen and workloads increase, so the memory capability to store and process it efficiently has a significant impact on an AI agent’s performance. [...] the entire KV cache on SSD can deliver fast read performance and large-capacity storage at the same time. [...] SK hynix also demonstrated the same ReAct AI Agent Serving system using CMM-Hybrid\\, confirming that the implemented system can efficiently store and rapidly reuse the large volumes of KV cache generated on an ongoing basis. In particular, the demonstration showcased both the ability to quickly predict the KV cache needed based on prior conversation and task history, and the performance to prefetch the required KV cache into DRAM for rapid processing. It also proved that storing the entire KV",
+   "published_date": null,
+   "score": 0.54564947
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "Functional Prototyping via FPGA. A functional prototype, implemented on an Intel Agilex 7 I-Series FPGA (Altera, 2026), validates the hardware-level control logic and the software prefetcher. This platform integrates 32 GB of DDR4 DRAM as a hardware-managed cache for two SK Hynix Platinum P51 PCIe Gen5 NVMe SSDs (TechPowerUp, 2024). This setup establishes the feasibility of our expansion tier, successfully realizing a multi-terabyte, byte-addressable memory footprint by leveraging the [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] the system to proactively manage data movement across the memory-storage hierarchy. Leveraging this predictability, ITME implements a pipelined, multi-tier DMA-based prefetching that orchestrates seamless data movement directly from the CXL-hybrid memory device to GPU memory. We validate ITME by evaluating its performance potential with production-grade SK Hynix CMM and PCIe Gen5 NVMe SSDs, while further demonstrating its functional feasibility through an FPGA-based hardware prototype. Overall,",
+   "published_date": null,
+   "score": 0.54477775
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-infra-summit-2026",
+   "title": "SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’ – SK hynix Newsroom",
+   "content": "\\ KV Cache (Key Value Cache): Temporary memory in which a large language model-based AI agent stores previously computed results when generating text. The longer the conversation with a user and the more tasks there are to process, the more exponentially it grows — so the memory capability to store and process it efficiently has a major impact on an AI agent’s performance. [...] Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\nTECH&AI\n\n## SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’\n\n AI\n AI Infra Summit\n AI Memory\n eSSD\n HBF\n PIM\n SALT-KV\n\n September 17, 2026\n SK hynix\n\nSK hynix showcased next-generation AI memory at AI Infra Summit 2026, highlighting HBF, PIM/AiMX, and SALT-KV solutions to boost bandwidth, efficiency, and KV cache management. The company emphasized leading future AI infrastructure. [...] He also emphasized, “HBF, which combines high bandwidth and large capacity to improve the efficiency of long-context workloads, and PIM technology, which improves performance and efficiency in the fast-decoding workloads of premium services, are excellent alternatives that can move beyond existing limits. SALT-KV, too, which raises processing efficiency by taking into account the characteristics and reusability of the KV cache, holds ample potential to drive the evolution of AI systems.”",
+   "published_date": null,
+   "score": 0.51369345
+  },
+  {
+   "url": "https://insights.trendforce.com/p/computex-2026-memory-in-focus",
+   "title": "COMPUTEX 2026: Memory in Focus - TrendForce",
+   "content": "SK hynix presented a full product lineup covering the memory hierarchy for KV cache offloading (KV cache offloading will be explored in depth in our future article). At the G1 (GPU) tier, SK hynix displayed a schematic of its latest AI-N B (Bandwidth) product, which vertically stacks NAND to simultaneously achieve high memory capacity and bandwidth - also known as HBF (High Bandwidth Flash). In addition, SK hynix exhibited physical samples of each HBM generation from HBM2E through HBM4E. [...] In addition, the company showcased its AI memory portfolio across the KV cache memory hierarchy, including the HBM4 at the G1 (GPU) tier, LPDDR5X at the G2 (System Memory) tier, PM1763 SSD at the G3 (Local Storage) tier, PM1753 SSD at the G3.5 (Context Memory Storage) tier, and PM9D3a SSD at the G4 (Network Storage) tier - going head-to-head with SK hynix.\n\nSamsung’s Memory Product Line across the KV Cache Memory Hierarchy. Source: TrendForce\n\n### HANMI Semiconductor - HBM Fluxless TC Bonder [...] > Related report: Crossing AI Memory Wall: Storage Layer Reallocation and HBF Analysis\n\nSK hynix’s AI-N B (HBF) Schematic. Source: TrendForce\n\nSK hynix’s HBM3E Sample. Source: TrendForce\n\nSK hynix’s HBM Stack Cross-Section. Source: TrendForce\n\nAt the G2 (System Memory) tier, SK hynix showcased its LPDDR5X and DDR5 product lines. At the G3 (Local Storage) through G4 (Network Storage) tiers, the company also exhibited its SSD product line.\n\nSK hynix’s LPDDR5X and DDR5 Samples. Source: TrendForce",
+   "published_date": null,
+   "score": 0.39866453
+  },
+  {
+   "url": "https://news.skhynix.com/en/future-forum-2026",
+   "title": "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward” – SK hynix Newsroom",
+   "content": "SK hynix will evolve beyond a supplier of memory devices into a Full-Stack AI memory creator that understands AI systems and designs them together with its partners. [...] it focused on examining ‘what we should do’ and on defining ‘the direction in which memory should advance.’ [...] On September 8, SK hynix held the 2026 SK hynix Future Forum (Future Forum) at the SUPEX Center on its Icheon Campus under the theme, “The Golden Time of the AI Era: The Moment AI Memory Solution Creators Change the World,” sharing new trends and insights on AI Transformation (AX).",
+   "published_date": null,
+   "score": 0.27818865
+  },
+  {
+   "url": "https://news.skhynix.com/en/sk-hynix-showcases-next-generation-ai-memory-innovations-at-ces-2026",
+   "title": "SK hynix Showcases Next-Generation AI Memory Innovations at CES 2026 – SK hynix Newsroom",
+   "content": "\\ Processing-In-Memory (PIM): A next-generation memory technology that integrates computational capabilities into memory, addressing data movement bottlenecks in AI and big data processing.  \n\\ Accelerator-in-Memory based Accelerator (AiMX): SK hynix’s accelerator card prototype featuring a GDDR6-AiM chip which is specialized for large language models (LLMs). [...] \\ Processing-In-Memory (PIM): A next-generation memory technology that integrates computational capabilities into memory, addressing data movement bottlenecks in AI and big data processing.  \n\\ Accelerator-in-Memory based Accelerator (AiMX): SK hynix’s accelerator card prototype featuring a GDDR6-AiM chip which is specialized for large language models (LLMs). [...] \\ Processing-In-Memory (PIM): A next-generation memory technology that integrates computational capabilities into memory, addressing data movement bottlenecks in AI and big data processing.  \n\\ Accelerator-in-Memory based Accelerator (AiMX): SK hynix’s accelerator card prototype featuring a GDDR6-AiM chip which is specialized for large language models (LLMs).",
+   "published_date": null,
+   "score": 0.2188283
+  },
+  {
+   "url": "https://www.investing.com/news/company-news/applied-materials-sk-hynix-partner-on-nextgen-memory-development-93CH-4552927",
+   "title": "Applied Materials, SK hynix partner on next-gen memory development By Investing.com",
+   "content": "© 2007-2026 - Fusion Media Limited. All Rights Reserved.\n\nCreate a FREE account or log in to continue reading.\n\nYou'll also get real-time alerts, personalized charts, portfolio management tools and more — all for free.\n\nContinue with GoogleContinue with Google. Opens in new tab\n\nContinue with Facebook\n\nContinue with Apple\n\nContinue with Email\n\nAlready have an account? Sign InBy signing up you agree to our Terms and Conditions and Privacy Policy. [...] Oct 02, 2026\n\n[](\n\nThe Silver Market Has a Seat Shortage\n\nBy Matt Oliver\n\nOct 02, 2026\n\n[](\n\nAI’s Next Bottleneck Isn’t Compute — It’s the Network Connecting Everything\n\nBy Ivana Delevs...\n\nOct 03, 2026\n\n[](\n\nFrom TINA to TIGA: Diversification Pays Again\n\nBy Michael Lebo...\n\nOct 03, 2026\n\n[](\n\nNFP Preview: Can the Jobs Report Overcome the Bond Market Meltdown?\n\nBy Matthew Well...\n\nOct 02, 2026\n\nMore News\n\nMarket Movers [...] By Investing.co...\n\nOct 03, 2026\n\n[](\n\nWhy rising exports aren’t easing oil market fears\n\nBy Investing.co...\n\nOct 03, 2026\n\n[](\n\nInvesting.com’s stocks of the week\n\nBy Investing.co...\n\nOct 02, 2026\n\n[](\n\nWho would be exposed if U.S. bans diesel exports? Goldman weighs in\n\nBy Investing.co...\n\nOct 02, 2026\n\n[](\n\nThis is how yields could turn supportive for equities again\n\nBy Investing.co...\n\nOct 02, 2026\n\n[](\n\nDoes Happiness Really Cost $134,827 a Year?\n\nBy Lance Robert...\n\nOct 02, 2026\n\n[](",
+   "published_date": null,
+   "score": 0.20515321
+  },
+  {
+   "url": "https://www.stocktitan.net/news/HXSCL",
+   "title": "SK hynix (SKHY) Stock News & Updates | StockTitan",
+   "content": "The current stock price of SK hynix (SKHY) is $193.5 as of October 2, 2026.\n\n### What is the market cap of SK hynix (SKHY)?\n\nThe market cap of SK hynix (SKHY) is approximately 1.4T.",
+   "published_date": null,
+   "score": 0.19516458
+  }
+ ]
+}

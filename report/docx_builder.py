@@ -260,8 +260,12 @@ class ReportBuilder:
         pf.space_after = Pt(2)
         pf.line_spacing = 1.3
         mark = numbered or ("•" if level == 0 else "–")
-        _set_run_font(p.add_run(f"{mark} "), 10, level == 0 and not numbered, PURPLE)
-        _add_inline(p, text, 10)
+        size = getattr(self, "font_size", None) or 10
+        if size < 10:   # compact block (e.g. REFERENCE): tighter spacing
+            pf.space_after = Pt(1)
+            pf.line_spacing = 1.1
+        _set_run_font(p.add_run(f"{mark} "), size, level == 0 and not numbered, PURPLE)
+        _add_inline(p, text, size)
         return p
 
     def note(self, text):
@@ -380,6 +384,9 @@ class ReportBuilder:
             elif m := re.match(r"^(#{1,4})\s+(.*)", s):
                 flush_para()
                 self.heading(m.group(2), len(m.group(1)))
+            elif m := re.match(r"^<!--fs:([\d.]*)-->$", s):   # font size for following bullets ('' resets)
+                flush_para()
+                self.font_size = float(m.group(1)) if m.group(1) else None
             elif s.startswith("<!--w:"):
                 flush_para()
                 pending_widths = [float(x) for x in s[6:-3].split(",")]

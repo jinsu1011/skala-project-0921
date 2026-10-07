@@ -1,3 +1,5 @@
+> **안내 (2026-10-07)** : 이 문서는 RAG 과제(정적 4관점 병렬 Fan-out, 노드 18개) 당시 설계 기록이다. 현재 구현은 Orchestrator-Workers 구조이며 최신 설명은 저장소 루트 `README.md`를 따른다.
+
 # 요약
 
 - 데이터센터·클라우드 장문맥 LLM 서빙을 도메인으로 정하고, KV cache 병목을 SW로 푸는 Google TurboQuant와 HW로 푸는 SK hynix ITME가 TRL·시장·이해관계자·도메인 관점에서 어떻게 평가되는지 비교하는 Agentic RAG를 설계했다. 두 기술의 우열은 판정하지 않는다.

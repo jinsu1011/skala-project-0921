@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache regulation and compliance risks limitations",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:44:16+09:00",
+ "results": [
+  {
+   "url": "https://www.skhynix.com/sustainability/UI-FR-SA11",
+   "title": "Compliance < Business Principles< ESG < Sustainability < ...",
+   "content": "We at SK hynix are fully committed to fair and free competition to help establish fair trade practices in the semiconductor supply chain and hereby declare that we will comply with all applicable laws and regulations on fair trade voluntarily. [...] ### Risk Zero\n\nCompany\n:   Understand the applicable laws in different jurisdictions, international protocols and customer needs\n:   Express our commitments and comply with regulations including characteristics specific to the semiconductor industry\n\nGlobal Compliance Team\n:   Compliance Team for stakeholders\n:   Manage HQ and overseas entities\n:   Set up policies optimized for our business\n:   Conduct audits and respond preemptively [...] ### Principles of running our Compliance Program\n\nFirst, key compliance risks and global standards to be followed by a world class company are identified. Then a five step process (principles setting - training - inspection - verification of improvement - reporting to management) is applied repeatedly.\n\n #### Principles of running our Compliance Program\n Step 1\n\n  Policy Making\n Step 2\n\n  Training\n Step 3\n\n  Audit\n Step 4\n\n  Correction\n Step 5\n\n  Report\n\n### Snapshot of Compliance",
+   "published_date": null,
+   "score": 0.3362008
+  },
+  {
+   "url": "https://www.sec.gov/Archives/edgar/data/2120882/000119312526299963/d32785d424b4.htm",
+   "title": "424(B)(4)",
+   "content": "|  |  |\n --- |\n| Internet-of-Things (“IoT”) | A network of physical objects embedded with sensors, software, and technology to exchange data with other devices and systems over the Internet. |\n\nInternet-of-Things (“IoT”)\n\n|  |  |\n --- |\n| Key-Value (“KV”) Cache | A mechanism that stores and reuses previously computed key and value vectors, preserving context from earlier inputs to reduce redundant calculations and improve processing efficiency. |\n\nKey-Value (“KV”) Cache [...] With the evolution of AI server architecture, notably KV cache offloading from system memory to SSD, eSSDs are playing an\nincreasingly active and important role in large scale build-out of AI inference infrastructure, where eSSD is no longer a storage peripheral but an active participant in the memory subsystem. We believe that [...] |  | • |  | With the evolution of AI server architecture, notably KV cache offloading from system memory to SSD, eSSDs are playing an increasingly active and important role in large scale build-out of AI inference infrastructure, where eSSD is no longer a storage peripheral but an active participant in the memory subsystem. We believe that demand for eSSD will further increase to address the workloads related to generative and agentic AI and foundation model inferencing, making the eSSD segment",
+   "published_date": null,
+   "score": 0.25952804
+  },
+  {
+   "url": "https://www.skhynix.com/quality/UI-FR-QT01_T1",
+   "title": "Quality Policy",
+   "content": "### Quality Policy\n\nSK hynix always puts customer happiness first, and pioneers into the future ICT era as a global top tier company. All SK hynix staff members continuously comply with the quality policy in order to contribute to the happiness of customers and all stakeholders as well as sustainable growth.\n\n#### Customer Happiness [...] SK hynix, as a global top tier company, pursues Hazardous Substance Free (HSF) as a core of ESG leadership to contribute to humanity and environment preservation. All SK hynix staff members continuously comply with the green product policy in order to contribute to the happiness of customers and all stakeholders as well as sustainable growth.\n\n#### Customer Happiness [...] Achieving customer happiness by building the trust on SK hynix products and the confidence on our brand that exceed the quality satisfaction level required by customers based on the highest quality competitiveness.\n\n#### Quality Innovation\n\nBecoming a pathfinder in the new ICT era by leading quality technology based on innovative products and a grand vision.\n\n#### Sustainable Growth",
+   "published_date": null,
+   "score": 0.1793871
+  },
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/more/261873534-sk-hynix-memory-shortage-capacity-tradingkey",
+   "title": "SK Hynix Capacity Hits Zero: Tech Giants Offer to Fund Factories Amid AI Chip Shortage",
+   "content": "Werner noted that beyond the current capacity shortage, the memory industry's current boom is fundamentally different from past cyclical fluctuations, and supply constraints may persist for a long time. He identified three factors driving the explosion in KV cache demand: increasingly long context windows, larger model parameter counts, and a growing user base, with context length currently growing at a rate of 30 times per year. Since KV cache growth directly consumes HBM capacity, future [...] Bitcoin is the largest decentralized digital asset by market capitalization, with a total supply capped at 21 million coins. It has now been incorporated into the U.S. strategic reserve and has spot ETFs issued. Investors can participate through channels such as exchanges or ETFs. Beginners must complete registration, KYC verification, deposits, and order placement, while strictly guarding against fraud risks such as fake platforms, fraudulent customer support, and malicious authorizations. [...] of the article's content. Before making any investment decisions, it is advisable to consult an independent financial advisor to fully understand the associated risks.",
+   "published_date": null,
+   "score": 0.14188701
+  },
+  {
+   "url": "https://www.skhynix.com/ir/UI-FR-IR01",
+   "title": "IR < SK hynix",
+   "content": "새창Newsroom\n 새창YouTube\n 새창Instagram\n 새창Linked in\n\n A new window opensNewsroom\n A new window opensYouTube\n A new window opensInstagram\n A new window opensLinked in\n\n A new window opensNewsroom\n A new window opensYouTube\n A new window opensInstagram\n A new window opensLinked in\n\n한국어;) English;) 中文(简);) 中文(繁);)\n\n 한국어;)\n English;)\n 中文(简);)\n 中文(繁);)\n\n Home\n\n# IR\n\nSK hynix ensures and maximizes shareholders' interests and corporate values through transparent management\n\nSK hynix000660\n\nLearn more [...] Learn more\n\n### Earnings Release\n\npdf Download CEO Presentations pdf Download Earnings Release New Window Press Release\n\nLearn more\n\n### CEO Speech\n\n### Financial Story\n\n나래이션 보기\n\n### Annual Operating Report(Billion KRW)\n\n### Quarterly Operating Report(Billion KRW)\n\n Ownership Structure\n Financial Statements\n IR Events\n IR Material\n\nTOP",
+   "published_date": null,
+   "score": 0.12318644
+  },
+  {
+   "url": "https://www.facebook.com/marketwatch/posts/the-us-premium-for-sk-hynix-is-set-to-stay-after-korean-regulatory-ruling/1403938668273117",
+   "title": "MarketWatch - The U.S. premium for SK Hynix is set to stay...",
+   "content": "## MarketWatch's Post\n\n### MarketWatch\n\nJuly 23  ·\n\nThe U.S. premium for SK Hynix is set to stay after Korean regulatory ruling\n\nThe U.S. premium for SK Hynix is set to stay after Korean regulatory ruling\n\nmarketwatch.com\n\nThe U.S. premium for SK Hynix is set to stay after Korean regulatory ruling [...] All reactions:\n\n3\n\n1 comment\n\n1 share\n\nLike\n\nComment\n\nMost relevant\n\nMost relevant is selected, so some comments may have been filtered out. [...] '/%3E%3Cpath d='M16.0001 7.9996c0 4.418-3.5815 7.9996-7.9995 7.9996S.001 12.4176.001 7.9996 3.5825 0 8.0006 0C12.4186 0 16 3.5815 16 7.9996Z' fill='url(%23paint1_radial_15251_63610)'/%3E%3Cpath d='M16.0001 7.9996c0 4.418-3.5815 7.9996-7.9995 7.9996S.001 12.4176.001 7.9996 3.5825 0 8.0006 0C12.4186 0 16 3.5815 16 7.9996Z' fill='url(%23paint2_radial_15251_63610)' fill-opacity='.5'/%3E%3Cpath d='M7.3014 3.8662a.6974.6974 0 0 1 .6974-.6977c.6742 0 1.2207.5465 1.2207 1.2206v1.7464a.101.101 0 0 0",
+   "published_date": null,
+   "score": 0.098295696
+  },
+  {
+   "url": "https://news.skhynix.com/en/share-buyback-and-retirement",
+   "title": "SK hynix Accelerates 40 Trillion won Share Repurchase and Cancellation Program, Pursues Shareholder Return Expansion to ‘Over 50% of FCF’ – SK hynix Newsroom",
+   "content": "About SK hynix Inc.SK hynix Inc., headquartered in Korea, is the world’s top-tier semiconductor supplier offering Dynamic Random Access Memory chips (“DRAM”) and flash memory chips (“NAND flash”) for a wide range of distinguished customers globally. The Company’s common shares are traded on the Korea Exchange, its American Depositary Shares are traded on NASDAQ, and its Global Depository Shares are listed on the Luxembourg Stock Exchange. Further information about SK hynix is available at [...] Through today’s regulatory filing, SK hynix announced plans to pursue an expansion of its total shareholder return target from the previous “within 50% of cumulative FCF” to “over 50% of cumulative FCF”. Under the framework, shareholder returns will be executed through a dual-track approach running share repurchases/cancellations alongside cash dividends, while options to expand payouts—including the existing fixed dividends and special dividends—are also under consideration. [...] Following the Board meeting held earlier today, the Company formally disclosed the share repurchase and cancellation resolution along with the shareholder return plan via a regulatory filing.\n\nThe decision stems from the assessment that the Company’s intrinsic value—underpinned by its business competitiveness, robust cash generation capability, and mid-to-long-term growth potential—is not fully reflected in its current stock price.",
+   "published_date": null,
+   "score": 0.09461931
+  },
+  {
+   "url": "https://www.prnewswire.com/news-releases/sk-hynix-accelerates-40-trillion-won-share-repurchase-and-cancellation-program-pursues-shareholder-return-expansion-to-over-50-of-fcf-302855022.html",
+   "title": "SK hynix Accelerates 40 Trillion won Share Repurchase and Cancellation Program, Pursues Shareholder Return Expansion to 'Over 50% of FCF'",
+   "content": "SK hynix Inc., headquartered in Korea, is the world's top-tier semiconductor supplier offering Dynamic Random Access Memory chips (\"DRAM\") and flash memory chips (\"NAND flash\") for a wide range of distinguished customers globally. The Company's common shares are traded on the Korea Exchange, its American Depositary Shares are traded on NASDAQ, and its Global Depository Shares are listed on the Luxembourg Stock Exchange. Further information about SK hynix is available at www.skhynix.com, [...] Through today's regulatory filing, SK hynix announced plans to pursue an expansion of its total shareholder return target from the previous \"within 50% of cumulative FCF\" to \"over 50% of cumulative FCF\". Under the framework, shareholder returns will be executed through a dual-track approach running share repurchases/cancellations alongside cash dividends, while options to expand payouts—including the existing fixed dividends and special dividends—are also under consideration. [...] Following the Board meeting held earlier today, the Company formally disclosed the share repurchase and cancellation resolution along with the shareholder return plan via a regulatory filing.\n\nThe decision stems from the assessment that the Company's intrinsic value—underpinned by its business competitiveness, robust cash generation capability, and mid-to-long-term growth potential—is not fully reflected in its current stock price.",
+   "published_date": null,
+   "score": 0.0865164
+  }
+ ]
+}

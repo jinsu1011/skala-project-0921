@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import json
 
-from graph.runtime import audit, lexicon_hits, llm_json
+from graph.runtime import OfflineCacheMiss, audit, lexicon_hits, llm_json
 from graph.state import PERSPECTIVES, JudgeChecks, JudgeScore
 from tools.evidence import developer_groups, max_origin_share
 
@@ -124,8 +124,13 @@ def judge(state: dict) -> dict:
         if p in prev and prev[p].passed:  # frozen
             continue
         result = state.get(f"{p}_result")
+        if result is None or not result.by_tech:  # perspective not produced (worker excluded): nothing to score
+            continue
         chk = code_checks(p, result, ev, techs)
-        data = llm_json("judge", SYS, _payload(p, result, ev, techs), tag=f"judge:{p}")
+        try:
+            data = llm_json("judge", SYS, _payload(p, result, ev, techs), tag=f"judge:{p}")
+        except OfflineCacheMiss:   # no cached LLM verdict: scores stay 0, so the perspective fails conservatively
+            data = {"feedback": "offline 재생: Judge LLM 응답이 캐시에 없어 보수적으로 미달 처리"}
         s = JudgeScore(**{k: int(data.get(k, 0) or 0) for k in ("grounding", "neutrality", "source_diversity",
                                                                   "completeness")},
                        unsupported_claim_ids=[x for x in data.get("unsupported", []) if isinstance(x, str)], checks=chk)
@@ -140,10 +145,13 @@ def judge(state: dict) -> dict:
     syn = state["synthesis"]
     stmts = syn.statements
     if stmts:
-        data = llm_json("judge", SYN_SYS, json.dumps({"statements": stmts, "evidence": [
+        try:
+            data = llm_json("judge", SYN_SYS, json.dumps({"statements": stmts, "evidence": [
             {"id": i, "claim": ev[i].claim or ev[i].summary[:200]} for i in sorted(
                 {i for h in syn.hypotheses.values() for i in h.evidence_ids} |
                 {i for s_ in stmts.values() for i in ev if i in s_})]}, ensure_ascii=False), tag="judge:synthesis")
+        except OfflineCacheMiss:
+            data = {"unsupported_ids": list(stmts)}   # unverifiable sentences are dropped from the report
         ss = JudgeScore(**{k: int(data.get(k, 0) or 0) for k in ("grounding", "neutrality", "source_diversity",
                                                                    "completeness")},
                         unsupported_claim_ids=[x for x in data.get("unsupported_ids", []) if x in stmts])

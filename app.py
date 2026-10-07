@@ -68,7 +68,8 @@ def main(argv: list[str] | None = None) -> int:
     t0 = time.time()
     final = {}
     try:
-        for chunk in graph.stream({}, config={"recursion_limit": RECURSION_LIMIT, "run_name": "kvcache-eval"},
+        for chunk in graph.stream({}, config={"recursion_limit": RECURSION_LIMIT, "run_name": "kvcache-orchestrator-workers",
+                                                  "metadata": {"pattern": "orchestrator-workers"}},
                                   stream_mode=["updates", "values"]):
             kind, data = chunk
             if kind == "updates":
@@ -84,6 +85,13 @@ def main(argv: list[str] | None = None) -> int:
         "mode": mode, "elapsed_s": round(elapsed, 1), "pdf": final.get("report_pdf_path"),
         "llm_calls": rt.llm_calls, "llm_cache_hits": rt.llm_cache_hits, "web_calls": rt.web_calls,
         "web_cache_hits": rt.web_cache_hits, "usage": rt.usage,
+        "run_id": final.get("run_id"), "trace_id": final.get("trace_id"),
+        "plan_source": final["plan"].plan_source if final.get("plan") else None,
+        "subtasks": [(t.task_id, t.perspective, t.assigned_agent, t.tech_ids, t.attempt) for t in final.get("subtasks", [])],
+        "used_agents": final.get("used_agents"), "unused_agents": final.get("unused_agents"),
+        "task_status": final.get("task_status"),
+        "reviews": [(r.reviewer_agent, r.target_task_id, r.mode) for r in final.get("review_results", [])],
+        "report_quality": final["report_quality"].model_dump() if final.get("report_quality") else None,
         "perspective_retry_count": final.get("perspective_retry_count"),
         "judge": {k: v.passed for k, v in (final.get("judge_scores") or {}).items()},
         "warnings": final.get("warnings", []),
@@ -96,6 +104,8 @@ def main(argv: list[str] | None = None) -> int:
             for k, v in final.items() if k in ("trl_result", "market_result", "stakeholder_result", "domain_result",
                                                "synthesis", "judge_scores", "perspective_retry_count", "warnings")}
     snap["evidence"] = [e.model_dump() for e in final.get("evidence", [])]
+    import pickle   # full final State for re-rendering the report without re-running the graph (outputs/logs is ignored)
+    (log_dir / "final_state.pkl").write_bytes(pickle.dumps(final))
     (ROOT / "outputs" / "state_snapshot.json").write_text(json.dumps(snap, ensure_ascii=False, indent=1, default=str))
     log.info("done: %s", json.dumps(summary, ensure_ascii=False))
     return 0

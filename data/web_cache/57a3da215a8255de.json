@@ -1,0 +1,65 @@
+{
+ "query": "limitations and negative or neutral feedback on SK hynix ITME KV cache technology from developers, users, and industry stakeholders with verified interview or feedback sources",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:47:22+09:00",
+ "results": [
+  {
+   "url": "https://www.rfp.wiki/data-storage-hardware/sk-hynix/micron-technology",
+   "title": "SK hynix vs Micron Technology (2026): Pros, Cons & Pricing",
+   "content": "| −Limited direct end-user support and transparent SLAs compared to pure-play storage vendors; buyers must work through OEM partners.  −Pricing, product specifications, and commercial terms require direct negotiation rather than published public information.  −Customer satisfaction metrics and advocacy signals are not formally published, making independent assessment of support quality difficult. | −Negative Sentiment | −Enterprises express frustration with capacity allocation constraints and [...] | •SK hynix operates primarily as a component supplier; end-buyer experience depends on OEM partner implementation and support.  •NAND technology competitiveness is solid, but pricing and availability are subject to semiconductor industry cycles affecting all major suppliers.  •Supply chain geographic diversity reduces single-point-of-failure risk, but allocation transparency during shortages is standard industry practice rather than exceptional. | •Neutral Feedback | •Micron's premium pricing [...] | 4.3  Pros  +NAND products meet enterprise reliability standards (99.9%+ uptime implied by AFR/MTBF)  +Data center SSD products designed for 24/7/365 mission-critical operation  Cons  -Uptime guarantees limited to component reliability rather than system-level SLAs  -Specific uptime commitments only available through OEM storage platform warranties | Assess publicly available reliability, uptime, status, SLA, and incident evidence relevant to buyer risk and operational dependability.  4.3  4.6",
+   "published_date": null,
+   "score": 0.6466616
+  },
+  {
+   "url": "https://theneuralfeed.com/article/itme-inference-tiered-memory-expansion-with-disaggregated-cxl-hybrid-memories/HxcbGQ4G",
+   "title": "SK Hynix's ITME uses CXL memory to boost LLM inference by... | The Neural Feed",
+   "content": "THE NEURAL FEED AI INTELLIGENCE • DAILY INSIGHTS\n\nBack to Feed\n\nResearch & Papers\n\n# SK Hynix's ITME uses CXL memory to boost LLM inference by 35.7%\n\narXiv cs.DC June 12, 2026\n\n⚡New tiered memory system handles TB-scale KV caches for agentic LLMs, up to 35.7% faster.\n\nDeep Dive [...] ITME was validated using production-grade SK Hynix CMM (CXL Memory Module) and PCIe Gen5 NVMe SSDs, with functional feasibility confirmed via an FPGA-based hardware prototype. The system accommodates large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement over conventional CPU-offloading methods. This work, published on arXiv (2606.12556), represents a significant step toward practical disaggregated shared context layers for distributed LLM inference [...] As large language models move toward agentic and long-context workloads, the industry faces a critical memory bottleneck: TB-scale context states that exceed individual server capacity. Researchers from SK Hynix propose ITME (Inference Tiered Memory Expansion), a disaggregated memory architecture that uses CXL-hybrid memories to deliver massive, byte-addressable remote memory expansion. Unlike traditional offloading to DPU-based JBOF (just-a-bunch-of-flash) architectures, which require complex",
+   "published_date": null,
+   "score": 0.52232456
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/07/29/sk-hynix-developing-new-nand-products-for-kv-cache-demands",
+   "title": "SK hynix Developing New NAND Products for KV Cache Demands - Seoul Economic Daily",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] KV cache is temporary data required for graphics processing units (GPUs) to handle AI computations. As AI data surges, the high-bandwidth memory (HBM) capacity for storing KV cache is reaching its limits. In response, SK hynix plans to develop new products that mount high-capacity NAND products near the GPU, allowing them to serve as an additional KV cache repository. [...] SK hynix (000660.KS) said on the 29th during its second-quarter earnings conference call that it is developing new NAND product families such as \"near-GPU storage\" driven by key-value (KV) cache offloading. \"We are proceeding with NAND development in a direction that most efficiently delivers the performance customers require,\" the company said.",
+   "published_date": null,
+   "score": 0.48381975
+  },
+  {
+   "url": "https://en.sedaily.com/markets/2026/03/28/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] benefits memory manufacturers in the long run.\"",
+   "published_date": null,
+   "score": 0.32402197
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] benefits memory manufacturers in the long run.\"",
+   "published_date": null,
+   "score": 0.32402197
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/28/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] benefits memory manufacturers in the long run.\"",
+   "published_date": null,
+   "score": 0.32402197
+  },
+  {
+   "url": "https://en.sedaily.com/finance/2026/03/27/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] benefits memory manufacturers in the long run.\"",
+   "published_date": null,
+   "score": 0.32402197
+  },
+  {
+   "url": "https://en.sedaily.com/news/2026/03/29/tokens-kv-cache-turboquant-decoding-ai-jargon-and-its",
+   "title": "Tokens, KV Cache, TurboQuant: Decoding the Jargon and Impact on Samsung, SK Hynix - Seoul Economic Daily",
+   "content": "APAC Gold — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards APAC 2026)APAC Gold — Best Newsletter (WAN-IFRA Digital Media Awards APAC 2026)APAC Silver — Most Innovative Digital Product (WAN-IFRA Digital Media Awards APAC 2026)Finalist — Best AI-driven News Product, Format or Strategy (WAN-IFRA Digital Media Awards 2026)Finalist — Best Newsletter (WAN-IFRA Digital Media Awards 2026)Winner — AI LINK (WAN-IFRA Digital Media Awards 2026)Seoul Economic Daily [...] The problem emerged as AI began processing data equivalent to dozens of books at once. The notepad (KV cache) fills up almost instantly, creating a bottleneck. Previously, the only option was to spend enormous sums simply adding more memory chips. [...] benefits memory manufacturers in the long run.\"",
+   "published_date": null,
+   "score": 0.32402197
+  }
+ ]
+}

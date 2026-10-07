@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache advantages stakeholder positive feedback industry expert interviews developer forums technology news",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T15:30:46+09:00",
+ "results": [
+  {
+   "url": "https://www.youtube.com/watch?v=i8OpYvYIQQs",
+   "title": "SK Hynix Rides AI Boom to Blockbuster US Listing | Insight with Haslinda Amin 07/10/2026",
+   "content": "[38:16] We have a unique advantage. We and we have a very differentiated understanding of how to make technology work for them.\n[38:23] I think we our responsibility and opportunity to bring all these service providers together. I deliver end to end value for all customers you originate, so I look at it as a huge opportunity.\n[38:36] Thank you so much for your time. Kay Iverson, MD and CEO of Tata Consultancy Services. And as we talk about AI, Bloomberg has [...] [33:21] Then in the model layer, we have signed unique partnerships with all the major frontier end companies. And we also develop capabilities within decades to create foundational modern small language models.\n[33:34] And you have the ability to fine tune and train them. And then the next layer is about the agents and governing the agents.\n[33:41] And again, we have our own platform. We have the ability to create agents both vertical and horizontal for different industry scenarios. [...] [32:40] We always check taken that we want to be in the industry. We want to be a infrastructure to intelligence player. When I say that, we mean that we have five layers in our mind.\n[32:50] Uh, fund. The first is the data infrastructure layer. You can call it the data center layer.\n[32:56] The next is the model. Uh, the next layer is about agents and then applications and the experience layer.",
+   "published_date": null,
+   "score": 0.5602773
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "ITME implements differentiated fallback policies for cache misses. While a model weight miss inevitably triggers a pipeline stall, a KV cache miss is resolved through dynamic recomputation on the GPU. This design choice avoids the inefficiency of retrieving isolated missing blocks from the remote tier, which would necessitate either suboptimal chunk-sized transfers or complex retrieval logic. Consequently, recomputing the missing KV segments directly on the GPU is more performance-efficient [...] mitigates memory capacity and I/O bottlenecks through software prefetching and read-priority scheduling. Overall, ITME enhances conventional CPU-offloading by providing the necessary memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement. [...] prototype. Overall, ITME enhances conventional CPU-offloading by providing additional remote memory expansion to accommodate large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement.",
+   "published_date": null,
+   "score": 0.54201555
+  },
+  {
+   "url": "https://news.skhynix.com/en/future-forum-2026",
+   "title": "SK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward” – SK hynix Newsroom",
+   "content": "▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left)\n\n▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left)\n\n▲ Jungsoo Kang, Head of the Research Center at Bluedot AI, taking part in the panel discussion. [...] ▲ April Li, Director of AI & HPC Business Development at TSMC, taking part in the panel discussion.\n\n▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left)\n\n▲ Industry experts taking part in the panel discussion, together with SK hynix Vice President Hyungsoo Kim, head of the DRAM Design department (first from left) [...] a core competitive advantage for future AI systems.",
+   "published_date": null,
+   "score": 0.529045
+  },
+  {
+   "url": "https://news.skhynix.com",
+   "title": "SK hynix Newsroom",
+   "content": "Sep 9, 2026\n\n  TECH&AI STORY\n\n  + 3D Memory\n  + AI Memory\n  + AX\n  + Future Semiconductor\n  + SK hynix Future Forum\n [\n\n  [AI Ecosystem] The real bottleneck: Data, not compute\n\n  Sep 3, 2026](\n\n  TECH&AI\n\n  + AI\n  + AI Memory\n  + HBF\n  + HBM\n [\n\n  [AI Infrastructure Insight] Why faster GPUs alone can’t deliver AI performance\n\n  Aug 31, 2026](\n\n  TECH&AI\n\n  + AI data center\n  + AI Infra\n  + AI Memory\n  + GPU\n\nView All\n\n## THE SERIES\n\n[\n\n[Expert Views] Expert perspectives on SK hynix]( [...] FACT\n\nOct 1, 2026\n\nClarification Regarding  \n Recent Media Reports  \n on Solidigm\n\n semiconductor industry\n\n Read Post\n\n[](\n\nTECH&AI\n\nSep 30, 2026\n\n[[AI infrastructure insight]   \n Why power and cooling have become the next challenge  \n for AI data centers](\n\n AI\n AI data center\n AI Infrastructure\n\n Read Post\n\n[](\n\nTECH&AI\n\nSep 28, 2026\n\n“Behind AI’s Rapid Growth Lies Memory”  \n — SK hynix Shares Its Next-Generation Memory Portfolio   \n at the TSMC OIP Conference [...] Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\n[](\n\nSTORY\n\nOct 2, 2026\n\nFrom identifying promising technologies  \n to creating new business opportunities:  \n How SK hynix Ventures finds the path forward\n\n CVC\n Semiconductor Ecosystem\n SK hynix Ventures\n\n Read Post\n\n[](\n\nTECH&AI\n\nOct 2, 2026\n\n[[AI Ecosystem]   \n Redesigning infrastructure:  \n Why architecture determines performance](\n\n CXL\n GPU\n HBM\n\n Read Post\n\n[](\n\nFACT\n\nOct 1, 2026",
+   "published_date": null,
+   "score": 0.45028743
+  },
+  {
+   "url": "https://news.skhynix.com/en/2026-global-forum",
+   "title": "SK hynix Hosts ‘2026 Global Forum,’ Sharing Its Technology Vision and Future Strategy for the AI Era – SK hynix Newsroom",
+   "content": "September 17, 2026\n\nTECH&AI\n\n AI\n AI Infra Summit\n AI Memory\n eSSD\n HBF\n PIM\n SALT-KV\n\nSK hynix Charts Its Business and Technology Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward”\n\nSeptember 9, 2026\n\nTECH&AISTORY\n\n 3D Memory\n AI Memory\n AX\n Future Semiconductor\n SK hynix Future Forum\n\n[\n\n[AI Ecosystem] The real bottleneck: Data, not compute\n\nSeptember 3, 2026](\n\nTECH&AI\n\n AI\n AI Memory\n HBF\n HBM\n\n[ [...] The panelists observed that the rapid advancement of AI is bringing a crucial turning point for the memory industry. Whereas individual technical fields previously focused on improving their own performance, connecting different technologies and finding solutions from a total system perspective will become far more critical moving forward. [...] This Global Forum was a meaningful occasion for SK hynix to share its technology vision and global growth strategy directly with the experts leading today’s AI industry and the global talent who will shape the future technology paradigm. Going forward, SK hynix will continue to engage actively with experts in the semiconductor and AI fields and to advance its technological innovation.\n\n### Related content\n\nSK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’",
+   "published_date": null,
+   "score": 0.4280666
+  },
+  {
+   "url": "https://www.bloomberg.com/news/videos/2026-07-10/bloomberg-businessweek-daily-7-10-2026-video",
+   "title": "Watch SK Hynix Climbs in US Debut, CEO Says Memory Crunch to Last |Bloomberg Businessweek Daily 7/10/2026 - Bloomberg",
+   "content": "SK Hynix Climbs in US Debut, CEO Says Memory Crunch to Last |Bloomberg Businessweek Daily 7/10/2026 [...] Today Bloomberg Tech host Ed Ludlow details his conversation with SK Hynix CEO Kwak Noh-Jung as the South Korean memory chip maker makes its US debut. Then, Bloomberg White House and Washington correspondent discusses President Trump's dismissal of two Democrat members of the US Election Assistance Commission and the latest from the MidEast. Plus, Bloomberg senior editor Nina Trentmann is joined by Lumen CFO Chris Stansbury on providing AI infrastructure. Finally, Bloomberg 'Business of Sports' [...] Today Bloomberg Tech host Ed Ludlow details his conversation with SK Hynix CEO Kwak Noh-Jung as the South Korean memory chip maker makes its US debut. Then, Bloomberg White House and Washington correspondent discusses President Trump's dismissal of two Democrat members of the US Election Assistance Commission and the latest from the MidEast. Plus, Bloomberg senior editor Nina Trentmann is joined by Lumen CFO Chris Stansbury on providing AI infrastructure. Finally, Bloomberg 'Business of Sports'",
+   "published_date": null,
+   "score": 0.3694976
+  },
+  {
+   "url": "https://news.skhynix.com/en/sk-hynix-charts-its-direction-at-the-2026-future-forum-now-is-the-golden-time-to-leap-forward",
+   "title": "SK hynix Charts Its Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward” – SK hynix Newsroom",
+   "content": "From identifying promising technologies to creating new business opportunities: How SK hynix Ventures finds the path forward\n\n  October 2, 2026\n\n  STORY\n\n  + CVC\n  + Semiconductor Ecosystem\n  + SK hynix Ventures\n [\n\n  [AI Ecosystem] Redesigning infrastructure: Why architecture determines performance\n\n  October 2, 2026](\n\n  TECH&AI\n\n  + Agentic AI\n  + CXL\n  + GPU\n  + HBM\n \n\n  Clarification Regarding Recent Media Reports on Solidigm\n\n  October 1, 2026\n\n  FACT\n\n  + semiconductor industry\n [ [...] Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\n## YOUTUBE\n\nSK hynix Charts Its Direction at the 2026 Future Forum—”Now Is the Golden Time to Leap Forward”\n\nSeptember 9, 2026\n\n### Related content\n\nFrom identifying promising technologies to creating new business opportunities: How SK hynix Ventures finds the path forward\n\nOctober 2, 2026\n\nSTORY\n\n CVC\n Semiconductor Ecosystem\n SK hynix Ventures\n\n[ [...] [\n\n[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance\n\nOctober 2, 2026](\n\nTECH&AI\n\n Agentic AI\n CXL\n GPU\n HBM\n\nClarification Regarding Recent Media Reports on Solidigm\n\nOctober 1, 2026\n\nFACT\n\n semiconductor industry\n\n[\n\n[AI infrastructure insight] Why power and cooling have become the next challenge for AI data centers\n\nSeptember 30, 2026](\n\nTECH&AI\n\n AI\n AI data center\n AI Infrastructure",
+   "published_date": null,
+   "score": 0.34880093
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=EHWSK7QAN7w",
+   "title": "SK Hynix US Listing Demand Soars | Bloomberg Tech 7/09/2026",
+   "content": "[5:21] THEIR INVESTMENT IN KIRK SHIRE HOLDINGS, WITH A MONTHS LONG SELLDOWNS OF ITS STAKE. HERE'S THEIR MANAGING PARTNER, DAVID GROSS.\n[5:30] >> WE HAVEN'T GOTTEN THAT. >> HOW MUCH HAS THAT HELPED IN OPENING DOORS ACROSS JAPAN?\n[5:39] >> IT'S BEEN IMPORTANT FOR THE INDUSTRY AND FOR US.\n[5:43] AGAIN, THIS WAS THE CROWN JEWEL OF ONE OF THE TOP KIND OF TECHNOLOGY DRIVEN COMPANIES AND CONGLOMERATES WITH AN AMAZING [...] \"Bloomberg Technology\" is our daily news program focused exclusively on technology, innovation and the future of business hosted by Ed Ludlow from San Francisco and Caroline Hyde in New York.\r\n\r\nLike this video? Subscribe and turn on the  notifications for Bloomberg Technology on YouTube:\r\n   / @bloombergtech  \r\nWatch the latest full episodes of \"Bloomberg Technology\" with Caroline Hyde and Ed Ludlow here:\r\n   • old..Bloomberg Technology With Emily Chang... [...] 00:00:00 - Bloomberg Tech Begins\n00:01:23 - Bailey Lipschultz & Ian King, Bloomberg News\n00:06:30 - Katrina Dudley, Franklin Templeton\n00:11:10 - Delian Asparouhov, Varda Chairman & Co-Founder\n00:19:20 - Kurt Wagner, Bloomberg News\n00:23:56 - Ryan Vlastelica, Bloomberg News\n00:26:35 - Louie DiPalma, William Blair\n00:34:32 - Michael Shepard, Bloomberg News\n00:38:20 - Emily Birnbaum, Bloomberg News\n00:41:25 - Mandeep Singh, Bloomberg Intelligence",
+   "published_date": null,
+   "score": 0.281258
+  }
+ ]
+}

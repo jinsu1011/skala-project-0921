@@ -1,3 +1,5 @@
+> **안내 (2026-10-07)** : 이 문서는 RAG 과제(정적 4관점 병렬 Fan-out, 노드 18개) 당시 설계 기록이다. 현재 구현은 Orchestrator-Workers 구조이며 최신 설명은 저장소 루트 `README.md`를 따른다.
+
 # 발표 노트 (10분, README 화면으로 진행)
 
 <!-- 수치는 outputs/state_snapshot.json과 평가 보고서 PDF 기준. 발표 전 최신 실행 결과와 한 번 더 대조할 것 -->

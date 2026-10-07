@@ -9,17 +9,23 @@ DESIGN_KEYS = ["run_id", "selected_techs", "selection_validation", "document_man
                "references", "report_retry_count", "report_pdf_path", "warnings", "audit_log"]
 
 
-def test_state_has_exactly_the_27_design_keys():
-    assert len(STATE_KEYS) == 27
-    assert list(STATE_KEYS) == DESIGN_KEYS
+ORCH_KEYS = ["trace_id", "step_count", "max_steps", "status", "last_error", "plan", "subtasks", "used_agents",
+             "unused_agents", "task_status", "judge_result", "review_assignments", "retry_tasks", "report_quality",
+             "worker_results", "review_results", "extra_findings"]
 
 
-def test_reducers_only_on_three_keys():
+def test_state_keeps_rag_design_keys_and_adds_orchestration_keys():
+    assert [k for k in STATE_KEYS if k in DESIGN_KEYS] == DESIGN_KEYS     # existing RAG payload unchanged
+    assert sorted(k for k in STATE_KEYS if k not in DESIGN_KEYS) == sorted(ORCH_KEYS)
+
+
+def test_reducers_only_on_concurrent_keys():
     from typing import get_type_hints
 
     hints = get_type_hints(State, include_extras=True)
     reduced = [k for k, v in hints.items() if getattr(v, "__metadata__", None)]
-    assert sorted(reduced) == ["audit_log", "evidence", "warnings"]
+    assert sorted(reduced) == ["audit_log", "evidence", "last_error", "retry_tasks", "review_results", "warnings",
+                              "worker_results"]
 
 
 def test_merge_by_id_unions_perspectives_and_keeps_first(mkweb):

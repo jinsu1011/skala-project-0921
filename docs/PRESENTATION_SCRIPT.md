@@ -1,3 +1,5 @@
+> **안내 (2026-10-07)** : 이 문서는 RAG 과제(정적 4관점 병렬 Fan-out, 노드 18개) 당시 설계 기록이다. 현재 구현은 Orchestrator-Workers 구조이며 최신 설명은 저장소 루트 `README.md`를 따른다.
+
 # 발표 대본 (10분, GitHub main의 README를 위에서 아래로 스크롤하며 진행)
 
 - 화면: https://github.com/jinsu1011/skala-project-0921 (README)

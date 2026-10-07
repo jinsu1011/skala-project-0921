@@ -1,8 +1,11 @@
-"""LangGraph State (DESIGN.md D.2): 27 keys, reducers only on evidence / warnings / audit_log."""
+"""LangGraph State. RAG payload keys (DESIGN.md D.2) + Orchestrator-Workers control keys.
+
+Reducers: evidence (merge_by_id), worker_results (merge_worker_results: by task_id, latest attempt wins),
+review_results (operator.add, bounded by MAX_REVIEWERS), warnings (add_unique), audit_log (operator.add)."""
 from __future__ import annotations
 
 import operator
-from typing import Annotated, Literal, Optional
+from typing import Annotated, Any, Literal, Optional
 
 from pydantic import BaseModel, Field
 from typing_extensions import TypedDict
@@ -223,6 +226,15 @@ def merge_by_id(left: list[Evidence] | None, right: list[Evidence] | None) -> li
     return [out[k] for k in sorted(out)]
 
 
+def last_error_reducer(left: str | None, right: str | None) -> str | None:
+    """Parallel workers may fail in the same step: keep a deterministic combined message (sorted, bounded)."""
+    if not right:
+        return left
+    if not left:
+        return right
+    return " | ".join(sorted({left, right}))[:1000]
+
+
 def add_unique(left: list[str] | None, right: list[str] | None) -> list[str]:
     out = list(left or [])
     for w in right or []:
@@ -231,9 +243,134 @@ def add_unique(left: list[str] | None, right: list[str] | None) -> list[str]:
     return out
 
 
-# ------------------------------------------------------------------ State (27 keys, D.2)
+# ------------------------------------------------------------------ Orchestrator-Workers objects
+class AgentProfile(BaseModel):
+    agent_id: str
+    name: str
+    capabilities: list[str]
+    worker_type: str             # trl / market / stakeholder / domain (existing specialists) | research (open perspective)
+
+
+class SubTask(BaseModel):
+    task_id: str
+    perspective: str             # free text: not restricted to the four minimum perspectives
+    assigned_agent: str          # mandatory; fixed for the task's whole life (retry goes to the same agent)
+    tech_ids: list[str]
+    objective: str
+    required_evidence: list[str] = Field(default_factory=list)
+    success_criteria: list[str] = Field(default_factory=list)
+    priority: int = 3
+    attempt: int = 0
+
+
+class Plan(BaseModel):
+    rationale: str = ""
+    plan_source: Literal["llm", "fallback"] = "llm"   # fallback = rule planner used only when the LLM plan is unusable
+    coverage: dict[str, list[str]] = Field(default_factory=dict)   # minimum perspective -> task ids
+    repairs: list[str] = Field(default_factory=list)              # code-side fixes applied to the LLM plan
+
+
+class WorkerResult(BaseModel):
+    task_id: str
+    perspective: str
+    assigned_agent: str
+    status: Literal["ok", "error", "partial"] = "ok"
+    output: Any | None = None    # PerspectiveResult (specialists) | ExtraFinding (research agents)
+    evidence_ids: list[str] = Field(default_factory=list)
+    error: str | None = None
+    attempt: int = 0
+
+
+class ExtraFinding(BaseModel):
+    perspective: str
+    by_tech: dict[str, str] = Field(default_factory=dict)    # tech -> summary sentences with [evidence ids]
+    queries: list[str] = Field(default_factory=list)
+
+
+class JudgeFeedbackItem(BaseModel):
+    task_id: str
+    passed: bool
+    reason: str = ""
+    missing_evidence: list[str] = Field(default_factory=list)
+    feedback: str = ""
+    retry_required: bool = False
+
+
+class JudgeResult(BaseModel):
+    passed: bool
+    feedback_items: list[JudgeFeedbackItem] = Field(default_factory=list)
+    source: Literal["perspective_judge", "report_quality"] = "perspective_judge"
+
+
+class ReviewResult(BaseModel):
+    reviewer_agent: str
+    target_task_id: str
+    agrees_with_judge: bool = True
+    issues: list[str] = Field(default_factory=list)
+    missing_evidence: list[str] = Field(default_factory=list)
+    overlooked_evidence_ids: list[str] = Field(default_factory=list)
+    bias_risks: list[str] = Field(default_factory=list)
+    suggested_search_direction: list[str] = Field(default_factory=list)
+    review_summary: str = ""
+    mode: Literal["llm", "fallback"] = "llm"
+
+
+class RetryTask(BaseModel):
+    task_id: str
+    assigned_agent: str
+    original_objective: str
+    judge_feedback: str
+    reviewer_feedback: list[str] = Field(default_factory=list)
+    retry_instruction: str
+    missing_evidence: list[str] = Field(default_factory=list)
+    attempt: int = 1
+
+
+class ReportQuality(BaseModel):
+    passed: bool = False
+    scores: dict[str, int] = Field(default_factory=dict)          # groundedness / neutrality / bias_control / coverage
+    deterministic: dict[str, bool] = Field(default_factory=dict)
+    writing_issues: list[str] = Field(default_factory=list)
+    evidence_issues: dict[str, str] = Field(default_factory=dict)  # task_id -> problem
+    action: Literal["pass", "rewrite", "evidence_retry", "finalize"] = "pass"
+    judge_mode: Literal["llm", "deterministic_only"] = "llm"
+
+
+def merge_worker_results(left: dict[str, WorkerResult] | None,
+                         right: dict[str, WorkerResult] | None) -> dict[str, WorkerResult]:
+    """Parallel-safe merge by task_id. A higher attempt replaces a lower one; for the same attempt the first write is
+    kept, so the result never depends on the order in which parallel workers finish. Output sorted by task_id."""
+    out = dict(left or {})
+    for tid, r in (right or {}).items():
+        cur = out.get(tid)
+        if cur is None or r.attempt > cur.attempt:
+            out[tid] = r
+    return {k: out[k] for k in sorted(out)}
+
+
+# ------------------------------------------------------------------ State
 class State(TypedDict, total=False):
+    # ── control metadata (routing / termination / resume; small and bounded) ──
     run_id: str
+    trace_id: str                # correlation key to LangSmith / outputs/logs (run metadata carries the same value)
+    step_count: int
+    max_steps: int
+    status: str                  # planning / executing / judge_feedback / quality_feedback / reporting / done
+    last_error: Annotated[str | None, last_error_reducer]
+    plan: Plan
+    subtasks: list[SubTask]      # written by the orchestrator; attempts advanced only by the retry router
+    used_agents: list[str]       # computed by code from initial subtasks
+    unused_agents: list[str]     # registry - used_agents (cross-reviewer pool)
+    task_status: dict[str, str]  # task_id -> ok / retrying / passed / FAILED_AFTER_RETRY / PARTIAL / excluded
+    judge_result: JudgeResult
+    review_assignments: dict[str, list[str]]   # task_id -> reviewer agent ids (from unused_agents only)
+    retry_tasks: Annotated[list[RetryTask], operator.add]
+    report_quality: ReportQuality
+    # ── worker payload ──
+    worker_results: Annotated[dict[str, WorkerResult], merge_worker_results]
+    review_results: Annotated[list[ReviewResult], operator.add]
+    extra_findings: dict[str, ExtraFinding]
+    # ── RAG / evaluation payload (existing) ──
     selected_techs: list[Technology]
     selection_validation: SelectionValidation
     document_manifest: list[DocumentMeta]
