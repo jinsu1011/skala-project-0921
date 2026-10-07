@@ -11,7 +11,7 @@ import json
 import re
 from typing import Optional
 
-from graph.runtime import OfflineCacheMiss, audit, llm_json
+from graph.runtime import audit, llm_json
 from graph.state import Conflict, Hypothesis, MatrixCell, SynthesisResult
 
 SCORED = ("market", "stakeholder", "domain")
@@ -221,10 +221,7 @@ def synthesizer(state: dict) -> dict:
         "summaries": {p: {t: ta.summary for t, ta in results[p].by_tech.items()} for p in results if results[p]},
         "evidence": [{"id": i, "tech": ev[i].tech, "claim": ev[i].claim} for i in cited if i in ev][:80],
     }
-    try:
-        data = llm_json("generator", SYS, json.dumps(payload, ensure_ascii=False), tag="synthesizer")
-    except OfflineCacheMiss:   # replay without a cached explanation: code-computed matrix/hypotheses only
-        data = {}
+    data = llm_json("generator", SYS, json.dumps(payload, ensure_ascii=False), tag="synthesizer")
     for c in conflicts:
         d = data.get("conflicts", {}).get(f"{c.tech_id}:{c.pair[0]}-{c.pair[1]}", {})
         c.explanation = d.get("explanation", "")

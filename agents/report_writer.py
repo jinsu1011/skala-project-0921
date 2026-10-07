@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 import re
 
-from graph.runtime import OfflineCacheMiss, ROOT, audit, config, lexicon_hits, llm_json, neutralize
+from graph.runtime import ROOT, audit, config, lexicon_hits, llm_json, neutralize
 from graph.state import Reference
 
 PAPER_REFS = {
@@ -97,7 +97,7 @@ class Citer:
                 title, org = split_site(e.title or site, PUBLISHER.get(e.source_group, e.source_group))
                 date = e.published_at or url_date(e.source_url) or f"{ACCESS_DATE} 접속"
                 title = title.replace("|", "·")
-                out.append(Reference(num=n, kind="web", text=f"{org}({date}). {short_title(title)}. {e.source_url}",
+                out.append(Reference(num=n, kind="web", text=f"{org}({date}). {title}. {site}, {e.source_url}",
                                      evidence_ids=sorted(set(ids))))
         return out
 
@@ -110,12 +110,6 @@ def _table(header: list[str], rows: list[list[str]], widths: str) -> str:
 
 def _ids(ids, n=4) -> str:
     return "[" + ", ".join(ids[:n]) + "]" if ids else ""
-
-
-def short_title(title: str, limit: int = 80) -> str:
-    """Page budget: long web titles are cut at a word boundary (the URL still identifies the source)."""
-    t = re.sub(r"\s+", " ", title).strip().rstrip(".")
-    return t if len(t) <= limit else t[:limit].rsplit(" ", 1)[0].rstrip(" -:·,") + "…"
 
 
 def _narrative(state: dict, revision: str) -> dict:
@@ -158,26 +152,6 @@ def _narrative(state: dict, revision: str) -> dict:
     }
     sys = prompt("report_writer.md").format(revision=revision)
     return llm_json("generator", sys, json.dumps(payload, ensure_ascii=False), tag=f"report_writer:{bool(revision)}")
-
-
-NARRATIVE_SENTENCES = 3
-EXTRA_SENTENCES = 1
-
-
-def cap_ids(text: str, n: int) -> str:
-    """Keep at most n evidence ids inside each [..] citation group."""
-    return ID_RE.sub(lambda m: "[" + ", ".join(x.strip() for x in m.group(1).split(",")[:n]) + "]", text or "")
-_SENT_END = re.compile(r"(?<=[^\d]\.)\s+(?=\S)")   # split after a sentence-final period (citations stay attached)
-
-
-def first_sentences(text: str, n: int) -> str:
-    """Keep the first n sentences (sentence ends are kept with their [evidence] citation)."""
-    parts = [x for x in _SENT_END.split((text or "").strip()) if x]
-    kept = " ".join(parts[:n])
-    cites = list(ID_RE.finditer(text or ""))
-    if cites and not ID_RE.search(kept):   # paragraph-level citation at the end: keep it on the shortened text
-        kept = kept.rstrip(". ") + f" {cites[-1].group(0)}."
-    return kept
 
 
 _TRL_RANGE = re.compile(r"TRL\s*(\d)\s*(?:~|–|-|에서)\s*(\d)")
@@ -235,6 +209,8 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         if g and ID_RE.search(g):
             add(f"- {ct.sub(neutralize(g))}")
     add("- 우열이나 추천이 아니라 관점별 평가 차이와 그 근거를 정리한 결과이다(판단 보류는 근거 부족을 뜻함).")
+    add("")
+    add("---pagebreak---")
     add("")
     # ---------------- 1
     tq, it = (techs[0].tech_id, techs[1].tech_id) if len(techs) > 1 else (techs[0].tech_id, techs[0].tech_id)
@@ -303,9 +279,9 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
         if not b:
             add("근거 부족으로 개요를 만들지 못했다.")
             continue
-        for lab, val, n in (("작동 원리", b.principle, 2), ("실험 조건", b.conditions, 1),
-                            ("보고된 성능", b.reported_results, 1), ("한계", b.limitations, 2)):
-            add(f"- **{lab}**: {ct.sub(neutralize(first_sentences(val, n)))}")
+        for lab, val in (("작동 원리", b.principle), ("적용 범위", b.scope), ("실험 조건", b.conditions),
+                         ("보고된 성능", b.reported_results), ("한계", b.limitations)):
+            add(f"- **{lab}**: {ct.sub(neutralize(val))}")
     add(f"## 3.{len(techs) + 1} 비교표")
     add(_table(["항목"] + [t.name for t in techs], [
         ["바꾸는 것", "데이터 표현(비트 수)", "저장 위치(메모리 계층)"][:1 + len(techs)],
@@ -316,8 +292,9 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     # ---------------- 4
     add("# 4. 관점별 평가")
     add("## 4.0 평가 기준")
-    add("기준마다 1~5점 인식 점수(공개 자료에 나타난 평가의 방향, 기술 품질 아님)를 C.6 Rubric 근거 조건으로 매긴다. 기술 고유 근거만 세고 같은 원 출처 계열은 하나로 센다. "
-        "근거 1계열 이하 기준은 판단 보류, 빠진 가중치가 50%를 넘으면 관점 전체를 판단 보류로 한다.")
+    add("기준마다 1점(부정적 평가가 많음)~5점(긍정적 평가가 많음)의 인식 점수를 설계서 C.6 Rubric의 근거 조건으로 매긴다. 점수는 기술의 품질이 아니라 "
+        "공개 자료에 나타난 평가의 방향이다. 해당 기술 고유 근거만 세고 같은 원 출처 계열은 하나로 센다. 근거가 1계열 이하인 기준은 판단 보류로 두고 계산에서 빼며, "
+        "빠진 가중치가 50%를 넘으면 관점 전체를 판단 보류로 한다. 가중치는 시장성 25/30/30/15, 이해관계자 집단별 25, 도메인 W1·W2 각 50(항목별 20)이다.")
     # 4.1 TRL
     add("## 4.1 기술 성숙도(TRL)")
     trl = state["trl_result"]
@@ -334,7 +311,7 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add("TRL은 공개 정보로 추정한 범위이다. 하한은 공개 근거로 확인된 가장 높은 단계, 상한은 발표·계획 같은 부분 신호로 보이는 단계이며, "
         "양쪽 모두 개발사 외 독립 근거가 있으면 신뢰도 높음, 한쪽만 있으면 보통, 개발사 자료뿐이면 낮음이다(설계서 C.4).")
     if nar.get("trl"):
-        add(ct.sub(neutralize(first_sentences(nar["trl"], NARRATIVE_SENTENCES))))
+        add(ct.sub(neutralize(nar["trl"])))
     # 4.2 market
     add("## 4.2 시장성")
     mk = state["market_result"]
@@ -352,7 +329,7 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add(_table(["기준 (가중치)"] + [t.name for t in techs], rows, "4.0,6.0,6.0"))
     add("")
     if nar.get("market"):
-        add(ct.sub(neutralize(first_sentences(nar["market"], NARRATIVE_SENTENCES))))
+        add(ct.sub(neutralize(nar["market"])))
     # 4.3 stakeholder
     add("## 4.3 이해관계자")
     sh = state["stakeholder_result"]
@@ -372,7 +349,7 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add("")
     add("개발사(TurboQuant는 Google, ITME는 SK hynix)의 발언과 보도자료는 점수에서 제외하고 참고로만 인용했다.")
     if nar.get("stakeholder"):
-        add(ct.sub(neutralize(first_sentences(nar["stakeholder"], NARRATIVE_SENTENCES))))
+        add(ct.sub(neutralize(nar["stakeholder"])))
     # 4.4 domain
     add("## 4.4 도메인 적합성(W1·W2)")
     dm = state["domain_result"]
@@ -398,18 +375,8 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add("워크로드별 평균: " + "; ".join(f"{names[t]} W1 {_fmt(v.get('W1'))}, W2 {_fmt(v.get('W2'))}" for t, v in h3.items())
         + ". 가중 평균 행은 기술별 W1·W2 합산값이다(W1 열에 표기).")
     if nar.get("domain"):
-        add(ct.sub(neutralize(first_sentences(nar["domain"], NARRATIVE_SENTENCES))))
+        add(ct.sub(neutralize(nar["domain"])))
     add("")
-    # ---------------- 4.5 extra perspectives added by the Orchestrator plan (research agents)
-    extra = state.get("extra_findings", {})
-    if extra:
-        add("## 4.5 추가 관점(Orchestrator 동적 계획, 점수 없음)")
-        for tid, f in sorted(extra.items()):
-            for t in techs:
-                text = ct.sub(neutralize(cap_ids(first_sentences(f.by_tech.get(t.tech_id, ""), EXTRA_SENTENCES), 2)))
-                if text and CITE_RE.search(text):
-                    add(f"- {tid} {f.perspective} · {names[t.tech_id]}: {text}")
-        add("")
     # ---------------- 5
     add("# 5. 시사점")
     add("## 5.1 관점 간 일치·상충 표")
@@ -501,16 +468,7 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
             cls[e.source_class] += 1
     add(f"- 본문 인용 근거의 출처 구분: 벤더 {cls['vendor']}건, 제3자 {cls['third_party']}건, 학술 {cls['academic']}건. "
         "관점마다 지지·반대 질의를 짝지어 검색했고, 한 원 출처 계열이 웹 근거의 50%를 넘지 않게 했으며, 개발사 발언은 이해관계자 점수에서 뺐다.")
-    plan = state.get("plan")
-    st = state.get("task_status", {})
-    if plan is not None:
-        add(f"- Orchestrator가 SubTask {len(state.get('subtasks', []))}개를 동적으로 계획했다(계획 출처 {plan.plan_source}, "
-            f"사용 Agent {len(state.get('used_agents', []))}개, 미사용 Agent {len(state.get('unused_agents', []))}개).")
-    add("- Judge 판정식은 설계서 D.5를 그대로 썼다. 기준에 못 미친 작업만 같은 담당 Agent가 1회 다시 실행했고, "
-        "미사용 Agent의 교차 검토와 Agent 0의 재시도 지시를 거쳤다. 재시도 후에도 미달이면 판정 불확실로 남겼다.")
-    bad = [f"{k}({v})" for k, v in sorted(st.items()) if v in ("FAILED_AFTER_RETRY", "PARTIAL", "excluded")]
-    if bad:
-        add("- 재시도 후 미달·부분 결과 작업: " + ", ".join(bad))
+    add("- Judge 판정식은 설계서 D.5를 그대로 썼다. 기준에 못 미친 관점만 최대 2회 다시 실행했고, 한도 후에도 미달이면 판정 불확실로 남겼다.")
     unc = [w for w in state.get("warnings", []) if w.startswith("판정 불확실")]
     for w in unc:
         add(f"- {w}")
@@ -539,75 +497,25 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     body = CITE_RE.sub(lambda m: re.sub(r"(?<=[\[;] )(\d+)|(?<=\[)(\d+)",
                                         lambda n: str(remap[int(n.group(0))]), m.group(0)), body)
     L[:] = body.split("\n")
-    L.append(reference_md(refs))
+    add("# REFERENCE")
+    for kind, ko in (("paper", "논문"), ("web", "웹페이지"), ("patent", "특허")):
+        items = [r for r in refs if r.kind == kind]
+        if not items:
+            continue
+        add(f"**{ko}**")
+        add("")
+        for r in items:
+            add(f"- [{r.num}] {r.text}")
+        add("")
     return "\n".join(L) + "\n", refs
 
 
-REF_FONT = 8
-# Page budget (Notion: max 10 pages). Optional sub-sections dropped cumulatively, least important first. The four
-# perspective sections (4.x), SUMMARY, 5.1/5.3, 6.2 (bias-control results) and REFERENCE are never dropped.
-COMPACT_LEVELS: list[list[str]] = [
-    [],
-    ["후보 평가표", "기준값 민감도"],
-    ["선정 검증 결과", "분석 방법의 한계"],
-    ["비교표", "두 진영의 접근", "분석 도메인과 문제 정의", "공개 정보 기반 추정의 한계"],
-    ["조건별 시사점"],
-    ["분석 질문과 가설", "선정 결과와 사유", "주요 상충 지점"],
-]
-
-
-def compact_report(md: str, refs: list[Reference], level: int) -> tuple[str, list[Reference], list[str]]:
-    """Drop the sub-sections of COMPACT_LEVELS[:level+1], renumber the remaining sub-sections per chapter and the
-    citations (keeping their order, so papers stay first), and rebuild REFERENCE with only what is still cited."""
-    keys = [k for lv in COMPACT_LEVELS[:level + 1] for k in lv]
-    if not keys:
-        return md, refs, []
-    body = md.split("# REFERENCE")[0]
-    out, skip, dropped = [], False, []
-    for ln in body.split("\n"):
-        if ln.startswith("# "):
-            skip = False
-        elif ln.startswith("## "):
-            skip = any(k in ln for k in keys)
-            if skip:
-                dropped.append(ln[3:].strip())
-        if not skip:
-            out.append(ln)
-    chap, sub, renum = None, 0, []
-    for ln in out:   # renumber "## n.m" inside each chapter after drops
-        if m := re.match(r"^# (\d+)\. ", ln):
-            chap, sub = m.group(1), 0
-        elif chap and (m := re.match(r"^## (\d+)\.(\d+) (.*)", ln)) and m.group(1) == chap and m.group(2) != "0":
-            sub += 1
-            ln = f"## {chap}.{sub} {m.group(3)}"
-        renum.append(ln)
-    body = "\n".join(renum)
-    cited = sorted({int(n) for m in CITE_RE.findall(body) for n in re.findall(r"(?:\[|; )(\d+)", m)})
-    remap = {old: i for i, old in enumerate(cited, 1)}
-    body = CITE_RE.sub(lambda m: re.sub(r"(?<=[\[;] )(\d+)|(?<=\[)(\d+)",
-                                        lambda n: str(remap[int(n.group(0))]), m.group(0)), body)
-    refs2 = [r.model_copy(update={"num": remap[r.num]}) for r in refs if r.num in remap]
-    return body.rstrip() + "\n\n" + reference_md(refs2) + "\n", refs2, dropped
-
-
-def reference_md(refs: list[Reference]) -> str:
-    out = ["# REFERENCE", f"<!--fs:{REF_FONT}-->"]
-    for kind, ko in (("paper", "논문"), ("web", "웹페이지"), ("patent", "특허")):
-        items = [r for r in refs if r.kind == kind]
-        if items:
-            out += [f"**{ko}**", ""] + [f"- [{r.num}] {r.text}" for r in items] + [""]
-    return "\n".join(out + ["<!--fs:-->"])
-
-
 def report_writer(state: dict) -> dict:
-    q = state.get("report_quality")
+    last = next((e for e in reversed(state.get("audit_log", [])) if e.node == "final_check"), None)
     revision = ""
-    if q is not None and q.action == "rewrite":
-        revision = "이전 원고의 검수 지적을 반영해 다시 쓴다: " + "; ".join(q.writing_issues)
-    try:
-        nar = _narrative(state, revision)
-    except OfflineCacheMiss:   # replay without a cached narrative: tables and code-computed text only
-        nar = {}
+    if last and not last.detail.get("passed"):
+        revision = "이전 원고의 검수 지적을 반영해 다시 쓴다: " + "; ".join(last.detail.get("issues", []))
+    nar = _narrative(state, revision)
     md, refs = build_markdown(state, nar)
     return {"report_markdown": md, "references": refs,
             "audit_log": audit("report_writer", revision=bool(revision), refs=len(refs), chars=len(md))}
@@ -624,14 +532,17 @@ def toc_entries(md: str) -> list[tuple[int, str]]:
 
 
 def with_toc(md: str, pages: dict[str, int] | None = None) -> str:
-    """Insert a compact 목차 (chapters only) before SUMMARY on the same page. `pages` maps heading text to the printed
-    page (second render pass)."""
-    body = re.sub(r"^# 목차\n.*?<!--toc-end-->\n\n", "", md, flags=re.S)
-    body = re.sub(r"^# 목차\n.*?---pagebreak---\n\n", "", body, flags=re.S)   # older layout
-    items = [[text, str(pages.get(text, "")) if pages else ""] for lvl, text in toc_entries(body) if lvl == 1]
-    half = (len(items) + 1) // 2   # two entries per row (column-wise order, REFERENCE stays the last cell)
-    rows = [items[i] + (items[i + half] if i + half < len(items) else ["", ""]) for i in range(half)]
-    toc = "# 목차\n\n" + _table(["장", "쪽", "장", "쪽"], rows, "6.5,1.5,6.5,1.5") + "\n<!--toc-end-->\n\n"
+    """Insert a 목차 page before SUMMARY. `pages` maps heading text to the printed page (second render pass)."""
+    body = re.sub(r"^# 목차\n.*?---pagebreak---\n\n", "", md, flags=re.S)
+    rows = []
+    pg = lambda t: str(pages.get(t, "")) if pages else ""  # noqa: E731
+    for lvl, text in toc_entries(body):
+        if lvl == 1:
+            rows.append([f"**{text}**", [], pg(text)])
+        elif rows:
+            rows[-1][1].append(f"{text} ({pg(text)})" if pages else text)
+    rows = [[a, " · ".join(b), c] for a, b, c in rows]
+    toc = "# 목차\n\n" + _table(["장", "절 (쪽)", "쪽"], rows, "3.6,11.2,1.2") + "\n\n---pagebreak---\n\n"
     return toc + body
 
 
@@ -702,5 +613,10 @@ def postprocess(md: str, refs: list[Reference]) -> tuple[str, list[Reference], l
     body = "\n".join(out)
     cited = {int(n) for m in CITE_RE.findall(body) for n in re.findall(r"(?:\[|; )(\d+)", m)}
     refs2 = [r for r in refs if r.num in cited]
-    md2 = body + reference_md(refs2) + "\n"
+    ref_md = ["# REFERENCE"]
+    for kind, ko in (("paper", "논문"), ("web", "웹페이지"), ("patent", "특허")):
+        items = [r for r in refs2 if r.kind == kind]
+        if items:
+            ref_md += [f"**{ko}**", ""] + [f"- [{r.num}] {r.text}" for r in items] + [""]
+    md2 = body + "\n".join(ref_md) + "\n"
     return md2, refs2, check_report(md2, refs2)

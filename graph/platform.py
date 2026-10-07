@@ -1,6 +1,5 @@
 """Auxiliary (non-agent) nodes: initialize, index_builder, query_planner, hybrid_retriever, retrieval_grader,
-query_rewriter, pdf_renderer and the retrieval router (D.1). Feedback routing and report quality evaluation live in
-graph/orchestration.py."""
+query_rewriter, retry_router, final_check, pdf_renderer, plus the conditional-edge routers (D.1, D.4)."""
 from __future__ import annotations
 
 import re
@@ -8,11 +7,15 @@ import shutil
 import uuid
 from typing import Literal
 
+from langgraph.types import Command
+
 from graph.runtime import ROOT, audit, config, rt
-from graph.state import (PERSPECTIVES, DocumentMeta, IndexStatus, Query, RetrievalGrade,
+from graph.state import (PERSPECTIVE_NODE, PERSPECTIVES, DocumentMeta, IndexStatus, Query, RetrievalGrade,
                          Technology)
 
 MAX_RETRIEVAL = config()["retrieval"]["max_retrieval_retries"]      # 2
+MAX_PERSPECTIVE = config()["graph"]["max_perspective_retries"]      # 2
+MAX_REPORT = config()["graph"]["max_report_retries"]                # 1
 PERSPECTIVE_KO = {"trl": "TRL", "market": "시장성", "stakeholder": "이해관계자", "domain": "도메인 적합성"}
 
 SELECTION_REASON = {  # team's selection (A.3/A.4), recorded as-is; the validator never changes it
@@ -30,9 +33,7 @@ def initialize(state: dict) -> dict:
         techs.append(Technology(tech_id=tid, name=m["name"], camp=m["camp"], developer=m["developer"],
                                 developer_groups=m.get("developer_groups", []), reason=SELECTION_REASON.get(tid, ""),
                                 paper_arxiv=m.get("arxiv", "")))
-    run_id = uuid.uuid4().hex[:12]
-    return {"run_id": run_id, "trace_id": f"kvcache-{run_id}", "step_count": 0, "max_steps": 40, "status": "planning",
-            "last_error": None, "selected_techs": techs, "retrieval_retry_count": 0,
+    return {"run_id": uuid.uuid4().hex[:12], "selected_techs": techs, "retrieval_retry_count": 0,
             "perspective_retry_count": {p: 0 for p in PERSPECTIVES}, "report_retry_count": 0, "judge_scores": {},
             "judge_feedback": {}, "failed_perspectives": [], "rewritten_queries": {},
             "audit_log": audit("initialize", techs=[t.tech_id for t in techs], offline=rt().offline)}
@@ -156,7 +157,49 @@ def query_rewriter(state: dict) -> dict:
     return {"rewritten_queries": out, "retrieval_retry_count": n, "audit_log": audit("query_rewriter", attempt=n)}
 
 
-# 3./4. feedback routing and report quality: see graph/orchestration.py (Orchestrator-Workers)
+# ---------------------------------------------------------------- 3. selective re-run
+PerspectiveNode = Literal["trl_assessor", "market_evaluator", "stakeholder_evaluator", "domain_evaluator", "report_writer"]
+
+
+def retry_router(state: dict) -> Command[PerspectiveNode]:
+    """Increments the re-run counter of failed perspectives (< 2 re-runs) and re-runs only those nodes with
+    Command(goto=[...]). Perspectives at the limit are recorded as 판정 불확실. Nothing to re-run -> report_writer."""
+    counts = dict(state.get("perspective_retry_count", {}))
+    goto, warns = [], []
+    for p in state.get("failed_perspectives", []):
+        if counts.get(p, 0) < MAX_PERSPECTIVE:
+            counts[p] = counts.get(p, 0) + 1
+            goto.append(PERSPECTIVE_NODE[p])
+        else:
+            warns.append(f"판정 불확실: {PERSPECTIVE_KO[p]} 관점이 재실행 한도({MAX_PERSPECTIVE}회) 후에도 Judge 기준 미달")
+    if not goto:
+        return Command(update={"warnings": warns, "audit_log": audit("retry_router", goto=["report_writer"])},
+                       goto="report_writer")
+    return Command(update={"perspective_retry_count": counts, "warnings": warns,
+                           "audit_log": audit("retry_router", goto=goto, counts=counts)}, goto=goto)
+
+
+# ---------------------------------------------------------------- 4. report check and PDF
+def final_check(state: dict) -> dict:
+    from agents.report_writer import check_report, postprocess
+
+    issues = check_report(state["report_markdown"], state["references"])
+    n = state.get("report_retry_count", 0)
+    if not issues:
+        return {"audit_log": audit("final_check", passed=True, attempt=n)}
+    if n < MAX_REPORT:
+        return {"report_retry_count": n + 1, "audit_log": audit("final_check", passed=False, attempt=n, issues=issues)}
+    md, refs, left = postprocess(state["report_markdown"], state["references"])
+    return {"report_markdown": md, "references": refs,
+            "warnings": [f"보고서 검수: 수정 한도 소진 후 결정적 후처리, 남은 문제 {x}" for x in left],
+            "audit_log": audit("final_check", passed=False, attempt=n, issues=issues, postprocessed=True, left=left)}
+
+
+def route_after_check(state: dict) -> Literal["report_writer", "pdf_renderer"]:
+    last = next((e for e in reversed(state.get("audit_log", [])) if e.node == "final_check"), None)
+    if last and not last.detail.get("passed") and not last.detail.get("postprocessed"):
+        return "report_writer"
+    return "pdf_renderer"
 
 
 def output_stem() -> str:
@@ -172,10 +215,7 @@ def _heading_pages(pdf, headings: list[str]) -> dict[str, int]:
         # extracted text drops/splits spaces, so compare with all whitespace removed
         texts = [re.sub(r"\s+", "", p.get_text()) for p in doc]
     toc_page = next((i for i, t in enumerate(texts) if "목차" in t), 0)
-    # the compact 목차 shares its page with SUMMARY: search that page only after the TOC's last row (REFERENCE)
-    head, sep, tail = texts[toc_page].partition("REFERENCE")
-    texts[toc_page] = tail if sep else ""
-    start = toc_page
+    start = toc_page + 1
     for h in headings:
         key = re.sub(r"\s+", "", h)
         for i in range(start, len(texts)):
@@ -200,26 +240,14 @@ def _blank_pages(pdf) -> list[int]:
     return out
 
 
-PAGE_LIMIT = 10   # Notion: 보고서 최대 10장
-
-
-def _page_count(pdf) -> int:
-    import pymupdf
-
-    with pymupdf.open(pdf) as doc:
-        return doc.page_count
-
-
 def pdf_renderer(state: dict) -> dict:
-    """Render the SKALA-template PDF within PAGE_LIMIT pages. If the full report is longer, optional sub-sections are
-    dropped in a fixed order (agents.report_writer.COMPACT_LEVELS) and citations / REFERENCE are renumbered, so the
-    four perspective sections, SUMMARY and REFERENCE are always kept."""
-    from agents.report_writer import COMPACT_LEVELS, check_report, compact_report, toc_entries, with_toc
     from report.docx_builder import CoverInfo, ReportBuilder, docx_to_pdf
 
     team = config()["team"]
     out = ROOT / "outputs"
     stem = output_stem()
+    from agents.report_writer import toc_entries, with_toc
+
     md_path = out / f"{stem}.md"
     md_path.parent.mkdir(parents=True, exist_ok=True)
     cover = CoverInfo(title="KV cache 최적화 기술 다관점 평가 보고서",
@@ -232,25 +260,16 @@ def pdf_renderer(state: dict) -> dict:
         docx = rb.save(out / f"{stem}.docx")
         return docx_to_pdf(docx, out / f"{stem}.pdf")
 
-    for level in range(len(COMPACT_LEVELS)):
-        body, refs, dropped = compact_report(state["report_markdown"], state.get("references", []), level)
-        # pass 1 renders with an empty page column, pass 2 fills the pages found in the PDF (same layout)
-        pdf = build(with_toc(body))
-        pages = _heading_pages(pdf, [t for _, t in toc_entries(body)])
-        md = with_toc(body, pages)
-        pdf = build(md)
-        n_pages = _page_count(pdf)
-        if n_pages <= PAGE_LIMIT:
-            break
+    # pass 1 renders with an empty page column, pass 2 fills the pages found in the PDF (same layout)
+    md = with_toc(state["report_markdown"])
+    pdf = build(md)
+    pages = _heading_pages(pdf, [t for _, t in toc_entries(state["report_markdown"])])
+    md = with_toc(state["report_markdown"], pages)
+    pdf = build(md)
     blank = _blank_pages(pdf)
     md_path.write_text(md.rstrip() + "\n")
     dst = ROOT / "deliverables" / pdf.name
     shutil.copy(pdf, dst)
     warns = [f"PDF 빈 페이지: {blank}"] if blank else []
-    if n_pages > PAGE_LIMIT:
-        warns.append(f"PDF {n_pages}쪽: 압축 후에도 제출 한도 {PAGE_LIMIT}장 초과")
-    left = check_report(body, refs)
-    warns += [f"분량 압축 후 보고서 검사: {x}" for x in left]
-    return {"report_markdown": body, "references": refs, "report_pdf_path": str(pdf), "warnings": warns,
-            "audit_log": audit("pdf_renderer", blank_pages=blank, pages=n_pages, compact_level=level, dropped=dropped,
-                               pdf=str(pdf.relative_to(ROOT)), copy=str(dst.relative_to(ROOT)))}
+    return {"report_pdf_path": str(pdf), "warnings": warns, "audit_log": audit("pdf_renderer", blank_pages=blank, pdf=str(pdf.relative_to(ROOT)),
+                                                            copy=str(dst.relative_to(ROOT)))}

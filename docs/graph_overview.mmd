@@ -1,66 +1,49 @@
 flowchart TB
     H0(["Human 기술 선정 (2안)<br/>TurboQuant · ITME"]) --> INIT
     subgraph S1["1. 선정 검증 및 RAG 준비"]
-        INIT["initialize<br/>run_id · trace_id"] --> IDX["index_builder<br/>PDF 로드·청킹·인덱스"]
-        IDX --> VAL["selection_validator<br/>선정 타당성 검증"]
+        INIT["initialize<br/>State 초기화"] --> IDX["index_builder<br/>PDF 로드·청킹·인덱스"]
+        IDX --> VAL["selection_validator<br/>선정 타당성 검증·기록"]
         VAL --> QP["query_planner<br/>기술별 개요 질의"]
         QP --> RET["hybrid_retriever<br/>3중 RRF + reranker"]
         RET --> GR{"retrieval_grader<br/>검색 품질 충족?"}
         QRW["query_rewriter<br/>누락 요소 반영"]
+    end
+    subgraph S2["2. 기술 조사 및 관점별 병렬 평가"]
         TR["tech_research<br/>원리·실험 조건·한계"]
-    end
-    subgraph S2["2. Orchestrator-Workers (동적 계획 · 병렬 실행 · 병합)"]
-        OR{{"Orchestrator<br/>State 분석 → SubTask 생성<br/>4개 관점 = 최소 요건"}}
-        ST[/"Dynamic SubTasks T01..Tn<br/>assigned_agent · tech_ids<br/>used / unused 코드 계산"/]
-        subgraph WK["Workers (Send × n, 계획된 Agent만 실행)"]
-            WN["worker Tn<br/>assigned_agent"]
-            W2["worker T02<br/>assigned_agent"]
-            W1["worker T01<br/>assigned_agent"]
+        subgraph FAN["관점 평가 4개 (병렬, 노드 내부 검색 반복 ≤2)"]
+            TRL["trl_assessor<br/>TRL"]
+            MK["market_evaluator<br/>시장"]
+            SH["stakeholder_evaluator<br/>이해관계자"]
+            DM["domain_evaluator<br/>도메인 W1·W2"]
         end
-        AG[["result_aggregator (Reducer)<br/>task_id별 최신 attempt"]]
-        SY["synthesizer<br/>일치·상충 · H1~H4"]
-        JD{"perspective_judge<br/>실패 task_id 지목"}
-        OR --> ST
-        ST --> WN & W2 & W1
-        WN & W2 & W1 --> AG
-        AG --> SY --> JD
+        TR ---> TRL & MK & SH & DM
+        TRL & MK & SH & DM --> SY["synthesizer<br/>일치·상충 · H1~H4"]
     end
-    subgraph S3["3. 품질 피드백 (Judge 실패 시에만, task당 재시도 1회)"]
-        RR{"retry_router<br/>attempt==0? 원 Agent 확인<br/>조사하지 않음"}
-        UA[/"unused Agents<br/>Registry − used"/]
-        CR["cross_reviewer<br/>REVIEW MODE · 최대 2명<br/>수행하지 않고 검토만"]
-        A0["Agent 0<br/>feedback_retry_coordinator<br/>재시도 지시문 작성"]
-        SW["Same Original Worker<br/>같은 assigned_agent · attempt 1<br/>실패 task만 재실행"]
-        RR --> UA --> CR --> A0
-        RR -.->|"unused 없음 → 검토 생략"| A0
-        A0 --> SW
+    subgraph S3["3. Judge 검증 및 선택적 재실행"]
+        JD["judge<br/>근거·중립·다양성·완결성"] --> RR{"retry_router<br/>재실행?"}
     end
-    subgraph S4["4. 보고서 생성·품질 평가"]
-        RWR["report_writer<br/>본문·REFERENCE"] --> QE{"report_quality_evaluator<br/>근거성·중립성·편향·커버리지<br/>결정적 검사 + LLM Judge"}
-        QE -.->|"서술 문제 · 재작성<1"| RWR
-        QE -.->|"통과 · 한도 도달"| PDF["pdf_renderer<br/>10쪽 이내 PDF"]
+    subgraph S4["4. 보고서 생성·검수"]
+        RWR["report_writer<br/>본문·REFERENCE 작성"] --> FC{"final_check<br/>검수 통과?"}
+        FC -.->|"수정 필요 · 수정<1"| RWR
+        FC -.->|"통과 · 한도 소진 후 보정"| PDF["pdf_renderer<br/>SKALA 양식 PDF"]
     end
     GR -...->|"충족 · 한도 소진"| TR
     GR -.->|"부족 · 재시도<2"| QRW
     QRW --> RET
-    TR --> OR
-    JD -.->|"FAIL · retry_required"| RR
-    SW --> AG
-    JD -.->|"PASS · 재시도 후 미달은 FAILED_AFTER_RETRY 기록"| RWR
-    QE -.->|"근거 문제 · attempt 0"| RR
+    SY ---> JD
+    RR -.->|"미달 관점만 · 재실행<2"| FAN
+    RR -..->|"모두 통과 · 한도 소진"| RWR
     PDF --> END(["END"])
     classDef agent fill:#EEE8FA,stroke:#7F4ACB,color:#161A58;
     classDef util fill:#F2F3F8,stroke:#9AA0B8,color:#161A58;
     classDef human fill:#E8F4EC,stroke:#2E7D4F,color:#16381F;
     classDef gate fill:#FFF6E5,stroke:#D08A00,color:#3A2A00;
-    classDef review fill:#E7F1FB,stroke:#2F6DB5,color:#10284A;
-    class VAL,TR,W1,W2,WN,SY,RWR,SW agent;
-    class INIT,IDX,QP,RET,QRW,PDF,ST,UA,AG util;
+    class VAL,TR,TRL,MK,SH,DM,SY,JD,RWR agent;
+    class INIT,IDX,QP,RET,QRW,PDF util;
     class H0,END human;
-    class GR,OR,JD,RR,QE gate;
-    class CR,A0 review;
+    class GR,RR,FC gate;
     style S1 fill:#FBFBFD,stroke:#B8BCCC,color:#161A58
     style S2 fill:#FBFAFE,stroke:#B9A3E3,color:#161A58
-    style S3 fill:#F6FAFE,stroke:#8FB3DE,color:#161A58
+    style S3 fill:#FFFDF6,stroke:#E3C27A,color:#161A58
     style S4 fill:#FBFBFD,stroke:#B8BCCC,color:#161A58
-    style WK fill:#F6F2FD,stroke:#7F4ACB,stroke-dasharray:4 3,color:#161A58
+    style FAN fill:#F6F2FD,stroke:#7F4ACB,stroke-dasharray:4 3,color:#161A58
