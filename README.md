@@ -115,7 +115,6 @@ uv run pytest -q              # 테스트 60개, API 호출 없음
 - 첫 실행은 논문 PDF 6편과 HuggingFace 모델(bge-m3, bge-reranker-v2-m3)을 내려받고, PDF 변환에 LibreOffice가 필요하다
 
 ## Contributors
-<!-- TODO: 팀 확인 필요 (PM·PL 역할은 적지 않음) -->
 - 김정인 : 평가 관점·채점 Rubric 설계, 보고서 검토
 - 김지수 : 기술 조사·후보 평가표 작성, 참고문헌 정리
 - 김진수 : RAG 파이프라인·임베딩 평가, LangGraph Orchestrator-Workers 구현
