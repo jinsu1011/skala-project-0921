@@ -1,0 +1,65 @@
+{
+ "query": "\"SK hynix ITME KV cache\" independent academic study third-party benchmark operator deployment performance quantitative results workload baseline hardware configuration",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:45:41+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "Hardware Topology and Bandwidth Alignment. With the baseline configuration of 32 GB DRAM and a 2-channel SSD established to mitigate the SRAM overhead, our subsequent design focus shifts to ensuring that the internal data paths do not bottleneck the overall system performance. To achieve full line-rate utilization of high-speed host interconnects (e.g., PCIe x8), the system must balance the throughput across two critical paths: the Host-to-DRAM path for direct CPU access and the SSD-to-DRAM [...] Beyond turn 21, the CPU-offload baseline completely exhausts its 128 GB memory. With no space left to store new KV blocks, its caching system collapses, forcing the hit rate to 0% and making it as slow as the recompute-only baseline. In contrast, ITME continues to function by leveraging its massive CXL-hybrid memory. While the ITME exhibits some performance fluctuations due to unpredictable I/O stalls during intense contention, our read-priority scheduling effectively mitigates these [...] Figure 9 illustrates the time to first token (TTFT) speedup for the Llama-3.1 8B and 70B models, normalized against a GPU memory (T1) baseline utilizing recomputation. To ensure a fair evaluation, both the baselines and ITME are configured with weight offloading and prefetching enabled. To establish the upper performance bound of our architecture, we include an ideal GPU memory configuration with 80 GB, where the entire KV cache footprint resides within the local high-bandwidth memory.",
+   "published_date": null,
+   "score": 0.5414337
+  },
+  {
+   "url": "https://o-mega.ai/articles/google-turboquant-the-2026-llm-compression-guide",
+   "title": "Google TurboQuant Aug 2026: Deployment & Performance Guide | Articles | o-mega",
+   "content": "Now the third act, from reporting we opened this week - Yahoo Finance. SK Hynix listed on the Nasdaq on July 10, 2026 at an IPO price of $149 per share. The ADR opened at $170, spiked to roughly $195, and then reversed about 34% to trade near $128, below the offering price, within weeks. Then came second-quarter earnings: operating income of $41.7 billion, up 557% year over year, and revenue of $54.6 billion, up 257%, both of which missed analyst estimates of $44.2 billion and $57.9 billion [...] Recall the crash first. On March 26, the day after most coverage broke, SK Hynix fell 6%, Samsung fell roughly 5%, Micron dropped 3.4%, and SanDisk and Western Digital followed - investing.com. The market logic was that 6x less KV cache memory means less High Bandwidth Memory demand. The sell-off was amplified by SK Hynix's record $7.97 billion ASML order placed just two days earlier, which suddenly looked like capacity nobody would need - 247 Wall St. [...] ## 14. The Market Verdict, Act Three: SK Hynix After the Melt-Up",
+   "published_date": null,
+   "score": 0.521886
+  },
+  {
+   "url": "https://www.preprints.org/frontend/manuscript/9fb1a2265e5adcb2d026ce65947c47cd/download_pub",
+   "title": "Context Length, Attention Architecture, and GPU Memory Re",
+   "content": "by KB Abed Al Raoof · 2026 — This study presents a controlled systems characterization of KV-cache performance across input context length, grouped-query atten- tion",
+   "published_date": null,
+   "score": 0.4718322
+  },
+  {
+   "url": "https://www.min.io/blog/minio-doubles-the-sessions-your-gpus-hold-measured-the-way-youd-actually-run-it",
+   "title": "KV Cache Benchmarks: What Those 70× Claims Actually Measure",
+   "content": "September 11, 2026\n\n### How we built the KV cache benchmark around real session behavior, and the effective GPU utilization you recover once evicted context has somewhere to go.\n\nIf you've been looking at what to do when KV cache outgrows GPU memory, you've seen the time-to-first-token claims, anywhere from sixteen to seventy times and beyond. Anyone with a career in IT infrastructure asks two questions. Seventy times greater than what? And what were users doing while that was measured? [...] The pattern repeats on 8 of the 10 models measured, from an 8B dense model up to a 405B one, and reaches 196% more throughput and 3.42× the completed work on Llama-3.1-70B at 64 sessions. Each of those figures carries its sample count, a confidence interval, and a control confirming both configurations did the same amount of work, across 198 measured windows.\n\n## ‍Where DRAM Runs Out, MemKV Picks Up [...] Twice the concurrent sessions on the GPUs you already own. Throughput per GPU climbs as you add sessions, reaches a peak, then falls away as more of each GPU's time goes to rebuilding context instead of serving it. A context tier moves that peak out to twice the session count, so the same hardware carries roughly twice the load before performance starts to degrade. On the Llama-3.1-70B grid the gain holds in all 25 cells, improving tail latency between 2.6× and 19.6×, and the storage tier was",
+   "published_date": null,
+   "score": 0.4302197
+  },
+  {
+   "url": "https://research.skhynix.com/blog/detail/enabling-inference-at-massive-scale-with-hybrid-storage-for-kv-cache-offloading",
+   "title": "Enabling inference at massive scale with hybrid storage for ...",
+   "content": "Efficiently storing KV cache values means the GPU can avoid recalculating prompts, reducing cycles and power consumption. KV caches are",
+   "published_date": null,
+   "score": 0.21241207
+  },
+  {
+   "url": "https://pinnaclepubs.com/index.php/JSISI/article/view/1068",
+   "title": "Benchmarking KV-Cache Management and Chunked-Prefill Scheduling across Mainstream LLM Inference Engines under Production Traces | Journal of Science, Innovation & Social Impact",
+   "content": "## Issue\n\nVol. 2 No. 4 (2026): 2026 2nd International Forum on Computing and Intelligent Systems (IFCIS 2026)\n\n## Section\n\nArticles\n\n## How to Cite\n\nBenchmarking KV-Cache Management and Chunked-Prefill Scheduling across Mainstream LLM Inference Engines under Production Traces. (2026).  Journal of Science, Innovation & Social Impact, 2(4), 74-84. \n\n ACM\n ACS\n APA\n ABNT\n Chicago\n Harvard\n IEEE\n MLA\n Turabian\n Vancouver\n AMA\n\nDownload Citation\n\n Endnote/Zotero/Mendeley (RIS)\n BibTeX [...] Production deployment of large language model (LLM) inference engines has rapidly accumulated a diverse set of memory-management and scheduling techniques, yet rigorous head-to-head evaluations under realistic workloads remain scarce. This study presents a comparative empirical evaluation of five mainstream LLM inference engines — vLLM, SGLang, TensorRT-LLM, Text Generation Inference (TGI), and Sarathi-Serve — along two orthogonal technical axes: KV-cache management strategy (PagedAttention [...] Journal of Science, Innovation & Social Impact\n\n# Benchmarking KV-Cache Management and Chunked-Prefill Scheduling across Mainstream LLM Inference Engines under Production Traces\n\n## Authors\n\n Yixin Zheng   Information Science, University of Michigan, Ann Arbor, MI, USA   Author\n Jianuo Wang   Electrical and Computer Engineering, University of Michigan, Ann Arbor, MI, USA   Author\n Jiawen Lai   Computer Engineering, University of California, Riverside, CA, USA   Author\n\n## DOI:\n\n \n\n## Keywords:",
+   "published_date": null,
+   "score": 0.18268816
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep3",
+   "title": "[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance – SK hynix Newsroom",
+   "content": "configured around workload requirements. [...] two representative technologies driving this shift in different areas and various academic works to tightly integrate components exist. [...] NVLink and NVSwitch provide high-bandwidth connectivity within GPU clusters. When large-scale AI models run across multiple GPUs and nodes, intermediate data such as model parameters, activations, and the KV cache must move between GPUs. If GPU-to-GPU connectivity is slow or inflexible, overall processing performance can suffer regardless of how fast each individual GPU is.",
+   "published_date": null,
+   "score": 0.17749733
+  },
+  {
+   "url": "https://aerospike.com/blog/kv-cache-tiering-gpu-memory-limits",
+   "title": "KV Cache Tiering: Why GPU Memory Alone Won't Scale | Aerospike",
+   "content": "KV caches are organized by layer, attention head, and token. Every transformer layer maintains its own cache, meaning a model with dozens of layers accumulates a surprisingly large amount of cached information as a prompt grows. Because every newly generated token immediately references previously generated tokens, this cache must reside as close to the GPU's tensor cores as possible. The KV cache must therefore live in a GPU’s HBM. HBM provides enormous bandwidth, measured in terabytes per [...] GPU memory is volatile. Whenever an inference server restarts, whether due to maintenance, software upgrades, failures, or autoscaling events, the entire KV cache is immediately lost. Every subsequent request must perform a full prefill operation because none of the previously computed key/value vectors are preserved. For production workloads, rebuilding these warm caches can take tens of minutes before performance returns to steady state, depending on traffic patterns and model behavior. These [...] A single conversation with a 10,000-token prompt requires approximately 10,000 tokens × 0.5 MB ≈ 5 GB of KV cache.\n\nNow consider a production deployment serving multiple users simultaneously:\n\n| Concurrent sessions | Context length | Approximate KV cache |\n --- \n| 10 | 10,000 tokens | 50 GB |\n| 20 | 10,000 tokens | 100 GB |\n| 50 | 10,000 tokens | 250 GB |\n| 100 | 10,000 tokens | 500 GB |",
+   "published_date": null,
+   "score": 0.14541878
+  }
+ ]
+}

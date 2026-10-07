@@ -591,7 +591,15 @@ def build_markdown(state: dict, nar: dict) -> tuple[str, list[Reference]]:
     add("## 6.3 분석 방법의 한계")
     add(f"- 검색 구성(bge-m3, 3중 RRF + reranker)은 한국어→영어 42문항 개발 지표(구현 조건 Hit@1 0.786, Hit@5 0.976, MRR@10 0.863)로 골랐다. "
         "설정 선택과 성능 보고를 같은 42문항으로 해 개발셋과 테스트셋이 분리되지 않았고 과적합 가능성이 있다.")
-    add(f"- Judge(gpt-4.1)는 생성 모델(gpt-4.1-mini)보다 상위 모델이지만 같은 계열이라 자기 평가 편향을 줄이는 효과가 제한적이다.")
+    gen, judge = config()["llm"]["generator"], config()["llm"]["judge"]
+    if gen == judge:
+        add(f"- 생성과 Judge에 같은 모델({gen})을 써서 자기 평가 편향을 모델 차이로 줄이지 못한다. 결정적 검사(근거 매핑·어휘·출처 계열 비율)가 이를 일부 보완한다.")
+    elif gen.split("-")[:2] == judge.split("-")[:2]:
+        add(f"- Judge({judge})는 생성 모델({gen})보다 상위 모델이지만 같은 계열이라 자기 평가 편향을 줄이는 효과가 제한적이다.")
+    else:
+        add(f"- 생성 모델({gen})과 Judge({judge})는 계열이 다르지만 같은 제공사(OpenAI) 모델이라 자기 평가 편향을 줄이는 효과가 제한적이다.")
+    if gen.startswith("gpt-6"):
+        add(f"- {gen}은 temperature를 고정할 수 없어(기본값 1) 같은 입력에서도 응답이 달라질 수 있고, 재현성은 응답 캐시로만 보장된다.")
     add("- 평가 주체인 우리 조가 SK 교육과정 소속이고 ITME는 SK hynix 기술이다. 두 기술에 같은 질의 틀·검색 한도·Rubric을 썼지만 소속에 따른 편향 가능성을 배제할 수 없다.")
     add("- 웹 근거는 Tavily 검색 결과에 의존하며 검색 시점(2026-09-22)의 자료만 반영한다. 점수는 근거 개수를 가중치로 쓰지 않지만 검색되는 자료의 양에 영향을 받는다.")
     ws = state.get("warnings", [])

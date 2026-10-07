@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache original paper appendix LongBench-E Needle-in-a-Haystack actual scores evaluation settings 2-bit inner-product accuracy context length batch concurrency memory latency throughput kernel hardware serving stack independent academic reproduction",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:45:41+09:00",
+ "results": [
+  {
+   "url": "https://medium.com/online-inference/implementing-googles-turboquant-kv-cache-compression-and-llm-evaluation-with-w-b-1403d460846b",
+   "title": "Implementing Google’s TurboQuant: KV Cache Compression and LLM Evaluation with W&B | by David Davies | Online Inference | Medium",
+   "content": "A significant logistical challenge the tutorial must address is the current state of the publicly available codebase. Because Google’s official open-source code release is tentatively scheduled for the second quarter of 2026, corresponding with the formal presentation at ICLR, the tutorial must rely on state-of-the-art, community-driven implementations to provide hands-on, practical experience. [...] To address this systemic limitation, Google Research introduced TurboQuant. TurboQuant operates as a training-free compression algorithm that claims to reduce the KV cache memory footprint by a massive factor of six, down to representations as small as 3 bits per value, without degrading downstream model accuracy. Furthermore, the algorithmic efficiency of the approach reportedly yields attention computation speeds up to eight times faster than unquantized baselines on enterprise hardware such [...] Because TurboQuant aggressively compresses the KV cache, its primary failure mode will manifest during long-context retrieval operations. Utilizing the Needle In A Haystack (NIAH) benchmark, users systematically inject a highly specific, random fact at varying depths within a massive background text. A properly implemented TurboQuant framework (utilizing sparse Value dequantization) has been empirically shown to achieve perfect 100% retrieval accuracy at full 32,000 token context lengths.",
+   "published_date": null,
+   "score": 0.6188962
+  },
+  {
+   "url": "https://turbo-quant.com",
+   "title": "Google TurboQuant — Paper, Tools, Benchmarks & Framework Status",
+   "content": "How much memory does TurboQuant save?+\n\nGoogle reports at least 6× KV cache memory reduction compared to FP16. For example, Llama 3.1 70B at 128k context drops from ~40 GB to ~7.5 GB of KV cache memory.\n\nHow does TurboQuant compare to KIVI?+\n\nTurboQuant achieves higher quality at similar compression rates. At 3.5 bits, TurboQuant matches FP16 quality (Needle score 0.997), while KIVI at 2-bit is more aggressive but scores 0.981. TurboQuant also provides up to 8× attention speedup on H100. [...] TurboQuant.\n\nEN中文한국어日本語\n\n⚠Independent reference site · Not affiliated with Google or Alphabet Inc.\n\nLast verified 2026-04-19 · Accepted at ICLR 2026 · PolarQuant accepted at AISTATS 2026\n\nByTurboQuant Team·Last updated\n\nIndependent reference · April 2026\n\n# Google TurboQuant Explained\n\nAn independent engineering guide to KV cache compression for LLM inference. [...] TurboQuant is a two-stage KV cache quantization method from Google Research (ICLR 2026). It combines PolarQuant (polar-coordinate rotation + scalar quantization) with QJL (1-bit residual correction) to compress KV cache vectors to ~3 bits with near-zero quality loss.\n\nDoes TurboQuant require training or fine-tuning?+\n\nNo. TurboQuant is completely data-oblivious — it requires no training data, calibration sets, or model-specific tuning. You apply it at inference time to any transformer model.",
+   "published_date": null,
+   "score": 0.6161283
+  },
+  {
+   "url": "https://themlsurgeon.substack.com/p/turboquant-what-3-bit-kv-caches-actually",
+   "title": "TurboQuant: What 3-Bit KV Caches Actually Mean for Your Inference Stack",
+   "content": "## What Holds Up, What Doesn’t\n\nThe distortion theory is solid and empirically confirmed. On Needle-in-a-Haystack, TurboQuant scores 0.997 at 4x compression, identical to full-precision on Llama-3.1-8B up to 104K context. KIVI manages 0.981, PyramidKV 0.895, SnapKV 0.858. On LongBench at 3.5 bits, TurboQuant matches the 16-bit baseline exactly (50.06 average). For nearest neighbor search, it outperforms PQ, NestQuant, LSQ++, and OPQ in recall with essentially zero indexing time. [...] The picture gets murkier at lower bit-widths. LongBench at 2.5 bits shows marginal degradation, and the score shifted from 49.44 in the arXiv version to 49.74 in the camera-ready without explanation. GSM8K at 3-bit on Qwen2-7B drops 1.4 points (84.3% vs 85.7%), which is more honest about real-world impact than the near-perfect long-context numbers suggest.\n\nSeveral things remain unresolved. [...] The “2.5-bit” and “3.5-bit” numbers come from outlier-aware channel splitting (32 channels at 3 bits + 96 at 2 bits = 2.5 average over 128-dim heads), a standard technique from prior work, not TurboQuant-specific.\n\nNo official code from Google. Supplementary material is insufficient for reproduction. Community has built working implementations in PyTorch, Triton, and llama.cpp. Official release expected Q2 2026.\n\n## The RaBitQ Dispute",
+   "published_date": null,
+   "score": 0.6139086
+  },
+  {
+   "url": "https://community.intel.com/t5/Blogs/Tech-Innovation/Data-Center/Enhancing-long-context-high-concurrency-LLM-serving-on-a-32-GB/post/1751209",
+   "title": "Enhancing long-context, high-concurrency LLM serving on a 32 GB workstation GPU: TurboQuant KV Cache",
+   "content": "References\n\n Zandieh, A., Daliri, M., Hadian, M., Mirrokni, V. “TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate.” ICLR 2026. arXiv:2504.19874\n\n Google Research Blog. “TurboQuant: Redefining AI Efficiency with Extreme Compression.” March 2026. research.google/blog\n\n vLLM PR #38479: “[Attention Backend] TurboQuant: 2-bit KV cache compression with 4× capacity.”; upstream implementation this work builds on. github.com/vllm-project/vllm/pull/38479 [...] any context length. Aggregate score deltas are ≤0.003 on all three models at every context length (Figure 4). The upstream authors report near-lossless results on LongBench, ZeroSCROLLS, and single-needle NIAH; our RULER results extend that validation to a harder 13-task suite and validates that TurboQuant maintains quality across extended context lengths on Intel Arc Pro B70. [...] Accuracy: Near-lossless across five benchmarks: Wikitext PPL bitwise identical, NIAH 100% pass-rate, GSM8K within ±2 pp on 3/4 models, MMLU within 0.9 pp on Gemma-4-E4B, RULER long-context (4K–32K) ≤0.003 aggregate delta.\n   Throughput: Up to 2.33× uplift on long-context (ISL≥4K) workloads where BF16 saturates KV memory. Dense models at moderate context: 10–30% decode overhead in exchange for 2.6–3.5× capacity headroom.",
+   "published_date": null,
+   "score": 0.5660431
+  },
+  {
+   "url": "https://arxiv.org/html/2504.19874v1",
+   "title": "TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate",
+   "content": "We experiment with various KV cache compression algorithms on the LongBench dataset , which encompasses a broad range of long-text scenarios, including single- and multi-document question-answering, summarization, few-shot learning, synthetic tasks, and code completion. To ensure a balanced evaluation across different context lengths, we employ LongBench-E, a subset designed with a more uniform length distribution. This enables a fair assessment of each model’s performance across varying [...] The “Needle-In-A-Haystack Test””  is a benchmark designed to evaluate a model’s ability to retrieve specific information embedded within a long document. The test involves placing a unique sentence (the ”needle”) at an arbitrary location within a much larger text (the ”haystack”) and assessing whether the model can successfully extract it. [...] Furthermore, in ?? and ??, we showcase TurboQuant’s efficacy in online KV cache quantization.\nSpecifically, we achieve perfect long-context retrieval in needle-in-a-haystack tasks and maintain high performance on other long-context downstream tasks, all while compressing the KV cache by a factor exceeding 5×5\\times.",
+   "published_date": null,
+   "score": 0.4547875
+  },
+  {
+   "url": "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression",
+   "title": "TurboQuant: Redefining AI efficiency with extreme compression",
+   "content": "We rigorously evaluated all three algorithms across standard long-context benchmarks including: LongBench, Needle In A Haystack, ZeroSCROLLS, RULER, and L-Eval using open-source LLMs (Gemma and Mistral). The experimental data demonstrate that TurboQuant achieves optimal scoring performance in terms of both dot product distortion and recall while simultaneously minimizing the key-value (KV) memory footprint. The chart below shows the aggregated performance scores across diverse tasks, including [...] Image 56: Quantization-2\n\n_TurboQuant demonstrates robust KV cache compression performance across the__LongBench__benchmark relative to various compression methods on the__Llama-3.1-8B-Instruct__model (bitwidths are indicated in brackets)._ [...] ## How TurboQuant works\n\nTurboQuant is a compression method that achieves a high reduction in model size with zero accuracy loss, making it ideal for supporting both key-value (KV) cache compression and vector search. It accomplishes this via two key steps:",
+   "published_date": null,
+   "score": 0.42048118
+  },
+  {
+   "url": "https://rocm.blogs.amd.com/artificial-intelligence/turboquant-vllm-agentic/README.html",
+   "title": "Productionizing TurboQuant on AMD GPUs for KV-Cache-Bound LLM Inference — ROCm Blogs",
+   "content": "TurboQuant (TQ) is a recently published KV-cache compression algorithm . By pairing a structured rotation with a small, fixed codebook, TQ aims to push KV cache down to 4/3/2 bits with surprisingly little accuracy loss in the offline accuracy-only setting it was originally analyzed in. In this work, we focus on what is required to translate that algorithm into a competitive production deployment on AMD GPUs, where additional practical considerations around accuracy, kernel performance, and [...] With FP8 KV cache, the large per-client prefixes (32K tokens each) fill available GPU memory quickly at concurrency 32. The 5.3% cache hit rate reflects the system spending most of its time re-prefilling evicted contexts rather than doing useful generations. This explains the long 13.9s taken to generate the first token (P50). The same memory-pressure regime reproduces on different hardware and models in the vLLM serving study , where Llama-3.3-70B BF16 P99 TTFT under burst load explodes to ~17 [...] analysis can be found in D’Alberto [Arxiv, 2026]). We find, in line with community implementations, that QJL causes severe degradation of accuracy. To identify the source of error, we developed and tested alternative constructions of the projection matrix S, holding the MSE rotation, bit budget, and inference protocol fixed.",
+   "published_date": null,
+   "score": 0.4023222
+  },
+  {
+   "url": "https://pub.towardsai.net/googles-turboquant-how-they-cut-llm-memory-by-6x-without-losing-accuracy-971313c9aa7e",
+   "title": "Google’s TurboQuant Explained: How They Cut LLM Memory by 6x Without Losing Accuracy",
+   "content": "It’s wasteful.\n\nEvery time you send a long prompt, the model stores massive amounts of intermediate data in something called the KV cache. This cache grows with every token, quickly eating up GPU memory, slowing responses, and increasing cost.\n\nMost solutions try to compress this memory, but there’s always a tradeoff. You either save memory or you lose accuracy.\n\nGoogle’s TurboQuant breaks that tradeoff. [...] # Google’s TurboQuant Explained: How They Cut LLM Memory by 6x Without Losing Accuracy\n\n## A plain-English breakdown of the Google Research paper that could redefine how large language models handle memory\n\nImage 4: Divy Yadav\n\nDivy Yadav\n\n11 min read\n\n·\n\nMar 25, 2026\n\n[](\n\n--\n\n2\n\n[](\n\n--\n\n[](\n\nListen\n\nShare\n\nRunning large language models isn’t just expensive.\n\nIt’s wasteful.",
+   "published_date": null,
+   "score": 0.36283427
+  }
+ ]
+}

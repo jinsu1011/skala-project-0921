@@ -1,0 +1,65 @@
+{
+ "query": "\"Google TurboQuant KV cache\" independent reproduction benchmark real model serving deployment developer report quality latency baseline",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:45:41+09:00",
+ "results": [
+  {
+   "url": "https://o-mega.ai/articles/google-turboquant-the-2026-llm-compression-guide",
+   "title": "Google TurboQuant Aug 2026: Deployment & Performance Guide | Articles | o-mega",
+   "content": "There is also a throughput asterisk that the March hype skipped. The vLLM study measured TurboQuant variants running 20-34% below FP8 and BF16 baseline throughput on their test matrix, with up to 60-68% latency overhead in the worst configurations, in exchange for 2.4x-3.7x KV capacity gains versus FP8's 2x. The compensating result: under burst load, BF16 time-to-first-token exploded to roughly 17 seconds while TurboQuant configurations prevented the blowup entirely, because compressed caches [...] The technical work was real. PR #21089 implemented two CPU TurboQuant KV cache types: tbq3\\_0 at roughly 3.0625 bits per element with 5.22x compression versus f16, and tbq4\\_0 at 3.94x compression with quality comparable to the existing q4\\_0 cache type. The implementation used the Randomized Hadamard Transform, which suits CPUs well because Hadamard matrices contain only +1 and -1 values, avoiding floating-point multiplication in the rotation step. By the numbers, it worked. [...] | Deployment Scenario | TurboQuant Status (verified September 9, 2026) | Recommended Setup | Honest Expected Impact |\n ---  --- |\n| vLLM cloud serving | Merged upstream (PR #38479); presets live in v0.28.0 | `--kv-cache-dtype turboquant_k8v4` | 2.6x KV capacity, +1.17% PPL, 79-100% throughput; burst TTFT protection |",
+   "published_date": null,
+   "score": 0.7823471
+  },
+  {
+   "url": "https://turbo-quant.com",
+   "title": "Google TurboQuant — Paper, Tools, Benchmarks & Framework Status",
+   "content": "TurboQuant is a two-stage KV cache quantization method from Google Research (ICLR 2026). It combines PolarQuant (polar-coordinate rotation + scalar quantization) with QJL (1-bit residual correction) to compress KV cache vectors to ~3 bits with near-zero quality loss.\n\nDoes TurboQuant require training or fine-tuning?+\n\nNo. TurboQuant is completely data-oblivious — it requires no training data, calibration sets, or model-specific tuning. You apply it at inference time to any transformer model. [...] ### Paper claims\n\nGoogle reports at least 6× KV memory reduction, near-lossless 3-bit quantization on tested benchmarks, and up to 8× faster attention on H100.\n\nD\n\n### Deployment questions\n\nYour outcome depends on model architecture (MHA, GQA, MQA), context length, batch size, and the rest of your inference stack.\n\n## Why KV cache is the real bottleneck [...] TurboQuant.\n\nEN中文한국어日本語\n\n⚠Independent reference site · Not affiliated with Google or Alphabet Inc.\n\nLast verified 2026-04-19 · Accepted at ICLR 2026 · PolarQuant accepted at AISTATS 2026\n\nByTurboQuant Team·Last updated\n\nIndependent reference · April 2026\n\n# Google TurboQuant Explained\n\nAn independent engineering guide to KV cache compression for LLM inference.",
+   "published_date": null,
+   "score": 0.64719695
+  },
+  {
+   "url": "https://turboquant.net",
+   "title": "TurboQuant.net - Independent TurboQuant Analysis",
+   "content": "### KV cache compression benchmarks\n\n50.06\n\nLongBench score\n\n3.5-bit = full cache\n\n100\n\nNeedle In A Haystack\n\nperfect from 4K to 104K\n\n6x+\n\nmemory reduction\n\nlarge cost savings\n\n8x\n\nattention speed\n\nH100 at 4-bit [...] ### TurboQuant\n\n Random rotation plus polar transform (PolarQuant)\n 1-bit residual correction (QJL) removes normalization overhead\n Near-zero indexing time\n Matches the 32-bit baseline on reported benchmarks\n\nAISTATS 2026\n\n#### PolarQuant\n\nPolar-transform core that eliminates normalization overhead\n\narXiv: 2502.02617 →\n\nAAAI 2025\n\n#### QJL\n\n1-bit unbiased inner-product estimator\n\nACM DL →\n\nICLR 2026\n\n#### TurboQuant\n\nTwo-stage design with near-optimal distortion\n\narXiv: 2504.19874 → [...] You can infer from current model behavior that mainstream systems are already using many of these ideas. Better long-context behavior, lower inference cost, and stable performance all suggest that KV-cache efficiency has already been significantly improved. A team at Google's level has very likely already deployed low-bit quantization, outlier handling, and at least part of KV-cache compression.",
+   "published_date": null,
+   "score": 0.48308808
+  },
+  {
+   "url": "https://rocm.blogs.amd.com/artificial-intelligence/turboquant-vllm-agentic/README.html",
+   "title": "Productionizing TurboQuant on AMD GPUs for KV-Cache-Bound LLM Inference — ROCm Blogs",
+   "content": "100 conversations, 32 concurrency | Common prefix 2K, per-conversation prefix ~25K, input 2-3K/round, output 200/round, 6 rounds\n\n| Metric | FP8 Baseline | TQ4/4 | Improvement |\n ---  --- |\n| Time-to-First-Token (TTFT) (P50) | 13.9 s | 0.89 s | 17.1x faster |\n| Total throughput | 17,536 tok/s | 28,539 tok/s | 1.63x higher |\n| KV cache hit rate | 5.3% | 67.7% | +62.4 pp |\n| Cache evictions | Frequent | Rare | Near-Eliminated | [...] | Optimization | Minimax 2.5 8K | Minimax 2.5 32K | Qwen 72B 8K | Qwen 72B 32K |\n ---  --- \n| Baseline (scalar LUT, AoS cache, per-head grid) | 1.00x | 1.00x | 1.00x | 1.00x |\n| GQA grouping + unified prefill / decode | 2.49× | 2.61x | 3.16x | 3.30x |\n| SoA KV layout + pair LUT + BF16 dot (tl.dot) | 2.69x | 2.87x | 3.42x | 3.63x |\n| Native MFMA dispatch (intrinsics) | 2.64x | 2.94x | 3.35x | 3.73x |\n| 4-wave parallel QK + LDS V staging | 2.88x | 3.22x | 3.66x | 4.09x | [...] Kernel optimizations: A progression from Triton to HIP to FlyDSL narrowed the throughput gap from 68% behind BF16 to within 5% in our measurements, making TQ practical for production serving in this configuration. More broadly, end-to-end performance is heavily dependent on kernel optimization quality: with sufficiently optimized kernels, TurboQuant can approach the BF16 baseline.",
+   "published_date": null,
+   "score": 0.4172008
+  },
+  {
+   "url": "https://vllm.ai/blog/2026-05-11-turboquant",
+   "title": "A First Comprehensive Study of TurboQuant: Accuracy and Performance | vLLM Blog",
+   "content": "Takeaway: TurboQuant consistently underperforms both BF16 and FP8 by reducing throughput and increasing per-token latency. However, in memory-constrained serving scenarios, the KV-cache compression prevents memory saturation and dramatically reduces TTFT under burst load relative to BF16. This is the core of TurboQuant's value proposition: it trades per-token speed for the ability to serve requests that would otherwise be queued. FP8, on the other hand, provides the best of both worlds: it [...] Quantization Schemes: We benchmark four TurboQuant variants (`--kv-cache-dtype turboquant_{k8v4, 4bit_nc, k3v4_nc, 3bit_nc}`) against unquantized BF16 and FP8 KV-cache baselines. `turboquant_k8v4` uses 8-bit keys and 4-bit values; `turboquant_4bit_nc` uses 4-bit keys and values with norm correction; `turboquant_k3v4_nc` uses 3-bit keys and 4-bit values with norm correction; and `turboquant_3bit_nc` uses 3-bit keys and values with norm correction. The FP8 baseline (`--kv-cache-dtype fp8`) stores [...] The throughput results reinforce the latency findings. FP8 matches BF16 throughput on both models. All TurboQuant variants are strictly below BF16: on Qwen3-30B (Figure 9), ranging from 80% (k8v4) to 73% (3bit-nc); on Llama-70B (Figure 10), from 75% (k8v4 and 4bit-nc) to 66% (3bit-nc). More aggressive quantization consistently yields lower throughput — the dequantization overhead grows with the complexity of the packing format.\n\n### Serving Speed",
+   "published_date": null,
+   "score": 0.4051433
+  },
+  {
+   "url": "https://github.com/0xsero/turboquant",
+   "title": "GitHub - 0xSero/turboquant: TurboQuant: Near-optimal KV cache quantization for LLM inference (3-bit keys, 2-bit values) with Triton kernels + vLLM integration · GitHub",
+   "content": "# TurboQuant: KV Cache Compression for LLM Inference\n\nImplementation of TurboQuant KV cache compression (ICLR 2026, arXiv:2504.19874) with vLLM integration. Tested on dense and MoE architectures across RTX 3090 and RTX 5090 GPUs.\n\n## Benchmark Results\n\n### RTX 5090 (32GB) -- Qwen3.5-27B-AWQ (dense, 4-bit weights, TP=1)\n\nSetup: Single RTX 5090, vLLM 0.18.0, `gpu_memory_utilization=0.90`, 16 full-attention layers out of 64 total (rest are linear-attention). [...] Setup: 8x RTX 3090, vLLM 0.18.0, `gpu_memory_utilization=0.92`, AMD EPYC 7443P 24-Core, 504GB RAM. Model has 10 full-attention layers + 30 linear-attention layers (40 total). TQ compresses only the 10 full-attention layers.\n\n#### Throughput & Latency (Baseline, bf16 KV) [...] | Metric | Baseline (bf16 KV) | TurboQuant (3b key / 2b val) |\n --- \n| Prefill tok/s (30k ctx) | 1,804 | 1,907 (+5.7%) |\n| Decode tok/s (30k ctx) | 1.264 | 1.303 (+3.1%) |\n| KV cache freed  30.0 GB (across 4 GPUs) |\n| Max token capacity | 457,072 | 914,144 (2.0x) |\n| Peak activation memory | 644.6 MB | 599.2 MB (-7.0%) |\n\n### 8x RTX 3090 (24GB each) -- Qwen3.5-35B-A3B MoE (pruned, 205 experts, TP=8)",
+   "published_date": null,
+   "score": 0.35851082
+  },
+  {
+   "url": "https://arxiv.org/html/2504.19874v1",
+   "title": "TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate",
+   "content": "For comparison, we benchmark our approach against several state-of-the-art memory-efficient methods, including PolarQuant , SnapKV , PyramidKV , and KIVI . Each method is tested under a memory compression ratio of 0.25, meaning that only 25% of the full KV cache is utilized. [...] A key application of VQ is in the deployment of AI models, including large language models (LLMs) [5, 18, 7, 52].\nAs LLM capabilities depend heavily on their model size and context length , serving them requires substantial memory demands and increased inference latency.\nThis latency is primarily attributed to communication bottlenecks between HBM and SRAM on accelerators, or across distributed clusters. [...] We also provide a formal proof of the information-theoretic lower bounds on best achievable distortion rate by any vector quantizer, demonstrating that TurboQuant closely matches these bounds, differing only by a small constant (≈2.7\\approx 2.7) factor.\nExperimental results validate our theoretical findings, showing that for KV cache quantization, we achieve absolute quality neutrality with 3.5 bits per channel and marginal quality degradation with 2.5 bits per channel.",
+   "published_date": null,
+   "score": 0.35555163
+  },
+  {
+   "url": "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression",
+   "title": "TurboQuant: Redefining AI efficiency with extreme compression",
+   "content": "TurboQuant proved it can quantize the key-value cache to just 3 bits without requiring training or fine-tuning and causing any compromise in model accuracy, all while achieving a faster runtime than the original LLMs (Gemma and Mistral). It is exceptionally efficient to implement and incurs negligible runtime overhead. The following plot illustrates the speedup in computing attention logits using TurboQuant: specifically, 4-bit TurboQuant achieves up to 8x performance increase over 32-bit [...] Image 56: Quantization-2\n\n_TurboQuant demonstrates robust KV cache compression performance across the__LongBench__benchmark relative to various compression methods on the__Llama-3.1-8B-Instruct__model (bitwidths are indicated in brackets)._ [...] ## How TurboQuant works\n\nTurboQuant is a compression method that achieves a high reduction in model size with zero accuracy loss, making it ideal for supporting both key-value (KV) cache compression and vector search. It accomplishes this via two key steps:",
+   "published_date": null,
+   "score": 0.3295972
+  }
+ ]
+}

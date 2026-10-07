@@ -1,0 +1,65 @@
+{
+ "query": "\"SK hynix ITME KV cache\" independent evaluation limitations benchmark workload baseline hardware configuration actual users buyers deployments; separately assess CXL infrastructure price availability integration and operating costs without attributing generic CXL results to ITME",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:45:44+09:00",
+ "results": [
+  {
+   "url": "https://news.skhynix.com/en/ai-infra-summit-2026",
+   "title": "SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’ – SK hynix Newsroom",
+   "content": "\\ KV Cache (Key Value Cache): Temporary memory in which a large language model-based AI agent stores previously computed results when generating text. The longer the conversation with a user and the more tasks there are to process, the more exponentially it grows — so the memory capability to store and process it efficiently has a major impact on an AI agent’s performance. [...] In the SALT-KV session, a server equipped with SK hynix’s eSSD was displayed, and a monitor set up beside it allowed visitors to see for themselves — through actual data — how the SALT-KV solution works and how data storage shifts within a real AI system. SALT-KV (Semantic-Aware Lifecycle Tiering for KV Cache) divides an LLM’s KV cache\\ into context-based segments and comprehensively assesses their reuse value and storage cost. Based on this, it places data in the most suitable storage tier [...] He also emphasized, “HBF, which combines high bandwidth and large capacity to improve the efficiency of long-context workloads, and PIM technology, which improves performance and efficiency in the fast-decoding workloads of premium services, are excellent alternatives that can move beyond existing limits. SALT-KV, too, which raises processing efficiency by taking into account the characteristics and reusability of the KV cache, holds ample potential to drive the evolution of AI systems.”",
+   "published_date": null,
+   "score": 0.42076674
+  },
+  {
+   "url": "https://hotinfra.org/2026/papers/hotinfra26-final59.pdf",
+   "title": "Reimagining LLM Inference Infrastructure with Memory- ...",
+   "content": "Reimagining LLM Inference Infrastructure with Memory-Centric KV Cache Servers HotInfra ’26, June 28, 2026, Raleigh, NC, USA Table 1. 32K tokens generation with DeepSeek-R1-671B GPU cluster2 KV cache server Devices 19× H100 SXM5 CPU, 2× CXL switches, (80 GB HBM each) 23× 64 GB PIM-DIMMs Total memory 1,520 GB 1,472 GB Aggregate Bandwidth 63.7 TB/s 150.7 TB/s (2.4×↑) Throughput 679 tok/s 1,607 tok/s (2.4×↑) CapEx (purchase) $570,000 $27,664 (20.6×↓) OpEx (cloud rental+elec.) $59.23/hr $3.53/hr [...] No prior work frames the KV cache server as a first-class infrastructure tier with a substrate-agnostic CXL archetype spectrum, mode-adaptive operation, and hierarchical orches-tration for different usecase scenarios. A comprehensive HW/SW stack study is required to characterize its coordina-tion with existing GPU-HBM serving systems. [...] 2 The KV Cache Server We propose that the KV cache server should be a first-class data center infrastructure tier, positioned between GPU com-pute nodes and storage—just as object stores (S3 ) once decoupled storage from compute. We identify three device archetypes along the CXL-attached memory spectrum (Fig-ure 2a); real deployments may instantiate any single archetype or blend characteristics of multiple archetypes1: (i) CXL DDRx Expanders – KV storage and multi-host pooling/ sharing, no",
+   "published_date": null,
+   "score": 0.39187187
+  },
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "staging buffer and perform all data transfers in fixed-size chunks to their specific backend (either local NVMe-oF or ITME). Consistent with our host memory scaling benchmarks, we utilize the same workload configuration for this comparison. To ensure a fair evaluation, both systems follow an identical caching policy: they serve KV blocks from the CPU staging buffer upon a hit, falling back to recomputation if the required data is not present in the staging buffer. [...] arXiv is now an independent nonprofit! Learn more\n\narXiv logo Back to arXiv\n\nLicense: arXiv.org perpetual non-exclusive license \n\narXiv:2606.12556v2 [cs.DC] 16 Jun 2026\n\n# ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories\n\nHakbeom Jang, Younghoon Min, Sunwoong Kim, Taeyoung Ahn, Hanyee Kim,   \nYoungpyo Joo, Hoshik Kim, and Jongryool Kim  Affiliation: Memory Systems Research, SK hynix\n\n© none\n\n###### Abstract. [...] •\n\n  NVMe-oF Integration: We integrated an NVMe-oF (NVMe over Fabrics) stack to enable storage access. This allows the baseline to offload and retrieve KV cache blocks from a storage node, rather than relying solely on local CPU memory or costly recomputation.\n •",
+   "published_date": null,
+   "score": 0.37442517
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM Serving with CXL-Hybrid Memory",
+   "content": "We further compare HyMCache against LMCache configured with a remote Redis tier (LMCache, 2026).\nWe evaluate two Redis configurations: Redis-only 64 GB remote caching and LMCache with a 64 GB local DRAM cache plus an additional 64 GB Redis-backed remote cache tier accessed over TCP. For this experiment, we use Qwen2.5-32B and choose a workload footprint that fits within the combined 128 GB cache capacity of the LMCache and Redis configuration. [...] reduce redundant computation (NVIDIA, 2023; Zheng et al., 2023; Kwon et al., 2023; Cheng et al., 2025; Qin et al., 2025). It has been pursued by memory vendors, cloud providers, startups, and system vendors, including SK hynix (SK hynix, 2025; SK hynix, 2024), Samsung (Samsung Electronics, 2026a; Samsung Electronics, 2024), Alibaba (Alibaba Cloud, 2024), Liqid (Liqid, 2026), UniFabriX (CXL Consortium, 2023), and XCENA (XCENA, 2026), as well as research systems such as TraCT and Beluga (Yoon et [...] For workload generation, we use the synthetic benchmark provided by Dynamo AIPerf (NVIDIA, 2025a; ai-dynamo, 2025), with mooncake trace (Qin et al., 2025), followed by the documented guideline from NVIDIA (NVIDIA, 2025d).",
+   "published_date": null,
+   "score": 0.34118778
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=0_NyRYT1M7g",
+   "title": "Accelerating Real World CXL Deployments From Hardware Assisted Intelligent Tiering to Compres",
+   "content": "# Accelerating Real World CXL Deployments From Hardware Assisted Intelligent Tiering to Compres\n## Channel: Open Compute Project\n25.8K subscribers\n2 likes\n\n### Description\n457 views\nPosted: 2025-10-22\nJungmin Choi Memory System Architect - SK hynix, Dimitrios Palyvos TBD - zeropoint technologies [...] [3:35] performance computing and JVM workloads and we see that on average we get 1.85 85 compression ratio. So the first\n[3:44] answer is yes you can achieve such a compression ratio and the second question is what is the cost for that\n[3:51] and mainly what is the cost latency wise. So for the same evaluation and I show the system setup here. So it's an\n[4:00] FPGA evaluation prototype. uh we measure the read latency either without [...] deployable systems, offering actionable insights for building dynamic, cost-effective tiered memory solutions at scale.",
+   "published_date": null,
+   "score": 0.2022544
+  },
+  {
+   "url": "https://www.linkedin.com/posts/sk-hynix_semiconductor-lab-note-cxl-activity-7343238998988857345-ZZaV",
+   "title": "How SK hynix designs CXL memory for AI workloads | SK hynix posted on the topic | LinkedIn",
+   "content": "Baya Systems\n\n  20,181 followers [...] Baya Systems\n\n  20,181 followers [...] features like time windows, load and duration limits, driver shifts, multiple depots, and heterogeneous fleets   ✅ Proven benchmark performance across diverse VRP types, from CVRPs with 1000+ clients to large-scale problems with 30,000 clients   ✅ Built as part of Terra Quantum AG’s ecosystem of research tools, with adaptability in mind, able to meet customer-specific routing challenges  Our research continues exploring advanced acceleration through distributed and parallel computing on CPUs,",
+   "published_date": null,
+   "score": 0.14984241
+  },
+  {
+   "url": "https://x.com/TheValueist/status/2068889569794080832",
+   "title": "TheValueist on X: \"https://t.co/vvDg1j4aPo\" / X",
+   "content": "The most overhyped exposures are generic AI storage vendors with no demonstrated KV-cache integration, HDD-heavy storage vendors positioned as hot inference-memory beneficiaries, optical names treated as automatic CMX winners without topology evidence, CXL names valued as if broad production deployment has already occurred and any company listed in a partner announcement without independent product evidence. Partner logos are not revenue. Planned adoption is not deployment. A reference [...] The most overhyped exposures are generic AI storage vendors with no demonstrated KV-cache integration, HDD-heavy storage vendors positioned as hot inference-memory beneficiaries, optical names treated as automatic CMX winners without topology evidence, CXL names valued as if broad production deployment has already occurred and any company listed in a partner announcement without independent product evidence. Partner logos are not revenue. Planned adoption is not deployment. A reference [...] NVIDIA-controlled inference factories and enterprise/neocloud deployments. CXL is strongest in open, custom, hyperscaler-designed architectures where DRAM pooling and infrastructure flexibility matter more than NVIDIA stack integration.",
+   "published_date": null,
+   "score": 0.1489489
+  },
+  {
+   "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/261834990-samsung-sk-hynix-micron-hbm-cxl-pangea-v2-ai-data-center-tradingkey",
+   "title": "CXL vs. HBM: Why Samsung, SK Hynix, and Micron are Racing for the Next AI Data Center Frontier",
+   "content": "Highlights\n\nWhat is HBM? What is CXL?CXL to Break the AI Memory Wall: Next-Gen Server ArchitectureSamsung Pangea v2: A 10x Performance Leap for CXL 2.0 SystemsCXL Ecosystem 2026: NVIDIA Vera CPU, Intel, and AMD’s Collective PivotWill CXL Drive a Growth Valuation Re-rating for Memory Stocks?\n\nFeatured Tools\n\ntk_center_stock_scoreStock Scorecalendar_economicCalendarEconomic Calendarsearch.intelligent.strategySmartPicksarticle_asider_weekly_reportWeekly Report\n\nTop News\n\nlink [...] The CXL standard has now reached version 3.2, and Samsung has announced plans to release \"Pangea v3\" based on the latest specifications within 2026. v3 is expected to introduce more robust optical communication support and higher single-port bandwidth, with performance projected to surpass that of v2.\n\n## CXL Ecosystem 2026: NVIDIA Vera CPU, Intel, and AMD’s Collective Pivot [...] Top News\n\nlink\n\nThe Week Ahead: Fed September Minutes, PepsiCo and Delta Earnings in Focus\n\nTop 5 HK Stock Gainers/Losers (>100B) (10.5)\n\nISM Services PMI expected to show robust US economy in September\n\nCrypto Today: Bitcoin rally slows while Ethereum and XRP extend recovery amid slowing ETF inflows\n\nCyberDSA 2026 Opens in Kuala Lumpur as Malaysia's AI Ambition Puts Cybersecurity, Trust and Sovereign Capability in Sharper Focus",
+   "published_date": null,
+   "score": 0.14238712
+  }
+ ]
+}

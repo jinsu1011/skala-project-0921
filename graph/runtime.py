@@ -131,7 +131,8 @@ def llm_text(role: str, system: str, user: str, *, tag: str = "", json_mode: boo
 
     c = config()["llm"]
     kwargs = {"response_format": {"type": "json_object"}} if json_mode else {}
-    llm = ChatOpenAI(model=model, temperature=c["temperature"], seed=c["seed"], max_retries=4, timeout=180,
+    temperature = None if model.startswith("gpt-6") else c["temperature"]   # gpt-6 reasoning models accept only the default
+    llm = ChatOpenAI(model=model, temperature=temperature, seed=c["seed"], max_retries=4, timeout=180,
                      model_kwargs=kwargs)
     msg = llm.invoke([SystemMessage(system), HumanMessage(user)], config={"run_name": tag or role})
     text = msg.content if isinstance(msg.content, str) else str(msg.content)

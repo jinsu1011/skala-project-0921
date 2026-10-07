@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache paper development materials measured performance baseline comparison evaluation conditions workload hardware results independent validation customer deployment cloud server operator",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:45:42+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "To isolate the impact of weight prefetching from prefix KV cache prefetching, we evaluate the performance of ITME by prefetching model weights only. We employ the Mooncake workload with a batch size of 16 and a 4K input sequence length. The primary objective of this evaluation is to demonstrate how closely ITME matches the host memory baseline, where all weights reside in host DRAM. Since the baseline represents the theoretical performance upper bound, this analysis focuses on the efficiency of [...] In this paper, we propose ITME, which leverages CXL-hybrid memory to provide massive, byte-addressable remote memory expansion. By exploiting the deterministic access patterns of LLM workloads, ITME implements a multi-tier DMA prefetching pipeline that effectively masks storage access latencies. We validated ITME using production-grade SK Hynix CMM and PCIe Gen5 SSDs, while demonstrating hardware feasibility via an FPGA-based prototype. Our evaluation confirms that ITME effectively mitigates [...] arXiv is now an independent nonprofit! Learn more\n\narXiv logo Back to arXiv\n\nLicense: arXiv.org perpetual non-exclusive license \n\narXiv:2606.12556v2 [cs.DC] 16 Jun 2026\n\n# ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories\n\nHakbeom Jang, Younghoon Min, Sunwoong Kim, Taeyoung Ahn, Hanyee Kim,   \nYoungpyo Joo, Hoshik Kim, and Jongryool Kim  Affiliation: Memory Systems Research, SK hynix\n\n© none\n\n###### Abstract.",
+   "published_date": null,
+   "score": 0.5278769
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM Serving with CXL-Hybrid Memory",
+   "content": "## 6. Evaluation\n\n### 6.1. PD-Disaggregated Serving Performance\n\n#### 6.1.1. Overall Performance Comparison\n\nFigure 8 shows the results under PD-disaggregated serving on Qwen2.5-32B using AIPerf synthetic inputs. This workload stresses cache capacity because the reusable prefix state quickly exceeds the capacity of GPU-only prefix caching and limited local DRAM caching, while generating approximately 1.5TB of reusable KV-cache footprint across turns. [...] This paper presents HyMCache, a KV-cache framework that integrates CXL-hybrid memory for multi-turn LLM serving. Leveraging the read-dominant, predictable, and append-only access patterns of multi-turn KV caches, HyMCache rethinks DRAM management within CXL-HM through request-level prefix prefetching and opportunistic write buffering. This allows latency-critical reusable KV blocks to be staged in device DRAM while relying on SSD-backed capacity for TB-scale KV reuse. Our evaluation on a real [...] We further compare HyMCache against LMCache configured with a remote Redis tier (LMCache, 2026).\nWe evaluate two Redis configurations: Redis-only 64 GB remote caching and LMCache with a 64 GB local DRAM cache plus an additional 64 GB Redis-backed remote cache tier accessed over TCP. For this experiment, we use Qwen2.5-32B and choose a workload footprint that fits within the combined 128 GB cache capacity of the LMCache and Redis configuration.",
+   "published_date": null,
+   "score": 0.5248093
+  },
+  {
+   "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/6b241c515433caae3051266668d808b7-Paper-Conference.pdf",
+   "title": "LOUISKV: EFFICIENT KV CACHE RETRIEVAL FOR LONG ...",
+   "content": "13 Published as a conference paper at ICLR 2026 A DETAILED BOTTLENECK ANALYSIS OF KV RETRIEVAL METHODS LouisKV Arkvale OffloadCache 0 1 2 Latency (ms) Selection Transfer Attention FFN 512 1024 2048 4096 0.6 0.7 0.8 Arkvale LouisKV FullCache Accuarcy KV Cache Budget 512 1024 2048 4096 0 1000 2000 3000 Latency (s) KV Cache Budget Figure 10: Bottleneck analysis of KV retrieval methods. Left: Per-layer latency breakdown com-paring LouisKV with other methods. OffloadCache serves as a baseline that [...] 14 Published as a conference paper at ICLR 2026 C ALGORITHM OVERVIEW Algorithm 1 The LouisKV Algorithm 1: Input: Model M, Input Sequence Xinp, KV Cache Budget B, Similarity Threshold r, A KV Manager kvm 2: Output: Generated Token Sequence O 3: function KVM.STORE CACHE(K, V, stage) 4: if stage == ’prefill’ then 5: Kclusters ←KMeans(K) 6: for each cluster c in Kclusters do 7: centroid ←ComputeCentroid(c); 8: Store centroid on GPU; 9: end for 10: Offload (K, V ) to CPU memory pool asynchronously [...] 10 Published as a conference paper at ICLR 2026 ACKNOWLEDGMENTS This work is mainly supported by the National Key Research and Development Program of China under Grant No. 2023YFB4502702, the Natural Science Foundation of China under Grant No.\n62472007, 62332021 and 62306056.",
+   "published_date": null,
+   "score": 0.4420348
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/02/16/sk-hynix-proposes-hbm-and-hbf-hybrid-for-llm-inference/4091326",
+   "title": "SK Hynix proposes HBM and HBF hybrid for LLM inference",
+   "content": "The results showed a 2.69x improvement in performance per watt compared to tests with a Blackwell GPU and 8 x HBM stacks but no HBF.\n\nWith testing of a KV cache with 10 million tokens, this showed that an HBM+HBF setup could process 18.8x more simultaneous queries, its batch size, than an HBM-only configuration. By using HBF,  such workloads, which could include 32 GPUs and their HBM, can be processed with only two GPUs, substantially reducing electricity consumption. [...] The paper argues that H³ is well-suited  to this problem in the KV cache area of inference processing. When an AI model is being used for inference, it stores the context memory sequence – component tokens and vectors – in HBM in what is called a KV (key-value) cache structure. The H³ paper states: \"The latest Llama 4 [LLM] supports sequence lengths up to 10 million.\" This can require a 5.4 TB cache, \"requiring dozens of GPUs just to store these values.\" [...] Cache-augmented generation (CAG) is such a workload. \"When the LLM receives a query, it reads the gigantic shared pre-computed KV cache, performs a computation, and then outputs a response. In other words, the shared precomputed KV cache is inherently read-only.\"\n\nIEEE SK Hynix H3 paper combined HBM and HBF structure diagrams.\n\nIEEE SK Hynix H³ paper combined HBM and HBF structure diagrams",
+   "published_date": null,
+   "score": 0.39382845
+  },
+  {
+   "url": "https://www.remio.ai/post/sk-hynix-ai-infrastructure-analysis-says-architecture-now-sets-the-performance-c",
+   "title": "SK hynix AI Infrastructure Analysis Says Architecture Now Sets the Performance Ceiling",
+   "content": "Real deployments support changing models, precision formats, context policies, and latency targets. They also handle failures, software upgrades, noisy neighbors, and traffic spikes. Any architecture must perform under those conditions.\n\nComparisons can depend heavily on the selected baseline. A GPU platform with weak batching or cache reuse may look inefficient. A highly optimized serving stack can improve utilization without changing the underlying hardware. [...] Those figures do not describe every model or deployment. Different chips, memory technologies, precision formats, and workload patterns produce different results. They still illustrate why additional arithmetic throughput can deliver disappointing system-level gains. [...] NVIDIA’s cache management documentation describes cache reuse and routing as central optimization targets. Requests should reach workers that already hold useful context, reducing unnecessary transfers and repeated computation.\n\nThis makes serving software part of the architecture argument. Hardware provides capacity and transfer paths, but software decides where model state lives. It also decides when that state moves and which processor handles the next request.",
+   "published_date": null,
+   "score": 0.3443558
+  },
+  {
+   "url": "https://www.snowflake.com/en/blog/engineering/swiftkv-llm-compute-reduction",
+   "title": "SwiftKV: Accelerating Enterprise LLM Workloads",
+   "content": "|  |  |  |  |  |  |  |  |  |  |\n ---  ---  ---  ---  --- |\n| Per-token prefill compute (GFlops), Layers=80, Hidden Size 8K, Vocab 128K, SeqLen 128K | | | | | | | | | |\n|  | Vocab | Q | K | V | O | MLP | ATTN | Total per Prefill Token | PrefillCompute |\n| Baseline | 4.29 | 10.7 | 1.34 | 1.34 | 10.7 | 113 | 160 | 301 | 100% |\n| 25% SingleInputKV | 4.29 | 8.05 | 1.34 | 1.34 | 8.05 | 84.6 | 120 | 228 | 75.5% |\n| 50% SingleInputKV | 4.29 | 5.37 | 1.34 | 1.34 | 5.37 | 56.4 | 80 | 154 | 51.1% | [...] BF16 Results: Figure 3 shows the results of Llama 3.1 8B and Llama 3.1 70B across several workloads with a range of input lengths running on 8xH100 GPUs. SwiftKV achieves higher combined throughput than the baseline model across all the workloads we evaluated. At 2K input tokens per prompt, SwiftKV achieves 1.2x to 1.5x higher throughput than the baseline model, and the benefits increase further to 1.8x to 2x for 128K inputs. [...] KV cache compression has been a popular research area, as it offers memory savings that support longer sequences and larger batch sizes. These benefits are especially valuable for optimizing workloads on GPUs with limited memory. However, enterprise-scale AI workloads often run on compute nodes equipped with high-end GPUs (such as NVIDIA H100s or A100s), where the aggregate GPU memory is typically sufficient to accommodate long input sequences (up to hundreds of thousands of tokens) or batch",
+   "published_date": null,
+   "score": 0.28228074
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-ecosystem-series-ep3",
+   "title": "[AI Ecosystem] Redesigning infrastructure: Why architecture determines performance – SK hynix Newsroom",
+   "content": "can use an expanded memory pool, while workloads whose performance depends on bandwidth can be handled by near-memory accelerators. In essence, resources are deployed according to the workload’s requirements rather than being fitted into a fixed server configuration. This is very much in-line with the “Asymmetry Everywhere” vision outlined in 2010 to enable customized, flexible, and reconfigurable processing to maximize energy efficiency and performance\\. [...] NVLink and NVSwitch provide high-bandwidth connectivity within GPU clusters. When large-scale AI models run across multiple GPUs and nodes, intermediate data such as model parameters, activations, and the KV cache must move between GPUs. If GPU-to-GPU connectivity is slow or inflexible, overall processing performance can suffer regardless of how fast each individual GPU is. [...] configured around workload requirements.",
+   "published_date": null,
+   "score": 0.14004225
+  },
+  {
+   "url": "https://futurumgroup.com/insights/sk-hynix-q4-fy-2025-structural-shift-to-ai-memory-lifts-margins",
+   "title": "SK Hynix Q4 FY 2025: Structural Shift to AI Memory Lifts Margins - Futurum",
+   "content": "Yongin Phase 1, Cheong‑ju P&T7, and the Indiana advanced packaging facility, the company is aligning its footprint and technology to meet AI demand. These moves, combined with disciplined capital deployment and close customer collaboration, set up continued leverage into FY 2026. [...] Server DDR5 demand accelerated in Q4 FY 2025 with high‑density module shipments up roughly 50% QoQ, even as overall DRAM bit shipments increased only low‑single‑digits. DRAM ASP rose mid‑20% QoQ as tight supply and richer server mixes outweighed constrained bit growth. SK Hynix began full‑scale mass production of 1cnm DDR5, targeting industry‑leading performance and cost structure as general‑purpose servers upgrade for AI‑adjacent workloads. The company highlighted development of a 256GB DDR5 [...] Management expects tight supply-demand conditions to persist, given physical capacity limits and ongoing migrations, with Q1 DRAM shipments flat QoQ and NAND shipments slightly lower QoQ from a high base. DRAM demand growth is expected to exceed 20% YoY and NAND to grow in the high‑teens in FY 2026, with server-side requirements outpacing the broader market. The company will accelerate M15X capacity earlier than planned, scale 1cnm DRAM and 321‑layer NAND, and progress Yongin Phase 1, Cheong‑ju",
+   "published_date": null,
+   "score": 0.10134924
+  }
+ ]
+}

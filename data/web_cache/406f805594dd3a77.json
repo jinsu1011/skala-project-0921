@@ -1,0 +1,65 @@
+{
+ "query": "Google TurboQuant KV cache limitations independent reproduction original paper appendix tables LongBench-E Needle-in-a-Haystack score changes evaluation settings 2-bit quantization quality degradation context length batch concurrency memory performance kernel hardware serving stack untested conditions",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:45:46+09:00",
+ "results": [
+  {
+   "url": "https://github.com/THUDM/LongBench/issues/132",
+   "title": "Add evaluation script for memory-augmented models (A-Mem, Mem0, etc.) on LongBench & LongBench v2 · Issue #132 · THUDM/LongBench · GitHub",
+   "content": "Skip to content   \n \n \n\n## Navigation Menu\n\nSign in\n\nAppearance settings\n\nSign in\n\nSign up\n\nAppearance settings\n\nYou signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert\n\n{{ message }}\n\nTHUDM   /  LongBench  Public\n\n Notifications  You must be signed in to change notification settings\n Fork 140\n Star  1.2k [...] 1. Streams each task context in fixed-size chunks to a user-supplied `MemoryWrapper`.\n2. Lets the wrapper retrieve/update memories and call the model to answer the query.\n3. Emits results in the same JSON format accepted by the LongBench leaderboard.\n\nMinimal interface example:\n\n```\nclass MemoryWrapper def reset self def feed self chunk str def answer self query str -> str\n``` [...] # Add evaluation script for memory-augmented models (A-Mem, Mem0, etc.) on LongBench & LongBench v2 #132\n\nCopy link\n\nCopy link\n\nOpen\n\nOpen\n\nAdd evaluation script for memory-augmented models (A-Mem, Mem0, etc.) on LongBench & LongBench v2#132\n\nCopy link\n\n## Description\n\n@xcc-zach\n\nxcc-zach\n\nopened on Aug 7, 2025\n\nIssue body actions\n\nHello, there! I appreciate much for your great work. Below is a potiential improvement for the benchmark to be more universal!\n\n### Background",
+   "published_date": null,
+   "score": 0.1730089
+  },
+  {
+   "url": "https://github.com/THUDM/LongBench/blob/main/LongBench/metrics.py",
+   "title": "LongBench/LongBench/metrics.py at main",
+   "content": "LongBench v2 and. Instant dev environments IssuesPlan and track work Code ReviewManage code changes Code QualityEnforce quality at merge",
+   "published_date": null,
+   "score": 0.15808365
+  },
+  {
+   "url": "https://llm-stats.com/benchmarks/longcodebench",
+   "title": "LongCodeBench Leaderboard",
+   "content": "### Properties\n\n### Verification\n\n### Paper\n\nStefano Rando, Luca Romani, Alessio Sampieri, Luca Franco +4 more\n\n2025-05-12\n\nContext lengths for models have grown rapidly, from thousands to millions of tokens in just a few years. The extreme context sizes of modern long-context models have made it difficult to construct realistic long-context…\n\nLast updated October 5, 2026\n\n## What is LongCodeBench? [...] Google's flagship Gemini model. We find that long-context remains a weakness for all models, with performance drops such as from 29% to 3% for Claude 3.5 Sonnet, or from 70.2% to 40% for Qwen2.5. The LCB dataset is available publicly at  and the codebase to replicate the work on this paper at [...] Context lengths for models have grown rapidly, from thousands to millions of tokens in just a few years. The extreme context sizes of modern long-context models have made it difficult to construct realistic long-context benchmarks -- not only due to the cost of collecting million-context tasks but also in identifying realistic scenarios that require significant contexts. We identify code comprehension and repair as a natural testbed and challenge task for long-context models and introduce",
+   "published_date": null,
+   "score": 0.14999175
+  },
+  {
+   "url": "https://huggingface.co/papers/2308.14508",
+   "title": "LongBench: A Bilingual, Multitask Benchmark for Long ...",
+   "content": "LongBench, a bilingual, multi-task benchmark, evaluates long context understanding in large language models across various tasks and datasets,",
+   "published_date": null,
+   "score": 0.13940836
+  },
+  {
+   "url": "https://www.researchgate.net/publication/392505438_Multimodal_Needle_in_a_Haystack_Benchmarking_Long-Context_Capability_of_Multimodal_Large_Language_Models",
+   "title": "Multimodal Needle in a Haystack: Benchmarking Long ...",
+   "content": "MM-NIAH [6] is a multimodal needle-in-a-haystack benchmark that evaluates retrieval, counting, and reasoning tasks over webpage-based haystacks.",
+   "published_date": null,
+   "score": 0.096441865
+  },
+  {
+   "url": "https://arxiv.org/abs/2509.09614",
+   "title": "[2509.09614] LoCoBench: A Benchmark for Long-Context Large Language Models in Complex Software Engineering",
+   "content": "addresses the critical evaluation gap for long-context capabilities that require understanding entire codebases, reasoning across multiple files, and maintaining architectural consistency across large-scale software systems. Our benchmark provides 8,000 evaluation scenarios systematically generated across 10 programming languages, with context lengths spanning 10K to 1M tokens, a 100x variation that enables precise assessment of long-context performance degradation in realistic software [...] a comprehensive evaluation framework with 17 metrics across 4 dimensions, including 8 new evaluation metrics, combined in a LoCoBench Score (LCBS). Our evaluation of state-of-the-art long-context models reveals substantial performance gaps, demonstrating that long-context understanding in complex software development represents a significant unsolved challenge that demands more attention. LoCoBench is released at: this https URL. [...] View a PDF of the paper titled LoCoBench: A Benchmark for Long-Context Large Language Models in Complex Software Engineering, by Jielin Qiu and 16 other authors",
+   "published_date": null,
+   "score": 0.08279386
+  },
+  {
+   "url": "https://huggingface.co/papers/2407.01370",
+   "title": "Paper page - Summary of a Haystack: A Challenge to Long-Context LLMs and RAG Systems",
+   "content": "LLMs and RAG systems are now capable of handling millions of input tokens or\nmore. However, evaluating the output quality of such systems on long-context\ntasks remains challenging, as tasks like Needle-in-a-Haystack lack complexity.\nIn this work, we argue that summarization can play a central role in such\nevaluation. We design a procedure to synthesize Haystacks of documents,\nensuring that specific insights repeat across documents. The \"Summary [...] of a Haystack\" (SummHay) task then requires a system to process the Haystack\nand generate, given a query, a summary that identifies the relevant insights\nand precisely cites the source documents. Since we have precise knowledge of\nwhat insights should appear in a haystack summary and what documents should be\ncited, we implement a highly reproducible automatic evaluation that can score\nsummaries on two aspects - Coverage and Citation. We generate Haystacks in two [...] domains (conversation, news), and perform a large-scale evaluation of 10 LLMs\nand corresponding 50 RAG systems. Our findings indicate that SummHay is an open\nchallenge for current systems, as even systems provided with an Oracle signal\nof document relevance lag our estimate of human performance (56\\%) by 10+\npoints on a Joint Score. Without a retriever, long-context LLMs like GPT-4o and\nClaude 3 Opus score below 20% on SummHay. We show SummHay can also be used to",
+   "published_date": null,
+   "score": 0.079732
+  },
+  {
+   "url": "https://arxiv.org/html/2506.02921v2",
+   "title": "A Controllable Examination for Long-Context Language ...",
+   "content": "This study introduces LongBioBench, a benchmark that utilizes artificially generated biographies as a controlled environment for assessing LCLMs",
+   "published_date": null,
+   "score": 0.018534167
+  }
+ ]
+}

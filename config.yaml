@@ -19,8 +19,8 @@ tech_meta:
                aliases: ["CXL-PNM", "Processing-Near-Memory"], market: "CXL 메모리 확장 HW"}
 
 llm:
-  generator: gpt-4.1-mini   # verified callable 2026-09-21
-  judge: gpt-4.1            # different model from generator (cross-model check)
+  generator: gpt-6-luna     # verified callable 2026-10-07 (temperature fixed at default 1)
+  judge: gpt-6-luna         # same as generator: newest model this key can call (cross-model check dropped)
   temperature: 0
   seed: 42
 

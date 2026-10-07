@@ -1,0 +1,65 @@
+{
+ "query": "\"SK hynix ITME\" KV cache independent evaluation limitations CXL topology GPU memory SSD background writes read latency; tested versus untested configurations, ShareGPT Mooncake TTFT throughput",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:45:46+09:00",
+ "results": [
+  {
+   "url": "https://arxiv.org/html/2606.12556v2",
+   "title": "ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories",
+   "content": "The performance of ITME is evaluated using the ShareGPT dataset with a configuration of 128 concurrent conversations, each spanning up to 5 turns with a minimum of 2000 tokens per conversation. As memory pressure intensifies in later stages, we focus on Turns 3–5, where the total KV cache footprint reaches 40 GB. [...] Figure 9 illustrates the time to first token (TTFT) speedup for the Llama-3.1 8B and 70B models, normalized against a GPU memory (T1) baseline utilizing recomputation. To ensure a fair evaluation, both the baselines and ITME are configured with weight offloading and prefetching enabled. To establish the upper performance bound of our architecture, we include an ideal GPU memory configuration with 80 GB, where the entire KV cache footprint resides within the local high-bandwidth memory. [...] Figure 10 vs. ITME ‣ 6. Evaluation ‣ ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories\") compares the multi-turn inference performance of ITME against the CPU-offload and recompute-only baselines. The figure evaluates inference efficiency using 256 concurrent conversations from the ShareGPT dataset. To stress-test KV cache capacity, we designed a 35-turn benchmark that generates a massive total footprint. In this setup, the CPU-offload baseline allocates a large 128",
+   "published_date": null,
+   "score": 0.47621483
+  },
+  {
+   "url": "https://arxiv.org/html/2607.18141v1",
+   "title": "HyMCache: A KV Cache Frameworkfor Multi-Turn LLM Serving with CXL-Hybrid Memory",
+   "content": "KV writes correspond to newly generated tokens and affect only future reuse, not the correctness of the current request. CXL-HM therefore isolates write handling from the latency-critical read path. The device reserves a small write-side buffer in internal DRAM and admits newly generated KV objects only when buffer space is available. If the buffer is full, the runtime can skip or retry the write later. Admitted KV objects are deferred and flushed asynchronously to the SSD-backed region in [...] A CXL memory expander is a DRAM-based CXL memory module that targets latency- and bandwidth-sensitive workloads by expanding memory capacity beyond local DIMM channels while preserving memory-semantic access (SK hynix, 2025; Samsung Electronics, 2026a). For KV-cache reuse, such devices can provide a low-latency capacity tier for KV blocks that no longer fit in GPU memory but still require fast access. A CXL switch-based memory pool extends this model to rack-scale environments by aggregating [...] prototypes such as SK hynix Niagara further show that shared CXL memory can remain sub-microsecond, reporting 600 ns access latency (SK hynix, 2024).",
+   "published_date": null,
+   "score": 0.41137156
+  },
+  {
+   "url": "https://www.stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions unveils first CXL KV cache server | PENG Stock News",
+   "content": "The result is lower latency, higher throughput, increased efficiency of GPU clusters, consistent achievement of stringent service-level agreements (SLAs), and faster time-to-first-token (TTFT). [...] gpu technical [...] The Penguin Solutions MemoryAI KV cache server builds upon Penguin Solutions’ legacy of innovation in high-performance computing expertise, with customers already deploying the solution to optimize cluster performance and meet demanding latency SLAs for production AI workloads.\n\nExplore Penguin Solutions’ MemoryAI KV cache server page or visit booth #1031 at the NVIDIA GTC AI Conference and Expo March 16-19, 2026, in San Jose, Calif.",
+   "published_date": null,
+   "score": 0.36799732
+  },
+  {
+   "url": "https://stocktitan.net/news/PENG/penguin-solutions-introduces-industry-s-first-production-ready-cxl-pxfpc1e4d2nz.html",
+   "title": "Penguin Solutions unveils first CXL KV cache server | PENG Stock News",
+   "content": "The result is lower latency, higher throughput, increased efficiency of GPU clusters, consistent achievement of stringent service-level agreements (SLAs), and faster time-to-first-token (TTFT). [...] gpu technical [...] ### Decent Holding’s SunCare Launches AI-Powered In-Home Senior Care Service Through Strategic Collaboration with Ruilan International\n\npartnership\n\nSNDK\n\n### Sandisk to Report First Quarter Fiscal Year 2027 Results on October 29, 2026\n\nearnings date\n\nBTDR\n\n### Bitdeer AI Further Expands AI Cloud Services with Off-take Commitments of more than 70% of Its 21.7MW A201 Malaysia Data Center\n\nAI\n\nBIYA\n\n### Baiya International Group Inc. Announces First Half of Fiscal Year 2026 Financial Results",
+   "published_date": null,
+   "score": 0.36799732
+  },
+  {
+   "url": "https://news.skhynix.com/en/ai-infra-summit-2026",
+   "title": "SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’ – SK hynix Newsroom",
+   "content": "\\ KV Cache (Key Value Cache): Temporary memory in which a large language model-based AI agent stores previously computed results when generating text. The longer the conversation with a user and the more tasks there are to process, the more exponentially it grows — so the memory capability to store and process it efficiently has a major impact on an AI agent’s performance. [...] Skip to the content\n\n# SK Hynix Newsroom\n\n EN\n KR\n CN\n\n EN\n KR\n CN\n\nTECH&AI\n\n## SK hynix Presents ‘New Spectrum’ for AI Infrastructure at ‘AI Infra Summit 2026’\n\n AI\n AI Infra Summit\n AI Memory\n eSSD\n HBF\n PIM\n SALT-KV\n\n September 17, 2026\n SK hynix\n\nSK hynix showcased next-generation AI memory at AI Infra Summit 2026, highlighting HBF, PIM/AiMX, and SALT-KV solutions to boost bandwidth, efficiency, and KV cache management. The company emphasized leading future AI infrastructure. [...] Through its participation in AI Infra Summit 2026, SK hynix introduced next-generation AI memory solutions such as PIM, HBF, and SALT-KV, and shared its vision to lead innovation in AI infrastructure. SK hynix will continue to strengthen its technological competitiveness so that it can stay one step ahead in responding to the diverse demands of the AI era.\n\n### Related content\n\n[\n\n[AI infrastructure insight] Why power and cooling have become the next challenge for AI data centers",
+   "published_date": null,
+   "score": 0.36622754
+  },
+  {
+   "url": "https://finance.yahoo.com/news/liqid-demonstrate-gpu-cxl-memory-170200758.html",
+   "title": "LIQID to Demonstrate GPU and CXL Memory Pooling and Sharing Solutions at NVIDIA GTC 2026",
+   "content": "About LIQID\n\nLIQID is the leader in software-defined composable infrastructure for the enterprise, delivering flexible, high-performance, and efficient on-premises datacenter and edge solutions for next-generation AI inference, KV cache, in-memory databases, VDI, virtualization, and HPC workloads. LIQID solutions are trusted by organizations across financial services, higher education and research, healthcare, telecommunications, media and entertainment, and government and defense. [...] 7. Insurance \n      1. Find Car Insurance\n      2. Types of Car Insurance\n      3. Car Insurance Discounts\n      4. Find Life Insurance\n   8. Taxes \n      1. How to File\n      2. Refund Status\n      3. Tax Extension\n      4. Child Tax Credit\n   9. Investing \n      1. Investing Basics\n      2. Real Estate Investing\n      3. Retirement Basics\n   10. Calculators\n7. 1. Live\n   2. Daily Shows\n   3. The 8:30\n   4. Sozzi Unleashed\n   5. The Daily Wolf\n   6. Market Hang\n   7. In the Loop [...] Oops, something went wrong\n\nSkip to navigation  Skip to right column \n\n# Yahoo Finance\n\nSign in",
+   "published_date": null,
+   "score": 0.31827372
+  },
+  {
+   "url": "https://www.blocksandfiles.com/flash/2026/08/04/fms-storage-ticker-4-aug-2026/5282932",
+   "title": "FMS Storage Ticker - 4 Aug 2026",
+   "content": "SK Hynix's  said HBF capacity specifications cover up to 512GB based on two stack configurations (8-high and 16-high NAND dies). Bandwidth is categorized into three grades (Grade1~3), delivering scalable performance from approximately 0.4TB/s to 3.0TB/s. [...] 3D NAND layer cake table August 2026.\n\n3D NAND layer cake table August 2026.\n\n…\n\nXCENA is demonstrating a CXL memory pool of up to 20 TB using memory pooling systems at FMS 2026. It’s also presenting a KV cache sharing demonstration showing how AI inference infrastructure can use shared memory resources more efficiently, and it’s showcasing two MX1 products at FMS 2026:\n\nXCENA MX1.\n\nXCENA MX1. [...] Bravera SC6 PCIe 6.0 SSD controller doubles the PCIe gen 5 version’s performance and enables more KV cache to move from high-bandwidth memory to SSD. It supports NAND from multiple suppliers. More information here and it’s expected to begin sampling in Q4 2026.\n Structera X memory expansion for rack-level memory expansion and CXL-based pooling. More information here.",
+   "published_date": null,
+   "score": 0.31361994
+  },
+  {
+   "url": "https://www.skhms.com/index.html",
+   "title": "SK Hynix Memory Solutions America",
+   "content": "Location: San Jose\n\nPosted: 07/27/2026 Job ID: 4174869009\n\nApply Now\n\nPrincipal FTL Engineer\n\nLocation: San Jose\n\nPosted: 06/29/2026 Job ID: 4215012009\n\nApply Now\n\nSr. Staff / Principal SSD Firmware Engineer - Flash Interface Layer (FIL)\n\nLocation: San Jose\n\nPosted: 06/17/2026 Job ID: 4287421009\n\nApply Now\n\nSr. Staff / Principal Firmware Engineer - Flash Interface Layer (FIL)\n\nLocation: San Jose\n\nPosted: 07/27/2026 Job ID: 4333103009\n\nApply Now [...] A highly cross-functional and multi-disciplinary group working to qualify SSD products by replicating enterprise customer environments at scale.   \n - Investments in state-of-the-art 3rd party test equipment and failure analysis tools to ensure best in class product reliability and quality.   \n - Develop in-house tools and software to test scenarios and monitor drive status where 3rd party tools have limitations. [...] Apply Now\n\nPrincipal Product Application Engineer - Enterprise SSDs & PCIe / NVMe\n\nLocation: San Jose\n\nPosted: 06/30/2026 Job ID: 4302423009\n\nApply Now\n\nTest Automation Software Engineer Intern\n\nLocation: San Jose\n\nPosted: 09/16/2026 Job ID: 4342038009\n\nApply Now\n\nStaff / Sr. Staff/ Principal - eSSD Validation Engineer\n\nLocation: San Jose\n\nPosted: 08/26/2026 Job ID: 4342720009\n\nApply Now\n\nStaff / Sr. Staff / Principal - eSSD Validation Engineer\n\nLocation: San Jose",
+   "published_date": null,
+   "score": 0.21645878
+  }
+ ]
+}

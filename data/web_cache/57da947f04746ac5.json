@@ -1,0 +1,65 @@
+{
+ "query": "SK hynix ITME KV cache independent reproduction operator evaluation real-world deployment data movement overhead SSD write contention operational complexity limitations",
+ "days": null,
+ "topic": "general",
+ "max_results": 8,
+ "fetched_at": "2026-10-07T17:45:47+09:00",
+ "results": [
+  {
+   "url": "https://www.investing.com/news/company-news/sk-hynix-achieves-first-ocp-safe-recognition-for-ssd-solution-93CH-4299618",
+   "title": "SK hynix achieves first OCP S.A.F.E. recognition for SSD solution By Investing.com",
+   "content": "© 2007-2026 - Fusion Media Limited. All Rights Reserved.\n\nCreate a FREE account or log in to continue reading.\n\nYou'll also get real-time alerts, personalized charts, portfolio management tools and more — all for free.\n\nContinue with GoogleContinue with Google. Opens in new tab\n\nContinue with Facebook\n\nContinue with Apple\n\nContinue with Email\n\nAlready have an account? Sign InBy signing up you agree to our Terms and Conditions and Privacy Policy. [...] \"Keysight’s structured approach, responsiveness, and technical rigor played a key role in our successful evaluation,\" said Woonhyug Jee, VP of eSSD Firmware & Product Engineering at SK hynix. [...] Oct 02, 2026\n\n[](\n\nThe Silver Market Has a Seat Shortage\n\nBy Matt Oliver\n\nOct 02, 2026\n\n[](\n\nMicron Earnings Preview: All Eyes on Its Outlook for the Next AI Chip Cycle\n\nBy Ali Merchant\n\nSep 30, 2026\n\n[](\n\nNFP Preview: Can the Jobs Report Overcome the Bond Market Meltdown?\n\nBy Matthew Well...\n\nOct 02, 2026\n\n[](\n\nWhat Anthropic’s ‘Existential Risk’ Disclosure Means for IPO Investors\n\nBy Chinmay Pand...\n\nSep 30, 2026\n\nMore News\n\nMarket Movers",
+   "published_date": null,
+   "score": 0.43208793
+  },
+  {
+   "url": "https://finance.yahoo.com/news/keysight-enables-sk-hynix-achieve-150000012.html",
+   "title": "Keysight Enables SK hynix to Achieve Top-Tier OCP S.A.F.E. Evaluation for Solid-State Drive Solution",
+   "content": "to accelerate innovation to connect and secure the world. Learn more at Keysight Newsroom and www.keysight.com. [...] Founded by global technology leaders like Microsoft, Meta, and Google, OCP aims to improve efficient designs for scalable computing, reducing complexity and fostering innovation in data center networking equipment, servers, storage devices, and more. [...] At Keysight (NYSE: KEYS), we inspire and empower innovators to bring world-changing technologies to life. As an S&P 500 company, we're delivering market-leading design, emulation, and test solutions to help engineers develop and deploy faster, with less risk, throughout the entire product life cycle. We're a global innovation partner enabling customers in communications, industrial automation, aerospace and defense, automotive, semiconductor, and general electronics markets to accelerate",
+   "published_date": null,
+   "score": 0.4041552
+  },
+  {
+   "url": "https://theneuralfeed.com/article/itme-inference-tiered-memory-expansion-with-disaggregated-cxl-hybrid-memories/HxcbGQ4G",
+   "title": "SK Hynix's ITME uses CXL memory to boost LLM inference by... | The Neural Feed",
+   "content": "THE NEURAL FEED AI INTELLIGENCE • DAILY INSIGHTS\n\nBack to Feed\n\nResearch & Papers\n\n# SK Hynix's ITME uses CXL memory to boost LLM inference by 35.7%\n\narXiv cs.DC June 12, 2026\n\n⚡New tiered memory system handles TB-scale KV caches for agentic LLMs, up to 35.7% faster.\n\nDeep Dive [...] ITME was validated using production-grade SK Hynix CMM (CXL Memory Module) and PCIe Gen5 NVMe SSDs, with functional feasibility confirmed via an FPGA-based hardware prototype. The system accommodates large KV cache footprints beyond host memory limits, achieving up to a 35.7% throughput improvement over conventional CPU-offloading methods. This work, published on arXiv (2606.12556), represents a significant step toward practical disaggregated shared context layers for distributed LLM inference [...] Key Points\n\n ITME uses CXL-hybrid memory to provide TB-scale byte-addressable remote memory for LLM inference, simplifying the software stack.\n Deterministic access patterns of model weights and prefix caches enable proactive data movement across memory-storage tiers.\n Validated with SK Hynix CMM and PCIe Gen5 NVMe SSDs; achieves up to 35.7% throughput improvement over CPU-offloading.\n\n### Why It Matters",
+   "published_date": null,
+   "score": 0.37827587
+  },
+  {
+   "url": "https://www.stocktitan.net/news/KEYS/keysight-enables-sk-hynix-to-achieve-top-tier-ocp-s-a-f-e-evaluation-2wf614geqpuh.html",
+   "title": "Keysight Enables SK hynix to Earn First OCP S.A.F.E. Recognition | KEYS Stock News",
+   "content": "Woonhyug Jee, VP of eSSD Firmware & Product Engineering at SK hynix, said: “Keysight’s structured approach, responsiveness, and technical rigor played a key role in our successful evaluation. Their deep expertise and close collaboration with our developers ensured a smooth process from start to finish.” [...] # Keysight Enables SK hynix to Achieve Top-Tier OCP S.A.F.E. Evaluation for Solid-State Drive Solution\n\nKeysight (NYSE: KEYS) enabled SK hynix to earn its first OCP S.A.F.E. recognition for an SSD solution on October 21, 2025.\n\nSentiment and the balance of points [...] stocktitan logo\n\n##### Trending News\n\nStock SHEL logo\n\nShell third quarter 2026 update note\n\nStock CRBU logo\n\nCaribou Biosciences to Evaluate Strategic Alternatives\n\nStock OCS logo\n\nOculis to Highlight Licaminlimab at Eyecelerator @ AAO 2026 and P...\n\nStock DOX logo\n\nVEON and Amdocs Enter 10-Year Strategic Agreement to Advance Digi...\n\nStock CRH logo\n\nCRH to Acquire Aggregate Operations in Denmark and Finland\n\nStock EGY logo\n\nVAALCO Energy, Inc. Announces Positive Operational Updates",
+   "published_date": null,
+   "score": 0.30430052
+  },
+  {
+   "url": "https://chippong.com/insights/sk-hynix-hbf-pim-salt-kv-ai-memory-tiering",
+   "title": "SK hynix HBF, PIM and SALT-KV Tier AI Memory — CHIPPONG",
+   "content": "SK hynix used AI Infra Summit 2026 to present a portfolio built around HBF, PIM/AiMX and SALT-KV. The event ran from September 15 to 17 in Santa Clara and drew roughly 6,000 attendees, twice the prior year's count. The exhibits included an HBF structural model, an AiM chip, an AiMX accelerator card, a server fitted with AiMX, and a SALT-KV demonstration using enterprise SSDs. The portfolio addresses memory placement and data movement rather than promoting one faster component. [...] Training systems have made HBM bandwidth a primary design variable. Inference adds a different set of constraints: long contexts, persistent sessions, expanding KV cache and strict cost per request. Keeping every cache object in HBM is expensive, while moving too much data to conventional storage can add latency. SK hynix separates the problem into a high-bandwidth flash tier, processing close to memory, and software-directed movement across HBM, DRAM and SSD. [...] SK hynix presented HBF, PIM/AiMX and SALT-KV at AI Infra Summit 2026. The portfolio maps long-context capacity, fast decoding and KV-cache placement to different hardware and software layers. Public specifications, platform support and production benchmarks remain the commercial gates.\n\nmemoryai-demandprocurementsupply-chain\n\nAlso available in:日本語·中文\n\n## Inference broadens the AI memory hierarchy",
+   "published_date": null,
+   "score": 0.24851635
+  },
+  {
+   "url": "https://finance.yahoo.com/news/sk-hynix-develops-ps1012-u-003200172.html",
+   "title": "SK hynix develops 'PS1012 U.2', High Capacity SSD for AI Data Centers",
+   "content": "5. Insurance \n      1. Find car insurance\n      2. Types of car insurance\n      3. Find life insurance\n   6. Taxes \n      1. How to file\n      2. Tax brackets and rates\n      3. Child tax credit\n      4. Tax extension\n      5. Tax refund status\n   7. Student loans \n      1. Federal vs. private\n      2. How to apply\n      3. FAFSA 2026-27\n      4. Student loan assistance\n   8. Personal loans \n      1. Best personal loans\n      2. Improve credit score\n      3. How to get approved [...] SK hynix plans to supply the sample of the new product to global server manufacturers within this year for product evaluation, and based on this, it plans to expand its product line to 122TB in the third quarter of next year. The company also aims to lead the SSD market for ultra-high capacity data centers by developing 244TB products based on the world's highest 321-high 4D NAND developed in November, to overcome the capacity limitations of eSSD. [...] SK hynix Inc., headquartered in Korea, is the world's top-tier semiconductor supplier offering Dynamic Random Access Memory chips (\"DRAM\"), flash memory chips (\"NAND flash\"), and CMOS Image Sensors (\"CIS\") for a wide range of distinguished customers globally. The Company's shares are traded on the Korea Exchange, and the Global Depository shares are listed on the Luxemburg Stock Exchange. Further information about SK hynix is available at www.skhynix.com,  news.skhynix.com.",
+   "published_date": null,
+   "score": 0.17427003
+  },
+  {
+   "url": "https://finance.yahoo.com/news/ssd-global-insight-report-q1-112800478.html",
+   "title": "SSD Global Insight Report Q1 2023: Featuring Kingston, Kioxia, SSSTC, Micron, Ramaxel, Samsung, Seagate, SK Hynix, Solidigm & Western Digital",
+   "content": "SSD Insights is a quarterly SSD market forecast published four times a year which includes shipment and capacity mix data for enterprise and client computing segmented by client OEM, channel, enterprise SATA, PCIe and SAS SSDs out to 2026. A further split of enterprise SSD into cloud and enterprise segments is provided. [...] 5. Insurance \n      1. Find car insurance\n      2. Types of car insurance\n      3. Find life insurance\n   6. Taxes \n      1. How to file\n      2. Tax brackets and rates\n      3. Child tax credit\n      4. Tax extension\n      5. Tax refund status\n   7. Student loans \n      1. Federal vs. private\n      2. How to apply\n      3. FAFSA 2026-27\n      4. Student loan assistance\n   8. Personal loans \n      1. Best personal loans\n      2. Improve credit score\n      3. How to get approved [...] This is a paid press release. Contact the press release distributor directly with any inquiries.\n\nGlobeNewswire\n\n# SSD Global Insight Report Q1 2023: Featuring Kingston, Kioxia, SSSTC, Micron, Ramaxel, Samsung, Seagate, SK Hynix, Solidigm & Western Digital\n\nResearch and Markets\n\nUpdated 2 min read\n\nCompany Logo\n\nCompany Logo\n\n \n\nDublin, April 14, 2023 (GLOBE NEWSWIRE) -- The \"SSD Insights Q1/23\" report has been added to ResearchAndMarkets.com's offering.",
+   "published_date": null,
+   "score": 0.09912977
+  },
+  {
+   "url": "https://techpowerup.com/ssd-specs/sk-hynix-pc801-1-tb.d2298",
+   "title": "SK Hynix PC801 1 TB Specs | TechPowerUp SSD Database",
+   "content": "Title: SK Hynix PC801 1 TB Specs | TechPowerUp SSD Database\n# SK Hynix PC801 1 TB. The SK Hynix PC801 is a solid-state drive in the M.2 2280 form factor, launched in 2022. It is available in capacities ranging from 256 GB to 2 TB. With the rest of the system, the SK Hynix PC801 interfaces using a PCI-Express 4.0 x4 connection. The SSD controller is the Aries (ACNS075 PHC633.00S-2) from SK Hynix, a DRAM cache chip is available. SK Hynix has installed 176-layer TLC NAND flash on the PC801, the flash chips are made by SK Hynix. To improve write speeds, a pseudo-SLC cache is used, so bursts of incoming writes are handled more quickly. The cache is sized at 200 GB, once it is full, writes complete at 1700 MB/s. Copying data out of the SLC cache (folding) completes at 1500 MB/s. The PC801 is rated for sequential read speeds of up to 7,000 MB/s and 6,500 MB/s write; random IO reaches 1500K IOPS for read and 1400K for writes. | Capacity: | 1 TB (1024 GB) |. | Die Read Speed: | 1280 MB/s |. | Die Write Speed: | 168 MB/s |. | Capacity: | 1024 MB  (1x 1024 MB) |. | Sequential Read: | 7,000 MB/s |. | Sequential Write: | 6,500 MB/s |. | Cache Folding Speed: | 1500 MB/s |. | Controller: ARM 32-bit Cortex-R8/M7 (1-core each, for Host) + Cortex-R8 (2-core for FTL)  NAND Die: Endurance: 1.500 to 3.000 P.E.C. tPROG withouth Overhead: ~ 380 µs (accounting for ~ 168 MB/s of throughput per die)  tPROG w/ +/- 25% Overhead: ~ 507 µs (accounting for ~ 126 MB/s of throughput per die)  NAND string : H25G9TC18488 NAND MaxPE cycles: 1500 NAND Freq : 1200 Channel number: 4 CE number : 4 Total Bank: 16 Flash Type: TLC Blocks/CE: 1084 Pages/Block: 4224 Page Size |. * MSI GeForce RTX 5090 Lightning Z Review - Up to 1000 W. * LaCie Rugged SSD4 2 TB Portable SSD Review - Iconic Design, Now Fast. * No NVIDIA GeForce RTX 50 \"SUPER\" GPUs This Year, RTX 60-Series Also Pushed Back (107). * AMD \"Zen 6\" CCD Packs 12 Cores, 48 MB L3 Cache (93).",
+   "published_date": null,
+   "score": 0.08735358
+  }
+ ]
+}
